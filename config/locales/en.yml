@@ -1,0 +1,41 @@
+en:
+  errors:
+    internal_server_error: "System is interrupted. Please try again later or address the administration"
+    security_error: "Due to security purpose your account is temporarily blocked. Please try to connect in %{hours} %{time_unit}"
+    time_unit: "an hour"
+    time_unit_plural: "hours"
+    final_security_error: "Due to security purpose your account is blocked. In order to unblock, you can change your password (press 'forget password)'"
+    unauthorized: 'could not authorize'
+    auth:
+      wrong_credentials: 'Username or password is incorrect'
+      blocked_by_ekimo: 'Sign in is impossible.
+
+                         Your account has been blocked. Reason might be exceeding the booking cancellation limit or exceeding the allowed limit of absence from consultations.
+
+                    	If you have further questions, make a call 322 333 444 or email support@ekimo.ge'
+      wrong_username: 'Please enter the user'
+      wrong_password: 'Please enter the password'
+  custom:
+    errors:
+      password_confirmation: "Password confirmation does not match"
+      validation:
+        valid_password_format?: "Password should contain at least 8 characters, uppercase and lowercase letters, numbers and special characters (e.g. @, #, $, %, & etc.)"
+        more_than?: "Date is incorrect"
+        less_than?: "Date is incorrect"
+        valid_email_format?: 'Please check format of the provided email, example of email format email@example.com'
+        valid_phone_number_format?: 'Mobile number should only contain numbers'
+        valid_username_format?: 'Username should contain only uppercase and lowercase letters and numbers'
+        valid_username_min_length?: 'Username should contain at least 6 characters'
+        valid_username_max_length?: 'Username should not contain more than 32 characters'
+        record_uniq?: "Record value '%{attribute}' already exists in the system"
+        invalid_password: "Current password is incorrect"
+        empty_first_name: 'First name should be filled in'
+        empty_last_name: 'Last name should be filled in'
+        empty_birth_date: 'Birth date should be filled in'
+        empty_full_name: 'Full name should be filled in'
+        empty_phone_number: 'Mobile number should be filled in'
+        empty_email: 'Email should be filled in'
+        empty_username: 'Username should be filled in'
+        valid_phone_number_length?: 'Please check if the mobile number is correct. Mobile number should contain 9 digits'
+        citizenship: "Citizenship is not filled in"
+        inactive_customer: 'Account is not active'

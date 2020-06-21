@@ -1,0 +1,41 @@
+production:
+  redis_auth_conf:
+    host: <%= ENV['REDIS_URL']  %>
+    port: <%= ENV['REDIS_PORT'] %>
+    db: 0
+  redis_helper:
+    host: <%= ENV['REDIS_URL']  %>
+    port: <%= ENV['REDIS_PORT'] %>
+    db: 1
+  redis_sidekiq:
+    host: <%= ENV['REDIS_URL']  %>
+    port: <%= ENV['REDIS_PORT'] %>
+    db: 2
+
+development:
+  redis_auth_conf:
+    host: <%= ENV['REDIS_URL']  %>
+    port: <%= ENV['REDIS_PORT'] %>
+    db: 4
+  redis_helper:
+    host: <%= ENV['REDIS_URL']  %>
+    port: <%= ENV['REDIS_PORT'] %>
+    db: 5
+  redis_sidekiq:
+    host: <%= ENV['REDIS_URL']  %>
+    port: <%= ENV['REDIS_PORT'] %>
+    db: 6
+
+test:
+  redis_auth_conf:
+    host: <%= ENV['REDIS_URL']  %>
+    port: <%= ENV['REDIS_PORT'] %>
+    db: 7
+  redis_helper:
+    host: <%= ENV['REDIS_URL'] %>
+    port: <%= ENV['REDIS_PORT'] %>
+    db: 8
+  redis_sidekiq:
+    host: <%= ENV['REDIS_URL']  %>
+    port: <%= ENV['REDIS_PORT'] %>
+    db: 9

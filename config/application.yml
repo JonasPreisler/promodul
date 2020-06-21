@@ -1,0 +1,26 @@
+production:
+
+  #REDIS
+  REDIS_URL: 'redis url'
+  REDIS_PORT: "redis port"
+
+  #DATABASE
+  DATABASE_URL: 'database url'
+
+development:
+
+  #REDIS
+  REDIS_URL: 'localhost'
+  REDIS_PORT: "6379"
+
+  #DATABASE
+#  DATABASE_URL: 'postgres://pgroot:xIaHPdUZUL@localhost:8071/dhptest'
+
+test:
+
+  #REDIS
+  REDIS_URL: 'redis url'
+  REDIS_PORT: "redis port"
+
+  #DATABASE
+  DATABASE_URL: 'database url'
