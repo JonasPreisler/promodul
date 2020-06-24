@@ -10,10 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_21_120918) do
+ActiveRecord::Schema.define(version: 2020_06_24_224252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "confirmation_codes", force: :cascade do |t|
+    t.string "confirmation_token"
+    t.string "sms_code"
+    t.integer "retry_count"
+    t.datetime "generation_time"
+    t.integer "failed_attempts_count"
+    t.bigint "user_account_id", null: false
+    t.bigint "confirmation_type_id", null: false
+    t.index ["confirmation_type_id"], name: "index_confirmation_codes_on_confirmation_type_id"
+    t.index ["user_account_id"], name: "index_confirmation_codes_on_user_account_id"
+  end
+
+  create_table "confirmation_types", force: :cascade do |t|
+    t.string "name", limit: 150
+    t.string "id_name", limit: 50
+  end
+
+  create_table "country_phone_indices", force: :cascade do |t|
+    t.string "iso_code", limit: 2, null: false
+    t.string "phone_index", limit: 10, null: false
+    t.integer "length_limit", default: 9, null: false
+  end
+
+  create_table "terms_and_condition_agreements", force: :cascade do |t|
+    t.bigint "user_account_id", null: false
+    t.bigint "terms_and_condition_id", null: false
+    t.datetime "agreed_date"
+    t.index ["terms_and_condition_id"], name: "index_terms_and_condition_agreements_on_terms_and_condition_id"
+    t.index ["user_account_id"], name: "index_terms_and_condition_agreements_on_user_account_id"
+  end
+
+  create_table "terms_and_conditions", force: :cascade do |t|
+    t.datetime "active_from", null: false
+    t.string "version", limit: 50, null: false
+    t.string "description"
+    t.string "terms_and_condition"
+  end
 
   create_table "user_accounts", force: :cascade do |t|
     t.string "first_name", limit: 50, null: false
@@ -30,6 +68,11 @@ ActiveRecord::Schema.define(version: 2020_06_21_120918) do
     t.datetime "updated_at", null: false
     t.string "salt"
     t.string "username"
+    t.string "phone_number_iso", limit: 2, default: "de", null: false
   end
 
+  add_foreign_key "confirmation_codes", "confirmation_types"
+  add_foreign_key "confirmation_codes", "user_accounts"
+  add_foreign_key "terms_and_condition_agreements", "terms_and_conditions"
+  add_foreign_key "terms_and_condition_agreements", "user_accounts"
 end

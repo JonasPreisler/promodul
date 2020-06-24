@@ -14,10 +14,13 @@ describe 'Registration ', type: :request do
               last_name: {type: :string},
               birth_date: {type: :string, format: :date},
               phone_number: {type: :string},
+              phone_number_iso: {type: :string},
               email: {type: :string},
               password: {type: :string},
-              password_confirmation: {type: :string}
-          },required: [:first_name, :last_name, :birth_date, :phone_number, :username, :password, :password_confirmation]
+              password_confirmation: {type: :string},
+              agreed_terms_and_conditions: {type: :boolean},
+              terms_and_conditions_id: {type: :integer}
+          },required: [:first_name, :last_name, :birth_date, :phone_number, :username, :password, :password_confirmation, :agreed_terms_and_conditions, :terms_and_conditions_id]
       }
       parameter name: :locale, in: :path, type: :string, required: true, default: "en"
       response '200', 'OK' do

@@ -8859,3 +8859,278 @@ Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-06-24 20:38:5
 Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-06-24 20:38:58 +0400
 Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-06-24 20:38:59 +0400
 Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-06-24 20:38:59 +0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateTermsAndConditions (20200624194331)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateTermsAndConditions (20200624194331)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (69.8ms)[0m  [1m[35mCREATE TABLE "terms_and_conditions" ("id" bigserial primary key, "active_from" timestamp NOT NULL, "version" character varying(50) NOT NULL, "description" character varying, "terms_and_condition" character varying)[0m
+  ↳ db/migrate/20200624194331_create_terms_and_conditions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200624194331"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateTermsAndConditionAgreements (20200624194923)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "terms_and_condition_agreements" ("id" bigserial primary key, "user_account_id" bigint NOT NULL, "terms_and_condition_id" bigint NOT NULL, "agreed_date" timestamp, CONSTRAINT "fk_rails_10d3a09624"
+FOREIGN KEY ("user_account_id")
+  REFERENCES "user_accounts" ("id")
+, CONSTRAINT "fk_rails_08d124cbc2"
+FOREIGN KEY ("terms_and_condition_id")
+  REFERENCES "terms_and_conditions" ("id")
+)[0m
+  ↳ db/migrate/20200624194923_create_terms_and_condition_agreements.rb:3
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_terms_and_condition_agreements_on_user_account_id" ON "terms_and_condition_agreements"  ("user_account_id")[0m
+  ↳ db/migrate/20200624194923_create_terms_and_condition_agreements.rb:3
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "terms_and_condition_agreements" ON "terms_and_condition_agreements"  ("terms_and_condition_id")[0m
+  ↳ db/migrate/20200624194923_create_terms_and_condition_agreements.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateTermsAndConditionAgreements (20200624194923)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (41.1ms)[0m  [1m[35mCREATE TABLE "terms_and_condition_agreements" ("id" bigserial primary key, "user_account_id" bigint NOT NULL, "terms_and_condition_id" bigint NOT NULL, "agreed_date" timestamp, CONSTRAINT "fk_rails_10d3a09624"
+FOREIGN KEY ("user_account_id")
+  REFERENCES "user_accounts" ("id")
+, CONSTRAINT "fk_rails_08d124cbc2"
+FOREIGN KEY ("terms_and_condition_id")
+  REFERENCES "terms_and_conditions" ("id")
+)[0m
+  ↳ db/migrate/20200624194923_create_terms_and_condition_agreements.rb:3
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE  INDEX  "index_terms_and_condition_agreements_on_user_account_id" ON "terms_and_condition_agreements"  ("user_account_id")[0m
+  ↳ db/migrate/20200624194923_create_terms_and_condition_agreements.rb:3
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_terms_and_condition_agreements_on_terms_and_condition_id" ON "terms_and_condition_agreements"  ("terms_and_condition_id")[0m
+  ↳ db/migrate/20200624194923_create_terms_and_condition_agreements.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200624194923"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mTermsAndCondition Load (0.3ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" ORDER BY "terms_and_conditions"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTermsAndCondition Create (2.0ms)[0m  [1m[32mINSERT INTO "terms_and_conditions" ("active_from", "version", "description", "terms_and_condition") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["active_from", "2020-06-24 20:13:30.815394"], ["version", "1"], ["description", "This is starter terms and conditions"], ["terms_and_condition", "Are you agree with me?"]]
+  [1m[35m (36.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-06-25 00:16:32 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-06-25 00:16:33 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-06-25 00:16:33 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-06-25 00:16:33 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-06-25 00:16:33 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-06-25 00:16:33 +0400
+  [1m[36mUserAccount Load (37.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateConfirmationTypes (20200624205228)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "confirmation_types" ("id" bigserial primary key, "name" character varying(150), "id_name" character varying(50))[0m
+  ↳ db/migrate/20200624205228_create_confirmation_types.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200624205228"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateConfirmationCodes (20200624205328)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "confirmation_codes" ("id" bigserial primary key, "confirmation_token" character varying, "sms_code" character varying, "retry_count" integer, "generation_time" timestamp, "failed_attempts_count" integer, "user_account_id" bigint NOT NULL, "confirmation_type_id" bigint NOT NULL, CONSTRAINT "fk_rails_04eb0acbcb"
+FOREIGN KEY ("user_account_id")
+  REFERENCES "user_accounts" ("id")
+, CONSTRAINT "fk_rails_4663c32944"
+FOREIGN KEY ("confirmation_type_id")
+  REFERENCES "confirmation_types" ("id")
+)[0m
+  ↳ db/migrate/20200624205328_create_confirmation_codes.rb:3
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_confirmation_codes_on_user_account_id" ON "confirmation_codes"  ("user_account_id")[0m
+  ↳ db/migrate/20200624205328_create_confirmation_codes.rb:3
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_confirmation_codes_on_confirmation_type_id" ON "confirmation_codes"  ("confirmation_type_id")[0m
+  ↳ db/migrate/20200624205328_create_confirmation_codes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200624205328"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to FillConfirmationTypes (20200624210354)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mConfirmationType Load (0.3ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "change_phone_number"], ["LIMIT", 1]]
+  ↳ db/migrate/20200624210354_fill_confirmation_types.rb:3
+  [1m[36mConfirmationType Create (0.4ms)[0m  [1m[32mINSERT INTO "confirmation_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Phone number change"], ["id_name", "change_phone_number"]]
+  ↳ db/migrate/20200624210354_fill_confirmation_types.rb:3
+  [1m[36mConfirmationType Load (0.2ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "registration"], ["LIMIT", 1]]
+  ↳ db/migrate/20200624210354_fill_confirmation_types.rb:4
+  [1m[36mConfirmationType Create (0.2ms)[0m  [1m[32mINSERT INTO "confirmation_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Registration"], ["id_name", "registration"]]
+  ↳ db/migrate/20200624210354_fill_confirmation_types.rb:4
+  [1m[36mConfirmationType Load (0.2ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_recovery"], ["LIMIT", 1]]
+  ↳ db/migrate/20200624210354_fill_confirmation_types.rb:5
+  [1m[36mConfirmationType Create (0.3ms)[0m  [1m[32mINSERT INTO "confirmation_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Password recovery"], ["id_name", "password_recovery"]]
+  ↳ db/migrate/20200624210354_fill_confirmation_types.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200624210354"]]
+  ↳ bin/rails:9
+  [1m[35m (36.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mConfirmationType Load (0.9ms)[0m  [1m[34mSELECT "confirmation_types".* FROM "confirmation_types"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCountryPhoneIndices (20200624222700)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "country_phone_indices" ("id" bigserial primary key, "iso_code" character varying(2) NOT NULL, "phone_index" character varying(10) NOT NULL, "length_limit" integer DEFAULT 9 NOT NULL)[0m
+  ↳ db/migrate/20200624222700_create_country_phone_indices.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200624222700"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddPhoneNumberisoToUSerAccount (20200624223129)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.8ms)[0m  [1m[35mALTER TABLE "user_accounts" ADD "phone_number_iso" character varying(2) NOT NULL[0m
+  ↳ db/migrate/20200624223129_add_phone_numberiso_to_u_ser_account.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddPhoneNumberisoToUSerAccount (20200624223129)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[35mALTER TABLE "user_accounts" ADD "phone_number_iso" character varying(2) DEFAULT 'de' NOT NULL[0m
+  ↳ db/migrate/20200624223129_add_phone_numberiso_to_u_ser_account.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200624223129"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to FillCountryPhoneIndexWithData (20200624224252)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mCountryPhoneIndex Create (0.5ms)[0m  [1m[32mINSERT INTO "country_phone_indices" ("iso_code", "phone_index", "length_limit") VALUES ($1, $2, $3) RETURNING "id"[0m  [["iso_code", "DE"], ["phone_index", "+49"], ["length_limit", 11]]
+  ↳ db/migrate/20200624224252_fill_country_phone_index_with_data.rb:3
+  [1m[36mCountryPhoneIndex Create (0.2ms)[0m  [1m[32mINSERT INTO "country_phone_indices" ("iso_code", "phone_index") VALUES ($1, $2) RETURNING "id"[0m  [["iso_code", "GE"], ["phone_index", "+995"]]
+  ↳ db/migrate/20200624224252_fill_country_phone_index_with_data.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200624224252"]]
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-06-25 02:49:02 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-06-25 02:49:02 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-06-25 02:49:02 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-06-25 02:49:02 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-06-25 02:49:03 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-06-25 02:49:03 +0400

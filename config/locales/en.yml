@@ -18,6 +18,7 @@ en:
   custom:
     errors:
       password_confirmation: "Password confirmation does not match"
+      user_agreement: "Before you finish the registration, please read terms of services and confidentiality policy and mark the checkbox if you accept the conditions"
       validation:
         valid_password_format?: "Password should contain at least 8 characters, uppercase and lowercase letters, numbers and special characters (e.g. @, #, $, %, & etc.)"
         more_than?: "Date is incorrect"
@@ -39,3 +40,4 @@ en:
         valid_phone_number_length?: 'Please check if the mobile number is correct. Mobile number should contain 9 digits'
         citizenship: "Citizenship is not filled in"
         inactive_customer: 'Account is not active'
+        phone_number_iso: "Phone number iso code is not valid"

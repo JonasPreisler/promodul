@@ -207,6 +207,9 @@
                 "phone_number": {
                   "type": "string"
                 },
+                "phone_number_iso": {
+                  "type": "string"
+                },
                 "email": {
                   "type": "string"
                 },
@@ -215,6 +218,12 @@
                 },
                 "password_confirmation": {
                   "type": "string"
+                },
+                "agreed_terms_and_conditions": {
+                  "type": "boolean"
+                },
+                "terms_and_conditions_id": {
+                  "type": "integer"
                 }
               },
               "required": [
@@ -224,7 +233,9 @@
                 "phone_number",
                 "username",
                 "password",
-                "password_confirmation"
+                "password_confirmation",
+                "agreed_terms_and_conditions",
+                "terms_and_conditions_id"
               ]
             }
           },

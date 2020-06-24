@@ -22,7 +22,9 @@ module Account
                     :phone_number,
                     :email,
                     :password,
-                    :password_confirmation)
+                    :password_confirmation,
+                    :agreed_terms_and_conditions,
+                    :terms_and_conditions_id)
     end
 
   end
