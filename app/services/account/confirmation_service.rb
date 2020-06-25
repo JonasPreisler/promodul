@@ -1,6 +1,6 @@
 module Account
   class ConfirmationService
-      include Umg::ErrorsFormat
+      include ErrorsFormat
 
       attr_reader :user, :token, :verification, :errors
 
@@ -79,7 +79,9 @@ module Account
 
       def send_sms
         #After Test should save status response in sms code
-        TwilioRequestService.new(@verification.user_account.phone_number_iso, @verification.user_account.phone_number).start_verification
+        iso_code = @verification.user_account.phone_number_iso.to_s.upcase
+        phone_number_index = CountryPhoneIndex.find_by(iso_code: iso_code)&.phone_index
+        Integrations::TwilioRequestService.new(phone_number_index, @verification.user_account.phone_number, nil ).start_verification
       end
 
       private

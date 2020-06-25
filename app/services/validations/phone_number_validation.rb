@@ -6,7 +6,7 @@ module Validations
     end
 
     def valid_phone_number_length?(phone_number, option = {})
-      length = Umg::CountryPhoneIndex.find_by(iso_code: option[:phone_number_iso]).length_limit
+      length = CountryPhoneIndex.find_by(iso_code: option[:phone_number_iso]).length_limit
       if length.present?
         phone_number.to_s.length == length
       else

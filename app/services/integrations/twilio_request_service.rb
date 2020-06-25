@@ -10,16 +10,11 @@ module Integrations
       @client = Twilio::REST::Client.new(Figaro.env.TWILIO_ACCOUNT_SID, Figaro.env.TWILIO_AUTH_TOKEN  )
     end
 
-    def start_verification(country_code, phone_number)
+    def start_verification
       begin
-        verification = @client.verify
-                           .services(Figaro.env.TWILIO_SERVICE_SID)
-                           .verifications
-                           .create(locale: 'nb', to: "+#{country_code}#{phone_number}", channel: 'sms')
-
-        verification
+         @client.verify.services(Figaro.env.TWILIO_SERVICE_SID).verifications.create(locale: 'nb', to: "+#{@country_code}#{@phone_number}", channel: 'sms')
       rescue Twilio::REST::RestError => e
-        Rails.logger.error "SMS Sending Error - #{e} - Confirmation Code, number: #{phone_number}"
+        Rails.logger.error "SMS Sending Error - #{e} - Confirmation Code, number: #{@phone_number}"
       end
     end
 

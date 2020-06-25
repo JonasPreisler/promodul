@@ -12,7 +12,7 @@ module Account
     end
 
     def sign_up_json_view
-      { success: true }
+      { confirmation_token: @token } if @token
     end
 
     def call
@@ -53,7 +53,7 @@ module Account
     end
 
     def register_user!
-      @user = UserAccount.new(@registration_params.slice(:first_name, :last_name, :birth_date, :phone_number, :email, :password, :username))
+      @user = UserAccount.new(@registration_params.slice(:first_name, :last_name, :birth_date, :phone_number, :phone_number_iso, :email, :password, :username))
       @user.save
       @errors.concat(fill_errors(@user))
     rescue ActiveRecord::RecordNotUnique
@@ -62,7 +62,6 @@ module Account
 
     def create_terms_and_conditions
       return if @errors.any?
-
       TermsAndConditionAgreement.create!(user_account_id: @user.id,
                                          terms_and_condition_id: @registration_params[:terms_and_conditions_id],
                                          agreed_date: DateTime.now)
@@ -86,8 +85,5 @@ module Account
     def create_employee
       # create customer employee
     end
-
-
-
   end
 end

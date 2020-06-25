@@ -194,6 +194,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "username": {
+                  "type": "string"
+                },
                 "first_name": {
                   "type": "string"
                 },
@@ -253,8 +256,8 @@
             "schema": {
               "type": "object",
               "properties": {
-                "success": {
-                  "type": "boolean"
+                "confirmation_token": {
+                  "type": "string"
                 }
               }
             }

@@ -10,6 +10,7 @@ describe 'Registration ', type: :request do
       parameter name: :params, in: :body, schema: {
           type: :object,
           properties: {
+              username: {type: :string},
               first_name: {type: :string},
               last_name: {type: :string},
               birth_date: {type: :string, format: :date},
@@ -27,7 +28,7 @@ describe 'Registration ', type: :request do
 
         schema type: :object,
                properties: {
-                   success: { type: :boolean }
+                   confirmation_token: { type: :string }
                }
         let(:params) do
           {
