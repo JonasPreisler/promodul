@@ -2,7 +2,7 @@ module Account
   class ConfirmationService
       include ErrorsFormat
 
-      attr_reader :user, :token, :verification, :errors
+      attr_reader :user, :token, :verification, :errors, :sms_code
 
       def initialize(confirmation_params)
         @device_token = confirmation_params[:device_token]
@@ -14,7 +14,7 @@ module Account
       end
 
       def finish_registration
-        verification_service = Umg::Account::VerificationService.new({ user: user, token: token })
+        verification_service = Account::VerificationService.new({ user: user, token: token })
         @verification = verification_service.verification
         validate_token(verification_service)
         validate_generation_time(verification_service)
@@ -27,7 +27,6 @@ module Account
         ActiveRecord::Base.transaction do
           set_active!(verification_service)
           delete_registration_codes!(verification_service)
-          Umg::DeviceService.new(@device_token, verification_service.verification.umg_user_account).set_locale
         end
       end
 
@@ -45,9 +44,8 @@ module Account
         validate_retry_count(verification_service)
 
         return if errors.any?
-
         @verification = verification_service.regenerate_for_sms
-        @phone_number = @verification.umg_user_account.phone_number
+        @phone_number = @verification.user_account.phone_number
         send_sms
       end
 
@@ -59,16 +57,14 @@ module Account
         check_first_code(verification_service)
       end
 
-      # DHP-78
       def store_auth_token!
         @auth_token = SecureRandom.hex
-        user_id = @verification.umg_user_account_id
+        user_id = @verification.user_account_id
 
-        storage = Umg::TokenStorage::AutoLoginTokenService.new
+        storage = TokenStorage::AutoLoginTokenService.new
         storage.store_auth_token(@auth_token, user_id)
       end
 
-      # DHP-78
       def authorization_token
         "Bearer #{ @auth_token }"
       end
@@ -78,7 +74,6 @@ module Account
       end
 
       def send_sms
-        #After Test should save status response in sms code
         iso_code = @verification.user_account.phone_number_iso.to_s.upcase
         phone_number_index = CountryPhoneIndex.find_by(iso_code: iso_code)&.phone_index
         Integrations::TwilioRequestService.new(phone_number_index, @verification.user_account.phone_number, nil ).start_verification
@@ -103,7 +98,7 @@ module Account
       end
 
       def set_active!(verification_service)
-        user = verification_service.verification.umg_user_account
+        user = verification_service.verification.user_account
         user.active = true
         user.save!
       end
@@ -114,13 +109,13 @@ module Account
         fill_custom_errors(self, :sms_code, :invalid, I18n.t("custom.errors.sms_code")) unless valid
       end
 
-      def delete_registration_codes!(verification_service)
+      def delete_registration_codes!(verification_service)pry
         verification_service.verification.destroy
       end
 
       def validate_token(verification_service)
         return if errors.any?
-        code = Umg::ConfirmationCode.find_by_confirmation_token(verification_service.verification&.confirmation_token)
+        code = ConfirmationCode.find_by_confirmation_token(verification_service.verification&.confirmation_token)
         fill_custom_errors(self, :confirmation_token, :invalid, I18n.t("custom.errors.invalid_token")) unless code
       end
 
@@ -132,8 +127,11 @@ module Account
 
       def validate_sms_code(verification_service)
         return if errors.any?
-        validation = verification_service.valid_sms_code?(@sms_code)
-        fill_custom_errors(self, :sms_code, :invalid, I18n.t("custom.errors.sms_code")) unless validation
+        iso_code = @verification.user_account.phone_number_iso.to_s.upcase
+        phone_number_index = CountryPhoneIndex.find_by(iso_code: iso_code)&.phone_index
+        validation = Integrations::TwilioRequestService.new(phone_number_index, @verification.user_account.phone_number, sms_code ).verify_code
+
+        fill_custom_errors(self, :sms_code, :invalid, I18n.t("custom.errors.sms_code")) unless validation.eql?("approved")
       end
 
       def update_attempts_count

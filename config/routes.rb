@@ -10,7 +10,13 @@ Rails.application.routes.draw do
       post   'auth/refresh_token'
       post   'auth', to: 'auth#login'
       delete 'auth', to: 'auth#logout'
+
       post   'account/registration', to: 'account/registration#sign_up'
+      put    'account/registration', to: 'account/registration#confirm_registration'
+      delete 'account/registration', to: 'account/registration#cancel_registration'
+
+      post 'account/registration/sms_code'
+
     end
   end
 end

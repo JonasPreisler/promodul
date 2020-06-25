@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_25_080846) do
+ActiveRecord::Schema.define(version: 2020_06_25_214408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,11 @@ ActiveRecord::Schema.define(version: 2020_06_25_080846) do
     t.string "iso_code", limit: 2, null: false
     t.string "phone_index", limit: 10, null: false
     t.integer "length_limit", default: 9, null: false
+  end
+
+  create_table "locking_types", force: :cascade do |t|
+    t.json "name", null: false
+    t.string "id_name", limit: 50
   end
 
   create_table "terms_and_condition_agreements", force: :cascade do |t|

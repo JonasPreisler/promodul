@@ -28,6 +28,17 @@ module Account
       end
     end
 
+    def cancel(token)
+      code = ConfirmationCode.find_by(confirmation_token: token)
+      code.user_account.destroy
+    rescue
+      fill_custom_errors(self,:confirmation_token, :invalid, I18n.t('custom.errors.invalid_token'))
+    end
+
+    def json_view
+      { confirmation_token: @token } if @token
+    end
+
     private
 
     def validate_agreements

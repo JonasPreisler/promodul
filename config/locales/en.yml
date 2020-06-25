@@ -19,6 +19,12 @@ en:
     errors:
       password_confirmation: "Password confirmation does not match"
       user_agreement: "Before you finish the registration, please read terms of services and confidentiality policy and mark the checkbox if you accept the conditions"
+      invalid_token: "Data could not be found"
+      registration_attempts_count: 'Code submition limit is reached'
+      sms_code: 'Entered SMS code is incorrect. Please check the received code'
+      registration_retry_count: 'New code generating limit is reached'
+      registration_invalid_time: 'Registration time has run out. Please try again.'
+
       validation:
         valid_password_format?: "Password should contain at least 8 characters, uppercase and lowercase letters, numbers and special characters (e.g. @, #, $, %, & etc.)"
         more_than?: "Date is incorrect"

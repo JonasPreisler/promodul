@@ -20,9 +20,6 @@ module Auth
       user = find_and_authenticate_user(auth_params)
       if user
         refresh_token, jwt_token = generate_tokens(user.id)
-        #ToDO: Don't know if we need devise to save
-        #Device::RegistrationService.new(user, auth_params).call
-
         General::RespondResultService.new.call(
             success?: true,
             data: { token: jwt_token, refresh_token: refresh_token },

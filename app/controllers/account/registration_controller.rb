@@ -24,6 +24,20 @@ module Account
       rest_respond_service confirmation
     end
 
+    #Resend sms code
+    def sms_code
+      confirmation = Account::ConfirmationService.new(confirmation_params)
+      confirmation.regenerate_sms
+      rest_respond_service confirmation
+    end
+
+    #Cencel registration/Delete account
+    def cancel_registration
+      registration = Account::RegistrationService.new
+      registration.cancel(params[:token])
+      rest_respond_service registration
+    end
+
 
     private
 

@@ -20,7 +20,7 @@ module Account
     end
 
     def regenerate_for_sms
-      generate
+      set_sms_status
       increment_retry
       set_time_and_save
     end
@@ -59,8 +59,8 @@ module Account
     end
 
     def increment_retry
-      @verification.retry_count += 1
-    end
+      @verification.retry_count.nil? ?  @verification.retry_count = 1 : @verification.retry_count +=1
+     end
 
     def create_new_token
       unless @verification.new_record?

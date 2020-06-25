@@ -1,4 +1,3 @@
-# DHP-50
 module RefreshToken
   class ValidateTokenService
     attr_accessor :resfresh_token

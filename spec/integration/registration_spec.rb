@@ -66,4 +66,86 @@ describe 'Registration ', type: :request do
       end
     end
   end
+
+  path '/{locale}/account/registration' do
+    put 'Confirm registration' do
+      tags 'Registration'
+      consumes 'application/json'
+
+      parameter name: :params, in: :body, schema: {
+          type: :object,
+          properties: {
+              sms_code: {type: :string},
+              token: {type: :string}
+          },required: [:sms_code, :token]
+      }
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   token: {
+                       type: :string,
+                   },
+
+               }
+
+        let(:params) do {
+            sms_code: Faker::Number.number(6),
+            token: SecureRandom.hex(10)
+        }
+        end
+        before do
+          user = FactoryBot.create(:umg_user_account)
+          FactoryBot.create(:umg_confirmation_code, umg_user_account_id: user.id, retry_count: 1, confirmation_token: params[:token],
+                            sms_code: params[:sms_code])
+        end
+        run_test!
+      end
+
+      response '400', 'Bad request' do
+
+        let(:params) do {
+            sms_code: Faker::Number.number(6),
+            token: nil
+        }
+        end
+        before do
+          user = FactoryBot.create(:umg_user_account)
+          FactoryBot.create(:umg_confirmation_code, umg_user_account_id: user.id, retry_count: 1, confirmation_token: params[:token],
+                            sms_code: params[:sms_code])
+        end
+        run_test!
+      end
+    end
+  end
+
+  path '/{locale}/account/registration/sms_code' do
+    post 'Get new sms code' do
+      tags 'Registration'
+      consumes 'application/json'
+      parameter name: :locale, in: :path, type: :string, required: true, default: "ka"
+      parameter name: :params, in: :body, schema: {
+          type: :object,
+          properties: {
+              token: {type: :string}
+          },required: [:token]
+      }
+      response '204', 'No content' do
+        let(:params) {{ token: SecureRandom.hex(10) }}
+        before do
+          user = FactoryBot.create(:user_account)
+          FactoryBot.create(:confirmation_code, user_account_id: user.id, retry_count: 1, confirmation_token: params[:token])
+        end
+        run_test!
+      end
+      response '400', 'Bad request' do
+        let(:params) {{ token: nil }}
+        before do
+          user = FactoryBot.create(:user_account)
+          FactoryBot.create(:confirmation_code, user_account_id: user.id, retry_count: 1, confirmation_token: params[:token])
+        end
+        run_test!
+      end
+    end
+  end
 end

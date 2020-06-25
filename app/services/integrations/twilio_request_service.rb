@@ -18,17 +18,15 @@ module Integrations
       end
     end
 
-    def verify_code(country_code, phone_number, code)
+    def verify_code
       begin
         verification_check = @client.verify
                                  .services(Figaro.env.TWILIO_SERVICE_SID)
                                  .verification_checks
-                                 .create(to: "+#{+country_code}#{phone_number}", code: code)
-
-        if verification_check.status == 'approved'
-          current_account.update_column(:phone_verified, true)
-        end
+                                 .create(to: "+#{+@country_code}#{@phone_number}", code: @code)
+        verification_check.status
       rescue Twilio::REST::RestError => e
+        #ToDo: add fill error service
         show_error(e)
       end
     end
