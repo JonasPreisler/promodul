@@ -1,4 +1,3 @@
-# DHP-78
 module TokenStorage
   class RefreshTokenService
     attr_reader :user_id, :data, :current_time, :expired_at_time

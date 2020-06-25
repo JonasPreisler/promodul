@@ -1,4 +1,3 @@
-# DHP-50
 module Jwt
   class TokenProviderService
     attr_reader :payload, :provider

@@ -1,4 +1,3 @@
-# DHP-50
 module Jwt
   module Providers
     class None < Token

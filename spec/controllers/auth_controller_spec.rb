@@ -1,4 +1,3 @@
-# DHP-50
 RSpec.describe AuthController, type: :controller do
   describe 'POST /auth' do
     describe 'success login' do

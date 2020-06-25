@@ -1,4 +1,3 @@
-# DHP-122
 module Auth
   class LockingManagementService
 

@@ -1,4 +1,3 @@
-# DHP-78
 module TokenStorage
   class AutoLoginTokenService
     attr_reader :current_time

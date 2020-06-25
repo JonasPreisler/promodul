@@ -50,7 +50,6 @@ module MethodsService
   #  render json: {status_code: 5, field: :error, error_msg: I18n.t("custom.errors.validation.invalid_agreements")}, status: 400 unless valid_agreements
   #end
 
-  # DHP-50
   def bearer_token
     pattern = /^Bearer /
     header  = request.headers["Authorization"]
