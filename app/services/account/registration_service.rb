@@ -23,6 +23,7 @@ module Account
 
       ActiveRecord::Base.transaction do
         register_user!
+        create_customer!
         create_terms_and_conditions
         generate_token
       end
@@ -64,11 +65,17 @@ module Account
     end
 
     def register_user!
-      @user = UserAccount.new(@registration_params.slice(:first_name, :last_name, :birth_date, :phone_number, :phone_number_iso, :email, :password, :username))
+      @user = UserAccount.new(@registration_params.slice(:phone_number, :phone_number_iso, :email, :password, :username))
       @user.save
       @errors.concat(fill_errors(@user))
     rescue ActiveRecord::RecordNotUnique
       fill_custom_errors(self,:username, :not_unique,  I18n.t('custom.errors.phone_number_duplicated')) if UserAccount.exists?(username: @registration_params[:username])
+    end
+
+    def create_customer!
+      return if @errors.any?
+      @customer = Customer.create!(customer_object)
+      @errors.concat(fill_errors(@customer))
     end
 
     def create_terms_and_conditions
@@ -85,16 +92,15 @@ module Account
       @token = Account::ConfirmationService.new({user: @user, confirmation_type: 'registration'}).send_confirmation
     end
 
-    def create_customer
-      # create customer method
-    end
-
-    def create_supplier
-      # create customer supplier
-    end
-
-    def create_employee
-      # create customer employee
+    def customer_object
+      @registration_params.
+          slice(:name,
+                :delivery_address,
+                :invoice_address,
+                :legal_id).
+          merge(user_account_id: @user.id,
+                customer_type_id: Umg::CustomerType.find_by_id_name(@registration_params[:customer_type]).id,
+                active: true)
     end
   end
 end

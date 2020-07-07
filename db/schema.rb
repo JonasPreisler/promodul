@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_25_214408) do
+ActiveRecord::Schema.define(version: 2020_07_07_215402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,23 @@ ActiveRecord::Schema.define(version: 2020_06_25_214408) do
     t.integer "length_limit", default: 9, null: false
   end
 
+  create_table "customer_types", force: :cascade do |t|
+    t.string "name"
+    t.string "id_name"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name", limit: 50, null: false
+    t.string "delivery_address"
+    t.datetime "invoice_address"
+    t.boolean "active", default: true, null: false
+    t.integer "user_account_id"
+    t.integer "customer_type_id", null: false
+    t.string "legal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "locking_types", force: :cascade do |t|
     t.json "name", null: false
     t.string "id_name", limit: 50
@@ -59,9 +76,6 @@ ActiveRecord::Schema.define(version: 2020_06_25_214408) do
   end
 
   create_table "user_accounts", force: :cascade do |t|
-    t.string "first_name", limit: 50, null: false
-    t.string "last_name", limit: 50, null: false
-    t.datetime "birth_date", null: false
     t.string "phone_number", null: false
     t.string "email", null: false
     t.string "crypted_password", limit: 255, null: false
@@ -78,6 +92,7 @@ ActiveRecord::Schema.define(version: 2020_06_25_214408) do
 
   add_foreign_key "confirmation_codes", "confirmation_types"
   add_foreign_key "confirmation_codes", "user_accounts"
+  add_foreign_key "customers", "customer_types"
   add_foreign_key "terms_and_condition_agreements", "terms_and_conditions"
   add_foreign_key "terms_and_condition_agreements", "user_accounts"
 end
