@@ -47,3 +47,5 @@ en:
         citizenship: "Citizenship is not filled in"
         inactive_customer: 'Account is not active'
         phone_number_iso: "Phone number iso code is not valid"
+        business_customer: "Only Business with multi permissions can create more than one company"
+        user_not_found: "User with that ID does not exists"

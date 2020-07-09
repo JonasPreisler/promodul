@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       post   'account/registration', to: 'account/registration#sign_up'
       put    'account/registration', to: 'account/registration#confirm_registration'
       delete 'account/registration', to: 'account/registration#cancel_registration'
+      post   'account/registration', to: 'account/registration#create_customer'
 
       post 'account/registration/sms_code'
       get 'account/registration/customer_types'

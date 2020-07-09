@@ -38,9 +38,17 @@ module Account
       rest_respond_service registration
     end
 
+    #Get Customer types for registration
     def customer_types
       registration = Account::RegistrationService.new
       registration.customer_types
+      rest_respond_service registration
+    end
+
+    #Create Only Customer on existing UserAccount
+    def create_customer
+      registration = Account::RegistrationService.new(customer_params)
+      registration.create_business_customer
       rest_respond_service registration
     end
 
@@ -61,6 +69,17 @@ module Account
                       :invoice_address,
                       :customer_type)
     end
+
+    def customer_params
+      params.permit(  :email,
+                      :name,
+                      :delivery_address,
+                      :invoice_address,
+                      :user_account_id,
+                      :customer_type
+                      )
+    end
+
 
     def confirmation_params
       params.permit(:token, :sms_code)

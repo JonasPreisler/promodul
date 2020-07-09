@@ -435,6 +435,97 @@
           }
         }
       }
+    },
+    "/{locale}/account/registration/create_customer": {
+      "post": {
+        "summary": "Customer registration",
+        "tags": [
+          "Registration"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "params",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "delivery_address": {
+                  "type": "string"
+                },
+                "invoice_address": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "user_account_id": {
+                  "type": "integer"
+                },
+                "customer_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "customer_type",
+                "delivery_address",
+                "invoice_address",
+                "user_account_id"
+              ]
+            }
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "confirmation_token": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "integer"
+                      },
+                      "field": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

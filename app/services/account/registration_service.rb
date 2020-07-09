@@ -6,8 +6,9 @@ module Account
 
     attr_reader :token , :errors
 
-    def initialize(registration_params = {})
+    def initialize(registration_params = {}, user_id = {})
       @registration_params = registration_params
+      @user ||= UserAccount.find(user_id)
       @errors = []
     end
 
@@ -17,6 +18,10 @@ module Account
 
     def customer_types_json_view
       { customer_types: @customer_types }
+    end
+
+    def create_customer_json_view
+      { customer: @customer }
     end
 
     def call
@@ -41,6 +46,12 @@ module Account
       fill_custom_errors(self,:confirmation_token, :invalid, I18n.t('custom.errors.invalid_token'))
     end
 
+    def create_business_customer
+      validate_customer_type
+      find_and_validate_user
+      create_customer!
+    end
+
     def customer_types
       @customer_types = CustomerType.all
     end
@@ -50,6 +61,17 @@ module Account
     end
 
     private
+
+    def validate_customer_type
+      id_name = CustomerType.find_by_id_name(:multi_business_customer).id_name
+      validation = @registration_params[:customer_type].eql?(id_name)
+      fill_custom_errors(self, :base, :invalid, I18n.t("custom.errors.validation.business_customer")) unless validation
+    end
+
+    def find_and_validate_user
+      @user = UserAccount.find(@registration_params[:user_account_id].to_i)
+      fill_custom_errors(self, :base, :invalid, I18n.t("custom.errors.validation.user_not_found")) unless @user
+    end
 
     def validate_agreements
       return if @errors.any?

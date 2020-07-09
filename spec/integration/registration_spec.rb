@@ -177,4 +177,66 @@ describe 'Registration ', type: :request do
       end
     end
   end
+
+  describe 'Registration ', type: :request do
+    path '/{locale}/account/registration/create_customer' do
+      post 'Customer registration' do
+        tags 'Registration'
+        consumes 'application/json'
+        produces 'application/json'
+
+        parameter name: :params, in: :body, schema: {
+            type: :object,
+            properties: {
+                delivery_address: {type: :string},
+                invoice_address: {type: :string},
+                email: {type: :string},
+                user_account_id: {type: :integer},
+                customer_type: {type: :string}
+            },required: [:customer_type, :delivery_address, :invoice_address, :user_account_id]
+        }
+        parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+        response '200', 'OK' do
+
+          schema type: :object,
+                 properties: {
+                     confirmation_token: { type: :string }
+                 }
+          let(:params) do
+            {
+                first_name: Faker::Name.first_name,
+                username: "12345678",
+                last_name: Faker::Name.last_name,
+                birth_date: Faker::Date.birthday,
+                phone_number: Faker::Number.number(9),
+                email: Faker::Internet.email,
+                password: "Pass1234",
+                password_confirmation: "Pass1234"
+            }
+          end
+
+          run_test!
+        end
+
+        response '400', 'Bad request' do
+          schema type: :object,
+                 properties: {
+                     errors: {
+                         type: :array,
+                         items: {
+                             type: :object,
+                             properties: {
+                                 message: { type: :string },
+                                 code:    { type: :integer},
+                                 field:   { type: :string }
+                             }
+                         }
+                     }
+                 }
+
+          run_test!
+        end
+      end
+    end
+  end
 end
