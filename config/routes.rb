@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       delete 'account/registration', to: 'account/registration#cancel_registration'
 
       post 'account/registration/sms_code'
+      get 'account/registration/customer_types'
 
     end
   end

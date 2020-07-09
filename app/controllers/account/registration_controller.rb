@@ -38,20 +38,28 @@ module Account
       rest_respond_service registration
     end
 
+    def customer_types
+      registration = Account::RegistrationService.new
+      registration.customer_types
+      rest_respond_service registration
+    end
+
 
     private
 
     def user_account_params
-      params.permit( :phone_number,
-                    :phone_number_iso,
-                    :email,
-                    :password,
-                    :password_confirmation,
-                    :agreed_terms_and_conditions,
-                    :terms_and_conditions_id,
-                    :name,
-                    :delivery_address,
-                    :invoice_address)
+      params.permit(  :phone_number,
+                      :phone_number_iso,
+                      :email,
+                      :password,
+                      :password_confirmation,
+                      :agreed_terms_and_conditions,
+                      :terms_and_conditions_id,
+                      :name,
+                      :username,
+                      :delivery_address,
+                      :invoice_address,
+                      :customer_type)
     end
 
     def confirmation_params

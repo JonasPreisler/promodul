@@ -20,8 +20,9 @@ describe 'Registration ', type: :request do
               password: {type: :string},
               password_confirmation: {type: :string},
               agreed_terms_and_conditions: {type: :boolean},
-              terms_and_conditions_id: {type: :integer}
-          },required: [:name, :delivery_address, :invoice_address, :phone_number, :username, :password, :password_confirmation, :agreed_terms_and_conditions, :terms_and_conditions_id]
+              terms_and_conditions_id: {type: :integer},
+              customer_type: {type: :string}
+          },required: [:customer_type, :name, :delivery_address, :invoice_address, :phone_number, :username, :password, :password_confirmation, :agreed_terms_and_conditions, :terms_and_conditions_id]
       }
       parameter name: :locale, in: :path, type: :string, required: true, default: "en"
       response '200', 'OK' do
@@ -144,6 +145,34 @@ describe 'Registration ', type: :request do
           user = FactoryBot.create(:user_account)
           FactoryBot.create(:confirmation_code, user_account_id: user.id, retry_count: 1, confirmation_token: params[:token])
         end
+        run_test!
+      end
+    end
+  end
+
+  path '/{locale}/account/registration/customer_types' do
+    get 'customer types' do
+      tags 'Registration'
+      consumes 'application/json'
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   customer_types: {
+                       type: :object,
+                       properties: {
+                           id: {type: :integer},
+                           id_name: {type: :string},
+                           name: { type: :string}
+                       }
+                   }
+               }
+
+        run_test!
+      end
+      response '400', 'Bad request' do
+        {}
         run_test!
       end
     end

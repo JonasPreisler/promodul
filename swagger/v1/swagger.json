@@ -194,18 +194,17 @@
             "schema": {
               "type": "object",
               "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "delivery_address": {
+                  "type": "string"
+                },
+                "invoice_address": {
+                  "type": "string"
+                },
                 "username": {
                   "type": "string"
-                },
-                "first_name": {
-                  "type": "string"
-                },
-                "last_name": {
-                  "type": "string"
-                },
-                "birth_date": {
-                  "type": "string",
-                  "format": "date"
                 },
                 "phone_number": {
                   "type": "string"
@@ -227,12 +226,16 @@
                 },
                 "terms_and_conditions_id": {
                   "type": "integer"
+                },
+                "customer_type": {
+                  "type": "string"
                 }
               },
               "required": [
-                "first_name",
-                "last_name",
-                "birth_date",
+                "customer_type",
+                "name",
+                "delivery_address",
+                "invoice_address",
                 "phone_number",
                 "username",
                 "password",
@@ -379,6 +382,53 @@
         "responses": {
           "204": {
             "description": "No content"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/{locale}/account/registration/customer_types": {
+      "get": {
+        "summary": "customer types",
+        "tags": [
+          "Registration"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "customer_types": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "id_name": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad request"

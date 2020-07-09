@@ -15,6 +15,10 @@ module Account
       { confirmation_token: @token } if @token
     end
 
+    def customer_types_json_view
+      { customer_types: @customer_types }
+    end
+
     def call
       validate_agreements
       validate_phone_number
@@ -22,6 +26,7 @@ module Account
       return if @errors.any?
 
       ActiveRecord::Base.transaction do
+        binding.pry
         register_user!
         create_customer!
         create_terms_and_conditions
@@ -34,6 +39,10 @@ module Account
       code.user_account.destroy
     rescue
       fill_custom_errors(self,:confirmation_token, :invalid, I18n.t('custom.errors.invalid_token'))
+    end
+
+    def customer_types
+      @customer_types = CustomerType.all
     end
 
     def json_view
@@ -65,6 +74,7 @@ module Account
     end
 
     def register_user!
+      binding.pry
       @user = UserAccount.new(@registration_params.slice(:phone_number, :phone_number_iso, :email, :password, :username))
       @user.save
       @errors.concat(fill_errors(@user))
@@ -74,6 +84,7 @@ module Account
 
     def create_customer!
       return if @errors.any?
+      binding.pry
       @customer = Customer.create!(customer_object)
       @errors.concat(fill_errors(@customer))
     end
@@ -99,7 +110,7 @@ module Account
                 :invoice_address,
                 :legal_id).
           merge(user_account_id: @user.id,
-                customer_type_id: Umg::CustomerType.find_by_id_name(@registration_params[:customer_type]).id,
+                customer_type_id: CustomerType.find_by_id_name(@registration_params[:customer_type].to_sym).id,
                 active: true)
     end
   end
