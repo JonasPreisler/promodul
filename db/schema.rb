@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_215402) do
+ActiveRecord::Schema.define(version: 2020_07_15_203325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "business_types", force: :cascade do |t|
+    t.json "name", null: false
+    t.string "id_name", null: false
+  end
 
   create_table "confirmation_codes", force: :cascade do |t|
     t.string "confirmation_token"
@@ -55,9 +60,25 @@ ActiveRecord::Schema.define(version: 2020_07_07_215402) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "integration_systems", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "locking_types", force: :cascade do |t|
     t.json "name", null: false
     t.string "id_name", limit: 50
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.datetime "registration_date"
+    t.boolean "active"
+    t.bigint "integration_system_id", null: false
+    t.bigint "business_type_id", null: false
+    t.string "name", null: false
+    t.string "identification_code", null: false
+    t.string "phone_number"
+    t.index ["business_type_id"], name: "index_suppliers_on_business_type_id"
+    t.index ["integration_system_id"], name: "index_suppliers_on_integration_system_id"
   end
 
   create_table "terms_and_condition_agreements", force: :cascade do |t|
@@ -93,6 +114,8 @@ ActiveRecord::Schema.define(version: 2020_07_07_215402) do
   add_foreign_key "confirmation_codes", "confirmation_types"
   add_foreign_key "confirmation_codes", "user_accounts"
   add_foreign_key "customers", "customer_types"
+  add_foreign_key "suppliers", "business_types"
+  add_foreign_key "suppliers", "integration_systems"
   add_foreign_key "terms_and_condition_agreements", "terms_and_conditions"
   add_foreign_key "terms_and_condition_agreements", "user_accounts"
 end

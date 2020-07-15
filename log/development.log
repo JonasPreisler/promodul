@@ -12196,3 +12196,109 @@ Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-10 03:03:1
 Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-10 03:03:16 +0400
 Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-10 03:03:17 +0400
 Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-10 03:03:17 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-14 21:37:12 +0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-14 21:37:12 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-14 21:37:12 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-14 21:37:12 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-14 21:37:13 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-16 00:21:03 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-16 00:21:04 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-16 00:21:04 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-16 00:21:04 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-16 00:21:04 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-16 00:21:04 +0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateBusinessTypes (20200715202636)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (39.6ms)[0m  [1m[35mCREATE TABLE "business_types" ("id" bigserial primary key, "name" json NOT NULL, "id_name" character varying NOT NULL)[0m
+  ↳ db/migrate/20200715202636_create_business_types.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200715202636"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mBusinessType Load (1.1ms)[0m  [1m[34mSELECT  "business_types".* FROM "business_types" ORDER BY "business_types"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBusinessType Create (23.0ms)[0m  [1m[32mINSERT INTO "business_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"en\":\"default\"}"], ["id_name", "general"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateIntegrationSystems (20200715203104)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "integration_systems" ("id" bigserial primary key, "name" character varying)[0m
+  ↳ db/migrate/20200715203104_create_integration_systems.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200715203104"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mIntegrationSystem Load (0.3ms)[0m  [1m[34mSELECT  "integration_systems".* FROM "integration_systems" ORDER BY "integration_systems"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIntegrationSystem Create (1.3ms)[0m  [1m[32mINSERT INTO "integration_systems" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "BRREG"]]
+  [1m[35m (36.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateSuppliers (20200715203325)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (14.6ms)[0m  [1m[35mCREATE TABLE "suppliers" ("id" bigserial primary key, "registration_date" timestamp, "active" boolean, "integration_system_id" bigint NOT NULL, "business_type_id" bigint NOT NULL, "name" character varying NOT NULL, "identification_code" character varying NOT NULL, "phone_number" character varying, CONSTRAINT "fk_rails_7d49358d6a"
+FOREIGN KEY ("integration_system_id")
+  REFERENCES "integration_systems" ("id")
+, CONSTRAINT "fk_rails_d7795d572e"
+FOREIGN KEY ("business_type_id")
+  REFERENCES "business_types" ("id")
+)[0m
+  ↳ db/migrate/20200715203325_create_suppliers.rb:3
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_suppliers_on_integration_system_id" ON "suppliers"  ("integration_system_id")[0m
+  ↳ db/migrate/20200715203325_create_suppliers.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_suppliers_on_business_type_id" ON "suppliers"  ("business_type_id")[0m
+  ↳ db/migrate/20200715203325_create_suppliers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200715203325"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34

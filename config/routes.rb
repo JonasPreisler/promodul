@@ -19,6 +19,11 @@ Rails.application.routes.draw do
       post 'account/registration/sms_code'
       get 'account/registration/customer_types'
 
+      post    'supplier', to: 'supplier#create'
+      put     'supplier', to: 'supplier#update'
+      delete 'supplier', to: 'supplier#destroy'
+      get     'suppliers/:id', to: 'suppliers#list'
+
     end
   end
 end
