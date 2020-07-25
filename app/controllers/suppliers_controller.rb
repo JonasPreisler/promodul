@@ -2,31 +2,49 @@ class SuppliersController < ApplicationController
   require 'controller_response'
   include ControllerResponse
 
+  #Need remove after authorization will works
+  skip_before_action :validate_authentication
+
+
   #Create Supplier
   def create
-    service = Supplier::SuppliersService.new(supplier_params)
+    service = Suppliers::SuppliersService.new(supplier_params)
     service.create_supplier
     rest_respond_service service
   end
 
   #Update Supplier
   def update
-    service = Supplier::SuppliersService.new(supplier_params)
+    service = Suppliers::SuppliersService.new(supplier_params)
     service.update_supplier
     rest_respond_service service
   end
 
   #Update Supplier
   def destroy
-    service = Supplier::SuppliersService.new(supplier_params)
+    service = Suppliers::SuppliersService.new(supplier_params)
     service.destroy_supplier
     rest_respond_service service
   end
 
   #Update Supplier
   def list
-    service = Supplier::SuppliersService.new(supplier_params)
+    service = Suppliers::SuppliersService.new(supplier_params)
     service.list
+    rest_respond_service service
+  end
+
+  #Business_types
+  def business_types
+    service = Suppliers::SupplierHelperService.new()
+    service.business_types
+    rest_respond_service service
+  end
+
+  #Integrations_systems
+  def integration_systems
+    service = Suppliers::SupplierHelperService.new()
+    service.integrations_systems
     rest_respond_service service
   end
 

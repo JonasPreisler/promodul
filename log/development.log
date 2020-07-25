@@ -12302,3 +12302,1670 @@ FOREIGN KEY ("business_type_id")
   ↳ spec/rails_helper.rb:34
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 15:41:13 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 15:41:13 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 15:41:13 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 15:41:13 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 15:41:14 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 15:41:14 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 15:41:40 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 15:41:40 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 15:41:40 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 15:41:40 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 15:41:41 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 15:41:41 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 15:41:49 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 15:43:20 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 15:43:20 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 15:43:20 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 15:43:20 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 15:43:21 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 15:43:21 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 15:49:30 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 15:49:30 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 15:49:30 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 15:49:30 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 15:49:31 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 15:49:31 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 15:55:15 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 15:55:15 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 15:55:15 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 15:55:15 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 15:55:16 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 15:55:16 +0400
+  [1m[36mBusinessType Load (0.6ms)[0m  [1m[34mSELECT  "business_types".* FROM "business_types" ORDER BY "business_types"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSupplier Load (1.7ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" ORDER BY "suppliers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mIntegrationSystem Load (0.6ms)[0m  [1m[34mSELECT  "integration_systems".* FROM "integration_systems" ORDER BY "integration_systems"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 16:34:41 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 16:34:41 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 16:34:41 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 16:34:41 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 16:34:42 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 16:34:42 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 16:39:33 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 16:39:33 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 16:39:33 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 16:39:33 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 16:39:34 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 16:39:34 +0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 16:40:09 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 16:40:09 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 16:40:09 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 16:40:09 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 16:40:10 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 16:40:10 +0400
+  [1m[36mUserAccount Load (2.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/auth" for 127.0.0.1 at 2020-07-25 16:40:45 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"kaiakata", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"kaiakata", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'kaiakata' OR "user_accounts"."phone_number" = 'kaiakata') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "kaiakata"], ["phone_number", "kaiakata"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/auth/locking_management_service.rb:91
+  [1m[36mUserAccount Update (1.2ms)[0m  [1m[33mUPDATE "user_accounts" SET "failed_logins_count" = $1, "updated_at" = $2 WHERE "user_accounts"."id" = $3[0m  [["failed_logins_count", 0], ["updated_at", "2020-07-25 12:40:45.670216"], ["id", 39]]
+  ↳ app/services/auth/locking_management_service.rb:91
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/auth/locking_management_service.rb:91
+Completed 200 OK in 313ms (Views: 0.2ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/en/supplier" for 127.0.0.1 at 2020-07-25 16:41:00 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/supplier"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 16:43:19 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 16:43:19 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 16:43:19 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 16:43:19 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 16:43:20 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 16:43:20 +0400
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 16:43:28 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/supplier/business_types"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 16:44:21 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/supplier/business_types"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 16:44:23 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/supplier/business_types"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 16:44:26 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 16:44:26 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 16:44:26 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 16:44:26 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 16:44:27 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 16:44:27 +0400
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 16:44:35 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/supplier/business_types"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 16:45:11 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/supplier/business_types"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 16:45:33 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/supplier/business_types"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 16:45:37 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 16:45:38 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 16:45:38 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 16:45:38 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 16:45:38 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 16:45:38 +0400
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:45:44 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2020-07-25 16:46:03 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"kaiakata", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"kaiakata", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (1.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'kaiakata' OR "user_accounts"."phone_number" = 'kaiakata') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "kaiakata"], ["phone_number", "kaiakata"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/auth/locking_management_service.rb:91
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/auth/locking_management_service.rb:91
+Completed 200 OK in 177ms (Views: 0.3ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:46:13 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:46:14 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:47:24 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:47:25 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:47:25 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:47:25 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:47:26 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:47:26 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:47:26 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:47:26 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:47:27 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:47:30 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 16:47:31 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 16:47:31 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 16:47:31 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 16:47:31 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 16:47:32 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 16:47:32 +0400
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:47:38 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts"[0m
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts"[0m
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:50:42 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 31011ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:53:42 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 80234ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:55:59 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (Supplier is not a module):
+  
+app/services/supplier/suppliers_service.rb:1:in `<main>'
+app/controllers/suppliers_controller.rb:31:in `list'
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:57:57 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (Supplier is not a module):
+  
+app/services/supplier/suppliers_service.rb:1:in `<main>'
+app/controllers/suppliers_controller.rb:31:in `list'
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:57:59 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (Supplier is not a module):
+  
+app/services/supplier/suppliers_service.rb:1:in `<main>'
+app/controllers/suppliers_controller.rb:31:in `list'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 16:58:10 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 16:58:10 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 16:58:10 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 16:58:10 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 16:58:11 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 16:58:11 +0400
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:58:18 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (Supplier is not a module):
+  
+app/services/supplier/suppliers_service.rb:1:in `<main>'
+app/controllers/suppliers_controller.rb:31:in `list'
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:59:05 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (Supplier is not a module):
+  
+app/services/supplier/suppliers_service.rb:1:in `<main>'
+app/controllers/suppliers_controller.rb:31:in `list'
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 16:59:58 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Completed 500 Internal Server Error in 7838ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (Supplier is not a module):
+  
+app/services/supplier/suppliers_service.rb:1:in `<main>'
+app/controllers/suppliers_controller.rb:36:in `list'
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 17:01:29 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Completed 500 Internal Server Error in 2271ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (Supplier is not a module):
+  
+app/services/supplier/suppliers_service.rb:1:in `<main>'
+app/controllers/suppliers_controller.rb:36:in `list'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 17:01:39 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 17:01:39 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 17:01:39 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 17:01:39 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 17:01:40 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 17:01:40 +0400
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 17:01:47 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Completed 500 Internal Server Error in 4738ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (Supplier is not a module):
+  
+app/services/supplier/suppliers_service.rb:1:in `<main>'
+app/controllers/suppliers_controller.rb:36:in `list'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 17:02:21 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 17:02:21 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 17:02:21 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 17:02:21 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 17:02:22 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 17:02:22 +0400
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 17:02:29 +0400
+  
+ActionController::RoutingError (uninitialized constant SupplierController):
+  
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `block in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `rescue in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:56:in `load_missing_constant'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 17:03:41 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 17:03:41 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 17:03:41 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 17:03:41 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 17:03:42 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 17:03:42 +0400
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 17:03:49 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Completed 500 Internal Server Error in 211577ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (Supplier is not a module):
+  
+app/services/supplier/suppliers_service.rb:1:in `<main>'
+app/controllers/suppliers_controller.rb:36:in `list'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 17:07:27 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 17:07:27 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 17:07:27 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 17:07:27 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 17:07:27 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 17:07:27 +0400
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 17:07:33 +0400
+Processing by SuppliersController#business_types as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 2027ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (Supplier is not a module):
+  
+app/services/supplier/supplier_helper_service.rb:1:in `<main>'
+app/controllers/suppliers_controller.rb:44:in `business_types'
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 17:07:53 +0400
+Processing by SuppliersController#business_types as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 12211ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (Supplier is not a module):
+  
+app/services/supplier/supplier_helper_service.rb:1:in `<main>'
+app/controllers/suppliers_controller.rb:44:in `business_types'
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 17:09:27 +0400
+Processing by SuppliersController#business_types as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 21003ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (Supplier is not a module):
+  
+app/services/supplier/supplier_helper_service.rb:1:in `<main>'
+app/controllers/suppliers_controller.rb:44:in `business_types'
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 17:10:54 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/supplier/business_types"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 17:10:55 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/supplier/business_types"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 17:10:58 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 17:10:58 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 17:10:58 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 17:10:58 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 17:10:59 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 17:10:59 +0400
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 17:11:11 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/supplier/business_types"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 17:11:26 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 17:11:26 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 17:11:26 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 17:11:26 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 17:11:26 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 17:11:26 +0400
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 17:11:32 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/supplier/business_types"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 17:12:55 +0400
+Processing by SuppliersController#business_types as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 4386ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (Unable to autoload constant Suppliers::SupplierHelperService, expected /home/buka/always24/app/services/suppliers/supplier_helper_service.rb to define it):
+  
+app/controllers/suppliers_controller.rb:44:in `business_types'
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 17:13:24 +0400
+Processing by SuppliersController#business_types as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mBusinessType Load (1.6ms)[0m  [1m[34mSELECT "business_types".* FROM "business_types"[0m
+  ↳ app/services/suppliers/supplier_helper_service.rb:14
+Completed 200 OK in 4874ms (Views: 0.3ms | ActiveRecord: 18.4ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 17:15:35 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 17:15:35 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 17:15:35 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 17:15:35 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 17:15:35 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 17:15:35 +0400
+Started GET "/en/suppliers/integration_systems" for 127.0.0.1 at 2020-07-25 17:15:44 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"integration_systems"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 5245ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `where' for Supplier:Module
+Did you mean?  when):
+  
+app/services/suppliers/suppliers_service.rb:52:in `list'
+app/controllers/suppliers_controller.rb:37:in `list'
+Started GET "/en/suppliers/integration_systems" for 127.0.0.1 at 2020-07-25 17:16:22 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"integration_systems"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 3716ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `where' for Supplier:Module
+Did you mean?  when):
+  
+app/services/suppliers/suppliers_service.rb:52:in `list'
+app/controllers/suppliers_controller.rb:37:in `list'
+Started GET "/en/suppliers/integration_systems" for 127.0.0.1 at 2020-07-25 17:16:31 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"integration_systems"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 2315ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `where' for Supplier:Module
+Did you mean?  when):
+  
+app/services/suppliers/suppliers_service.rb:52:in `list'
+app/controllers/suppliers_controller.rb:37:in `list'
+Started GET "/en/suppliers/integration_systems" for 127.0.0.1 at 2020-07-25 17:17:11 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"integration_systems"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 6752ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `where' for Supplier:Module
+Did you mean?  when):
+  
+app/services/suppliers/suppliers_service.rb:52:in `list'
+app/controllers/suppliers_controller.rb:37:in `list'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/en/suppliers/integration_systems" for 127.0.0.1 at 2020-07-25 17:17:29 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"integration_systems"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 2061ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `where' for Supplier:Module
+Did you mean?  when):
+  
+app/services/suppliers/suppliers_service.rb:52:in `list'
+app/controllers/suppliers_controller.rb:37:in `list'
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 17:17:40 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 3312ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `where' for Supplier:Module
+Did you mean?  when):
+  
+app/services/suppliers/suppliers_service.rb:52:in `list'
+app/controllers/suppliers_controller.rb:37:in `list'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/en/suppliers/integration_systems" for 127.0.0.1 at 2020-07-25 17:18:54 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"integration_systems"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 3867ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `where' for Supplier:Module
+Did you mean?  when):
+  
+app/services/suppliers/suppliers_service.rb:52:in `list'
+app/controllers/suppliers_controller.rb:37:in `list'
+Started GET "/en/suppliers/integration_systems" for 127.0.0.1 at 2020-07-25 17:19:38 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"integration_systems"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 3448ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `where' for Supplier:Module
+Did you mean?  when):
+  
+app/services/suppliers/suppliers_service.rb:52:in `list'
+app/controllers/suppliers_controller.rb:37:in `list'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 17:19:46 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 17:19:46 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 17:19:46 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 17:19:46 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 17:19:46 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 17:19:47 +0400
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 17:19:53 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 3249ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `where' for Supplier:Module
+Did you mean?  when):
+  
+app/services/suppliers/suppliers_service.rb:52:in `list'
+app/controllers/suppliers_controller.rb:37:in `list'
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 17:24:31 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 2896ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `where' for Supplier:Module
+Did you mean?  when):
+  
+app/services/suppliers/suppliers_service.rb:52:in `list'
+app/controllers/suppliers_controller.rb:37:in `list'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 17:24:59 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 17:24:59 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 17:24:59 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 17:24:59 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 17:25:00 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 17:25:00 +0400
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 17:25:07 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 2626ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `where' for Supplier:Module
+Did you mean?  when):
+  
+app/services/suppliers/suppliers_service.rb:52:in `list'
+app/controllers/suppliers_controller.rb:37:in `list'
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 17:26:51 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 2953ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `where' for Supplier:Module
+Did you mean?  when):
+  
+app/services/suppliers/suppliers_service.rb:52:in `list'
+app/controllers/suppliers_controller.rb:37:in `list'
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 17:27:02 +0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (1.5ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers" WHERE "suppliers"."active" = $1[0m  [["active", true]]
+  ↳ app/services/suppliers/suppliers_service.rb:27
+Completed 200 OK in 3154ms (Views: 0.5ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 17:27:37 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (0.9ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers" WHERE "suppliers"."active" = $1[0m  [["active", true]]
+  ↳ app/services/suppliers/suppliers_service.rb:27
+Completed 200 OK in 3915ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 17:27:48 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (1.0ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers" WHERE "suppliers"."active" = $1[0m  [["active", true]]
+  ↳ app/services/suppliers/suppliers_service.rb:27
+Completed 200 OK in 2644ms (Views: 0.4ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/en/supplier/integration_systems" for 127.0.0.1 at 2020-07-25 17:28:00 +0400
+  
+AbstractController::ActionNotFound (The action 'show_picture' could not be found for SuppliersController):
+  
+actionpack (5.2.1) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/en/supplier/integration_systems" for 127.0.0.1 at 2020-07-25 17:28:38 +0400
+Processing by SuppliersController#integration_systems as JSON
+  Parameters: {"locale"=>"en"}
+Completed 204 No Content in 4ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 17:28:50 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (0.7ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers" WHERE "suppliers"."active" = $1[0m  [["active", true]]
+  ↳ app/services/suppliers/suppliers_service.rb:27
+Completed 200 OK in 3069ms (Views: 1.6ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 17:29:20 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (0.8ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers" WHERE "suppliers"."active" = $1[0m  [["active", true]]
+  ↳ app/services/suppliers/suppliers_service.rb:27
+Completed 200 OK in 2713ms (Views: 0.4ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/en/supplier/integration_systems" for 127.0.0.1 at 2020-07-25 17:29:27 +0400
+Processing by SuppliersController#integration_systems as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mIntegrationSystem Load (0.5ms)[0m  [1m[34mSELECT "integration_systems".* FROM "integration_systems"[0m
+  ↳ app/services/suppliers/supplier_helper_service.rb:18
+Completed 200 OK in 19ms (Views: 0.2ms | ActiveRecord: 5.4ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 17:30:38 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (1.0ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers" WHERE "suppliers"."active" = $1[0m  [["active", true]]
+  ↳ app/services/suppliers/suppliers_service.rb:27
+Completed 200 OK in 6517ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/en/supplier/integration_systems" for 127.0.0.1 at 2020-07-25 17:30:49 +0400
+Processing by SuppliersController#integration_systems as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mIntegrationSystem Load (0.2ms)[0m  [1m[34mSELECT "integration_systems".* FROM "integration_systems"[0m
+  ↳ app/services/suppliers/supplier_helper_service.rb:18
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/en/suppliers/business_types" for 127.0.0.1 at 2020-07-25 17:31:42 +0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"business_types"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (2.2ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers" WHERE "suppliers"."active" = $1[0m  [["active", true]]
+  ↳ app/services/suppliers/suppliers_service.rb:27
+Completed 200 OK in 4714ms (Views: 0.6ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/en/supplier/integration_systems" for 127.0.0.1 at 2020-07-25 17:32:03 +0400
+Processing by SuppliersController#integration_systems as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mIntegrationSystem Load (0.4ms)[0m  [1m[34mSELECT "integration_systems".* FROM "integration_systems"[0m
+  ↳ app/services/suppliers/supplier_helper_service.rb:18
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 6.3ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 17:32:29 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 17:32:29 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 17:32:29 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 17:32:29 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 17:32:30 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 17:32:30 +0400
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 17:32:35 +0400
+Processing by SuppliersController#business_types as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mBusinessType Load (2.2ms)[0m  [1m[34mSELECT "business_types".* FROM "business_types"[0m
+  ↳ app/services/suppliers/supplier_helper_service.rb:14
+Completed 200 OK in 3603ms (Views: 0.5ms | ActiveRecord: 20.4ms)
+
+
+Started GET "/en/supplier/integration_systems" for 127.0.0.1 at 2020-07-25 17:32:49 +0400
+Processing by SuppliersController#integration_systems as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mIntegrationSystem Load (0.3ms)[0m  [1m[34mSELECT "integration_systems".* FROM "integration_systems"[0m
+  ↳ app/services/suppliers/supplier_helper_service.rb:18
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mSupplier Load (0.5ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" ORDER BY "suppliers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/suppliers" for 127.0.0.1 at 2020-07-25 17:36:11 +0400
+Processing by SuppliersController#create as JSON
+  Parameters: {"name"=>"Bukas's Company", "phone_number"=>"577520250", "integration_system_id"=>1, "business_type_id"=>1, "locale"=>"en", "supplier"=>{"integration_system_id"=>1, "business_type_id"=>1, "name"=>"Bukas's Company", "phone_number"=>"577520250"}}
+Unpermitted parameters: :format, :locale, :supplier
+Completed 201 Created in 28294ms (Views: 0.3ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/en/suppliers" for 127.0.0.1 at 2020-07-25 17:37:04 +0400
+Processing by SuppliersController#create as JSON
+  Parameters: {"name"=>"Bukas's Company", "phone_number"=>"577520250", "integration_system_id"=>1, "business_type_id"=>1, "locale"=>"en", "supplier"=>{"integration_system_id"=>1, "business_type_id"=>1, "name"=>"Bukas's Company", "phone_number"=>"577520250"}}
+Unpermitted parameters: :format, :locale, :supplier
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/suppliers/suppliers_service.rb:35
+  [1m[36mIntegrationSystem Load (0.8ms)[0m  [1m[34mSELECT  "integration_systems".* FROM "integration_systems" WHERE "integration_systems"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:35
+  [1m[36mBusinessType Load (0.6ms)[0m  [1m[34mSELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:35
+  [1m[36mSupplier Create (4.0ms)[0m  [1m[32mINSERT INTO "suppliers" ("registration_date", "active", "integration_system_id", "business_type_id", "name", "phone_number") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["registration_date", "2020-07-25 13:37:07.965184"], ["active", true], ["integration_system_id", 1], ["business_type_id", 1], ["name", "Bukas's Company"], ["phone_number", "577520250"]]
+  ↳ app/services/suppliers/suppliers_service.rb:35
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/suppliers/suppliers_service.rb:35
+Completed 500 Internal Server Error in 3568ms (ActiveRecord: 31.4ms)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "identification_code" violates not-null constraint
+DETAIL:  Failing row contains (1, 2020-07-25 13:37:07.965184, t, 1, 1, Bukas's Company, null, 577520250).
+: INSERT INTO "suppliers" ("registration_date", "active", "integration_system_id", "business_type_id", "name", "phone_number") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"):
+  
+app/services/suppliers/suppliers_service.rb:35:in `create_supplier'
+app/controllers/suppliers_controller.rb:13:in `create'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 17:38:35 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 17:38:35 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 17:38:35 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 17:38:35 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 17:38:36 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 17:38:36 +0400
+Started POST "/en/suppliers" for 127.0.0.1 at 2020-07-25 17:39:02 +0400
+Processing by SuppliersController#create as JSON
+  Parameters: {"name"=>"Bukas's Company", "phone_number"=>"577520250", "integration_system_id"=>1, "business_type_id"=>1, "identification_code"=>"01020304", "locale"=>"en", "supplier"=>{"integration_system_id"=>1, "business_type_id"=>1, "name"=>"Bukas's Company", "identification_code"=>"01020304", "phone_number"=>"577520250"}}
+Unpermitted parameters: :format, :locale, :supplier
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/suppliers/suppliers_service.rb:35
+  [1m[36mIntegrationSystem Load (1.9ms)[0m  [1m[34mSELECT  "integration_systems".* FROM "integration_systems" WHERE "integration_systems"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:35
+  [1m[36mBusinessType Load (1.4ms)[0m  [1m[34mSELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:35
+  [1m[36mSupplier Create (3.6ms)[0m  [1m[32mINSERT INTO "suppliers" ("registration_date", "active", "integration_system_id", "business_type_id", "name", "identification_code", "phone_number") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["registration_date", "2020-07-25 13:39:06.233063"], ["active", true], ["integration_system_id", 1], ["business_type_id", 1], ["name", "Bukas's Company"], ["identification_code", "01020304"], ["phone_number", "577520250"]]
+  ↳ app/services/suppliers/suppliers_service.rb:35
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/suppliers/suppliers_service.rb:35
+Completed 201 Created in 3822ms (Views: 1.0ms | ActiveRecord: 8.8ms)
+
+
+  [1m[36mSupplier Load (0.8ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" ORDER BY "suppliers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/suppliers" for 127.0.0.1 at 2020-07-25 17:40:07 +0400
+Processing by SuppliersController#create as JSON
+  Parameters: {"name"=>"Anzoris's Company", "phone_number"=>"577520250", "integration_system_id"=>1, "business_type_id"=>1, "identification_code"=>"010208989", "locale"=>"en", "supplier"=>{"integration_system_id"=>1, "business_type_id"=>1, "name"=>"Anzoris's Company", "identification_code"=>"010208989", "phone_number"=>"577520250"}}
+Unpermitted parameters: :format, :locale, :supplier
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/suppliers/suppliers_service.rb:35
+  [1m[36mIntegrationSystem Load (1.0ms)[0m  [1m[34mSELECT  "integration_systems".* FROM "integration_systems" WHERE "integration_systems"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:35
+  [1m[36mBusinessType Load (0.6ms)[0m  [1m[34mSELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:35
+  [1m[36mSupplier Create (1.4ms)[0m  [1m[32mINSERT INTO "suppliers" ("registration_date", "active", "integration_system_id", "business_type_id", "name", "identification_code", "phone_number") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["registration_date", "2020-07-25 13:40:10.643941"], ["active", true], ["integration_system_id", 1], ["business_type_id", 1], ["name", "Anzoris's Company"], ["identification_code", "010208989"], ["phone_number", "577520250"]]
+  ↳ app/services/suppliers/suppliers_service.rb:35
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/suppliers/suppliers_service.rb:35
+Completed 201 Created in 3631ms (Views: 0.5ms | ActiveRecord: 5.0ms)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 17:41:44 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 17:41:44 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 17:41:44 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 17:41:44 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 17:41:45 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 17:41:45 +0400
+Started GET "/en/supplier/list" for 127.0.0.1 at 2020-07-25 17:41:51 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/supplier/list"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/en/supplier/list" for 127.0.0.1 at 2020-07-25 17:42:14 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/supplier/list"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/en/supplier/list" for 127.0.0.1 at 2020-07-25 17:42:16 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/supplier/list"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 17:42:18 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 17:42:18 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 17:42:18 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 17:42:18 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 17:42:19 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 17:42:19 +0400
+Started GET "/en/suppliers/list" for 127.0.0.1 at 2020-07-25 17:42:24 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (1.0ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers" WHERE "suppliers"."active" = $1[0m  [["active", true]]
+  ↳ app/services/suppliers/suppliers_service.rb:27
+Completed 200 OK in 3950ms (Views: 0.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/en/suppliers/list" for 127.0.0.1 at 2020-07-25 17:45:17 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (1.2ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers" WHERE "suppliers"."active" = $1[0m  [["active", true]]
+  ↳ app/services/suppliers/suppliers_service.rb:27
+Completed 200 OK in 4044ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 17:46:09 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 17:46:09 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 17:46:09 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 17:46:09 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 17:46:10 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 17:46:10 +0400
+Started GET "/en/suppliers/list" for 127.0.0.1 at 2020-07-25 17:46:16 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (0.8ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers" WHERE "suppliers"."active" = $1[0m  [["active", true]]
+  ↳ app/services/suppliers/suppliers_service.rb:27
+Completed 200 OK in 4487ms (Views: 0.4ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/en/suppliers/list" for 127.0.0.1 at 2020-07-25 17:47:16 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (0.3ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers" WHERE "suppliers"."active" = $1[0m  [["active", true]]
+  ↳ app/services/suppliers/suppliers_service.rb:27
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/en/suppliers/list" for 127.0.0.1 at 2020-07-25 17:51:46 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (0.2ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers" WHERE "suppliers"."active" = $1[0m  [["active", true]]
+  ↳ app/services/suppliers/suppliers_service.rb:27
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 3.7ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 17:55:17 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 17:55:17 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 17:55:17 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 17:55:17 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 17:55:17 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 17:55:17 +0400
+Started PUT "/ka/supplier/2" for 127.0.0.1 at 2020-07-25 17:56:05 +0400
+Processing by SuppliersController#update as JSON
+  Parameters: {"phone_number"=>"577777777", "locale"=>"ka", "id"=>"2", "supplier"=>{"phone_number"=>"577777777"}}
+Unpermitted parameters: :format, :locale, :supplier
+  [1m[36mSupplier Load (1.2ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:41
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/suppliers/suppliers_service.rb:42
+  [1m[36mIntegrationSystem Load (0.4ms)[0m  [1m[34mSELECT  "integration_systems".* FROM "integration_systems" WHERE "integration_systems"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:42
+  [1m[36mBusinessType Load (0.3ms)[0m  [1m[34mSELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:42
+  [1m[36mSupplier Update (0.4ms)[0m  [1m[33mUPDATE "suppliers" SET "phone_number" = $1 WHERE "suppliers"."id" = $2[0m  [["phone_number", "577777777"], ["id", 2]]
+  ↳ app/services/suppliers/suppliers_service.rb:42
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/suppliers/suppliers_service.rb:42
+Completed 200 OK in 5791ms (Views: 0.2ms | ActiveRecord: 16.0ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 18:16:04 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 18:16:04 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 18:16:04 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 18:16:04 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 18:16:04 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 18:16:04 +0400
+Started DELETE "/ka/supplier" for 127.0.0.1 at 2020-07-25 18:16:14 +0400
+  
+ActionController::RoutingError (No route matches [DELETE] "/ka/supplier"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started DELETE "/ka/supplier" for 127.0.0.1 at 2020-07-25 18:16:33 +0400
+  
+ActionController::RoutingError (No route matches [DELETE] "/ka/supplier"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 18:16:35 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 18:16:35 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 18:16:35 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 18:16:35 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 18:16:36 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 18:16:36 +0400
+Started DELETE "/ka/suppliers" for 127.0.0.1 at 2020-07-25 18:16:47 +0400
+Processing by SuppliersController#destroy as JSON
+  Parameters: {"locale"=>"ka"}
+Unpermitted parameters: :format, :locale
+Unpermitted parameters: :format, :locale
+Completed 404 Not Found in 9089ms (ActiveRecord: 17.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Supplier without an ID):
+  
+app/services/suppliers/suppliers_service.rb:48:in `destroy_supplier'
+app/controllers/suppliers_controller.rb:27:in `destroy'
+Started DELETE "/ka/suppliers" for 127.0.0.1 at 2020-07-25 18:17:12 +0400
+Processing by SuppliersController#destroy as JSON
+  Parameters: {"locale"=>"ka"}
+Unpermitted parameters: :format, :locale
+Completed 404 Not Found in 14580ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Supplier without an ID):
+  
+app/services/suppliers/suppliers_service.rb:48:in `destroy_supplier'
+app/controllers/suppliers_controller.rb:27:in `destroy'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 18:20:48 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 18:20:48 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 18:20:48 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 18:20:48 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 18:20:49 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 18:20:49 +0400
+Started DELETE "/ka/supplier/%7Bsupplier_id%7D/destroy" for 127.0.0.1 at 2020-07-25 18:21:00 +0400
+  
+ActionController::RoutingError (No route matches [DELETE] "/ka/supplier/%7Bsupplier_id%7D/destroy"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 18:22:43 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 18:22:43 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 18:22:43 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 18:22:43 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 18:22:44 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 18:22:44 +0400
+Started DELETE "/ka/supplier/:supplier_id" for 127.0.0.1 at 2020-07-25 18:22:51 +0400
+Processing by SuppliersController#destroy as JSON
+  Parameters: {"locale"=>"ka", "supplier_id"=>":supplier_id"}
+Unpermitted parameters: :format, :locale, :supplier_id
+Unpermitted parameters: :format, :locale, :supplier_id
+Completed 404 Not Found in 29111ms (ActiveRecord: 13.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Supplier without an ID):
+  
+app/services/suppliers/suppliers_service.rb:48:in `destroy_supplier'
+app/controllers/suppliers_controller.rb:27:in `destroy'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 18:24:30 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 18:24:30 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 18:24:30 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 18:24:30 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 18:24:31 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 18:24:31 +0400
+Started DELETE "/ka/supplier/%7Bsupplier_id%7D" for 127.0.0.1 at 2020-07-25 18:24:38 +0400
+Processing by SuppliersController#destroy as JSON
+  Parameters: {"locale"=>"ka", "supplier_id"=>"{supplier_id}"}
+Unpermitted parameters: :format, :locale, :supplier_id
+Completed 404 Not Found in 7081ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Supplier without an ID):
+  
+app/services/suppliers/suppliers_service.rb:48:in `destroy_supplier'
+app/controllers/suppliers_controller.rb:27:in `destroy'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 18:25:13 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 18:25:13 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 18:25:13 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 18:25:13 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 18:25:14 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 18:25:14 +0400
+Started DELETE "/en/supplier/2" for 127.0.0.1 at 2020-07-25 18:25:22 +0400
+Processing by SuppliersController#destroy as JSON
+  Parameters: {"locale"=>"en", "supplier_id"=>"2"}
+Unpermitted parameters: :format, :locale, :supplier_id
+Unpermitted parameters: :format, :locale, :supplier_id
+Completed 404 Not Found in 12105ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Supplier without an ID):
+  
+app/services/suppliers/suppliers_service.rb:48:in `destroy_supplier'
+app/controllers/suppliers_controller.rb:27:in `destroy'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 18:26:03 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 18:26:03 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 18:26:03 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 18:26:03 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 18:26:04 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 18:26:04 +0400
+Started DELETE "/en/supplier/2" for 127.0.0.1 at 2020-07-25 18:26:11 +0400
+Processing by SuppliersController#destroy as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (0.3ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:48
+Completed 200 OK in 6015ms (Views: 0.2ms | ActiveRecord: 3.5ms)
+
+
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 18:28:23 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 18:28:23 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 18:28:23 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 18:28:23 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 18:28:24 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 18:28:24 +0400
+Started DELETE "/en/supplier/2" for 127.0.0.1 at 2020-07-25 18:28:34 +0400
+Processing by SuppliersController#destroy as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (0.5ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:48
+Completed 200 OK in 2923ms (Views: 0.2ms | ActiveRecord: 5.6ms)
+
+
+  [1m[36mSupplier Load (0.9ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSupplier Update (1.2ms)[0m  [1m[33mUPDATE "suppliers" SET "active" = $1 WHERE "suppliers"."id" = $2[0m  [["active", true], ["id", 2]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 18:29:35 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 18:29:35 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 18:29:35 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 18:29:35 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 18:29:36 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 18:29:36 +0400
+Started DELETE "/en/supplier/2" for 127.0.0.1 at 2020-07-25 18:29:43 +0400
+Processing by SuppliersController#destroy as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (0.3ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:48
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 3.7ms)
+
+
+  [1m[36mSupplier Load (0.9ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" ORDER BY "suppliers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "suppliers"[0m
+  [1m[36mSupplier Load (0.6ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" ORDER BY "suppliers"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSupplier Load (0.9ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" ORDER BY "suppliers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started DELETE "/en/supplier/2" for 127.0.0.1 at 2020-07-25 18:30:16 +0400
+Processing by SuppliersController#destroy as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (0.2ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:48
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mSupplier Load (0.7ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+Started DELETE "/en/supplier/2" for 127.0.0.1 at 2020-07-25 18:30:55 +0400
+Processing by SuppliersController#destroy as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (1.3ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ (pry):12
+  [1m[36mCACHE Supplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ (pry):14
+  [1m[36mCACHE Supplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:49
+Completed 200 OK in 36752ms (Views: 0.2ms | ActiveRecord: 23.1ms)
+
+
+  [1m[36mSupplier Load (0.9ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 18:31:53 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 18:31:53 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 18:31:53 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 18:31:53 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 18:31:54 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 18:31:54 +0400
+Started DELETE "/en/supplier/2" for 127.0.0.1 at 2020-07-25 18:32:02 +0400
+Processing by SuppliersController#destroy as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (0.4ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:49
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/suppliers/suppliers_service.rb:51
+  [1m[36mIntegrationSystem Load (0.4ms)[0m  [1m[34mSELECT  "integration_systems".* FROM "integration_systems" WHERE "integration_systems"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:51
+  [1m[36mBusinessType Load (0.3ms)[0m  [1m[34mSELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:51
+  [1m[36mSupplier Update (0.5ms)[0m  [1m[33mUPDATE "suppliers" SET "active" = $1 WHERE "suppliers"."id" = $2[0m  [["active", false], ["id", 2]]
+  ↳ app/services/suppliers/suppliers_service.rb:51
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/suppliers/suppliers_service.rb:51
+Completed 200 OK in 3272ms (Views: 0.2ms | ActiveRecord: 10.8ms)
+
+
+  [1m[36mSupplier Load (0.9ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m

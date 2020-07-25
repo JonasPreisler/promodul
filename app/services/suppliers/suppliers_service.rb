@@ -1,4 +1,4 @@
-module Supplier
+module Suppliers
   class SuppliersService
     require 'errors_format'
     include ErrorsFormat
@@ -16,21 +16,22 @@ module Supplier
     end
 
     def update_json_view
-      { supplier: @supplier.as_json }
+      { supplier: @supplier.as_json(except: [:integration_system_id, :business_type_id, :active]) }
     end
 
     def destroy_json_view
-      { supplier: @supplier.as_json }
+      { supplier: @supplier.as_json(only: [:id, :active]) }
     end
 
     def list_json_view
-      { suppliers: @supplier.as_json(except: :id) }
+      { suppliers: @supplier.as_json(except: [:integration_system_id, :business_type_id, :active]) }
     end
 
 
     def create_supplier
       @supplier = Supplier.new(@supplier_params)
       @supplier.active = true
+      @supplier.save
 
       @errors.concat(fill_errors(@supplier))
     end
@@ -45,6 +46,7 @@ module Supplier
     def destroy_supplier
       @supplier = Supplier.find(@supplier_params[:id])
       @supplier.active = false
+      @supplier.save
       @errors.concat(fill_errors(@supplier))
     end
 
