@@ -36,8 +36,8 @@ module Always24
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
     config.i18n.enforce_available_locales = true
-    config.i18n.available_locales = [:ka, :en]
-    config.i18n.default_locale = :ka
+    config.i18n.available_locales = [:no, :en]
+    config.i18n.default_locale = :en
 
     config.autoload_paths << config.root.join('lib')
   end

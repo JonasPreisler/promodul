@@ -16,22 +16,21 @@ Rails.application.routes.draw do
       delete 'account/registration', to: 'account/registration#cancel_registration'
       post   'account/registration', to: 'account/registration#create_customer'
 
-      post 'account/registration/sms_code'
-      get 'account/registration/customer_types'
+      post    'account/registration/sms_code'
+      get     'account/registration/customer_types'
 
       post    'suppliers', to: 'suppliers#create'
       put     'supplier/:id', to: 'suppliers#update'
-      delete 'supplier/:id', to: 'suppliers#destroy'
-      #delete 'orders/:order_id/cancel_order', to: 'orders#cancel_order'
+      delete  'supplier/:id', to: 'suppliers#destroy'
       get     'suppliers/:id', to: 'suppliers#list'
+      get     'supplier/business_types', to: 'suppliers#business_types'
+      get     'supplier/integration_systems', to: 'suppliers#integration_systems'
 
-      #put 'promotion/:id', to: 'promotions#update_promotion'
+      resource :categories
+      get 'categories/category_list', to: 'categories#list'
 
-      get  'supplier/business_types', to: 'suppliers#business_types'
-      get  'supplier/integration_systems', to: 'suppliers#integration_systems'
-
-
-
+      resource :sub_categories
+      get 'sub_categories/sub_category_list', to: 'sub_categories#list'
     end
   end
 end

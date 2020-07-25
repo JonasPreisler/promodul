@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_203325) do
+ActiveRecord::Schema.define(version: 2020_07_25_155753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,12 @@ ActiveRecord::Schema.define(version: 2020_07_15_203325) do
   create_table "business_types", force: :cascade do |t|
     t.json "name", null: false
     t.string "id_name", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.json "name", null: false
+    t.string "id_name", limit: 50
+    t.boolean "active", default: true, null: false
   end
 
   create_table "confirmation_codes", force: :cascade do |t|
@@ -41,6 +47,12 @@ ActiveRecord::Schema.define(version: 2020_07_15_203325) do
     t.string "iso_code", limit: 2, null: false
     t.string "phone_index", limit: 10, null: false
     t.integer "length_limit", default: 9, null: false
+  end
+
+  create_table "coupon_codes", force: :cascade do |t|
+    t.integer "coupon_promotion_id"
+    t.string "code"
+    t.index ["coupon_promotion_id", "code"], name: "index_coupon_codes_on_coupon_promotion_id_and_code", unique: true
   end
 
   create_table "customer_types", force: :cascade do |t|
@@ -67,6 +79,13 @@ ActiveRecord::Schema.define(version: 2020_07_15_203325) do
   create_table "locking_types", force: :cascade do |t|
     t.json "name", null: false
     t.string "id_name", limit: 50
+  end
+
+  create_table "sub_categories", force: :cascade do |t|
+    t.json "name", null: false
+    t.string "id_name", limit: 50
+    t.boolean "active", default: true, null: false
+    t.integer "category_id", null: false
   end
 
   create_table "suppliers", force: :cascade do |t|
@@ -114,6 +133,7 @@ ActiveRecord::Schema.define(version: 2020_07_15_203325) do
   add_foreign_key "confirmation_codes", "confirmation_types"
   add_foreign_key "confirmation_codes", "user_accounts"
   add_foreign_key "customers", "customer_types"
+  add_foreign_key "sub_categories", "categories"
   add_foreign_key "suppliers", "business_types"
   add_foreign_key "suppliers", "integration_systems"
   add_foreign_key "terms_and_condition_agreements", "terms_and_conditions"

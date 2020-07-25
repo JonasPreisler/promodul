@@ -13969,3 +13969,705 @@ Completed 200 OK in 3272ms (Views: 0.2ms | ActiveRecord: 10.8ms)
 
 
   [1m[36mSupplier Load (0.9ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+Started GET "/en/supplier/business_types" for 127.0.0.1 at 2020-07-25 18:33:52 +0400
+Processing by SuppliersController#business_types as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mBusinessType Load (0.5ms)[0m  [1m[34mSELECT "business_types".* FROM "business_types"[0m
+  ↳ app/services/suppliers/supplier_helper_service.rb:14
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 4.7ms)
+
+
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCategories (20200725155414)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" json NOT NULL, "id_name" character varying(50), "active" boolean DEFAULT TRUE NOT NULL)[0m
+  ↳ db/migrate/20200725155414_create_categories.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200725155414"]]
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateSubCategories (20200725155753)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "sub_categories" ("id" bigserial primary key, "name" json NOT NULL, "id_name" character varying(50), "active" boolean DEFAULT TRUE NOT NULL, "category_id" integer NOT NULL)[0m
+  ↳ db/migrate/20200725155753_create_sub_categories.rb:3
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "sub_categories" ADD CONSTRAINT "fk_rails_e51a72f118"
+FOREIGN KEY ("medicament_category_id")
+  REFERENCES "categories" ("id")
+[0m
+  ↳ db/migrate/20200725155753_create_sub_categories.rb:10
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateSubCategories (20200725155753)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "sub_categories" ("id" bigserial primary key, "name" json NOT NULL, "id_name" character varying(50), "active" boolean DEFAULT TRUE NOT NULL, "category_id" integer NOT NULL)[0m
+  ↳ db/migrate/20200725155753_create_sub_categories.rb:3
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "sub_categories" ADD CONSTRAINT "fk_rails_8e75c2ee78"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  ↳ db/migrate/20200725155753_create_sub_categories.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200725155753"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 20:21:46 +0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 20:21:46 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 20:21:46 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 20:21:46 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 20:21:47 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 20:21:47 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 20:22:02 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 20:22:02 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 20:22:02 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 20:22:02 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 20:22:03 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 20:22:03 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 20:22:57 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 20:22:57 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 20:22:57 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 20:22:57 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 20:22:57 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 20:22:57 +0400
+Started POST "/en/categories" for 127.0.0.1 at 2020-07-25 20:24:25 +0400
+Processing by CategoriesController#create as JSON
+  Parameters: {"name"=>{"no"=>"category_no 1", "en"=>"Category 1"}, "id_name"=>"category_1", "active"=>true, "locale"=>"en", "category"=>{"name"=>{"no"=>"category_no 1", "en"=>"Category 1"}, "id_name"=>"category_1", "active"=>true}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:16
+  [1m[36mCategory Create (3.7ms)[0m  [1m[32mINSERT INTO "categories" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"no\":\"category_no 1\",\"en\":\"Category 1\"}"], ["id_name", "category_1"]]
+  ↳ app/services/category_sub_categories/categories_service.rb:16
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:16
+Completed 204 No Content in 28334ms (Views: 0.4ms | ActiveRecord: 14.9ms)
+
+
+Started POST "/en/categories" for 127.0.0.1 at 2020-07-25 20:25:51 +0400
+Processing by CategoriesController#create as JSON
+  Parameters: {"name"=>{"no"=>"category_no 2", "en"=>"Category 2"}, "id_name"=>"category_2", "active"=>true, "locale"=>"en", "category"=>{"name"=>{"no"=>"category_no 2", "en"=>"Category 2"}, "id_name"=>"category_2", "active"=>true}}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:20
+  [1m[36mCategory Create (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"no\":\"category_no 2\",\"en\":\"Category 2\"}"], ["id_name", "category_2"]]
+  ↳ app/services/category_sub_categories/categories_service.rb:20
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:20
+Completed 201 Created in 5151ms (Views: 0.5ms | ActiveRecord: 9.6ms)
+
+
+Started POST "/no/categories" for 127.0.0.1 at 2020-07-25 20:26:35 +0400
+Processing by CategoriesController#create as JSON
+  Parameters: {"name"=>{"no"=>"category_no 3", "en"=>"Category 3"}, "id_name"=>"category_3", "active"=>true, "locale"=>"no", "category"=>{"name"=>{"no"=>"category_no 3", "en"=>"Category 3"}, "id_name"=>"category_3", "active"=>true}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+I18n::InvalidLocale ("no" is not a valid locale):
+  
+app/controllers/application_controller.rb:8:in `set_locale'
+Started POST "/no/categories" for 127.0.0.1 at 2020-07-25 20:27:37 +0400
+Processing by CategoriesController#create as JSON
+  Parameters: {"name"=>{"no"=>"category_no 3", "en"=>"Category 3"}, "id_name"=>"category_3", "active"=>true, "locale"=>"no", "category"=>{"name"=>{"no"=>"category_no 3", "en"=>"Category 3"}, "id_name"=>"category_3", "active"=>true}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+I18n::InvalidLocale ("no" is not a valid locale):
+  
+app/controllers/application_controller.rb:8:in `set_locale'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 20:27:44 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 20:27:44 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 20:27:44 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 20:27:44 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 20:27:45 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 20:27:45 +0400
+Started POST "/no/categories" for 127.0.0.1 at 2020-07-25 20:28:10 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CategoriesController#create as JSON
+  Parameters: {"name"=>{"no"=>"category_no 3", "en"=>"Category 3"}, "id_name"=>"category_3", "active"=>true, "locale"=>"no", "category"=>{"name"=>{"no"=>"category_no 3", "en"=>"Category 3"}, "id_name"=>"category_3", "active"=>true}}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:20
+  [1m[36mCategory Create (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"no\":\"category_no 3\",\"en\":\"Category 3\"}"], ["id_name", "category_3"]]
+  ↳ app/services/category_sub_categories/categories_service.rb:20
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:20
+Completed 201 Created in 4615ms (Views: 0.6ms | ActiveRecord: 10.0ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started POST "/no/categories" for 127.0.0.1 at 2020-07-25 20:35:50 +0400
+Processing by CategoriesController#create as JSON
+  Parameters: {"name"=>{"no"=>"category_no 4", "en"=>"Category 4"}, "id_name"=>"category_4", "active"=>true, "locale"=>"no", "category"=>{"name"=>{"no"=>"category_no 4", "en"=>"Category 4"}, "id_name"=>"category_4", "active"=>true}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:19
+  [1m[36mCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"no\":\"category_no 4\",\"en\":\"Category 4\"}"], ["id_name", "category_4"]]
+  ↳ app/services/category_sub_categories/categories_service.rb:19
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:19
+Completed 201 Created in 3598ms (Views: 0.3ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 20:36:04 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 20:36:04 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 20:36:04 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 20:36:04 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 20:36:05 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 20:36:05 +0400
+Started PUT "/en/categories" for 127.0.0.1 at 2020-07-25 20:36:51 +0400
+Processing by CategoriesController#update as JSON
+  Parameters: {"id"=>3, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3", "locale"=>"en", "category"=>{"id"=>3, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3"}}
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ (pry):2
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:28
+  [1m[36mCategory Update (0.5ms)[0m  [1m[33mUPDATE "categories" SET "id_name" = $1, "name" = $2 WHERE "categories"."id" = $3[0m  [["id_name", "category 3"], ["name", "{\"no\":\"category_no 33\",\"en\":\"category 3\"}"], ["id", 3]]
+  ↳ app/services/category_sub_categories/categories_service.rb:28
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:28
+Completed 204 No Content in 40667ms (Views: 0.1ms | ActiveRecord: 3.4ms)
+
+
+Started PUT "/en/categories" for 127.0.0.1 at 2020-07-25 20:38:06 +0400
+Processing by CategoriesController#update as JSON
+  Parameters: {"id"=>3, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3", "locale"=>"en", "category"=>{"id"=>3, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3"}}
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:26
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:28
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:28
+Completed 200 OK in 6260ms (Views: 0.5ms | ActiveRecord: 10.9ms)
+
+
+Started POST "/en/categories" for 127.0.0.1 at 2020-07-25 20:38:48 +0400
+Processing by CategoriesController#create as JSON
+  Parameters: {"name"=>{"no"=>"category_no 4", "en"=>"category 4"}, "id_name"=>"category_4", "active"=>true, "locale"=>"en", "category"=>{"name"=>{"no"=>"category_no 4", "en"=>"category 4"}, "id_name"=>"category_4", "active"=>true}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:19
+  [1m[36mCategory Create (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"no\":\"category_no 4\",\"en\":\"category 4\"}"], ["id_name", "category_4"]]
+  ↳ app/services/category_sub_categories/categories_service.rb:19
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:19
+Completed 201 Created in 3986ms (Views: 0.3ms | ActiveRecord: 2.1ms)
+
+
+Started PUT "/en/categories" for 127.0.0.1 at 2020-07-25 20:39:29 +0400
+Processing by CategoriesController#update as JSON
+  Parameters: {"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3", "locale"=>"en", "category"=>{"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3"}}
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:26
+Completed 404 Not Found in 3536ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category with 'id'=27):
+  
+app/services/category_sub_categories/categories_service.rb:26:in `update_category'
+app/controllers/categories_controller.rb:18:in `update'
+Started PUT "/en/categories" for 127.0.0.1 at 2020-07-25 20:48:19 +0400
+Processing by CategoriesController#update as JSON
+  Parameters: {"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3", "locale"=>"en", "category"=>{"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3"}}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:44
+Completed 404 Not Found in 2862ms (ActiveRecord: 6.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category with 'id'=27):
+  
+app/services/category_sub_categories/categories_service.rb:44:in `find_category'
+app/services/category_sub_categories/categories_service.rb:25:in `update_category'
+app/controllers/categories_controller.rb:18:in `update'
+Started PUT "/en/categories" for 127.0.0.1 at 2020-07-25 20:48:55 +0400
+Processing by CategoriesController#update as JSON
+  Parameters: {"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3", "locale"=>"en", "category"=>{"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3"}}
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ (pry):5
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:46
+Completed 404 Not Found in 29964ms (ActiveRecord: 7.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category with 'id'=27):
+  
+app/services/category_sub_categories/categories_service.rb:46:in `find_category'
+app/services/category_sub_categories/categories_service.rb:25:in `update_category'
+app/controllers/categories_controller.rb:18:in `update'
+Started PUT "/en/categories" for 127.0.0.1 at 2020-07-25 20:49:54 +0400
+Processing by CategoriesController#update as JSON
+  Parameters: {"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3", "locale"=>"en", "category"=>{"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3"}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.9ms)
+
+
+  
+NoMethodError (undefined method `assign_attributes' for nil:NilClass):
+  
+app/services/category_sub_categories/categories_service.rb:26:in `update_category'
+app/controllers/categories_controller.rb:17:in `update'
+Started PUT "/en/categories" for 127.0.0.1 at 2020-07-25 20:50:13 +0400
+Processing by CategoriesController#update as JSON
+  Parameters: {"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3", "locale"=>"en", "category"=>{"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3"}}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:44
+Completed 404 Not Found in 4ms (ActiveRecord: 4.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category with 'id'=27):
+  
+app/services/category_sub_categories/categories_service.rb:44:in `find_category'
+app/services/category_sub_categories/categories_service.rb:25:in `update_category'
+app/controllers/categories_controller.rb:17:in `update'
+Started PUT "/en/categories" for 127.0.0.1 at 2020-07-25 20:50:16 +0400
+Processing by CategoriesController#update as JSON
+  Parameters: {"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3", "locale"=>"en", "category"=>{"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3"}}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:44
+Completed 404 Not Found in 1ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category with 'id'=27):
+  
+app/services/category_sub_categories/categories_service.rb:44:in `find_category'
+app/services/category_sub_categories/categories_service.rb:25:in `update_category'
+app/controllers/categories_controller.rb:17:in `update'
+Started PUT "/en/categories" for 127.0.0.1 at 2020-07-25 20:51:26 +0400
+Processing by CategoriesController#update as JSON
+  Parameters: {"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3", "locale"=>"en", "category"=>{"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3"}}
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:44
+Completed 404 Not Found in 7ms (ActiveRecord: 4.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category with 'id'=27):
+  
+app/services/category_sub_categories/categories_service.rb:44:in `find_category'
+app/services/category_sub_categories/categories_service.rb:25:in `update_category'
+app/controllers/categories_controller.rb:17:in `update'
+Started PUT "/en/categories" for 127.0.0.1 at 2020-07-25 20:51:46 +0400
+Processing by CategoriesController#update as JSON
+  Parameters: {"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3", "locale"=>"en", "category"=>{"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3"}}
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:46
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:46
+Completed 404 Not Found in 28595ms (ActiveRecord: 7.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category with 'id'=27):
+  
+app/services/category_sub_categories/categories_service.rb:46:in `find_category'
+app/services/category_sub_categories/categories_service.rb:27:in `update_category'
+app/controllers/categories_controller.rb:17:in `update'
+Started PUT "/en/categories" for 127.0.0.1 at 2020-07-25 20:52:17 +0400
+Processing by CategoriesController#update as JSON
+  Parameters: {"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3", "locale"=>"en", "category"=>{"id"=>27, "name"=>{"no"=>"category_no 33", "en"=>"category 3"}, "id_name"=>"category 3"}}
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:46
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:46
+Completed 400 Bad Request in 8010ms (Views: 0.7ms | ActiveRecord: 2.8ms)
+
+
+  [1m[36mSubCategory Load (0.9ms)[0m  [1m[34mSELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" IS NULL[0m
+  [1m[36mSubCategory Load (0.5ms)[0m  [1m[34mSELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" IS NULL[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 21:01:34 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 21:01:34 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 21:01:34 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 21:01:34 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 21:01:35 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 21:01:35 +0400
+Started DELETE "/en/categories?id=4" for 127.0.0.1 at 2020-07-25 21:01:48 +0400
+Processing by CategoriesController#destroy as JSON
+  Parameters: {"id"=>"4", "locale"=>"en"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `permit' for nil:NilClass):
+  
+app/controllers/categories_controller.rb:34:in `category_params'
+app/controllers/categories_controller.rb:22:in `destroy'
+Started DELETE "/en/categories?id=4" for 127.0.0.1 at 2020-07-25 21:02:42 +0400
+Processing by CategoriesController#destroy as JSON
+  Parameters: {"id"=>"4", "locale"=>"en"}
+Completed 500 Internal Server Error in 11166ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `permit' for nil:NilClass):
+  
+app/controllers/categories_controller.rb:35:in `category_params'
+app/controllers/categories_controller.rb:23:in `destroy'
+Started DELETE "/en/categories?id=4" for 127.0.0.1 at 2020-07-25 21:03:32 +0400
+Processing by CategoriesController#destroy as JSON
+  Parameters: {"id"=>"4", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Unpermitted parameters: :format, :locale
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:52
+  [1m[36mSubCategory Load (0.8ms)[0m  [1m[34mSELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = $1 AND "sub_categories"."active" = $2[0m  [["category_id", 4], ["active", true]]
+  ↳ app/services/category_sub_categories/categories_service.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:41
+  [1m[36mCategory Destroy (0.9ms)[0m  [1m[31mDELETE FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 4]]
+  ↳ app/services/category_sub_categories/categories_service.rb:41
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:41
+Completed 200 OK in 6482ms (Views: 0.4ms | ActiveRecord: 20.9ms)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 21:13:47 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 21:13:47 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 21:13:47 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 21:13:47 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 21:13:48 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 21:13:48 +0400
+Started GET "/en/categories/category_list" for 127.0.0.1 at 2020-07-25 21:13:54 +0400
+Processing by CategoriesController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCategory Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."active" = $1 LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:47
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."active" = $1[0m  [["active", true]]
+  ↳ app/services/category_sub_categories/categories_service.rb:14
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/en/categories/category_list" for 127.0.0.1 at 2020-07-25 21:15:11 +0400
+Processing by CategoriesController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCategory Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."active" = $1 LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:51
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."active" = $1[0m  [["active", true]]
+  ↳ app/services/category_sub_categories/categories_service.rb:22
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 6.9ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 21:34:57 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 21:34:57 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 21:34:57 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 21:34:57 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 21:34:58 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 21:34:58 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 21:35:35 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 21:35:35 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 21:35:35 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 21:35:35 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 21:35:36 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 21:35:36 +0400
+Started POST "/en/sub_categories" for 127.0.0.1 at 2020-07-25 21:36:26 +0400
+Processing by SubCategoriesController#create as JSON
+  Parameters: {"category_id"=>1, "name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "locale"=>"en", "sub_category"=>{"name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "category_id"=>1}}
+Completed 500 Internal Server Error in 187ms (ActiveRecord: 4.4ms)
+
+
+  
+NameError (undefined local variable or method `category_params' for #<SubCategoriesController:0x00007f9a18447f50>
+Did you mean?  sub_category_params):
+  
+app/controllers/sub_categories_controller.rb:9:in `create'
+Started POST "/en/sub_categories" for 127.0.0.1 at 2020-07-25 21:37:12 +0400
+Processing by SubCategoriesController#create as JSON
+  Parameters: {"category_id"=>1, "name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "locale"=>"en", "sub_category"=>{"name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "category_id"=>1}}
+Completed 500 Internal Server Error in 168ms (ActiveRecord: 3.6ms)
+
+
+  
+NameError (undefined local variable or method `category_params' for #<SubCategoriesController:0x00007f9a1cb8ad90>
+Did you mean?  sub_category_params):
+  
+app/controllers/sub_categories_controller.rb:9:in `create'
+Started POST "/en/sub_categories" for 127.0.0.1 at 2020-07-25 21:37:18 +0400
+Processing by SubCategoriesController#create as JSON
+  Parameters: {"category_id"=>1, "name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "locale"=>"en", "sub_category"=>{"name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "category_id"=>1}}
+Completed 500 Internal Server Error in 199ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `category_params' for #<SubCategoriesController:0x00007f9a18405768>
+Did you mean?  sub_category_params):
+  
+app/controllers/sub_categories_controller.rb:9:in `create'
+Started POST "/en/sub_categories" for 127.0.0.1 at 2020-07-25 21:37:30 +0400
+Processing by SubCategoriesController#create as JSON
+  Parameters: {"category_id"=>1, "name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "locale"=>"en", "sub_category"=>{"name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "category_id"=>1}}
+Unpermitted parameter: :category_id
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.7ms)
+
+
+  
+NoMethodError (undefined method `create_sub_category' for #<CategorySubCategories::CategoriesService:0x0000560ac686a818>
+Did you mean?  create_category):
+  
+app/controllers/sub_categories_controller.rb:10:in `create'
+Started POST "/en/sub_categories" for 127.0.0.1 at 2020-07-25 21:37:32 +0400
+Processing by SubCategoriesController#create as JSON
+  Parameters: {"category_id"=>1, "name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "locale"=>"en", "sub_category"=>{"name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "category_id"=>1}}
+Unpermitted parameter: :category_id
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `create_sub_category' for #<CategorySubCategories::CategoriesService:0x0000560ac78d2c00>
+Did you mean?  create_category):
+  
+app/controllers/sub_categories_controller.rb:10:in `create'
+Started POST "/en/sub_categories" for 127.0.0.1 at 2020-07-25 21:37:34 +0400
+Processing by SubCategoriesController#create as JSON
+  Parameters: {"category_id"=>1, "name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "locale"=>"en", "sub_category"=>{"name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "category_id"=>1}}
+Unpermitted parameter: :category_id
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `create_sub_category' for #<CategorySubCategories::CategoriesService:0x00007f9a24a57948>
+Did you mean?  create_category):
+  
+app/controllers/sub_categories_controller.rb:10:in `create'
+Started POST "/en/sub_categories" for 127.0.0.1 at 2020-07-25 21:38:07 +0400
+Processing by SubCategoriesController#create as JSON
+  Parameters: {"category_id"=>1, "name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "locale"=>"en", "sub_category"=>{"name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "category_id"=>1}}
+Unpermitted parameter: :category_id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:27
+  [1m[36mCategory Create (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"no\":\"sub category no 1\",\"en\":\"sub category 1\"}"], ["id_name", "sub_category_1"]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:27
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:27
+Completed 201 Created in 16ms (Views: 0.2ms | ActiveRecord: 8.1ms)
+
+
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Destroy (2.1ms)[0m  [1m[31mDELETE FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Started POST "/en/sub_categories" for 127.0.0.1 at 2020-07-25 21:38:57 +0400
+Processing by SubCategoriesController#create as JSON
+  Parameters: {"category_id"=>1, "name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "locale"=>"en", "sub_category"=>{"name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "category_id"=>1}}
+Unpermitted parameter: :category_id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:27
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:27
+Completed 400 Bad Request in 78ms (Views: 0.2ms | ActiveRecord: 4.3ms)
+
+
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started POST "/en/sub_categories" for 127.0.0.1 at 2020-07-25 21:39:41 +0400
+Processing by SubCategoriesController#create as JSON
+  Parameters: {"category_id"=>1, "name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "locale"=>"en", "sub_category"=>{"name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "category_id"=>1}}
+Unpermitted parameter: :category_id
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:28
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:28
+Completed 400 Bad Request in 18939ms (Views: 0.7ms | ActiveRecord: 8.2ms)
+
+
+Started POST "/en/sub_categories" for 127.0.0.1 at 2020-07-25 21:40:36 +0400
+Processing by SubCategoriesController#create as JSON
+  Parameters: {"category_id"=>1, "name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "locale"=>"en", "sub_category"=>{"name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "category_id"=>1}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:28
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:28
+  [1m[36mSubCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "sub_categories" ("name", "id_name", "category_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "{\"no\":\"sub category no 1\",\"en\":\"sub category 1\"}"], ["id_name", "sub_category_1"], ["category_id", 1]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:28
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:28
+Completed 201 Created in 3226ms (Views: 0.3ms | ActiveRecord: 8.6ms)
+
+
+  [1m[36mSubCategory Load (0.7ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" ORDER BY "sub_categories"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 21:43:24 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 21:43:24 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 21:43:24 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 21:43:24 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 21:43:25 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 21:43:25 +0400
+Started PUT "/en/sub_categories" for 127.0.0.1 at 2020-07-25 21:44:14 +0400
+Processing by SubCategoriesController#update as JSON
+  Parameters: {"category_id"=>1, "name"=>{"no"=>"sub category no 11", "en"=>"sub category 11"}, "id_name"=>"sub_category_1", "active"=>true, "locale"=>"en", "sub_category"=>{"name"=>{"no"=>"sub category no 11", "en"=>"sub category 11"}, "id_name"=>"sub_category_1", "active"=>true, "category_id"=>1}}
+  [1m[36mSubCategory Load (0.4ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:58
+Completed 400 Bad Request in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 21:45:08 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 21:45:08 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 21:45:08 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 21:45:08 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 21:45:09 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 21:45:09 +0400
+Started PUT "/en/sub_categories" for 127.0.0.1 at 2020-07-25 21:45:38 +0400
+Processing by SubCategoriesController#update as JSON
+  Parameters: {"id"=>1, "category_id"=>1, "name"=>{"no"=>"sub category no 11", "en"=>"sub category 11"}, "id_name"=>"sub_category_1", "active"=>true, "locale"=>"en", "sub_category"=>{"id"=>1, "name"=>{"no"=>"sub category no 11", "en"=>"sub category 11"}, "id_name"=>"sub_category_1", "active"=>true, "category_id"=>1}}
+  [1m[36mSubCategory Load (0.7ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:59
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:37
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:37
+  [1m[36mSubCategory Update (0.6ms)[0m  [1m[33mUPDATE "sub_categories" SET "name" = $1 WHERE "sub_categories"."id" = $2[0m  [["name", "{\"no\":\"sub category no 11\",\"en\":\"sub category 11\"}"], ["id", 1]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:37
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:37
+Completed 200 OK in 4261ms (Views: 0.2ms | ActiveRecord: 15.1ms)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 21:47:25 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 21:47:25 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 21:47:25 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 21:47:25 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 21:47:26 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 21:47:26 +0400
+Started DELETE "/en/sub_categories?id=1" for 127.0.0.1 at 2020-07-25 21:47:35 +0400
+Processing by SubCategoriesController#destroy as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSubCategory Load (1.0ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:59
+  [1m[36mSubCategory Load (0.5ms)[0m  [1m[34mSELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = $1 AND "sub_categories"."active" = $2[0m  [["category_id", 1], ["active", true]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:65
+Completed 404 Not Found in 5935ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/en/sub_categories?id=1" for 127.0.0.1 at 2020-07-25 21:50:01 +0400
+Processing by SubCategoriesController#destroy as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSubCategory Load (0.8ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:45
+  [1m[36mSubCategory Destroy (0.5ms)[0m  [1m[31mDELETE FROM "sub_categories" WHERE "sub_categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:45
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:45
+Completed 200 OK in 3049ms (Views: 0.2ms | ActiveRecord: 2.1ms)
+
+
+  [1m[36mSubCategory Load (0.7ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" ORDER BY "sub_categories"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/sub_categories" for 127.0.0.1 at 2020-07-25 21:50:56 +0400
+Processing by SubCategoriesController#create as JSON
+  Parameters: {"category_id"=>1, "name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "locale"=>"en", "sub_category"=>{"name"=>{"no"=>"sub category no 1", "en"=>"sub category 1"}, "id_name"=>"sub_category_1", "active"=>true, "category_id"=>1}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:28
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:28
+  [1m[36mSubCategory Create (0.6ms)[0m  [1m[32mINSERT INTO "sub_categories" ("name", "id_name", "category_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "{\"no\":\"sub category no 1\",\"en\":\"sub category 1\"}"], ["id_name", "sub_category_1"], ["category_id", 1]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:28
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:28
+Completed 201 Created in 4442ms (Views: 0.2ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/en/sub_categories" for 127.0.0.1 at 2020-07-25 21:51:13 +0400
+Processing by SubCategoriesController#create as JSON
+  Parameters: {"category_id"=>1, "name"=>{"no"=>"sub category no 2", "en"=>"sub category 2"}, "id_name"=>"sub_category_2", "active"=>true, "locale"=>"en", "sub_category"=>{"name"=>{"no"=>"sub category no 2", "en"=>"sub category 2"}, "id_name"=>"sub_category_2", "active"=>true, "category_id"=>1}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:28
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:28
+  [1m[36mSubCategory Create (0.9ms)[0m  [1m[32mINSERT INTO "sub_categories" ("name", "id_name", "category_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "{\"no\":\"sub category no 2\",\"en\":\"sub category 2\"}"], ["id_name", "sub_category_2"], ["category_id", 1]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:28
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:28
+Completed 201 Created in 2211ms (Views: 0.6ms | ActiveRecord: 2.9ms)
+
+
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-25 21:56:04 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-25 21:56:04 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-25 21:56:04 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-25 21:56:04 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-25 21:56:05 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-25 21:56:05 +0400
+Started GET "/en/sub_categories/sub_category_list?category_id=1" for 127.0.0.1 at 2020-07-25 21:56:14 +0400
+Processing by SubCategoriesController#list as JSON
+  Parameters: {"category_id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSubCategory Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "sub_categories" WHERE "sub_categories"."category_id" = $1 AND "sub_categories"."active" = $2 LIMIT $3[0m  [["category_id", 1], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:51
+  [1m[36mSubCategory Load (0.2ms)[0m  [1m[34mSELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = $1 AND "sub_categories"."active" = $2[0m  [["category_id", 1], ["active", true]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:22
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/en/sub_categories/sub_category_list?category_id=1" for 127.0.0.1 at 2020-07-25 21:56:32 +0400
+Processing by SubCategoriesController#list as JSON
+  Parameters: {"category_id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSubCategory Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "sub_categories" WHERE "sub_categories"."category_id" = $1 AND "sub_categories"."active" = $2 LIMIT $3[0m  [["category_id", 1], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:51
+  [1m[36mSubCategory Load (0.2ms)[0m  [1m[34mSELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = $1 AND "sub_categories"."active" = $2[0m  [["category_id", 1], ["active", true]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:22
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+

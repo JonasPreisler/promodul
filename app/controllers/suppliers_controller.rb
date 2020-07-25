@@ -2,7 +2,7 @@ class SuppliersController < ApplicationController
   require 'controller_response'
   include ControllerResponse
 
-  #Need remove after authorization will works
+  #ToDO: Need remove after authorization will works
   skip_before_action :validate_authentication
 
 
