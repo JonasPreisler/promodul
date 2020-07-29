@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
       resource :sub_categories
       get 'sub_categories/sub_category_list', to: 'sub_categories#list'
+
+      resource :products
     end
   end
 end

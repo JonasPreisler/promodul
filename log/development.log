@@ -14671,3 +14671,405 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-27 23:23:52 +0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-27 23:23:52 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-27 23:23:52 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-27 23:23:52 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-27 23:23:53 +0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProducts (20200727193023)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" json NOT NULL, "full_name" json NOT NULL, "description" character varying NOT NULL, "code" character varying NOT NULL)[0m
+  ↳ db/migrate/20200727193023_create_products.rb:3
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_products_on_code" ON "products"  ("code")[0m
+  ↳ db/migrate/20200727193023_create_products.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200727193023"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProductCharacteristics (20200727193640)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (16.3ms)[0m  [1m[35mCREATE TABLE "product_characteristics" ("id" bigserial primary key, "product_id" bigint NOT NULL, "sub_category_id" bigint NOT NULL, "shape" character varying, "volume" character varying, "packaging" character varying, "manufacturer" character varying, "description" character varying, CONSTRAINT "fk_rails_682445a94f"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+, CONSTRAINT "fk_rails_99eb751a25"
+FOREIGN KEY ("sub_category_id")
+  REFERENCES "sub_categories" ("id")
+)[0m
+  ↳ db/migrate/20200727193640_create_product_characteristics.rb:3
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE  INDEX  "index_product_characteristics_on_product_id" ON "product_characteristics"  ("product_id")[0m
+  ↳ db/migrate/20200727193640_create_product_characteristics.rb:3
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE  INDEX  "index_product_characteristics_on_sub_category_id" ON "product_characteristics"  ("sub_category_id")[0m
+  ↳ db/migrate/20200727193640_create_product_characteristics.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200727193640"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateSupplierProducts (20200727194715)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE TABLE "supplier_products" ("id" bigserial primary key, "supplier_id" bigint NOT NULL, "product_id" bigint NOT NULL, "supplier_code" character varying, "is_active" boolean DEFAULT FALSE, "min_sell_amount" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_8e1c65b71a"
+FOREIGN KEY ("supplier_id")
+  REFERENCES "suppliers" ("id")
+, CONSTRAINT "fk_rails_9a363579c5"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  ↳ db/migrate/20200727194715_create_supplier_products.rb:3
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE  INDEX  "index_supplier_products_on_supplier_id" ON "supplier_products"  ("supplier_id")[0m
+  ↳ db/migrate/20200727194715_create_supplier_products.rb:3
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_supplier_products_on_product_id" ON "supplier_products"  ("product_id")[0m
+  ↳ db/migrate/20200727194715_create_supplier_products.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200727194715"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateSupplierProductPrices (20200727195202)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "supplier_product_prices" ("id" bigserial primary key, "supplier_product_id" bigint NOT NULL, "price" decimal NOT NULL, "currency" character varying, "price_per_unit" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_02de7c65e2"
+FOREIGN KEY ("supplier_product_id")
+  REFERENCES "supplier_products" ("id")
+)[0m
+  ↳ db/migrate/20200727195202_create_supplier_product_prices.rb:3
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_supplier_product_prices_on_supplier_product_id" ON "supplier_product_prices"  ("supplier_product_id")[0m
+  ↳ db/migrate/20200727195202_create_supplier_product_prices.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200727195202"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/eksperter" for ::1 at 2020-07-28 22:41:14 +0400
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/eksperter"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-07-28 22:41:20 +0400
+Processing by HealthController#check_health as HTML
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2020-07-28 22:41:30 +0400
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2020-07-28 22:41:30 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2020-07-28 22:41:30 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2020-07-28 22:41:30 +0400
+Started GET "/api-docs/v1/swagger.json" for ::1 at 2020-07-28 22:41:31 +0400
+Started GET "/api-docs/index.html" for ::1 at 2020-07-28 22:42:48 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2020-07-28 22:42:48 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2020-07-28 22:42:48 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2020-07-28 22:42:48 +0400
+Started GET "/api-docs/v1/swagger.json" for ::1 at 2020-07-28 22:42:49 +0400
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2020-07-28 22:42:49 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-29 21:47:57 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-29 21:47:57 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-29 21:47:57 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-29 21:47:57 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-29 21:47:58 +0400
+  [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductCharacteristic Load (5.2ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" ORDER BY "product_characteristics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-29 22:35:48 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-29 22:35:49 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-29 22:35:49 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-29 22:35:49 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-29 22:35:50 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-29 22:35:50 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-29 23:08:35 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-29 23:08:35 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-29 23:08:35 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-29 23:08:35 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-29 23:08:36 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-29 23:08:36 +0400
+Started POST "/en/products" for 127.0.0.1 at 2020-07-29 23:10:47 +0400
+Processing by ProductsController#create as JSON
+  Parameters: {"name"=>{"en"=>"Test Product"}, "full_name"=>{"en"=>"Test Products full name"}, "description"=>"This is a test product", "code"=>"8989", "product_characteristic_attributes"=>{"sub_category_id"=>1, "shape"=>"hole pachakge", "volume"=>"some volume", "packaging"=>"in box", "manufacturer"=>"Bayer", "description"=>"Some description"}, "locale"=>"en", "product"=>{"name"=>{"en"=>"Test Product"}, "full_name"=>{"en"=>"Test Products full name"}, "description"=>"This is a test product", "code"=>"8989", "product_characteristic_attributes"=>{"sub_category_id"=>1, "shape"=>"hole pachakge", "volume"=>"some volume", "packaging"=>"in box", "manufacturer"=>"Bayer", "description"=>"Some description"}}}
+Unpermitted parameters: :format, :locale, :product
+Unpermitted parameters: :format, :locale, :product
+Completed 204 No Content in 19580ms (Views: 1.6ms | ActiveRecord: 5.0ms)
+
+
+Started POST "/en/products" for 127.0.0.1 at 2020-07-29 23:14:04 +0400
+Processing by ProductsController#create as JSON
+  Parameters: {"name"=>{"en"=>"Test Product"}, "full_name"=>{"en"=>"Test Products full name"}, "description"=>"This is a test product", "code"=>"8989", "product_characteristic_attributes"=>{"sub_category_id"=>1, "shape"=>"hole pachakge", "volume"=>"some volume", "packaging"=>"in box", "manufacturer"=>"Bayer", "description"=>"Some description"}, "locale"=>"en", "product"=>{"name"=>{"en"=>"Test Product"}, "full_name"=>{"en"=>"Test Products full name"}, "description"=>"This is a test product", "code"=>"8989", "product_characteristic_attributes"=>{"sub_category_id"=>1, "shape"=>"hole pachakge", "volume"=>"some volume", "packaging"=>"in box", "manufacturer"=>"Bayer", "description"=>"Some description"}}}
+Unpermitted parameters: :format, :locale, :product
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):8
+  [1m[36mProduct Create (6.0ms)[0m  [1m[32mINSERT INTO "products" ("name", "full_name", "description", "code") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "{\"en\":\"Test Product\"}"], ["full_name", "{\"en\":\"Test Products full name\"}"], ["description", "This is a test product"], ["code", "8989"]]
+  ↳ (pry):8
+  [1m[36mProductCharacteristic Create (10.3ms)[0m  [1m[32mINSERT INTO "product_characteristics" ("product_id", "sub_category_id", "shape", "volume", "packaging", "manufacturer", "description") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 1], ["sub_category_id", 1], ["shape", "hole pachakge"], ["volume", "some volume"], ["packaging", "in box"], ["manufacturer", "Bayer"], ["description", "Some description"]]
+  ↳ (pry):8
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):8
+  [1m[36mSubCategory Load (3.7ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" ORDER BY "sub_categories"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):10
+  [1m[36mSubCategory Load (1.2ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" ORDER BY "sub_categories"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):11
+Completed 500 Internal Server Error in 100365ms (ActiveRecord: 41.2ms)
+
+
+  
+NoMethodError (undefined method `assign_attributes' for #<Class:0x00007f16e4144608>
+Did you mean?  alias_attribute):
+  
+app/services/products/product_create_service.rb:17:in `create_product'
+app/controllers/products_controller.rb:11:in `create'
+Started POST "/en/products" for 127.0.0.1 at 2020-07-29 23:15:56 +0400
+Processing by ProductsController#create as JSON
+  Parameters: {"name"=>{"en"=>"Test Product"}, "full_name"=>{"en"=>"Test Products full name"}, "description"=>"This is a test product", "code"=>"8989", "product_characteristic_attributes"=>{"sub_category_id"=>2, "shape"=>"hole pachakge", "volume"=>"some volume", "packaging"=>"in box", "manufacturer"=>"Bayer", "description"=>"Some description"}, "locale"=>"en", "product"=>{"name"=>{"en"=>"Test Product"}, "full_name"=>{"en"=>"Test Products full name"}, "description"=>"This is a test product", "code"=>"8989", "product_characteristic_attributes"=>{"sub_category_id"=>2, "shape"=>"hole pachakge", "volume"=>"some volume", "packaging"=>"in box", "manufacturer"=>"Bayer", "description"=>"Some description"}}}
+Unpermitted parameters: :format, :locale, :product
+Completed 500 Internal Server Error in 6685ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `assign_attributes' for #<Class:0x00007f16e4144608>
+Did you mean?  alias_attribute):
+  
+app/services/products/product_create_service.rb:17:in `create_product'
+app/controllers/products_controller.rb:11:in `create'
+Started POST "/en/products" for 127.0.0.1 at 2020-07-29 23:16:26 +0400
+Processing by ProductsController#create as JSON
+  Parameters: {"name"=>{"en"=>"Test Product"}, "full_name"=>{"en"=>"Test Products full name"}, "description"=>"This is a test product", "code"=>"8989", "product_characteristic_attributes"=>{"sub_category_id"=>2, "shape"=>"hole pachakge", "volume"=>"some volume", "packaging"=>"in box", "manufacturer"=>"Bayer", "description"=>"Some description"}, "locale"=>"en", "product"=>{"name"=>{"en"=>"Test Product"}, "full_name"=>{"en"=>"Test Products full name"}, "description"=>"This is a test product", "code"=>"8989", "product_characteristic_attributes"=>{"sub_category_id"=>2, "shape"=>"hole pachakge", "volume"=>"some volume", "packaging"=>"in box", "manufacturer"=>"Bayer", "description"=>"Some description"}}}
+Unpermitted parameters: :format, :locale, :product
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_create_service.rb:18
+  [1m[36mProduct Create (0.9ms)[0m  [1m[32mINSERT INTO "products" ("name", "full_name", "description", "code") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "{\"en\":\"Test Product\"}"], ["full_name", "{\"en\":\"Test Products full name\"}"], ["description", "This is a test product"], ["code", "8989"]]
+  ↳ app/services/products/product_create_service.rb:18
+  [1m[36mProductCharacteristic Create (1.6ms)[0m  [1m[32mINSERT INTO "product_characteristics" ("product_id", "sub_category_id", "shape", "volume", "packaging", "manufacturer", "description") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 2], ["sub_category_id", 2], ["shape", "hole pachakge"], ["volume", "some volume"], ["packaging", "in box"], ["manufacturer", "Bayer"], ["description", "Some description"]]
+  ↳ app/services/products/product_create_service.rb:18
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_create_service.rb:18
+Completed 500 Internal Server Error in 75625ms (ActiveRecord: 19.7ms)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass):
+  
+lib/errors_format.rb:22:in `fill_errors'
+app/services/products/product_create_service.rb:19:in `create_product'
+app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductCharacteristic Load (0.5ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 2], ["LIMIT", 1]]
+Started POST "/en/products" for 127.0.0.1 at 2020-07-29 23:28:46 +0400
+Processing by ProductsController#create as JSON
+  Parameters: {"name"=>{"en"=>"Test Product 2"}, "full_name"=>{"en"=>"Test Products full name 2"}, "description"=>"This is a test product 2", "code"=>"8990", "product_characteristic_attributes"=>{"sub_category_id"=>2, "shape"=>"hole pachakge 2", "volume"=>"some volume 2", "packaging"=>"in box 2", "manufacturer"=>"Bayer 2", "description"=>"Some description 2"}, "locale"=>"en", "product"=>{"name"=>{"en"=>"Test Product 2"}, "full_name"=>{"en"=>"Test Products full name 2"}, "description"=>"This is a test product 2", "code"=>"8990", "product_characteristic_attributes"=>{"sub_category_id"=>2, "shape"=>"hole pachakge 2", "volume"=>"some volume 2", "packaging"=>"in box 2", "manufacturer"=>"Bayer 2", "description"=>"Some description 2"}}}
+Unpermitted parameters: :format, :locale, :product
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_create_service.rb:17
+  [1m[36mProduct Create (0.9ms)[0m  [1m[32mINSERT INTO "products" ("name", "full_name", "description", "code") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "{\"en\":\"Test Product 2\"}"], ["full_name", "{\"en\":\"Test Products full name 2\"}"], ["description", "This is a test product 2"], ["code", "8990"]]
+  ↳ app/services/products/product_create_service.rb:17
+  [1m[36mProductCharacteristic Create (0.8ms)[0m  [1m[32mINSERT INTO "product_characteristics" ("product_id", "sub_category_id", "shape", "volume", "packaging", "manufacturer", "description") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 3], ["sub_category_id", 2], ["shape", "hole pachakge 2"], ["volume", "some volume 2"], ["packaging", "in box 2"], ["manufacturer", "Bayer 2"], ["description", "Some description 2"]]
+  ↳ app/services/products/product_create_service.rb:17
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_create_service.rb:17
+Completed 204 No Content in 3787ms (Views: 0.2ms | ActiveRecord: 23.1ms)
+
+
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProductCharacteristic Load (0.6ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 3], ["LIMIT", 1]]
+  [1m[36mProductCharacteristic Destroy (0.7ms)[0m  [1m[31mDELETE FROM "product_characteristics" WHERE "product_characteristics"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProductCharacteristic Load (0.6ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 3], ["LIMIT", 1]]
+  [1m[36mProductCharacteristic Destroy (0.8ms)[0m  [1m[31mDELETE FROM "product_characteristics" WHERE "product_characteristics"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProductCharacteristic Load (0.3ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 3], ["LIMIT", 1]]
+  [1m[36mProductCharacteristic Destroy (0.5ms)[0m  [1m[31mDELETE FROM "product_characteristics" WHERE "product_characteristics"."id" = $1[0m  [["id", 3]]
+  [1m[36mProduct Destroy (4.6ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 3]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/en/products" for 127.0.0.1 at 2020-07-29 23:30:21 +0400
+Processing by ProductsController#create as JSON
+  Parameters: {"name"=>{"en"=>"Test Product 2"}, "full_name"=>{"en"=>"Test Products full name 2"}, "description"=>"This is a test product 2", "code"=>"8990", "product_characteristic_attributes"=>{"sub_category_id"=>2, "shape"=>"hole pachakge 2", "volume"=>"some volume 2", "packaging"=>"in box 2", "manufacturer"=>"Bayer 2", "description"=>"Some description 2"}, "locale"=>"en", "product"=>{"name"=>{"en"=>"Test Product 2"}, "full_name"=>{"en"=>"Test Products full name 2"}, "description"=>"This is a test product 2", "code"=>"8990", "product_characteristic_attributes"=>{"sub_category_id"=>2, "shape"=>"hole pachakge 2", "volume"=>"some volume 2", "packaging"=>"in box 2", "manufacturer"=>"Bayer 2", "description"=>"Some description 2"}}}
+Unpermitted parameters: :format, :locale, :product
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_create_service.rb:20
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "full_name", "description", "code") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "{\"en\":\"Test Product 2\"}"], ["full_name", "{\"en\":\"Test Products full name 2\"}"], ["description", "This is a test product 2"], ["code", "8990"]]
+  ↳ app/services/products/product_create_service.rb:20
+  [1m[36mProductCharacteristic Create (0.8ms)[0m  [1m[32mINSERT INTO "product_characteristics" ("product_id", "sub_category_id", "shape", "volume", "packaging", "manufacturer", "description") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 4], ["sub_category_id", 2], ["shape", "hole pachakge 2"], ["volume", "some volume 2"], ["packaging", "in box 2"], ["manufacturer", "Bayer 2"], ["description", "Some description 2"]]
+  ↳ app/services/products/product_create_service.rb:20
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_create_service.rb:20
+Completed 201 Created in 3785ms (Views: 0.4ms | ActiveRecord: 23.0ms)
+
+
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductCharacteristic Load (1.1ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 4], ["LIMIT", 1]]
+  [1m[36mProductCharacteristic Load (0.4ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" ORDER BY "product_characteristics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProductCharacteristic Load (0.4ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 4], ["LIMIT", 1]]
+  [1m[36mProductCharacteristic Destroy (0.4ms)[0m  [1m[31mDELETE FROM "product_characteristics" WHERE "product_characteristics"."id" = $1[0m  [["id", 4]]
+  [1m[36mProduct Destroy (0.8ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 4]]
+  [1m[35m (36.2ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/en/products" for 127.0.0.1 at 2020-07-29 23:35:08 +0400
+Processing by ProductsController#create as JSON
+  Parameters: {"name"=>{"en"=>"Test Product 2"}, "full_name"=>{"en"=>"Test Products full name 2"}, "description"=>"This is a test product 2", "code"=>"8990", "product_characteristic_attributes"=>{"sub_category_id"=>2, "shape"=>"hole pachakge 2", "volume"=>"some volume 2", "packaging"=>"in box 2", "manufacturer"=>"Bayer 2", "description"=>"Some description 2"}, "locale"=>"en", "product"=>{"name"=>{"en"=>"Test Product 2"}, "full_name"=>{"en"=>"Test Products full name 2"}, "description"=>"This is a test product 2", "code"=>"8990", "product_characteristic_attributes"=>{"sub_category_id"=>2, "shape"=>"hole pachakge 2", "volume"=>"some volume 2", "packaging"=>"in box 2", "manufacturer"=>"Bayer 2", "description"=>"Some description 2"}}}
+Completed 500 Internal Server Error in 4023ms (ActiveRecord: 2.3ms)
+
+
+  
+SyntaxError (/home/buka/always24/app/services/products/product_create_service.rb:18: syntax error, unexpected ':', expecting end
+    service_suppliers: find_service_suppliers.as_js...
+                     ^
+/home/buka/always24/app/services/products/product_create_service.rb:20: syntax error, unexpected ',', expecting end
+...er_id, :name, :official_name]),
+...                              ^):
+  
+app/services/products/product_create_service.rb:18: syntax error, unexpected ':', expecting end
+app/services/products/product_create_service.rb:20: syntax error, unexpected ',', expecting end
+app/controllers/products_controller.rb:10:in `create'
+Started POST "/en/products" for 127.0.0.1 at 2020-07-29 23:35:33 +0400
+Processing by ProductsController#create as JSON
+  Parameters: {"name"=>{"en"=>"Test Product 2"}, "full_name"=>{"en"=>"Test Products full name 2"}, "description"=>"This is a test product 2", "code"=>"8990", "product_characteristic_attributes"=>{"sub_category_id"=>2, "shape"=>"hole pachakge 2", "volume"=>"some volume 2", "packaging"=>"in box 2", "manufacturer"=>"Bayer 2", "description"=>"Some description 2"}, "locale"=>"en", "product"=>{"name"=>{"en"=>"Test Product 2"}, "full_name"=>{"en"=>"Test Products full name 2"}, "description"=>"This is a test product 2", "code"=>"8990", "product_characteristic_attributes"=>{"sub_category_id"=>2, "shape"=>"hole pachakge 2", "volume"=>"some volume 2", "packaging"=>"in box 2", "manufacturer"=>"Bayer 2", "description"=>"Some description 2"}}}
+Unpermitted parameters: :format, :locale, :product
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_create_service.rb:24
+  [1m[36mProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "full_name", "description", "code") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "{\"en\":\"Test Product 2\"}"], ["full_name", "{\"en\":\"Test Products full name 2\"}"], ["description", "This is a test product 2"], ["code", "8990"]]
+  ↳ app/services/products/product_create_service.rb:24
+  [1m[36mProductCharacteristic Create (1.0ms)[0m  [1m[32mINSERT INTO "product_characteristics" ("product_id", "sub_category_id", "shape", "volume", "packaging", "manufacturer", "description") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 5], ["sub_category_id", 2], ["shape", "hole pachakge 2"], ["volume", "some volume 2"], ["packaging", "in box 2"], ["manufacturer", "Bayer 2"], ["description", "Some description 2"]]
+  ↳ app/services/products/product_create_service.rb:24
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_create_service.rb:24
+Completed 201 Created in 3017ms (Views: 1.3ms | ActiveRecord: 22.5ms)
+
+
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProductCharacteristic Load (0.7ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 5], ["LIMIT", 1]]
+  [1m[36mProductCharacteristic Destroy (0.7ms)[0m  [1m[31mDELETE FROM "product_characteristics" WHERE "product_characteristics"."id" = $1[0m  [["id", 5]]
+  [1m[36mProduct Destroy (1.7ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 5]]
+  [1m[35m (36.1ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/en/products" for 127.0.0.1 at 2020-07-29 23:39:43 +0400
+Processing by ProductsController#create as JSON
+  Parameters: {"name"=>{"en"=>"Test Product 2"}, "full_name"=>{"en"=>"Test Products full name 2"}, "description"=>"This is a test product 2", "code"=>"8990", "product_characteristic_attributes"=>{"sub_category_id"=>2, "shape"=>"hole pachakge 2", "volume"=>"some volume 2", "packaging"=>"in box 2", "manufacturer"=>"Bayer 2", "description"=>"Some description 2"}, "locale"=>"en", "product"=>{"name"=>{"en"=>"Test Product 2"}, "full_name"=>{"en"=>"Test Products full name 2"}, "description"=>"This is a test product 2", "code"=>"8990", "product_characteristic_attributes"=>{"sub_category_id"=>2, "shape"=>"hole pachakge 2", "volume"=>"some volume 2", "packaging"=>"in box 2", "manufacturer"=>"Bayer 2", "description"=>"Some description 2"}}}
+Unpermitted parameters: :format, :locale, :product
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_create_service.rb:20
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "full_name", "description", "code") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "{\"en\":\"Test Product 2\"}"], ["full_name", "{\"en\":\"Test Products full name 2\"}"], ["description", "This is a test product 2"], ["code", "8990"]]
+  ↳ app/services/products/product_create_service.rb:20
+  [1m[36mProductCharacteristic Create (0.7ms)[0m  [1m[32mINSERT INTO "product_characteristics" ("product_id", "sub_category_id", "shape", "volume", "packaging", "manufacturer", "description") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 6], ["sub_category_id", 2], ["shape", "hole pachakge 2"], ["volume", "some volume 2"], ["packaging", "in box 2"], ["manufacturer", "Bayer 2"], ["description", "Some description 2"]]
+  ↳ app/services/products/product_create_service.rb:20
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_create_service.rb:20
+Completed 201 Created in 38ms (Views: 0.3ms | ActiveRecord: 12.7ms)
+
+
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProductCharacteristic Load (0.7ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 6], ["LIMIT", 1]]
+  [1m[36mProductCharacteristic Destroy (0.9ms)[0m  [1m[31mDELETE FROM "product_characteristics" WHERE "product_characteristics"."id" = $1[0m  [["id", 6]]
+  [1m[36mProduct Destroy (1.6ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 6]]
+  [1m[35m (36.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-07-29 23:40:14 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-07-29 23:40:14 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-07-29 23:40:14 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-07-29 23:40:14 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-07-29 23:40:15 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-07-29 23:40:15 +0400
+Started POST "/en/products" for 127.0.0.1 at 2020-07-29 23:41:05 +0400
+Processing by ProductsController#create as JSON
+  Parameters: {"name"=>{"en"=>"Test Product 2"}, "full_name"=>{"en"=>"Test Products full name 2"}, "description"=>"This is a test product 2", "code"=>"8990", "product_characteristic_attributes"=>{"sub_category_id"=>2, "shape"=>"hole pachakge 2", "volume"=>"some volume 2", "packaging"=>"in box 2", "manufacturer"=>"Bayer 2", "description"=>"Some description 2"}, "locale"=>"en", "product"=>{"name"=>{"en"=>"Test Product 2"}, "full_name"=>{"en"=>"Test Products full name 2"}, "description"=>"This is a test product 2", "code"=>"8990", "product_characteristic_attributes"=>{"sub_category_id"=>2, "shape"=>"hole pachakge 2", "volume"=>"some volume 2", "packaging"=>"in box 2", "manufacturer"=>"Bayer 2", "description"=>"Some description 2"}}}
+Unpermitted parameters: :format, :locale, :product
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_create_service.rb:20
+  [1m[36mProduct Create (1.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "full_name", "description", "code") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "{\"en\":\"Test Product 2\"}"], ["full_name", "{\"en\":\"Test Products full name 2\"}"], ["description", "This is a test product 2"], ["code", "8990"]]
+  ↳ app/services/products/product_create_service.rb:20
+  [1m[36mProductCharacteristic Create (1.6ms)[0m  [1m[32mINSERT INTO "product_characteristics" ("product_id", "sub_category_id", "shape", "volume", "packaging", "manufacturer", "description") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 7], ["sub_category_id", 2], ["shape", "hole pachakge 2"], ["volume", "some volume 2"], ["packaging", "in box 2"], ["manufacturer", "Bayer 2"], ["description", "Some description 2"]]
+  ↳ app/services/products/product_create_service.rb:20
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_create_service.rb:20
+Completed 201 Created in 16ms (Views: 0.4ms | ActiveRecord: 7.5ms)
+
+
