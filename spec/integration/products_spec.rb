@@ -37,23 +37,6 @@ describe 'Product ', type: :request do
       }
       parameter name: :locale, in: :path, type: :string, required: true, default: "en"
       response '200', 'OK' do
-        {
-            "product": {
-                "id": 5,
-                "name": "Test Product 2",
-                "full_name": "Test Products full name 2",
-                "description": "This is a test product 2",
-                "code": "8990",
-                "product_characteristic": {
-                    "shape": "hole pachakge 2",
-                    "volume": "some volume 2",
-                    "packaging": "in box 2",
-                    "manufacturer": "Bayer 2",
-                    "description": "Some description 2"
-                }
-            }
-        }
-
         schema type: :object,
                properties: {
                    product: {
@@ -129,58 +112,77 @@ describe 'Product ', type: :request do
   #
   #end
 
-  #path '/{locale}/supplier/{id}' do
-  #  put 'Update Supplier' do
-  #    tags 'Supplier'
-  #    consumes 'application/json'
-  #    produces 'application/json'
-  #
-  #    parameter({
-  #                  in: :header,
-  #                  type: :string,
-  #                  name: :Authorization,
-  #                  required: true,
-  #                  description: 'JWT token'
-  #              })
-  #
-  #    parameter name: :locale, in: :path, type: :string, required: true, default: "en"
-  #    parameter name: :id,     in: :path, type: :integer, required: true, default: 0
-  #    parameter name: :params, in: :body, schema: {
-  #        type: :object,
-  #        properties: {
-  #            name: {type: :string},
-  #            phone_number: {type: :string},
-  #            integration_system_id: {type: :integer},
-  #            business_type_id: {type: :integer},
-  #            identification_code: {type: :string}
-  #        }
-  #    }
-  #    response '201', 'Created' do
-  #      schema type: :object,
-  #             properties: {
-  #                 business_types: {
-  #                     type: :object,
-  #                     properties: {
-  #                         id: {type: :integer},
-  #                         name: {type: :string},
-  #                         registration_date: {type: :string},
-  #                         identification_code: {type: :string},
-  #                         phone_number: {type: :string}
-  #                     }}
-  #             }
-  #
-  #      run_test!
-  #    end
-  #
-  #    response '400', 'Bad Request' do
-  #      {}
-  #
-  #      run_test!
-  #    end
-  #
-  #  end
-  #end
-  #
+  path '/{locale}/products' do
+    put 'Update Product' do
+      tags 'Product'
+      consumes 'application/json'
+      produces 'application/json'
+
+      parameter({
+                    in: :header,
+                    type: :string,
+                    name: :Authorization,
+                    required: true,
+                    description: 'JWT token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      parameter name: :params, in: :body, schema: {
+          type: :object,
+          properties: {
+              id: {type: :integer},
+              name: { type: :object },
+              full_name: {  type: :object },
+              description: {  type: :string },
+              code: { type: :string },
+              product_characteristic_attributes: {
+                  type: :object,
+                  properties: {
+                      id: { type: :integer},
+                      sub_category_id: { type: :integer },
+                      shape: { type: :string  },
+                      volume: { type: :string },
+                      packaging: {  type: :string },
+                      manufacturer: { type: :string },
+                      description: {  type: :string}
+                  }
+              }
+          }
+      }
+      response '201', 'Created' do
+        schema type: :object,
+               properties: {
+                   product: {
+                       type: :object,
+                       properties: {
+                           name: {type: :string},
+                           full_name: {type: :string},
+                           description: {type: :string},
+                           code: {type: :string},
+                           product_characteristic: {
+                               type: :object,
+                               properties: {
+                                   shape:         { type: :string },
+                                   volume:        { type: :string },
+                                   packaging:     { type: :string },
+                                   manufacturer:  { type: :string },
+                                   description:   { type: :string }
+                               }
+                           }
+                       }}
+               }
+        run_test!
+      end
+
+      response '400', 'Bad Request' do
+        {}
+
+        run_test!
+      end
+
+    end
+  end
+
   #path '/{locale}/supplier/{id}' do
   #  delete 'Delete Supplier' do
   #    tags 'Supplier'

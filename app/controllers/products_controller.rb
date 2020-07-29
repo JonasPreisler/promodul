@@ -6,15 +6,21 @@ class ProductsController < ApplicationController
   skip_before_action :validate_authentication
 
   def create
-    service = Products::ProductCreateService.new(create_params)
+    service = Products::ProductCreateService.new(product_params)
     service.create_product
+    rest_respond_service service
+  end
+
+  def update
+    service = Products::ProductUpdateService.new(product_params)
+    service.update_product
     rest_respond_service service
   end
 
 
   private
 
-  def create_params
-    params.permit(:description, :code, name: {}, full_name: {}, product_characteristic_attributes: {} )
+  def product_params
+    params.permit(:id, :description, :code, name: {}, full_name: {}, product_characteristic_attributes: {} )
   end
 end
