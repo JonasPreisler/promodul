@@ -33,6 +33,7 @@ Rails.application.routes.draw do
       get 'sub_categories/sub_category_list', to: 'sub_categories#list'
 
       resource :products
+      get 'products/list', to: 'products#list'
     end
   end
 end

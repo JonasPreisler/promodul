@@ -17,6 +17,18 @@ class ProductsController < ApplicationController
     rest_respond_service service
   end
 
+  def destroy
+    service = Products::ProductDestroyService.new(product_params)
+    service.destroy_product
+    rest_respond_service service
+  end
+
+  def list
+    service = Products::ProductListService.new(product_params)
+    service.list
+    rest_respond_service service
+  end
+
 
   private
 
