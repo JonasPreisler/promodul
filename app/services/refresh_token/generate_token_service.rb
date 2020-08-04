@@ -1,4 +1,3 @@
-# DHP-50loginlogin
 module RefreshToken
   class GenerateTokenService
     def call

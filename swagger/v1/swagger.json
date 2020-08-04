@@ -194,17 +194,22 @@
             "schema": {
               "type": "object",
               "properties": {
-                "first_name": {
+                "name": {
                   "type": "string"
                 },
-                "last_name": {
+                "delivery_address": {
                   "type": "string"
                 },
-                "birth_date": {
-                  "type": "string",
-                  "format": "date"
+                "invoice_address": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
                 },
                 "phone_number": {
+                  "type": "string"
+                },
+                "phone_number_iso": {
                   "type": "string"
                 },
                 "email": {
@@ -215,16 +220,28 @@
                 },
                 "password_confirmation": {
                   "type": "string"
+                },
+                "agreed_terms_and_conditions": {
+                  "type": "boolean"
+                },
+                "terms_and_conditions_id": {
+                  "type": "integer"
+                },
+                "customer_type": {
+                  "type": "string"
                 }
               },
               "required": [
-                "first_name",
-                "last_name",
-                "birth_date",
+                "customer_type",
+                "name",
+                "delivery_address",
+                "invoice_address",
                 "phone_number",
                 "username",
                 "password",
-                "password_confirmation"
+                "password_confirmation",
+                "agreed_terms_and_conditions",
+                "terms_and_conditions_id"
               ]
             }
           },
@@ -242,8 +259,242 @@
             "schema": {
               "type": "object",
               "properties": {
-                "success": {
-                  "type": "boolean"
+                "confirmation_token": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "integer"
+                      },
+                      "field": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Confirm registration",
+        "tags": [
+          "Registration"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "params",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "sms_code": {
+                  "type": "string"
+                },
+                "token": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "sms_code",
+                "token"
+              ]
+            }
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/{locale}/account/registration/sms_code": {
+      "post": {
+        "summary": "Get new sms code",
+        "tags": [
+          "Registration"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "ka"
+          },
+          {
+            "name": "params",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "token"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/{locale}/account/registration/customer_types": {
+      "get": {
+        "summary": "customer types",
+        "tags": [
+          "Registration"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "customer_types": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "id_name": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/{locale}/account/registration/create_customer": {
+      "post": {
+        "summary": "Customer registration",
+        "tags": [
+          "Registration"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "params",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "delivery_address": {
+                  "type": "string"
+                },
+                "invoice_address": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "user_account_id": {
+                  "type": "integer"
+                },
+                "customer_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "customer_type",
+                "delivery_address",
+                "invoice_address",
+                "user_account_id"
+              ]
+            }
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "confirmation_token": {
+                  "type": "string"
                 }
               }
             }

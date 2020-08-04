@@ -1,4 +1,3 @@
-# DHP-50
 module Jwt
   class Token
     attr_accessor :secret_key, :algorithm, :options

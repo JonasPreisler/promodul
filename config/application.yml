@@ -8,6 +8,13 @@ production:
   DATABASE_URL: 'database url'
 
 development:
+  #Twilio
+  TWILIO_NUMBER: '+4592454100'
+
+  TWILIO_ACCOUNT_SID: AC373cc9a44dc3a023a22e8aff3793a5f9
+  TWILIO_AUTH_TOKEN: '85e4c0ecd26352e930fd9477cd78d20b'
+  TWILIO_SERVICE_SID: 'VAc1be31fdad1eb2fa614088ecfdd95296'
+  TWIML_APPLICATION_SID: 'APfc15bdf485fefacb91a09689add5eb8c'
 
   #REDIS
   REDIS_URL: 'localhost'

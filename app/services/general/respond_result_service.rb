@@ -1,4 +1,3 @@
-# DHP-50
 module General
   class RespondResultService
     def call(response_data = {})

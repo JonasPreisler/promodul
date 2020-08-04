@@ -1,1 +1,0 @@
-vabaco_dhp_authentication: bundle exec puma -C ~/vabaco_dhp_authentication/shared/config/puma.rb
