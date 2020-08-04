@@ -6,9 +6,8 @@ module Account
 
     attr_reader :token , :errors
 
-    def initialize(registration_params = {}, user_id = {})
+    def initialize(registration_params = {}, user_id = nil )
       @registration_params = registration_params
-      @user ||= UserAccount.find(user_id)
       @errors = []
     end
 
@@ -31,7 +30,6 @@ module Account
       return if @errors.any?
 
       ActiveRecord::Base.transaction do
-        binding.pry
         register_user!
         create_customer!
         create_terms_and_conditions
@@ -96,7 +94,6 @@ module Account
     end
 
     def register_user!
-      binding.pry
       @user = UserAccount.new(@registration_params.slice(:phone_number, :phone_number_iso, :email, :password, :username))
       @user.save
       @errors.concat(fill_errors(@user))
@@ -106,7 +103,6 @@ module Account
 
     def create_customer!
       return if @errors.any?
-      binding.pry
       @customer = Customer.create!(customer_object)
       @errors.concat(fill_errors(@customer))
     end

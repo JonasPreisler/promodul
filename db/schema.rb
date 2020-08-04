@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_215402) do
+ActiveRecord::Schema.define(version: 2020_07_27_195202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "business_types", force: :cascade do |t|
+    t.json "name", null: false
+    t.string "id_name", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.json "name", null: false
+    t.string "id_name", limit: 50
+    t.boolean "active", default: true, null: false
+  end
 
   create_table "confirmation_codes", force: :cascade do |t|
     t.string "confirmation_token"
@@ -38,6 +49,12 @@ ActiveRecord::Schema.define(version: 2020_07_07_215402) do
     t.integer "length_limit", default: 9, null: false
   end
 
+  create_table "coupon_codes", force: :cascade do |t|
+    t.integer "coupon_promotion_id"
+    t.string "code"
+    t.index ["coupon_promotion_id", "code"], name: "index_coupon_codes_on_coupon_promotion_id_and_code", unique: true
+  end
+
   create_table "customer_types", force: :cascade do |t|
     t.string "name"
     t.string "id_name"
@@ -55,9 +72,74 @@ ActiveRecord::Schema.define(version: 2020_07_07_215402) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "integration_systems", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "locking_types", force: :cascade do |t|
     t.json "name", null: false
     t.string "id_name", limit: 50
+  end
+
+  create_table "product_characteristics", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "sub_category_id", null: false
+    t.string "shape"
+    t.string "volume"
+    t.string "packaging"
+    t.string "manufacturer"
+    t.string "description"
+    t.index ["product_id"], name: "index_product_characteristics_on_product_id"
+    t.index ["sub_category_id"], name: "index_product_characteristics_on_sub_category_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.json "name", null: false
+    t.json "full_name", null: false
+    t.string "description", null: false
+    t.string "code", null: false
+    t.index ["code"], name: "index_products_on_code", unique: true
+  end
+
+  create_table "sub_categories", force: :cascade do |t|
+    t.json "name", null: false
+    t.string "id_name", limit: 50
+    t.boolean "active", default: true, null: false
+    t.integer "category_id", null: false
+  end
+
+  create_table "supplier_product_prices", force: :cascade do |t|
+    t.bigint "supplier_product_id", null: false
+    t.decimal "price", null: false
+    t.string "currency"
+    t.decimal "price_per_unit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["supplier_product_id"], name: "index_supplier_product_prices_on_supplier_product_id"
+  end
+
+  create_table "supplier_products", force: :cascade do |t|
+    t.bigint "supplier_id", null: false
+    t.bigint "product_id", null: false
+    t.string "supplier_code"
+    t.boolean "is_active", default: false
+    t.integer "min_sell_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_supplier_products_on_product_id"
+    t.index ["supplier_id"], name: "index_supplier_products_on_supplier_id"
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.datetime "registration_date"
+    t.boolean "active"
+    t.bigint "integration_system_id", null: false
+    t.bigint "business_type_id", null: false
+    t.string "name", null: false
+    t.string "identification_code", null: false
+    t.string "phone_number"
+    t.index ["business_type_id"], name: "index_suppliers_on_business_type_id"
+    t.index ["integration_system_id"], name: "index_suppliers_on_integration_system_id"
   end
 
   create_table "terms_and_condition_agreements", force: :cascade do |t|
@@ -93,6 +175,14 @@ ActiveRecord::Schema.define(version: 2020_07_07_215402) do
   add_foreign_key "confirmation_codes", "confirmation_types"
   add_foreign_key "confirmation_codes", "user_accounts"
   add_foreign_key "customers", "customer_types"
+  add_foreign_key "product_characteristics", "products"
+  add_foreign_key "product_characteristics", "sub_categories"
+  add_foreign_key "sub_categories", "categories"
+  add_foreign_key "supplier_product_prices", "supplier_products"
+  add_foreign_key "supplier_products", "products"
+  add_foreign_key "supplier_products", "suppliers"
+  add_foreign_key "suppliers", "business_types"
+  add_foreign_key "suppliers", "integration_systems"
   add_foreign_key "terms_and_condition_agreements", "terms_and_conditions"
   add_foreign_key "terms_and_condition_agreements", "user_accounts"
 end

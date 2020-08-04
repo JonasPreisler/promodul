@@ -24,6 +24,7 @@ en:
       sms_code: 'Entered SMS code is incorrect. Please check the received code'
       registration_retry_count: 'New code generating limit is reached'
       registration_invalid_time: 'Registration time has run out. Please try again.'
+      data_not_found: 'Data not exists'
 
       validation:
         valid_password_format?: "Password should contain at least 8 characters, uppercase and lowercase letters, numbers and special characters (e.g. @, #, $, %, & etc.)"
@@ -49,3 +50,4 @@ en:
         phone_number_iso: "Phone number iso code is not valid"
         business_customer: "Only Business with multi permissions can create more than one company"
         user_not_found: "User with that ID does not exists"
+        category_validation: "Can not delete category, Because it has Sub categories"
