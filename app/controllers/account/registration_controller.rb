@@ -40,9 +40,9 @@ module Account
 
     #Get Customer types for registration
     def customer_types
-      registration = Account::RegistrationService.new
-      registration.customer_types
-      rest_respond_service registration
+      service = Account::RegistrationService.new
+      service.customer_types
+      rest_respond_service service
     end
 
     #Create Only Customer on existing UserAccount

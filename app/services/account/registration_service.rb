@@ -6,9 +6,8 @@ module Account
 
     attr_reader :token , :errors
 
-    def initialize(registration_params = {}, user_id = {})
+    def initialize(registration_params = {}, user_id = nil )
       @registration_params = registration_params
-      @user ||= UserAccount.find(user_id)
       @errors = []
     end
 
