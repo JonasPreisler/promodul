@@ -51408,3 +51408,13 @@ Unpermitted parameters: :format, :locale, :registration
 Completed 200 OK in 14989ms (Views: 0.3ms | ActiveRecord: 76.8ms)
 
 
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-08-05 04:07:55 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-08-05 04:07:56 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-08-05 04:07:56 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-08-05 04:07:56 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-08-05 04:07:57 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-08-05 04:07:57 +0400
+  [1m[36mCustomerType Load (1.1ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" ORDER BY "customer_types"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCustomerType Load (0.8ms)[0m  [1m[34mSELECT "customer_types".* FROM "customer_types"[0m
