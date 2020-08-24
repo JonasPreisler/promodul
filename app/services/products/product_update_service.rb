@@ -12,7 +12,13 @@ module Products
     end
 
     def update_json_view
-      { product: @product.as_json(include: { product_characteristic: { only: [:shape, :volume, :packaging, :manufacturer, :description]}}) }
+      { product: @product.as_json(include: {
+          product_characteristic: {
+              only: [:shape, :volume, :packaging, :manufacturer, :description,
+                     :external_code, :sales_start, :sales_end, :EAN_code, :weight,
+                     :width, :height, :depth]
+          }
+      }) }
     end
 
     def update_product

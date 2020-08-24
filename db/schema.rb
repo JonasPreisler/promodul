@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_27_195202) do
+ActiveRecord::Schema.define(version: 2020_08_24_195719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,8 +89,30 @@ ActiveRecord::Schema.define(version: 2020_07_27_195202) do
     t.string "packaging"
     t.string "manufacturer"
     t.string "description"
+    t.string "external_code", limit: 50
+    t.datetime "sales_start"
+    t.datetime "sales_end"
+    t.string "EAN_code", limit: 50
+    t.decimal "weight"
+    t.decimal "width"
+    t.decimal "height"
+    t.decimal "depth"
+    t.integer "product_type_id"
+    t.integer "product_vat_type_id"
     t.index ["product_id"], name: "index_product_characteristics_on_product_id"
+    t.index ["product_type_id"], name: "index_product_characteristics_on_product_type_id"
+    t.index ["product_vat_type_id"], name: "index_product_characteristics_on_product_vat_type_id"
     t.index ["sub_category_id"], name: "index_product_characteristics_on_sub_category_id"
+  end
+
+  create_table "product_types", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "id_name", null: false
+  end
+
+  create_table "product_vat_types", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "id_name", null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -98,6 +120,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_195202) do
     t.json "full_name", null: false
     t.string "description", null: false
     t.string "code", null: false
+    t.string "instruction", limit: 500
     t.index ["code"], name: "index_products_on_code", unique: true
   end
 
