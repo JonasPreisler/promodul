@@ -29,6 +29,17 @@ class ProductsController < ApplicationController
     rest_respond_service service
   end
 
+  def product_type
+    service = Products::ProductListService.new(product_params)
+    service.product_types
+    rest_respond_service service
+  end
+
+  def product_vat_type
+    service = Products::ProductListService.new(product_params)
+    service.product_vat_types
+    rest_respond_service service
+  end
 
   private
 

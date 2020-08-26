@@ -51637,3 +51637,347 @@ Migrating to AddVatToProductCharacteristics (20200824195719)
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
   [1m[36mProductVatType Load (1.1ms)[0m  [1m[34mSELECT "product_vat_types".* FROM "product_vat_types"[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductVatType Load (1.2ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" ORDER BY "product_vat_types"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductType Load (0.8ms)[0m  [1m[34mSELECT "product_types".* FROM "product_types"[0m
+  [1m[36mProductType Load (0.3ms)[0m  [1m[34mSELECT "product_types".* FROM "product_types"[0m
+  [1m[36mProductVatType Load (1.0ms)[0m  [1m[34mSELECT "product_vat_types".* FROM "product_vat_types"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-08-26 17:14:13 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-08-26 17:14:13 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-08-26 17:14:13 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-08-26 17:14:13 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-08-26 17:14:14 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-08-26 17:14:14 +0400
+Started GET "/en/products/product_type" for 127.0.0.1 at 2020-08-26 17:14:23 +0400
+Processing by ProductsController#product_type as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProductType Load (0.4ms)[0m  [1m[34mSELECT "product_types".* FROM "product_types"[0m
+  ↳ app/services/products/product_list_service.rb:25
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/en/products/product_vat_type" for 127.0.0.1 at 2020-08-26 17:14:38 +0400
+Processing by ProductsController#product_vat_type as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProductVatType Load (0.5ms)[0m  [1m[34mSELECT "product_vat_types".* FROM "product_vat_types"[0m
+  ↳ app/services/products/product_list_service.rb:29
+Completed 200 OK in 21ms (Views: 0.2ms | ActiveRecord: 4.7ms)
+
+
+  [1m[36mProduct Load (2.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductCharacteristic Load (1.4ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" ORDER BY "product_characteristics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductCharacteristic Load (1.3ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" ORDER BY "product_characteristics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-08-26 20:50:35 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-08-26 20:50:35 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-08-26 20:50:35 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-08-26 20:50:35 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-08-26 20:50:35 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-08-26 20:50:35 +0400
+Started GET "/en/sub_categories/sub_category_list?category_id=1" for 127.0.0.1 at 2020-08-26 21:03:35 +0400
+Processing by SubCategoriesController#list as JSON
+  Parameters: {"category_id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSubCategory Exists (37.6ms)[0m  [1m[34mSELECT  1 AS one FROM "sub_categories" WHERE "sub_categories"."category_id" = $1 AND "sub_categories"."active" = $2 LIMIT $3[0m  [["category_id", 1], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:50
+  [1m[36mSubCategory Load (1.7ms)[0m  [1m[34mSELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = $1 AND "sub_categories"."active" = $2[0m  [["category_id", 1], ["active", true]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:22
+Completed 200 OK in 143ms (Views: 0.8ms | ActiveRecord: 56.1ms)
+
+
+Started GET "/en/products/product_type" for 127.0.0.1 at 2020-08-26 21:03:56 +0400
+Processing by ProductsController#product_type as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProductType Load (0.4ms)[0m  [1m[34mSELECT "product_types".* FROM "product_types"[0m
+  ↳ app/services/products/product_list_service.rb:25
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/en/products" for 127.0.0.1 at 2020-08-26 21:07:54 +0400
+Processing by ProductsController#create as JSON
+  Parameters: {"name"=>{"en"=>"Expansion card 1 loop, Magnum 10"}, "full_name"=>{"en"=>"Expansion card 1 loop, Magnum 10"}, "description"=>"MAGNUM 10 LC", "code"=>"21136", "instruction"=>"CodeHandle door handle with PIN code", "product_characteristic_attributes"=>{"sub_category_id"=>2, "product_type_id"=>1, "product_vat_type_id"=>2, "shape"=>"big", "volume"=>"70", "packaging"=>"In the big box", "manufacturer"=>"Omedia", "description"=>"This is goo thing", "external_code"=>"MAGNUM 10 LC", "sales_start"=>"01/09/2020", "sales_end"=>"30/09/2020", "EAN_code"=>"07896653963", "weight"=>30, "height"=>22, "width"=>25, "depth"=>5}, "locale"=>"en", "product"=>{"name"=>{"en"=>"Expansion card 1 loop, Magnum 10"}, "full_name"=>{"en"=>"Expansion card 1 loop, Magnum 10"}, "description"=>"MAGNUM 10 LC", "code"=>"21136", "instruction"=>"CodeHandle door handle with PIN code", "product_characteristic_attributes"=>{"sub_category_id"=>2, "product_type_id"=>1, "product_vat_type_id"=>2, "shape"=>"big", "volume"=>"70", "packaging"=>"In the big box", "manufacturer"=>"Omedia", "description"=>"This is goo thing", "external_code"=>"MAGNUM 10 LC", "sales_start"=>"01/09/2020", "sales_end"=>"30/09/2020", "EAN_code"=>"07896653963", "weight"=>30, "height"=>22, "width"=>25, "depth"=>5}}}
+Unpermitted parameters: :format, :locale, :product
+Unpermitted parameters: :format, :locale, :product
+  [1m[36mProductType Load (0.6ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (pry):2
+  [1m[36mCACHE ProductType Load (0.0ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:45
+  [1m[36mProductVatType Load (1.2ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:52
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_create_service.rb:66
+  [1m[36mProduct Create (2.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "full_name", "description", "code", "instruction") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "{\"en\":\"Expansion card 1 loop, Magnum 10\"}"], ["full_name", "{\"en\":\"Expansion card 1 loop, Magnum 10\"}"], ["description", "MAGNUM 10 LC"], ["code", "21136"], ["instruction", "CodeHandle door handle with PIN code"]]
+  ↳ app/services/products/product_create_service.rb:66
+  [1m[36mProductCharacteristic Create (2.6ms)[0m  [1m[32mINSERT INTO "product_characteristics" ("product_id", "sub_category_id", "shape", "volume", "packaging", "manufacturer", "description", "external_code", "sales_start", "sales_end", "EAN_code", "weight", "width", "height", "depth", "product_type_id", "product_vat_type_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["product_id", 8], ["sub_category_id", 2], ["shape", "big"], ["volume", "70"], ["packaging", "In the big box"], ["manufacturer", "Omedia"], ["description", "This is goo thing"], ["external_code", "MAGNUM 10 LC"], ["sales_start", "2020-09-01 00:00:00"], ["sales_end", "2020-09-30 00:00:00"], ["EAN_code", "07896653963"], ["weight", "30.0"], ["width", "25.0"], ["height", "22.0"], ["depth", "5.0"], ["product_type_id", 1], ["product_vat_type_id", 2]]
+  ↳ app/services/products/product_create_service.rb:66
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_create_service.rb:66
+  [1m[36mSubCategory Load (0.3ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:27
+  [1m[36mProductType Load (0.3ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:27
+Completed 500 Internal Server Error in 67773ms (ActiveRecord: 43.4ms)
+
+
+  
+NoMethodError (undefined method `product_vat_type' for #<ProductCharacteristic:0x000055ec33ac3738>
+Did you mean?  product_vat_type_id
+               product_vat_type_id?
+               product_vat_type_id=
+               product_type):
+  
+app/services/products/product_create_service.rb:27:in `json_view'
+lib/controller_response.rb:30:in `respond_json_view'
+lib/controller_response.rb:43:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/products_controller.rb:12:in `create'
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProductCharacteristic Load (0.3ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 8], ["LIMIT", 1]]
+  [1m[36mProductCharacteristic Destroy (0.3ms)[0m  [1m[31mDELETE FROM "product_characteristics" WHERE "product_characteristics"."id" = $1[0m  [["id", 13]]
+  [1m[36mProduct Destroy (4.3ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/products" for 127.0.0.1 at 2020-08-26 21:13:07 +0400
+Processing by ProductsController#create as JSON
+  Parameters: {"name"=>{"en"=>"Expansion card 1 loop, Magnum 10"}, "full_name"=>{"en"=>"Expansion card 1 loop, Magnum 10"}, "description"=>"MAGNUM 10 LC", "code"=>"21136", "instruction"=>"CodeHandle door handle with PIN code", "product_characteristic_attributes"=>{"sub_category_id"=>2, "product_type_id"=>1, "product_vat_type_id"=>2, "shape"=>"big", "volume"=>"70", "packaging"=>"In the big box", "manufacturer"=>"Omedia", "description"=>"This is goo thing", "external_code"=>"MAGNUM 10 LC", "sales_start"=>"01/09/2020", "sales_end"=>"30/09/2020", "EAN_code"=>"07896653963", "weight"=>30, "height"=>22, "width"=>25, "depth"=>5}, "locale"=>"en", "product"=>{"name"=>{"en"=>"Expansion card 1 loop, Magnum 10"}, "full_name"=>{"en"=>"Expansion card 1 loop, Magnum 10"}, "description"=>"MAGNUM 10 LC", "code"=>"21136", "instruction"=>"CodeHandle door handle with PIN code", "product_characteristic_attributes"=>{"sub_category_id"=>2, "product_type_id"=>1, "product_vat_type_id"=>2, "shape"=>"big", "volume"=>"70", "packaging"=>"In the big box", "manufacturer"=>"Omedia", "description"=>"This is goo thing", "external_code"=>"MAGNUM 10 LC", "sales_start"=>"01/09/2020", "sales_end"=>"30/09/2020", "EAN_code"=>"07896653963", "weight"=>30, "height"=>22, "width"=>25, "depth"=>5}}}
+Unpermitted parameters: :format, :locale, :product
+  [1m[36mProductType Load (0.7ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:45
+  [1m[36mProductVatType Load (1.0ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:52
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_create_service.rb:66
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "full_name", "description", "code", "instruction") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "{\"en\":\"Expansion card 1 loop, Magnum 10\"}"], ["full_name", "{\"en\":\"Expansion card 1 loop, Magnum 10\"}"], ["description", "MAGNUM 10 LC"], ["code", "21136"], ["instruction", "CodeHandle door handle with PIN code"]]
+  ↳ app/services/products/product_create_service.rb:66
+  [1m[36mProductCharacteristic Create (0.5ms)[0m  [1m[32mINSERT INTO "product_characteristics" ("product_id", "sub_category_id", "shape", "volume", "packaging", "manufacturer", "description", "external_code", "sales_start", "sales_end", "EAN_code", "weight", "width", "height", "depth", "product_type_id", "product_vat_type_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["product_id", 9], ["sub_category_id", 2], ["shape", "big"], ["volume", "70"], ["packaging", "In the big box"], ["manufacturer", "Omedia"], ["description", "This is goo thing"], ["external_code", "MAGNUM 10 LC"], ["sales_start", "2020-09-01 00:00:00"], ["sales_end", "2020-09-30 00:00:00"], ["EAN_code", "07896653963"], ["weight", "30.0"], ["width", "25.0"], ["height", "22.0"], ["depth", "5.0"], ["product_type_id", 1], ["product_vat_type_id", 2]]
+  ↳ app/services/products/product_create_service.rb:66
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_create_service.rb:66
+  [1m[36mSubCategory Load (0.2ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:27
+  [1m[36mProductType Load (0.4ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:27
+  [1m[36mProductVatType Load (0.3ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:27
+Completed 201 Created in 6710ms (Views: 23.7ms | ActiveRecord: 40.5ms)
+
+
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/en/products/list" for 127.0.0.1 at 2020-08-26 22:19:46 +0400
+Processing by ProductsController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/services/products/product_list_service.rb:15
+  [1m[36mProductCharacteristic Load (0.5ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:15
+  [1m[36mProductCharacteristic Load (0.4ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 9], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:15
+Completed 200 OK in 50ms (Views: 1.4ms | ActiveRecord: 12.4ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-08-26 22:25:39 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-08-26 22:25:39 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-08-26 22:25:39 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-08-26 22:25:39 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-08-26 22:25:40 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-08-26 22:25:40 +0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-08-26 22:32:07 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-08-26 22:32:07 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-08-26 22:32:07 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-08-26 22:32:07 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-08-26 22:32:08 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-08-26 22:32:08 +0400
+Started GET "/en/products/list" for 127.0.0.1 at 2020-08-26 22:33:16 +0400
+Processing by ProductsController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/services/products/product_list_service.rb:15
+  [1m[36mProductCharacteristic Load (1.3ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:15
+  [1m[36mProductCharacteristic Load (0.2ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 9], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:15
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/en/products/list" for 127.0.0.1 at 2020-08-26 22:36:28 +0400
+Processing by ProductsController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/services/products/product_list_service.rb:16
+  [1m[36mProductCharacteristic Load (0.6ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:16
+  [1m[36mSubCategory Load (0.4ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:16
+  [1m[36mProductCharacteristic Load (0.3ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 9], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:16
+  [1m[36mCACHE SubCategory Load (0.0ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:16
+  [1m[36mProductType Load (0.4ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:16
+  [1m[36mProductVatType Load (0.3ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:16
+Completed 200 OK in 70ms (Views: 0.4ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/en/products/list" for 127.0.0.1 at 2020-08-26 22:44:59 +0400
+Processing by ProductsController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/buka/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/buka/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms)
+
+
+  
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/buka/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+NameError (undefined local variable or method `product_characteristics_schema' for #<Products::ProductListService:0x000055ec32b98768>):
+  
+app/services/products/product_list_service.rb:16:in `list_json_view'
+lib/controller_response.rb:22:in `respond_action_json_view'
+lib/controller_response.rb:41:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/products_controller.rb:29:in `list'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/buka/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+Started GET "/en/products/list" for 127.0.0.1 at 2020-08-26 22:46:30 +0400
+Processing by ProductsController#list as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant Products::ProductListService::ProductHelper):
+  
+app/services/products/product_list_service.rb:5:in `<class:ProductListService>'
+app/services/products/product_list_service.rb:2:in `<module:Products>'
+app/services/products/product_list_service.rb:1:in `<main>'
+app/controllers/products_controller.rb:27:in `list'
+Started GET "/en/products/list" for 127.0.0.1 at 2020-08-26 22:51:18 +0400
+Processing by ProductsController#list as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- product_helper):
+  
+app/services/products/product_list_service.rb:4:in `<class:ProductListService>'
+app/services/products/product_list_service.rb:2:in `<module:Products>'
+app/services/products/product_list_service.rb:1:in `<main>'
+app/controllers/products_controller.rb:27:in `list'
+Started GET "/en/products/list" for 127.0.0.1 at 2020-08-26 22:51:36 +0400
+Processing by ProductsController#list as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- ../../../app/helpers/product_helper):
+  
+app/services/products/product_list_service.rb:4:in `<class:ProductListService>'
+app/services/products/product_list_service.rb:2:in `<module:Products>'
+app/services/products/product_list_service.rb:1:in `<main>'
+app/controllers/products_controller.rb:27:in `list'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-08-26 22:51:39 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-08-26 22:51:39 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-08-26 22:51:39 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-08-26 22:51:39 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-08-26 22:51:40 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-08-26 22:51:40 +0400
+Started GET "/en/products/list" for 127.0.0.1 at 2020-08-26 22:51:47 +0400
+Processing by ProductsController#list as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- ../../../app/helpers/product_helper):
+  
+app/services/products/product_list_service.rb:4:in `<class:ProductListService>'
+app/services/products/product_list_service.rb:2:in `<module:Products>'
+app/services/products/product_list_service.rb:1:in `<main>'
+app/controllers/products_controller.rb:27:in `list'
+Started GET "/en/products/list" for 127.0.0.1 at 2020-08-26 22:52:07 +0400
+Processing by ProductsController#list as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- app/helpers/product_helper):
+  
+app/services/products/product_list_service.rb:4:in `<class:ProductListService>'
+app/services/products/product_list_service.rb:2:in `<module:Products>'
+app/services/products/product_list_service.rb:1:in `<main>'
+app/controllers/products_controller.rb:27:in `list'
+Started GET "/en/products/list" for 127.0.0.1 at 2020-08-26 22:56:54 +0400
+Processing by ProductsController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/services/products/product_list_service.rb:18
+  [1m[36mProductCharacteristic Load (0.4ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:18
+  [1m[36mSubCategory Load (0.4ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:18
+  [1m[36mProductCharacteristic Load (0.3ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 9], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:18
+  [1m[36mCACHE SubCategory Load (0.0ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:18
+  [1m[36mProductType Load (0.3ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:18
+  [1m[36mProductVatType Load (0.4ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:18
+Completed 200 OK in 66ms (Views: 0.5ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/en/products/product_type" for 127.0.0.1 at 2020-08-27 01:13:55 +0400
+Processing by ProductsController#product_type as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProductType Load (1.1ms)[0m  [1m[34mSELECT "product_types".* FROM "product_types"[0m
+  ↳ app/services/products/product_list_service.rb:21
+Completed 200 OK in 21ms (Views: 0.3ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/en/products/product_type" for 127.0.0.1 at 2020-08-27 01:13:55 +0400
+Processing by ProductsController#product_type as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProductType Load (0.2ms)[0m  [1m[34mSELECT "product_types".* FROM "product_types"[0m
+  ↳ app/services/products/product_list_service.rb:21
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/en/products/product_vat_type" for 127.0.0.1 at 2020-08-27 01:14:03 +0400
+Processing by ProductsController#product_vat_type as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProductVatType Load (0.7ms)[0m  [1m[34mSELECT "product_vat_types".* FROM "product_vat_types"[0m
+  ↳ app/services/products/product_list_service.rb:25
+Completed 200 OK in 17ms (Views: 1.1ms | ActiveRecord: 3.8ms)
+
+

@@ -34,6 +34,8 @@ Rails.application.routes.draw do
 
       resource :products
       get 'products/list', to: 'products#list'
+      get 'products/product_type', to: 'products#product_type'
+      get 'products/product_vat_type', to: 'products#product_vat_type'
 
       resource :terms_and_conditions
       get 'terms_and_conditions/list', to: 'terms_and_conditions#list'
