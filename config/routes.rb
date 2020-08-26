@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   root to: "health#check_health"
 
   scope "/:locale" do
+    resource :products, only: %i[create show] do
+      get :image, on: :member
+    end
+    
     defaults format: :json do
       post   'auth/refresh_token'
       post   'auth', to: 'auth#login'
@@ -32,7 +36,10 @@ Rails.application.routes.draw do
       resource :sub_categories
       get 'sub_categories/sub_category_list', to: 'sub_categories#list'
 
-      resource :products
+
+      #resources :users, only: %i[create show] do
+      #  get :avatar, on: :member
+      #end
       get 'products/list', to: 'products#list'
       get 'products/product_type', to: 'products#product_type'
       get 'products/product_vat_type', to: 'products#product_vat_type'

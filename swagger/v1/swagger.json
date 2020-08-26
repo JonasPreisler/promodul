@@ -474,6 +474,11 @@
             "description": "JWT token"
           },
           {
+            "name": "avatar",
+            "in": "formData",
+            "type": "file"
+          },
+          {
             "name": "params",
             "in": "body",
             "schema": {
