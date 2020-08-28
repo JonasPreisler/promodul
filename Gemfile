@@ -35,6 +35,7 @@ gem "carrierwave-base64"
 gem "carrierwave"
 gem 'mini_magick'
 gem 'rmagick', '2.16.0'
+gem 'chewy'
 
 gem 'mina', require: false
 gem 'foreman', require: false
