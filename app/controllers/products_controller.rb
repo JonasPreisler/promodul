@@ -24,7 +24,6 @@ class ProductsController < ApplicationController
   end
 
   def list
-    binding.pry
     service = Products::ProductListService.new(product_params)
     service.list
     rest_respond_service service
@@ -45,7 +44,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    binding.pry
     params.permit(:id, :description, :instruction, :code, name: {}, full_name: {}, product_characteristic_attributes: {} )
   end
 end

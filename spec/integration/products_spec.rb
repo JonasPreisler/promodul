@@ -16,7 +16,7 @@ describe 'Product ', type: :request do
                     description: 'JWT token'
                 })
 
-      parameter name: :avatar, in: :formData, type: :file
+      #parameter name: :image,  in: :formData, type: :file,   required: true
       parameter name: :params, in: :body, schema: {
           type: :object,
           properties: {
