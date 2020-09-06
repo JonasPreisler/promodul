@@ -43,7 +43,7 @@ class ProductsIndex < Chewy::Index
       field :uuid, type: 'string'
       field :name, type: 'string'
     end
-    #field :name_sort, type: 'object', value: -> (product) { ChewyHelper.products_name_object(product) }
+    field :name_sort, type: 'object', value: -> (product) { ChewyHelper.products_name_object(product) }
 
     field :name, type: 'object', value: -> (product) { product.attributes['name'] } do
       I18n.available_locales.each do |locale|
@@ -75,8 +75,8 @@ class ProductsIndex < Chewy::Index
       field :need_recipe, type: 'boolean'
       field :product_type_id, type: 'integer'
       field :product_vat_type_id, type: 'integer'
-      field :product_sub_category_id, type: 'integer'
-      field :product_category_id, type: 'integer', value: -> (characteristic) { characteristic.product_sub_category&.product_category_id }
+      field :sub_category_id, type: 'integer'
+      field :category_id, type: 'integer', value: -> (characteristic) { characteristic.sub_category&.category_id }
 
       field :generic, type: 'object', value: -> (characteristic) { characteristic.attributes['generic'] } do
         I18n.available_locales.each do |locale|
@@ -85,39 +85,5 @@ class ProductsIndex < Chewy::Index
       end
     end
 
-      # ToDo: This functionality will be active after promotion.
-    #field :product_promotions, type: 'object', value: -> (product){ ChewyHelper.product_promotions(product)} do
-    #  field :promotion_id, type: 'integer'
-    #
-    #  field :promotion_name, type: 'object', value: -> (product_promotions) {product_promotion["promotion_name"]} do
-    #    I18n.available_locales.each do |locale|
-    #      field locale.to_sym, type: 'text'
-    #    end
-    #  end
-    #
-    #  field :promotion_title, type: 'object', value: -> (product_promotion) {product_promotion["promotion_title"]} do
-    #    I18n.available_locales.each do |locale|
-    #      field locale.to_sym, type: 'text'
-    #    end
-    #  end
-    #
-    #  field :promotion_description, type: 'object', value: -> (product_promotion) {product_promotion["promotion_description"]} do
-    #    I18n.available_locales.each do |locale|
-    #      field locale.to_sym, type: 'text'
-    #    end
-    #  end
-    #
-    #  field :promotion_provider_name, type: 'object', value: -> (product_promotion) {product_promotion["promotion_provider_official_name"]} do
-    #    I18n.available_locales.each do |locale|
-    #      field locale.to_sym, type: 'text'
-    #    end
-    #  end
-    #
-    #  field :discount_value, type: "float"
-    #  field :priority, type: "integer"
-    #  field :start_time, type: "date"
-    #  field :end_time, type: "date"
-    #  field :uuid, type: "text"
-    #end
   end
 end

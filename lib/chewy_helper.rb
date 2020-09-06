@@ -42,4 +42,12 @@ module ChewyHelper
         .where("product_id = :product_id AND is_active = :active", { product_id: product.id, active: true })
         .group("product_id")[0]&.min_sell_amount.to_f
   end
+
+  def self.products_name_object(product)
+    if !product['name']['en'].present?
+      product['name']['en'] = product['name']['no']
+    end
+
+    product['name']
+  end
 end

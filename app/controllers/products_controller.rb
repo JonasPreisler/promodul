@@ -5,6 +5,12 @@ class ProductsController < ApplicationController
   #ToDO: Need remove after authorization will works
   skip_before_action :validate_authentication
 
+  def search
+    service = Products::EsSearchService.new(product_search_params, current_customer)
+    service.search_a_product
+    rest_respond_service service
+  end
+
   def create
     service = Products::ProductCreateService.new(product_params)
     service.create_product
@@ -45,5 +51,9 @@ class ProductsController < ApplicationController
 
   def product_params
     params.permit(:id, :description, :instruction, :code, name: {}, full_name: {}, product_characteristic_attributes: {} )
+  end
+
+  def product_search_params
+
   end
 end

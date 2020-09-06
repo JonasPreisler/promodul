@@ -20,6 +20,13 @@ development:
   REDIS_URL: 'localhost'
   REDIS_PORT: "6379"
 
+  #ELSTICSEARCH
+  ES_PORT: "9200"
+  ES_PREFIX: 'a24_elastic'
+  ELASTIC_HOST_1: '193.69.47.154'
+  ELASTIC_HOST_2: '193.69.47.154'
+  ELASTIC_HOST_3: '193.69.47.154'
+
   #DATABASE
 #  DATABASE_URL: 'postgres://pgroot:xIaHPdUZUL@localhost:8071/dhptest'
 

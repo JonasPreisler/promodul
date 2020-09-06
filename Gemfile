@@ -36,6 +36,7 @@ gem "carrierwave"
 gem 'mini_magick'
 gem 'rmagick', '2.16.0'
 gem 'chewy'
+gem "roo", "~> 2.8.0"
 
 gem 'mina', require: false
 gem 'foreman', require: false
