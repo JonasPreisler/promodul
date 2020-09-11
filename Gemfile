@@ -38,7 +38,7 @@ gem 'foreman', require: false
 gem 'rswag-api'
 gem 'rswag-ui'
 
-gem 'twilio-ruby', '~> 5.38.0'
+gem 'twilio-ruby', '~> 5.40.1'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.7'

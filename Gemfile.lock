@@ -216,7 +216,7 @@ GEM
       sprockets (>= 3.0.0)
     thor (0.20.0)
     thread_safe (0.3.6)
-    twilio-ruby (5.38.0)
+    twilio-ruby (5.40.1)
       faraday (>= 0.9, < 2.0)
       jwt (>= 1.5, <= 2.5)
       nokogiri (>= 1.6, < 2.0)
@@ -253,7 +253,7 @@ DEPENDENCIES
   sorcery (~> 0.12.0)
   spring
   spring-watcher-listen (~> 2.0.0)
-  twilio-ruby (~> 5.38.0)
+  twilio-ruby (~> 5.40.1)
 
 RUBY VERSION
    ruby 2.6.5p114
