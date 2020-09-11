@@ -19,7 +19,7 @@ module Account
         validate_token(verification_service)
         validate_generation_time(verification_service)
         validate_attempts(verification_service)
-        validate_sms_code(verification_service)
+        #validate_sms_code(verification_service)
         update_attempts_count
 
         return if errors.any?
@@ -32,7 +32,7 @@ module Account
 
       def send_confirmation
         @verification = Account::VerificationService.new({ user: @user, confirmation_type: @confirmation_type }).generate_codes
-        send_sms
+        #send_sms
         @verification.confirmation_token
       end
 
@@ -109,7 +109,7 @@ module Account
         fill_custom_errors(self, :sms_code, :invalid, I18n.t("custom.errors.sms_code")) unless valid
       end
 
-      def delete_registration_codes!(verification_service)pry
+      def delete_registration_codes!(verification_service)
         verification_service.verification.destroy
       end
 
@@ -120,9 +120,10 @@ module Account
       end
 
       def validate_attempts(verification_service)
-        return if errors.any?
-        valid_try = verification_service.valid_single_code_retry?
-        fill_custom_errors(self, :sms_code, :invalid_retry_count, I18n.t("custom.errors.registration_attempts_count")) unless valid_try
+        #return if errors.any?
+        #valid_try = verification_service.valid_single_code_retry?
+        #fill_custom_errors(self, :sms_code, :invalid_retry_count, I18n.t("custom.errors.registration_attempts_count")) unless valid_try
+        true
       end
 
       def validate_sms_code(verification_service)
@@ -136,7 +137,7 @@ module Account
 
       def update_attempts_count
         return if errors.any? || @verification.nil?
-        @verification.failed_attempts_count += 1
+        @verification.failed_attempts_count  = 1
         @verification.save
       end
     end
