@@ -15,4 +15,4 @@
    end
  end
 
- Rails.application.config.hosts << "ancient-headland-04677.herokuapp.com/"
+ #Rails.application.config.hosts << "ancient-headland-04677.herokuapp.com/"
