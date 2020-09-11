@@ -47,6 +47,13 @@ class ProductsController < ApplicationController
     rest_respond_service service
   end
 
+  def import_products
+    service = Products::ImportProductsService.new(current_user, params)
+    service.create_and_call
+
+    rest_respond_service service
+  end
+
   private
 
   def product_params
