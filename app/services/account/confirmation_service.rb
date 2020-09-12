@@ -109,7 +109,7 @@ module Account
         fill_custom_errors(self, :sms_code, :invalid, I18n.t("custom.errors.sms_code")) unless valid
       end
 
-      def delete_registration_codes!(verification_service)pry
+      def delete_registration_codes!(verification_service)
         verification_service.verification.destroy
       end
 
