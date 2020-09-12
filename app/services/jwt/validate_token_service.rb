@@ -8,6 +8,7 @@ module Jwt
     end
 
     def call
+      binding.pry
       data = decode_token[0]
       OpenStruct.new(valid?:  $redis_auth.get("access_#{data["user_id"]}:#{data["jti"]}").present?)
     rescue
