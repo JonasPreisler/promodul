@@ -2,9 +2,6 @@ class TermsAndConditionsController < ApplicationController
   require 'controller_response'
   include ControllerResponse
 
-  #ToDo: Need remove after authorization will works
-  skip_before_action :validate_authentication
-
   def create
     service = TermsAndConditions::TermsAndConditionsService.new(terms_params)
     service.create

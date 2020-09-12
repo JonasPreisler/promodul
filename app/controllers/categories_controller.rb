@@ -2,8 +2,6 @@ class CategoriesController < ApplicationController
   require 'controller_response'
   include ControllerResponse
 
-  #skip_before_action :validate_authentication
-
   def create
     service = CategorySubCategories::CategoriesService.new(category_params)
     service.create_category
