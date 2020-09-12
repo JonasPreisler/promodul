@@ -15,7 +15,6 @@ module Account
     def confirm_registration
       confirmation = Account::ConfirmationService.new(confirmation_params)
       confirmation.finish_registration
-
       unless confirmation.errors.any?
         confirmation.store_auth_token!
         response.headers["Authorization"] = confirmation.authorization_token
