@@ -15,7 +15,7 @@ module Account
       type_record = ConfirmationType.find_by_id_name(@confirmation_type)
       @verification = ConfirmationCode.where(user_account_id: @user.id, confirmation_type: type_record).first_or_initialize
       create_new_token
-      #set_sms_status
+      set_sms_status
       set_time_and_save
     end
 
