@@ -17,7 +17,7 @@ development:
   TWIML_APPLICATION_SID: 'APfc15bdf485fefacb91a09689add5eb8c'
 
   #REDIS
-  REDIS_URL: 'localhost'
+  REDIS_URL: '127.0.0.1'
   REDIS_PORT: "6379"
 
   #DATABASE

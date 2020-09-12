@@ -16,7 +16,7 @@ development:
   redis_auth_conf:
     host: <%= ENV['REDIS_URL']  %>
     port: <%= ENV['REDIS_PORT'] %>
-    db: 4
+    db: 2
   redis_helper:
     host: <%= ENV['REDIS_URL']  %>
     port: <%= ENV['REDIS_PORT'] %>
