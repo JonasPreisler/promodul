@@ -81,7 +81,8 @@ describe 'Category ', type: :request do
                       en: {type: :string}
                   }
               },
-              id_name:          {type: :string}
+              id_name:          {type: :string},
+              active:    {type: :boolean}
           }
       }
       response '201', 'ok' do

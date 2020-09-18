@@ -308,6 +308,9 @@
                 },
                 "id_name": {
                   "type": "string"
+                },
+                "active": {
+                  "type": "boolean"
                 }
               }
             }
