@@ -1342,6 +1342,47 @@
         }
       }
     },
+    "/{locale}/products/import_products": {
+      "post": {
+        "summary": "ImportProduct",
+        "tags": [
+          "Product"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "excel",
+            "in": "formData",
+            "type": "file",
+            "required": true
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
     "/{locale}/account/registration": {
       "post": {
         "summary": "UserAccount Account registration",

@@ -48,7 +48,8 @@ class ProductsController < ApplicationController
   end
 
   def import_products
-    service = Products::ImportProductsService.new(current_user, params)
+    binding.pry
+    service = Products::ImportProductsService.new(nil, params)
     service.create_and_call
 
     rest_respond_service service

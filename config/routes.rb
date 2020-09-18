@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       get 'products/list', to: 'products#list'
       get 'products/product_type', to: 'products#product_type'
       get 'products/product_vat_type', to: 'products#product_vat_type'
+      post 'products/import_products', to: 'products#import_products'
 
       resource :product_images
       get  'product_image/image', to: 'product_images#show_image'

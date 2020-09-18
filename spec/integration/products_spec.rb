@@ -281,6 +281,33 @@ describe 'Product ', type: :request do
     end
   end
 
+  path '/{locale}/products/import_products' do
+    post 'ImportProduct' do
+      tags 'Product'
+      consumes 'multipart/form-data'
+
+      parameter({
+                    in: :header,
+                    type: :string,
+                    name: :Authorization,
+                    required: true,
+                    description: 'JWT token'
+                })
+
+      parameter name: :excel,  in: :formData, type: :file,   required: true
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      response '201', 'Created' do
+        {}
+        run_test!
+      end
+
+      response '400', 'Bad request' do
+        run_test!
+      end
+
+    end
+  end
+
 end
 
 

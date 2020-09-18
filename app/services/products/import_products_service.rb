@@ -3,20 +3,22 @@ module Products
     attr_accessor :current_user, :params
 
     def initialize(current_user = nil, params = nil)
-      @current_user = current_user
+      #@current_user = current_user
       @params = params
       @errors ||= []
     end
 
     def create_and_call
-      #Xlsx::ImportTransactionsWorker.new.perform(params, current_user.id)
-      Xlsx::ImportTransactionsWorker.perform_async(params, current_user.id)
+      binding.pry
+      Products::ImportProductsWorker.new.perform(params, 52)
+      #Xlsx::ImportTransactionsWorker.perform_async(params, current_user.id)
     end
 
     def call
-      @file_path ||= params["file_path"]
+      binding.pry
+      @file_path ||= params["excel"].tempfile
       imported_items = load_imported_items.as_json( only: [:"Our excel columns"])
-
+      binding.pry
       #ToDo: Here should be Products Excel Type Enums(like: always24, Any Provider or something like this.)
       #@excel_type = BankType.find_by(id_name: params["file_type"])
       counter = 0
@@ -53,11 +55,15 @@ module Products
     end
 
     def load_imported_items
+      binding.pry
       object_hash = []
       spreadsheets = open_spreadsheet
-      spreadsheet = spreadsheets.sheet(get_sheet)
+      spreadsheet = spreadsheets.sheet("Ark1")
+      binding.pry
+      #need to add get_sheet for different excells
       header = get_header_columns
       (obj_data[:starting_point]..spreadsheet.last_row).map do |i|
+        binding.pry
         row = Hash[[header, spreadsheet.row(i)].transpose] if validations_by_type(spreadsheet, i)
         object_hash.push(row)
       end
@@ -117,9 +123,10 @@ module Products
     #end
 
     def obj_data
+      file_type = "always24"
       #ToDo: this is some kind of options
-      case params["file_type"]
-      when "file_type_1" then { starting_point: 3, date_column: 1, amount_column: 5, receiver_account: 9, document_number: 9 }
+      case file_type
+      when "always24" then { starting_point: 3, date_column: 1, amount_column: 5, receiver_account: 9, document_number: 9 }
       when "file_type_2" then { starting_point: 14, date_column: 1, amount_column: 22, receiver_account: 17, document_number: 8, credit: 5 }
       when "file_type_3" then { starting_point: 2, date_column: 7, amount_column: 1, receiver_account: 6, document_number: 5}
       else raise "Unknown Bank type"
@@ -127,10 +134,11 @@ module Products
     end
 
     def get_header_columns
+      file_type = "always24"
       #Example: ":transaction_date, :prescription, :u_3, :u_4, :total_amount, :u_6, :u_7, :u_8, :transaction_code,
       #                       :u_10, :sender, :sender_identification_code, :u_12, :u_13, :u_14, :u_15, :u_16, :u_17, :u_18, :u_19, :u_20, :u_21"
-      case params["file_type"]
-      when "file_type_1" then ["sheet1 columns by example"]
+      case file_type
+      when "always24" then [":product_no, :product_code, :description, :product_type, :product_type_text"]
       when "file_type_2" then ["sheet2 columns by example"]
       when "file_type_3" then ["sheet3 columns by example"]
       else raise "Unknown Bank type"
