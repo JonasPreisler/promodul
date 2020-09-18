@@ -69,7 +69,7 @@ describe 'Category ', type: :request do
                     description: 'JWT token'
                 })
 
-      parameter name: :locale, in: :path, type: :string, required: true, default: "ka"
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
       parameter name: :params, in: :body, schema: {
           type: :object,
           properties: {
@@ -122,7 +122,7 @@ describe 'Category ', type: :request do
                     description: 'JWT token'
                 })
 
-      parameter name: :locale, in: :path,  type: :string,  required: true, default: "ka"
+      parameter name: :locale, in: :path,  type: :string,  required: true, default: "en"
       parameter name: :id,     in: :query,  type: :integer,  required: true
 
       response '204', 'OK' do

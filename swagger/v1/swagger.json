@@ -284,7 +284,7 @@
             "in": "path",
             "type": "string",
             "required": true,
-            "default": "ka"
+            "default": "en"
           },
           {
             "name": "params",
@@ -365,7 +365,7 @@
             "in": "path",
             "type": "string",
             "required": true,
-            "default": "ka"
+            "default": "en"
           },
           {
             "name": "id",
