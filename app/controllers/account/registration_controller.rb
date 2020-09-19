@@ -6,6 +6,7 @@ module Account
 
     #UserAccount registration Step-1
     def sign_up
+      binding.pry
       registration = Account::RegistrationService.new(user_account_params)
       registration.call
       rest_respond_service registration

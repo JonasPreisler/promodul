@@ -11,8 +11,8 @@ module Products
       @errors = []
     end
 
-    def update_json_view
-      { product: @product.as_json(include: { product_characteristic: { only: [:shape, :volume, :packaging, :manufacturer, :description]}}) }
+    def json_view
+      { product: @product.as_json(include: product_characteristics_schema) }
     end
 
     def update_product

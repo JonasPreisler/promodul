@@ -31,6 +31,13 @@ gem 'redis-rails'
 gem 'jwt'
 gem 'sorcery', '~> 0.12.0'
 gem 'device_detector'
+gem "carrierwave-base64"
+gem "carrierwave"
+gem 'mini_magick'
+gem 'rmagick', '2.16.0'
+gem 'chewy'
+gem "roo", "~> 2.8.0"
+gem 'sidekiq'
 
 gem 'mina', require: false
 gem 'foreman', require: false

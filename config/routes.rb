@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 
   root to: "health#check_health"
 
@@ -34,6 +36,13 @@ Rails.application.routes.draw do
 
       resource :products
       get 'products/list', to: 'products#list'
+      get 'products/product_type', to: 'products#product_type'
+      get 'products/product_vat_type', to: 'products#product_vat_type'
+      post 'products/import_products', to: 'products#import_products'
+
+      resource :product_images
+      get  'product_image/image', to: 'product_images#show_image'
+      delete  'product_image/:uuid', to: 'product_images#destroy'
 
       resource :terms_and_conditions
       get 'terms_and_conditions/list', to: 'terms_and_conditions#list'

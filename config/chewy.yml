@@ -1,0 +1,34 @@
+# config/chewy.yml
+# separate environment configs
+production:
+  hosts:
+    - <%= ENV['ELASTIC_HOST_1'] %>
+    - <%= ENV['ELASTIC_HOST_2'] %>
+    - <%= ENV['ELASTIC_HOST_3'] %>
+  port:   <%= ENV['ES_PORT']   %>
+  prefix: <%= ENV['ES_PREFIX'] %>
+  retry_on_failure:   true
+  reload_connections: true
+  randomize_hosts:    true
+
+development:
+  hosts:
+    - <%= ENV['ELASTIC_HOST_1'] %>
+    - <%= ENV['ELASTIC_HOST_2'] %>
+    - <%= ENV['ELASTIC_HOST_3'] %>
+  port:   <%= ENV['ES_PORT']   %>
+  prefix: <%= ENV['ES_PREFIX'] %>
+  retry_on_failure:   true
+  reload_connections: true
+  randomize_hosts:    true
+
+test:
+  hosts:
+    - <%= ENV['ELASTIC_HOST_1'] %>
+    - <%= ENV['ELASTIC_HOST_2'] %>
+    - <%= ENV['ELASTIC_HOST_3'] %>
+  port:   <%= ENV['ES_PORT']   %>
+  prefix: <%= ENV['ES_PREFIX'] %>
+  retry_on_failure:   true
+  reload_connections: true
+  randomize_hosts:    true

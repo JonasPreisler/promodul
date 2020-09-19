@@ -1,4 +1,5 @@
 require 'swagger_helper'
+require_relative '../helpers/integration_methods'
 
 describe 'Product ', type: :request do
   path '/{locale}/products' do
@@ -15,22 +16,34 @@ describe 'Product ', type: :request do
                     description: 'JWT token'
                 })
 
+      #parameter name: :image,  in: :formData, type: :file,   required: true
       parameter name: :params, in: :body, schema: {
           type: :object,
           properties: {
-              name: { type: :object },
-              full_name: {  type: :object },
-              description: {  type: :string },
-              code: { type: :string },
+              name:         { type: :object },
+              full_name:    { type: :object },
+              description:  { type: :string },
+              code:         { type: :string },
+              instruction:  { type: :string },
               product_characteristic_attributes: {
                   type: :object,
                   properties: {
-                      sub_category_id: { type: :integer },
-                      shape: { type: :string  },
-                      volume: { type: :string },
-                      packaging: {  type: :string },
-                      manufacturer: { type: :string },
-                      description: {  type: :string}
+                      sub_category_id:     { type: :integer },
+                      product_type_id:     { type: :integer },
+                      product_vat_type_id: { type: :integer },
+                      shape:               { type: :string },
+                      volume:              { type: :string },
+                      packaging:           { type: :string },
+                      manufacturer:        { type: :string },
+                      description:         { type: :string },
+                      external_code:       { type: :string },
+                      sales_start:         { type: :string },
+                      sales_end:           { type: :string },
+                      EAN_code:            { type: :string },
+                      weight:              { type: :number },
+                      height:              { type: :number },
+                      width:               { type: :number },
+                      depth:               { type: :number }
                   }
               }
           }
@@ -41,22 +54,8 @@ describe 'Product ', type: :request do
                properties: {
                    product: {
                        type: :object,
-                       properties: {
-                           name: {type: :string},
-                           full_name: {type: :string},
-                           description: {type: :string},
-                           code: {type: :string},
-                           product_characteristic: {
-                               type: :object,
-                               properties: {
-                                   shape:         { type: :string },
-                                   volume:        { type: :string },
-                                   packaging:     { type: :string },
-                                   manufacturer:  { type: :string },
-                                   description:   { type: :string }
-                               }
-                           }
-                       }}
+                       properties: product_schema
+                   }
                }
         run_test!
       end
@@ -69,48 +68,6 @@ describe 'Product ', type: :request do
     end
 
   end
-
-  #path '/{locale}/suppliers/list' do
-  #  get 'Get Suppliers list' do
-  #    tags 'Supplier'
-  #    consumes 'application/json'
-  #    produces 'application/json'
-  #
-  #    parameter({
-  #                  in: :header,
-  #                  type: :string,
-  #                  name: :Authorization,
-  #                  required: true,
-  #                  description: 'JWT token'
-  #              })
-  #
-  #    parameter name: :locale, in: :path, type: :string, required: true, default: "en"
-  #
-  #    response '200', 'OK' do
-  #
-  #      schema type: :object,
-  #             properties: {
-  #                 business_types: {
-  #                     type: :object,
-  #                     properties: {
-  #                         id: {type: :integer},
-  #                         name: {type: :string},
-  #                         registration_date: {type: :string},
-  #                         identification_code: {type: :string},
-  #                         phone_number: {type: :string}
-  #                     }}
-  #             }
-  #      run_test!
-  #    end
-  #
-  #    response '400', 'Bad request' do
-  #      {}
-  #
-  #      run_test!
-  #    end
-  #  end
-  #
-  #end
 
   path '/{locale}/products' do
     put 'Update Product' do
@@ -130,46 +87,43 @@ describe 'Product ', type: :request do
       parameter name: :params, in: :body, schema: {
           type: :object,
           properties: {
-              id: {type: :integer},
-              name: { type: :object },
-              full_name: {  type: :object },
-              description: {  type: :string },
-              code: { type: :string },
+              id:           { type: :integer },
+              name:         { type: :object },
+              full_name:    { type: :object },
+              description:  { type: :string },
+              instruction:  { type: :string },
+              code:         { type: :string },
               product_characteristic_attributes: {
                   type: :object,
                   properties: {
-                      id: { type: :integer},
-                      sub_category_id: { type: :integer },
-                      shape: { type: :string  },
-                      volume: { type: :string },
-                      packaging: {  type: :string },
-                      manufacturer: { type: :string },
-                      description: {  type: :string}
+                      id:                  { type: :integer },
+                      sub_category_id:     { type: :integer },
+                      product_type_id:     { type: :integer },
+                      product_vat_type_id: { type: :integer },
+                      shape:               { type: :string },
+                      volume:              { type: :string },
+                      packaging:           { type: :string },
+                      manufacturer:        { type: :string },
+                      description:         { type: :string },
+                      external_code:       { type: :string },
+                      sales_start:         { type: :string },
+                      sales_end:           { type: :string },
+                      EAN_code:            { type: :string },
+                      weight:              { type: :number },
+                      height:              { type: :number },
+                      width:               { type: :number },
+                      depth:               { type: :number }
                   }
               }
           }
       }
-      response '201', 'Created' do
+      response '201', 'Updated' do
         schema type: :object,
                properties: {
                    product: {
                        type: :object,
-                       properties: {
-                           name: {type: :string},
-                           full_name: {type: :string},
-                           description: {type: :string},
-                           code: {type: :string},
-                           product_characteristic: {
-                               type: :object,
-                               properties: {
-                                   shape:         { type: :string },
-                                   volume:        { type: :string },
-                                   packaging:     { type: :string },
-                                   manufacturer:  { type: :string },
-                                   description:   { type: :string }
-                               }
-                           }
-                       }}
+                       properties: product_schema
+                   }
                }
         run_test!
       end
@@ -234,24 +188,13 @@ describe 'Product ', type: :request do
       response '200', 'OK' do
         schema type: :object,
                properties: {
-                   products: [{
-                       type: :object,
-                       properties: {
-                           name: {type: :string},
-                           full_name: {type: :string},
-                           description: {type: :string},
-                           code: {type: :string},
-                           product_characteristic: {
-                               type: :object,
-                               properties: {
-                                   shape:         { type: :string },
-                                   volume:        { type: :string },
-                                   packaging:     { type: :string },
-                                   manufacturer:  { type: :string },
-                                   description:   { type: :string }
-                               }
-                           }
-                       }}]
+                   products: {
+                       type: :array,
+                       items: {
+                           type: :object,
+                           properties: product_schema
+                       }
+                   }
                }
         run_test!
       end
@@ -261,6 +204,107 @@ describe 'Product ', type: :request do
                properties: {}
         run_test!
       end
+    end
+  end
+
+  path '/{locale}/products/product_type' do
+    get 'Returns product types' do
+      tags 'Product'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   product_types: [{
+                                  type: :object,
+                                  properties: {
+                                      id:      { type: :string },
+                                      name:    { type: :string },
+                                      id_name: { type: :string }
+                                  }}]
+               }
+        run_test!
+      end
+
+      response '404', 'Not found' do
+        schema type: :object,
+               properties: {}
+        run_test!
+      end
+    end
+  end
+
+  path '/{locale}/products/product_vat_type' do
+    get 'Returns product vat types' do
+      tags 'Product'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   product_vat_types: [{
+                                       type: :object,
+                                       properties: {
+                                           id:      { type: :string },
+                                           name:    { type: :string },
+                                           id_name: { type: :string }
+                                       }}]
+               }
+        run_test!
+      end
+
+      response '404', 'Not found' do
+        schema type: :object,
+               properties: {}
+        run_test!
+      end
+    end
+  end
+
+  path '/{locale}/products/import_products' do
+    post 'ImportProduct' do
+      tags 'Product'
+      consumes 'multipart/form-data'
+
+      parameter({
+                    in: :header,
+                    type: :string,
+                    name: :Authorization,
+                    required: true,
+                    description: 'JWT token'
+                })
+
+      parameter name: :excel,  in: :formData, type: :file,   required: true
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      response '201', 'Created' do
+        {}
+        run_test!
+      end
+
+      response '400', 'Bad request' do
+        run_test!
+      end
+
     end
   end
 
