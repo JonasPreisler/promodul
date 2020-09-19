@@ -47,7 +47,7 @@ module CategorySubCategories
     end
 
     def category_list
-      @category = Category.where(active: true)
+      @category = Category.all
       fill_custom_errors(self, :base, :not_found, I18n.t("custom.errors.data_not_found")) if @category.empty?
     end
 
