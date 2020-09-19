@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   include ControllerResponse
 
   #ToDo: Need remove after authorization will works
-  #skip_before_action :validate_authentication
+  skip_before_action :validate_authentication
 
   def create
     service = CategorySubCategories::CategoriesService.new(category_params)

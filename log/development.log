@@ -51904,3 +51904,29 @@ Completed 200 OK in 48ms (Views: 0.3ms | ActiveRecord: 38.8ms)
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ spec/rails_helper.rb:34
   [1m[36mCategory Load (39.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-09-19 19:52:52 +0400
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-09-19 19:52:52 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-09-19 19:52:52 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-09-19 19:52:52 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-09-19 19:52:53 +0400
+Started POST "/en/categories" for 127.0.0.1 at 2020-09-19 19:53:10 +0400
+Processing by CategoriesController#create as JSON
+  Parameters: {"name"=>{"no"=>"buka buka", "en"=>"dcsdsdc"}, "id_name"=>"", "active"=>true, "locale"=>"en", "category"=>{"name"=>{"no"=>"buka buka", "en"=>"dcsdsdc"}, "id_name"=>"", "active"=>true}}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:29
+  [1m[36mCategory Create (1.9ms)[0m  [1m[32mINSERT INTO "categories" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"no\":\"buka buka\",\"en\":\"dcsdsdc\"}"], ["id_name", "{\"id_name\"=>\"\", \"active\"=>true, \"name\"=><ActionController::Parameters {\"no\"=>\"buka buka\", \"en\"=>\"dcsdsdc\"} permitted: true>}"]]
+  ↳ app/services/category_sub_categories/categories_service.rb:29
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:29
+Completed 500 Internal Server Error in 41643ms (ActiveRecord: 11.2ms)
+
+
+  
+ActiveRecord::ValueTooLong (PG::StringDataRightTruncation: ERROR:  value too long for type character varying(50)
+: INSERT INTO "categories" ("name", "id_name") VALUES ($1, $2) RETURNING "id"):
+  
+app/services/category_sub_categories/categories_service.rb:29:in `create_category'
+app/controllers/categories_controller.rb:10:in `create'
