@@ -24,6 +24,7 @@ module CategorySubCategories
 
     def create_sub_category
       @sub_category = SubCategory.new(@sub_category_params)
+      @sub_category.id_name = @sub_category_params[:name]["en"].downcase.parameterize(separator: '_')
       @sub_category.save
 
       @errors << fill_errors(@sub_category) if @sub_category.errors.any?
