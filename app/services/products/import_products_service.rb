@@ -37,6 +37,7 @@ module Products
         @errors << I18n.t('excel_import.uniq_document_error', code: object.transaction_code)
         next
       end
+
       #ToDo: mailer(or notifier) to notify administrator
       #send_mail_to_current_user(counter)
       delete_file
