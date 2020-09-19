@@ -121,3 +121,38 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 39ms (Views: 0.3ms | ActiveRecord: 36.6ms)
 
 
+Started GET "/en/product_types/product_type_list" for 127.0.0.1 at 2020-09-19 21:12:20 +0400
+Processing by ProductTypesController#list as JSON
+  Parameters: {"locale"=>"en"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/product_types/product_type_list" for 127.0.0.1 at 2020-09-19 21:12:32 +0400
+Processing by ProductTypesController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `empty?' for nil:NilClass):
+  
+app/services/products/product_type_service.rb:52:in `list'
+app/controllers/product_types_controller.rb:28:in `list'
+Started GET "/en/product_types/product_type_list" for 127.0.0.1 at 2020-09-19 21:13:02 +0400
+Processing by ProductTypesController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 404 Not Found in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/product_types/product_type_list" for 127.0.0.1 at 2020-09-19 21:13:27 +0400
+Processing by ProductTypesController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProductType Load (0.3ms)[0m  [1m[34mSELECT "product_types".* FROM "product_types"[0m
+  ↳ app/services/products/product_type_service.rb:23
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+

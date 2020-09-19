@@ -49,7 +49,7 @@ module Products
 
     def list
       @product_types = ProductType.all
-      fill_custom_errors(self, :base, :not_found, I18n.t("custom.errors.data_not_found")) if @product_type.empty?
+      #fill_custom_errors(self, :base, :not_found, I18n.t("custom.errors.data_not_found")) if !@product_type.present?
     end
 
 
