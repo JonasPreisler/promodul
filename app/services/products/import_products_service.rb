@@ -88,7 +88,7 @@ module Products
     #  end
     #  true
     #end
-    #
+
     #def amount_validation(spreadsheet, row, column)
     #  unless spreadsheet.cell(row, column) != nil && spreadsheet.cell(row, column) != 0 && spreadsheet.celltype(row, column).eql?(:float) && spreadsheet.cell(row, column).positive?
     #    @errors << I18n.t('excel_import.amount_error', row: row)
@@ -138,7 +138,11 @@ module Products
       #Example: ":transaction_date, :prescription, :u_3, :u_4, :total_amount, :u_6, :u_7, :u_8, :transaction_code,
       #                       :u_10, :sender, :sender_identification_code, :u_12, :u_13, :u_14, :u_15, :u_16, :u_17, :u_18, :u_19, :u_20, :u_21"
       case file_type
-      when "always24" then [":product_no, :product_code, :description, :product_type, :product_type_text"]
+      when "always24" then [":Product_no, :Product_code, :Product_name, :Description, :Product_type, :Product_type_text,
+                             :Product_group_ID, :Product_group, :Vendor_ID, :Supplier_name, :Department_ID, :Department,
+                             :List_price, :Purchase_price, :Manufacturing_cost, :Cost_price, :Delivery_time, :EAN_code,
+                             :Other_supplier_code, :Subscription, :Commission_product, :VAT_type, :Weight, :Width,
+                             :Height, :Depth, :Volume"]
       when "file_type_2" then ["sheet2 columns by example"]
       when "file_type_3" then ["sheet3 columns by example"]
       else raise "Unknown Bank type"
