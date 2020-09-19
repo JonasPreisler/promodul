@@ -23,7 +23,6 @@ module CategorySubCategories
     end
 
     def create_category
-      binding.pry
       @category = Category.new(@category_params)
       @category.id_name = @category_params[:name]["en"].downcase.parameterize(separator: '_')
       @category.save
