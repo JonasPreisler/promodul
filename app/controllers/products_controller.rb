@@ -60,4 +60,8 @@ class ProductsController < ApplicationController
   def product_search_params
 
   end
+
+  def product_type_params
+    params.permit(:id, :active, name: {})
+  end
 end
