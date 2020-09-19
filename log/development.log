@@ -70,3 +70,54 @@ Migrating to AddAndChangeProductTypeTable (20200919163118)
   ↳ bin/rails:9
   [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-09-19 21:08:06 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-09-19 21:08:06 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-09-19 21:08:06 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-09-19 21:08:06 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-09-19 21:08:07 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-09-19 21:08:07 +0400
+Started POST "/en/product_types" for 127.0.0.1 at 2020-09-19 21:10:28 +0400
+Processing by ProductTypesController#create as JSON
+  Parameters: {"name"=>{"no"=>"aba1", "en"=>"aba1"}, "active"=>true, "locale"=>"en", "product_type"=>{"name"=>{"no"=>"aba1", "en"=>"aba1"}, "active"=>true}}
+Unpermitted parameters: :format, :locale, :product_type
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_type_service.rb:29
+  [1m[36mProductType Create (3.6ms)[0m  [1m[32mINSERT INTO "product_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"no\":\"aba1\",\"en\":\"aba1\"}"], ["id_name", "aba1"]]
+  ↳ app/services/products/product_type_service.rb:29
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_type_service.rb:29
+Completed 201 Created in 114ms (Views: 0.2ms | ActiveRecord: 10.9ms)
+
+
+Started PUT "/en/product_types" for 127.0.0.1 at 2020-09-19 21:11:01 +0400
+Processing by ProductTypesController#update as JSON
+  Parameters: {"id"=>4, "name"=>{"no"=>"aba 2", "en"=>"aba 2"}, "active"=>true, "locale"=>"en", "product_type"=>{"id"=>4, "name"=>{"no"=>"aba 2", "en"=>"aba 2"}, "active"=>true}}
+Unpermitted parameters: :format, :locale, :product_type
+  [1m[36mProductType Load (0.3ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/products/product_type_service.rb:59
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_type_service.rb:38
+  [1m[36mProductType Update (0.3ms)[0m  [1m[33mUPDATE "product_types" SET "name" = $1 WHERE "product_types"."id" = $2[0m  [["name", "{\"no\":\"aba 2\",\"en\":\"aba 2\"}"], ["id", 4]]
+  ↳ app/services/products/product_type_service.rb:38
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_type_service.rb:38
+Completed 200 OK in 24ms (Views: 0.1ms | ActiveRecord: 9.8ms)
+
+
+Started DELETE "/en/product_types?id=4" for 127.0.0.1 at 2020-09-19 21:11:15 +0400
+Processing by ProductTypesController#destroy as JSON
+  Parameters: {"id"=>"4", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProductType Load (0.2ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/products/product_type_service.rb:59
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_type_service.rb:46
+  [1m[36mProductType Destroy (0.2ms)[0m  [1m[31mDELETE FROM "product_types" WHERE "product_types"."id" = $1[0m  [["id", 4]]
+  ↳ app/services/products/product_type_service.rb:46
+  [1m[35m (36.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_type_service.rb:46
+Completed 200 OK in 39ms (Views: 0.3ms | ActiveRecord: 36.6ms)
+
+
