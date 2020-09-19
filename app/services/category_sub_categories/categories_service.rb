@@ -60,7 +60,7 @@ module CategorySubCategories
 
     def validate_category
       return if errors.any?
-      fill_custom_errors(self, :base,:invalid, I18n.t("custom.validation.category_validation")) if SubCategory.where(category_id: @category.id, active: true).present?
+      fill_custom_errors(self, :base,:invalid, I18n.t("custom.validation.category_validation")) if SubCategory.where(category_id: @category.id).present?
     end
   end
 end
