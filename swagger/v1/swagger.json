@@ -650,7 +650,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "category": {
+                "product_type": {
                   "type": "object",
                   "properties": {
                     "id": {
@@ -1487,67 +1487,6 @@
                     }
                   }
                 }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "schema": {
-              "type": "object",
-              "properties": {
-              }
-            }
-          }
-        }
-      }
-    },
-    "/{locale}/products/product_type": {
-      "get": {
-        "summary": "Returns product types",
-        "tags": [
-          "Product"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "header",
-            "type": "string",
-            "name": "Authorization",
-            "required": true,
-            "description": "Client token"
-          },
-          {
-            "name": "locale",
-            "in": "path",
-            "type": "string",
-            "required": true,
-            "default": "en"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "product_types": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string"
-                      },
-                      "id_name": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                ]
               }
             }
           },

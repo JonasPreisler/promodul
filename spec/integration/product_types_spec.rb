@@ -32,7 +32,7 @@ describe 'ProductType ', type: :request do
       response '201', 'ok' do
         schema type: :object,
                properties: {
-                   category: {
+                   product_type: {
                        type: :object,
                        properties: {
                            id: {type: :integer},

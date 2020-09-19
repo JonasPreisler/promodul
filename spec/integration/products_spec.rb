@@ -207,43 +207,6 @@ describe 'Product ', type: :request do
     end
   end
 
-  path '/{locale}/products/product_type' do
-    get 'Returns product types' do
-      tags 'Product'
-      consumes 'application/json'
-
-      parameter({
-                    :in => :header,
-                    :type => :string,
-                    :name => :Authorization,
-                    :required => true,
-                    :description => 'Client token'
-                })
-
-      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
-
-      response '200', 'OK' do
-        schema type: :object,
-               properties: {
-                   product_types: [{
-                                  type: :object,
-                                  properties: {
-                                      id:      { type: :string },
-                                      name:    { type: :string },
-                                      id_name: { type: :string }
-                                  }}]
-               }
-        run_test!
-      end
-
-      response '404', 'Not found' do
-        schema type: :object,
-               properties: {}
-        run_test!
-      end
-    end
-  end
-
   path '/{locale}/products/product_vat_type' do
     get 'Returns product vat types' do
       tags 'Product'
