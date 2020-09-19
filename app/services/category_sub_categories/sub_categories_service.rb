@@ -46,7 +46,7 @@ module CategorySubCategories
     end
 
     def sub_category_list
-      @sub_category = SubCategory.where(category_id: @sub_category_params[:category_id], active: true)
+      @sub_category = SubCategory.where(category_id: @sub_category_params[:category_id])
       fill_custom_errors(self, :base, :not_found, I18n.t("custom.errors.data_not_found")) if @sub_category.empty?
     end
 
