@@ -32,6 +32,7 @@ module CategorySubCategories
 
     def update_category
       find_category
+      set_name_object
       return if errors.any?
       @category.assign_attributes(@category_params)
       @category.save
@@ -53,6 +54,13 @@ module CategorySubCategories
     end
 
     private
+
+    def set_name_object
+      return if @errors.any?
+      key = @category_params[:name].keys.first
+      obj_dif = @category[:name].except(key)
+      @category_params[:name].merge!(obj_dif)
+    end
 
     def find_category
       @category = Category.find_by_id(@category_params[:id])

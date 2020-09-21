@@ -172,3 +172,223 @@ Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-09-20 01:59:25 +
   [1m[36mProductType Load (0.8ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" ORDER BY "product_types"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for ::1 at 2020-09-21 17:12:55 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2020-09-21 17:12:56 +0400
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2020-09-21 17:12:56 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2020-09-21 17:12:56 +0400
+Started GET "/api-docs/v1/swagger.json" for ::1 at 2020-09-21 17:12:56 +0400
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2020-09-21 17:12:57 +0400
+Started GET "/en/categories/category_list" for ::1 at 2020-09-21 17:13:09 +0400
+Processing by CategoriesController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCategory Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:52
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:22
+Completed 200 OK in 25ms (Views: 0.3ms | ActiveRecord: 8.2ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for ::1 at 2020-09-21 17:14:06 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2020-09-21 17:14:06 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2020-09-21 17:14:06 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2020-09-21 17:14:06 +0400
+Started GET "/api-docs/v1/swagger.json" for ::1 at 2020-09-21 17:14:07 +0400
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2020-09-21 17:14:07 +0400
+Started GET "/%7Blocale%7D/categories/category_list" for ::1 at 2020-09-21 17:14:14 +0400
+Processing by CategoriesController#list as JSON
+  Parameters: {"locale"=>"{locale}"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+I18n::InvalidLocale ("{locale}" is not a valid locale):
+  
+app/controllers/application_controller.rb:8:in `set_locale'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for ::1 at 2020-09-21 17:17:55 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2020-09-21 17:17:55 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2020-09-21 17:17:55 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2020-09-21 17:17:55 +0400
+Started GET "/api-docs/v1/swagger.json" for ::1 at 2020-09-21 17:17:55 +0400
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2020-09-21 17:17:55 +0400
+Started GET "/en/categories/category_list" for ::1 at 2020-09-21 17:18:09 +0400
+Processing by CategoriesController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCategory Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:52
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:22
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/no/categories/category_list" for ::1 at 2020-09-21 17:18:17 +0400
+Processing by CategoriesController#list as JSON
+  Parameters: {"locale"=>"no"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCategory Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:52
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:22
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/en/categories" for ::1 at 2020-09-21 17:19:08 +0400
+Processing by CategoriesController#update as JSON
+  Parameters: {"id"=>1, "name"=>"buka", "locale"=>"en", "category"=>{"id"=>1, "name"=>"buka"}}
+Unpermitted parameter: :name
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:37
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:37
+Completed 200 OK in 44ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/no/categories/category_list" for ::1 at 2020-09-21 17:19:22 +0400
+Processing by CategoriesController#list as JSON
+  Parameters: {"locale"=>"no"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCategory Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:52
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:22
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/en/categories/category_list" for ::1 at 2020-09-21 17:19:30 +0400
+Processing by CategoriesController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCategory Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:52
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:22
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/en/categories/category_list" for ::1 at 2020-09-21 17:24:34 +0400
+Processing by CategoriesController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCategory Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:52
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:22
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/en/categories" for ::1 at 2020-09-21 17:43:53 +0400
+Processing by CategoriesController#update as JSON
+  Parameters: {"id"=>1, "name"=>{"en"=>"buka"}, "locale"=>"en", "category"=>{"id"=>1, "name"=>{"en"=>"buka"}}}
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:37
+  [1m[36mCategory Update (5.8ms)[0m  [1m[33mUPDATE "categories" SET "name" = $1 WHERE "categories"."id" = $2[0m  [["name", "{\"en\":\"buka\"}"], ["id", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:37
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:37
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/en/categories/category_list" for ::1 at 2020-09-21 17:43:58 +0400
+Processing by CategoriesController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCategory Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:52
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:22
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/no/categories/category_list" for ::1 at 2020-09-21 17:44:05 +0400
+Processing by CategoriesController#list as JSON
+  Parameters: {"locale"=>"no"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCategory Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:52
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:22
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/en/categories" for ::1 at 2020-09-21 17:44:54 +0400
+Processing by CategoriesController#update as JSON
+  Parameters: {"id"=>1, "name"=>{"en"=>"buka"}, "locale"=>"en", "category"=>{"id"=>1, "name"=>{"en"=>"buka"}}}
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:59
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):18
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):19
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:59
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:38
+  [1m[36mCategory Update (0.3ms)[0m  [1m[33mUPDATE "categories" SET "name" = $1 WHERE "categories"."id" = $2[0m  [["name", "{\"en\":\"buka\",\"no\":\"change_1\"}"], ["id", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:38
+  [1m[35m (35.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:38
+Completed 200 OK in 595557ms (Views: 0.2ms | ActiveRecord: 47.4ms)
+
+
+Started GET "/no/categories/category_list" for ::1 at 2020-09-21 17:55:34 +0400
+Processing by CategoriesController#list as JSON
+  Parameters: {"locale"=>"no"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCategory Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:54
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:22
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 3.6ms)
+
+
+Started PUT "/en/categories" for ::1 at 2020-09-21 17:55:48 +0400
+Processing by CategoriesController#update as JSON
+  Parameters: {"id"=>2, "name"=>{"en"=>"buka"}, "locale"=>"en", "category"=>{"id"=>2, "name"=>{"en"=>"buka"}}}
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:67
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:39
+  [1m[36mCategory Update (1.0ms)[0m  [1m[33mUPDATE "categories" SET "name" = $1 WHERE "categories"."id" = $2[0m  [["name", "{\"en\":\"buka\",\"no\":\"category_no 2\"}"], ["id", 2]]
+  ↳ app/services/category_sub_categories/categories_service.rb:39
+  [1m[35m (36.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:39
+Completed 200 OK in 6373ms (Views: 0.6ms | ActiveRecord: 38.7ms)
+
+
+Started GET "/no/categories/category_list" for ::1 at 2020-09-21 17:56:05 +0400
+Processing by CategoriesController#list as JSON
+  Parameters: {"locale"=>"no"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCategory Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:54
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:22
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/en/categories/category_list" for ::1 at 2020-09-21 17:56:17 +0400
+Processing by CategoriesController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCategory Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/category_sub_categories/categories_service.rb:54
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/services/category_sub_categories/categories_service.rb:22
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+

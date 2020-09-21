@@ -33,6 +33,7 @@ module Products
 
     def update
       find_type
+      set_name_object
       return if errors.any?
       @product_type.assign_attributes(@params)
       @product_type.save
@@ -54,6 +55,13 @@ module Products
 
 
     private
+
+    def set_name_object
+      return if @errors.any?
+      key = @params[:name].keys.first
+      obj_dif = @product_type[:name].except(key)
+      @params[:name].merge!(obj_dif)
+    end
 
     def find_type
       @product_type = ProductType.find_by_id(@params[:id])

@@ -24,15 +24,12 @@ module Account
     end
 
     def call
-      binding.pry
       validate_agreements
       validate_phone_number
       validate_password_matching
       return if @errors.any?
 
       ActiveRecord::Base.transaction do
-        binding.pry
-
         register_user!
         create_customer!
         create_terms_and_conditions
@@ -75,7 +72,6 @@ module Account
     end
 
     def validate_agreements
-      binding.pry
       return if @errors.any?
       last_terms_and_conditions_id = TermsAndCondition.order("active_from DESC").first.id
       valid_terms = @registration_params[:terms_and_conditions_id].eql?(last_terms_and_conditions_id)
