@@ -24,7 +24,7 @@ module Suppliers
     end
 
     def list_json_view
-      { suppliers: @supplier.as_json(except: [:integration_system_id, :business_type_id, :active]) }
+      { suppliers:  @supplier.as_json(include: { integration_system: { only: [:name]}}, except: [:business_type_id]) }
     end
 
 

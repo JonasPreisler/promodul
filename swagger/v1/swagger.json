@@ -2323,6 +2323,14 @@
                     },
                     "identification_code": {
                       "type": "string"
+                    },
+                    "integration_system": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      }
                     }
                   }
                 }
@@ -2386,6 +2394,14 @@
                     },
                     "phone_number": {
                       "type": "string"
+                    },
+                    "integration_system": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      }
                     }
                   }
                 }
@@ -2480,6 +2496,14 @@
                     },
                     "phone_number": {
                       "type": "string"
+                    },
+                    "integration_system": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      }
                     }
                   }
                 }

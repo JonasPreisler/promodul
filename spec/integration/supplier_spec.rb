@@ -38,7 +38,13 @@ describe 'Supplier ', type: :request do
                            active: {type: :boolean},
                            integration_system_id: {type: :integer},
                            business_type_id: {type: :integer},
-                           identification_code: {type: :string}
+                           identification_code: {type: :string},
+                           integration_system: {
+                               type: :object,
+                               properties: {
+                                   name: { type: :string }
+                               }
+                           }
                        }}
                }
         run_test!
@@ -80,7 +86,13 @@ describe 'Supplier ', type: :request do
                            name: {type: :string},
                            registration_date: {type: :string},
                            identification_code: {type: :string},
-                           phone_number: {type: :string}
+                           phone_number: {type: :string},
+                           integration_system: {
+                               type: :object,
+                               properties: {
+                                   name: { type: :string }
+                               }
+                           }
                        }}
                }
         run_test!
@@ -131,7 +143,13 @@ describe 'Supplier ', type: :request do
                            name: {type: :string},
                            registration_date: {type: :string},
                            identification_code: {type: :string},
-                           phone_number: {type: :string}
+                           phone_number: {type: :string},
+                           integration_system: {
+                               type: :object,
+                               properties: {
+                                   name: { type: :string }
+                               }
+                           }
                        }}
                }
 
