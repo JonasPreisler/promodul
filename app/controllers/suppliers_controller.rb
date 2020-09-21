@@ -2,6 +2,11 @@ class SuppliersController < ApplicationController
   require 'controller_response'
   include ControllerResponse
 
+
+  #ToDo: Need remove after authorization will works
+  skip_before_action :validate_authentication
+
+
   #Create Supplier
   def create
     service = Suppliers::SuppliersService.new(supplier_params)
