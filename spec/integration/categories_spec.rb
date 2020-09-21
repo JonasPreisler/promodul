@@ -156,7 +156,7 @@ describe 'Category ', type: :request do
                     :description => 'Client token'
                 })
 
-      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      parameter name: :locale, in: :path, type: :string, default: "en"
 
       response '200', 'OK' do
         schema type: :object,

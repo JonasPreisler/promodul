@@ -168,3 +168,7 @@ Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-09-20 01:59:25 +
   ↳ spec/rails_helper.rb:34
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ spec/rails_helper.rb:34
+  [1m[36mProductType Load (1.1ms)[0m  [1m[34mSELECT "product_types".* FROM "product_types"[0m
+  [1m[36mProductType Load (0.8ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" ORDER BY "product_types"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34

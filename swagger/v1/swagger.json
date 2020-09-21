@@ -416,8 +416,8 @@
             "name": "locale",
             "in": "path",
             "type": "string",
-            "required": true,
-            "default": "en"
+            "default": "en",
+            "required": true
           }
         ],
         "responses": {
