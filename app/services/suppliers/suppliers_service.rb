@@ -45,7 +45,7 @@ module Suppliers
 
     def destroy_supplier
       @supplier = Supplier.find(@supplier_params[:id])
-      @sub_category.destroy
+      @supplier.destroy
       @errors.concat(fill_errors(@supplier))
     end
 

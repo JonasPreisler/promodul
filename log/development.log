@@ -563,3 +563,35 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
 
 
+Started DELETE "/en/supplier/3" for 127.0.0.1 at 2020-09-22 10:42:32 +0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SuppliersController#destroy as JSON
+  Parameters: {"locale"=>"en", "id"=>"3"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (0.4ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:47
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 4.6ms)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/services/suppliers/suppliers_service.rb:48:in `destroy_supplier'
+app/controllers/suppliers_controller.rb:27:in `destroy'
+Started DELETE "/en/supplier/3" for 127.0.0.1 at 2020-09-22 10:42:43 +0400
+Processing by SuppliersController#destroy as JSON
+  Parameters: {"locale"=>"en", "id"=>"3"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (1.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ (pry):1
+  [1m[36mCACHE Supplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:48
+Completed 500 Internal Server Error in 17136ms (ActiveRecord: 12.5ms)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/services/suppliers/suppliers_service.rb:49:in `destroy_supplier'
+app/controllers/suppliers_controller.rb:27:in `destroy'
