@@ -485,3 +485,81 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 43ms (Views: 0.4ms | ActiveRecord: 13.2ms)
 
 
+  [1m[36mSupplier Load (0.5ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" ORDER BY "suppliers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSupplier Load (0.4ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" ORDER BY "suppliers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSupplier Load (0.8ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" ORDER BY "suppliers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-09-22 10:36:14 +0400
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-09-22 10:36:14 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-09-22 10:36:14 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-09-22 10:36:14 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-09-22 10:36:15 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-09-22 10:36:15 +0400
+Started GET "/en/suppliers/list" for 127.0.0.1 at 2020-09-22 10:36:26 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (3.4ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers" WHERE "suppliers"."active" = $1[0m  [["active", true]]
+  ↳ app/services/suppliers/suppliers_service.rb:27
+  [1m[36mIntegrationSystem Load (1.3ms)[0m  [1m[34mSELECT  "integration_systems".* FROM "integration_systems" WHERE "integration_systems"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:27
+Completed 200 OK in 48ms (Views: 0.3ms | ActiveRecord: 24.6ms)
+
+
+Started PUT "/en/supplier/3" for 127.0.0.1 at 2020-09-22 10:37:10 +0400
+Processing by SuppliersController#update as JSON
+  Parameters: {"active"=>false, "locale"=>"en", "id"=>"3", "supplier"=>{"active"=>false}}
+Unpermitted parameters: :active, :format, :locale, :supplier
+  [1m[36mSupplier Load (0.3ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:40
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/suppliers/suppliers_service.rb:41
+  [1m[36mIntegrationSystem Load (0.3ms)[0m  [1m[34mSELECT  "integration_systems".* FROM "integration_systems" WHERE "integration_systems"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:41
+  [1m[36mBusinessType Load (2.2ms)[0m  [1m[34mSELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/suppliers/suppliers_service.rb:41
+Completed 200 OK in 26ms (Views: 0.2ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/en/suppliers/list" for 127.0.0.1 at 2020-09-22 10:37:17 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (0.3ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers" WHERE "suppliers"."active" = $1[0m  [["active", true]]
+  ↳ app/services/suppliers/suppliers_service.rb:27
+  [1m[36mIntegrationSystem Load (0.3ms)[0m  [1m[34mSELECT  "integration_systems".* FROM "integration_systems" WHERE "integration_systems"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:27
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started PUT "/en/supplier/3" for 127.0.0.1 at 2020-09-22 10:37:48 +0400
+Processing by SuppliersController#update as JSON
+  Parameters: {"active"=>false, "locale"=>"en", "id"=>"3", "supplier"=>{"active"=>false}}
+Unpermitted parameters: :format, :locale, :supplier
+  [1m[36mSupplier Load (0.2ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:40
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/suppliers/suppliers_service.rb:41
+  [1m[36mIntegrationSystem Load (0.3ms)[0m  [1m[34mSELECT  "integration_systems".* FROM "integration_systems" WHERE "integration_systems"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:41
+  [1m[36mBusinessType Load (0.3ms)[0m  [1m[34mSELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/suppliers/suppliers_service.rb:41
+  [1m[36mSupplier Update (2.4ms)[0m  [1m[33mUPDATE "suppliers" SET "active" = $1 WHERE "suppliers"."id" = $2[0m  [["active", false], ["id", 3]]
+  ↳ app/services/suppliers/suppliers_service.rb:41
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/suppliers/suppliers_service.rb:41
+Completed 200 OK in 32ms (Views: 0.3ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/en/suppliers/list" for 127.0.0.1 at 2020-09-22 10:37:53 +0400
+Processing by SuppliersController#list as JSON
+  Parameters: {"locale"=>"en", "id"=>"list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplier Load (0.3ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers" WHERE "suppliers"."active" = $1[0m  [["active", true]]
+  ↳ app/services/suppliers/suppliers_service.rb:27
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+

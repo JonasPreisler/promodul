@@ -45,13 +45,12 @@ module Suppliers
 
     def destroy_supplier
       @supplier = Supplier.find(@supplier_params[:id])
-      @supplier.active = false
-      @supplier.save
+      @sub_category.destroy
       @errors.concat(fill_errors(@supplier))
     end
 
     def list
-      @supplier = Supplier.where(active: true)
+      @supplier = Supplier.all
     end
   end
 end

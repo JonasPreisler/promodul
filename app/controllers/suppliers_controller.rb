@@ -53,6 +53,6 @@ class SuppliersController < ApplicationController
   private
 
   def supplier_params
-    params.permit(:id, :integration_system_id, :business_type_id, :identification_code, :name, :phone_number)
+    params.permit(:id, :integration_system_id, :business_type_id, :identification_code, :name, :phone_number, :active)
   end
 end
