@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_203704) do
+ActiveRecord::Schema.define(version: 2020_09_26_210103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,13 @@ ActiveRecord::Schema.define(version: 2020_09_26_203704) do
     t.integer "coupon_promotion_id"
     t.string "code"
     t.index ["coupon_promotion_id", "code"], name: "index_coupon_codes_on_coupon_promotion_id_and_code", unique: true
+  end
+
+  create_table "currencies", force: :cascade do |t|
+    t.json "name", null: false
+    t.string "symbol", limit: 20, null: false
+    t.string "code", limit: 3, null: false
+    t.index ["code"], name: "index_currencies_on_code", unique: true
   end
 
   create_table "customer_types", force: :cascade do |t|

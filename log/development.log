@@ -1120,3 +1120,80 @@ Migrating to RemoveColumnsFromProductCharacteristics (20200926203704)
   ↳ bin/rails:9
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-09-27 00:51:27 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-09-27 00:51:27 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-09-27 00:51:27 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-09-27 00:51:27 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-09-27 00:51:28 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-09-27 00:51:28 +0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCurrencies (20200926205812)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (26.0ms)[0m  [1m[35mCREATE TABLE "currencies" ("id" bigserial primary key, "name" json NOT NULL, "symbol" character varying(20) NOT NULL, "code" character varying(3) NOT NULL)[0m
+  ↳ db/migrate/20200926205812_create_currencies.rb:3
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_currencies_on_code" ON "currencies"  ("code")[0m
+  ↳ db/migrate/20200926205812_create_currencies.rb:9
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926205812"]]
+  ↳ bin/rails:9
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to FillCurrencies (20200926210103)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mCurrency Create (0.7ms)[0m  [1m[32mINSERT INTO "currencies" ("name", "symbol", "code") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "\"Krone\""], ["symbol", "‎KR"], ["code", "nok"]]
+  ↳ db/migrate/20200926210103_fill_currencies.rb:3
+  [1m[36mCurrency Create (0.2ms)[0m  [1m[32mINSERT INTO "currencies" ("name", "symbol", "code") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "\"USD dollar\""], ["symbol", "$"], ["code", "usd"]]
+  ↳ db/migrate/20200926210103_fill_currencies.rb:4
+  [1m[36mCurrency Create (0.4ms)[0m  [1m[32mINSERT INTO "currencies" ("name", "symbol", "code") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "\"Euro\""], ["symbol", "€"], ["code", "euro"]]
+  ↳ db/migrate/20200926210103_fill_currencies.rb:5
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to FillCurrencies (20200926210103)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mCurrency Create (0.5ms)[0m  [1m[32mINSERT INTO "currencies" ("name", "symbol", "code") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "\"Krone\""], ["symbol", "‎KR"], ["code", "nok"]]
+  ↳ db/migrate/20200926210103_fill_currencies.rb:3
+  [1m[36mCurrency Create (0.3ms)[0m  [1m[32mINSERT INTO "currencies" ("name", "symbol", "code") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "\"USD dollar\""], ["symbol", "$"], ["code", "usd"]]
+  ↳ db/migrate/20200926210103_fill_currencies.rb:4
+  [1m[36mCurrency Create (0.2ms)[0m  [1m[32mINSERT INTO "currencies" ("name", "symbol", "code") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "\"Euro\""], ["symbol", "€"], ["code", "eur"]]
+  ↳ db/migrate/20200926210103_fill_currencies.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926210103"]]
+  ↳ bin/rails:9
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
