@@ -962,6 +962,12 @@
                     },
                     "depth": {
                       "type": "number"
+                    },
+                    "subscription": {
+                      "type": "boolean"
+                    },
+                    "commission": {
+                      "type": "boolean"
                     }
                   }
                 }
@@ -1041,6 +1047,12 @@
                         },
                         "depth": {
                           "type": "number"
+                        },
+                        "subscription": {
+                          "type": "boolean"
+                        },
+                        "commission": {
+                          "type": "boolean"
                         },
                         "sub_category": {
                           "type": "object",
@@ -1190,6 +1202,12 @@
                     },
                     "depth": {
                       "type": "number"
+                    },
+                    "subscription": {
+                      "type": "boolean"
+                    },
+                    "commission": {
+                      "type": "boolean"
                     }
                   }
                 }
@@ -1262,6 +1280,12 @@
                         },
                         "depth": {
                           "type": "number"
+                        },
+                        "subscription": {
+                          "type": "boolean"
+                        },
+                        "commission": {
+                          "type": "boolean"
                         },
                         "sub_category": {
                           "type": "object",
@@ -1448,6 +1472,12 @@
                           },
                           "depth": {
                             "type": "number"
+                          },
+                          "subscription": {
+                            "type": "boolean"
+                          },
+                          "commission": {
+                            "type": "boolean"
                           },
                           "sub_category": {
                             "type": "object",

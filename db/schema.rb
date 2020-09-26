@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_203149) do
+ActiveRecord::Schema.define(version: 2020_09_26_145340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,8 @@ ActiveRecord::Schema.define(version: 2020_09_21_203149) do
     t.decimal "depth"
     t.integer "product_type_id"
     t.integer "product_vat_type_id"
+    t.boolean "subscription", default: false
+    t.boolean "commission", default: false
     t.index ["product_id"], name: "index_product_characteristics_on_product_id"
     t.index ["product_type_id"], name: "index_product_characteristics_on_product_type_id"
     t.index ["product_vat_type_id"], name: "index_product_characteristics_on_product_vat_type_id"

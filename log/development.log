@@ -683,3 +683,149 @@ Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-09-26 18:11:2
 Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-09-26 18:11:23 +0400
 Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-09-26 18:11:24 +0400
 Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-09-26 18:11:24 +0400
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductCharacteristic Load (1.4ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" ORDER BY "product_characteristics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductCharacteristic Load (1.0ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" ORDER BY "product_characteristics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductCharacteristic Load (0.6ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" ORDER BY "product_characteristics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddColumnsToProductCharacteristics (20200926145340)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "product_characteristic" ADD "subscription" boolean DEFAULT FALSE[0m
+  ↳ db/migrate/20200926145340_add_columns_to_product_characteristics.rb:3
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddColumnsToProductCharacteristics (20200926145340)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (44.9ms)[0m  [1m[35mALTER TABLE "product_characteristics" ADD "subscription" boolean DEFAULT FALSE[0m
+  ↳ db/migrate/20200926145340_add_columns_to_product_characteristics.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "product_characteristics" ADD "commission" boolean DEFAULT FALSE[0m
+  ↳ db/migrate/20200926145340_add_columns_to_product_characteristics.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926145340"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mProductCharacteristic Load (0.7ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" ORDER BY "product_characteristics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[36mProductCharacteristic Load (0.8ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" ORDER BY "product_characteristics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductType Load (1.4ms)[0m  [1m[34mSELECT "product_types".* FROM "product_types"[0m
+Started POST "/en/products" for 127.0.0.1 at 2020-09-26 19:19:41 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ProductsController#create as JSON
+  Parameters: {"name"=>"buka", "full_name"=>"full buka", "description"=>"Test product", "code"=>"20569", "instruction"=>"Take cerfule with this product", "product_characteristic_attributes"=>{"sub_category_id"=>2, "product_type_id"=>5, "product_vat_type_id"=>2, "shape"=>"some shape", "volume"=>"some volume", "packaging"=>"big", "manufacturer"=>"OSRAM", "description"=>"Good lights", "external_code"=>"232323", "sales_start"=>"30-09-2020", "sales_end"=>"30-12-2020", "EAN_code"=>"89665", "weight"=>24.3, "height"=>23.96, "width"=>78.3, "depth"=>5.3, "subscription"=>false, "commission"=>false}, "locale"=>"en", "product"=>{"name"=>"buka", "full_name"=>"full buka", "description"=>"Test product", "code"=>"20569", "instruction"=>"Take cerfule with this product", "product_characteristic_attributes"=>{"sub_category_id"=>2, "product_type_id"=>5, "product_vat_type_id"=>2, "shape"=>"some shape", "volume"=>"some volume", "packaging"=>"big", "manufacturer"=>"OSRAM", "description"=>"Good lights", "external_code"=>"232323", "sales_start"=>"30-09-2020", "sales_end"=>"30-12-2020", "EAN_code"=>"89665", "weight"=>24.3, "height"=>23.96, "width"=>78.3, "depth"=>5.3, "subscription"=>false, "commission"=>false}}}
+Unpermitted parameters: :name, :full_name, :format, :locale, :product
+  [1m[36mProductType Load (0.8ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:41
+  [1m[36mProductVatType Load (0.5ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:47
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_create_service.rb:59
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/products/product_create_service.rb:59
+Completed 400 Bad Request in 3715ms (Views: 0.6ms | ActiveRecord: 26.6ms)
+
+
+Started POST "/en/products" for 127.0.0.1 at 2020-09-26 19:20:23 +0400
+Processing by ProductsController#create as JSON
+  Parameters: {"name"=>{"en"=>"buka"}, "full_name"=>{"en"=>"full buka"}, "description"=>"Test product", "code"=>"20569", "instruction"=>"Take cerfule with this product", "product_characteristic_attributes"=>{"sub_category_id"=>2, "product_type_id"=>5, "product_vat_type_id"=>2, "shape"=>"some shape", "volume"=>"some volume", "packaging"=>"big", "manufacturer"=>"OSRAM", "description"=>"Good lights", "external_code"=>"232323", "sales_start"=>"30-09-2020", "sales_end"=>"30-12-2020", "EAN_code"=>"89665", "weight"=>24.3, "height"=>23.96, "width"=>78.3, "depth"=>5.3, "subscription"=>false, "commission"=>false}, "locale"=>"en", "product"=>{"name"=>{"en"=>"buka"}, "full_name"=>{"en"=>"full buka"}, "description"=>"Test product", "code"=>"20569", "instruction"=>"Take cerfule with this product", "product_characteristic_attributes"=>{"sub_category_id"=>2, "product_type_id"=>5, "product_vat_type_id"=>2, "shape"=>"some shape", "volume"=>"some volume", "packaging"=>"big", "manufacturer"=>"OSRAM", "description"=>"Good lights", "external_code"=>"232323", "sales_start"=>"30-09-2020", "sales_end"=>"30-12-2020", "EAN_code"=>"89665", "weight"=>24.3, "height"=>23.96, "width"=>78.3, "depth"=>5.3, "subscription"=>false, "commission"=>false}}}
+Unpermitted parameters: :format, :locale, :product
+  [1m[36mProductType Load (0.5ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:41
+  [1m[36mProductVatType Load (0.4ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:47
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_create_service.rb:59
+  [1m[36mProduct Create (35.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "full_name", "description", "code", "instruction") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "{\"en\":\"buka\"}"], ["full_name", "{\"en\":\"full buka\"}"], ["description", "Test product"], ["code", "20569"], ["instruction", "Take cerfule with this product"]]
+  ↳ app/services/products/product_create_service.rb:59
+  [1m[36mProductCharacteristic Create (2.2ms)[0m  [1m[32mINSERT INTO "product_characteristics" ("product_id", "sub_category_id", "shape", "volume", "packaging", "manufacturer", "description", "external_code", "sales_start", "sales_end", "EAN_code", "weight", "width", "height", "depth", "product_type_id", "product_vat_type_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["product_id", 14], ["sub_category_id", 2], ["shape", "some shape"], ["volume", "some volume"], ["packaging", "big"], ["manufacturer", "OSRAM"], ["description", "Good lights"], ["external_code", "232323"], ["sales_start", "2020-09-30 00:00:00"], ["sales_end", "2020-12-30 00:00:00"], ["EAN_code", "89665"], ["weight", "24.3"], ["width", "78.3"], ["height", "23.96"], ["depth", "5.3"], ["product_type_id", 5], ["product_vat_type_id", 2]]
+  ↳ app/services/products/product_create_service.rb:59
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_create_service.rb:59
+  [1m[36mSubCategory Load (0.4ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:24
+  [1m[36mProductType Load (0.6ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:24
+  [1m[36mProductVatType Load (0.4ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:24
+Completed 201 Created in 6854ms (Views: 0.8ms | ActiveRecord: 52.7ms)
+
+
+Started PUT "/en/product_types" for 127.0.0.1 at 2020-09-26 19:21:59 +0400
+Processing by ProductTypesController#update as JSON
+  Parameters: {"id"=>5, "name"=>{"no"=>"string_1", "en"=>"string_1"}, "id_name"=>"string_1", "active"=>true, "locale"=>"en", "product_type"=>{"id"=>5, "name"=>{"no"=>"string_1", "en"=>"string_1"}, "id_name"=>"string_1", "active"=>true}}
+Unpermitted parameters: :id_name, :format, :locale, :product_type
+  [1m[36mProductType Load (0.4ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_type_service.rb:67
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_type_service.rb:39
+  [1m[36mProductType Update (0.5ms)[0m  [1m[33mUPDATE "product_types" SET "name" = $1 WHERE "product_types"."id" = $2[0m  [["name", "{\"no\":\"string_1\",\"en\":\"string\"}"], ["id", 5]]
+  ↳ app/services/products/product_type_service.rb:39
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_type_service.rb:39
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/en/products/list" for 127.0.0.1 at 2020-09-26 19:22:12 +0400
+Processing by ProductsController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mProductCharacteristic Load (0.3ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mSubCategory Load (0.2ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mProductCharacteristic Load (0.2ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 9], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mCACHE SubCategory Load (0.0ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mProductType Load (0.3ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mProductCharacteristic Load (0.2ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 11], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mSubCategory Load (0.2ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mProductCharacteristic Load (0.3ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 13], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mCACHE SubCategory Load (0.0ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mProductCharacteristic Load (0.2ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 14], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mCACHE SubCategory Load (0.0ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mProductType Load (0.2ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mProductVatType Load (0.4ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+Completed 200 OK in 20ms (Views: 2.4ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/en/products" for 127.0.0.1 at 2020-09-26 19:32:36 +0400
+Processing by ProductsController#create as JSON
+  Parameters: {"name"=>{"en"=>"buka"}, "full_name"=>{"en"=>"full buka"}, "description"=>"Test product", "code"=>"20569", "instruction"=>"Take cerfule with this product", "product_characteristic_attributes"=>{"sub_category_id"=>2, "product_type_id"=>5, "product_vat_type_id"=>2, "shape"=>"some shape", "volume"=>"some volume", "packaging"=>"big", "manufacturer"=>"OSRAM", "description"=>"Good lights", "external_code"=>"232323", "sales_start"=>"30-09-2020", "sales_end"=>"30-12-2020", "EAN_code"=>"89665", "weight"=>24.3, "height"=>23.96, "width"=>78.3, "depth"=>5.3, "subscription"=>false, "commission"=>false}, "locale"=>"en", "product"=>{"name"=>{"en"=>"buka"}, "full_name"=>{"en"=>"full buka"}, "description"=>"Test product", "code"=>"20569", "instruction"=>"Take cerfule with this product", "product_characteristic_attributes"=>{"sub_category_id"=>2, "product_type_id"=>5, "product_vat_type_id"=>2, "shape"=>"some shape", "volume"=>"some volume", "packaging"=>"big", "manufacturer"=>"OSRAM", "description"=>"Good lights", "external_code"=>"232323", "sales_start"=>"30-09-2020", "sales_end"=>"30-12-2020", "EAN_code"=>"89665", "weight"=>24.3, "height"=>23.96, "width"=>78.3, "depth"=>5.3, "subscription"=>false, "commission"=>false}}}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 8.6ms)
+
+

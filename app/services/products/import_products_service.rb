@@ -138,6 +138,9 @@ module Products
       file_type = "always24"
       #Example: ":transaction_date, :prescription, :u_3, :u_4, :total_amount, :u_6, :u_7, :u_8, :transaction_code,
       #                       :u_10, :sender, :sender_identification_code, :u_12, :u_13, :u_14, :u_15, :u_16, :u_17, :u_18, :u_19, :u_20, :u_21"
+
+                    #detect= ":Product_name, Product_no, Description, :Product_type, :Product_type_text, Product_group_ID
+                    #       , :Product_group, Volume, Product_code, EAN_code, :Weight, :Width, :Height, :Depth, VAT_type"
       case file_type
       when "always24" then [":Product_no, :Product_code, :Product_name, :Description, :Product_type, :Product_type_text,
                              :Product_group_ID, :Product_group, :Vendor_ID, :Supplier_name, :Department_ID, :Department,

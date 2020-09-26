@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   include ControllerResponse
 
   #ToDO: Need remove after authorization will works
-  skip_before_action :validate_authentication
+  #skip_before_action :validate_authentication
 
   def search
     service = Products::EsSearchService.new(product_search_params, current_customer)

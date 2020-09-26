@@ -4,7 +4,7 @@ class SuppliersController < ApplicationController
 
 
   #ToDo: Need remove after authorization will works
-  skip_before_action :validate_authentication
+  #skip_before_action :validate_authentication
 
 
   #Create Supplier

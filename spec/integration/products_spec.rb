@@ -43,7 +43,9 @@ describe 'Product ', type: :request do
                       weight:              { type: :number },
                       height:              { type: :number },
                       width:               { type: :number },
-                      depth:               { type: :number }
+                      depth:               { type: :number },
+                      subscription:        { type: :boolean },
+                      commission:          { type: :boolean }
                   }
               }
           }
@@ -112,7 +114,9 @@ describe 'Product ', type: :request do
                       weight:              { type: :number },
                       height:              { type: :number },
                       width:               { type: :number },
-                      depth:               { type: :number }
+                      depth:               { type: :number },
+                      subscription:        { type: :boolean },
+                      commission:          { type: :boolean }
                   }
               }
           }

@@ -2,6 +2,9 @@ class SubCategoriesController < ApplicationController
   require 'controller_response'
   include ControllerResponse
 
+  #ToDO: Need remove after authorization will works
+  #skip_before_action :validate_authentication
+
   def create
     service = CategorySubCategories::SubCategoriesService.new(sub_category_params)
     service.create_sub_category

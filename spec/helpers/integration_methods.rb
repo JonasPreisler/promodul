@@ -27,6 +27,8 @@ def product_schema
               height:        { type: :number },
               width:         { type: :number },
               depth:         { type: :number },
+              subscription:  { type: :boolean },
+              commission:    { type: :boolean },
               sub_category: {
                   type: :object,
                   properties: {
