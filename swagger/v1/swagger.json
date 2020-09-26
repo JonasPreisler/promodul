@@ -924,13 +924,7 @@
                     "product_vat_type_id": {
                       "type": "integer"
                     },
-                    "shape": {
-                      "type": "string"
-                    },
                     "volume": {
-                      "type": "string"
-                    },
-                    "packaging": {
                       "type": "string"
                     },
                     "manufacturer": {
@@ -1009,13 +1003,7 @@
                     "product_characteristic": {
                       "type": "object",
                       "properties": {
-                        "shape": {
-                          "type": "string"
-                        },
                         "volume": {
-                          "type": "string"
-                        },
-                        "packaging": {
                           "type": "string"
                         },
                         "manufacturer": {
@@ -1164,13 +1152,7 @@
                     "product_vat_type_id": {
                       "type": "integer"
                     },
-                    "shape": {
-                      "type": "string"
-                    },
                     "volume": {
-                      "type": "string"
-                    },
-                    "packaging": {
                       "type": "string"
                     },
                     "manufacturer": {
@@ -1242,13 +1224,7 @@
                     "product_characteristic": {
                       "type": "object",
                       "properties": {
-                        "shape": {
-                          "type": "string"
-                        },
                         "volume": {
-                          "type": "string"
-                        },
-                        "packaging": {
                           "type": "string"
                         },
                         "manufacturer": {
@@ -1441,13 +1417,7 @@
                     "product_characteristic": {
                       "type": "object",
                       "properties": {
-                        "shape": {
-                          "type": "string"
-                        },
                         "volume": {
-                          "type": "string"
-                        },
-                        "packaging": {
                           "type": "string"
                         },
                         "manufacturer": {
@@ -1586,13 +1556,7 @@
                       "product_characteristic": {
                         "type": "object",
                         "properties": {
-                          "shape": {
-                            "type": "string"
-                          },
                           "volume": {
-                            "type": "string"
-                          },
-                          "packaging": {
                             "type": "string"
                           },
                           "manufacturer": {

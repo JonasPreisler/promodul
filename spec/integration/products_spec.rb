@@ -31,9 +31,7 @@ describe 'Product ', type: :request do
                       sub_category_id:     { type: :integer },
                       product_type_id:     { type: :integer },
                       product_vat_type_id: { type: :integer },
-                      shape:               { type: :string },
                       volume:              { type: :string },
-                      packaging:           { type: :string },
                       manufacturer:        { type: :string },
                       description:         { type: :string },
                       external_code:       { type: :string },
@@ -102,9 +100,7 @@ describe 'Product ', type: :request do
                       sub_category_id:     { type: :integer },
                       product_type_id:     { type: :integer },
                       product_vat_type_id: { type: :integer },
-                      shape:               { type: :string },
                       volume:              { type: :string },
-                      packaging:           { type: :string },
                       manufacturer:        { type: :string },
                       description:         { type: :string },
                       external_code:       { type: :string },
@@ -157,41 +153,7 @@ describe 'Product ', type: :request do
 
       parameter name: :locale, in: :path, type: :string, required: true, default: "en"
       parameter name: :id,     in: :query, type: :integer, required: true
-      #parameter name: :params, in: :body, schema: {
-      #    type: :object,
-      #    properties: {
-      #        id:           { type: :integer },
-      #        name:         { type: :object },
-      #        full_name:    { type: :object },
-      #        description:  { type: :string },
-      #        instruction:  { type: :string },
-      #        code:         { type: :string },
-      #        product_characteristic_attributes: {
-      #            type: :object,
-      #            properties: {
-      #                id:                  { type: :integer },
-      #                sub_category_id:     { type: :integer },
-      #                product_type_id:     { type: :integer },
-      #                product_vat_type_id: { type: :integer },
-      #                shape:               { type: :string },
-      #                volume:              { type: :string },
-      #                packaging:           { type: :string },
-      #                manufacturer:        { type: :string },
-      #                description:         { type: :string },
-      #                external_code:       { type: :string },
-      #                sales_start:         { type: :string },
-      #                sales_end:           { type: :string },
-      #                EAN_code:            { type: :string },
-      #                weight:              { type: :number },
-      #                height:              { type: :number },
-      #                width:               { type: :number },
-      #                depth:               { type: :number },
-      #                subscription:        { type: :boolean },
-      #                commission:          { type: :boolean }
-      #            }
-      #        }
-      #    }
-      #}
+
       response '201', 'Updated' do
         schema type: :object,
                properties: {

@@ -14,9 +14,7 @@ def product_schema
       product_characteristic: {
           type: :object,
           properties: {
-              shape:         { type: :string },
               volume:        { type: :string },
-              packaging:     { type: :string },
               manufacturer:  { type: :string },
               description:   { type: :string },
               external_code: { type: :string },
