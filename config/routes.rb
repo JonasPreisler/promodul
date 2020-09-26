@@ -50,6 +50,9 @@ Rails.application.routes.draw do
 
       resource :product_types
       get 'product_types/product_type_list', to: 'product_types#list'
+
+      resource :currencies
+      get 'currencies/currencies_list', to: 'currencies#list'
     end
   end
 end
