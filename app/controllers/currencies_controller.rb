@@ -3,7 +3,7 @@ class CurrenciesController < ApplicationController
   include ControllerResponse
 
   #ToDo: Need remove after authorization will works
-  skip_before_action :validate_authentication
+  #skip_before_action :validate_authentication
 
   def list
     service = General::CurrenciesService.new(currency_params)
