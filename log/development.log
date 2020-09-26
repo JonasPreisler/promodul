@@ -595,3 +595,91 @@ NoMethodError (undefined method `destroy' for nil:NilClass):
   
 app/services/suppliers/suppliers_service.rb:49:in `destroy_supplier'
 app/controllers/suppliers_controller.rb:27:in `destroy'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-09-26 11:01:09 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-09-26 11:01:09 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-09-26 11:01:09 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-09-26 11:01:09 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-09-26 11:01:09 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-09-26 11:01:09 +0400
+Started POST "/en/product_types" for 127.0.0.1 at 2020-09-26 11:01:23 +0400
+Processing by ProductTypesController#create as JSON
+  Parameters: {"name"=>{"no"=>"string", "en"=>"string"}, "active"=>true, "locale"=>"en", "product_type"=>{"name"=>{"no"=>"string", "en"=>"string"}, "active"=>true}}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 10ms (Views: 0.4ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-09-26 11:01:43 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-09-26 11:01:43 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-09-26 11:01:43 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-09-26 11:01:43 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-09-26 11:01:44 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-09-26 11:01:44 +0400
+Started POST "/en/product_types" for 127.0.0.1 at 2020-09-26 11:01:52 +0400
+Processing by ProductTypesController#create as JSON
+  Parameters: {"name"=>{"no"=>"string", "en"=>"string"}, "active"=>true, "locale"=>"en", "product_type"=>{"name"=>{"no"=>"string", "en"=>"string"}, "active"=>true}}
+Unpermitted parameters: :format, :locale, :product_type
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_type_service.rb:29
+  [1m[36mProductType Create (4.3ms)[0m  [1m[32mINSERT INTO "product_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"no\":\"string\",\"en\":\"string\"}"], ["id_name", "string"]]
+  ↳ app/services/products/product_type_service.rb:29
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_type_service.rb:29
+Completed 201 Created in 193ms (Views: 0.4ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/en/product_types/product_type_list" for 127.0.0.1 at 2020-09-26 11:02:20 +0400
+Processing by ProductTypesController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProductType Load (0.4ms)[0m  [1m[34mSELECT "product_types".* FROM "product_types"[0m
+  ↳ app/services/products/product_type_service.rb:23
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/en/products/list" for 127.0.0.1 at 2020-09-26 11:02:39 +0400
+Processing by ProductsController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mProductCharacteristic Load (7.5ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mSubCategory Load (2.0ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mProductCharacteristic Load (0.5ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 9], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mCACHE SubCategory Load (0.0ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mProductType Load (0.5ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mProductCharacteristic Load (0.3ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 11], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mSubCategory Load (0.3ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mProductCharacteristic Load (0.3ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 13], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+  [1m[36mCACHE SubCategory Load (0.0ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_list_service.rb:17
+Completed 200 OK in 145ms (Views: 1.1ms | ActiveRecord: 29.8ms)
+
+
+Started GET "/en/products/product_vat_type" for 127.0.0.1 at 2020-09-26 11:03:10 +0400
+Processing by ProductsController#product_vat_type as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProductVatType Load (3.6ms)[0m  [1m[34mSELECT "product_vat_types".* FROM "product_vat_types"[0m
+  ↳ app/services/products/product_list_service.rb:25
+Completed 200 OK in 19ms (Views: 0.5ms | ActiveRecord: 10.1ms)
+
+
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-09-26 18:11:23 +0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-09-26 18:11:23 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-09-26 18:11:23 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-09-26 18:11:23 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-09-26 18:11:24 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-09-26 18:11:24 +0400
