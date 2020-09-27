@@ -1237,3 +1237,125 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 5.6ms)
 
 
+  [1m[36mSupplierProduct Load (1.7ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddQuantityColumnToSupplierProducts (20200927103709)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "supplier_products" ADD "quantity" integer[0m
+  ↳ db/migrate/20200927103709_add_quantity_column_to_supplier_products.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200927103709"]]
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveMinSellAmountColumnFromSupplierProduct (20200927104129)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "supplier_products" DROP COLUMN "min_sell_amount"[0m
+  ↳ db/migrate/20200927104129_remove_min_sell_amount_column_from_supplier_product.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200927104129"]]
+  ↳ bin/rails:9
+  [1m[35m (36.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mSupplierProduct Load (0.3ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-09-27 18:53:16 +0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-09-27 18:53:16 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-09-27 18:53:16 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-09-27 18:53:16 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-09-27 18:53:16 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-09-27 18:53:16 +0400
+Started GET "/en/sub_categories/sub_category_list?category_id=1" for 127.0.0.1 at 2020-09-27 18:58:43 +0400
+Processing by SubCategoriesController#list as JSON
+  Parameters: {"category_id"=>"1", "locale"=>"en"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 7ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/sub_categories/sub_category_list?category_id=1" for 127.0.0.1 at 2020-09-27 18:59:05 +0400
+Processing by SubCategoriesController#list as JSON
+  Parameters: {"category_id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSubCategory Load (0.8ms)[0m  [1m[34mSELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/services/category_sub_categories/sub_categories_service.rb:22
+Completed 200 OK in 29ms (Views: 0.3ms | ActiveRecord: 9.9ms)
+
+
+Started POST "/en/products" for 127.0.0.1 at 2020-09-27 19:00:01 +0400
+Processing by ProductsController#create as JSON
+  Parameters: {"name"=>{"en"=>"test_product", "no"=>"test_product_no"}, "full_name"=>{"en"=>"test_product", "no"=>"test_product_no"}, "description"=>"kaia kata", "code"=>"986532", "instruction"=>"You should take care about it", "product_characteristic_attributes"=>{"sub_category_id"=>2, "product_type_id"=>5, "product_vat_type_id"=>2, "volume"=>"askja", "manufacturer"=>"Oslo", "description"=>"dasdasd", "external_code"=>"030201", "sales_start"=>"as", "sales_end"=>"striascng", "EAN_code"=>"string", "weight"=>23, "height"=>23, "width"=>23, "depth"=>23, "subscription"=>true, "commission"=>true}, "locale"=>"en", "product"=>{"name"=>{"en"=>"test_product", "no"=>"test_product_no"}, "full_name"=>{"en"=>"test_product", "no"=>"test_product_no"}, "description"=>"kaia kata", "code"=>"986532", "instruction"=>"You should take care about it", "product_characteristic_attributes"=>{"sub_category_id"=>2, "product_type_id"=>5, "product_vat_type_id"=>2, "volume"=>"askja", "manufacturer"=>"Oslo", "description"=>"dasdasd", "external_code"=>"030201", "sales_start"=>"as", "sales_end"=>"striascng", "EAN_code"=>"string", "weight"=>23, "height"=>23, "width"=>23, "depth"=>23, "subscription"=>true, "commission"=>true}}}
+Unpermitted parameters: :format, :locale, :product
+  [1m[36mProductType Load (1.1ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:40
+  [1m[36mProductVatType Load (0.5ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:46
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 20.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'sales_start' for ProductCharacteristic.):
+  
+app/services/products/product_create_service.rb:57:in `create_product_item'
+app/services/products/product_create_service.rb:18:in `create_product'
+app/controllers/products_controller.rb:16:in `create'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-09-27 19:02:45 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-09-27 19:02:45 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-09-27 19:02:45 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-09-27 19:02:45 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-09-27 19:02:45 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-09-27 19:02:46 +0400
+Started POST "/en/products" for 127.0.0.1 at 2020-09-27 19:03:08 +0400
+Processing by ProductsController#create as JSON
+  Parameters: {"name"=>{"en"=>"test_product", "no"=>"test_product_no"}, "full_name"=>{"en"=>"test_product", "no"=>"test_product_no"}, "description"=>"kaia kata", "code"=>"986532", "instruction"=>"You should take care about it", "product_characteristic_attributes"=>{"sub_category_id"=>2, "product_type_id"=>5, "product_vat_type_id"=>2, "volume"=>"askja", "manufacturer"=>"Oslo", "description"=>"dasdasd", "external_code"=>"030201", "EAN_code"=>"string", "weight"=>23, "height"=>23, "width"=>23, "depth"=>23, "subscription"=>true, "commission"=>true}, "locale"=>"en", "product"=>{"name"=>{"en"=>"test_product", "no"=>"test_product_no"}, "full_name"=>{"en"=>"test_product", "no"=>"test_product_no"}, "description"=>"kaia kata", "code"=>"986532", "instruction"=>"You should take care about it", "product_characteristic_attributes"=>{"sub_category_id"=>2, "product_type_id"=>5, "product_vat_type_id"=>2, "volume"=>"askja", "manufacturer"=>"Oslo", "description"=>"dasdasd", "external_code"=>"030201", "EAN_code"=>"string", "weight"=>23, "height"=>23, "width"=>23, "depth"=>23, "subscription"=>true, "commission"=>true}}}
+Unpermitted parameters: :format, :locale, :product
+  [1m[36mProductType Load (1.0ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:40
+  [1m[36mProductVatType Load (0.5ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:46
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_create_service.rb:58
+  [1m[36mProduct Create (2.0ms)[0m  [1m[32mINSERT INTO "products" ("name", "full_name", "description", "code", "instruction") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "{\"en\":\"test_product\",\"no\":\"test_product_no\"}"], ["full_name", "{\"en\":\"test_product\",\"no\":\"test_product_no\"}"], ["description", "kaia kata"], ["code", "986532"], ["instruction", "You should take care about it"]]
+  ↳ app/services/products/product_create_service.rb:58
+  [1m[36mProductCharacteristic Create (2.6ms)[0m  [1m[32mINSERT INTO "product_characteristics" ("product_id", "sub_category_id", "volume", "manufacturer", "description", "external_code", "EAN_code", "weight", "width", "height", "depth", "product_type_id", "product_vat_type_id", "subscription", "commission") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["product_id", 15], ["sub_category_id", 2], ["volume", "askja"], ["manufacturer", "Oslo"], ["description", "dasdasd"], ["external_code", "030201"], ["EAN_code", "string"], ["weight", "23.0"], ["width", "23.0"], ["height", "23.0"], ["depth", "23.0"], ["product_type_id", 5], ["product_vat_type_id", 2], ["subscription", true], ["commission", true]]
+  ↳ app/services/products/product_create_service.rb:58
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_create_service.rb:58
+  [1m[36mSubCategory Load (0.3ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:23
+  [1m[36mProductType Load (0.3ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:23
+  [1m[36mProductVatType Load (0.4ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_create_service.rb:23
+Completed 201 Created in 46ms (Views: 0.5ms | ActiveRecord: 10.2ms)
+
+

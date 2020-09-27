@@ -18,8 +18,6 @@ def product_schema
               manufacturer:  { type: :string },
               description:   { type: :string },
               external_code: { type: :string },
-              sales_start:   { type: :string },
-              sales_end:     { type: :string },
               EAN_code:      { type: :string },
               weight:        { type: :number },
               height:        { type: :number },
