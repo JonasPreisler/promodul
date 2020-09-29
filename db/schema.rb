@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_27_155250) do
+ActiveRecord::Schema.define(version: 2020_09_29_215700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,6 +135,7 @@ ActiveRecord::Schema.define(version: 2020_09_27_155250) do
     t.string "description", null: false
     t.string "code", null: false
     t.string "instruction", limit: 500
+    t.boolean "active", default: true
     t.index ["code"], name: "index_products_on_code", unique: true
   end
 
@@ -160,7 +161,7 @@ ActiveRecord::Schema.define(version: 2020_09_27_155250) do
     t.bigint "supplier_id", null: false
     t.bigint "product_id", null: false
     t.string "supplier_code"
-    t.boolean "is_active", default: false
+    t.boolean "is_active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "quantity"

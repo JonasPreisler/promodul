@@ -26,7 +26,7 @@ module Products
     end
 
     def list
-      @product = Product.all
+      @product = Product.where(active: true)
     end
 
     def product_types

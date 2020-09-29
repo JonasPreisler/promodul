@@ -17,7 +17,8 @@ module Products
 
     def destroy_product
       @product = Product.find(@product_params[:id])
-      @product.destroy
+      @product.active = false
+      @product.save
       @errors << fill_errors(@product) if @product.errors.any?
     end
 

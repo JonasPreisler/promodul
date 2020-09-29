@@ -28,8 +28,17 @@ def product_schema
               sub_category: {
                   type: :object,
                   properties: {
+                      id:      { type: :integer },
                       name:    { type: :string },
-                      id_name: { type: :string }
+                      id_name: { type: :string },
+                      category: {
+                          type: :object,
+                          properties: {
+                              id: { type: :integer },
+                              name: { type: :string }
+                          }
+
+                          }
                   }
               },
               product_type: {

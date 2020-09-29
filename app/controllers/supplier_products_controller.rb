@@ -3,10 +3,9 @@ class SupplierProductsController < ApplicationController
   include ControllerResponse
 
   #ToDO: Need remove after authorization will works
-  skip_before_action :validate_authentication
+  #skip_before_action :validate_authentication
 
   def create
-    binding.pry
     service = Suppliers::SupplierProductsService.new(supplier_product_params)
     service.create_supplier_product
     rest_respond_service service
@@ -33,6 +32,6 @@ class SupplierProductsController < ApplicationController
   private
 
   def supplier_product_params
-    params.permit(:supplier_id, :product_id, :supplier_code, :quantity, supplier_product_price_attributes: {})
+    params.permit(:id, :supplier_id, :product_id, :is_active, :supplier_code, :quantity, supplier_product_price_attributes: {})
   end
 end

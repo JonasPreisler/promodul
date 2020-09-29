@@ -1093,11 +1093,25 @@
                         "sub_category": {
                           "type": "object",
                           "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
                             "name": {
                               "type": "string"
                             },
                             "id_name": {
                               "type": "string"
+                            },
+                            "category": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer"
+                                },
+                                "name": {
+                                  "type": "string"
+                                }
+                              }
                             }
                           }
                         },
@@ -1302,11 +1316,25 @@
                         "sub_category": {
                           "type": "object",
                           "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
                             "name": {
                               "type": "string"
                             },
                             "id_name": {
                               "type": "string"
+                            },
+                            "category": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer"
+                                },
+                                "name": {
+                                  "type": "string"
+                                }
+                              }
                             }
                           }
                         },
@@ -1489,11 +1517,25 @@
                         "sub_category": {
                           "type": "object",
                           "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
                             "name": {
                               "type": "string"
                             },
                             "id_name": {
                               "type": "string"
+                            },
+                            "category": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer"
+                                },
+                                "name": {
+                                  "type": "string"
+                                }
+                              }
                             }
                           }
                         },
@@ -1622,11 +1664,25 @@
                           "sub_category": {
                             "type": "object",
                             "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
                               "name": {
                                 "type": "string"
                               },
                               "id_name": {
                                 "type": "string"
+                              },
+                              "category": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  }
+                                }
                               }
                             }
                           },
@@ -2481,10 +2537,107 @@
             "schema": {
               "type": "object",
               "properties": {
-                "product": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update Supplier Product",
+        "tags": [
+          "Supplier"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "params",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "supplier_id": {
+                  "type": "integer"
+                },
+                "product_id": {
+                  "type": "integer"
+                },
+                "currency_id": {
+                  "type": "integer"
+                },
+                "is_active": {
+                  "type": "boolean"
+                },
+                "supplier_code": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "integer"
+                },
+                "supplier_product_price_attributes": {
                   "type": "object",
                   "properties": {
                     "id": {
+                      "type": "integer"
+                    },
+                    "price": {
+                      "type": "number"
+                    },
+                    "currency_id": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Updated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "supplier_product": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "supplier_id": {
+                      "type": "integer"
+                    },
+                    "product_id": {
+                      "type": "integer"
+                    },
+                    "currency_id": {
                       "type": "integer"
                     },
                     "supplier_code": {
@@ -2496,34 +2649,6 @@
                     "quantity": {
                       "type": "integer"
                     },
-                    "created_at": {
-                      "type": "string"
-                    },
-                    "updated_at": {
-                      "type": "string"
-                    },
-                    "supplier_product_price": {
-                      "type": "object",
-                      "properties": {
-                        "price": {
-                          "type": "number"
-                        },
-                        "currency": {
-                          "type": "object",
-                          "properties": {
-                            "name": {
-                              "type": "string"
-                            },
-                            "symbol": {
-                              "type": "string"
-                            },
-                            "code": {
-                              "type": "code"
-                            }
-                          }
-                        }
-                      }
-                    },
                     "product": {
                       "type": "object",
                       "properties": {
@@ -2532,6 +2657,40 @@
                         },
                         "description": {
                           "type": "string"
+                        },
+                        "instruction": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "supplier_product_price": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "supplier_product_id": {
+                          "type": "integer"
+                        },
+                        "price": {
+                          "type": "number"
+                        },
+                        "currency_id": {
+                          "type": "integer"
+                        },
+                        "currency": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "code": {
+                              "type": "string"
+                            },
+                            "symbol": {
+                              "type": "string"
+                            }
+                          }
                         }
                       }
                     }
@@ -2541,7 +2700,54 @@
             }
           },
           "400": {
-            "description": "Bad request"
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deactivate supplier product",
+        "tags": [
+          "Supplier"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }
