@@ -3,28 +3,29 @@ class SupplierProductsController < ApplicationController
   include ControllerResponse
 
   #ToDO: Need remove after authorization will works
-  #skip_before_action :validate_authentication
+  skip_before_action :validate_authentication
 
   def create
-    service = Supplier::SupplierProductsService.new(supplier_product_params)
+    binding.pry
+    service = Suppliers::SupplierProductsService.new(supplier_product_params)
     service.create_supplier_product
     rest_respond_service service
   end
 
   def update
-    service = Supplier::SupplierProductsService.new(supplier_product_params)
+    service = Suppliers::SupplierProductsService.new(supplier_product_params)
     service.update_supplier_product
     rest_respond_service service
   end
 
   def edit_product
-    service = Supplier::SupplierProductsService.new(supplier_product_params)
+    service = Suppliers::SupplierProductsService.new(supplier_product_params)
     service.edit_supplier_product
     rest_respond_service service
   end
 
   def destroy
-    service = Supplier::SupplierProductsService.new(supplier_product_params)
+    service = Suppliers::SupplierProductsService.new(supplier_product_params)
     service.destroy_supplier_product
     rest_respond_service service
   end

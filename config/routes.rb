@@ -53,6 +53,8 @@ Rails.application.routes.draw do
 
       resource :currencies
       get 'currencies/currencies_list', to: 'currencies#list'
+
+      resource :supplier_products
     end
   end
 end

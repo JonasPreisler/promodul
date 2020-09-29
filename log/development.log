@@ -1359,3 +1359,769 @@ Unpermitted parameters: :format, :locale, :product
 Completed 201 Created in 46ms (Views: 0.5ms | ActiveRecord: 10.2ms)
 
 
+  [1m[36mSupplierProduct Load (0.7ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-09-27 19:41:06 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-09-27 19:41:06 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-09-27 19:41:06 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-09-27 19:41:06 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-09-27 19:41:07 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-09-27 19:41:08 +0400
+  [1m[36mSupplierProductPrice Load (2.8ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" ORDER BY "supplier_product_prices"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveAndAddColumnsFroCurrency (20200927155250)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "supplier_product_prices" DROP COLUMN "currency"[0m
+  ↳ db/migrate/20200927155250_remove_and_add_columns_fro_currency.rb:3
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "supplier_product_prices" ADD CONSTRAINT "fk_rails_298846d27d"
+FOREIGN KEY ("currency_id")
+  REFERENCES "currencies" ("id")
+[0m
+  ↳ db/migrate/20200927155250_remove_and_add_columns_fro_currency.rb:4
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveAndAddColumnsFroCurrency (20200927155250)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "supplier_product_prices" DROP COLUMN "currency"[0m
+  ↳ db/migrate/20200927155250_remove_and_add_columns_fro_currency.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "supplier_product_prices" ADD "currency_id" integer[0m
+  ↳ db/migrate/20200927155250_remove_and_add_columns_fro_currency.rb:4
+  [1m[35m (16.2ms)[0m  [1m[35mALTER TABLE "supplier_product_prices" ADD CONSTRAINT "fk_rails_298846d27d"
+FOREIGN KEY ("currency_id")
+  REFERENCES "currencies" ("id")
+[0m
+  ↳ db/migrate/20200927155250_remove_and_add_columns_fro_currency.rb:5
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE  INDEX  "supplier_product_prices_currency" ON "supplier_product_prices"  ("currency_id")[0m
+  ↳ db/migrate/20200927155250_remove_and_add_columns_fro_currency.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200927155250"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mSupplierProductPrice Load (0.8ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" ORDER BY "supplier_product_prices"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSupplierProductPrice Load (0.5ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" ORDER BY "supplier_product_prices"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-09-27 22:23:38 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-09-27 22:23:38 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-09-27 22:23:38 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-09-27 22:23:38 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-09-27 22:23:39 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-09-27 22:23:39 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-09-27 22:26:02 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-09-27 22:26:02 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-09-27 22:26:02 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-09-27 22:26:02 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-09-27 22:26:03 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-09-27 22:26:03 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-09-27 22:27:19 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-09-27 22:27:19 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-09-27 22:27:19 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-09-27 22:27:19 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-09-27 22:27:19 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-09-27 22:27:19 +0400
+  [1m[36mSupplier Load (8.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" ORDER BY "suppliers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCurrency Load (0.4ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" ORDER BY "currencies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/supplier_products" for 127.0.0.1 at 2020-09-27 22:29:14 +0400
+Processing by SupplierProductsController#create as JSON
+  Parameters: {"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}, "locale"=>"en", "supplier_product"=>{"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 5.3ms)
+
+
+  
+NameError (uninitialized constant Supplier::SupplierProductsService):
+  
+app/controllers/supplier_products_controller.rb:9:in `create'
+Started POST "/en/supplier_products" for 127.0.0.1 at 2020-09-27 22:29:44 +0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SupplierProductsController#create as JSON
+  Parameters: {"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}, "locale"=>"en", "supplier_product"=>{"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 2.8ms)
+
+
+  
+NameError (uninitialized constant Supplier::SupplierProductsService):
+  
+app/controllers/supplier_products_controller.rb:9:in `create'
+Started POST "/en/supplier_products" for 127.0.0.1 at 2020-09-27 22:31:26 +0400
+Processing by SupplierProductsController#create as JSON
+  Parameters: {"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}, "locale"=>"en", "supplier_product"=>{"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant Supplier::SupplierProductsService):
+  
+app/controllers/supplier_products_controller.rb:9:in `create'
+Started POST "/en/supplier_products" for 127.0.0.1 at 2020-09-27 22:37:45 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SupplierProductsController#create as JSON
+  Parameters: {"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}, "locale"=>"en", "supplier_product"=>{"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}}}
+Completed 500 Internal Server Error in 5491ms (ActiveRecord: 2.7ms)
+
+
+  
+LoadError (Unable to autoload constant Suppliers::SupplierProductsService, expected /home/buka/always24/app/services/suppliers/supplier_products_service.rb to define it):
+  
+app/controllers/supplier_products_controller.rb:10:in `create'
+Started POST "/en/supplier_products" for 127.0.0.1 at 2020-09-27 22:38:20 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SupplierProductsController#create as JSON
+  Parameters: {"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}, "locale"=>"en", "supplier_product"=>{"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}}}
+Unpermitted parameters: :format, :locale, :supplier_product
+  [1m[36mSupplier Load (1.4ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:54
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:59
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/suppliers/supplier_products_service.rb:49
+  [1m[36mCACHE Supplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:49
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:49
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/suppliers/supplier_products_service.rb:49
+Completed 500 Internal Server Error in 24567ms (ActiveRecord: 28.2ms)
+
+
+  
+NoMethodError (undefined method `provider_id' for #<SupplierProduct:0x00007f238c0e6c38>):
+  
+app/services/suppliers/supplier_products_service.rb:49:in `create_item'
+app/services/suppliers/supplier_products_service.rb:15:in `create_supplier_product'
+app/controllers/supplier_products_controller.rb:11:in `create'
+Started POST "/en/supplier_products" for 127.0.0.1 at 2020-09-27 22:39:36 +0400
+Processing by SupplierProductsController#create as JSON
+  Parameters: {"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}, "locale"=>"en", "supplier_product"=>{"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}}}
+Unpermitted parameters: :format, :locale, :supplier_product
+  [1m[36mSupplier Load (0.7ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:54
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:59
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/suppliers/supplier_products_service.rb:49
+  [1m[36mCACHE Supplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:49
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:49
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/suppliers/supplier_products_service.rb:49
+Completed 500 Internal Server Error in 3502ms (ActiveRecord: 21.6ms)
+
+
+  
+NoMethodError (undefined method `med_code' for #<SupplierProduct:0x00007f238cb1f808>):
+  
+app/services/suppliers/supplier_products_service.rb:49:in `create_item'
+app/services/suppliers/supplier_products_service.rb:15:in `create_supplier_product'
+app/controllers/supplier_products_controller.rb:11:in `create'
+Started POST "/en/supplier_products" for 127.0.0.1 at 2020-09-27 22:40:03 +0400
+Processing by SupplierProductsController#create as JSON
+  Parameters: {"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}, "locale"=>"en", "supplier_product"=>{"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}}}
+Unpermitted parameters: :format, :locale, :supplier_product
+  [1m[36mSupplier Load (0.4ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:54
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:59
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/suppliers/supplier_products_service.rb:49
+  [1m[36mCACHE Supplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:49
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:49
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/suppliers/supplier_products_service.rb:49
+Completed 500 Internal Server Error in 5683ms (ActiveRecord: 25.6ms)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass):
+  
+lib/errors_format.rb:22:in `fill_errors'
+app/services/suppliers/supplier_products_service.rb:50:in `create_item'
+app/services/suppliers/supplier_products_service.rb:15:in `create_supplier_product'
+app/controllers/supplier_products_controller.rb:11:in `create'
+Started POST "/en/supplier_products" for 127.0.0.1 at 2020-09-27 22:40:34 +0400
+Processing by SupplierProductsController#create as JSON
+  Parameters: {"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}, "locale"=>"en", "supplier_product"=>{"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}}}
+Unpermitted parameters: :format, :locale, :supplier_product
+Completed 500 Internal Server Error in 10697ms (ActiveRecord: 2.1ms)
+
+
+  
+NameError (undefined local variable or method `validate_data' for #<Suppliers::SupplierProductsService:0x00007f238cf0bc28>
+Did you mean?  validate_data!):
+  
+app/services/suppliers/supplier_products_service.rb:15:in `create_supplier_product'
+app/controllers/supplier_products_controller.rb:11:in `create'
+Started POST "/en/supplier_products" for 127.0.0.1 at 2020-09-27 22:41:30 +0400
+Processing by SupplierProductsController#create as JSON
+  Parameters: {"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}, "locale"=>"en", "supplier_product"=>{"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}}}
+Unpermitted parameters: :format, :locale, :supplier_product
+  [1m[36mSupplier Load (1.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:56
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:61
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/suppliers/supplier_products_service.rb:51
+  [1m[36mCACHE Supplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:51
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:51
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/suppliers/supplier_products_service.rb:51
+Completed 500 Internal Server Error in 4587ms (ActiveRecord: 25.8ms)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass):
+  
+lib/errors_format.rb:22:in `fill_errors'
+app/services/suppliers/supplier_products_service.rb:52:in `create_item'
+app/services/suppliers/supplier_products_service.rb:17:in `create_supplier_product'
+app/controllers/supplier_products_controller.rb:11:in `create'
+Started POST "/en/supplier_products" for 127.0.0.1 at 2020-09-27 22:41:39 +0400
+Processing by SupplierProductsController#create as JSON
+  Parameters: {"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}, "locale"=>"en", "supplier_product"=>{"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}}}
+Unpermitted parameters: :format, :locale, :supplier_product
+  [1m[36mSupplier Load (0.8ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:56
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:61
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/suppliers/supplier_products_service.rb:51
+  [1m[36mCACHE Supplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:51
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:51
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/suppliers/supplier_products_service.rb:51
+Completed 500 Internal Server Error in 5694ms (ActiveRecord: 2.5ms)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass):
+  
+lib/errors_format.rb:22:in `fill_errors'
+app/services/suppliers/supplier_products_service.rb:52:in `create_item'
+app/services/suppliers/supplier_products_service.rb:17:in `create_supplier_product'
+app/controllers/supplier_products_controller.rb:11:in `create'
+Started POST "/en/supplier_products" for 127.0.0.1 at 2020-09-27 22:42:29 +0400
+Processing by SupplierProductsController#create as JSON
+  Parameters: {"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}, "locale"=>"en", "supplier_product"=>{"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}}}
+Unpermitted parameters: :format, :locale, :supplier_product
+  [1m[36mSupplier Load (0.9ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:58
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:63
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/suppliers/supplier_products_service.rb:53
+  [1m[36mCACHE Supplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:53
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:53
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/suppliers/supplier_products_service.rb:53
+Completed 400 Bad Request in 7303ms (Views: 0.3ms | ActiveRecord: 27.6ms)
+
+
+Started POST "/en/supplier_products" for 127.0.0.1 at 2020-09-27 22:43:26 +0400
+Processing by SupplierProductsController#create as JSON
+  Parameters: {"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}, "locale"=>"en", "supplier_product"=>{"supplier_id"=>4, "product_id"=>15, "supplier_code"=>"code_001", "quantity"=>15, "supplier_product_price_attributes"=>{"price"=>23.6, "currency_id"=>3}}}
+Unpermitted parameters: :format, :locale, :supplier_product
+  [1m[36mSupplier Load (0.6ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:57
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:62
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):2
+  [1m[36mCACHE Supplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ (pry):2
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ (pry):2
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):2
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):3
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):3
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):9
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):11
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):12
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):12
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):13
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):14
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):15
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):16
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):16
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/suppliers/supplier_products_service.rb:52
+  [1m[36mSupplier Load (0.5ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:52
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:52
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/suppliers/supplier_products_service.rb:52
+Completed 400 Bad Request in 640618ms (Views: 0.7ms | ActiveRecord: 35.9ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-09-29 20:57:28 +0400
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-09-29 20:57:28 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-09-29 20:57:28 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-09-29 20:57:28 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-09-29 20:57:29 +0400
+Started GET "/en/products/edit_product?id=7" for 127.0.0.1 at 2020-09-29 20:57:59 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (2.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:27
+Completed 404 Not Found in 560499ms (ActiveRecord: 30.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Product with 'id'=7):
+  
+app/services/products/product_update_service.rb:27:in `edit_product'
+app/controllers/products_controller.rb:28:in `edit_product'
+  [1m[36mProduct Load (3.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:10:58 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:27
+  [1m[36mProductCharacteristic Load (7.8ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mSubCategory Load (1.7ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mProductType Load (1.4ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mProductVatType Load (1.5ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+Completed 200 OK in 11878ms (Views: 0.5ms | ActiveRecord: 35.8ms)
+
+
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:11:49 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:27
+  [1m[36mProductCharacteristic Load (0.5ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mSubCategory Load (0.5ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mProductType Load (0.4ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mProductVatType Load (0.4ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+Completed 200 OK in 33263ms (Views: 0.4ms | ActiveRecord: 29.6ms)
+
+
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:12:25 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:29
+  [1m[36mProductCharacteristic Load (0.6ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mSubCategory Load (0.2ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductType Load (0.3ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductVatType Load (0.3ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+Completed 200 OK in 9754ms (Views: 0.3ms | ActiveRecord: 23.2ms)
+
+
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:12:44 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:29
+  [1m[36mProductCharacteristic Load (0.5ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mSubCategory Load (0.5ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductType Load (0.4ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductVatType Load (0.3ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+Completed 200 OK in 7122ms (Views: 0.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:12:54 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:29
+  [1m[36mProductCharacteristic Load (0.5ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mSubCategory Load (0.4ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductType Load (0.3ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductVatType Load (0.3ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+Completed 200 OK in 4379ms (Views: 0.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:13:10 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:29
+  [1m[36mProductCharacteristic Load (0.5ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mSubCategory Load (0.3ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductType Load (0.3ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductVatType Load (0.3ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+Completed 200 OK in 6926ms (Views: 0.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:13:23 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:29
+  [1m[36mProductCharacteristic Load (0.4ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mSubCategory Load (0.4ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductType Load (0.3ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductVatType Load (0.5ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+Completed 200 OK in 1135690ms (Views: 0.4ms | ActiveRecord: 25.1ms)
+
+
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:34:50 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:29
+  [1m[36mProductCharacteristic Load (0.3ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mSubCategory Load (0.3ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductType Load (0.3ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductVatType Load (0.5ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+Completed 200 OK in 7410ms (Views: 0.7ms | ActiveRecord: 24.6ms)
+
+
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:35:29 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 5283ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 1)):
+  
+config/initializers/multilanguage.rb:2:in `multilanguage'
+app/models/product.rb:4:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+app/services/products/product_update_service.rb:29:in `edit_product'
+app/controllers/products_controller.rb:28:in `edit_product'
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:38:30 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 11537ms (ActiveRecord: 5.5ms)
+
+
+  
+NoMethodError (undefined method `edit_action?' for #<Class:0x0000560d80459438>):
+  
+app/models/product.rb:4:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+app/services/products/product_update_service.rb:29:in `edit_product'
+app/controllers/products_controller.rb:28:in `edit_product'
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:39:10 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 89044ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `edit_action?' for #<Class:0x00007f91d008e3c8>):
+  
+app/models/product.rb:4:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+app/services/products/product_update_service.rb:29:in `edit_product'
+app/controllers/products_controller.rb:28:in `edit_product'
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:40:47 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 4767ms (ActiveRecord: 3.8ms)
+
+
+  
+NameError (undefined local variable or method `action' for #<Class:0x00007f91bc5a4470>):
+  
+app/models/product.rb:4:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+app/services/products/product_update_service.rb:29:in `edit_product'
+app/controllers/products_controller.rb:28:in `edit_product'
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:41:07 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 22954ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `action' for #<Class:0x00007f91c89ca818>):
+  
+app/models/product.rb:4:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+app/services/products/product_update_service.rb:29:in `edit_product'
+app/controllers/products_controller.rb:28:in `edit_product'
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:46:48 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 6799ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `action' for #<Class:0x00007f91d0773328>):
+  
+app/models/product.rb:4:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+app/services/products/product_update_service.rb:29:in `edit_product'
+app/controllers/products_controller.rb:28:in `edit_product'
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:47:07 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:29
+  [1m[36mProductCharacteristic Load (0.4ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mSubCategory Load (0.2ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductType Load (0.4ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductVatType Load (0.4ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+Completed 200 OK in 9704ms (Views: 0.5ms | ActiveRecord: 27.8ms)
+
+
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:47:25 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:29
+  [1m[36mProductCharacteristic Load (0.7ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mSubCategory Load (0.6ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductType Load (0.5ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductVatType Load (0.5ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+Completed 200 OK in 13602ms (Views: 0.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:47:47 +0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:29
+  [1m[36mProductCharacteristic Load (0.5ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mSubCategory Load (0.7ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductType Load (0.5ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+  [1m[36mProductVatType Load (0.7ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:18
+Completed 200 OK in 95586ms (Views: 0.8ms | ActiveRecord: 28.3ms)
+
+
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:52:41 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:27
+  [1m[36mProductCharacteristic Load (0.4ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mSubCategory Load (0.4ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mProductType Load (0.4ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mProductVatType Load (0.4ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+Completed 200 OK in 8423ms (Views: 0.5ms | ActiveRecord: 23.9ms)
+
+
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:53:16 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:27
+  [1m[36mProductCharacteristic Load (0.3ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mSubCategory Load (0.2ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mProductType Load (0.3ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mProductVatType Load (0.2ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:53:23 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:27
+  [1m[36mProductCharacteristic Load (0.3ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mSubCategory Load (0.3ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mProductType Load (0.3ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mProductVatType Load (0.3ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:53:24 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:27
+  [1m[36mProductCharacteristic Load (0.3ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mSubCategory Load (0.3ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mProductType Load (0.2ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mProductVatType Load (0.2ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 21:53:26 +0400
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:27
+  [1m[36mProductCharacteristic Load (0.4ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mSubCategory Load (0.3ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mProductType Load (0.3ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mProductVatType Load (0.4ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 1.8ms)
+
+
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductCharacteristic Load (0.7ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  [1m[36mProductType Load (1.0ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mProductVatType Load (0.3ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSubCategory Load (1.1ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (1.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/en/products/edit_product?id=15" for 127.0.0.1 at 2020-09-29 22:00:30 +0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ProductsController#edit_product as JSON
+  Parameters: {"id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:27
+  [1m[36mProductCharacteristic Load (0.5ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" WHERE "product_characteristics"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mProductType Load (0.4ms)[0m  [1m[34mSELECT  "product_types".* FROM "product_types" WHERE "product_types"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mProductVatType Load (0.4ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mSubCategory Load (0.5ms)[0m  [1m[34mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/products/product_update_service.rb:17
+Completed 200 OK in 173ms (Views: 0.4ms | ActiveRecord: 32.5ms)
+
+

@@ -3,4 +3,5 @@ class SupplierProductPrice < ApplicationRecord
 
   validates :supplier_product_id,  presence: true
   validates :price,                presence: true
+  validates :currency_id,          presence: true
 end

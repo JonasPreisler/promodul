@@ -1,4 +1,4 @@
-module Supplier
+module Suppliers
   class SupplierProductsService
     require 'errors_format'
     include ErrorsFormat
@@ -45,9 +45,10 @@ module Supplier
 
     def create_item
       return if errors.any?
+      binding.pry
       @supplier_product = SupplierProduct.new(@supplier_product_params)
       @supplier_product.save
-      @errors << fill_errors(@product) if @supplier_product.errors.any?
+      @errors << fill_errors(@supplier_product) if @supplier_product.errors.any?
     end
 
     def validate_supplier!
