@@ -21,6 +21,13 @@ module Suppliers
                                                                               include: { currency: { only: [:id, :name, :code, :symbol] } } } }) }
     end
 
+    def list_json_view
+      { supplier_products: @supplier_products.as_json(include: {
+          product: { only: [:name, :description, :instruction] },
+          supplier_product_price: { only: [:supplier_product_id, :price, :currency_id],
+                                    include: { currency: { only: [:id, :name, :code, :symbol] } } } }) }
+    end
+
     def create_supplier_product
       validate_data!
       ActiveRecord::Base.transaction do
@@ -45,6 +52,10 @@ module Suppliers
       @supplier_product.is_active = true
       @supplier_product.save
       @errors << fill_errors(@supplier_product) if @supplier_product.errors.any?
+    end
+
+    def supplier_product_list
+      @supplier_products = SupplierProduct.where(is_active: true)
     end
 
     private

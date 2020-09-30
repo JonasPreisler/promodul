@@ -208,43 +208,76 @@ describe 'SupplierProduct ', type: :request do
     end
   end
 
-  #path '/{locale}/products/list' do
-  #  get 'Returns products list' do
-  #    tags 'Product'
-  #    consumes 'application/json'
-  #
-  #    parameter({
-  #                  :in => :header,
-  #                  :type => :string,
-  #                  :name => :Authorization,
-  #                  :required => true,
-  #                  :description => 'Client token'
-  #              })
-  #
-  #    parameter name: :locale, in: :path, type: :string, required: true, default: "en"
-  #
-  #    response '200', 'OK' do
-  #      schema type: :object,
-  #             properties: {
-  #                 products: {
-  #                     type: :array,
-  #                     items: {
-  #                         type: :object,
-  #                         properties: product_schema
-  #                     }
-  #                 }
-  #             }
-  #      run_test!
-  #    end
-  #
-  #    response '404', 'Not found' do
-  #      schema type: :object,
-  #             properties: {}
-  #      run_test!
-  #    end
-  #  end
-  #end
-  #
+  path '/{locale}/supplier_products/list' do
+    get 'Returns supplier products list' do
+      tags 'Supplier'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   supplier_products: {
+                       type: :array,
+                       items: {
+                           type: :object,
+                           properties: {
+                               id:            { type: :integer },
+                               supplier_id:   { type: :integer },
+                               product_id:    { type: :integer },
+                               currency_id:   { type: :integer},
+                               supplier_code: { type: :string },
+                               is_active:     { type: :boolean },
+                               quantity:      { type: :integer },
+                               product: {
+                                   type: :object,
+                                   properties: {
+                                       name:        { type: :string },
+                                       description: { type: :string },
+                                       instruction: { type: :string }
+                                   }
+                               },
+                               supplier_product_price: {
+                                   type: :object,
+                                   properties: {
+                                       id:                  { type: :integer},
+                                       supplier_product_id: { type: :integer },
+                                       price:               { type: :number },
+                                       currency_id:         { type: :integer},
+                                       currency: {
+                                           type: :object,
+                                           properties: {
+                                               name:    { type: :string },
+                                               code:    { type: :string },
+                                               symbol:  { type: :string}
+                                           }
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+        run_test!
+      end
+
+      response '404', 'Not found' do
+        schema type: :object,
+               properties: {}
+        run_test!
+      end
+    end
+  end
+
   #path '/{locale}/products/product_vat_type' do
   #  get 'Returns product vat types' do
   #    tags 'Product'

@@ -29,6 +29,12 @@ class SupplierProductsController < ApplicationController
     rest_respond_service service
   end
 
+  def list
+    service = Suppliers::SupplierProductsService.new(supplier_product_params)
+    service.supplier_product_list
+    rest_respond_service service
+  end
+
   private
 
   def supplier_product_params
