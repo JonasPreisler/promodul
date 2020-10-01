@@ -3165,3 +3165,73 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 84ms (Views: 0.3ms | ActiveRecord: 24.8ms)
 
 
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-01 19:04:43 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-01 19:04:43 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-01 19:04:43 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-01 19:04:43 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-01 19:04:44 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-01 19:04:44 +0400
+Started GET "/en/supplier_products/list?supplier_id=2" for 127.0.0.1 at 2020-10-01 19:05:18 +0400
+Processing by SupplierProductsController#list as JSON
+  Parameters: {"supplier_id"=>"2", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplierProduct Load (3.6ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."supplier_id" = $1 AND "supplier_products"."is_active" = $2[0m  [["supplier_id", 2], ["is_active", true]]
+  ↳ app/services/suppliers/supplier_products_service.rb:25
+Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/en/supplier_products/list?supplier_id=5" for 127.0.0.1 at 2020-10-01 19:05:25 +0400
+Processing by SupplierProductsController#list as JSON
+  Parameters: {"supplier_id"=>"5", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplierProduct Load (0.4ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."supplier_id" = $1 AND "supplier_products"."is_active" = $2[0m  [["supplier_id", 5], ["is_active", true]]
+  ↳ app/services/suppliers/supplier_products_service.rb:25
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/en/supplier_products/list?supplier_id=1" for 127.0.0.1 at 2020-10-01 19:05:31 +0400
+Processing by SupplierProductsController#list as JSON
+  Parameters: {"supplier_id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplierProduct Load (0.5ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."supplier_id" = $1 AND "supplier_products"."is_active" = $2[0m  [["supplier_id", 1], ["is_active", true]]
+  ↳ app/services/suppliers/supplier_products_service.rb:25
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/en/supplier_products/list?supplier_id=2" for 127.0.0.1 at 2020-10-01 19:05:36 +0400
+Processing by SupplierProductsController#list as JSON
+  Parameters: {"supplier_id"=>"2", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplierProduct Load (0.4ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."supplier_id" = $1 AND "supplier_products"."is_active" = $2[0m  [["supplier_id", 2], ["is_active", true]]
+  ↳ app/services/suppliers/supplier_products_service.rb:25
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/en/supplier_products/list?supplier_id=3" for 127.0.0.1 at 2020-10-01 19:05:42 +0400
+Processing by SupplierProductsController#list as JSON
+  Parameters: {"supplier_id"=>"3", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplierProduct Load (0.6ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."supplier_id" = $1 AND "supplier_products"."is_active" = $2[0m  [["supplier_id", 3], ["is_active", true]]
+  ↳ app/services/suppliers/supplier_products_service.rb:25
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/en/supplier_products/list?supplier_id=4" for 127.0.0.1 at 2020-10-01 19:05:46 +0400
+Processing by SupplierProductsController#list as JSON
+  Parameters: {"supplier_id"=>"4", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mSupplierProduct Load (35.9ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."supplier_id" = $1 AND "supplier_products"."is_active" = $2[0m  [["supplier_id", 4], ["is_active", true]]
+  ↳ app/services/suppliers/supplier_products_service.rb:25
+  [1m[36mProduct Load (3.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:25
+  [1m[36mSupplierProductPrice Load (2.5ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 7], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:25
+  [1m[36mCurrency Load (2.1ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/suppliers/supplier_products_service.rb:25
+Completed 200 OK in 165ms (Views: 0.4ms | ActiveRecord: 73.9ms)
+
+

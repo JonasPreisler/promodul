@@ -2775,6 +2775,12 @@
             "type": "string",
             "required": true,
             "default": "en"
+          },
+          {
+            "name": "supplier_id",
+            "in": "query",
+            "type": "integer",
+            "required": true
           }
         ],
         "responses": {

@@ -55,7 +55,7 @@ module Suppliers
     end
 
     def supplier_product_list
-      @supplier_products = SupplierProduct.where(is_active: true)
+      @supplier_products = SupplierProduct.where(supplier_id: @supplier_product_params[:supplier_id],  is_active: true)
     end
 
     private
