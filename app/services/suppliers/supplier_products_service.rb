@@ -49,7 +49,7 @@ module Suppliers
 
     def destroy_supplier_product
       find_supplier_product
-      @supplier_product.is_active = true
+      @supplier_product.is_active = false
       @supplier_product.save
       @errors << fill_errors(@supplier_product) if @supplier_product.errors.any?
     end
