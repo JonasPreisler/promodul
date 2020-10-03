@@ -34,7 +34,8 @@ describe 'ProductPrice ', type: :request do
                            manufacturing_cost:  { type: :number },
                            purchase_price:      { type: :number},
                            cost_price:          { type: :number },
-                           list_price:          { type: :number }
+                           list_price:          { type: :number },
+                           supplier:            { type: :string }
                        }
                    }
                }
@@ -76,7 +77,8 @@ describe 'ProductPrice ', type: :request do
                            manufacturing_cost:  { type: :number },
                            purchase_price:      { type: :number},
                            cost_price:          { type: :number },
-                           list_price:          { type: :number }
+                           list_price:          { type: :number },
+                           supplier:            { type: :string }
                        }
                    }
                }

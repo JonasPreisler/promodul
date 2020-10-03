@@ -722,6 +722,9 @@
                     },
                     "list_price": {
                       "type": "number"
+                    },
+                    "supplier": {
+                      "type": "string"
                     }
                   }
                 }
@@ -785,6 +788,9 @@
                     },
                     "list_price": {
                       "type": "number"
+                    },
+                    "supplier": {
+                      "type": "string"
                     }
                   }
                 }
