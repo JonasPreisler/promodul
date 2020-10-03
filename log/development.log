@@ -3236,3 +3236,917 @@ Completed 200 OK in 165ms (Views: 0.4ms | ActiveRecord: 73.9ms)
 
 
   [1m[36mProductCharacteristic Load (3.4ms)[0m  [1m[34mSELECT  "product_characteristics".* FROM "product_characteristics" ORDER BY "product_characteristics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (38.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProductPrices (20201001214457)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (21.4ms)[0m  [1m[35mCREATE TABLE "product_prices" ("id" bigserial primary key, "product_id" bigint NOT NULL, "list_price_type" character varying(30) NOT NULL, "list_price_amount" decimal NOT NULL, "manufacturing_cost" decimal NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e7ec0c97a3"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  ↳ db/migrate/20201001214457_create_product_prices.rb:3
+  [1m[35m (104.0ms)[0m  [1m[35mCREATE  INDEX  "index_product_prices_on_product_id" ON "product_prices"  ("product_id")[0m
+  ↳ db/migrate/20201001214457_create_product_prices.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201001214457"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mProductPrice Load (0.6ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" ORDER BY "product_prices"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductPrice Load (1.7ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" ORDER BY "product_prices"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (37.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-03 01:54:59 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-03 01:55:00 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-03 01:55:00 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-03 01:55:00 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-03 01:55:00 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-03 01:55:00 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-03 01:56:35 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-03 01:56:35 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-03 01:56:35 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-03 01:56:35 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-03 01:56:35 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-03 01:56:35 +0400
+  [1m[36mProduct Load (3.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 01:57:56 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"fix_price", "list_price_amount"=>200, "manufacturing_cost"=>300, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"fix_price", "list_price_amount"=>200, "manufacturing_cost"=>300}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 6.6ms)
+
+
+  
+NameError (uninitialized constant Products::ProductsPrice):
+  
+app/controllers/product_prices_controller.rb:9:in `create'
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 02:00:21 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"fix_price", "list_price_amount"=>200, "manufacturing_cost"=>300, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"fix_price", "list_price_amount"=>200, "manufacturing_cost"=>300}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 1.7ms)
+
+
+  
+NameError (uninitialized constant Products::ProductsPriceService):
+  
+app/controllers/product_prices_controller.rb:9:in `create'
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 02:00:45 +0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"fix_price", "list_price_amount"=>200, "manufacturing_cost"=>300, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"fix_price", "list_price_amount"=>200, "manufacturing_cost"=>300}}
+Completed 500 Internal Server Error in 56042ms (ActiveRecord: 2.4ms)
+
+
+  
+NameError (uninitialized constant Products::ProductsPriceService):
+  
+app/controllers/product_prices_controller.rb:10:in `create'
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 02:01:46 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"fix_price", "list_price_amount"=>200, "manufacturing_cost"=>300, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"fix_price", "list_price_amount"=>200, "manufacturing_cost"=>300}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:22
+  [1m[36mProductPrice Load (0.5ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:27
+Completed 500 Internal Server Error in 5612ms (ActiveRecord: 13.2ms)
+
+
+  
+NameError (undefined local variable or method `params' for #<Products::ProductPriceService:0x00007ff884174fd8>):
+  
+app/services/products/product_price_service.rb:28:in `first_or_initialize_price'
+app/services/products/product_price_service.rb:15:in `call'
+app/controllers/product_prices_controller.rb:11:in `create'
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 02:02:54 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"fix_price", "list_price_amount"=>200, "manufacturing_cost"=>300, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"fix_price", "list_price_amount"=>200, "manufacturing_cost"=>300}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:22
+  [1m[36mProductPrice Load (0.8ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:27
+Completed 500 Internal Server Error in 108091ms (ActiveRecord: 1.7ms)
+
+
+  
+NameError (undefined local variable or method `params' for #<Products::ProductPriceService:0x00007ff8700ebb98>):
+  
+app/services/products/product_price_service.rb:28:in `first_or_initialize_price'
+app/services/products/product_price_service.rb:15:in `call'
+app/controllers/product_prices_controller.rb:11:in `create'
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 02:05:13 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"fix_price", "list_price_amount"=>200, "manufacturing_cost"=>300, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"fix_price", "list_price_amount"=>200, "manufacturing_cost"=>300}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:25
+  [1m[36mProductPrice Load (0.8ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:30
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:31
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:31
+  [1m[36mProductPrice Create (6.4ms)[0m  [1m[32mINSERT INTO "product_prices" ("product_id", "list_price_type", "list_price_amount", "manufacturing_cost", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 15], ["list_price_type", "fix_price"], ["list_price_amount", "200.0"], ["manufacturing_cost", "300.0"], ["created_at", "2020-10-02 22:05:39.266495"], ["updated_at", "2020-10-02 22:05:39.266495"]]
+  ↳ app/services/products/product_price_service.rb:31
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:31
+  [1m[36mProductPrice Load (1.2ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" ORDER BY "product_prices"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):4
+  [1m[36mCACHE ProductPrice Load (0.0ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" ORDER BY "product_prices"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):13
+Completed 204 No Content in 2954989ms (Views: 0.2ms | ActiveRecord: 28.2ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-03 02:54:50 +0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-03 02:54:50 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-03 02:54:50 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-03 02:54:50 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-03 02:54:51 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-03 02:54:51 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-03 02:56:01 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-03 02:56:01 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-03 02:56:01 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-03 02:56:01 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-03 02:56:02 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-03 02:56:02 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-03 02:57:19 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-03 02:57:19 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-03 02:57:19 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-03 02:57:19 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-03 02:57:19 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-03 02:57:20 +0400
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 03:05:38 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>50, "manufacturing_cost"=>200, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>50, "manufacturing_cost"=>200}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:30
+  [1m[36mProductPrice Load (0.7ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:36
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:36
+  [1m[36mProductPrice Update (0.8ms)[0m  [1m[33mUPDATE "product_prices" SET "list_price_type" = $1, "list_price_amount" = $2, "manufacturing_cost" = $3, "updated_at" = $4 WHERE "product_prices"."id" = $5[0m  [["list_price_type", "percent"], ["list_price_amount", "50.0"], ["manufacturing_cost", "200.0"], ["updated_at", "2020-10-02 23:05:45.999521"], ["id", 1]]
+  ↳ app/services/products/product_price_service.rb:36
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:36
+Completed 500 Internal Server Error in 7591ms (ActiveRecord: 18.4ms)
+
+
+  
+ActiveRecord::ConfigurationError (Can't join 'ProductPrice' to association named 'products'; perhaps you misspelled it?):
+  
+app/services/products/product_price_service.rb:53:in `calculation'
+app/services/products/product_price_service.rb:20:in `call'
+app/controllers/product_prices_controller.rb:11:in `create'
+  [1m[36mProductPrice Load (2.7ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" INNER JOIN "products" ON "products"."id" = "product_prices"."product_id" ORDER BY "product_prices"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductPrice Load (4.4ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" INNER JOIN "products" ON "products"."id" = "product_prices"."product_id" INNER JOIN "supplier_products" ON "supplier_products"."product_id" = "products"."id" ORDER BY "product_prices"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductPrice Load (1.6ms)[0m  [1m[34mSELECT "product_prices".* FROM "product_prices" INNER JOIN "products" ON "products"."id" = "product_prices"."product_id" INNER JOIN "supplier_products" ON "supplier_products"."product_id" = "products"."id"[0m
+  [1m[36mProductPrice Load (1.3ms)[0m  [1m[34mSELECT "product_prices".* FROM "product_prices" INNER JOIN "products" ON "products"."id" = "product_prices"."product_id"[0m
+  [1m[36mProductPrice Load (1.8ms)[0m  [1m[34mSELECT "product_prices".* FROM "product_prices" INNER JOIN "products" ON "products"."id" = "product_prices"."product_id" LEFT JOIN sipplier_products on supplier_products.product_id = products.id[0m
+  [1m[36mProductPrice Load (1.2ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" INNER JOIN "products" ON "products"."id" = "product_prices"."product_id" LEFT JOIN sipplier_products on supplier_products.product_id = products.id LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mProductPrice Load (1.6ms)[0m  [1m[34mSELECT "product_prices".* FROM "product_prices" INNER JOIN "products" ON "products"."id" = "product_prices"."product_id" LEFT JOIN sipplier_products on supplier_products.product_id == products.id[0m
+  [1m[36mProductPrice Load (1.2ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" INNER JOIN "products" ON "products"."id" = "product_prices"."product_id" LEFT JOIN sipplier_products on supplier_products.product_id == products.id LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mProductPrice Load (1.4ms)[0m  [1m[34mSELECT "product_prices".* FROM "product_prices" INNER JOIN "products" ON "products"."id" = "product_prices"."product_id" LEFT JOIN supplier_products on supplier_products.product_id == products.id[0m
+  [1m[36mProductPrice Load (1.1ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" INNER JOIN "products" ON "products"."id" = "product_prices"."product_id" LEFT JOIN supplier_products on supplier_products.product_id == products.id LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mProductPrice Load (1.5ms)[0m  [1m[34mSELECT "product_prices".* FROM "product_prices" INNER JOIN "products" ON "products"."id" = "product_prices"."product_id" LEFT JOIN supplier_products on supplier_products.product_id = products.id[0m
+  [1m[36mProductPrice Load (40.5ms)[0m  [1m[34mSELECT "product_prices".* FROM "product_prices" INNER JOIN "products" ON "products"."id" = "product_prices"."product_id" LEFT JOIN supplier_products on supplier_products.product_id = products.id LEFT JOIN supplier_product_prices as prices ON prices.supplier_product_id = supplier_products.id[0m
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-03 17:23:30 +0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-03 17:23:31 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-03 17:23:31 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-03 17:23:31 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-03 17:23:31 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-03 17:24:47 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-03 17:24:47 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-03 17:24:47 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-03 17:24:47 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-03 17:24:48 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-03 17:24:48 +0400
+  [1m[36mSupplierProduct Load (4.6ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSupplierProduct Load (1.2ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSupplierProduct Load (0.9ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSupplierProductPrice Load (6.5ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 7], ["LIMIT", 1]]
+  [1m[36mSupplierProduct Load (1.0ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSupplier Load (14.5ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" ORDER BY "suppliers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:36:51 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (3.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (39.2ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mProductPrice Update (1.9ms)[0m  [1m[33mUPDATE "product_prices" SET "list_price_amount" = $1, "manufacturing_cost" = $2, "updated_at" = $3 WHERE "product_prices"."id" = $4[0m  [["list_price_amount", "20.0"], ["manufacturing_cost", "100.0"], ["updated_at", "2020-10-03 13:36:59.298049"], ["id", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (1.1ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:42
+  [1m[36mCACHE SupplierProduct Load (0.1ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+Completed 500 Internal Server Error in 36351ms (ActiveRecord: 72.5ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/services/products/product_price_service.rb:56:in `set_prices'
+app/services/products/product_price_service.rb:47:in `block in calculation'
+app/services/products/product_price_service.rb:46:in `calculation'
+app/services/products/product_price_service.rb:19:in `call'
+app/controllers/product_prices_controller.rb:11:in `create'
+  [1m[36mSupplierProduct Load (0.9ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products"[0m
+  [1m[36mSupplierProduct Load (0.8ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  [1m[36mSupplierProduct Load (0.9ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1 ORDER BY "supplier_products"."id" DESC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 5]]
+  [1m[36mSupplierProduct Load (1.0ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1 ORDER BY "supplier_products"."id" DESC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 5]]
+  [1m[36mSupplierProduct Load (0.9ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1 ORDER BY "supplier_products"."id" DESC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 5]]
+  [1m[36mSupplierProduct Load (0.8ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSupplierProduct Load (0.9ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSupplierProductPrice Load (0.6ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 1], ["LIMIT", 1]]
+  [1m[36mSupplierProduct Destroy (1.4ms)[0m  [1m[31mDELETE FROM "supplier_products" WHERE "supplier_products"."id" = $1[0m  [["id", 1]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSupplierProduct Load (0.5ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSupplierProductPrice Load (0.3ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 2], ["LIMIT", 1]]
+  [1m[36mSupplierProduct Destroy (0.6ms)[0m  [1m[31mDELETE FROM "supplier_products" WHERE "supplier_products"."id" = $1[0m  [["id", 2]]
+  [1m[35m (36.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSupplierProduct Load (0.8ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSupplierProductPrice Load (0.6ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 3], ["LIMIT", 1]]
+  [1m[36mSupplierProduct Destroy (1.0ms)[0m  [1m[31mDELETE FROM "supplier_products" WHERE "supplier_products"."id" = $1[0m  [["id", 3]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSupplierProduct Load (0.4ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSupplierProductPrice Load (0.5ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 4], ["LIMIT", 1]]
+  [1m[36mSupplierProduct Destroy (0.3ms)[0m  [1m[31mDELETE FROM "supplier_products" WHERE "supplier_products"."id" = $1[0m  [["id", 4]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSupplierProduct Load (0.9ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSupplierProductPrice Load (0.7ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 5], ["LIMIT", 1]]
+  [1m[36mSupplierProductPrice Destroy (1.1ms)[0m  [1m[31mDELETE FROM "supplier_product_prices" WHERE "supplier_product_prices"."id" = $1[0m  [["id", 4]]
+  [1m[36mSupplierProduct Destroy (1.1ms)[0m  [1m[31mDELETE FROM "supplier_products" WHERE "supplier_products"."id" = $1[0m  [["id", 5]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSupplierProduct Load (0.8ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSupplierProductPrice Load (0.5ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 6], ["LIMIT", 1]]
+  [1m[36mSupplierProductPrice Destroy (0.8ms)[0m  [1m[31mDELETE FROM "supplier_product_prices" WHERE "supplier_product_prices"."id" = $1[0m  [["id", 5]]
+  [1m[36mSupplierProduct Destroy (1.0ms)[0m  [1m[31mDELETE FROM "supplier_products" WHERE "supplier_products"."id" = $1[0m  [["id", 6]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSupplierProduct Load (1.0ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSupplier Load (0.2ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mSupplierProduct Create (15.9ms)[0m  [1m[32mINSERT INTO "supplier_products" ("supplier_id", "product_id", "supplier_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["supplier_id", 4], ["product_id", 15], ["supplier_code", "0055"], ["created_at", "2020-10-03 13:39:22.038753"], ["updated_at", "2020-10-03 13:39:22.038753"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSupplier Load (0.2ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mSupplierProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "supplier_products" ("supplier_id", "product_id", "supplier_code", "created_at", "updated_at", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["supplier_id", 4], ["product_id", 15], ["supplier_code", "0055"], ["created_at", "2020-10-03 13:39:49.181275"], ["updated_at", "2020-10-03 13:39:49.181275"], ["quantity", 50]]
+  [1m[35m (35.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "supplier_products"[0m
+  [1m[36mSupplierProduct Load (0.3ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mSupplierProduct Load (0.9ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSupplierProductPrice Load (0.5ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 8], ["LIMIT", 1]]
+  [1m[36mSupplierProduct Destroy (0.9ms)[0m  [1m[31mDELETE FROM "supplier_products" WHERE "supplier_products"."id" = $1[0m  [["id", 8]]
+  [1m[35m (36.1ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:41:13 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.4ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (1.5ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+Completed 500 Internal Server Error in 22971ms (ActiveRecord: 4.1ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/services/products/product_price_service.rb:56:in `set_prices'
+app/services/products/product_price_service.rb:47:in `block in calculation'
+app/services/products/product_price_service.rb:46:in `calculation'
+app/services/products/product_price_service.rb:19:in `call'
+app/controllers/product_prices_controller.rb:11:in `create'
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:41:51 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.0ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (1.1ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+Completed 500 Internal Server Error in 166368ms (ActiveRecord: 4.3ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/services/products/product_price_service.rb:56:in `set_prices'
+app/services/products/product_price_service.rb:47:in `block in calculation'
+app/services/products/product_price_service.rb:46:in `calculation'
+app/services/products/product_price_service.rb:19:in `call'
+app/controllers/product_prices_controller.rb:11:in `create'
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:44:40 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.2ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (0.4ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:42
+  [1m[36mCACHE SupplierProduct Load (0.0ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+  [1m[36mSupplierProductPrice Load (1.4ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 9], ["LIMIT", 1]]
+  ↳ (pry):11
+Completed 500 Internal Server Error in 109857ms (ActiveRecord: 26.2ms)
+
+
+  
+NoMethodError (undefined method `price' for nil:NilClass):
+  
+app/services/products/product_price_service.rb:56:in `set_prices'
+app/services/products/product_price_service.rb:47:in `block in calculation'
+app/services/products/product_price_service.rb:46:in `calculation'
+app/services/products/product_price_service.rb:19:in `call'
+app/controllers/product_prices_controller.rb:11:in `create'
+  [1m[36mSupplierProduct Load (0.4ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSupplierProduct Load (1.1ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSupplierProductPrice Load (1.2ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 9], ["LIMIT", 1]]
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:47:53 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.1ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (1.0ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+  [1m[36mSupplierProductPrice Load (0.9ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 9], ["LIMIT", 1]]
+  ↳ (pry):19
+Completed 500 Internal Server Error in 32510ms (ActiveRecord: 4.6ms)
+
+
+  
+NoMethodError (undefined method `price' for nil:NilClass):
+  
+app/services/products/product_price_service.rb:56:in `set_prices'
+app/services/products/product_price_service.rb:47:in `block in calculation'
+app/services/products/product_price_service.rb:46:in `calculation'
+app/services/products/product_price_service.rb:19:in `call'
+app/controllers/product_prices_controller.rb:11:in `create'
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:48:39 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.4ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (1.1ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+  [1m[36mSupplierProductPrice Load (0.8ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 9], ["LIMIT", 1]]
+  ↳ (pry):22
+Completed 500 Internal Server Error in 34184ms (ActiveRecord: 36.3ms)
+
+
+  
+TypeError (nil can't be coerced into BigDecimal):
+  
+app/services/products/product_price_service.rb:56:in `+'
+app/services/products/product_price_service.rb:56:in `set_prices'
+app/services/products/product_price_service.rb:47:in `block in calculation'
+app/services/products/product_price_service.rb:46:in `calculation'
+app/services/products/product_price_service.rb:19:in `call'
+app/controllers/product_prices_controller.rb:11:in `create'
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:49:47 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.2ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (0.9ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+  [1m[36mSupplierProductPrice Load (0.3ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 9], ["LIMIT", 1]]
+  ↳ (pry):26
+  [1m[36mSupplier Load (1.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ (pry):28
+  [1m[36mCACHE Supplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ (pry):29
+  [1m[36mCACHE Supplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ (pry):30
+  [1m[36mCACHE Supplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:58
+Completed 500 Internal Server Error in 95853ms (ActiveRecord: 42.2ms)
+
+
+  
+NoMethodError (undefined method `price' for nil:NilClass):
+  
+app/services/products/product_price_service.rb:60:in `set_prices'
+app/services/products/product_price_service.rb:47:in `block in calculation'
+app/services/products/product_price_service.rb:46:in `calculation'
+app/services/products/product_price_service.rb:19:in `call'
+app/controllers/product_prices_controller.rb:11:in `create'
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:51:40 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (0.9ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (1.0ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+  [1m[36mSupplierProductPrice Load (0.8ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 9], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:56
+  [1m[36mSupplier Load (0.4ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:58
+Completed 201 Created in 6253ms (Views: 0.2ms | ActiveRecord: 46.7ms)
+
+
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:52:14 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.2ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (1.0ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+  [1m[36mSupplierProductPrice Load (1.0ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 9], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:57
+  [1m[36mSupplier Load (0.9ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:59
+Completed 201 Created in 5499ms (Views: 0.3ms | ActiveRecord: 47.6ms)
+
+
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:52:52 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.2ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (0.4ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+  [1m[36mSupplierProductPrice Load (0.7ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 9], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:58
+  [1m[36mSupplier Load (0.6ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:60
+Completed 201 Created in 17115ms (Views: 0.7ms | ActiveRecord: 41.0ms)
+
+
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:53:29 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (0.9ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (0.9ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+  [1m[36mSupplierProductPrice Load (0.6ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 9], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:58
+  [1m[36mSupplier Load (0.8ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:60
+Completed 201 Created in 5493ms (Views: 0.8ms | ActiveRecord: 44.1ms)
+
+
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:54:34 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>20, "manufacturing_cost"=>100}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.1ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (0.9ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+  [1m[36mSupplierProductPrice Load (0.8ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 9], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:58
+  [1m[36mSupplier Load (1.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:60
+Completed 201 Created in 5635ms (Views: 0.6ms | ActiveRecord: 49.2ms)
+
+
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:55:07 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"fix_price", "list_price_amount"=>30, "manufacturing_cost"=>100, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"fix_price", "list_price_amount"=>30, "manufacturing_cost"=>100}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.0ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mProductPrice Update (1.1ms)[0m  [1m[33mUPDATE "product_prices" SET "list_price_type" = $1, "list_price_amount" = $2, "updated_at" = $3 WHERE "product_prices"."id" = $4[0m  [["list_price_type", "fix_price"], ["list_price_amount", "30.0"], ["updated_at", "2020-10-03 13:55:11.519251"], ["id", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (36.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (1.0ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+  [1m[36mSupplierProductPrice Load (0.6ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 9], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:58
+  [1m[36mSupplier Load (0.5ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:60
+Completed 201 Created in 6674ms (Views: 0.5ms | ActiveRecord: 41.8ms)
+
+
+  [1m[36mSupplierProduct Load (0.4ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCurrency Load (6.4ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSupplierProduct Load (0.8ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCurrency Load (0.7ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSupplierProductPrice Create (36.0ms)[0m  [1m[32mINSERT INTO "supplier_product_prices" ("supplier_product_id", "price", "created_at", "updated_at", "currency_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["supplier_product_id", 9], ["price", "100.0"], ["created_at", "2020-10-03 13:56:43.059730"], ["updated_at", "2020-10-03 13:56:43.059730"], ["currency_id", 3]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:56:46 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"fix_price", "list_price_amount"=>30, "manufacturing_cost"=>100, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"fix_price", "list_price_amount"=>30, "manufacturing_cost"=>100}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.1ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (1.7ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+  [1m[36mSupplierProductPrice Load (0.7ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 9], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:58
+  [1m[36mSupplier Load (0.4ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:60
+Completed 201 Created in 6836ms (Views: 0.7ms | ActiveRecord: 10.4ms)
+
+
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:57:11 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>30, "manufacturing_cost"=>100, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>30, "manufacturing_cost"=>100}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.0ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mProductPrice Update (0.8ms)[0m  [1m[33mUPDATE "product_prices" SET "list_price_type" = $1, "updated_at" = $2 WHERE "product_prices"."id" = $3[0m  [["list_price_type", "percent"], ["updated_at", "2020-10-03 13:57:13.857079"], ["id", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (36.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (0.9ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+  [1m[36mSupplierProductPrice Load (0.5ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 9], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:58
+  [1m[36mSupplier Load (0.4ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:60
+Completed 201 Created in 4621ms (Views: 0.6ms | ActiveRecord: 41.4ms)
+
+
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:57:26 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>30, "manufacturing_cost"=>0, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>30, "manufacturing_cost"=>0}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.0ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mProductPrice Update (1.1ms)[0m  [1m[33mUPDATE "product_prices" SET "manufacturing_cost" = $1, "updated_at" = $2 WHERE "product_prices"."id" = $3[0m  [["manufacturing_cost", "0.0"], ["updated_at", "2020-10-03 13:57:29.707511"], ["id", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (1.0ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+  [1m[36mSupplierProductPrice Load (0.8ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 9], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:58
+  [1m[36mSupplier Load (0.7ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:60
+Completed 201 Created in 5069ms (Views: 0.5ms | ActiveRecord: 10.0ms)
+
+
+  [1m[36mSupplier Load (1.5ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSupplier Load (0.7ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mSupplierProduct Create (0.9ms)[0m  [1m[32mINSERT INTO "supplier_products" ("supplier_id", "product_id", "supplier_code", "created_at", "updated_at", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["supplier_id", 3], ["product_id", 15], ["supplier_code", "0055"], ["created_at", "2020-10-03 13:58:08.973874"], ["updated_at", "2020-10-03 13:58:08.973874"], ["quantity", 50]]
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSupplierProduct Load (0.8ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCurrency Load (0.6ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSupplierProductPrice Create (1.4ms)[0m  [1m[32mINSERT INTO "supplier_product_prices" ("supplier_product_id", "price", "created_at", "updated_at", "currency_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["supplier_product_id", 10], ["price", "120.0"], ["created_at", "2020-10-03 13:58:19.796233"], ["updated_at", "2020-10-03 13:58:19.796233"], ["currency_id", 3]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:58:22 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>30, "manufacturing_cost"=>0, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>30, "manufacturing_cost"=>0}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.0ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (0.4ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+  [1m[36mSupplierProductPrice Load (0.8ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 9], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:58
+  [1m[36mSupplier Load (0.7ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:60
+  [1m[36mSupplierProductPrice Load (0.7ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 10], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:58
+  [1m[36mSupplier Load (0.6ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:60
+Completed 201 Created in 24934ms (Views: 0.6ms | ActiveRecord: 6.0ms)
+
+
+  [1m[36mSupplierProduct Load (0.4ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" DESC LIMIT $1[0m  [["LIMIT", 2]]
+  [1m[36mSupplierProduct Load (1.0ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSupplierProductPrice Load (1.1ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 10], ["LIMIT", 1]]
+  [1m[36mSupplierProductPrice Destroy (0.6ms)[0m  [1m[31mDELETE FROM "supplier_product_prices" WHERE "supplier_product_prices"."id" = $1[0m  [["id", 8]]
+  [1m[36mSupplierProduct Destroy (0.7ms)[0m  [1m[31mDELETE FROM "supplier_products" WHERE "supplier_products"."id" = $1[0m  [["id", 10]]
+  [1m[35m (36.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSupplierProduct Load (1.0ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSupplierProductPrice Load (0.7ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 9], ["LIMIT", 1]]
+  [1m[36mSupplierProductPrice Destroy (0.8ms)[0m  [1m[31mDELETE FROM "supplier_product_prices" WHERE "supplier_product_prices"."id" = $1[0m  [["id", 7]]
+  [1m[36mSupplierProduct Destroy (1.0ms)[0m  [1m[31mDELETE FROM "supplier_products" WHERE "supplier_products"."id" = $1[0m  [["id", 9]]
+  [1m[35m (36.0ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 17:59:36 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>30, "manufacturing_cost"=>0, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>30, "manufacturing_cost"=>0}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.5ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (0.3ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+Completed 500 Internal Server Error in 12480ms (ActiveRecord: 3.6ms)
+
+
+  
+NoMethodError (undefined method `supplier_id' for nil:NilClass):
+  
+app/services/products/product_price_service.rb:60:in `set_prices'
+app/services/products/product_price_service.rb:50:in `calculation'
+app/services/products/product_price_service.rb:19:in `call'
+app/controllers/product_prices_controller.rb:11:in `create'
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 18:00:22 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>30, "manufacturing_cost"=>0, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>30, "manufacturing_cost"=>0}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.3ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (0.3ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+Completed 500 Internal Server Error in 6032ms (ActiveRecord: 21.6ms)
+
+
+  
+NoMethodError (undefined method `supplier_id' for nil:NilClass):
+  
+app/services/products/product_price_service.rb:60:in `set_prices'
+app/services/products/product_price_service.rb:50:in `calculation'
+app/services/products/product_price_service.rb:19:in `call'
+app/controllers/product_prices_controller.rb:11:in `create'
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 18:00:42 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>30, "manufacturing_cost"=>0, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>30, "manufacturing_cost"=>0}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (0.9ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (1.1ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+  [1m[36mSupplier Load (0.4ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:60
+Completed 500 Internal Server Error in 4976ms (ActiveRecord: 24.9ms)
+
+
+  
+NoMethodError (undefined method `name' for nil:NilClass):
+  
+app/services/products/product_price_service.rb:60:in `set_prices'
+app/services/products/product_price_service.rb:50:in `calculation'
+app/services/products/product_price_service.rb:19:in `call'
+app/controllers/product_prices_controller.rb:11:in `create'
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 18:01:07 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>30, "manufacturing_cost"=>0, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>30, "manufacturing_cost"=>0}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.4ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (1.2ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+  [1m[36mSupplier Load (1.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:60
+Completed 201 Created in 7671ms (Views: 0.8ms | ActiveRecord: 28.1ms)
+
+
+Started POST "/en/product_prices" for 127.0.0.1 at 2020-10-03 18:01:31 +0400
+Processing by ProductPricesController#create as JSON
+  Parameters: {"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>30, "manufacturing_cost"=>50, "locale"=>"en", "product_price"=>{"product_id"=>15, "list_price_type"=>"percent", "list_price_amount"=>30, "manufacturing_cost"=>50}}
+Unpermitted parameters: :format, :locale, :product_price
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:29
+  [1m[36mProductPrice Load (1.1ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 ORDER BY "product_prices"."id" ASC LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:34
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mCACHE Product Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mProductPrice Update (1.4ms)[0m  [1m[33mUPDATE "product_prices" SET "manufacturing_cost" = $1, "updated_at" = $2 WHERE "product_prices"."id" = $3[0m  [["manufacturing_cost", "50.0"], ["updated_at", "2020-10-03 14:01:41.940575"], ["id", 1]]
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[35m (36.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/products/product_price_service.rb:35
+  [1m[36mSupplierProduct Load (0.7ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:45
+  [1m[36mSupplier Load (0.9ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:60
+Completed 201 Created in 13098ms (Views: 0.6ms | ActiveRecord: 42.1ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-03 18:30:23 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-03 18:30:24 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-03 18:30:24 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-03 18:30:24 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-03 18:30:24 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-03 18:30:24 +0400
+  [1m[36mProductPrice Load (0.6ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" ORDER BY "product_prices"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/en/product_prices/price?product_id=15" for 127.0.0.1 at 2020-10-03 18:32:30 +0400
+Processing by ProductPricesController#price as JSON
+  Parameters: {"product_id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProductPrice Load (0.4ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:31
+  [1m[36mSupplierProduct Load (0.5ms)[0m  [1m[34mSELECT "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/services/products/product_price_service.rb:51
+  [1m[36mSupplier Load (0.5ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/products/product_price_service.rb:64
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 10.3ms)
+
+

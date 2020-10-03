@@ -653,6 +653,155 @@
         }
       }
     },
+    "/{locale}/product_prices": {
+      "post": {
+        "summary": "Create product price",
+        "tags": [
+          "Product"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "params",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "product_id": {
+                  "type": "integer"
+                },
+                "list_price_type": {
+                  "type": "string"
+                },
+                "list_price_amount": {
+                  "type": "number"
+                },
+                "manufacturing_cost": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "price_data": {
+                  "type": "object",
+                  "properties": {
+                    "manufacturing_cost": {
+                      "type": "number"
+                    },
+                    "purchase_price": {
+                      "type": "number"
+                    },
+                    "cost_price": {
+                      "type": "number"
+                    },
+                    "list_price": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/{locale}/product_prices/price": {
+      "get": {
+        "summary": "Returns product price",
+        "tags": [
+          "Product"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "Client token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "product_id",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "price_data": {
+                  "type": "object",
+                  "properties": {
+                    "manufacturing_cost": {
+                      "type": "number"
+                    },
+                    "purchase_price": {
+                      "type": "number"
+                    },
+                    "cost_price": {
+                      "type": "number"
+                    },
+                    "list_price": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+              }
+            }
+          }
+        }
+      }
+    },
     "/{locale}/product_types": {
       "post": {
         "summary": "Create product type",

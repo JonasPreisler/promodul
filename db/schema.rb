@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_215700) do
+ActiveRecord::Schema.define(version: 2020_10_01_214457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,6 +118,16 @@ ActiveRecord::Schema.define(version: 2020_09_29_215700) do
     t.index ["uuid"], name: "index_product_images_on_uuid", unique: true
   end
 
+  create_table "product_prices", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.string "list_price_type", limit: 30, null: false
+    t.decimal "list_price_amount", null: false
+    t.decimal "manufacturing_cost", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_prices_on_product_id"
+  end
+
   create_table "product_types", force: :cascade do |t|
     t.json "name", null: false
     t.string "id_name", null: false
@@ -217,6 +227,7 @@ ActiveRecord::Schema.define(version: 2020_09_29_215700) do
   add_foreign_key "product_characteristics", "products"
   add_foreign_key "product_characteristics", "sub_categories"
   add_foreign_key "product_images", "products"
+  add_foreign_key "product_prices", "products"
   add_foreign_key "sub_categories", "categories"
   add_foreign_key "supplier_product_prices", "currencies"
   add_foreign_key "supplier_product_prices", "supplier_products"

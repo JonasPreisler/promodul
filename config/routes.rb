@@ -56,6 +56,9 @@ Rails.application.routes.draw do
 
       resource :supplier_products
       get 'supplier_products/list', to: 'supplier_products#list'
+
+      resource :product_prices
+      get 'product_prices/price', to: 'product_prices#price'
     end
   end
 end
