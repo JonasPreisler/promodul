@@ -739,7 +739,7 @@
     },
     "/{locale}/product_prices/price": {
       "get": {
-        "summary": "Returns product price",
+        "summary": "Returns product prices by supplier",
         "tags": [
           "Product"
         ],
@@ -804,6 +804,66 @@
               "properties": {
               }
             }
+          }
+        }
+      }
+    },
+    "/{locale}/product_prices/{product_id}": {
+      "get": {
+        "summary": "Returns product price",
+        "tags": [
+          "Product"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "product_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "product_price": {
+                  "type": "object",
+                  "properties": {
+                    "manufacturing_cost": {
+                      "type": "number"
+                    },
+                    "list_price_type": {
+                      "type": "string"
+                    },
+                    "list_price_amount": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "not found"
           }
         }
       }

@@ -3,7 +3,7 @@ class ProductPricesController < ApplicationController
   include ControllerResponse
 
   #ToDO: Need remove after authorization will works
-  skip_before_action :validate_authentication
+  #skip_before_action :validate_authentication
 
   def create
     service = Products::ProductPriceService.new(product_price_params)
@@ -14,6 +14,12 @@ class ProductPricesController < ApplicationController
   def price
     service = Products::ProductPriceService.new(product_price_params)
     service.price
+    rest_respond_service service
+  end
+
+  def show
+    service = Products::ProductPriceService.new(product_price_params)
+    service.show
     rest_respond_service service
   end
 

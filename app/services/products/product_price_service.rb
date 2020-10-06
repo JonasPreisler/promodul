@@ -21,8 +21,16 @@ module Products
       calculation
     end
 
+    def show
+      @product_price = ProductPrice.find_by(product_id: price_params[:id])
+    end
+
     def json_view
       { price_data: @price_data }
+    end
+
+    def show_json_view
+      { product_price: @product_price.as_json }
     end
 
     private
