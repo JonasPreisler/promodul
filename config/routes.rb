@@ -60,6 +60,11 @@ Rails.application.routes.draw do
       resource :product_prices
       get 'product_prices/price', to: 'product_prices#price'
       get 'product_prices/:id', to: 'product_prices#show'
+
+      post 'settings/country', to: 'settings#country'
+      post 'settings/city', to: 'settings#city'
+      get 'settings/countries', to: 'settings#countries'
+      get 'settings/cities', to: 'settings#cities'
     end
   end
 end

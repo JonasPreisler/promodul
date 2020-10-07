@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_01_214457) do
+ActiveRecord::Schema.define(version: 2020_10_07_201451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,25 @@ ActiveRecord::Schema.define(version: 2020_10_01_214457) do
     t.json "name", null: false
     t.string "id_name", limit: 50
     t.boolean "active", default: true, null: false
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "city_code", null: false
+    t.bigint "country_id", null: false
+    t.index ["country_id"], name: "index_cities_on_country_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description"
+    t.string "address"
+    t.string "phone_number"
+    t.bigint "countries_id"
+    t.bigint "cities_id"
+    t.integer "parent_id"
+    t.index ["cities_id"], name: "index_companies_on_cities_id"
+    t.index ["countries_id"], name: "index_companies_on_countries_id"
   end
 
   create_table "confirmation_codes", force: :cascade do |t|
@@ -41,6 +60,11 @@ ActiveRecord::Schema.define(version: 2020_10_01_214457) do
   create_table "confirmation_types", force: :cascade do |t|
     t.string "name", limit: 150
     t.string "id_name", limit: 50
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "country_code", null: false
   end
 
   create_table "country_phone_indices", force: :cascade do |t|
@@ -221,6 +245,10 @@ ActiveRecord::Schema.define(version: 2020_10_01_214457) do
     t.string "phone_number_iso", limit: 2, default: "de", null: false
   end
 
+  add_foreign_key "cities", "countries"
+  add_foreign_key "companies", "cities", column: "cities_id"
+  add_foreign_key "companies", "companies", column: "parent_id"
+  add_foreign_key "companies", "countries", column: "countries_id"
   add_foreign_key "confirmation_codes", "confirmation_types"
   add_foreign_key "confirmation_codes", "user_accounts"
   add_foreign_key "customers", "customer_types"
