@@ -12,15 +12,15 @@ class CompaniesController < ApplicationController
   end
 
   def update
-    #service = CategorySubCategories::SubCategoriesService.new(sub_category_params)
-    #service.update_sub_category
-    #rest_respond_service service
+    service = Companies::CompaniesService.new(company_params)
+    service.update_company
+    rest_respond_service service
   end
 
   def destroy
-    #service = CategorySubCategories::SubCategoriesService.new(destroy_params)
-    #service.destroy
-    #rest_respond_service service
+    service = Companies::CompaniesService.new(company_params)
+    service.destroy
+    rest_respond_service service
   end
 
   def list
