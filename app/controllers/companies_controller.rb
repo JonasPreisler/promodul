@@ -23,10 +23,16 @@ class CompaniesController < ApplicationController
     rest_respond_service service
   end
 
-  def list
-    #service = CategorySubCategories::SubCategoriesService.new(list_paranms)
-    #service.sub_category_list
-    #rest_respond_service service
+  def company_list
+    service = Companies::CompaniesService.new(company_params)
+    service.company_list
+    rest_respond_service service
+  end
+
+  def sub_company_list
+    service = Companies::CompaniesService.new(company_params)
+    service.sub_company_list
+    rest_respond_service service
   end
 
   private

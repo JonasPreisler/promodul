@@ -18,6 +18,14 @@ module Companies
       { success: true }
     end
 
+    def company_list_json_view
+      { companies: @companies.as_json }
+    end
+
+    def sub_company_list_json_view
+      { cities: @cities.as_json() }
+    end
+
     def create_company
       validate_data!
       create_company_obj
@@ -34,6 +42,14 @@ module Companies
       return if @errors.any?
       @company.destroy
       @errors << fill_errors(@company) if @company.errors.any?
+    end
+
+    def company_list
+      @companies = Company.where(parent_id: nil)
+    end
+
+    def sub_company_list
+      @cities = Company.where(parent_id: params[:parent_id])
     end
 
     private

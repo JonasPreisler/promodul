@@ -134,52 +134,59 @@ describe 'SubCategory', type: :request do
 
     end
   end
-  #
-  #path '/{locale}/sub_categories/sub_category_list' do
-  #  get 'Returns sub categories' do
-  #    tags 'Category and Sub category'
-  #    consumes 'application/json'
-  #
-  #    parameter({
-  #                  :in => :header,
-  #                  :type => :string,
-  #                  :name => :Authorization,
-  #                  :required => true,
-  #                  :description => 'Client token'
-  #              })
-  #
-  #    parameter name: :locale, in: :path, type: :string, required: true, default: "en"
-  #    parameter name: :category_id, in: :query, type: :integer, required: true
-  #
-  #    response '200', 'OK' do
-  #      schema type: :object,
-  #             properties: {
-  #                 sub_categories: {
-  #                     type: :array,
-  #                     items: {
-  #                         properties: {
-  #                             name: {type: :string},
-  #                             id_name: {type: :string},
-  #                             priority: {type: :integer},
-  #                             category_id: {type: :integer}
-  #                         }
-  #
-  #                     }
-  #                 }
-  #             }
-  #
-  #      run_test!
-  #    end
-  #
-  #    response '404', 'Not found' do
-  #      schema type: :object,
-  #             properties: {}
-  #      run_test!
-  #    end
-  #
-  #  end
-  #end
-  #
+
+  path '/{locale}/companies/company_list' do
+    get 'Returns companies' do
+      tags 'Company'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      #parameter name: :category_id, in: :query, type: :integer, required: true
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   companies: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               id: {type: :integer},
+                               name: {type: :string},
+                               description:  { type: :string },
+                               address:      { type: :string },
+                               phone_number: { type: :string },
+                               parent_id:    { type: :integer },
+                               country: {
+                                   type: :object,
+                                   properties: {
+                                       name: { type: :string }
+                                   }
+                               },
+                               city:    {
+                                   type: :object,
+                                   properties: {
+                                       name: { type: :object }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+
+        run_test!
+      end
+
+    end
+  end
+
   path '/{locale}/companies' do
     delete 'delete company' do
       tags 'Company'
@@ -210,6 +217,64 @@ describe 'SubCategory', type: :request do
 
         run_test!
       end
+    end
+  end
+
+  path '/{locale}/companies/sub_company_list' do
+    get 'Returns sub companies' do
+      tags 'Company'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      parameter name: :parent_id, in: :query, type: :integer, required: true
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   companies: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               id: {type: :integer},
+                               name: {type: :string},
+                               description:  { type: :string },
+                               address:      { type: :string },
+                               phone_number: { type: :string },
+                               parent_id:    { type: :integer },
+                               country: {
+                                   type: :object,
+                                   properties: {
+                                       name: { type: :string }
+                                   }
+                               },
+                               city:    {
+                                   type: :object,
+                                   properties: {
+                                       name: { type: :object }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+
+        run_test!
+      end
+
+      response '404', 'Not found' do
+        schema type: :object,
+               properties: {}
+        run_test!
+      end
+
     end
   end
 
