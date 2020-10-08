@@ -5683,3 +5683,5 @@ Unpermitted parameters: :format, :locale, :company
 Completed 201 Created in 6491ms (Views: 0.5ms | ActiveRecord: 35.3ms)
 
 
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34

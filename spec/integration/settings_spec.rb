@@ -26,7 +26,7 @@ describe 'ProductType ', type: :request do
       response '201', 'ok' do
         schema type: :object,
                properties: {
-                   product_type: {
+                   country: {
                        type: :object,
                        properties: {
                            id: {type: :integer},
@@ -73,7 +73,7 @@ describe 'ProductType ', type: :request do
       response '201', 'ok' do
         schema type: :object,
                properties: {
-                   product_type: {
+                   city: {
                        type: :object,
                        properties: {
                            id: { type: :integer },
@@ -111,7 +111,7 @@ describe 'ProductType ', type: :request do
       response '200', 'OK' do
         schema type: :object,
                properties: {
-                   product_types: {
+                   countries: {
                        type: :array,
                        items: {
                            properties: {
@@ -154,7 +154,7 @@ describe 'ProductType ', type: :request do
       response '200', 'OK' do
         schema type: :object,
                properties: {
-                   product_types: {
+                   cities: {
                        type: :array,
                        items: {
                            properties: {

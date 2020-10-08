@@ -2557,7 +2557,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "product_type": {
+                "country": {
                   "type": "object",
                   "properties": {
                     "id": {
@@ -2632,7 +2632,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "product_type": {
+                "city": {
                   "type": "object",
                   "properties": {
                     "id": {
@@ -2689,7 +2689,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "product_types": {
+                "countries": {
                   "type": "array",
                   "items": {
                     "properties": {
@@ -2756,7 +2756,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "product_types": {
+                "cities": {
                   "type": "array",
                   "items": {
                     "properties": {
