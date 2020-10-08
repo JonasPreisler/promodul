@@ -22,6 +22,14 @@ module Settings
       { countries: @countries.as_json }
     end
 
+    def destroy_country_json_view
+      { success: true }
+    end
+
+    def destroy_city_json_view
+      { success: true }
+    end
+
     def cities_json_view
       { cities: @cities.as_json }
     end
@@ -44,6 +52,18 @@ module Settings
 
     def cities
       @cities = City.where(country_id: params[:country_id])
+    end
+
+    def destroy_country
+      @country = Country.find(params[:id])
+      @country.destroy
+      @errors << fill_errors(@country) if @country.errors.any?
+    end
+
+    def destroy_city
+      @city = City.find(params[:id])
+      @city.destroy
+      @errors << fill_errors(@city) if @city.errors.any?
     end
   end
 end

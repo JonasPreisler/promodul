@@ -180,6 +180,73 @@ describe 'ProductType ', type: :request do
     end
   end
 
+  path '/{locale}/settings/destroy_country' do
+    delete 'delete country' do
+      tags 'Settings'
+      consumes 'multipart/form-data'
+
+      parameter({
+                    in: :header,
+                    type: :string,
+                    name: :Authorization,
+                    required: true,
+                    description: 'JWT token'
+                })
+
+      parameter name: :locale, in: :path,  type: :string,  required: true, default: "en"
+      parameter name: :id,     in: :query,  type: :integer,  required: true
+
+      response '204', 'OK' do
+
+        schema type: :object,
+               properties: {
+                   success: { type: :boolean}
+               }
+
+        run_test!
+      end
+
+      response '404', 'Not Found' do
+
+        run_test!
+      end
+    end
+  end
+
+  path '/{locale}/settings/destroy_city' do
+    delete 'delete city' do
+      tags 'Settings'
+      consumes 'multipart/form-data'
+
+      parameter({
+                    in: :header,
+                    type: :string,
+                    name: :Authorization,
+                    required: true,
+                    description: 'JWT token'
+                })
+
+      parameter name: :locale, in: :path,  type: :string,  required: true, default: "en"
+      parameter name: :id,     in: :query,  type: :integer,  required: true
+
+      response '204', 'OK' do
+
+        schema type: :object,
+               properties: {
+                   success: { type: :boolean}
+               }
+
+        run_test!
+      end
+
+      response '404', 'Not Found' do
+
+        run_test!
+      end
+    end
+  end
+
+
 end
 
 

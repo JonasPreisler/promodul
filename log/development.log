@@ -4959,3 +4959,219 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.4ms)
 
 
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" ORDER BY "countries"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-08 17:49:24 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-08 17:49:24 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-08 17:49:24 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-08 17:49:24 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-08 17:49:25 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-08 17:49:25 +0400
+Started DELETE "/en/settings/destroy_country?id=1" for 127.0.0.1 at 2020-10-08 17:49:35 +0400
+Processing by SettingsController#destroy_country as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCountry Load (0.4ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/country_and_city_service.rb:59
+  [1m[36mCountry Destroy (1.3ms)[0m  [1m[31mDELETE FROM "countries" WHERE "countries"."id" = $1[0m  [["id", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:59
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/settings/country_and_city_service.rb:59
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 8.8ms)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "countries" violates foreign key constraint "fk_rails_996e05be41" on table "cities"
+DETAIL:  Key (id)=(1) is still referenced from table "cities".
+: DELETE FROM "countries" WHERE "countries"."id" = $1):
+  
+app/services/settings/country_and_city_service.rb:59:in `destroy_country'
+app/controllers/settings_controller.rb:34:in `destroy_country'
+Started DELETE "/en/settings/destroy_city?id=2" for 127.0.0.1 at 2020-10-08 17:49:53 +0400
+Processing by SettingsController#destroy_city as JSON
+  Parameters: {"id"=>"2", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:64
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/country_and_city_service.rb:65
+  [1m[36mCountry Destroy (0.9ms)[0m  [1m[31mDELETE FROM "countries" WHERE "countries"."id" = $1[0m  [["id", 2]]
+  ↳ app/services/settings/country_and_city_service.rb:65
+  [1m[35m (34.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/settings/country_and_city_service.rb:65
+Completed 200 OK in 39ms (Views: 0.1ms | ActiveRecord: 35.8ms)
+
+
+Started DELETE "/en/settings/destroy_country?id=2" for 127.0.0.1 at 2020-10-08 17:50:01 +0400
+Processing by SettingsController#destroy_country as JSON
+  Parameters: {"id"=>"2", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:58
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Country with 'id'=2):
+  
+app/services/settings/country_and_city_service.rb:58:in `destroy_country'
+app/controllers/settings_controller.rb:34:in `destroy_country'
+Started DELETE "/en/settings/destroy_country?id=1" for 127.0.0.1 at 2020-10-08 17:50:05 +0400
+Processing by SettingsController#destroy_country as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/country_and_city_service.rb:59
+  [1m[36mCountry Destroy (0.7ms)[0m  [1m[31mDELETE FROM "countries" WHERE "countries"."id" = $1[0m  [["id", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:59
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/settings/country_and_city_service.rb:59
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "countries" violates foreign key constraint "fk_rails_996e05be41" on table "cities"
+DETAIL:  Key (id)=(1) is still referenced from table "cities".
+: DELETE FROM "countries" WHERE "countries"."id" = $1):
+  
+app/services/settings/country_and_city_service.rb:59:in `destroy_country'
+app/controllers/settings_controller.rb:34:in `destroy_country'
+Started DELETE "/en/settings/destroy_city?id=1" for 127.0.0.1 at 2020-10-08 17:50:16 +0400
+Processing by SettingsController#destroy_city as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:64
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/country_and_city_service.rb:65
+  [1m[36mCountry Destroy (0.5ms)[0m  [1m[31mDELETE FROM "countries" WHERE "countries"."id" = $1[0m  [["id", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:65
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/settings/country_and_city_service.rb:65
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "countries" violates foreign key constraint "fk_rails_996e05be41" on table "cities"
+DETAIL:  Key (id)=(1) is still referenced from table "cities".
+: DELETE FROM "countries" WHERE "countries"."id" = $1):
+  
+app/services/settings/country_and_city_service.rb:65:in `destroy_city'
+app/controllers/settings_controller.rb:40:in `destroy_city'
+Started DELETE "/en/settings/destroy_city?id=1" for 127.0.0.1 at 2020-10-08 17:51:12 +0400
+Processing by SettingsController#destroy_city as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:64
+Completed 404 Not Found in 9ms (ActiveRecord: 3.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find City with 'id'=1):
+  
+app/services/settings/country_and_city_service.rb:64:in `destroy_city'
+app/controllers/settings_controller.rb:40:in `destroy_city'
+Started DELETE "/en/settings/destroy_city?id=2" for 127.0.0.1 at 2020-10-08 17:51:19 +0400
+Processing by SettingsController#destroy_city as JSON
+  Parameters: {"id"=>"2", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:64
+Completed 404 Not Found in 1ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find City with 'id'=2):
+  
+app/services/settings/country_and_city_service.rb:64:in `destroy_city'
+app/controllers/settings_controller.rb:40:in `destroy_city'
+Started DELETE "/en/settings/destroy_country?id=1" for 127.0.0.1 at 2020-10-08 17:51:25 +0400
+Processing by SettingsController#destroy_country as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/country_and_city_service.rb:59
+  [1m[36mCountry Destroy (0.6ms)[0m  [1m[31mDELETE FROM "countries" WHERE "countries"."id" = $1[0m  [["id", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:59
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/settings/country_and_city_service.rb:59
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 4.1ms)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "countries" violates foreign key constraint "fk_rails_996e05be41" on table "cities"
+DETAIL:  Key (id)=(1) is still referenced from table "cities".
+: DELETE FROM "countries" WHERE "countries"."id" = $1):
+  
+app/services/settings/country_and_city_service.rb:59:in `destroy_country'
+app/controllers/settings_controller.rb:34:in `destroy_country'
+Started DELETE "/en/settings/destroy_country?id=2" for 127.0.0.1 at 2020-10-08 17:51:31 +0400
+Processing by SettingsController#destroy_country as JSON
+  Parameters: {"id"=>"2", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:58
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Country with 'id'=2):
+  
+app/services/settings/country_and_city_service.rb:58:in `destroy_country'
+app/controllers/settings_controller.rb:34:in `destroy_country'
+  [1m[36mCountry Load (1.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" ORDER BY "countries"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCity Load (1.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+Started DELETE "/en/settings/destroy_city?id=7" for 127.0.0.1 at 2020-10-08 17:51:56 +0400
+Processing by SettingsController#destroy_city as JSON
+  Parameters: {"id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:64
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/country_and_city_service.rb:65
+  [1m[36mCity Destroy (0.5ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = $1[0m  [["id", 7]]
+  ↳ app/services/settings/country_and_city_service.rb:65
+  [1m[35m (35.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/settings/country_and_city_service.rb:65
+Completed 200 OK in 43ms (Views: 0.2ms | ActiveRecord: 36.7ms)
+
+
+Started DELETE "/en/settings/destroy_country?id=2" for 127.0.0.1 at 2020-10-08 17:52:05 +0400
+Processing by SettingsController#destroy_country as JSON
+  Parameters: {"id"=>"2", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:58
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Country with 'id'=2):
+  
+app/services/settings/country_and_city_service.rb:58:in `destroy_country'
+app/controllers/settings_controller.rb:34:in `destroy_country'
+Started DELETE "/en/settings/destroy_country?id=1" for 127.0.0.1 at 2020-10-08 17:52:08 +0400
+Processing by SettingsController#destroy_country as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/country_and_city_service.rb:59
+  [1m[36mCountry Destroy (0.6ms)[0m  [1m[31mDELETE FROM "countries" WHERE "countries"."id" = $1[0m  [["id", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:59
+  [1m[35m (36.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/settings/country_and_city_service.rb:59
+Completed 200 OK in 39ms (Views: 0.1ms | ActiveRecord: 36.9ms)
+
+

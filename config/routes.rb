@@ -65,6 +65,8 @@ Rails.application.routes.draw do
       post 'settings/city', to: 'settings#city'
       get 'settings/countries', to: 'settings#countries'
       get 'settings/cities', to: 'settings#cities'
+      delete  'settings/destroy_country', to: 'settings#destroy_country'
+      delete  'settings/destroy_city', to: 'settings#destroy_city'
     end
   end
 end

@@ -29,6 +29,18 @@ class SettingsController < ApplicationController
     rest_respond_service service
   end
 
+  def destroy_country
+    service = Settings::CountryAndCityService.new(country_params)
+    service.destroy_country
+    rest_respond_service service
+  end
+
+  def destroy_city
+    service = Settings::CountryAndCityService.new(city_params)
+    service.destroy_city
+    rest_respond_service service
+  end
+
   private
 
   def country_params
