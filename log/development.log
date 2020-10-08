@@ -5175,3 +5175,511 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 39ms (Views: 0.1ms | ActiveRecord: 36.9ms)
 
 
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-09 00:29:20 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-09 00:29:20 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-09 00:29:20 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-09 00:29:20 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-09 00:29:20 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-09 00:29:20 +0400
+Started POST "/en/settings/country" for 127.0.0.1 at 2020-10-09 00:30:55 +0400
+Processing by SettingsController#country as JSON
+  Parameters: {"name"=>"Georgia", "country_code"=>"GEO", "locale"=>"en", "setting"=>{"name"=>"Georgia", "country_code"=>"GEO"}}
+Unpermitted parameters: :format, :locale, :setting
+  [1m[36mCountry Load (1.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."country_code" = $1 ORDER BY "countries"."id" ASC LIMIT $2[0m  [["country_code", "GEO"], ["LIMIT", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:38
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/country_and_city_service.rb:39
+  [1m[36mCountry Create (1.7ms)[0m  [1m[32mINSERT INTO "countries" ("name", "country_code") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Georgia"], ["country_code", "GEO"]]
+  ↳ app/services/settings/country_and_city_service.rb:39
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/settings/country_and_city_service.rb:39
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 10.6ms)
+
+
+Started POST "/en/settings/city" for 127.0.0.1 at 2020-10-09 00:31:14 +0400
+Processing by SettingsController#city as JSON
+  Parameters: {"country_id"=>3, "name"=>"Tbilisi", "city_code"=>"TBL", "locale"=>"en", "setting"=>{"country_id"=>3, "name"=>"Tbilisi", "city_code"=>"TBL"}}
+Unpermitted parameters: :format, :locale, :setting
+  [1m[36mCity Load (0.9ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."city_code" = $1 ORDER BY "cities"."id" ASC LIMIT $2[0m  [["city_code", "TBL"], ["LIMIT", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:44
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/country_and_city_service.rb:45
+  [1m[36mCity Create (4.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "city_code", "country_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Tbilisi"], ["city_code", "TBL"], ["country_id", 3]]
+  ↳ app/services/settings/country_and_city_service.rb:45
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/settings/country_and_city_service.rb:45
+Completed 200 OK in 28ms (Views: 0.3ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-09 00:32:14 +0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-09 00:32:14 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-09 00:32:14 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-09 00:32:14 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-09 00:32:15 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-09 00:32:15 +0400
+Started POST "/en/companies" for 127.0.0.1 at 2020-10-09 00:32:25 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3, "cities_is"=>8, "locale"=>"en", "company"=>{"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3}}
+Unpermitted parameters: :cities_is, :format, :locale, :company
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 5.9ms)
+
+
+  
+NameError (undefined local variable or method `params' for #<Companies::CompaniesService:0x000055cd38657a10>
+Did you mean?  @params):
+  
+app/services/companies/companies_service.rb:26:in `validate_country'
+app/services/companies/companies_service.rb:21:in `validate_data!'
+app/services/companies/companies_service.rb:14:in `create_company'
+app/controllers/companies_controller.rb:10:in `create'
+Started POST "/en/companies" for 127.0.0.1 at 2020-10-09 00:32:47 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3, "cities_is"=>8, "locale"=>"en", "company"=>{"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3}}
+Unpermitted parameters: :cities_is, :format, :locale, :company
+  [1m[36mCountry Load (0.7ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:38
+  [1m[36mCompany Create (1.2ms)[0m  [1m[32mINSERT INTO "companies" ("name", "description", "address", "phone_number", "countries_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bukas LTD"], ["description", "Software development company"], ["address", "Gogebashvili streat n10"], ["phone_number", "577520250"], ["countries_id", 3]]
+  ↳ app/services/companies/companies_service.rb:38
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/companies_service.rb:38
+Completed 400 Bad Request in 112ms (Views: 0.2ms | ActiveRecord: 11.2ms)
+
+
+Started POST "/en/companies" for 127.0.0.1 at 2020-10-09 00:33:14 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3, "cities_is"=>8, "locale"=>"en", "company"=>{"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3}}
+Unpermitted parameters: :cities_is, :format, :locale, :company
+  [1m[36mCountry Load (0.4ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):1
+  [1m[36mCountry Load (0.6ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ (pry):3
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):4
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ (pry):6
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:27
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:40
+  [1m[36mCompany Create (0.9ms)[0m  [1m[32mINSERT INTO "companies" ("name", "description", "address", "phone_number", "countries_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bukas LTD"], ["description", "Software development company"], ["address", "Gogebashvili streat n10"], ["phone_number", "577520250"], ["countries_id", 3]]
+  ↳ app/services/companies/companies_service.rb:40
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/companies_service.rb:40
+Completed 400 Bad Request in 82593ms (Views: 0.3ms | ActiveRecord: 21.9ms)
+
+
+Started POST "/en/companies" for 127.0.0.1 at 2020-10-09 00:34:52 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3, "cities_is"=>8, "locale"=>"en", "company"=>{"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3}}
+Unpermitted parameters: :cities_is, :format, :locale, :company
+  [1m[36mCountry Load (0.6ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:27
+  [1m[36mCity Load (1.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:34
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:40
+  [1m[36mCompany Create (0.7ms)[0m  [1m[32mINSERT INTO "companies" ("name", "description", "address", "phone_number", "countries_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bukas LTD"], ["description", "Software development company"], ["address", "Gogebashvili streat n10"], ["phone_number", "577520250"], ["countries_id", 3]]
+  ↳ app/services/companies/companies_service.rb:40
+  [1m[35m (36.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/companies_service.rb:40
+Completed 400 Bad Request in 4518ms (Views: 0.6ms | ActiveRecord: 59.7ms)
+
+
+Started POST "/en/companies" for 127.0.0.1 at 2020-10-09 00:35:13 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3, "cities_is"=>8, "locale"=>"en", "company"=>{"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3}}
+Unpermitted parameters: :cities_is, :format, :locale, :company
+  [1m[36mCountry Load (0.8ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:27
+  [1m[36mCity Load (0.7ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:34
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:40
+  [1m[36mCompany Create (0.9ms)[0m  [1m[32mINSERT INTO "companies" ("name", "description", "address", "phone_number", "countries_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bukas LTD"], ["description", "Software development company"], ["address", "Gogebashvili streat n10"], ["phone_number", "577520250"], ["countries_id", 3]]
+  ↳ app/services/companies/companies_service.rb:40
+  [1m[35m (36.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/companies_service.rb:40
+Completed 400 Bad Request in 8349ms (Views: 0.5ms | ActiveRecord: 62.3ms)
+
+
+Started POST "/en/companies" for 127.0.0.1 at 2020-10-09 00:35:35 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3, "cities_is"=>8, "locale"=>"en", "company"=>{"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3}}
+Unpermitted parameters: :cities_is, :format, :locale, :company
+  [1m[36mCountry Load (0.9ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:27
+  [1m[36mCity Load (0.9ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:34
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:40
+  [1m[36mCompany Create (1.4ms)[0m  [1m[32mINSERT INTO "companies" ("name", "description", "address", "phone_number", "countries_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bukas LTD"], ["description", "Software development company"], ["address", "Gogebashvili streat n10"], ["phone_number", "577520250"], ["countries_id", 3]]
+  ↳ app/services/companies/companies_service.rb:40
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/companies_service.rb:40
+Completed 400 Bad Request in 35464ms (Views: 0.4ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/en/companies" for 127.0.0.1 at 2020-10-09 00:36:13 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3, "cities_is"=>8, "locale"=>"en", "company"=>{"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3}}
+Unpermitted parameters: :cities_is, :format, :locale, :company
+  [1m[36mCountry Load (0.8ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:27
+  [1m[36mCity Load (0.9ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:40
+  [1m[36mCompany Create (0.6ms)[0m  [1m[32mINSERT INTO "companies" ("name", "description", "address", "phone_number", "countries_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bukas LTD"], ["description", "Software development company"], ["address", "Gogebashvili streat n10"], ["phone_number", "577520250"], ["countries_id", 3]]
+  ↳ app/services/companies/companies_service.rb:40
+  [1m[35m (36.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/companies_service.rb:40
+Completed 400 Bad Request in 14784ms (Views: 0.5ms | ActiveRecord: 59.1ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-09 00:36:48 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-09 00:36:48 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-09 00:36:48 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-09 00:36:48 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-09 00:36:49 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-09 00:36:49 +0400
+Started POST "/en/companies" for 127.0.0.1 at 2020-10-09 00:37:04 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3, "cities_id"=>8, "locale"=>"en", "company"=>{"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3, "cities_id"=>8}}
+Unpermitted parameters: :format, :locale, :company
+  [1m[36mCountry Load (0.9ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:27
+  [1m[36mCity Load (0.9ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:34
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:40
+  [1m[36mCompany Create (1.7ms)[0m  [1m[32mINSERT INTO "companies" ("name", "description", "address", "phone_number", "countries_id", "cities_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Bukas LTD"], ["description", "Software development company"], ["address", "Gogebashvili streat n10"], ["phone_number", "577520250"], ["countries_id", 3], ["cities_id", 8]]
+  ↳ app/services/companies/companies_service.rb:40
+  [1m[35m (36.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/companies_service.rb:40
+Completed 204 No Content in 13319ms (Views: 0.2ms | ActiveRecord: 49.3ms)
+
+
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCountry Load (0.5ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mCountry Load (0.8ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" ORDER BY "countries"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCountry Destroy (6.8ms)[0m  [1m[31mDELETE FROM "countries" WHERE "countries"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCity Destroy (2.1ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mCity Load (0.9ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCity Destroy (5.5ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mCity Load (0.9ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCity Destroy (1.8ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCity Destroy (1.1ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCity Destroy (0.8ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mCity Load (0.9ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCity Destroy (2.0ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Destroy (1.0ms)[0m  [1m[31mDELETE FROM "companies" WHERE "companies"."id" = $1[0m  [["id", 7]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Destroy (0.5ms)[0m  [1m[31mDELETE FROM "companies" WHERE "companies"."id" = $1[0m  [["id", 6]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Destroy (1.0ms)[0m  [1m[31mDELETE FROM "companies" WHERE "companies"."id" = $1[0m  [["id", 5]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Destroy (1.0ms)[0m  [1m[31mDELETE FROM "companies" WHERE "companies"."id" = $1[0m  [["id", 4]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Destroy (1.0ms)[0m  [1m[31mDELETE FROM "companies" WHERE "companies"."id" = $1[0m  [["id", 3]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Destroy (1.3ms)[0m  [1m[31mDELETE FROM "companies" WHERE "companies"."id" = $1[0m  [["id", 2]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Destroy (0.8ms)[0m  [1m[31mDELETE FROM "companies" WHERE "companies"."id" = $1[0m  [["id", 1]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCity Load (0.8ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCity Destroy (0.9ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = $1[0m  [["id", 8]]
+  [1m[35m (36.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCity Load (0.8ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCity Load (0.7ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCity Load (0.9ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCity Load (0.7ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCity Load (0.8ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCountry Load (1.1ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" ORDER BY "countries"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCountry Destroy (2.2ms)[0m  [1m[31mDELETE FROM "countries" WHERE "countries"."id" = $1[0m  [["id", 3]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCountry Load (0.6ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" ORDER BY "countries"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCountry Load (0.8ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" ORDER BY "countries"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddColumnsToCompany (20201007201451)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "companies" DROP COLUMN "countries_id"[0m
+  ↳ db/migrate/20201007201451_add_columns_to_company.rb:10
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "companies" DROP COLUMN "cities_id"[0m
+  ↳ db/migrate/20201007201451_add_columns_to_company.rb:11
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "companies" DROP COLUMN "parent_id"[0m
+  ↳ db/migrate/20201007201451_add_columns_to_company.rb:12
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.7ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20201007201451"]]
+  ↳ bin/rails:9
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddColumnsToCompany (20201007201451)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "companies" ADD "country_id" bigint[0m
+  ↳ db/migrate/20201007201451_add_columns_to_company.rb:3
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE  INDEX  "index_companies_on_country_id" ON "companies"  ("country_id")[0m
+  ↳ db/migrate/20201007201451_add_columns_to_company.rb:3
+  [1m[35m (5.9ms)[0m  [1m[35mALTER TABLE "companies" ADD CONSTRAINT "fk_rails_75b15a5c36"
+FOREIGN KEY ("country_id")
+  REFERENCES "countries" ("id")
+[0m
+  ↳ db/migrate/20201007201451_add_columns_to_company.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "companies" ADD "city_id" bigint[0m
+  ↳ db/migrate/20201007201451_add_columns_to_company.rb:4
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_companies_on_city_id" ON "companies"  ("city_id")[0m
+  ↳ db/migrate/20201007201451_add_columns_to_company.rb:4
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "companies" ADD CONSTRAINT "fk_rails_268726594d"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+[0m
+  ↳ db/migrate/20201007201451_add_columns_to_company.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "companies" ADD "parent_id" integer[0m
+  ↳ db/migrate/20201007201451_add_columns_to_company.rb:5
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "companies" ADD CONSTRAINT "fk_rails_d0676b5972"
+FOREIGN KEY ("parent_id")
+  REFERENCES "companies" ("id")
+[0m
+  ↳ db/migrate/20201007201451_add_columns_to_company.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201007201451"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/companies" for 127.0.0.1 at 2020-10-09 00:45:49 +0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3, "cities_id"=>8, "locale"=>"en", "company"=>{"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250"}}
+Unpermitted parameters: :format, :locale, :company
+  [1m[36mCountry Load (1.5ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:32
+Completed 500 Internal Server Error in 3767ms (ActiveRecord: 17.5ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'countries_id' for Company.):
+  
+app/services/companies/companies_service.rb:44:in `create_company_obj'
+app/services/companies/companies_service.rb:20:in `create_company'
+app/controllers/companies_controller.rb:11:in `create'
+  [1m[36mCompany Load (1.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/companies" for 127.0.0.1 at 2020-10-09 00:46:24 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>3, "cities_id"=>8, "locale"=>"en", "company"=>{"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250"}}
+Unpermitted parameters: :format, :locale, :company
+  [1m[36mCountry Load (0.7ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:32
+Completed 500 Internal Server Error in 3182ms (ActiveRecord: 12.1ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'countries_id' for Company.):
+  
+app/services/companies/companies_service.rb:44:in `create_company_obj'
+app/services/companies/companies_service.rb:20:in `create_company'
+app/controllers/companies_controller.rb:11:in `create'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-09 00:47:56 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-09 00:47:57 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-09 00:47:57 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-09 00:47:57 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-09 00:47:57 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-09 00:47:57 +0400
+Started POST "/en/settings/country" for 127.0.0.1 at 2020-10-09 00:48:35 +0400
+Processing by SettingsController#country as JSON
+  Parameters: {"name"=>"Georgia", "country_code"=>"GEO", "locale"=>"en", "setting"=>{"name"=>"Georgia", "country_code"=>"GEO"}}
+Unpermitted parameters: :format, :locale, :setting
+  [1m[36mCountry Load (1.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."country_code" = $1 ORDER BY "countries"."id" ASC LIMIT $2[0m  [["country_code", "GEO"], ["LIMIT", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/country_and_city_service.rb:39
+  [1m[36mCountry Create (0.5ms)[0m  [1m[32mINSERT INTO "countries" ("name", "country_code") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Georgia"], ["country_code", "GEO"]]
+  ↳ app/services/settings/country_and_city_service.rb:39
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/settings/country_and_city_service.rb:39
+Completed 200 OK in 26ms (Views: 0.2ms | ActiveRecord: 11.8ms)
+
+
+Started POST "/en/settings/city" for 127.0.0.1 at 2020-10-09 00:49:03 +0400
+Processing by SettingsController#city as JSON
+  Parameters: {"country_id"=>4, "name"=>"Tbilisi", "city_code"=>"TBL", "locale"=>"en", "setting"=>{"country_id"=>4, "name"=>"Tbilisi", "city_code"=>"TBL"}}
+Unpermitted parameters: :format, :locale, :setting
+  [1m[36mCity Load (0.8ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."city_code" = $1 ORDER BY "cities"."id" ASC LIMIT $2[0m  [["city_code", "TBL"], ["LIMIT", 1]]
+  ↳ app/services/settings/country_and_city_service.rb:44
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/country_and_city_service.rb:45
+  [1m[36mCity Create (0.8ms)[0m  [1m[32mINSERT INTO "cities" ("name", "city_code", "country_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Tbilisi"], ["city_code", "TBL"], ["country_id", 4]]
+  ↳ app/services/settings/country_and_city_service.rb:45
+  [1m[35m (36.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/settings/country_and_city_service.rb:45
+Completed 200 OK in 54ms (Views: 0.3ms | ActiveRecord: 41.7ms)
+
+
+Started POST "/en/companies" for 127.0.0.1 at 2020-10-09 00:49:24 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>4, "cities_id"=>9, "locale"=>"en", "company"=>{"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250"}}
+Unpermitted parameters: :countries_id, :cities_id, :format, :locale, :company
+  [1m[36mCountry Load (1.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:32
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:45
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/companies/companies_service.rb:45
+Completed 400 Bad Request in 7363ms (Views: 0.5ms | ActiveRecord: 8.5ms)
+
+
+Started POST "/en/companies" for 127.0.0.1 at 2020-10-09 00:50:04 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "countries_id"=>4, "cities_id"=>9, "locale"=>"en", "company"=>{"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250"}}
+Unpermitted parameters: :countries_id, :cities_id, :format, :locale, :company
+  [1m[36mCountry Load (0.6ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:32
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:45
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/companies/companies_service.rb:45
+Completed 400 Bad Request in 40801ms (Views: 0.8ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/en/companies" for 127.0.0.1 at 2020-10-09 00:51:05 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "country_id"=>4, "city_id"=>9, "locale"=>"en", "company"=>{"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "country_id"=>4, "city_id"=>9}}
+Unpermitted parameters: :format, :locale, :company
+  [1m[36mCountry Load (0.7ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:32
+  [1m[36mCity Load (0.9ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:39
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:45
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:45
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:45
+  [1m[36mCompany Create (1.2ms)[0m  [1m[32mINSERT INTO "companies" ("name", "description", "address", "phone_number", "country_id", "city_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Bukas LTD"], ["description", "Software development company"], ["address", "Gogebashvili streat n10"], ["phone_number", "577520250"], ["country_id", 4], ["city_id", 9]]
+  ↳ app/services/companies/companies_service.rb:45
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/companies_service.rb:45
+Completed 201 Created in 7174ms (Views: 0.2ms | ActiveRecord: 6.3ms)
+
+
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCountry Load (0.9ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCity Load (0.7ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Destroy (1.6ms)[0m  [1m[31mDELETE FROM "companies" WHERE "companies"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-09 00:55:37 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-09 00:55:37 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-09 00:55:37 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-09 00:55:37 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-09 00:55:37 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-09 00:55:38 +0400
+Started POST "/en/companies" for 127.0.0.1 at 2020-10-09 00:55:48 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "country_id"=>4, "city_id"=>9, "locale"=>"en", "company"=>{"name"=>"Bukas LTD", "description"=>"Software development company", "address"=>"Gogebashvili streat n10", "phone_number"=>"577520250", "country_id"=>4, "city_id"=>9}}
+Unpermitted parameters: :format, :locale, :company
+  [1m[36mCountry Load (1.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:31
+  [1m[36mCity Load (1.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:44
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:44
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:44
+  [1m[36mCompany Create (0.8ms)[0m  [1m[32mINSERT INTO "companies" ("name", "description", "address", "phone_number", "country_id", "city_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Bukas LTD"], ["description", "Software development company"], ["address", "Gogebashvili streat n10"], ["phone_number", "577520250"], ["country_id", 4], ["city_id", 9]]
+  ↳ app/services/companies/companies_service.rb:44
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/companies_service.rb:44
+Completed 201 Created in 6491ms (Views: 0.5ms | ActiveRecord: 35.3ms)
+
+

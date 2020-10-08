@@ -38,11 +38,11 @@ ActiveRecord::Schema.define(version: 2020_10_07_201451) do
     t.string "description"
     t.string "address"
     t.string "phone_number"
-    t.bigint "countries_id"
-    t.bigint "cities_id"
+    t.bigint "country_id"
+    t.bigint "city_id"
     t.integer "parent_id"
-    t.index ["cities_id"], name: "index_companies_on_cities_id"
-    t.index ["countries_id"], name: "index_companies_on_countries_id"
+    t.index ["city_id"], name: "index_companies_on_city_id"
+    t.index ["country_id"], name: "index_companies_on_country_id"
   end
 
   create_table "confirmation_codes", force: :cascade do |t|
@@ -246,9 +246,9 @@ ActiveRecord::Schema.define(version: 2020_10_07_201451) do
   end
 
   add_foreign_key "cities", "countries"
-  add_foreign_key "companies", "cities", column: "cities_id"
+  add_foreign_key "companies", "cities"
   add_foreign_key "companies", "companies", column: "parent_id"
-  add_foreign_key "companies", "countries", column: "countries_id"
+  add_foreign_key "companies", "countries"
   add_foreign_key "confirmation_codes", "confirmation_types"
   add_foreign_key "confirmation_codes", "user_accounts"
   add_foreign_key "customers", "customer_types"

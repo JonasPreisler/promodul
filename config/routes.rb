@@ -67,6 +67,8 @@ Rails.application.routes.draw do
       get 'settings/cities', to: 'settings#cities'
       delete  'settings/destroy_country', to: 'settings#destroy_country'
       delete  'settings/destroy_city', to: 'settings#destroy_city'
+
+      resource :companies
     end
   end
 end
