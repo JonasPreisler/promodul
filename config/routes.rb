@@ -71,6 +71,10 @@ Rails.application.routes.draw do
       resource :companies
       get 'companies/company_list', to: 'companies#company_list'
       get 'companies/sub_company_list', to: 'companies#sub_company_list'
+
+      resource :departments
+      get 'departments/department_list', to: 'departments#department_list'
+      get 'departments/sub_department_list', to: 'departments#sub_department_list'
     end
   end
 end

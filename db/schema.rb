@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_07_201451) do
+ActiveRecord::Schema.define(version: 2020_10_09_103857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,20 @@ ActiveRecord::Schema.define(version: 2020_10_07_201451) do
     t.string "legal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description"
+    t.string "address"
+    t.string "phone_number"
+    t.bigint "country_id", null: false
+    t.bigint "city_id", null: false
+    t.bigint "company_id", null: false
+    t.integer "parent_id"
+    t.index ["city_id"], name: "index_departments_on_city_id"
+    t.index ["company_id"], name: "index_departments_on_company_id"
+    t.index ["country_id"], name: "index_departments_on_country_id"
   end
 
   create_table "integration_systems", force: :cascade do |t|
@@ -252,6 +266,10 @@ ActiveRecord::Schema.define(version: 2020_10_07_201451) do
   add_foreign_key "confirmation_codes", "confirmation_types"
   add_foreign_key "confirmation_codes", "user_accounts"
   add_foreign_key "customers", "customer_types"
+  add_foreign_key "departments", "cities"
+  add_foreign_key "departments", "companies"
+  add_foreign_key "departments", "countries"
+  add_foreign_key "departments", "departments", column: "parent_id"
   add_foreign_key "product_characteristics", "products"
   add_foreign_key "product_characteristics", "sub_categories"
   add_foreign_key "product_images", "products"

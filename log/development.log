@@ -5901,3 +5901,511 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.4ms)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (35.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDepartments (20201009103111)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDepartments (20201009103111)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (38.8ms)[0m  [1m[35mCREATE TABLE "departments" ("id" bigserial primary key, "name" character varying NOT NULL, "description" character varying, "address" character varying, "phone_number" character varying, "country_id" bigint NOT NULL, "city_id" bigint NOT NULL, "company_id" bigint NOT NULL, "parent_id" integer, "integer" integer, CONSTRAINT "fk_rails_1cbf437e14"
+FOREIGN KEY ("country_id")
+  REFERENCES "countries" ("id")
+, CONSTRAINT "fk_rails_ac0c831fa9"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+, CONSTRAINT "fk_rails_f911441942"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+)[0m
+  ↳ db/migrate/20201009103111_create_departments.rb:3
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE  INDEX  "index_departments_on_country_id" ON "departments"  ("country_id")[0m
+  ↳ db/migrate/20201009103111_create_departments.rb:3
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_departments_on_city_id" ON "departments"  ("city_id")[0m
+  ↳ db/migrate/20201009103111_create_departments.rb:3
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_departments_on_company_id" ON "departments"  ("company_id")[0m
+  ↳ db/migrate/20201009103111_create_departments.rb:3
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "departments" ADD CONSTRAINT "fk_rails_8e1e5764fc"
+FOREIGN KEY ("parent_id")
+  REFERENCES "departments" ("id")
+[0m
+  ↳ db/migrate/20201009103111_create_departments.rb:14
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201009103111"]]
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mDepartment Load (1.2ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDepartments (20201009103111)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "departments" DROP CONSTRAINT "fk_rails_8e1e5764fc"[0m
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[35mDROP TABLE "departments"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20201009103111"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDepartments (20201009103111)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (50.0ms)[0m  [1m[35mCREATE TABLE "departments" ("id" bigserial primary key, "name" character varying NOT NULL, "description" character varying, "address" character varying, "phone_number" character varying, "country_id" bigint NOT NULL, "city_id" bigint NOT NULL, "company_id" bigint NOT NULL, "department_id" bigint NOT NULL, CONSTRAINT "fk_rails_1cbf437e14"
+FOREIGN KEY ("country_id")
+  REFERENCES "countries" ("id")
+, CONSTRAINT "fk_rails_ac0c831fa9"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+, CONSTRAINT "fk_rails_f911441942"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+, CONSTRAINT "fk_rails_75958392cf"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  ↳ db/migrate/20201009103111_create_departments.rb:3
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE  INDEX  "index_departments_on_country_id" ON "departments"  ("country_id")[0m
+  ↳ db/migrate/20201009103111_create_departments.rb:3
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_departments_on_city_id" ON "departments"  ("city_id")[0m
+  ↳ db/migrate/20201009103111_create_departments.rb:3
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE  INDEX  "index_departments_on_company_id" ON "departments"  ("company_id")[0m
+  ↳ db/migrate/20201009103111_create_departments.rb:3
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_departments_on_department_id" ON "departments"  ("department_id")[0m
+  ↳ db/migrate/20201009103111_create_departments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201009103111"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDepartments (20201009103111)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE "departments"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20201009103111"]]
+  ↳ bin/rails:9
+  [1m[35m (38.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDepartments (20201009103111)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (43.6ms)[0m  [1m[35mCREATE TABLE "departments" ("id" bigserial primary key, "name" character varying NOT NULL, "description" character varying, "address" character varying, "phone_number" character varying, "country_id" bigint NOT NULL, "city_id" bigint NOT NULL, "company_id" bigint NOT NULL, CONSTRAINT "fk_rails_1cbf437e14"
+FOREIGN KEY ("country_id")
+  REFERENCES "countries" ("id")
+, CONSTRAINT "fk_rails_ac0c831fa9"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+, CONSTRAINT "fk_rails_f911441942"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+)[0m
+  ↳ db/migrate/20201009103111_create_departments.rb:3
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_departments_on_country_id" ON "departments"  ("country_id")[0m
+  ↳ db/migrate/20201009103111_create_departments.rb:3
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_departments_on_city_id" ON "departments"  ("city_id")[0m
+  ↳ db/migrate/20201009103111_create_departments.rb:3
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_departments_on_company_id" ON "departments"  ("company_id")[0m
+  ↳ db/migrate/20201009103111_create_departments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201009103111"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddParentIdToDepartments (20201009103857)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "departments" ADD "parent_id" integer[0m
+  ↳ db/migrate/20201009103857_add_parent_id_to_departments.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "departments" ADD CONSTRAINT "fk_rails_8e1e5764fc"
+FOREIGN KEY ("parent_id")
+  REFERENCES "departments" ("id")
+[0m
+  ↳ db/migrate/20201009103857_add_parent_id_to_departments.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201009103857"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mCompany Load (5.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-09 15:56:05 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-09 15:56:05 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-09 15:56:05 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-09 15:56:05 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-09 15:56:05 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-09 15:56:05 +0400
+Started POST "/en/departments" for 127.0.0.1 at 2020-10-09 15:58:30 +0400
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "name": "HR department",
+  "description": "This is HR department",
+  "address": "tseretlis 123",
+  "phone_number": "577520250",
+  "country_id": 4,
+  "city_id": 9
+  "company_id": 11
+}
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+  "name": "HR department",
+  "description": "This is HR department",
+  "address": "tseretlis 123",
+  "phone_number": "577520250",
+  "country_id": 4,
+  "city_id": 9
+  "company_id": 11
+}'):
+  
+actionpack (5.2.1) lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+actionpack (5.2.1) lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:381:in `block in POST'
+rack (2.0.5) lib/rack/request.rb:57:in `fetch'
+rack (2.0.5) lib/rack/request.rb:57:in `fetch_header'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:380:in `POST'
+actionpack (5.2.1) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (5.2.1) lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+actionpack (5.2.1) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (5.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/en/departments" for 127.0.0.1 at 2020-10-09 15:58:38 +0400
+Processing by DepartmentsController#create as JSON
+  Parameters: {"name"=>"HR department", "description"=>"This is HR department", "address"=>"tseretlis 123", "phone_number"=>"577520250", "country_id"=>4, "city_id"=>9, "company_id"=>11, "locale"=>"en", "department"=>{"name"=>"HR department", "description"=>"This is HR department", "address"=>"tseretlis 123", "phone_number"=>"577520250", "country_id"=>4, "city_id"=>9, "company_id"=>11}}
+Unpermitted parameters: :format, :locale, :department
+  [1m[36mCountry Load (2.8ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:68
+  [1m[36mCity Load (1.2ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:74
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:80
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/departments_service.rb:86
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:86
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:86
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:86
+  [1m[36mDepartment Create (1.0ms)[0m  [1m[32mINSERT INTO "departments" ("name", "description", "address", "phone_number", "country_id", "city_id", "company_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "HR department"], ["description", "This is HR department"], ["address", "tseretlis 123"], ["phone_number", "577520250"], ["country_id", 4], ["city_id", 9], ["company_id", 11]]
+  ↳ app/services/companies/departments_service.rb:86
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/departments_service.rb:86
+Completed 201 Created in 70ms (Views: 0.2ms | ActiveRecord: 25.6ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-09 16:09:02 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-09 16:09:02 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-09 16:09:02 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-09 16:09:02 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-09 16:09:03 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-09 16:09:03 +0400
+Started PUT "/en/departments" for 127.0.0.1 at 2020-10-09 16:10:29 +0400
+Processing by DepartmentsController#update as JSON
+  Parameters: {"id"=>1, "name"=>"HR department chnaged", "description"=>"This is changed HR department", "address"=>"tseretlis 123", "phone_number"=>"577520250", "country_id"=>4, "city_id"=>9, "company_id"=>11, "locale"=>"en", "department"=>{"id"=>1, "name"=>"HR department chnaged", "description"=>"This is changed HR department", "address"=>"tseretlis 123", "phone_number"=>"577520250", "country_id"=>4, "city_id"=>9, "company_id"=>11}}
+Unpermitted parameters: :format, :locale, :department
+  [1m[36mCountry Load (0.6ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:68
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:74
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:80
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 14.4ms)
+
+
+  
+NameError (undefined local variable or method `update_department_obj' for #<Companies::DepartmentsService:0x00007f84442e4800>
+Did you mean?  update_department):
+  
+app/services/companies/departments_service.rb:36:in `update_department'
+app/controllers/departments_controller.rb:16:in `update'
+Started PUT "/en/departments" for 127.0.0.1 at 2020-10-09 16:10:59 +0400
+Processing by DepartmentsController#update as JSON
+  Parameters: {"id"=>1, "name"=>"HR department chnaged", "description"=>"This is changed HR department", "address"=>"tseretlis 123", "phone_number"=>"577520250", "country_id"=>4, "city_id"=>9, "company_id"=>11, "locale"=>"en", "department"=>{"id"=>1, "name"=>"HR department chnaged", "description"=>"This is changed HR department", "address"=>"tseretlis 123", "phone_number"=>"577520250", "country_id"=>4, "city_id"=>9, "company_id"=>11}}
+Unpermitted parameters: :format, :locale, :department
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:68
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:74
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:80
+  [1m[36mDepartment Load (0.4ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:97
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/departments_service.rb:92
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:92
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:92
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:92
+  [1m[36mDepartment Update (0.6ms)[0m  [1m[33mUPDATE "departments" SET "name" = $1, "description" = $2 WHERE "departments"."id" = $3[0m  [["name", "HR department chnaged"], ["description", "This is changed HR department"], ["id", 1]]
+  ↳ app/services/companies/departments_service.rb:92
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/departments_service.rb:92
+Completed 200 OK in 46ms (Views: 0.2ms | ActiveRecord: 15.5ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-09 17:44:25 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-09 17:44:25 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-09 17:44:25 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-09 17:44:25 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-09 17:44:26 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-09 17:44:26 +0400
+Started GET "/en/departments/department_list" for 127.0.0.1 at 2020-10-09 17:44:34 +0400
+Processing by DepartmentsController#department_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mDepartment Load (0.4ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."parent_id" IS NULL[0m
+  ↳ app/services/companies/departments_service.rb:22
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 6.6ms)
+
+
+Started POST "/en/departments" for 127.0.0.1 at 2020-10-09 17:45:33 +0400
+Processing by DepartmentsController#create as JSON
+  Parameters: {"name"=>"sub department", "description"=>"sub department description", "address"=>"sdcsdcsdcsdc", "phone_number"=>"sdcsdcsdc", "country_id"=>4, "city_id"=>9, "parent_id"=>1, "company_id"=>11, "locale"=>"en", "department"=>{"name"=>"sub department", "description"=>"sub department description", "address"=>"sdcsdcsdcsdc", "phone_number"=>"sdcsdcsdc", "country_id"=>4, "city_id"=>9, "company_id"=>11, "parent_id"=>1}}
+Unpermitted parameters: :format, :locale, :department
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:68
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:74
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:80
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/departments_service.rb:86
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:86
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:86
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:86
+  [1m[36mDepartment Create (1.1ms)[0m  [1m[32mINSERT INTO "departments" ("name", "description", "address", "phone_number", "country_id", "city_id", "company_id", "parent_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "sub department"], ["description", "sub department description"], ["address", "sdcsdcsdcsdc"], ["phone_number", "sdcsdcsdc"], ["country_id", 4], ["city_id", 9], ["company_id", 11], ["parent_id", 1]]
+  ↳ app/services/companies/departments_service.rb:86
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/departments_service.rb:86
+Completed 201 Created in 47ms (Views: 0.2ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/en/departments/sub_departments_list?parent_id=1" for 127.0.0.1 at 2020-10-09 17:45:46 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/departments/sub_departments_list"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-09 17:46:35 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-09 17:46:35 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-09 17:46:35 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-09 17:46:35 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-09 17:46:36 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-09 17:46:36 +0400
+Started GET "/en/departments/sub_department_list?parent_id=1" for 127.0.0.1 at 2020-10-09 17:46:43 +0400
+Processing by DepartmentsController#sub_department_list as JSON
+  Parameters: {"parent_id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mDepartment Load (0.7ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."parent_id" = $1[0m  [["parent_id", 1]]
+  ↳ app/services/companies/departments_service.rb:26
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/en/departments?id=2" for 127.0.0.1 at 2020-10-09 17:46:55 +0400
+Processing by DepartmentsController#destroy as JSON
+  Parameters: {"id"=>"2", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mDepartment Load (0.3ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."parent_id" = $1[0m  [["parent_id", 2]]
+  ↳ app/services/companies/departments_service.rb:58
+  [1m[36mDepartment Load (0.3ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:97
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/departments_service.rb:43
+  [1m[36mDepartment Destroy (0.7ms)[0m  [1m[31mDELETE FROM "departments" WHERE "departments"."id" = $1[0m  [["id", 2]]
+  ↳ app/services/companies/departments_service.rb:43
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/departments_service.rb:43
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 4.0ms)
+
+
+  [1m[36mDepartment Load (36.7ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDepartment Load (1.2ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/companies" for 127.0.0.1 at 2020-10-09 17:56:40 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"zdfsdf", "description"=>"strivvadvng", "address"=>"strdfvdfving", "phone_number"=>"strdfvdfving", "country_id"=>4, "city_id"=>9, "locale"=>"en", "company"=>{"name"=>"zdfsdf", "description"=>"strivvadvng", "address"=>"strdfvdfving", "phone_number"=>"strdfvdfving", "country_id"=>4, "city_id"=>9}}
+Unpermitted parameters: :format, :locale, :company
+  [1m[36mCountry Load (0.6ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:67
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:73
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:79
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:79
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:79
+  [1m[36mCompany Create (1.5ms)[0m  [1m[32mINSERT INTO "companies" ("name", "description", "address", "phone_number", "country_id", "city_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "zdfsdf"], ["description", "strivvadvng"], ["address", "strdfvdfving"], ["phone_number", "strdfvdfving"], ["country_id", 4], ["city_id", 9]]
+  ↳ app/services/companies/companies_service.rb:79
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/companies_service.rb:79
+Completed 201 Created in 13ms (Views: 0.2ms | ActiveRecord: 5.0ms)
+
+

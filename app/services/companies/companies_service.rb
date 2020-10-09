@@ -23,7 +23,7 @@ module Companies
     end
 
     def sub_company_list_json_view
-      { cities: @cities.as_json() }
+      { sub_companies: @sub_companies.as_json() }
     end
 
     def create_company
@@ -49,7 +49,7 @@ module Companies
     end
 
     def sub_company_list
-      @cities = Company.where(parent_id: params[:parent_id])
+      @sub_companies = Company.where(parent_id: params[:parent_id])
     end
 
     private
