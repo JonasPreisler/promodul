@@ -45,7 +45,7 @@ module Companies
     end
 
     def department_list
-      @departments = Department.where(parent_id: nil)
+      @departments = Department.where(parent_id: nil, company_id: params[:company_id])
     end
 
     def sub_department_list

@@ -19,11 +19,11 @@ module Companies
     end
 
     def company_list_json_view
-      { companies: @companies.as_json }
+      { companies: @companies.as_json(include: { country: { only: [:name]}, city: { only: [:name]}}) }
     end
 
     def sub_company_list_json_view
-      { sub_companies: @sub_companies.as_json() }
+      { sub_companies: @sub_companies.as_json(include: { country: { only: [:name]}, city: { only: [:name]}}) }
     end
 
     def create_company

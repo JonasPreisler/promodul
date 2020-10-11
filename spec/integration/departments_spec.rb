@@ -153,7 +153,7 @@ describe 'SubCategory', type: :request do
                 })
 
       parameter name: :locale, in: :path, type: :string, required: true, default: "en"
-      #parameter name: :category_id, in: :query, type: :integer, required: true
+      parameter name: :company_id, in: :query, type: :integer, required: true
 
       response '200', 'OK' do
         schema type: :object,

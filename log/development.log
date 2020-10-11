@@ -6409,3 +6409,63 @@ Unpermitted parameters: :format, :locale, :company
 Completed 201 Created in 13ms (Views: 0.2ms | ActiveRecord: 5.0ms)
 
 
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-11 17:06:13 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-11 17:06:13 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-11 17:06:13 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-11 17:06:13 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-11 17:06:14 +0400
+Started GET "/en/departments/department_list?company_id=11" for 127.0.0.1 at 2020-10-11 17:06:25 +0400
+Processing by DepartmentsController#department_list as JSON
+  Parameters: {"company_id"=>"11", "locale"=>"en"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/departments/department_list?company_id=11" for 127.0.0.1 at 2020-10-11 17:06:42 +0400
+Processing by DepartmentsController#department_list as JSON
+  Parameters: {"company_id"=>"11", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mDepartment Load (2.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."parent_id" IS NULL AND "departments"."company_id" = $1[0m  [["company_id", 11]]
+  ↳ app/services/companies/departments_service.rb:22
+Completed 200 OK in 40ms (Views: 0.2ms | ActiveRecord: 17.5ms)
+
+
+Started GET "/en/departments/department_list?company_id=12" for 127.0.0.1 at 2020-10-11 17:06:53 +0400
+Processing by DepartmentsController#department_list as JSON
+  Parameters: {"company_id"=>"12", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mDepartment Load (0.3ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."parent_id" IS NULL AND "departments"."company_id" = $1[0m  [["company_id", 12]]
+  ↳ app/services/companies/departments_service.rb:22
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/en/companies/company_list" for 127.0.0.1 at 2020-10-11 17:09:17 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CompaniesController#company_list as JSON
+  Parameters: {"locale"=>"en"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/companies/company_list" for 127.0.0.1 at 2020-10-11 17:09:33 +0400
+Processing by CompaniesController#company_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (2.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."parent_id" IS NULL[0m
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCountry Load (1.1ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCity Load (1.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+Completed 200 OK in 61ms (Views: 0.5ms | ActiveRecord: 15.4ms)
+
+

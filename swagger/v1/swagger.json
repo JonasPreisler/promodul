@@ -1265,6 +1265,12 @@
             "type": "string",
             "required": true,
             "default": "en"
+          },
+          {
+            "name": "company_id",
+            "in": "query",
+            "type": "integer",
+            "required": true
           }
         ],
         "responses": {
