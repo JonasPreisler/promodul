@@ -11,7 +11,7 @@ module Companies
     end
 
     def json_view
-      { company: @company.as_json(include: { country: { only: [:name]}, city: { only: [:name]}}) }
+      { company: @company.as_json(include: { country: { only: [:name]}, city: { only: [:name]}, company_logo: { only: [:uuid]}}) }
     end
 
     def destroy_json_view
@@ -34,6 +34,10 @@ module Companies
     def update_company
       validate_data!
       update_company_obj
+    end
+
+    def show
+      find_company
     end
 
     def destroy
@@ -87,7 +91,7 @@ module Companies
     end
 
     def find_company
-      @company = Company.find(params[:id])
+      @company = Company.joins(:company_logo).where(id: params[:id]).last
     end
   end
 end

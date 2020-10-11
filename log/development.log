@@ -6935,3 +6935,106 @@ Unpermitted parameters: :format, :locale
 Completed 400 Bad Request in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms)
 
 
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (1.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCountry Load (0.7ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCity Load (0.6ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCompanyLogo Load (0.5ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 LIMIT $2[0m  [["company_id", 12], ["LIMIT", 1]]
+Started POST "/en/company_logos" for 127.0.0.1 at 2020-10-12 00:03:17 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CompanyLogosController#create as JSON
+  Parameters: {"logo"=>#<ActionDispatch::Http::UploadedFile:0x00005571fe5f8190 @tempfile=#<Tempfile:/tmp/RackMultipart20201012-29156-zg8rwm.png>, @original_filename="bank_id.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"logo\"; filename=\"bank_id.png\"\r\nContent-Type: image/png\r\n">, "company_id"=>"12", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/company_logo_service.rb:15
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/services/companies/company_logo_service.rb:15
+  [1m[36mCompanyLogo Create (1.2ms)[0m  [1m[32mINSERT INTO "company_logos" ("company_id", "logo", "uuid") VALUES ($1, $2, $3) RETURNING "id"[0m  [["company_id", 12], ["logo", "bank_id.png"], ["uuid", "c6f47625-9b6c-4a8a-bb94-86ab62821e4e"]]
+  ↳ app/services/companies/company_logo_service.rb:15
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/company_logo_service.rb:15
+Completed 201 Created in 149ms (Views: 0.2ms | ActiveRecord: 17.7ms)
+
+
+  [1m[36mCompanyLogo Load (0.6ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" ORDER BY "company_logos"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompanyLogo Load (1.1ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" ORDER BY "company_logos"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (1.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" INNER JOIN company_logos ON company_logos.company_id = companies.id[0m
+  [1m[36mCompany Load (2.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" INNER JOIN company_logos ON company_logos.company_id = companies.id ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" INNER JOIN company_logos ON company_logos.company_id = companies.id ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCountry Load (0.8ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCompanyLogo Load (0.4ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 LIMIT $2[0m  [["company_id", 12], ["LIMIT", 1]]
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" INNER JOIN "company_logos" ON "company_logos"."company_id" = "companies"."id" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" INNER JOIN "company_logos" ON "company_logos"."company_id" = "companies"."id" WHERE "companies"."id" = $1 ORDER BY "companies"."id" DESC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mCountry Load (0.9ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCity Load (0.7ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCompanyLogo Load (0.7ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 LIMIT $2[0m  [["company_id", 12], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-12 00:18:54 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-12 00:18:54 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-12 00:18:54 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-12 00:18:54 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-12 00:18:55 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-12 00:18:55 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-12 00:20:12 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-12 00:20:12 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-12 00:20:12 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-12 00:20:12 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-12 00:20:12 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-12 00:20:12 +0400
+Started GET "/en/companies/12" for 127.0.0.1 at 2020-10-12 00:20:30 +0400
+Processing by CompaniesController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"12"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" INNER JOIN "company_logos" ON "company_logos"."company_id" = "companies"."id" WHERE "companies"."id" = $1 ORDER BY "companies"."id" DESC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:94
+  [1m[36mCountry Load (0.6ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:14
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:14
+Completed 200 OK in 67ms (Views: 0.4ms | ActiveRecord: 18.9ms)
+
+
+Started GET "/en/companies/12" for 127.0.0.1 at 2020-10-12 00:21:16 +0400
+Processing by CompaniesController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"12"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" INNER JOIN "company_logos" ON "company_logos"."company_id" = "companies"."id" WHERE "companies"."id" = $1 ORDER BY "companies"."id" DESC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:94
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:14
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:14
+  [1m[36mCompanyLogo Load (0.5ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 LIMIT $2[0m  [["company_id", 12], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:14
+Completed 200 OK in 80ms (Views: 0.3ms | ActiveRecord: 23.2ms)
+
+
+Started GET "/en/companies/10" for 127.0.0.1 at 2020-10-12 00:21:31 +0400
+Processing by CompaniesController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"10"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" INNER JOIN "company_logos" ON "company_logos"."company_id" = "companies"."id" WHERE "companies"."id" = $1 ORDER BY "companies"."id" DESC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:94
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:14
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:14
+  [1m[36mCompanyLogo Load (0.3ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 LIMIT $2[0m  [["company_id", 10], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:14
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/en/company_logos/logo?uuid=38f2903f-1370-4e1c-98b8-023a97b4d61c" for 127.0.0.1 at 2020-10-12 00:21:58 +0400
+Processing by CompanyLogosController#show_logo as JSON
+  Parameters: {"uuid"=>"38f2903f-1370-4e1c-98b8-023a97b4d61c", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompanyLogo Load (0.5ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."uuid" = $1 LIMIT $2[0m  [["uuid", "38f2903f-1370-4e1c-98b8-023a97b4d61c"], ["LIMIT", 1]]
+  ↳ app/services/companies/company_logo_service.rb:49
+Completed 400 Bad Request in 75ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+

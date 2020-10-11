@@ -23,6 +23,12 @@ class CompaniesController < ApplicationController
     rest_respond_service service
   end
 
+  def show
+    service = Companies::CompaniesService.new(company_params)
+    service.show
+    rest_respond_service service
+  end
+
   def company_list
     service = Companies::CompaniesService.new(company_params)
     service.company_list

@@ -278,4 +278,64 @@ describe 'SubCategory', type: :request do
     end
   end
 
+  path '/{locale}/companies/{company_id}' do
+    get 'Returns company' do
+      tags 'Company'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'JWT token'
+                })
+
+      parameter name: :company_id, in: :path, type: :integer, required: true
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+
+      response '201', 'ok' do
+        schema type: :object,
+               properties: {
+                   company: {
+                       type: :object,
+                       properties: {
+                           id: {type: :integer},
+                           name: {type: :string},
+                           description:  { type: :string },
+                           address:      { type: :string },
+                           phone_number: { type: :string },
+                           parent_id:    { type: :integer },
+                           company_logo: {
+                               type: :object,
+                               properties: {
+                                   uuid: { type: :string }
+                               }
+                           },
+                           country: {
+                               type: :object,
+                               properties: {
+                                   name: { type: :string }
+                               }
+                           },
+                           city:    {
+                               type: :object,
+                               properties: {
+                                   name: { type: :object }
+                               }
+                           }
+                       }
+                   }
+               }
+
+        run_test!
+      end
+
+      response '404', 'not found' do
+        run_test!
+      end
+
+    end
+  end
+
 end
