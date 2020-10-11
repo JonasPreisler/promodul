@@ -6486,3 +6486,301 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.6ms)
 
 
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCompanyLogos (20201011131733)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (33.9ms)[0m  [1m[35mCREATE TABLE "company_logos" ("id" bigserial primary key, "company_id" bigint NOT NULL, "image" character varying(50), "uuid" uuid NOT NULL, CONSTRAINT "fk_rails_8ae580a1d6"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+)[0m
+  ↳ db/migrate/20201011131733_create_company_logos.rb:3
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE  INDEX  "index_company_logos_on_company_id" ON "company_logos"  ("company_id")[0m
+  ↳ db/migrate/20201011131733_create_company_logos.rb:3
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_company_logos_on_uuid" ON "company_logos"  ("uuid")[0m
+  ↳ db/migrate/20201011131733_create_company_logos.rb:9
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201011131733"]]
+  ↳ bin/rails:9
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCompanyLogos (20201011131733)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.0ms)[0m  [1m[35mDROP INDEX  "index_company_logos_on_uuid"[0m
+  ↳ bin/rails:9
+  [1m[35m (2.8ms)[0m  [1m[35mDROP TABLE "company_logos"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20201011131733"]]
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCompanyLogos (20201011131733)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (40.3ms)[0m  [1m[35mCREATE TABLE "company_logos" ("id" bigserial primary key, "company_id" bigint NOT NULL, "logo" character varying(50), "uuid" uuid NOT NULL, CONSTRAINT "fk_rails_8ae580a1d6"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+)[0m
+  ↳ db/migrate/20201011131733_create_company_logos.rb:3
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE  INDEX  "index_company_logos_on_company_id" ON "company_logos"  ("company_id")[0m
+  ↳ db/migrate/20201011131733_create_company_logos.rb:3
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_company_logos_on_uuid" ON "company_logos"  ("uuid")[0m
+  ↳ db/migrate/20201011131733_create_company_logos.rb:9
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201011131733"]]
+  ↳ bin/rails:9
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-11 17:52:02 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-11 17:52:02 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-11 17:52:02 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-11 17:52:02 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-11 17:52:03 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-11 17:52:03 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-11 17:54:36 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-11 17:54:36 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-11 17:54:36 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-11 17:54:36 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-11 17:54:36 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-11 17:54:36 +0400
+Started GET "/en/companies/company_list" for 127.0.0.1 at 2020-10-11 18:38:30 +0400
+Processing by CompaniesController#company_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."parent_id" IS NULL[0m
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+Completed 200 OK in 43ms (Views: 0.3ms | ActiveRecord: 13.4ms)
+
+
+Started POST "/en/company_logos" for 127.0.0.1 at 2020-10-11 18:39:00 +0400
+Processing by CompanyLogosController#create as JSON
+  Parameters: {"logo"=>#<ActionDispatch::Http::UploadedFile:0x000055719762f1c0 @tempfile=#<Tempfile:/tmp/RackMultipart20201011-17629-1a4d92n.png>, @original_filename="bank_id_new.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"logo\"; filename=\"bank_id_new.png\"\r\nContent-Type: image/png\r\n">, "company_id"=>"10", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CompanyLogo::CompanyLogoUploader):
+  
+app/models/company_logo.rb:3:in `<class:CompanyLogo>'
+app/models/company_logo.rb:1:in `<main>'
+app/services/companies/company_logo_service.rb:14:in `create_company_logo'
+app/controllers/company_logos_controller.rb:10:in `create'
+Started POST "/en/company_logos" for 127.0.0.1 at 2020-10-11 18:41:12 +0400
+Processing by CompanyLogosController#create as JSON
+  Parameters: {"logo"=>#<ActionDispatch::Http::UploadedFile:0x00005571975804e0 @tempfile=#<Tempfile:/tmp/RackMultipart20201011-17629-1y924mp.png>, @original_filename="bank_id_new.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"logo\"; filename=\"bank_id_new.png\"\r\nContent-Type: image/png\r\n">, "company_id"=>"10", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 6146ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CompanyLogo::CompanyLogoUploader):
+  
+app/models/company_logo.rb:3:in `<class:CompanyLogo>'
+app/models/company_logo.rb:1:in `<main>'
+app/services/companies/company_logo_service.rb:14:in `create_company_logo'
+app/controllers/company_logos_controller.rb:11:in `create'
+Started POST "/en/company_logos" for 127.0.0.1 at 2020-10-11 18:41:53 +0400
+Processing by CompanyLogosController#create as JSON
+  Parameters: {"logo"=>#<ActionDispatch::Http::UploadedFile:0x00007f69e01d3d18 @tempfile=#<Tempfile:/tmp/RackMultipart20201011-17629-vu6qae.png>, @original_filename="bank_id_new.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"logo\"; filename=\"bank_id_new.png\"\r\nContent-Type: image/png\r\n">, "company_id"=>"10", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 54062ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CompanyLogo::CompanyLogoUploader):
+  
+app/models/company_logo.rb:4:in `<class:CompanyLogo>'
+app/models/company_logo.rb:1:in `<main>'
+app/services/companies/company_logo_service.rb:14:in `create_company_logo'
+app/controllers/company_logos_controller.rb:11:in `create'
+Started POST "/en/company_logos" for 127.0.0.1 at 2020-10-11 18:43:41 +0400
+Processing by CompanyLogosController#create as JSON
+  Parameters: {"logo"=>#<ActionDispatch::Http::UploadedFile:0x00007f69cc23b648 @tempfile=#<Tempfile:/tmp/RackMultipart20201011-17629-2dukme.png>, @original_filename="bank_id_new.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"logo\"; filename=\"bank_id_new.png\"\r\nContent-Type: image/png\r\n">, "company_id"=>"10", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 24360ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CompanyLogo::CompanyLogoUploader):
+  
+app/models/company_logo.rb:4:in `<class:CompanyLogo>'
+app/models/company_logo.rb:1:in `<main>'
+app/services/companies/company_logo_service.rb:15:in `create_company_logo'
+app/controllers/company_logos_controller.rb:11:in `create'
+Started POST "/en/company_logos" for 127.0.0.1 at 2020-10-11 18:45:28 +0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CompanyLogosController#create as JSON
+  Parameters: {"logo"=>#<ActionDispatch::Http::UploadedFile:0x00007fb1882ede48 @tempfile=#<Tempfile:/tmp/RackMultipart20201011-24526-tcwpi.png>, @original_filename="bank_id_new.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"logo\"; filename=\"bank_id_new.png\"\r\nContent-Type: image/png\r\n">, "company_id"=>"10", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 42159ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CompanyLogo::CompanyLogoUploader):
+  
+app/models/company_logo.rb:4:in `<class:CompanyLogo>'
+app/models/company_logo.rb:1:in `<main>'
+app/services/companies/company_logo_service.rb:15:in `create_company_logo'
+app/controllers/company_logos_controller.rb:11:in `create'
+Started POST "/en/company_logos" for 127.0.0.1 at 2020-10-11 18:47:48 +0400
+Processing by CompanyLogosController#create as JSON
+  Parameters: {"logo"=>#<ActionDispatch::Http::UploadedFile:0x00007fb1783686d0 @tempfile=#<Tempfile:/tmp/RackMultipart20201011-24526-1ae5vj3.png>, @original_filename="bank_id_new.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"logo\"; filename=\"bank_id_new.png\"\r\nContent-Type: image/png\r\n">, "company_id"=>"10", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 28997ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CompanyLogo::CompanyLogoUploader):
+  
+app/models/company_logo.rb:4:in `<class:CompanyLogo>'
+app/models/company_logo.rb:1:in `<main>'
+app/services/companies/company_logo_service.rb:15:in `create_company_logo'
+app/controllers/company_logos_controller.rb:11:in `create'
+Started POST "/en/company_logos" for 127.0.0.1 at 2020-10-11 18:49:50 +0400
+Processing by CompanyLogosController#create as JSON
+  Parameters: {"logo"=>#<ActionDispatch::Http::UploadedFile:0x00007fb194050d00 @tempfile=#<Tempfile:/tmp/RackMultipart20201011-24526-fp1im.png>, @original_filename="bank_id_new.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"logo\"; filename=\"bank_id_new.png\"\r\nContent-Type: image/png\r\n">, "company_id"=>"10", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/company_logo_service.rb:16
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/services/companies/company_logo_service.rb:16
+  [1m[36mCompanyLogo Create (0.8ms)[0m  [1m[32mINSERT INTO "company_logos" ("company_id", "logo", "uuid") VALUES ($1, $2, $3) RETURNING "id"[0m  [["company_id", 10], ["logo", "bank_id_new.png"], ["uuid", "38f2903f-1370-4e1c-98b8-023a97b4d61c"]]
+  ↳ app/services/companies/company_logo_service.rb:16
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/company_logo_service.rb:16
+Completed 201 Created in 10445ms (Views: 0.2ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/en/company_logos/logo?uuid=38f2903f-1370-4e1c-98b8-023a97b4d61c" for 127.0.0.1 at 2020-10-11 18:50:15 +0400
+Processing by CompanyLogosController#show_logo as JSON
+  Parameters: {"uuid"=>"38f2903f-1370-4e1c-98b8-023a97b4d61c", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompanyLogo Load (0.4ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."uuid" = $1 LIMIT $2[0m  [["uuid", "38f2903f-1370-4e1c-98b8-023a97b4d61c"], ["LIMIT", 1]]
+  ↳ app/services/companies/company_logo_service.rb:50
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `image' for #<CompanyLogo:0x000055cd0008cc80>):
+  
+app/services/companies/company_logo_service.rb:29:in `read_logo'
+app/controllers/company_logos_controller.rb:17:in `show_logo'
+Started GET "/en/company_logos/logo?uuid=38f2903f-1370-4e1c-98b8-023a97b4d61c" for 127.0.0.1 at 2020-10-11 18:50:47 +0400
+Processing by CompanyLogosController#show_logo as JSON
+  Parameters: {"uuid"=>"38f2903f-1370-4e1c-98b8-023a97b4d61c", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompanyLogo Load (0.3ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."uuid" = $1 LIMIT $2[0m  [["uuid", "38f2903f-1370-4e1c-98b8-023a97b4d61c"], ["LIMIT", 1]]
+  ↳ app/services/companies/company_logo_service.rb:50
+Sent data bank_id_new.png (0.2ms)
+Completed 200 OK in 7263ms (Views: 0.1ms | ActiveRecord: 4.2ms)
+
+
+Started DELETE "/en/company_logo/38f2903f-1370-4e1c-98b8-023a97b4d61c" for 127.0.0.1 at 2020-10-11 18:51:09 +0400
+  
+ActionController::RoutingError (No route matches [DELETE] "/en/company_logo/38f2903f-1370-4e1c-98b8-023a97b4d61c"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started DELETE "/en/company_logo/38f2903f-1370-4e1c-98b8-023a97b4d61c" for 127.0.0.1 at 2020-10-11 18:53:06 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CompanyLogosController#destroy as JSON
+  Parameters: {"locale"=>"en", "uuid"=>"38f2903f-1370-4e1c-98b8-023a97b4d61c"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompanyLogo Load (1.1ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."uuid" = $1 LIMIT $2[0m  [["uuid", "38f2903f-1370-4e1c-98b8-023a97b4d61c"], ["LIMIT", 1]]
+  ↳ app/services/companies/company_logo_service.rb:50
+Completed 200 OK in 9391ms (Views: 0.2ms | ActiveRecord: 16.3ms)
+
+
+Started GET "/en/company_logos/logo?uuid=38f2903f-1370-4e1c-98b8-023a97b4d61c" for 127.0.0.1 at 2020-10-11 18:53:21 +0400
+Processing by CompanyLogosController#show_logo as JSON
+  Parameters: {"uuid"=>"38f2903f-1370-4e1c-98b8-023a97b4d61c", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompanyLogo Load (0.2ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."uuid" = $1 LIMIT $2[0m  [["uuid", "38f2903f-1370-4e1c-98b8-023a97b4d61c"], ["LIMIT", 1]]
+  ↳ app/services/companies/company_logo_service.rb:50
+Completed 400 Bad Request in 213ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+

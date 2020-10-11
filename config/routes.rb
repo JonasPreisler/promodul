@@ -72,6 +72,11 @@ Rails.application.routes.draw do
       get 'companies/company_list', to: 'companies#company_list'
       get 'companies/sub_company_list', to: 'companies#sub_company_list'
 
+      resource :company_logos
+      get  'company_logos/logo', to: 'company_logos#show_logo'
+      delete  'company_logo/:uuid', to: 'company_logos#destroy'
+      #delete  'product_image/:uuid', to: 'product_images#destroy'
+
       resource :departments
       get 'departments/department_list', to: 'departments#department_list'
       get 'departments/sub_department_list', to: 'departments#sub_department_list'
