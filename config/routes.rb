@@ -80,6 +80,10 @@ Rails.application.routes.draw do
       resource :departments
       get 'departments/department_list', to: 'departments#department_list'
       get 'departments/sub_department_list', to: 'departments#sub_department_list'
+
+      resource :department_logos
+      get  'department_logos/logo', to: 'department_logos#show_logo'
+      delete  'department_logo/:uuid', to: 'department_logos#destroy'
     end
   end
 end

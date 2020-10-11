@@ -6784,3 +6784,154 @@ Unpermitted parameters: :format, :locale
 Completed 400 Bad Request in 213ms (Views: 0.2ms | ActiveRecord: 0.2ms)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDepartmentLogos (20201011150112)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "department_logos" ("id" bigserial primary key, "department_id" bigint NOT NULL, "logo" character varying(50), "uuid" uuid NOT NULL, CONSTRAINT "fk_rails_0beebfc42e"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  ↳ db/migrate/20201011150112_create_department_logos.rb:3
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_department_logos_on_department_id" ON "department_logos"  ("department_id")[0m
+  ↳ db/migrate/20201011150112_create_department_logos.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_department_logos_on_uuid" ON "department_logos"  ("uuid")[0m
+  ↳ db/migrate/20201011150112_create_department_logos.rb:9
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201011150112"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-11 19:08:35 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-11 19:08:35 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-11 19:08:35 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-11 19:08:35 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-11 19:08:36 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-11 19:08:36 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-11 19:10:58 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-11 19:10:59 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-11 19:10:59 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-11 19:10:59 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-11 19:10:59 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-11 19:10:59 +0400
+Started GET "/en/departments/department_list?company_id=10" for 127.0.0.1 at 2020-10-11 19:11:13 +0400
+Processing by DepartmentsController#department_list as JSON
+  Parameters: {"company_id"=>"10", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mDepartment Load (0.4ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."parent_id" IS NULL AND "departments"."company_id" = $1[0m  [["company_id", 10]]
+  ↳ app/services/companies/departments_service.rb:22
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/en/departments/department_list?company_id=11" for 127.0.0.1 at 2020-10-11 19:11:18 +0400
+Processing by DepartmentsController#department_list as JSON
+  Parameters: {"company_id"=>"11", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mDepartment Load (0.4ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."parent_id" IS NULL AND "departments"."company_id" = $1[0m  [["company_id", 11]]
+  ↳ app/services/companies/departments_service.rb:22
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/en/department_logos" for 127.0.0.1 at 2020-10-11 19:11:49 +0400
+Processing by DepartmentLogosController#create as JSON
+  Parameters: {"logo"=>#<ActionDispatch::Http::UploadedFile:0x00007f77a40195c8 @tempfile=#<Tempfile:/tmp/RackMultipart20201011-5139-eu16gz.png>, @original_filename="bank_id_new.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"logo\"; filename=\"bank_id_new.png\"\r\nContent-Type: image/png\r\n">, "department_id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :department_id, :format, :locale
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/department_logo_service.rb:15
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/companies/department_logo_service.rb:15
+Completed 400 Bad Request in 118ms (Views: 0.2ms | ActiveRecord: 3.8ms)
+
+
+  [1m[36mDepartment Load (0.4ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/department_logos" for 127.0.0.1 at 2020-10-11 19:12:37 +0400
+Processing by DepartmentLogosController#create as JSON
+  Parameters: {"logo"=>#<ActionDispatch::Http::UploadedFile:0x000055bbb2f27f38 @tempfile=#<Tempfile:/tmp/RackMultipart20201011-5139-1qbrdtw.png>, @original_filename="bank_id_new.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"logo\"; filename=\"bank_id_new.png\"\r\nContent-Type: image/png\r\n">, "department_id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/department_logo_service.rb:15
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/companies/department_logo_service.rb:15
+  [1m[36mDepartmentLogo Create (1.1ms)[0m  [1m[32mINSERT INTO "department_logos" ("department_id", "logo", "uuid") VALUES ($1, $2, $3) RETURNING "id"[0m  [["department_id", 1], ["logo", "bank_id_new.png"], ["uuid", "7ef2bc05-f348-4182-8a61-87b39b8f1070"]]
+  ↳ app/services/companies/department_logo_service.rb:15
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/department_logo_service.rb:15
+Completed 201 Created in 88ms (Views: 0.1ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/en/department_logos/logo?uuid=7ef2bc05-f348-4182-8a61-87b39b8f1070" for 127.0.0.1 at 2020-10-11 19:12:49 +0400
+Processing by DepartmentLogosController#show_logo as JSON
+  Parameters: {"uuid"=>"7ef2bc05-f348-4182-8a61-87b39b8f1070", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mDepartmentLogo Load (0.3ms)[0m  [1m[34mSELECT  "department_logos".* FROM "department_logos" WHERE "department_logos"."uuid" = $1 LIMIT $2[0m  [["uuid", "7ef2bc05-f348-4182-8a61-87b39b8f1070"], ["LIMIT", 1]]
+  ↳ app/services/companies/department_logo_service.rb:49
+Sent data bank_id_new.png (0.3ms)
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/en/department_logo/7ef2bc05-f348-4182-8a61-87b39b8f1070" for 127.0.0.1 at 2020-10-11 19:12:56 +0400
+  
+ActionController::RoutingError (No route matches [DELETE] "/en/department_logo/7ef2bc05-f348-4182-8a61-87b39b8f1070"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started DELETE "/en/department_logo/7ef2bc05-f348-4182-8a61-87b39b8f1070" for 127.0.0.1 at 2020-10-11 19:13:16 +0400
+Processing by DepartmentLogosController#destroy as JSON
+  Parameters: {"locale"=>"en", "uuid"=>"7ef2bc05-f348-4182-8a61-87b39b8f1070"}
+Unpermitted parameters: :format, :locale
+  [1m[36mDepartmentLogo Load (0.3ms)[0m  [1m[34mSELECT  "department_logos".* FROM "department_logos" WHERE "department_logos"."uuid" = $1 LIMIT $2[0m  [["uuid", "7ef2bc05-f348-4182-8a61-87b39b8f1070"], ["LIMIT", 1]]
+  ↳ app/services/companies/department_logo_service.rb:49
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/en/department_logos/logo?uuid=7ef2bc05-f348-4182-8a61-87b39b8f1070" for 127.0.0.1 at 2020-10-11 19:13:21 +0400
+Processing by DepartmentLogosController#show_logo as JSON
+  Parameters: {"uuid"=>"7ef2bc05-f348-4182-8a61-87b39b8f1070", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mDepartmentLogo Load (0.3ms)[0m  [1m[34mSELECT  "department_logos".* FROM "department_logos" WHERE "department_logos"."uuid" = $1 LIMIT $2[0m  [["uuid", "7ef2bc05-f348-4182-8a61-87b39b8f1070"], ["LIMIT", 1]]
+  ↳ app/services/companies/department_logo_service.rb:49
+Completed 400 Bad Request in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
