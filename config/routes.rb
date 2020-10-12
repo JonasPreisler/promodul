@@ -84,6 +84,8 @@ Rails.application.routes.draw do
       resource :department_logos
       get  'department_logos/logo', to: 'department_logos#show_logo'
       delete  'department_logo/:uuid', to: 'department_logos#destroy'
+
+      resource :role_groups
     end
   end
 end

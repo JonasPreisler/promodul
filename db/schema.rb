@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_11_150112) do
+ActiveRecord::Schema.define(version: 2020_10_12_144424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -142,6 +142,17 @@ ActiveRecord::Schema.define(version: 2020_10_11_150112) do
     t.string "id_name", limit: 50
   end
 
+  create_table "product_catalog_permissions", force: :cascade do |t|
+    t.bigint "role_group_id", null: false
+    t.boolean "show_data", default: false
+    t.boolean "read_data", default: false
+    t.boolean "create_data", default: false
+    t.boolean "edit_data", default: false
+    t.boolean "set_price_data", default: false
+    t.boolean "delete_record", default: false
+    t.index ["role_group_id"], name: "index_product_catalog_permissions_on_role_group_id"
+  end
+
   create_table "product_characteristics", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.bigint "sub_category_id", null: false
@@ -164,12 +175,30 @@ ActiveRecord::Schema.define(version: 2020_10_11_150112) do
     t.index ["sub_category_id"], name: "index_product_characteristics_on_sub_category_id"
   end
 
+  create_table "product_group_permissions", force: :cascade do |t|
+    t.bigint "role_group_id", null: false
+    t.boolean "show_data", default: false
+    t.boolean "read_data", default: false
+    t.boolean "create_data", default: false
+    t.boolean "edit_data", default: false
+    t.boolean "activate_data", default: false
+    t.boolean "delete_record", default: false
+    t.index ["role_group_id"], name: "index_product_group_permissions_on_role_group_id"
+  end
+
   create_table "product_images", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.string "image", limit: 50
     t.uuid "uuid", null: false
     t.index ["product_id"], name: "index_product_images_on_product_id"
     t.index ["uuid"], name: "index_product_images_on_uuid", unique: true
+  end
+
+  create_table "product_import_permissions", force: :cascade do |t|
+    t.bigint "role_group_id", null: false
+    t.boolean "show_data", default: false
+    t.boolean "import", default: false
+    t.index ["role_group_id"], name: "index_product_import_permissions_on_role_group_id"
   end
 
   create_table "product_prices", force: :cascade do |t|
@@ -180,6 +209,17 @@ ActiveRecord::Schema.define(version: 2020_10_11_150112) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_product_prices_on_product_id"
+  end
+
+  create_table "product_type_permissions", force: :cascade do |t|
+    t.bigint "role_group_id", null: false
+    t.boolean "show_data", default: false
+    t.boolean "read_data", default: false
+    t.boolean "create_data", default: false
+    t.boolean "edit_data", default: false
+    t.boolean "activate_data", default: false
+    t.boolean "delete_record", default: false
+    t.index ["role_group_id"], name: "index_product_type_permissions_on_role_group_id"
   end
 
   create_table "product_types", force: :cascade do |t|
@@ -201,6 +241,13 @@ ActiveRecord::Schema.define(version: 2020_10_11_150112) do
     t.string "instruction", limit: 500
     t.boolean "active", default: true
     t.index ["code"], name: "index_products_on_code", unique: true
+  end
+
+  create_table "role_groups", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "id_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sub_categories", force: :cascade do |t|
@@ -288,10 +335,14 @@ ActiveRecord::Schema.define(version: 2020_10_11_150112) do
   add_foreign_key "departments", "companies"
   add_foreign_key "departments", "countries"
   add_foreign_key "departments", "departments", column: "parent_id"
+  add_foreign_key "product_catalog_permissions", "role_groups"
   add_foreign_key "product_characteristics", "products"
   add_foreign_key "product_characteristics", "sub_categories"
+  add_foreign_key "product_group_permissions", "role_groups"
   add_foreign_key "product_images", "products"
+  add_foreign_key "product_import_permissions", "role_groups"
   add_foreign_key "product_prices", "products"
+  add_foreign_key "product_type_permissions", "role_groups"
   add_foreign_key "sub_categories", "categories"
   add_foreign_key "supplier_product_prices", "currencies"
   add_foreign_key "supplier_product_prices", "supplier_products"

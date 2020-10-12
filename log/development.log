@@ -7324,3 +7324,618 @@ Completed 400 Bad Request in 79ms (Views: 0.2ms | ActiveRecord: 0.3ms)
 
   [1m[36mDepartmentLogo Load (0.3ms)[0m  [1m[34mSELECT  "department_logos".* FROM "department_logos" ORDER BY "department_logos"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mDepartmentLogo Load (0.8ms)[0m  [1m[34mSELECT "department_logos".* FROM "department_logos" WHERE "department_logos"."uuid" = $1[0m  [["uuid", "7ef2bc05-f348-4182-8a61-87b39b8f1070"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateRoleGroups (20201012142347)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (20.7ms)[0m  [1m[35mCREATE TABLE "role_groups" ("id" bigserial primary key, "name" character varying NOT NULL, "id_name" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20201012142347_create_role_groups.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201012142347"]]
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProductGroupPermissions (20201012143738)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProductGroupPermissions (20201012143738)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE TABLE "product_group_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show" boolean DEFAULT FALSE, "read" boolean DEFAULT FALSE, "create" boolean DEFAULT FALSE, "edit" boolean DEFAULT FALSE, "activate" boolean DEFAULT FALSE, "delete" boolean DEFAULT FALSE, CONSTRAINT "fk_rails_636fe72066"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+)[0m
+  ↳ db/migrate/20201012143738_create_product_group_permissions.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_product_group_permissions_on_role_group_id" ON "product_group_permissions"  ("role_group_id")[0m
+  ↳ db/migrate/20201012143738_create_product_group_permissions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201012143738"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProductTypePermissions (20201012144027)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "product_type_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show" boolean DEFAULT FALSE, "read" boolean DEFAULT FALSE, "create" boolean DEFAULT FALSE, "edit" boolean DEFAULT FALSE, "activate" boolean DEFAULT FALSE, "delete" boolean DEFAULT FALSE, CONSTRAINT "fk_rails_e9e2a702ec"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+)[0m
+  ↳ db/migrate/20201012144027_create_product_type_permissions.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_product_type_permissions_on_role_group_id" ON "product_type_permissions"  ("role_group_id")[0m
+  ↳ db/migrate/20201012144027_create_product_type_permissions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201012144027"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProductImportPersmissions (20201012144338)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "product_import_persmissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show" boolean DEFAULT FALSE, "import" boolean DEFAULT FALSE, CONSTRAINT "fk_rails_0b406b044e"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+)[0m
+  ↳ db/migrate/20201012144338_create_product_import_persmissions.rb:3
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_product_import_persmissions_on_role_group_id" ON "product_import_persmissions"  ("role_group_id")[0m
+  ↳ db/migrate/20201012144338_create_product_import_persmissions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201012144338"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProductCatalogPermissions (20201012144424)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "product_catalog_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show" boolean DEFAULT FALSE, "read" boolean DEFAULT FALSE, "create" boolean DEFAULT FALSE, "edit" boolean DEFAULT FALSE, "set_price" boolean DEFAULT FALSE, "delete" boolean DEFAULT FALSE, CONSTRAINT "fk_rails_501644f900"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+)[0m
+  ↳ db/migrate/20201012144424_create_product_catalog_permissions.rb:3
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_product_catalog_permissions_on_role_group_id" ON "product_catalog_permissions"  ("role_group_id")[0m
+  ↳ db/migrate/20201012144424_create_product_catalog_permissions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201012144424"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mProductGroupPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" ORDER BY "product_group_permissions"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProductCatalogPermissions (20201012144424)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (10.5ms)[0m  [1m[35mDROP TABLE "product_catalog_permissions"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (1.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20201012144424"]]
+  ↳ bin/rails:9
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProductImportPersmissions (20201012144338)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE "product_import_persmissions"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20201012144338"]]
+  ↳ bin/rails:9
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProductTypePermissions (20201012144027)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE "product_type_permissions"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20201012144027"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProductTypePermissions (20201012144027)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "product_type_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show" boolean DEFAULT FALSE, "read" boolean DEFAULT FALSE, "create" boolean DEFAULT FALSE, "edit" boolean DEFAULT FALSE, "activate" boolean DEFAULT FALSE, "delete" boolean DEFAULT FALSE, CONSTRAINT "fk_rails_e9e2a702ec"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+)[0m
+  ↳ db/migrate/20201012144027_create_product_type_permissions.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_product_type_permissions_on_role_group_id" ON "product_type_permissions"  ("role_group_id")[0m
+  ↳ db/migrate/20201012144027_create_product_type_permissions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201012144027"]]
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProductImportPersmissions (20201012144338)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "product_import_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show" boolean DEFAULT FALSE, "import" boolean DEFAULT FALSE, CONSTRAINT "fk_rails_27485bdbba"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+)[0m
+  ↳ db/migrate/20201012144338_create_product_import_persmissions.rb:3
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_product_import_permissions_on_role_group_id" ON "product_import_permissions"  ("role_group_id")[0m
+  ↳ db/migrate/20201012144338_create_product_import_persmissions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201012144338"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProductCatalogPermissions (20201012144424)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "product_catalog_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show" boolean DEFAULT FALSE, "read" boolean DEFAULT FALSE, "create" boolean DEFAULT FALSE, "edit" boolean DEFAULT FALSE, "set_price" boolean DEFAULT FALSE, "delete" boolean DEFAULT FALSE, CONSTRAINT "fk_rails_501644f900"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+)[0m
+  ↳ db/migrate/20201012144424_create_product_catalog_permissions.rb:3
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_product_catalog_permissions_on_role_group_id" ON "product_catalog_permissions"  ("role_group_id")[0m
+  ↳ db/migrate/20201012144424_create_product_catalog_permissions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201012144424"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mProductImportPermission Load (0.5ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" ORDER BY "product_import_permissions"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.8ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-12 20:50:39 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-12 20:50:39 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-12 20:50:39 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-12 20:50:39 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-12 20:50:40 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-12 20:50:40 +0400
+Started POST "/en/role_groups" for 127.0.0.1 at 2020-10-12 20:52:50 +0400
+Processing by RoleGroupsController#create as JSON
+  Parameters: {"name"=>"Admin", "product_group_permissions_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}, "product_type_permissions_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}, "product_import_permissions_attributes"=>{"show"=>true, "import"=>true}, "product_catalog_permissions_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "set_price"=>true, "delete"=>true}, "locale"=>"en", "role_group"=>{"name"=>"Admin", "product_group_permissions_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}, "product_type_permissions_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}, "product_import_permissions_attributes"=>{"show"=>true, "import"=>true}, "product_catalog_permissions_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "set_price"=>true, "delete"=>true}}}
+Unpermitted parameters: :format, :locale, :role_group
+Unpermitted parameters: :format, :locale, :role_group
+Completed 500 Internal Server Error in 79001ms (ActiveRecord: 10.6ms)
+
+
+  
+NoMethodError (undefined method `[]' for true:TrueClass):
+  
+app/services/roles/role_management_service.rb:19:in `create_role'
+app/controllers/role_groups_controller.rb:11:in `create'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-12 20:58:32 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-12 20:58:32 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-12 20:58:32 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-12 20:58:32 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-12 20:58:33 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-12 20:58:33 +0400
+Started POST "/en/role_groups" for 127.0.0.1 at 2020-10-12 20:59:33 +0400
+Processing by RoleGroupsController#create as JSON
+  Parameters: {"name"=>"Admin", "product_group_permissions_attributes"=>[{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}], "product_type_permissions_attributes"=>[{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}], "product_import_permissions_attributes"=>[{"show"=>true, "import"=>true}], "product_catalog_permissions_attributes"=>[{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "set_price"=>true, "delete"=>true}], "locale"=>"en", "role_group"=>{"name"=>"Admin", "product_group_permissions_attributes"=>[{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}], "product_type_permissions_attributes"=>[{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}], "product_import_permissions_attributes"=>[{"show"=>true, "import"=>true}], "product_catalog_permissions_attributes"=>[{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "set_price"=>true, "delete"=>true}]}}
+Unpermitted parameters: :product_group_permissions_attributes, :product_type_permissions_attributes, :product_import_permissions_attributes, :product_catalog_permissions_attributes, :format, :locale, :role_group
+Unpermitted parameters: :product_group_permissions_attributes, :product_type_permissions_attributes, :product_import_permissions_attributes, :product_catalog_permissions_attributes, :format, :locale, :role_group
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/roles/role_management_service.rb:21
+  [1m[36mRoleGroup Create (3.0ms)[0m  [1m[32mINSERT INTO "role_groups" ("name", "id_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Admin"], ["id_name", "admin"], ["created_at", "2020-10-12 16:59:48.111288"], ["updated_at", "2020-10-12 16:59:48.111288"]]
+  ↳ app/services/roles/role_management_service.rb:21
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/roles/role_management_service.rb:21
+Completed 201 Created in 14772ms (Views: 0.3ms | ActiveRecord: 11.4ms)
+
+
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (1.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProductGroupPermission Load (0.8ms)[0m  [1m[34mSELECT "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1[0m  [["role_group_id", 1]]
+  [1m[36mProductTypePermission Load (3.1ms)[0m  [1m[34mSELECT "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1[0m  [["role_group_id", 1]]
+  [1m[36mProductImportPermission Load (0.6ms)[0m  [1m[34mSELECT "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1[0m  [["role_group_id", 1]]
+  [1m[36mProductCatalogPermission Load (1.3ms)[0m  [1m[34mSELECT "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1[0m  [["role_group_id", 1]]
+  [1m[36mRoleGroup Destroy (0.9ms)[0m  [1m[31mDELETE FROM "role_groups" WHERE "role_groups"."id" = $1[0m  [["id", 1]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRoleGroup Load (0.9ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (1.1ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.8ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (1.0ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.9ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.9ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.7ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/role_groups" for 127.0.0.1 at 2020-10-12 21:01:15 +0400
+Processing by RoleGroupsController#create as JSON
+  Parameters: {"name"=>"Admin", "product_group_permissions_attributes"=>[{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}], "product_type_permissions_attributes"=>[{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}], "product_import_permissions_attributes"=>[{"show"=>true, "import"=>true}], "product_catalog_permissions_attributes"=>[{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "set_price"=>true, "delete"=>true}], "locale"=>"en", "role_group"=>{"name"=>"Admin", "product_group_permissions_attributes"=>[{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}], "product_type_permissions_attributes"=>[{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}], "product_import_permissions_attributes"=>[{"show"=>true, "import"=>true}], "product_catalog_permissions_attributes"=>[{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "set_price"=>true, "delete"=>true}]}}
+Unpermitted parameters: :show, :read, :create, :edit, :activate, :delete
+Unpermitted parameters: :show, :read, :create, :edit, :activate, :delete
+Unpermitted parameters: :show, :import
+Unpermitted parameters: :show, :read, :create, :edit, :set_price, :delete
+Unpermitted parameters: :format, :locale, :role_group
+Unpermitted parameters: :show, :read, :create, :edit, :activate, :delete
+Unpermitted parameters: :show, :read, :create, :edit, :activate, :delete
+Unpermitted parameters: :show, :import
+Unpermitted parameters: :show, :read, :create, :edit, :set_price, :delete
+Unpermitted parameters: :format, :locale, :role_group
+Completed 500 Internal Server Error in 42426ms (ActiveRecord: 16.2ms)
+
+
+  
+ActiveRecord::DangerousAttributeError (delete is defined by Active Record. Check to make sure that you don't have an attribute or method with the same name.):
+  
+app/services/roles/role_management_service.rb:19:in `create_role'
+app/controllers/role_groups_controller.rb:11:in `create'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-12 21:02:37 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-12 21:02:37 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-12 21:02:37 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-12 21:02:37 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-12 21:02:38 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-12 21:02:38 +0400
+Started POST "/en/role_groups" for 127.0.0.1 at 2020-10-12 21:04:05 +0400
+Processing by RoleGroupsController#create as JSON
+  Parameters: {"name"=>"string", "product_group_permissions_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}, "product_type_permissions_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}, "product_import_permissions_attributes"=>{"show"=>true, "import"=>true}, "product_catalog_permissions_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "set_price"=>true, "delete"=>true}, "locale"=>"en", "role_group"=>{"name"=>"string"}}
+Unpermitted parameters: :format, :locale, :role_group
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Completed 500 Internal Server Error in 66283ms (ActiveRecord: 9.3ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'product_group_permissions_attributes' for RoleGroup.):
+  
+app/services/roles/role_management_service.rb:19:in `create_role'
+app/controllers/role_groups_controller.rb:11:in `create'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-12 21:05:14 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-12 21:05:14 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-12 21:05:14 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-12 21:05:14 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-12 21:05:15 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-12 21:05:15 +0400
+Started POST "/en/role_groups" for 127.0.0.1 at 2020-10-12 21:05:28 +0400
+Processing by RoleGroupsController#create as JSON
+  Parameters: {"name"=>"Admin", "product_group_permission_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}, "product_type_permission_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}, "product_import_permission_attributes"=>{"show"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "set_price"=>true, "delete"=>true}, "locale"=>"en", "role_group"=>{"name"=>"Admin", "product_group_permission_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}, "product_type_permission_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}, "product_import_permission_attributes"=>{"show"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "set_price"=>true, "delete"=>true}}}
+Unpermitted parameters: :format, :locale, :role_group
+Unpermitted parameters: :format, :locale, :role_group
+Completed 500 Internal Server Error in 42984ms (ActiveRecord: 13.4ms)
+
+
+  
+ActiveRecord::DangerousAttributeError (delete is defined by Active Record. Check to make sure that you don't have an attribute or method with the same name.):
+  
+app/services/roles/role_management_service.rb:19:in `create_role'
+app/controllers/role_groups_controller.rb:11:in `create'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProductCatalogPermissions (20201012144424)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.8ms)[0m  [1m[35mDROP TABLE "product_catalog_permissions"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20201012144424"]]
+  ↳ bin/rails:9
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProductImportPersmissions (20201012144338)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[35mDROP TABLE "product_import_permissions"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20201012144338"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProductTypePermissions (20201012144027)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[35mDROP TABLE "product_type_permissions"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20201012144027"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProductGroupPermissions (20201012143738)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE "product_group_permissions"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20201012143738"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProductGroupPermissions (20201012143738)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "product_group_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show_data" boolean DEFAULT FALSE, "read_data" boolean DEFAULT FALSE, "create_data" boolean DEFAULT FALSE, "edit_data" boolean DEFAULT FALSE, "activate_data" boolean DEFAULT FALSE, "delete_record" boolean DEFAULT FALSE, CONSTRAINT "fk_rails_636fe72066"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+)[0m
+  ↳ db/migrate/20201012143738_create_product_group_permissions.rb:3
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_product_group_permissions_on_role_group_id" ON "product_group_permissions"  ("role_group_id")[0m
+  ↳ db/migrate/20201012143738_create_product_group_permissions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201012143738"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProductTypePermissions (20201012144027)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "product_type_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show_data" boolean DEFAULT FALSE, "read_data" boolean DEFAULT FALSE, "create_data" boolean DEFAULT FALSE, "edit_data" boolean DEFAULT FALSE, "activate_data" boolean DEFAULT FALSE, "delete_record" boolean DEFAULT FALSE, CONSTRAINT "fk_rails_e9e2a702ec"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+)[0m
+  ↳ db/migrate/20201012144027_create_product_type_permissions.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_product_type_permissions_on_role_group_id" ON "product_type_permissions"  ("role_group_id")[0m
+  ↳ db/migrate/20201012144027_create_product_type_permissions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201012144027"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProductImportPersmissions (20201012144338)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "product_import_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show_data" boolean DEFAULT FALSE, "import" boolean DEFAULT FALSE, CONSTRAINT "fk_rails_27485bdbba"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+)[0m
+  ↳ db/migrate/20201012144338_create_product_import_persmissions.rb:3
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_product_import_permissions_on_role_group_id" ON "product_import_permissions"  ("role_group_id")[0m
+  ↳ db/migrate/20201012144338_create_product_import_persmissions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201012144338"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProductCatalogPermissions (20201012144424)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "product_catalog_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show_data" boolean DEFAULT FALSE, "read_data" boolean DEFAULT FALSE, "create_data" boolean DEFAULT FALSE, "edit_data" boolean DEFAULT FALSE, "set_price_data" boolean DEFAULT FALSE, "delete_record" boolean DEFAULT FALSE, CONSTRAINT "fk_rails_501644f900"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+)[0m
+  ↳ db/migrate/20201012144424_create_product_catalog_permissions.rb:3
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_product_catalog_permissions_on_role_group_id" ON "product_catalog_permissions"  ("role_group_id")[0m
+  ↳ db/migrate/20201012144424_create_product_catalog_permissions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201012144424"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started POST "/en/role_groups" for 127.0.0.1 at 2020-10-12 21:11:11 +0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by RoleGroupsController#create as JSON
+  Parameters: {"name"=>"Admin", "product_group_permission_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}, "product_type_permission_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}, "product_import_permission_attributes"=>{"show"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "set_price"=>true, "delete"=>true}, "locale"=>"en", "role_group"=>{"name"=>"Admin", "product_group_permission_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}, "product_type_permission_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "activate"=>true, "delete"=>true}, "product_import_permission_attributes"=>{"show"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show"=>true, "read"=>true, "create"=>true, "edit"=>true, "set_price"=>true, "delete"=>true}}}
+Unpermitted parameters: :format, :locale, :role_group
+Completed 500 Internal Server Error in 26732ms (ActiveRecord: 12.6ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'show' for ProductGroupPermission.):
+  
+app/services/roles/role_management_service.rb:19:in `create_role'
+app/controllers/role_groups_controller.rb:11:in `create'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-12 21:12:36 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-12 21:12:36 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-12 21:12:36 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-12 21:12:36 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-12 21:12:37 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-12 21:12:37 +0400
+Started POST "/en/role_groups" for 127.0.0.1 at 2020-10-12 21:15:32 +0400
+Processing by RoleGroupsController#create as JSON
+  Parameters: {"name"=>"Admin", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_data"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_data"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price"=>true, "delete_data"=>true}, "locale"=>"en", "role_group"=>{"name"=>"Admin", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_data"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_data"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price"=>true, "delete_data"=>true}}}
+Unpermitted parameters: :format, :locale, :role_group
+  [1m[36mProductGroupPermission Load (0.5ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" ORDER BY "product_group_permissions"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 46855ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'delete_data' for ProductGroupPermission.):
+  
+app/services/roles/role_management_service.rb:19:in `create_role'
+app/controllers/role_groups_controller.rb:11:in `create'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-12 21:19:41 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-12 21:19:41 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-12 21:19:41 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-12 21:19:41 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-12 21:19:42 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-12 21:19:42 +0400
+Started POST "/en/role_groups" for 127.0.0.1 at 2020-10-12 21:19:59 +0400
+Processing by RoleGroupsController#create as JSON
+  Parameters: {"name"=>"Admin", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price"=>true, "delete_record"=>true}, "locale"=>"en", "role_group"=>{"name"=>"Admin", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price"=>true, "delete_record"=>true}}}
+Unpermitted parameters: :format, :locale, :role_group
+Completed 500 Internal Server Error in 17279ms (ActiveRecord: 12.1ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'set_price' for ProductCatalogPermission.):
+  
+app/services/roles/role_management_service.rb:19:in `create_role'
+app/controllers/role_groups_controller.rb:11:in `create'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started POST "/en/role_groups" for 127.0.0.1 at 2020-10-12 21:23:04 +0400
+Processing by RoleGroupsController#create as JSON
+  Parameters: {"name"=>"Admin", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price"=>true, "delete_record"=>true}, "locale"=>"en", "role_group"=>{"name"=>"Admin", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price"=>true, "delete_record"=>true}}}
+Unpermitted parameters: :format, :locale, :role_group
+Completed 500 Internal Server Error in 5482ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'set_price' for ProductCatalogPermission.):
+  
+app/services/roles/role_management_service.rb:19:in `create_role'
+app/controllers/role_groups_controller.rb:11:in `create'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-12 21:23:14 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-12 21:23:14 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-12 21:23:14 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-12 21:23:14 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-12 21:23:14 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-12 21:23:14 +0400
+Started POST "/en/role_groups" for 127.0.0.1 at 2020-10-12 21:23:38 +0400
+Processing by RoleGroupsController#create as JSON
+  Parameters: {"name"=>"Admin", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price_data"=>true, "delete_record"=>true}, "locale"=>"en", "role_group"=>{"name"=>"Admin", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price_data"=>true, "delete_record"=>true}}}
+Unpermitted parameters: :format, :locale, :role_group
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/roles/role_management_service.rb:21
+  [1m[36mRoleGroup Create (1.8ms)[0m  [1m[32mINSERT INTO "role_groups" ("name", "id_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Admin"], ["id_name", "admin"], ["created_at", "2020-10-12 17:23:51.502023"], ["updated_at", "2020-10-12 17:23:51.502023"]]
+  ↳ app/services/roles/role_management_service.rb:21
+  [1m[36mProductGroupPermission Create (3.2ms)[0m  [1m[32mINSERT INTO "product_group_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "activate_data", "delete_record") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 2], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["activate_data", true], ["delete_record", true]]
+  ↳ app/services/roles/role_management_service.rb:21
+  [1m[36mProductTypePermission Create (1.6ms)[0m  [1m[32mINSERT INTO "product_type_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "activate_data", "delete_record") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 2], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["activate_data", true], ["delete_record", true]]
+  ↳ app/services/roles/role_management_service.rb:21
+  [1m[36mProductImportPermission Create (2.2ms)[0m  [1m[32mINSERT INTO "product_import_permissions" ("role_group_id", "show_data", "import") VALUES ($1, $2, $3) RETURNING "id"[0m  [["role_group_id", 2], ["show_data", true], ["import", true]]
+  ↳ app/services/roles/role_management_service.rb:21
+  [1m[36mProductCatalogPermission Create (2.2ms)[0m  [1m[32mINSERT INTO "product_catalog_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "set_price_data", "delete_record") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 2], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["set_price_data", true], ["delete_record", true]]
+  ↳ app/services/roles/role_management_service.rb:21
+  [1m[35m (18.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/roles/role_management_service.rb:21
+Completed 201 Created in 13136ms (Views: 1.0ms | ActiveRecord: 30.0ms)
+
+
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.9ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductGroupPermission Load (0.7ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 2], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.7ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductGroupPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-12 21:34:38 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-12 21:34:38 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-12 21:34:38 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-12 21:34:38 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-12 21:34:39 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-12 21:34:39 +0400
+  [1m[36mRoleGroup Load (0.9ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.9ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProductGroupPermission Load (1.0ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 2], ["LIMIT", 1]]
+  [1m[36mProductGroupPermission Destroy (1.0ms)[0m  [1m[31mDELETE FROM "product_group_permissions" WHERE "product_group_permissions"."id" = $1[0m  [["id", 1]]
+  [1m[36mProductTypePermission Load (0.7ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 2], ["LIMIT", 1]]
+  [1m[36mProductTypePermission Destroy (0.5ms)[0m  [1m[31mDELETE FROM "product_type_permissions" WHERE "product_type_permissions"."id" = $1[0m  [["id", 1]]
+  [1m[36mProductImportPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 2], ["LIMIT", 1]]
+  [1m[36mProductImportPermission Destroy (0.5ms)[0m  [1m[31mDELETE FROM "product_import_permissions" WHERE "product_import_permissions"."id" = $1[0m  [["id", 1]]
+  [1m[36mProductCatalogPermission Load (0.5ms)[0m  [1m[34mSELECT  "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 2], ["LIMIT", 1]]
+  [1m[36mProductCatalogPermission Destroy (0.6ms)[0m  [1m[31mDELETE FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."id" = $1[0m  [["id", 1]]
+  [1m[36mRoleGroup Destroy (1.7ms)[0m  [1m[31mDELETE FROM "role_groups" WHERE "role_groups"."id" = $1[0m  [["id", 2]]
+  [1m[35m (36.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRoleGroup Load (0.8ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.8ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.8ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.8ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-12 21:36:43 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-12 21:36:43 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-12 21:36:43 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-12 21:36:43 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-12 21:36:43 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-12 21:36:43 +0400
+Started POST "/en/role_groups" for 127.0.0.1 at 2020-10-12 21:37:08 +0400
+Processing by RoleGroupsController#create as JSON
+  Parameters: {"name"=>"Admin", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price_data"=>true, "delete_record"=>true}, "locale"=>"en", "role_group"=>{"name"=>"Admin", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price_data"=>true, "delete_record"=>true}}}
+Unpermitted parameters: :format, :locale, :role_group
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/roles/role_management_service.rb:20
+  [1m[36mRoleGroup Create (0.7ms)[0m  [1m[32mINSERT INTO "role_groups" ("name", "id_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Admin"], ["id_name", "admin"], ["created_at", "2020-10-12 17:37:08.512495"], ["updated_at", "2020-10-12 17:37:08.512495"]]
+  ↳ app/services/roles/role_management_service.rb:20
+  [1m[36mProductGroupPermission Create (0.9ms)[0m  [1m[32mINSERT INTO "product_group_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "activate_data", "delete_record") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 3], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["activate_data", true], ["delete_record", true]]
+  ↳ app/services/roles/role_management_service.rb:20
+  [1m[36mProductTypePermission Create (0.5ms)[0m  [1m[32mINSERT INTO "product_type_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "activate_data", "delete_record") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 3], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["activate_data", true], ["delete_record", true]]
+  ↳ app/services/roles/role_management_service.rb:20
+  [1m[36mProductImportPermission Create (0.6ms)[0m  [1m[32mINSERT INTO "product_import_permissions" ("role_group_id", "show_data", "import") VALUES ($1, $2, $3) RETURNING "id"[0m  [["role_group_id", 3], ["show_data", true], ["import", true]]
+  ↳ app/services/roles/role_management_service.rb:20
+  [1m[36mProductCatalogPermission Create (1.2ms)[0m  [1m[32mINSERT INTO "product_catalog_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "set_price_data", "delete_record") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 3], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["set_price_data", true], ["delete_record", true]]
+  ↳ app/services/roles/role_management_service.rb:20
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/roles/role_management_service.rb:20
+Completed 201 Created in 96ms (Views: 0.5ms | ActiveRecord: 30.6ms)
+
+

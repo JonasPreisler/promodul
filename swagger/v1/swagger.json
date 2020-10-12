@@ -3665,6 +3665,158 @@
         }
       }
     },
+    "/{locale}/role_groups": {
+      "post": {
+        "summary": "Create Roles",
+        "tags": [
+          "Role Management"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "params",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "product_group_permission_attributes": {
+                  "type": "object",
+                  "properties": {
+                    "show_data": {
+                      "type": "boolean"
+                    },
+                    "read_data": {
+                      "type": "boolean"
+                    },
+                    "create_data": {
+                      "type": "boolean"
+                    },
+                    "edit_data": {
+                      "type": "boolean"
+                    },
+                    "activate_data": {
+                      "type": "boolean"
+                    },
+                    "delete_record": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "product_type_permission_attributes": {
+                  "type": "object",
+                  "properties": {
+                    "show_data": {
+                      "type": "boolean"
+                    },
+                    "read_data": {
+                      "type": "boolean"
+                    },
+                    "create_data": {
+                      "type": "boolean"
+                    },
+                    "edit_data": {
+                      "type": "boolean"
+                    },
+                    "activate_data": {
+                      "type": "boolean"
+                    },
+                    "delete_record": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "product_import_permission_attributes": {
+                  "type": "object",
+                  "properties": {
+                    "show_data": {
+                      "type": "boolean"
+                    },
+                    "import": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "product_catalog_permission_attributes": {
+                  "type": "object",
+                  "properties": {
+                    "show_data": {
+                      "type": "boolean"
+                    },
+                    "read_data": {
+                      "type": "boolean"
+                    },
+                    "create_data": {
+                      "type": "boolean"
+                    },
+                    "edit_data": {
+                      "type": "boolean"
+                    },
+                    "set_price_data": {
+                      "type": "boolean"
+                    },
+                    "delete_record": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
     "/{locale}/settings/country": {
       "post": {
         "summary": "Add country into the system",
