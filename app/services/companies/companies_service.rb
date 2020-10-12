@@ -49,11 +49,11 @@ module Companies
     end
 
     def company_list
-      @companies = Company.joins(:company_logo).where(parent_id: nil)
+      @companies = Company.joins("LEFT JOIN company_logos ON company_logos.company_id = companies.id").where(parent_id: nil)
     end
 
     def sub_company_list
-      @sub_companies = Company.joins(:company_logo).where(parent_id: params[:parent_id])
+      @sub_companies = Company.joins("LEFT JOIN company_logos ON company_logos.company_id = companies.id").where(parent_id: params[:parent_id])
     end
 
     private
@@ -91,7 +91,7 @@ module Companies
     end
 
     def find_company
-      @company = Company.joins(:company_logo).where(id: params[:id]).last
+      @company = Company.joins("LEFT JOIN company_logos ON company_logos.company_id = companies.id").where(id: params[:id]).last
     end
   end
 end

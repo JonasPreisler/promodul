@@ -7092,3 +7092,100 @@ Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-12 14:41:22 +040
 Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-12 14:41:22 +0400
 Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-12 14:41:22 +0400
 Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-12 14:41:22 +0400
+  [1m[36mCompanyLogo Load (1.7ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" ORDER BY "company_logos"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompanyLogo Load (0.9ms)[0m  [1m[34mSELECT "company_logos".* FROM "company_logos"[0m
+Started POST "/en/company_logos" for 127.0.0.1 at 2020-10-12 15:48:10 +0400
+Processing by CompanyLogosController#create as JSON
+  Parameters: {"logo"=>#<ActionDispatch::Http::UploadedFile:0x00005634fe9135c8 @tempfile=#<Tempfile:/tmp/RackMultipart20201012-10873-1wq2ne0.png>, @original_filename="Group 20721.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"logo\"; filename=\"Group 20721.png\"\r\nContent-Type: image/png\r\n">, "company_id"=>"10", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompanyLogo Load (1.1ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 ORDER BY "company_logos"."id" ASC LIMIT $2[0m  [["company_id", 10], ["LIMIT", 1]]
+  ↳ app/services/companies/company_logo_service.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/company_logo_service.rb:22
+  [1m[36mCompany Load (2.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/services/companies/company_logo_service.rb:22
+  [1m[36mCompanyLogo Update (1.7ms)[0m  [1m[33mUPDATE "company_logos" SET "logo" = $1, "uuid" = $2 WHERE "company_logos"."id" = $3[0m  [["logo", "Group_20721.png"], ["uuid", "5084daa2-6105-441f-ab67-b86c0a8227c1"], ["id", 1]]
+  ↳ app/services/companies/company_logo_service.rb:22
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/company_logo_service.rb:22
+Completed 201 Created in 107ms (Views: 0.2ms | ActiveRecord: 17.3ms)
+
+
+  [1m[36mCompanyLogo Load (0.3ms)[0m  [1m[34mSELECT "company_logos".* FROM "company_logos"[0m
+Started GET "/en/companies/company_list" for 127.0.0.1 at 2020-10-12 15:48:40 +0400
+Processing by CompaniesController#company_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (1.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" INNER JOIN "company_logos" ON "company_logos"."company_id" = "companies"."id" WHERE "companies"."parent_id" IS NULL[0m
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCountry Load (1.1ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCity Load (1.2ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCompanyLogo Load (0.2ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 LIMIT $2[0m  [["company_id", 10], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCompanyLogo Load (0.3ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 LIMIT $2[0m  [["company_id", 12], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+Completed 200 OK in 57ms (Views: 0.3ms | ActiveRecord: 15.7ms)
+
+
+  [1m[36mCompanyLogo Load (0.7ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" ORDER BY "company_logos"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompanyLogo Destroy (0.5ms)[0m  [1m[31mDELETE FROM "company_logos" WHERE "company_logos"."id" = $1[0m  [["id", 2]]
+  [1m[35m (36.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompanyLogo Load (1.0ms)[0m  [1m[34mSELECT "company_logos".* FROM "company_logos"[0m
+Started GET "/en/companies/company_list" for 127.0.0.1 at 2020-10-12 15:49:01 +0400
+Processing by CompaniesController#company_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" INNER JOIN "company_logos" ON "company_logos"."company_id" = "companies"."id" WHERE "companies"."parent_id" IS NULL[0m
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCompanyLogo Load (0.3ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 LIMIT $2[0m  [["company_id", 10], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/en/companies/company_list" for 127.0.0.1 at 2020-10-12 15:49:06 +0400
+Processing by CompaniesController#company_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" INNER JOIN "company_logos" ON "company_logos"."company_id" = "companies"."id" WHERE "companies"."parent_id" IS NULL[0m
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCompanyLogo Load (0.2ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 LIMIT $2[0m  [["company_id", 10], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/en/companies/company_list" for 127.0.0.1 at 2020-10-12 15:49:42 +0400
+Processing by CompaniesController#company_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" LEFT JOIN company_logos ON company_logos.company_id = companies.id WHERE "companies"."parent_id" IS NULL[0m
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCompanyLogo Load (0.3ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 LIMIT $2[0m  [["company_id", 10], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCompanyLogo Load (0.3ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 LIMIT $2[0m  [["company_id", 12], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+Completed 200 OK in 46ms (Views: 0.3ms | ActiveRecord: 13.2ms)
+
+
