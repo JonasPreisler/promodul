@@ -60,6 +60,50 @@ describe 'SubCategory', type: :request do
                       set_price_data:  { type: :boolean },
                       delete_record:   { type: :boolean }
                   }
+              },
+              suppliers_permission_attributes: {
+                  type: :object,
+                  properties: {
+                      show_data:       { type: :boolean },
+                      read_data:       { type: :boolean },
+                      create_data:     { type: :boolean },
+                      edit_data:       { type: :boolean },
+                      activate_data:   { type: :boolean },
+                      delete_record:   { type: :boolean }
+                  }
+              },
+              company_permission_attributes: {
+                  type: :object,
+                  properties: {
+                      show_data:       { type: :boolean },
+                      read_data:       { type: :boolean },
+                      create_data:     { type: :boolean },
+                      edit_data:       { type: :boolean },
+                      activate_data:   { type: :boolean },
+                      delete_record:   { type: :boolean }
+                  }
+              },
+              system_data_permission_attributes: {
+                  type: :object,
+                  properties: {
+                      show_data:       { type: :boolean },
+                      read_data:       { type: :boolean },
+                      create_data:     { type: :boolean },
+                      edit_data:       { type: :boolean },
+                      activate_data:   { type: :boolean },
+                      delete_record:   { type: :boolean }
+                  }
+              },
+              role_management_permission_attributes: {
+                  type: :object,
+                  properties: {
+                      show_data:       { type: :boolean },
+                      read_data:       { type: :boolean },
+                      create_data:     { type: :boolean },
+                      edit_data:       { type: :boolean },
+                      activate_data:   { type: :boolean },
+                      delete_record:   { type: :boolean }
+                  }
               }
           }
       }

@@ -7939,3 +7939,728 @@ Unpermitted parameters: :format, :locale, :role_group
 Completed 201 Created in 96ms (Views: 0.5ms | ActiveRecord: 30.6ms)
 
 
+  [1m[36mSupplier Load (40.5ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" ORDER BY "suppliers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateSuppliersPermissions (20201012200334)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (47.9ms)[0m  [1m[35mCREATE TABLE "suppliers_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show_data" boolean DEFAULT FALSE, "read_data" boolean DEFAULT FALSE, "create_data" boolean DEFAULT FALSE, "edit_data" boolean DEFAULT FALSE, "delete_record" boolean DEFAULT FALSE, "activate_data" boolean DEFAULT FALSE, CONSTRAINT "fk_rails_286bbd792d"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+)[0m
+  ↳ db/migrate/20201012200334_create_suppliers_permissions.rb:3
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_suppliers_permissions_on_role_group_id" ON "suppliers_permissions"  ("role_group_id")[0m
+  ↳ db/migrate/20201012200334_create_suppliers_permissions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201012200334"]]
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-13 00:08:19 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-13 00:08:19 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-13 00:08:19 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-13 00:08:19 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-13 00:08:20 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-13 00:08:20 +0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCompanyPermissions (20201012203316)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "company_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show_data" boolean DEFAULT FALSE, "read_data" boolean DEFAULT FALSE, "create_data" boolean DEFAULT FALSE, "edit_data" boolean DEFAULT FALSE, "delete_record" boolean DEFAULT FALSE, "activate_data" boolean DEFAULT FALSE, CONSTRAINT "fk_rails_f551c3cfb1"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+)[0m
+  ↳ db/migrate/20201012203316_create_company_permissions.rb:3
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE  INDEX  "index_company_permissions_on_role_group_id" ON "company_permissions"  ("role_group_id")[0m
+  ↳ db/migrate/20201012203316_create_company_permissions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201012203316"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateSystemDataPermissions (20201012203339)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "system_data_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show_data" boolean DEFAULT FALSE, "read_data" boolean DEFAULT FALSE, "create_data" boolean DEFAULT FALSE, "edit_data" boolean DEFAULT FALSE, "delete_record" boolean DEFAULT FALSE, "activate_data" boolean DEFAULT FALSE, CONSTRAINT "fk_rails_0e8be8eda7"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+)[0m
+  ↳ db/migrate/20201012203339_create_system_data_permissions.rb:3
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_system_data_permissions_on_role_group_id" ON "system_data_permissions"  ("role_group_id")[0m
+  ↳ db/migrate/20201012203339_create_system_data_permissions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201012203339"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-13 00:42:42 +0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-13 00:42:42 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-13 00:42:42 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-13 00:42:42 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-13 00:42:42 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-13 00:42:42 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (24.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "always_24_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (319.3ms)[0m  [1m[35mCREATE DATABASE "always_24_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "business_types" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE TABLE "business_types" ("id" bigserial primary key, "name" json NOT NULL, "id_name" character varying NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  ↳ db/schema.rb:23
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" json NOT NULL, "id_name" character varying(50), "active" boolean DEFAULT TRUE NOT NULL)[0m
+  ↳ db/schema.rb:23
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "cities" CASCADE[0m
+  ↳ db/schema.rb:29
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "cities" ("id" bigserial primary key, "name" character varying NOT NULL, "city_code" character varying NOT NULL, "country_id" bigint NOT NULL)[0m
+  ↳ db/schema.rb:29
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_cities_on_country_id" ON "cities"  ("country_id")[0m
+  ↳ db/schema.rb:29
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "companies" CASCADE[0m
+  ↳ db/schema.rb:36
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "companies" ("id" bigserial primary key, "name" character varying NOT NULL, "description" character varying, "address" character varying, "phone_number" character varying, "country_id" bigint, "city_id" bigint, "parent_id" integer)[0m
+  ↳ db/schema.rb:36
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_companies_on_city_id" ON "companies"  ("city_id")[0m
+  ↳ db/schema.rb:36
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_companies_on_country_id" ON "companies"  ("country_id")[0m
+  ↳ db/schema.rb:36
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "company_logos" CASCADE[0m
+  ↳ db/schema.rb:48
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "company_logos" ("id" bigserial primary key, "company_id" bigint NOT NULL, "logo" character varying(50), "uuid" uuid NOT NULL)[0m
+  ↳ db/schema.rb:48
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE  INDEX  "index_company_logos_on_company_id" ON "company_logos"  ("company_id")[0m
+  ↳ db/schema.rb:48
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_company_logos_on_uuid" ON "company_logos"  ("uuid")[0m
+  ↳ db/schema.rb:48
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "company_permissions" CASCADE[0m
+  ↳ db/schema.rb:56
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "company_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show_data" boolean DEFAULT FALSE, "read_data" boolean DEFAULT FALSE, "create_data" boolean DEFAULT FALSE, "edit_data" boolean DEFAULT FALSE, "delete_record" boolean DEFAULT FALSE, "activate_data" boolean DEFAULT FALSE)[0m
+  ↳ db/schema.rb:56
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_company_permissions_on_role_group_id" ON "company_permissions"  ("role_group_id")[0m
+  ↳ db/schema.rb:56
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "confirmation_codes" CASCADE[0m
+  ↳ db/schema.rb:67
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "confirmation_codes" ("id" bigserial primary key, "confirmation_token" character varying, "sms_code" character varying, "retry_count" integer, "generation_time" timestamp, "failed_attempts_count" integer, "user_account_id" bigint NOT NULL, "confirmation_type_id" bigint NOT NULL)[0m
+  ↳ db/schema.rb:67
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE  INDEX  "index_confirmation_codes_on_confirmation_type_id" ON "confirmation_codes"  ("confirmation_type_id")[0m
+  ↳ db/schema.rb:67
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_confirmation_codes_on_user_account_id" ON "confirmation_codes"  ("user_account_id")[0m
+  ↳ db/schema.rb:67
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "confirmation_types" CASCADE[0m
+  ↳ db/schema.rb:79
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "confirmation_types" ("id" bigserial primary key, "name" character varying(150), "id_name" character varying(50))[0m
+  ↳ db/schema.rb:79
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "countries" CASCADE[0m
+  ↳ db/schema.rb:84
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "countries" ("id" bigserial primary key, "name" character varying NOT NULL, "country_code" character varying NOT NULL)[0m
+  ↳ db/schema.rb:84
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "country_phone_indices" CASCADE[0m
+  ↳ db/schema.rb:89
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "country_phone_indices" ("id" bigserial primary key, "iso_code" character varying(2) NOT NULL, "phone_index" character varying(10) NOT NULL, "length_limit" integer DEFAULT 9 NOT NULL)[0m
+  ↳ db/schema.rb:89
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "coupon_codes" CASCADE[0m
+  ↳ db/schema.rb:95
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "coupon_codes" ("id" bigserial primary key, "coupon_promotion_id" integer, "code" character varying)[0m
+  ↳ db/schema.rb:95
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_coupon_codes_on_coupon_promotion_id_and_code" ON "coupon_codes"  ("coupon_promotion_id", "code")[0m
+  ↳ db/schema.rb:95
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "currencies" CASCADE[0m
+  ↳ db/schema.rb:101
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "currencies" ("id" bigserial primary key, "name" json NOT NULL, "symbol" character varying(20) NOT NULL, "code" character varying(3) NOT NULL)[0m
+  ↳ db/schema.rb:101
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_currencies_on_code" ON "currencies"  ("code")[0m
+  ↳ db/schema.rb:101
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "customer_types" CASCADE[0m
+  ↳ db/schema.rb:108
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "customer_types" ("id" bigserial primary key, "name" character varying, "id_name" character varying)[0m
+  ↳ db/schema.rb:108
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "customers" CASCADE[0m
+  ↳ db/schema.rb:113
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "customers" ("id" bigserial primary key, "name" character varying(50) NOT NULL, "delivery_address" character varying, "invoice_address" timestamp, "active" boolean DEFAULT TRUE NOT NULL, "user_account_id" integer, "customer_type_id" integer NOT NULL, "legal_id" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:113
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "department_logos" CASCADE[0m
+  ↳ db/schema.rb:125
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "department_logos" ("id" bigserial primary key, "department_id" bigint NOT NULL, "logo" character varying(50), "uuid" uuid NOT NULL)[0m
+  ↳ db/schema.rb:125
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_department_logos_on_department_id" ON "department_logos"  ("department_id")[0m
+  ↳ db/schema.rb:125
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_department_logos_on_uuid" ON "department_logos"  ("uuid")[0m
+  ↳ db/schema.rb:125
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "departments" CASCADE[0m
+  ↳ db/schema.rb:133
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "departments" ("id" bigserial primary key, "name" character varying NOT NULL, "description" character varying, "address" character varying, "phone_number" character varying, "country_id" bigint NOT NULL, "city_id" bigint NOT NULL, "company_id" bigint NOT NULL, "parent_id" integer)[0m
+  ↳ db/schema.rb:133
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_departments_on_city_id" ON "departments"  ("city_id")[0m
+  ↳ db/schema.rb:133
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_departments_on_company_id" ON "departments"  ("company_id")[0m
+  ↳ db/schema.rb:133
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE  INDEX  "index_departments_on_country_id" ON "departments"  ("country_id")[0m
+  ↳ db/schema.rb:133
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "integration_systems" CASCADE[0m
+  ↳ db/schema.rb:147
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "integration_systems" ("id" bigserial primary key, "name" character varying)[0m
+  ↳ db/schema.rb:147
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "locking_types" CASCADE[0m
+  ↳ db/schema.rb:151
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "locking_types" ("id" bigserial primary key, "name" json NOT NULL, "id_name" character varying(50))[0m
+  ↳ db/schema.rb:151
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "product_catalog_permissions" CASCADE[0m
+  ↳ db/schema.rb:156
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "product_catalog_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show_data" boolean DEFAULT FALSE, "read_data" boolean DEFAULT FALSE, "create_data" boolean DEFAULT FALSE, "edit_data" boolean DEFAULT FALSE, "set_price_data" boolean DEFAULT FALSE, "delete_record" boolean DEFAULT FALSE)[0m
+  ↳ db/schema.rb:156
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_product_catalog_permissions_on_role_group_id" ON "product_catalog_permissions"  ("role_group_id")[0m
+  ↳ db/schema.rb:156
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "product_characteristics" CASCADE[0m
+  ↳ db/schema.rb:167
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "product_characteristics" ("id" bigserial primary key, "product_id" bigint NOT NULL, "sub_category_id" bigint NOT NULL, "volume" character varying, "manufacturer" character varying, "description" character varying, "external_code" character varying(50), "EAN_code" character varying(50), "weight" decimal, "width" decimal, "height" decimal, "depth" decimal, "product_type_id" integer, "product_vat_type_id" integer, "subscription" boolean DEFAULT FALSE, "commission" boolean DEFAULT FALSE)[0m
+  ↳ db/schema.rb:167
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_product_characteristics_on_product_id" ON "product_characteristics"  ("product_id")[0m
+  ↳ db/schema.rb:167
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_product_characteristics_on_product_type_id" ON "product_characteristics"  ("product_type_id")[0m
+  ↳ db/schema.rb:167
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_product_characteristics_on_product_vat_type_id" ON "product_characteristics"  ("product_vat_type_id")[0m
+  ↳ db/schema.rb:167
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_product_characteristics_on_sub_category_id" ON "product_characteristics"  ("sub_category_id")[0m
+  ↳ db/schema.rb:167
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "product_group_permissions" CASCADE[0m
+  ↳ db/schema.rb:189
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "product_group_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show_data" boolean DEFAULT FALSE, "read_data" boolean DEFAULT FALSE, "create_data" boolean DEFAULT FALSE, "edit_data" boolean DEFAULT FALSE, "activate_data" boolean DEFAULT FALSE, "delete_record" boolean DEFAULT FALSE)[0m
+  ↳ db/schema.rb:189
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_product_group_permissions_on_role_group_id" ON "product_group_permissions"  ("role_group_id")[0m
+  ↳ db/schema.rb:189
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "product_images" CASCADE[0m
+  ↳ db/schema.rb:200
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "product_images" ("id" bigserial primary key, "product_id" bigint NOT NULL, "image" character varying(50), "uuid" uuid NOT NULL)[0m
+  ↳ db/schema.rb:200
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_product_images_on_product_id" ON "product_images"  ("product_id")[0m
+  ↳ db/schema.rb:200
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_product_images_on_uuid" ON "product_images"  ("uuid")[0m
+  ↳ db/schema.rb:200
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "product_import_permissions" CASCADE[0m
+  ↳ db/schema.rb:208
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "product_import_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show_data" boolean DEFAULT FALSE, "import" boolean DEFAULT FALSE)[0m
+  ↳ db/schema.rb:208
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_product_import_permissions_on_role_group_id" ON "product_import_permissions"  ("role_group_id")[0m
+  ↳ db/schema.rb:208
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "product_prices" CASCADE[0m
+  ↳ db/schema.rb:215
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "product_prices" ("id" bigserial primary key, "product_id" bigint NOT NULL, "list_price_type" character varying(30) NOT NULL, "list_price_amount" decimal NOT NULL, "manufacturing_cost" decimal NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:215
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_product_prices_on_product_id" ON "product_prices"  ("product_id")[0m
+  ↳ db/schema.rb:215
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "product_type_permissions" CASCADE[0m
+  ↳ db/schema.rb:225
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "product_type_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show_data" boolean DEFAULT FALSE, "read_data" boolean DEFAULT FALSE, "create_data" boolean DEFAULT FALSE, "edit_data" boolean DEFAULT FALSE, "activate_data" boolean DEFAULT FALSE, "delete_record" boolean DEFAULT FALSE)[0m
+  ↳ db/schema.rb:225
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE  INDEX  "index_product_type_permissions_on_role_group_id" ON "product_type_permissions"  ("role_group_id")[0m
+  ↳ db/schema.rb:225
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "product_types" CASCADE[0m
+  ↳ db/schema.rb:236
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "product_types" ("id" bigserial primary key, "name" json NOT NULL, "id_name" character varying NOT NULL, "active" boolean DEFAULT TRUE)[0m
+  ↳ db/schema.rb:236
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "product_vat_types" CASCADE[0m
+  ↳ db/schema.rb:242
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "product_vat_types" ("id" bigserial primary key, "name" character varying NOT NULL, "id_name" character varying NOT NULL)[0m
+  ↳ db/schema.rb:242
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "products" CASCADE[0m
+  ↳ db/schema.rb:247
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" json NOT NULL, "full_name" json NOT NULL, "description" character varying NOT NULL, "code" character varying NOT NULL, "instruction" character varying(500), "active" boolean DEFAULT TRUE)[0m
+  ↳ db/schema.rb:247
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_products_on_code" ON "products"  ("code")[0m
+  ↳ db/schema.rb:247
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "role_groups" CASCADE[0m
+  ↳ db/schema.rb:257
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "role_groups" ("id" bigserial primary key, "name" character varying NOT NULL, "id_name" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:257
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "sub_categories" CASCADE[0m
+  ↳ db/schema.rb:264
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "sub_categories" ("id" bigserial primary key, "name" json NOT NULL, "id_name" character varying(50), "active" boolean DEFAULT TRUE NOT NULL, "category_id" integer NOT NULL)[0m
+  ↳ db/schema.rb:264
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "supplier_product_prices" CASCADE[0m
+  ↳ db/schema.rb:271
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "supplier_product_prices" ("id" bigserial primary key, "supplier_product_id" bigint NOT NULL, "price" decimal NOT NULL, "price_per_unit" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "currency_id" integer)[0m
+  ↳ db/schema.rb:271
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "supplier_product_prices_currency" ON "supplier_product_prices"  ("currency_id")[0m
+  ↳ db/schema.rb:271
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_supplier_product_prices_on_supplier_product_id" ON "supplier_product_prices"  ("supplier_product_id")[0m
+  ↳ db/schema.rb:271
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "supplier_products" CASCADE[0m
+  ↳ db/schema.rb:282
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "supplier_products" ("id" bigserial primary key, "supplier_id" bigint NOT NULL, "product_id" bigint NOT NULL, "supplier_code" character varying, "is_active" boolean DEFAULT TRUE, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "quantity" integer)[0m
+  ↳ db/schema.rb:282
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_supplier_products_on_product_id" ON "supplier_products"  ("product_id")[0m
+  ↳ db/schema.rb:282
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_supplier_products_on_supplier_id" ON "supplier_products"  ("supplier_id")[0m
+  ↳ db/schema.rb:282
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "suppliers" CASCADE[0m
+  ↳ db/schema.rb:294
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "suppliers" ("id" bigserial primary key, "registration_date" timestamp, "active" boolean, "integration_system_id" bigint NOT NULL, "business_type_id" bigint NOT NULL, "name" character varying NOT NULL, "identification_code" character varying NOT NULL, "phone_number" character varying)[0m
+  ↳ db/schema.rb:294
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_suppliers_on_business_type_id" ON "suppliers"  ("business_type_id")[0m
+  ↳ db/schema.rb:294
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_suppliers_on_integration_system_id" ON "suppliers"  ("integration_system_id")[0m
+  ↳ db/schema.rb:294
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "suppliers_permissions" CASCADE[0m
+  ↳ db/schema.rb:306
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "suppliers_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show_data" boolean DEFAULT FALSE, "read_data" boolean DEFAULT FALSE, "create_data" boolean DEFAULT FALSE, "edit_data" boolean DEFAULT FALSE, "delete_record" boolean DEFAULT FALSE, "activate_data" boolean DEFAULT FALSE)[0m
+  ↳ db/schema.rb:306
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_suppliers_permissions_on_role_group_id" ON "suppliers_permissions"  ("role_group_id")[0m
+  ↳ db/schema.rb:306
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "system_data_permissions" CASCADE[0m
+  ↳ db/schema.rb:317
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "system_data_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show_data" boolean DEFAULT FALSE, "read_data" boolean DEFAULT FALSE, "create_data" boolean DEFAULT FALSE, "edit_data" boolean DEFAULT FALSE, "delete_record" boolean DEFAULT FALSE, "activate_data" boolean DEFAULT FALSE)[0m
+  ↳ db/schema.rb:317
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_system_data_permissions_on_role_group_id" ON "system_data_permissions"  ("role_group_id")[0m
+  ↳ db/schema.rb:317
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "terms_and_condition_agreements" CASCADE[0m
+  ↳ db/schema.rb:328
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "terms_and_condition_agreements" ("id" bigserial primary key, "user_account_id" bigint NOT NULL, "terms_and_condition_id" bigint NOT NULL, "agreed_date" timestamp)[0m
+  ↳ db/schema.rb:328
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_terms_and_condition_agreements_on_terms_and_condition_id" ON "terms_and_condition_agreements"  ("terms_and_condition_id")[0m
+  ↳ db/schema.rb:328
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_terms_and_condition_agreements_on_user_account_id" ON "terms_and_condition_agreements"  ("user_account_id")[0m
+  ↳ db/schema.rb:328
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "terms_and_conditions" CASCADE[0m
+  ↳ db/schema.rb:336
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "terms_and_conditions" ("id" bigserial primary key, "active_from" timestamp NOT NULL, "version" character varying(50) NOT NULL, "description" character varying, "terms_and_condition" character varying)[0m
+  ↳ db/schema.rb:336
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_accounts" CASCADE[0m
+  ↳ db/schema.rb:343
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "user_accounts" ("id" bigserial primary key, "phone_number" character varying NOT NULL, "email" character varying NOT NULL, "crypted_password" character varying(255) NOT NULL, "active" boolean DEFAULT FALSE NOT NULL, "failed_logins_count" integer, "last_attempt_date" date, "locked" boolean DEFAULT FALSE NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "salt" character varying, "username" character varying, "phone_number_iso" character varying(2) DEFAULT 'de' NOT NULL)[0m
+  ↳ db/schema.rb:343
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "cities" ADD CONSTRAINT "fk_rails_996e05be41"
+FOREIGN KEY ("country_id")
+  REFERENCES "countries" ("id")
+[0m
+  ↳ db/schema.rb:358
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "companies" ADD CONSTRAINT "fk_rails_268726594d"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+[0m
+  ↳ db/schema.rb:359
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "companies" ADD CONSTRAINT "fk_rails_d0676b5972"
+FOREIGN KEY ("parent_id")
+  REFERENCES "companies" ("id")
+[0m
+  ↳ db/schema.rb:360
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "companies" ADD CONSTRAINT "fk_rails_75b15a5c36"
+FOREIGN KEY ("country_id")
+  REFERENCES "countries" ("id")
+[0m
+  ↳ db/schema.rb:361
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "company_logos" ADD CONSTRAINT "fk_rails_8ae580a1d6"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+[0m
+  ↳ db/schema.rb:362
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "company_permissions" ADD CONSTRAINT "fk_rails_f551c3cfb1"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+[0m
+  ↳ db/schema.rb:363
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "confirmation_codes" ADD CONSTRAINT "fk_rails_4663c32944"
+FOREIGN KEY ("confirmation_type_id")
+  REFERENCES "confirmation_types" ("id")
+[0m
+  ↳ db/schema.rb:364
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "confirmation_codes" ADD CONSTRAINT "fk_rails_04eb0acbcb"
+FOREIGN KEY ("user_account_id")
+  REFERENCES "user_accounts" ("id")
+[0m
+  ↳ db/schema.rb:365
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "customers" ADD CONSTRAINT "fk_rails_9e248b531a"
+FOREIGN KEY ("customer_type_id")
+  REFERENCES "customer_types" ("id")
+[0m
+  ↳ db/schema.rb:366
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "department_logos" ADD CONSTRAINT "fk_rails_0beebfc42e"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+[0m
+  ↳ db/schema.rb:367
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "departments" ADD CONSTRAINT "fk_rails_ac0c831fa9"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+[0m
+  ↳ db/schema.rb:368
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "departments" ADD CONSTRAINT "fk_rails_f911441942"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+[0m
+  ↳ db/schema.rb:369
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "departments" ADD CONSTRAINT "fk_rails_1cbf437e14"
+FOREIGN KEY ("country_id")
+  REFERENCES "countries" ("id")
+[0m
+  ↳ db/schema.rb:370
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "departments" ADD CONSTRAINT "fk_rails_8e1e5764fc"
+FOREIGN KEY ("parent_id")
+  REFERENCES "departments" ("id")
+[0m
+  ↳ db/schema.rb:371
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "product_catalog_permissions" ADD CONSTRAINT "fk_rails_501644f900"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+[0m
+  ↳ db/schema.rb:372
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "product_characteristics" ADD CONSTRAINT "fk_rails_682445a94f"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+[0m
+  ↳ db/schema.rb:373
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "product_characteristics" ADD CONSTRAINT "fk_rails_99eb751a25"
+FOREIGN KEY ("sub_category_id")
+  REFERENCES "sub_categories" ("id")
+[0m
+  ↳ db/schema.rb:374
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "product_group_permissions" ADD CONSTRAINT "fk_rails_636fe72066"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+[0m
+  ↳ db/schema.rb:375
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "product_images" ADD CONSTRAINT "fk_rails_1c991d3be6"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+[0m
+  ↳ db/schema.rb:376
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "product_import_permissions" ADD CONSTRAINT "fk_rails_27485bdbba"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+[0m
+  ↳ db/schema.rb:377
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "product_prices" ADD CONSTRAINT "fk_rails_e7ec0c97a3"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+[0m
+  ↳ db/schema.rb:378
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "product_type_permissions" ADD CONSTRAINT "fk_rails_e9e2a702ec"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+[0m
+  ↳ db/schema.rb:379
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "sub_categories" ADD CONSTRAINT "fk_rails_8e75c2ee78"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  ↳ db/schema.rb:380
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "supplier_product_prices" ADD CONSTRAINT "fk_rails_298846d27d"
+FOREIGN KEY ("currency_id")
+  REFERENCES "currencies" ("id")
+[0m
+  ↳ db/schema.rb:381
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "supplier_product_prices" ADD CONSTRAINT "fk_rails_02de7c65e2"
+FOREIGN KEY ("supplier_product_id")
+  REFERENCES "supplier_products" ("id")
+[0m
+  ↳ db/schema.rb:382
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "supplier_products" ADD CONSTRAINT "fk_rails_9a363579c5"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+[0m
+  ↳ db/schema.rb:383
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "supplier_products" ADD CONSTRAINT "fk_rails_8e1c65b71a"
+FOREIGN KEY ("supplier_id")
+  REFERENCES "suppliers" ("id")
+[0m
+  ↳ db/schema.rb:384
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "suppliers" ADD CONSTRAINT "fk_rails_d7795d572e"
+FOREIGN KEY ("business_type_id")
+  REFERENCES "business_types" ("id")
+[0m
+  ↳ db/schema.rb:385
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "suppliers" ADD CONSTRAINT "fk_rails_7d49358d6a"
+FOREIGN KEY ("integration_system_id")
+  REFERENCES "integration_systems" ("id")
+[0m
+  ↳ db/schema.rb:386
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "suppliers_permissions" ADD CONSTRAINT "fk_rails_286bbd792d"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+[0m
+  ↳ db/schema.rb:387
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "system_data_permissions" ADD CONSTRAINT "fk_rails_0e8be8eda7"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+[0m
+  ↳ db/schema.rb:388
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "terms_and_condition_agreements" ADD CONSTRAINT "fk_rails_08d124cbc2"
+FOREIGN KEY ("terms_and_condition_id")
+  REFERENCES "terms_and_conditions" ("id")
+[0m
+  ↳ db/schema.rb:389
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "terms_and_condition_agreements" ADD CONSTRAINT "fk_rails_10d3a09624"
+FOREIGN KEY ("user_account_id")
+  REFERENCES "user_accounts" ("id")
+[0m
+  ↳ db/schema.rb:390
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201012203339)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20201007200103),
+(20201007194524),
+(20200727195202),
+(20200727193023),
+(20200725155414),
+(20200929203713),
+(20200927104129),
+(20200621120918),
+(20200824193304),
+(20200727194715),
+(20200707214242),
+(20200927155250),
+(20201012200334),
+(20200824195719),
+(20200621120451),
+(20200926210103),
+(20200828093215),
+(20201012144424),
+(20200824195406),
+(20200625214408),
+(20200921203149),
+(20200919162956),
+(20201011131733),
+(20200919163118),
+(20200707214349),
+(20201012203316),
+(20200715203104),
+(20200624222700),
+(20200624194331),
+(20200926205812),
+(20200824155541),
+(20200824193629),
+(20201009103111),
+(20200725155753),
+(20200621104114),
+(20201012142347),
+(20200824154722),
+(20200624205228),
+(20200929215700),
+(20201009103857),
+(20200727193640),
+(20201012144027),
+(20200927103709),
+(20200621120044),
+(20200624223129),
+(20200926145340),
+(20200707213330),
+(20201012143738),
+(20200926203704),
+(20200625214145),
+(20200824193950),
+(20200707214821),
+(20200624194923),
+(20200715203325),
+(20201012144338),
+(20200624224252),
+(20200625080846),
+(20200707215402),
+(20200624210354),
+(20201007201451),
+(20200824195218),
+(20200921200604),
+(20201011150112),
+(20200715202636),
+(20201007200055),
+(20201001214457),
+(20200624205328);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-12 20:50:25.698407"], ["updated_at", "2020-10-12 20:50:25.698407"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-10-12 20:50:25.702319"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateRoleManagementPermissions (20201012204644)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE TABLE "role_management_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show_data" boolean DEFAULT FALSE, "read_data" boolean DEFAULT FALSE, "create_data" boolean DEFAULT FALSE, "edit_data" boolean DEFAULT FALSE, "delete_record" boolean DEFAULT FALSE, "activate_data" boolean DEFAULT FALSE, CONSTRAINT "fk_rails_b25cf760ee"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+)[0m
+  ↳ db/migrate/20201012204644_create_role_management_permissions.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_role_management_permissions_on_role_group_id" ON "role_management_permissions"  ("role_group_id")[0m
+  ↳ db/migrate/20201012204644_create_role_management_permissions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201012204644"]]
+  ↳ bin/rails:9
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-13 00:51:12 +0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-13 00:51:12 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-13 00:51:12 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-13 00:51:12 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-13 00:51:13 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-13 00:51:13 +0400
+  [1m[36mRoleGroup Load (0.7ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.9ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProductGroupPermission Load (1.0ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 3], ["LIMIT", 1]]
+  [1m[36mProductGroupPermission Destroy (0.9ms)[0m  [1m[31mDELETE FROM "product_group_permissions" WHERE "product_group_permissions"."id" = $1[0m  [["id", 2]]
+  [1m[36mProductTypePermission Load (0.6ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 3], ["LIMIT", 1]]
+  [1m[36mProductTypePermission Destroy (0.6ms)[0m  [1m[31mDELETE FROM "product_type_permissions" WHERE "product_type_permissions"."id" = $1[0m  [["id", 2]]
+  [1m[36mProductImportPermission Load (0.6ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 3], ["LIMIT", 1]]
+  [1m[36mProductImportPermission Destroy (0.7ms)[0m  [1m[31mDELETE FROM "product_import_permissions" WHERE "product_import_permissions"."id" = $1[0m  [["id", 2]]
+  [1m[36mProductCatalogPermission Load (0.6ms)[0m  [1m[34mSELECT  "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 3], ["LIMIT", 1]]
+  [1m[36mProductCatalogPermission Destroy (0.6ms)[0m  [1m[31mDELETE FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."id" = $1[0m  [["id", 2]]
+  [1m[36mSuppliersPermission Load (1.0ms)[0m  [1m[34mSELECT  "suppliers_permissions".* FROM "suppliers_permissions" WHERE "suppliers_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 3], ["LIMIT", 1]]
+  [1m[36mCompanyPermission Load (0.6ms)[0m  [1m[34mSELECT  "company_permissions".* FROM "company_permissions" WHERE "company_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 3], ["LIMIT", 1]]
+  [1m[36mSystemDataPermission Load (0.5ms)[0m  [1m[34mSELECT  "system_data_permissions".* FROM "system_data_permissions" WHERE "system_data_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 3], ["LIMIT", 1]]
+  [1m[36mRoleManagementPermission Load (0.6ms)[0m  [1m[34mSELECT  "role_management_permissions".* FROM "role_management_permissions" WHERE "role_management_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 3], ["LIMIT", 1]]
+  [1m[36mRoleGroup Destroy (1.8ms)[0m  [1m[31mDELETE FROM "role_groups" WHERE "role_groups"."id" = $1[0m  [["id", 3]]
+  [1m[35m (36.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRoleGroup Load (0.8ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/role_groups" for 127.0.0.1 at 2020-10-13 00:52:56 +0400
+Processing by RoleGroupsController#create as JSON
+  Parameters: {"name"=>"Admin", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price_data"=>true, "delete_record"=>true}, "supplier_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "company_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "system_data_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "role_management_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "locale"=>"en", "role_group"=>{"name"=>"Admin", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price_data"=>true, "delete_record"=>true}, "company_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "system_data_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "role_management_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}}}
+Unpermitted parameters: :format, :locale, :role_group
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 27.9ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'supplier_permission_attributes' for RoleGroup.):
+  
+app/services/roles/role_management_service.rb:18:in `create_role'
+app/controllers/role_groups_controller.rb:10:in `create'
+Started POST "/en/role_groups" for 127.0.0.1 at 2020-10-13 00:54:10 +0400
+  
+ArgumentError (No association found for name `suppliers_permission'. Has it been defined yet?):
+  
+app/models/role_group.rb:17:in `<class:RoleGroup>'
+app/models/role_group.rb:1:in `<main>'
+Started POST "/en/role_groups" for 127.0.0.1 at 2020-10-13 00:54:30 +0400
+Processing by RoleGroupsController#create as JSON
+  Parameters: {"name"=>"Admin", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price_data"=>true, "delete_record"=>true}, "supplier_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "company_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "system_data_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "role_management_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "locale"=>"en", "role_group"=>{"name"=>"Admin", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price_data"=>true, "delete_record"=>true}, "supplier_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "company_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "system_data_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "role_management_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}}}
+Unpermitted parameters: :format, :locale, :role_group
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 20.1ms)
+
+
+  
+NameError (uninitialized constant RoleGroup::SupplierPermission):
+  
+app/services/roles/role_management_service.rb:18:in `create_role'
+app/controllers/role_groups_controller.rb:10:in `create'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-13 00:58:53 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-13 00:58:53 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-13 00:58:53 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-13 00:58:53 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-13 00:58:54 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-13 00:58:54 +0400
+Started POST "/en/role_groups" for 127.0.0.1 at 2020-10-13 00:59:08 +0400
+Processing by RoleGroupsController#create as JSON
+  Parameters: {"name"=>"Admin", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price_data"=>true, "delete_record"=>true}, "suppliers_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "company_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "system_data_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "role_management_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "locale"=>"en", "role_group"=>{"name"=>"Admin", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price_data"=>true, "delete_record"=>true}, "suppliers_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "company_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "system_data_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "role_management_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}}}
+Unpermitted parameters: :format, :locale, :role_group
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/roles/role_management_service.rb:20
+  [1m[36mRoleGroup Create (1.2ms)[0m  [1m[32mINSERT INTO "role_groups" ("name", "id_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Admin"], ["id_name", "admin"], ["created_at", "2020-10-12 20:59:08.348941"], ["updated_at", "2020-10-12 20:59:08.348941"]]
+  ↳ app/services/roles/role_management_service.rb:20
+  [1m[36mProductGroupPermission Create (1.1ms)[0m  [1m[32mINSERT INTO "product_group_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "activate_data", "delete_record") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 4], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["activate_data", true], ["delete_record", true]]
+  ↳ app/services/roles/role_management_service.rb:20
+  [1m[36mProductTypePermission Create (0.8ms)[0m  [1m[32mINSERT INTO "product_type_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "activate_data", "delete_record") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 4], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["activate_data", true], ["delete_record", true]]
+  ↳ app/services/roles/role_management_service.rb:20
+  [1m[36mProductImportPermission Create (0.6ms)[0m  [1m[32mINSERT INTO "product_import_permissions" ("role_group_id", "show_data", "import") VALUES ($1, $2, $3) RETURNING "id"[0m  [["role_group_id", 4], ["show_data", true], ["import", true]]
+  ↳ app/services/roles/role_management_service.rb:20
+  [1m[36mProductCatalogPermission Create (0.6ms)[0m  [1m[32mINSERT INTO "product_catalog_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "set_price_data", "delete_record") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 4], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["set_price_data", true], ["delete_record", true]]
+  ↳ app/services/roles/role_management_service.rb:20
+  [1m[36mSuppliersPermission Create (1.4ms)[0m  [1m[32mINSERT INTO "suppliers_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "delete_record", "activate_data") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 4], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["delete_record", true], ["activate_data", true]]
+  ↳ app/services/roles/role_management_service.rb:20
+  [1m[36mCompanyPermission Create (1.2ms)[0m  [1m[32mINSERT INTO "company_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "delete_record", "activate_data") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 4], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["delete_record", true], ["activate_data", true]]
+  ↳ app/services/roles/role_management_service.rb:20
+  [1m[36mSystemDataPermission Create (1.4ms)[0m  [1m[32mINSERT INTO "system_data_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "delete_record", "activate_data") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 4], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["delete_record", true], ["activate_data", true]]
+  ↳ app/services/roles/role_management_service.rb:20
+  [1m[36mRoleManagementPermission Create (0.9ms)[0m  [1m[32mINSERT INTO "role_management_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "delete_record", "activate_data") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 4], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["delete_record", true], ["activate_data", true]]
+  ↳ app/services/roles/role_management_service.rb:20
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/roles/role_management_service.rb:20
+Completed 201 Created in 200ms (Views: 0.3ms | ActiveRecord: 67.1ms)
+
+
+  [1m[36mSuppliersPermission Load (0.4ms)[0m  [1m[34mSELECT  "suppliers_permissions".* FROM "suppliers_permissions" ORDER BY "suppliers_permissions"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompanyPermission Load (0.7ms)[0m  [1m[34mSELECT  "company_permissions".* FROM "company_permissions" ORDER BY "company_permissions"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSystemDataPermission Load (0.7ms)[0m  [1m[34mSELECT  "system_data_permissions".* FROM "system_data_permissions" ORDER BY "system_data_permissions"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]

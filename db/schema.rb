@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_12_144424) do
+ActiveRecord::Schema.define(version: 2020_10_12_204644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,17 @@ ActiveRecord::Schema.define(version: 2020_10_12_144424) do
     t.uuid "uuid", null: false
     t.index ["company_id"], name: "index_company_logos_on_company_id"
     t.index ["uuid"], name: "index_company_logos_on_uuid", unique: true
+  end
+
+  create_table "company_permissions", force: :cascade do |t|
+    t.bigint "role_group_id", null: false
+    t.boolean "show_data", default: false
+    t.boolean "read_data", default: false
+    t.boolean "create_data", default: false
+    t.boolean "edit_data", default: false
+    t.boolean "delete_record", default: false
+    t.boolean "activate_data", default: false
+    t.index ["role_group_id"], name: "index_company_permissions_on_role_group_id"
   end
 
   create_table "confirmation_codes", force: :cascade do |t|
@@ -250,6 +261,17 @@ ActiveRecord::Schema.define(version: 2020_10_12_144424) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "role_management_permissions", force: :cascade do |t|
+    t.bigint "role_group_id", null: false
+    t.boolean "show_data", default: false
+    t.boolean "read_data", default: false
+    t.boolean "create_data", default: false
+    t.boolean "edit_data", default: false
+    t.boolean "delete_record", default: false
+    t.boolean "activate_data", default: false
+    t.index ["role_group_id"], name: "index_role_management_permissions_on_role_group_id"
+  end
+
   create_table "sub_categories", force: :cascade do |t|
     t.json "name", null: false
     t.string "id_name", limit: 50
@@ -292,6 +314,28 @@ ActiveRecord::Schema.define(version: 2020_10_12_144424) do
     t.index ["integration_system_id"], name: "index_suppliers_on_integration_system_id"
   end
 
+  create_table "suppliers_permissions", force: :cascade do |t|
+    t.bigint "role_group_id", null: false
+    t.boolean "show_data", default: false
+    t.boolean "read_data", default: false
+    t.boolean "create_data", default: false
+    t.boolean "edit_data", default: false
+    t.boolean "delete_record", default: false
+    t.boolean "activate_data", default: false
+    t.index ["role_group_id"], name: "index_suppliers_permissions_on_role_group_id"
+  end
+
+  create_table "system_data_permissions", force: :cascade do |t|
+    t.bigint "role_group_id", null: false
+    t.boolean "show_data", default: false
+    t.boolean "read_data", default: false
+    t.boolean "create_data", default: false
+    t.boolean "edit_data", default: false
+    t.boolean "delete_record", default: false
+    t.boolean "activate_data", default: false
+    t.index ["role_group_id"], name: "index_system_data_permissions_on_role_group_id"
+  end
+
   create_table "terms_and_condition_agreements", force: :cascade do |t|
     t.bigint "user_account_id", null: false
     t.bigint "terms_and_condition_id", null: false
@@ -327,6 +371,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_144424) do
   add_foreign_key "companies", "companies", column: "parent_id"
   add_foreign_key "companies", "countries"
   add_foreign_key "company_logos", "companies"
+  add_foreign_key "company_permissions", "role_groups"
   add_foreign_key "confirmation_codes", "confirmation_types"
   add_foreign_key "confirmation_codes", "user_accounts"
   add_foreign_key "customers", "customer_types"
@@ -343,6 +388,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_144424) do
   add_foreign_key "product_import_permissions", "role_groups"
   add_foreign_key "product_prices", "products"
   add_foreign_key "product_type_permissions", "role_groups"
+  add_foreign_key "role_management_permissions", "role_groups"
   add_foreign_key "sub_categories", "categories"
   add_foreign_key "supplier_product_prices", "currencies"
   add_foreign_key "supplier_product_prices", "supplier_products"
@@ -350,6 +396,8 @@ ActiveRecord::Schema.define(version: 2020_10_12_144424) do
   add_foreign_key "supplier_products", "suppliers"
   add_foreign_key "suppliers", "business_types"
   add_foreign_key "suppliers", "integration_systems"
+  add_foreign_key "suppliers_permissions", "role_groups"
+  add_foreign_key "system_data_permissions", "role_groups"
   add_foreign_key "terms_and_condition_agreements", "terms_and_conditions"
   add_foreign_key "terms_and_condition_agreements", "user_accounts"
 end

@@ -18,6 +18,10 @@ class RoleGroupsController < ApplicationController
                   product_group_permission_attributes:   {},
                   product_type_permission_attributes:    {},
                   product_import_permission_attributes:  {},
-                  product_catalog_permission_attributes: {})
+                  product_catalog_permission_attributes: {},
+                  suppliers_permission_attributes:       {},
+                  company_permission_attributes:         {},
+                  system_data_permission_attributes:     {},
+                  role_management_permission_attributes: {})
   end
 end
