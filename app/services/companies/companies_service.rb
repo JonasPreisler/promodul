@@ -19,11 +19,11 @@ module Companies
     end
 
     def company_list_json_view
-      { companies: @companies.as_json(include: { country: { only: [:name]}, city: { only: [:name]}}) }
+      { companies: @companies.as_json(include: { country: { only: [:name]}, city: { only: [:name]}, company_logo: { only: [:uuid]}}) }
     end
 
     def sub_company_list_json_view
-      { sub_companies: @sub_companies.as_json(include: { country: { only: [:name]}, city: { only: [:name]}}) }
+      { sub_companies: @sub_companies.as_json(include: { country: { only: [:name]}, city: { only: [:name]}, company_logo: { only: [:uuid]}}) }
     end
 
     def create_company
@@ -49,11 +49,11 @@ module Companies
     end
 
     def company_list
-      @companies = Company.where(parent_id: nil)
+      @companies = Company.joins(:company_logo).where(parent_id: nil)
     end
 
     def sub_company_list
-      @sub_companies = Company.where(parent_id: params[:parent_id])
+      @sub_companies = Company.joins(:company_logo).where(parent_id: params[:parent_id])
     end
 
     private

@@ -7038,3 +7038,57 @@ Unpermitted parameters: :format, :locale
 Completed 400 Bad Request in 75ms (Views: 0.2ms | ActiveRecord: 0.5ms)
 
 
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/en/companies/company_list" for 127.0.0.1 at 2020-10-12 00:27:53 +0400
+Processing by CompaniesController#company_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 200 OK in 4811ms (Views: 0.5ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/en/companies/company_list" for 127.0.0.1 at 2020-10-12 00:28:14 +0400
+Processing by CompaniesController#company_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (1.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" INNER JOIN "company_logos" ON "company_logos"."company_id" = "companies"."id" WHERE "companies"."parent_id" IS NULL[0m
+  ↳ app/services/companies/companies_service.rb:52
+Completed 200 OK in 16595ms (Views: 0.5ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/en/companies/company_list" for 127.0.0.1 at 2020-10-12 00:28:38 +0400
+Processing by CompaniesController#company_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT "companies".* FROM "companies" INNER JOIN "company_logos" ON "company_logos"."company_id" = "companies"."id" WHERE "companies"."parent_id" IS NULL[0m
+  ↳ app/services/companies/companies_service.rb:52
+Completed 200 OK in 20350ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/en/companies/company_list" for 127.0.0.1 at 2020-10-12 00:29:17 +0400
+Processing by CompaniesController#company_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (1.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" INNER JOIN "company_logos" ON "company_logos"."company_id" = "companies"."id" WHERE "companies"."parent_id" IS NULL[0m
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCountry Load (0.4ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCity Load (0.6ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCompanyLogo Load (0.3ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 LIMIT $2[0m  [["company_id", 10], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCompanyLogo Load (0.5ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 LIMIT $2[0m  [["company_id", 12], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+Completed 200 OK in 2345ms (Views: 0.4ms | ActiveRecord: 29.7ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-12 14:41:22 +0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-12 14:41:22 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-12 14:41:22 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-12 14:41:22 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-12 14:41:22 +0400
