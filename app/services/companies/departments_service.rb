@@ -11,7 +11,7 @@ module Companies
     end
 
     def json_view
-      { department: @department.as_json(include: { country: { only: [:name]}, city: { only: [:name]}}) }
+      { department: @department.as_json(include: { country: { only: [:name]}, city: { only: [:name]}, department_logo: { only: [:uuid]}}) }
     end
 
     def destroy_json_view
@@ -19,11 +19,11 @@ module Companies
     end
 
     def department_list_json_view
-      { departments: @departments.as_json }
+      { departments: @departments.as_json(include: { country: { only: [:name]}, city: { only: [:name]}, department_logo: { only: [:uuid]}}) }
     end
 
     def sub_department_list_json_view
-      { sub_departments: @sub_departments.as_json() }
+      { sub_departments: @sub_departments.as_json(include: { country: { only: [:name]}, city: { only: [:name]}, department_logo: { only: [:uuid]}}) }
     end
 
     def create_department
@@ -45,11 +45,11 @@ module Companies
     end
 
     def department_list
-      @departments = Department.where(parent_id: nil, company_id: params[:company_id])
+      @departments = Department.joins("LEFT JOIN department_logos ON department_logos.department_id = departments.id").where(parent_id: nil, company_id: params[:company_id])
     end
 
     def sub_department_list
-      @sub_departments = Department.where(parent_id: params[:parent_id])
+      @sub_departments = Department.joins("LEFT JOIN department_logos ON department_logos.department_id = departments.id").where(parent_id: params[:parent_id])
     end
 
     private
@@ -94,7 +94,7 @@ module Companies
     end
 
     def find_department
-      @department = Department.find(params[:id])
+      @department = Department.joins("LEFT JOIN department_logos ON department_logos.department_id = departments.id").where(id: params[:id]).last
     end
 
   end

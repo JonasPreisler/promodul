@@ -11,16 +11,8 @@ module Companies
     end
 
     def create_company_logo
-      #@product_price = ProductPrice.where(product_id: price_params[:product_id]).first_or_initialize
-      #@product_price.update(list_price_type: price_params[:list_price_type],
-      #                      list_price_amount: price_params[:list_price_amount],
-      #                      manufacturing_cost: price_params[:manufacturing_cost])
-      #errors.concat(@product_price.errors.to_a) if @product_price.errors.any?
-
-
       @company_logo = CompanyLogo.where(company_id: @logo_params[:company_id]).first_or_initialize
       @company_logo.update(logo: @logo_params[:logo])
-      #@company_logo.save
       errors.concat(@company_logo.errors.to_a) if @company_logo.errors.any?
     end
 

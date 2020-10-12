@@ -11,9 +11,9 @@ module Companies
     end
 
     def create_department_logo
-      @department_logo = DepartmentLogo.new(@logo_params)
-      @department_logo.save
-      @errors << fill_errors(@department_logo) if @department_logo.errors.any?
+      @department_logo = DepartmentLogo.where(department_id: @logo_params[:department_id]).first_or_initialize
+      @department_logo.update(logo: @logo_params[:logo])
+      errors.concat(@department_logo.errors.to_a) if @department_logo.errors.any?
     end
 
     def read_logo
