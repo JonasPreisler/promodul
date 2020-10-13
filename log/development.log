@@ -8703,3 +8703,86 @@ Migrating to AddColumnToDepartment (20201013091414)
   [1m[36mCity Load (1.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
   [1m[36mCompany Update (0.4ms)[0m  [1m[33mUPDATE "companies" SET "active" = $1 WHERE "companies"."id" = $2[0m  [["active", false], ["id", 10]]
   [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-13 13:33:05 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-13 13:33:06 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-13 13:33:06 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-13 13:33:06 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-13 13:33:06 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-13 13:33:06 +0400
+Started GET "/en/companies/company_list" for 127.0.0.1 at 2020-10-13 13:33:19 +0400
+Processing by CompaniesController#company_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT "companies".* FROM "companies" LEFT JOIN company_logos ON company_logos.company_id = companies.id WHERE "companies"."parent_id" IS NULL AND "companies"."active" = $1[0m  [["active", true]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCountry Load (0.5ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCompanyLogo Load (0.3ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 LIMIT $2[0m  [["company_id", 12], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+Completed 200 OK in 65ms (Views: 0.3ms | ActiveRecord: 15.9ms)
+
+
+Started DELETE "/en/companies?id=12" for 127.0.0.1 at 2020-10-13 13:33:29 +0400
+Processing by CompaniesController#destroy as JSON
+  Parameters: {"id"=>"12", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."parent_id" = $1[0m  [["parent_id", 12]]
+  ↳ app/services/companies/companies_service.rb:63
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" LEFT JOIN company_logos ON company_logos.company_id = companies.id WHERE "companies"."id" = $1 AND "companies"."active" = $2 ORDER BY "companies"."id" DESC LIMIT $3[0m  [["id", 12], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:95
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `acitve=' for #<Company:0x000055b81c8d14e8>
+Did you mean?  active=):
+  
+app/services/companies/companies_service.rb:47:in `destroy'
+app/controllers/companies_controller.rb:22:in `destroy'
+Started DELETE "/en/companies?id=12" for 127.0.0.1 at 2020-10-13 13:34:25 +0400
+Processing by CompaniesController#destroy as JSON
+  Parameters: {"id"=>"12", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (1.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."parent_id" = $1[0m  [["parent_id", 12]]
+  ↳ app/services/companies/companies_service.rb:64
+  [1m[36mCompany Load (3.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" LEFT JOIN company_logos ON company_logos.company_id = companies.id WHERE "companies"."id" = $1 AND "companies"."active" = $2 ORDER BY "companies"."id" DESC LIMIT $3[0m  [["id", 12], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:96
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."parent_id" = $1[0m  [["parent_id", 12]]
+  ↳ app/services/companies/companies_service.rb:64
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" LEFT JOIN company_logos ON company_logos.company_id = companies.id WHERE "companies"."id" = $1 AND "companies"."active" = $2 ORDER BY "companies"."id" DESC LIMIT $3[0m  [["id", 12], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:96
+Completed 500 Internal Server Error in 62323ms (ActiveRecord: 24.2ms)
+
+
+  
+NoMethodError (undefined method `acitve=' for #<Company:0x00007ff7c50e4c90>
+Did you mean?  active=):
+  
+app/services/companies/companies_service.rb:48:in `destroy'
+app/controllers/companies_controller.rb:22:in `destroy'
+Started DELETE "/en/companies?id=12" for 127.0.0.1 at 2020-10-13 13:35:31 +0400
+Processing by CompaniesController#destroy as JSON
+  Parameters: {"id"=>"12", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."parent_id" = $1[0m  [["parent_id", 12]]
+  ↳ app/services/companies/companies_service.rb:64
+  [1m[36mCompany Load (1.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" LEFT JOIN company_logos ON company_logos.company_id = companies.id WHERE "companies"."id" = $1 AND "companies"."active" = $2 ORDER BY "companies"."id" DESC LIMIT $3[0m  [["id", 12], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:96
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:49
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:49
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:49
+  [1m[36mCompany Update (0.5ms)[0m  [1m[33mUPDATE "companies" SET "active" = $1 WHERE "companies"."id" = $2[0m  [["active", false], ["id", 12]]
+  ↳ app/services/companies/companies_service.rb:49
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/companies_service.rb:49
+Completed 200 OK in 3374ms (Views: 0.2ms | ActiveRecord: 26.2ms)
+
+

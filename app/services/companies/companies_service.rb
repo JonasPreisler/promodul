@@ -44,7 +44,7 @@ module Companies
       validate_destroy
       find_company
       return if @errors.any?
-      @company.acitve= false
+      @company.active = false
       @company.save
       @errors << fill_errors(@company) if @company.errors.any?
     end
