@@ -13,6 +13,7 @@ class UserAccount < ApplicationRecord
   validates :crypted_password, presence: true, length: { maximum: 255 }
   validates :phone_number_iso,        presence: true, length:  { maximum: 2 }
 
+  has_many :user_roles
   has_many :confirmation_code, class_name: 'ConfirmationCode', foreign_key: :user_account_id, dependent: :destroy
   has_many :terms_and_condition_agreements, dependent: :destroy, class_name: 'TermsAndConditionAgreement', foreign_key: :user_account_id
 

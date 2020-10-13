@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_13_091414) do
+ActiveRecord::Schema.define(version: 2020_10_13_155127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -368,6 +368,13 @@ ActiveRecord::Schema.define(version: 2020_10_13_091414) do
     t.string "phone_number_iso", limit: 2, default: "de", null: false
   end
 
+  create_table "user_roles", force: :cascade do |t|
+    t.bigint "user_account_id", null: false
+    t.bigint "role_group_id", null: false
+    t.index ["role_group_id"], name: "index_user_roles_on_role_group_id"
+    t.index ["user_account_id"], name: "index_user_roles_on_user_account_id"
+  end
+
   add_foreign_key "cities", "countries"
   add_foreign_key "companies", "cities"
   add_foreign_key "companies", "companies", column: "parent_id"
@@ -402,4 +409,6 @@ ActiveRecord::Schema.define(version: 2020_10_13_091414) do
   add_foreign_key "system_data_permissions", "role_groups"
   add_foreign_key "terms_and_condition_agreements", "terms_and_conditions"
   add_foreign_key "terms_and_condition_agreements", "user_accounts"
+  add_foreign_key "user_roles", "role_groups"
+  add_foreign_key "user_roles", "user_accounts"
 end

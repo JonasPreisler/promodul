@@ -3667,7 +3667,7 @@
     },
     "/{locale}/role_groups": {
       "post": {
-        "summary": "Create Roles",
+        "summary": "Create Role",
         "tags": [
           "Role Management"
         ],
@@ -3905,6 +3905,379 @@
           },
           "404": {
             "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update Role",
+        "tags": [
+          "Role Management"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "params",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "product_group_permission_attributes": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "show_data": {
+                      "type": "boolean"
+                    },
+                    "read_data": {
+                      "type": "boolean"
+                    },
+                    "create_data": {
+                      "type": "boolean"
+                    },
+                    "edit_data": {
+                      "type": "boolean"
+                    },
+                    "activate_data": {
+                      "type": "boolean"
+                    },
+                    "delete_record": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "product_type_permission_attributes": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "show_data": {
+                      "type": "boolean"
+                    },
+                    "read_data": {
+                      "type": "boolean"
+                    },
+                    "create_data": {
+                      "type": "boolean"
+                    },
+                    "edit_data": {
+                      "type": "boolean"
+                    },
+                    "activate_data": {
+                      "type": "boolean"
+                    },
+                    "delete_record": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "product_import_permission_attributes": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "show_data": {
+                      "type": "boolean"
+                    },
+                    "import": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "product_catalog_permission_attributes": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "show_data": {
+                      "type": "boolean"
+                    },
+                    "read_data": {
+                      "type": "boolean"
+                    },
+                    "create_data": {
+                      "type": "boolean"
+                    },
+                    "edit_data": {
+                      "type": "boolean"
+                    },
+                    "set_price_data": {
+                      "type": "boolean"
+                    },
+                    "delete_record": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "suppliers_permission_attributes": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "show_data": {
+                      "type": "boolean"
+                    },
+                    "read_data": {
+                      "type": "boolean"
+                    },
+                    "create_data": {
+                      "type": "boolean"
+                    },
+                    "edit_data": {
+                      "type": "boolean"
+                    },
+                    "activate_data": {
+                      "type": "boolean"
+                    },
+                    "delete_record": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "company_permission_attributes": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "show_data": {
+                      "type": "boolean"
+                    },
+                    "read_data": {
+                      "type": "boolean"
+                    },
+                    "create_data": {
+                      "type": "boolean"
+                    },
+                    "edit_data": {
+                      "type": "boolean"
+                    },
+                    "activate_data": {
+                      "type": "boolean"
+                    },
+                    "delete_record": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "system_data_permission_attributes": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "show_data": {
+                      "type": "boolean"
+                    },
+                    "read_data": {
+                      "type": "boolean"
+                    },
+                    "create_data": {
+                      "type": "boolean"
+                    },
+                    "edit_data": {
+                      "type": "boolean"
+                    },
+                    "activate_data": {
+                      "type": "boolean"
+                    },
+                    "delete_record": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "role_management_permission_attributes": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "show_data": {
+                      "type": "boolean"
+                    },
+                    "read_data": {
+                      "type": "boolean"
+                    },
+                    "create_data": {
+                      "type": "boolean"
+                    },
+                    "edit_data": {
+                      "type": "boolean"
+                    },
+                    "activate_data": {
+                      "type": "boolean"
+                    },
+                    "delete_record": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Role",
+        "tags": [
+          "Role Management"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/{locale}/role_groups/list": {
+      "get": {
+        "summary": "Returns Roles",
+        "tags": [
+          "Role Management"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "Client token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -5571,6 +5944,69 @@
               "properties": {
               }
             }
+          }
+        }
+      }
+    },
+    "/{locale}/user_roles": {
+      "post": {
+        "summary": "Create User Role",
+        "tags": [
+          "Role Management"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "user_account_id",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "role_group_id",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user_role": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }

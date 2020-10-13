@@ -11,6 +11,24 @@ class RoleGroupsController < ApplicationController
     rest_respond_service service
   end
 
+  def list
+    service = Roles::RoleManagementService.new(role_params)
+    service.list
+    rest_respond_service service
+  end
+
+  def update
+    service = Roles::RoleManagementService.new(role_params)
+    service.update
+    rest_respond_service service
+  end
+
+  def destroy
+    service = Roles::RoleManagementService.new(role_params)
+    service.destroy
+    rest_respond_service service
+  end
+
   private
 
   def role_params

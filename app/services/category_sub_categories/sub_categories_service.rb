@@ -62,8 +62,8 @@ module CategorySubCategories
     end
 
     def find_sub_category
-      @sub_category = SubCategory.find_by_id(@sub_category_params[:id])
-      fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @sub_category
+      `@sub_category = SubCategory.find_by_id(@sub_category_params[:id])
+      fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @sub_category`
     end
   end
 end

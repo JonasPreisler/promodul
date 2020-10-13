@@ -1,6 +1,8 @@
 class RoleGroup < ApplicationRecord
   validates :name, presence: true
 
+  has_many :user_roles
+
   has_one :product_group_permission, dependent: :destroy
   accepts_nested_attributes_for :product_group_permission, allow_destroy: true
 

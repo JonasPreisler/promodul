@@ -25,6 +25,8 @@ en:
       registration_retry_count: 'New code generating limit is reached'
       registration_invalid_time: 'Registration time has run out. Please try again.'
       data_not_found: 'Data not exists'
+      user_role: "User should have at least one role"
+      role_group: "You can't delete role, because it is used with user"
 
       validation:
         valid_password_format?: "Password should contain at least 8 characters, uppercase and lowercase letters, numbers and special characters (e.g. @, #, $, %, & etc.)"
@@ -51,3 +53,5 @@ en:
         business_customer: "Only Business with multi permissions can create more than one company"
         user_not_found: "User with that ID does not exists"
         category_validation: "Can not delete category, Because it has Sub categories"
+        user_role: "User should have at least one role"
+        role_group: "You can't delete role, because it is used with user"
