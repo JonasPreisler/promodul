@@ -40,16 +40,17 @@ module Companies
       validate_destroy
       find_department
       return if @errors.any?
-      @department.destroy
+      @department.active = false
+      @department.save
       @errors << fill_errors(@department) if @department.errors.any?
     end
 
     def department_list
-      @departments = Department.joins("LEFT JOIN department_logos ON department_logos.department_id = departments.id").where(parent_id: nil, company_id: params[:company_id])
+      @departments = Department.joins("LEFT JOIN department_logos ON department_logos.department_id = departments.id").where(parent_id: nil, company_id: params[:company_id], active: true)
     end
 
     def sub_department_list
-      @sub_departments = Department.joins("LEFT JOIN department_logos ON department_logos.department_id = departments.id").where(parent_id: params[:parent_id])
+      @sub_departments = Department.joins("LEFT JOIN department_logos ON department_logos.department_id = departments.id").where(parent_id: params[:parent_id], active: true)
     end
 
     private
@@ -77,7 +78,7 @@ module Companies
 
     def validate_company
       return if errors.any?
-      company = Company.find_by_id(params[:company_id])
+      company = Company.find_by_id(params[:company_id], active: true)
       fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless company
     end
 
@@ -94,7 +95,7 @@ module Companies
     end
 
     def find_department
-      @department = Department.joins("LEFT JOIN department_logos ON department_logos.department_id = departments.id").where(id: params[:id]).last
+      @department = Department.joins("LEFT JOIN department_logos ON department_logos.department_id = departments.id").where(id: params[:id], active: true).last
     end
 
   end

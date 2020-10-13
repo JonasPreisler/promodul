@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_12_204644) do
+ActiveRecord::Schema.define(version: 2020_10_13_091414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_204644) do
     t.bigint "country_id"
     t.bigint "city_id"
     t.integer "parent_id"
+    t.boolean "active", default: true
     t.index ["city_id"], name: "index_companies_on_city_id"
     t.index ["country_id"], name: "index_companies_on_country_id"
   end
@@ -139,6 +140,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_204644) do
     t.bigint "city_id", null: false
     t.bigint "company_id", null: false
     t.integer "parent_id"
+    t.boolean "active", default: true
     t.index ["city_id"], name: "index_departments_on_city_id"
     t.index ["company_id"], name: "index_departments_on_company_id"
     t.index ["country_id"], name: "index_departments_on_country_id"

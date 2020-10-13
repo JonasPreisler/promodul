@@ -44,16 +44,17 @@ module Companies
       validate_destroy
       find_company
       return if @errors.any?
-      @company.destroy
+      @company.acitve= false
+      @company.save
       @errors << fill_errors(@company) if @company.errors.any?
     end
 
     def company_list
-      @companies = Company.joins("LEFT JOIN company_logos ON company_logos.company_id = companies.id").where(parent_id: nil)
+      @companies = Company.joins("LEFT JOIN company_logos ON company_logos.company_id = companies.id").where(parent_id: nil, active: true)
     end
 
     def sub_company_list
-      @sub_companies = Company.joins("LEFT JOIN company_logos ON company_logos.company_id = companies.id").where(parent_id: params[:parent_id])
+      @sub_companies = Company.joins("LEFT JOIN company_logos ON company_logos.company_id = companies.id").where(parent_id: params[:parent_id], active: true)
     end
 
     private
@@ -91,7 +92,7 @@ module Companies
     end
 
     def find_company
-      @company = Company.joins("LEFT JOIN company_logos ON company_logos.company_id = companies.id").where(id: params[:id]).last
+      @company = Company.joins("LEFT JOIN company_logos ON company_logos.company_id = companies.id").where(id: params[:id], active: true).last
     end
   end
 end
