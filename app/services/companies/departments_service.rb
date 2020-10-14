@@ -78,7 +78,7 @@ module Companies
 
     def validate_company
       return if errors.any?
-      company = Company.find_by_id(params[:company_id], active: true)
+      company = Company.where(id: params[:company_id], active: true).first
       fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless company
     end
 

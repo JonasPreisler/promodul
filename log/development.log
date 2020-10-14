@@ -9220,3 +9220,170 @@ Unpermitted parameters: :format, :locale
 Completed 404 Not Found in 62ms (Views: 0.2ms | ActiveRecord: 8.6ms)
 
 
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-14 13:53:09 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-14 13:53:09 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-14 13:53:09 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-14 13:53:09 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-14 13:53:10 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-14 13:53:10 +0400
+Started GET "/en/companies/company_list" for 127.0.0.1 at 2020-10-14 13:53:20 +0400
+Processing by CompaniesController#company_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT "companies".* FROM "companies" LEFT JOIN company_logos ON company_logos.company_id = companies.id WHERE "companies"."parent_id" IS NULL AND "companies"."active" = $1[0m  [["active", true]]
+  ↳ app/services/companies/companies_service.rb:22
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 4.0ms)
+
+
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+Started GET "/en/companies/company_list" for 127.0.0.1 at 2020-10-14 13:54:00 +0400
+Processing by CompaniesController#company_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" LEFT JOIN company_logos ON company_logos.company_id = companies.id WHERE "companies"."parent_id" IS NULL AND "companies"."active" = $1[0m  [["active", true]]
+  ↳ app/services/companies/companies_service.rb:22
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-14 13:54:03 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-14 13:54:03 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-14 13:54:03 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-14 13:54:03 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-14 13:54:03 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-14 13:54:03 +0400
+Started GET "/en/companies/company_list" for 127.0.0.1 at 2020-10-14 13:54:24 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CompaniesController#company_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT "companies".* FROM "companies" LEFT JOIN company_logos ON company_logos.company_id = companies.id WHERE "companies"."parent_id" IS NULL AND "companies"."active" = $1[0m  [["active", true]]
+  ↳ app/services/companies/companies_service.rb:22
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 2.7ms)
+
+
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCompany Update (5.4ms)[0m  [1m[33mUPDATE "companies" SET "active" = $1 WHERE "companies"."id" = $2[0m  [["active", true], ["id", 10]]
+Started GET "/en/companies/company_list" for 127.0.0.1 at 2020-10-14 13:54:53 +0400
+Processing by CompaniesController#company_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT "companies".* FROM "companies" LEFT JOIN company_logos ON company_logos.company_id = companies.id WHERE "companies"."parent_id" IS NULL AND "companies"."active" = $1[0m  [["active", true]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCountry Load (1.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+  [1m[36mCompanyLogo Load (0.2ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 LIMIT $2[0m  [["company_id", 10], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:22
+Completed 200 OK in 118ms (Views: 0.2ms | ActiveRecord: 22.5ms)
+
+
+Started POST "/en/departments" for 127.0.0.1 at 2020-10-14 13:55:40 +0400
+Processing by DepartmentsController#create as JSON
+  Parameters: {"name"=>"test", "description"=>"test", "address"=>"test", "phone_number"=>"test", "country_id"=>4, "city_id"=>9, "company_id"=>10, "locale"=>"en", "department"=>{"name"=>"test", "description"=>"test", "address"=>"test", "phone_number"=>"test", "country_id"=>4, "city_id"=>9, "company_id"=>10}}
+Unpermitted parameters: :format, :locale, :department
+  [1m[36mCountry Load (0.5ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:69
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:75
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 2.8ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 1)):
+  
+app/services/companies/departments_service.rb:81:in `validate_company'
+app/services/companies/departments_service.rb:65:in `validate_data!'
+app/services/companies/departments_service.rb:30:in `create_department'
+app/controllers/departments_controller.rb:10:in `create'
+Started POST "/en/departments" for 127.0.0.1 at 2020-10-14 13:56:11 +0400
+Processing by DepartmentsController#create as JSON
+  Parameters: {"name"=>"test", "description"=>"test", "address"=>"test", "phone_number"=>"test", "country_id"=>4, "city_id"=>9, "company_id"=>10, "locale"=>"en", "department"=>{"name"=>"test", "description"=>"test", "address"=>"test", "phone_number"=>"test", "country_id"=>4, "city_id"=>9, "company_id"=>10}}
+Unpermitted parameters: :format, :locale, :department
+  [1m[36mCountry Load (0.9ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:70
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:76
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:70
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:76
+Completed 500 Internal Server Error in 12306ms (ActiveRecord: 20.4ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 1)):
+  
+app/services/companies/departments_service.rb:82:in `validate_company'
+app/services/companies/departments_service.rb:66:in `validate_data!'
+app/services/companies/departments_service.rb:31:in `create_department'
+app/controllers/departments_controller.rb:10:in `create'
+Started POST "/en/departments" for 127.0.0.1 at 2020-10-14 13:56:57 +0400
+Processing by DepartmentsController#create as JSON
+  Parameters: {"name"=>"test", "description"=>"test", "address"=>"test", "phone_number"=>"test", "country_id"=>4, "city_id"=>9, "company_id"=>10, "locale"=>"en", "department"=>{"name"=>"test", "description"=>"test", "address"=>"test", "phone_number"=>"test", "country_id"=>4, "city_id"=>9, "company_id"=>10}}
+Unpermitted parameters: :format, :locale, :department
+  [1m[36mCountry Load (0.9ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:70
+  [1m[36mCity Load (0.7ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:76
+Completed 500 Internal Server Error in 3746ms (ActiveRecord: 19.8ms)
+
+
+  
+ArgumentError (Unsupported argument type: 10 (Integer)):
+  
+app/services/companies/departments_service.rb:82:in `validate_company'
+app/services/companies/departments_service.rb:66:in `validate_data!'
+app/services/companies/departments_service.rb:31:in `create_department'
+app/controllers/departments_controller.rb:10:in `create'
+Started POST "/en/departments" for 127.0.0.1 at 2020-10-14 13:57:18 +0400
+Processing by DepartmentsController#create as JSON
+  Parameters: {"name"=>"test", "description"=>"test", "address"=>"test", "phone_number"=>"test", "country_id"=>4, "city_id"=>9, "company_id"=>10, "locale"=>"en", "department"=>{"name"=>"test", "description"=>"test", "address"=>"test", "phone_number"=>"test", "country_id"=>4, "city_id"=>9, "company_id"=>10}}
+Unpermitted parameters: :format, :locale, :department
+  [1m[36mCountry Load (0.7ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:70
+  [1m[36mCity Load (0.6ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:76
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:70
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:76
+Completed 500 Internal Server Error in 37221ms (ActiveRecord: 1.4ms)
+
+
+  
+ArgumentError (Unsupported argument type: 10 (Integer)):
+  
+app/services/companies/departments_service.rb:82:in `validate_company'
+app/services/companies/departments_service.rb:66:in `validate_data!'
+app/services/companies/departments_service.rb:31:in `create_department'
+app/controllers/departments_controller.rb:10:in `create'
+Started POST "/en/departments" for 127.0.0.1 at 2020-10-14 13:57:58 +0400
+Processing by DepartmentsController#create as JSON
+  Parameters: {"name"=>"test", "description"=>"test", "address"=>"test", "phone_number"=>"test", "country_id"=>4, "city_id"=>9, "company_id"=>10, "locale"=>"en", "department"=>{"name"=>"test", "description"=>"test", "address"=>"test", "phone_number"=>"test", "country_id"=>4, "city_id"=>9, "company_id"=>10}}
+Unpermitted parameters: :format, :locale, :department
+  [1m[36mCountry Load (0.6ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:70
+  [1m[36mCity Load (0.9ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:76
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 AND "companies"."active" = $2 ORDER BY "companies"."id" ASC LIMIT $3[0m  [["id", 10], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:82
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/departments_service.rb:88
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:88
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:88
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:88
+  [1m[36mDepartment Create (5.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "description", "address", "phone_number", "country_id", "city_id", "company_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "test"], ["description", "test"], ["address", "test"], ["phone_number", "test"], ["country_id", 4], ["city_id", 9], ["company_id", 10]]
+  ↳ app/services/companies/departments_service.rb:88
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/departments_service.rb:88
+  [1m[36mDepartmentLogo Load (1.4ms)[0m  [1m[34mSELECT  "department_logos".* FROM "department_logos" WHERE "department_logos"."department_id" = $1 LIMIT $2[0m  [["department_id", 3], ["LIMIT", 1]]
+  ↳ app/services/companies/departments_service.rb:14
+Completed 201 Created in 2346ms (Views: 0.2ms | ActiveRecord: 40.4ms)
+
+
