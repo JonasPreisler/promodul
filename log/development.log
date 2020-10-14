@@ -9387,3 +9387,581 @@ Unpermitted parameters: :format, :locale, :department
 Completed 201 Created in 2346ms (Views: 0.2ms | ActiveRecord: 40.4ms)
 
 
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-14 15:46:17 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-14 15:46:17 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-14 15:46:17 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-14 15:46:17 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-14 15:46:18 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-14 15:46:18 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-14 15:46:29 +0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2020-10-14 15:46:29 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT "user_roles".* FROM "user_roles"[0m
+  [1m[36mRoleGroup Load (1.2ms)[0m  [1m[34mSELECT "role_groups".* FROM "role_groups"[0m
+Started POST "/en/role_groups" for 127.0.0.1 at 2020-10-14 15:49:53 +0400
+Processing by RoleGroupsController#create as JSON
+  Parameters: {"name"=>"new_role", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price_data"=>true, "delete_record"=>true}, "suppliers_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "company_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "system_data_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "role_management_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "locale"=>"en", "role_group"=>{"name"=>"new_role", "product_group_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_type_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "product_import_permission_attributes"=>{"show_data"=>true, "import"=>true}, "product_catalog_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "set_price_data"=>true, "delete_record"=>true}, "suppliers_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "company_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "system_data_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}, "role_management_permission_attributes"=>{"show_data"=>true, "read_data"=>true, "create_data"=>true, "edit_data"=>true, "activate_data"=>true, "delete_record"=>true}}}
+Unpermitted parameters: :format, :locale, :role_group
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/roles/role_management_service.rb:24
+  [1m[36mRoleGroup Create (1.4ms)[0m  [1m[32mINSERT INTO "role_groups" ("name", "id_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "new_role"], ["id_name", "new_role"], ["created_at", "2020-10-14 11:49:53.611191"], ["updated_at", "2020-10-14 11:49:53.611191"]]
+  ↳ app/services/roles/role_management_service.rb:24
+  [1m[36mProductGroupPermission Create (1.4ms)[0m  [1m[32mINSERT INTO "product_group_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "activate_data", "delete_record") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 5], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["activate_data", true], ["delete_record", true]]
+  ↳ app/services/roles/role_management_service.rb:24
+  [1m[36mProductTypePermission Create (0.8ms)[0m  [1m[32mINSERT INTO "product_type_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "activate_data", "delete_record") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 5], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["activate_data", true], ["delete_record", true]]
+  ↳ app/services/roles/role_management_service.rb:24
+  [1m[36mProductImportPermission Create (0.9ms)[0m  [1m[32mINSERT INTO "product_import_permissions" ("role_group_id", "show_data", "import") VALUES ($1, $2, $3) RETURNING "id"[0m  [["role_group_id", 5], ["show_data", true], ["import", true]]
+  ↳ app/services/roles/role_management_service.rb:24
+  [1m[36mProductCatalogPermission Create (0.8ms)[0m  [1m[32mINSERT INTO "product_catalog_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "set_price_data", "delete_record") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 5], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["set_price_data", true], ["delete_record", true]]
+  ↳ app/services/roles/role_management_service.rb:24
+  [1m[36mSuppliersPermission Create (0.7ms)[0m  [1m[32mINSERT INTO "suppliers_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "delete_record", "activate_data") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 5], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["delete_record", true], ["activate_data", true]]
+  ↳ app/services/roles/role_management_service.rb:24
+  [1m[36mCompanyPermission Create (0.6ms)[0m  [1m[32mINSERT INTO "company_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "delete_record", "activate_data") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 5], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["delete_record", true], ["activate_data", true]]
+  ↳ app/services/roles/role_management_service.rb:24
+  [1m[36mSystemDataPermission Create (0.6ms)[0m  [1m[32mINSERT INTO "system_data_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "delete_record", "activate_data") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 5], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["delete_record", true], ["activate_data", true]]
+  ↳ app/services/roles/role_management_service.rb:24
+  [1m[36mRoleManagementPermission Create (0.6ms)[0m  [1m[32mINSERT INTO "role_management_permissions" ("role_group_id", "show_data", "read_data", "create_data", "edit_data", "delete_record", "activate_data") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["role_group_id", 5], ["show_data", true], ["read_data", true], ["create_data", true], ["edit_data", true], ["delete_record", true], ["activate_data", true]]
+  ↳ app/services/roles/role_management_service.rb:24
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/roles/role_management_service.rb:24
+Completed 201 Created in 352ms (Views: 0.3ms | ActiveRecord: 58.6ms)
+
+
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductGroupPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+Started PUT "/en/role_groups?id=5" for 127.0.0.1 at 2020-10-14 15:51:30 +0400
+Processing by RoleGroupsController#update as JSON
+  Parameters: {"name"=>"new role", "product_group_permission_attributes"=>{"id"=>4, "show_data"=>false, "read_data"=>false, "create_data"=>false, "edit_data"=>false, "activate_data"=>false, "delete_record"=>false}, "id"=>"5", "locale"=>"en", "role_group"=>{"name"=>"new role", "product_group_permission_attributes"=>{"id"=>4, "show_data"=>false, "read_data"=>false, "create_data"=>false, "edit_data"=>false, "activate_data"=>false, "delete_record"=>false}}}
+Unpermitted parameters: :format, :locale, :role_group
+  [1m[36mRoleGroup Load (0.1ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:63
+  [1m[36mProductGroupPermission Load (0.2ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:35
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/roles/role_management_service.rb:36
+  [1m[36mRoleGroup Update (0.3ms)[0m  [1m[33mUPDATE "role_groups" SET "name" = $1, "updated_at" = $2 WHERE "role_groups"."id" = $3[0m  [["name", "new role"], ["updated_at", "2020-10-14 11:51:30.886709"], ["id", 5]]
+  ↳ app/services/roles/role_management_service.rb:36
+  [1m[36mProductGroupPermission Update (0.4ms)[0m  [1m[33mUPDATE "product_group_permissions" SET "show_data" = $1, "read_data" = $2, "create_data" = $3, "edit_data" = $4, "activate_data" = $5, "delete_record" = $6 WHERE "product_group_permissions"."id" = $7[0m  [["show_data", false], ["read_data", false], ["create_data", false], ["edit_data", false], ["activate_data", false], ["delete_record", false], ["id", 4]]
+  ↳ app/services/roles/role_management_service.rb:36
+  [1m[35m (36.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/roles/role_management_service.rb:36
+Completed 200 OK in 43ms (Views: 0.2ms | ActiveRecord: 37.4ms)
+
+
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductGroupPermission Load (0.2ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.9ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductTypePermission Load (0.8ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+Started GET "/en/role_groups/list" for 127.0.0.1 at 2020-10-14 15:52:13 +0400
+Processing by RoleGroupsController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT "role_groups".* FROM "role_groups"[0m
+  ↳ app/services/roles/role_management_service.rb:18
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 2]]
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/user_roles?user_account_id=51&role_group_id=5" for 127.0.0.1 at 2020-10-14 15:52:58 +0400
+Processing by UserRolesController#create as JSON
+  Parameters: {"user_account_id"=>"51", "role_group_id"=>"5", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:49
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:55
+  [1m[36mUserRole Load (0.7ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 AND "user_roles"."role_group_id" = $2 ORDER BY "user_roles"."id" ASC LIMIT $3[0m  [["user_account_id", 51], ["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:61
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/user_role_management_service.rb:62
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:62
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:62
+  [1m[36mUserRole Create (0.6ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 51], ["role_group_id", 5]]
+  ↳ app/services/account/user_role_management_service.rb:62
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/user_role_management_service.rb:62
+Completed 201 Created in 74ms (Views: 0.2ms | ActiveRecord: 13.8ms)
+
+
+Started DELETE "/en/role_groups?id=5" for 127.0.0.1 at 2020-10-14 15:53:07 +0400
+Processing by RoleGroupsController#destroy as JSON
+  Parameters: {"id"=>"5", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:63
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT "user_roles".* FROM "user_roles" WHERE "user_roles"."role_group_id" = $1[0m  [["role_group_id", 5]]
+  ↳ app/services/roles/role_management_service.rb:51
+Completed 404 Not Found in 6ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/en/role_groups/list" for 127.0.0.1 at 2020-10-14 16:44:47 +0400
+Processing by RoleGroupsController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mRoleGroup Load (0.6ms)[0m  [1m[34mSELECT "role_groups".* FROM "role_groups"[0m
+  ↳ app/services/roles/role_management_service.rb:18
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/en/role_groups?id=5" for 127.0.0.1 at 2020-10-14 16:44:52 +0400
+Processing by RoleGroupsController#destroy as JSON
+  Parameters: {"id"=>"5", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:63
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT "user_roles".* FROM "user_roles" WHERE "user_roles"."role_group_id" = $1[0m  [["role_group_id", 5]]
+  ↳ app/services/roles/role_management_service.rb:51
+Completed 404 Not Found in 3ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/en/user_roles?user_account_id=51&role_group_id=5" for 127.0.0.1 at 2020-10-14 16:45:03 +0400
+Processing by UserRolesController#create as JSON
+  Parameters: {"user_account_id"=>"51", "role_group_id"=>"5", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:49
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:55
+  [1m[36mUserRole Load (0.5ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 AND "user_roles"."role_group_id" = $2 ORDER BY "user_roles"."id" ASC LIMIT $3[0m  [["user_account_id", 51], ["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:61
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/user_role_management_service.rb:62
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:62
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:62
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/user_role_management_service.rb:62
+Completed 201 Created in 9ms (Views: 0.2ms | ActiveRecord: 2.1ms)
+
+
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCustomer Load (1.0ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" ORDER BY "customers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" ORDER BY "customers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  [1m[36mCustomer Load (1.0ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" ORDER BY "customers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  [1m[36mCustomer Load (1.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id"[0m
+  [1m[36mCustomer Load (0.8ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" ORDER BY "customers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCustomer Load (0.8ms)[0m  [1m[34mSELECT customers.name, user_accounts.active, user_accounts.phone_number, user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id"[0m
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number, user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id"[0m
+  [1m[36mCustomer Load (2.5ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number, user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id"[0m
+  [1m[36mCustomer Load (0.8ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number, user_accounts.email, user_accounts.username, user_roles.id FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id"[0m
+  [1m[36mCustomer Load (1.7ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number, user_accounts.email, user_accounts.username, user_roles.role_group_id FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id"[0m
+  [1m[36mCustomer Load (1.5ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number, user_accounts.email, user_accounts.username, user_roles.role_group_id FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  [1m[36mCustomer Load (2.2ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number, user_accounts.email, user_accounts.username, user_roles.role_group_id FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  [1m[36mCustomer Load (0.9ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number, user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  [1m[36mCustomer Load (2.4ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number, user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  [1m[36mCustomer Load (2.1ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number, user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-14 17:46:13 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-14 17:46:13 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-14 17:46:13 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-14 17:46:13 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-14 17:46:13 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-14 17:46:13 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-14 17:46:39 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-14 17:46:39 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-14 17:46:39 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-14 17:46:39 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-14 17:46:39 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-14 17:46:39 +0400
+Started GET "/en/users/list" for 127.0.0.1 at 2020-10-14 17:46:54 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (1.6ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 71ms (Views: 0.4ms | ActiveRecord: 13.0ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-14 17:55:29 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-14 17:55:29 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-14 17:55:29 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-14 17:55:29 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-14 17:55:30 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-14 17:55:30 +0400
+Started GET "/en/users/list" for 127.0.0.1 at 2020-10-14 17:55:54 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (1.4ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 35ms (Views: 0.3ms | ActiveRecord: 10.8ms)
+
+
+  [1m[36mCustomer Load (0.7ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number, user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  [1m[36mCustomer Load (36.4ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number, user_accounts.email, user_accounts.username, user_riles.id as user_role_id, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  [1m[36mCustomer Load (0.8ms)[0m  [1m[34mSELECT  user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number, user_accounts.email, user_accounts.username, user_riles.id as user_role_id, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCustomer Load (1.1ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number, user_accounts.email, user_accounts.username, user_roles.id as user_role_id, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-14 17:58:34 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-14 17:58:34 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-14 17:58:34 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-14 17:58:34 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-14 17:58:35 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-14 17:58:35 +0400
+Started GET "/en/users/list" for 127.0.0.1 at 2020-10-14 17:58:46 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  ↳ app/services/account/users_service.rb:14
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 8.4ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near "user_accounts"
+LINE 2:                             user_accounts.email, user_accoun...
+                                    ^
+: SELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"):
+  
+app/services/account/users_service.rb:14:in `json_view'
+lib/controller_response.rb:30:in `respond_json_view'
+lib/controller_response.rb:43:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/users_controller.rb:11:in `list'
+Started GET "/en/users/list" for 127.0.0.1 at 2020-10-14 17:59:01 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 34ms (Views: 0.3ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-14 17:59:09 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-14 17:59:09 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-14 17:59:09 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-14 17:59:09 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-14 17:59:09 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-14 17:59:09 +0400
+Started GET "/en/users/list" for 127.0.0.1 at 2020-10-14 17:59:21 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.9ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/en/user_roles?id=3" for 127.0.0.1 at 2020-10-14 17:59:45 +0400
+Processing by UserRolesController#destroy as JSON
+  Parameters: {"id"=>"3", "locale"=>"en"}
+Unpermitted parameters: :id, :format, :locale
+Completed 404 Not Found in 8ms (ActiveRecord: 5.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find UserRole without an ID):
+  
+app/services/account/user_role_management_service.rb:32:in `find_user_role'
+app/services/account/user_role_management_service.rb:24:in `destroy_user_role'
+app/controllers/user_roles_controller.rb:17:in `destroy'
+Started DELETE "/en/user_roles?id=4" for 127.0.0.1 at 2020-10-14 18:00:11 +0400
+Processing by UserRolesController#destroy as JSON
+  Parameters: {"id"=>"4", "locale"=>"en"}
+Unpermitted parameters: :id, :format, :locale
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find UserRole without an ID):
+  
+app/services/account/user_role_management_service.rb:32:in `find_user_role'
+app/services/account/user_role_management_service.rb:24:in `destroy_user_role'
+app/controllers/user_roles_controller.rb:17:in `destroy'
+Started DELETE "/en/user_roles?id=4" for 127.0.0.1 at 2020-10-14 18:00:32 +0400
+Processing by UserRolesController#destroy as JSON
+  Parameters: {"id"=>"4", "locale"=>"en"}
+Unpermitted parameters: :id, :format, :locale
+Completed 404 Not Found in 7ms (ActiveRecord: 3.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find UserRole without an ID):
+  
+app/services/account/user_role_management_service.rb:33:in `find_user_role'
+app/services/account/user_role_management_service.rb:25:in `destroy_user_role'
+app/controllers/user_roles_controller.rb:17:in `destroy'
+Started DELETE "/en/user_roles?id=4" for 127.0.0.1 at 2020-10-14 18:00:34 +0400
+Processing by UserRolesController#destroy as JSON
+  Parameters: {"id"=>"4", "locale"=>"en"}
+Unpermitted parameters: :id, :format, :locale
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find UserRole without an ID):
+  
+app/services/account/user_role_management_service.rb:33:in `find_user_role'
+app/services/account/user_role_management_service.rb:25:in `destroy_user_role'
+app/controllers/user_roles_controller.rb:17:in `destroy'
+Started DELETE "/en/user_roles?id=4" for 127.0.0.1 at 2020-10-14 18:00:50 +0400
+Processing by UserRolesController#destroy as JSON
+  Parameters: {"id"=>"4", "locale"=>"en"}
+Unpermitted parameters: :id, :format, :locale
+Completed 404 Not Found in 10763ms (ActiveRecord: 12.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find UserRole without an ID):
+  
+app/services/account/user_role_management_service.rb:34:in `find_user_role'
+app/services/account/user_role_management_service.rb:26:in `destroy_user_role'
+app/controllers/user_roles_controller.rb:17:in `destroy'
+Started DELETE "/en/user_roles?id=4" for 127.0.0.1 at 2020-10-14 18:01:20 +0400
+Processing by UserRolesController#destroy as JSON
+  Parameters: {"id"=>"4", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserRole Load (0.6ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:34
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_roles" WHERE "user_roles"."user_account_id" = $1[0m  [["user_account_id", 51]]
+  ↳ app/services/account/user_role_management_service.rb:39
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/user_role_management_service.rb:45
+  [1m[36mUserRole Destroy (0.9ms)[0m  [1m[31mDELETE FROM "user_roles" WHERE "user_roles"."id" = $1[0m  [["id", 4]]
+  ↳ app/services/account/user_role_management_service.rb:45
+  [1m[35m (36.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/user_role_management_service.rb:45
+Completed 404 Not Found in 2771ms (Views: 0.5ms | ActiveRecord: 51.9ms)
+
+
+Started DELETE "/en/user_roles?id=4" for 127.0.0.1 at 2020-10-14 18:01:26 +0400
+Processing by UserRolesController#destroy as JSON
+  Parameters: {"id"=>"4", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserRole Load (0.8ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:34
+Completed 404 Not Found in 5600ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find UserRole with 'id'=4):
+  
+app/services/account/user_role_management_service.rb:34:in `find_user_role'
+app/services/account/user_role_management_service.rb:26:in `destroy_user_role'
+app/controllers/user_roles_controller.rb:17:in `destroy'
+  [1m[36mUserRole Load (0.6ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUserRole Load (0.8ms)[0m  [1m[34mSELECT "user_roles".* FROM "user_roles"[0m
+  [1m[36mUserRole Load (0.7ms)[0m  [1m[34mSELECT "user_roles".* FROM "user_roles"[0m
+Started GET "/en/users/list" for 127.0.0.1 at 2020-10-14 18:03:20 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 35ms (Views: 0.2ms | ActiveRecord: 8.5ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUserRole Create (1.0ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 51], ["role_group_id", 4]]
+  [1m[35m (23.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/en/users/list" for 127.0.0.1 at 2020-10-14 18:04:33 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/en/user_roles?id=5" for 127.0.0.1 at 2020-10-14 18:04:48 +0400
+Processing by UserRolesController#destroy as JSON
+  Parameters: {"id"=>"5", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserRole Load (1.0ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:34
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_roles" WHERE "user_roles"."user_account_id" = $1[0m  [["user_account_id", 51]]
+  ↳ app/services/account/user_role_management_service.rb:39
+  [1m[36mCACHE UserRole Load (0.0ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:34
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_roles" WHERE "user_roles"."user_account_id" = $1[0m  [["user_account_id", 51]]
+  ↳ app/services/account/user_role_management_service.rb:39
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/user_role_management_service.rb:45
+  [1m[36mUserRole Destroy (0.7ms)[0m  [1m[31mDELETE FROM "user_roles" WHERE "user_roles"."id" = $1[0m  [["id", 5]]
+  ↳ app/services/account/user_role_management_service.rb:45
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/user_role_management_service.rb:45
+Completed 404 Not Found in 23945ms (Views: 0.5ms | ActiveRecord: 5.6ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.5ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUserRole Create (1.3ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 51], ["role_group_id", 4]]
+  [1m[35m (36.7ms)[0m  [1m[35mCOMMIT[0m
+Started DELETE "/en/user_roles?id=6" for 127.0.0.1 at 2020-10-14 18:05:48 +0400
+Processing by UserRolesController#destroy as JSON
+  Parameters: {"id"=>"6", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserRole Load (0.8ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:34
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_roles" WHERE "user_roles"."user_account_id" = $1[0m  [["user_account_id", 51]]
+  ↳ app/services/account/user_role_management_service.rb:39
+Completed 404 Not Found in 3080ms (Views: 0.8ms | ActiveRecord: 14.2ms)
+
+
+  [1m[36mRoleGroup Load (0.9ms)[0m  [1m[34mSELECT "role_groups".* FROM "role_groups"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.7ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUserRole Create (1.2ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 51], ["role_group_id", 5]]
+  [1m[35m (34.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/en/users/list" for 127.0.0.1 at 2020-10-14 18:07:21 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.8ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 57ms (Views: 0.3ms | ActiveRecord: 9.2ms)
+
+
+  [1m[36mUserRole Load (0.7ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRole Load (0.7ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserRole Destroy (0.8ms)[0m  [1m[31mDELETE FROM "user_roles" WHERE "user_roles"."id" = $1[0m  [["id", 7]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/en/users/list" for 127.0.0.1 at 2020-10-14 18:10:21 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 29ms (Views: 0.2ms | ActiveRecord: 8.2ms)
+
+
+Started POST "/en/user_roles?user_account_id=51&role_group_id=4" for 127.0.0.1 at 2020-10-14 18:10:34 +0400
+Processing by UserRolesController#create as JSON
+  Parameters: {"user_account_id"=>"51", "role_group_id"=>"4", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:51
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:57
+  [1m[36mUserRole Load (0.5ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 ORDER BY "user_roles"."id" ASC LIMIT $2[0m  [["user_account_id", 51], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:63
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/user_role_management_service.rb:65
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:65
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:65
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/user_role_management_service.rb:65
+Completed 201 Created in 3390ms (Views: 0.2ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/en/users/list" for 127.0.0.1 at 2020-10-14 18:10:42 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.7ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/en/user_roles?user_account_id=51&role_group_id=5" for 127.0.0.1 at 2020-10-14 18:10:57 +0400
+Processing by UserRolesController#create as JSON
+  Parameters: {"user_account_id"=>"51", "role_group_id"=>"5", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:51
+  [1m[36mRoleGroup Load (0.7ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:57
+  [1m[36mUserRole Load (0.9ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 ORDER BY "user_roles"."id" ASC LIMIT $2[0m  [["user_account_id", 51], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:63
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/user_role_management_service.rb:65
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:65
+  [1m[36mRoleGroup Load (0.8ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:65
+  [1m[36mUserRole Update (1.3ms)[0m  [1m[33mUPDATE "user_roles" SET "role_group_id" = $1 WHERE "user_roles"."id" = $2[0m  [["role_group_id", 5], ["id", 6]]
+  ↳ app/services/account/user_role_management_service.rb:65
+  [1m[35m (36.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/user_role_management_service.rb:65
+Completed 201 Created in 2205ms (Views: 0.5ms | ActiveRecord: 42.7ms)
+
+
+Started GET "/en/users/list" for 127.0.0.1 at 2020-10-14 18:11:09 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.7ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/en/role_groups?id=4" for 127.0.0.1 at 2020-10-14 18:13:04 +0400
+Processing by RoleGroupsController#destroy as JSON
+  Parameters: {"id"=>"4", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:63
+  [1m[36mUserRole Load (0.2ms)[0m  [1m[34mSELECT "user_roles".* FROM "user_roles" WHERE "user_roles"."role_group_id" = $1[0m  [["role_group_id", 4]]
+  ↳ app/services/roles/role_management_service.rb:51
+Completed 404 Not Found in 21ms (Views: 0.2ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-14 18:17:09 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-14 18:17:09 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-14 18:17:09 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-14 18:17:09 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-14 18:17:10 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-14 18:17:10 +0400

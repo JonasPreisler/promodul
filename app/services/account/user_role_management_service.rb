@@ -40,6 +40,7 @@ module Account
     end
 
     def destroy
+      return if errors.any?
       @user_role.destroy
       @errors << fill_errors(@user_role) if @user_role.errors.any?
     end
@@ -58,7 +59,8 @@ module Account
 
     def create_user_role
       return if errors.any?
-      @user_role = UserRole.where(user_account_id: @user.id, role_group_id: @role_group.id).first_or_initialize
+      @user_role = UserRole.where(user_account_id: @user.id).first_or_initialize
+      @user_role.role_group_id =  @role_group.id
       @user_role.save
       @errors << fill_errors(@user_role) if @user_role.errors.any?
     end

@@ -5952,7 +5952,7 @@
       "post": {
         "summary": "Create User Role",
         "tags": [
-          "Role Management"
+          "Users"
         ],
         "consumes": [
           "application/json"
@@ -6007,6 +6007,131 @@
           },
           "404": {
             "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "delete user role",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/{locale}/users/list": {
+      "get": {
+        "summary": "Get Suppliers list",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "users": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "active": {
+                        "type": "boolean"
+                      },
+                      "phone_number": {
+                        "type": "string"
+                      },
+                      "username": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "role_group_id": {
+                        "type": "integer"
+                      },
+                      "user_role_id": {
+                        "type": "integer"
+                      },
+                      "role_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
           }
         }
       }

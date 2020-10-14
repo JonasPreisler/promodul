@@ -89,6 +89,8 @@ Rails.application.routes.draw do
       get 'role_groups/list', to: 'role_groups#list'
 
       resource :user_roles
+
+      get 'users/list', to: 'users#list'
     end
   end
 end

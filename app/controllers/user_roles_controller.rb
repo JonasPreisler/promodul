@@ -21,6 +21,6 @@ class UserRolesController < ApplicationController
   private
 
   def user_role_params
-    params.permit(:user_account_id, :role_group_id)
+    params.permit(:id, :user_account_id, :role_group_id)
   end
 end
