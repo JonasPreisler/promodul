@@ -9965,3 +9965,113 @@ Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10
 Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-14 18:17:09 +0400
 Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-14 18:17:10 +0400
 Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-14 18:17:10 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-14 18:25:41 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-14 18:25:41 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-14 18:25:41 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-14 18:25:41 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-14 18:25:41 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-14 18:25:41 +0400
+Started GET "/en/users/list" for 127.0.0.1 at 2020-10-14 18:29:06 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (2.0ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 30ms (Views: 0.3ms | ActiveRecord: 9.9ms)
+
+
+  [1m[36mRoleGroup Load (3.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.5ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductGroupPermission Load (1.3ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-15 19:21:48 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-15 19:21:48 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-15 19:21:48 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-15 19:21:48 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-15 19:21:48 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-15 19:21:48 +0400
+Started GET "/en/role_groups/get_role?id=1" for 127.0.0.1 at 2020-10-15 19:22:03 +0400
+Processing by RoleGroupsController#get_role as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mRoleGroup Load (0.7ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:80
+Completed 404 Not Found in 4560ms (ActiveRecord: 13.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find RoleGroup with 'id'=1):
+  
+app/services/roles/role_management_service.rb:80:in `find_role'
+app/services/roles/role_management_service.rb:46:in `get_role'
+app/controllers/role_groups_controller.rb:23:in `get_role'
+Started GET "/en/role_groups/get_role?id=1" for 127.0.0.1 at 2020-10-15 19:22:38 +0400
+Processing by RoleGroupsController#get_role as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mRoleGroup Load (1.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:80
+Completed 404 Not Found in 1992ms (Views: 0.5ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/en/role_groups/get_role?id=4" for 127.0.0.1 at 2020-10-15 19:22:45 +0400
+Processing by RoleGroupsController#get_role as JSON
+  Parameters: {"id"=>"4", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mRoleGroup Load (0.8ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:80
+Completed 200 OK in 2805ms (Views: 0.6ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/en/role_groups/get_role?id=4" for 127.0.0.1 at 2020-10-15 19:23:18 +0400
+Processing by RoleGroupsController#get_role as JSON
+  Parameters: {"id"=>"4", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mRoleGroup Load (0.7ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:80
+  [1m[36mProductGroupPermission Load (0.6ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mProductTypePermission Load (0.4ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mProductImportPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mProductCatalogPermission Load (0.6ms)[0m  [1m[34mSELECT  "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mSuppliersPermission Load (0.4ms)[0m  [1m[34mSELECT  "suppliers_permissions".* FROM "suppliers_permissions" WHERE "suppliers_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mCompanyPermission Load (0.4ms)[0m  [1m[34mSELECT  "company_permissions".* FROM "company_permissions" WHERE "company_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mSystemDataPermission Load (0.3ms)[0m  [1m[34mSELECT  "system_data_permissions".* FROM "system_data_permissions" WHERE "system_data_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mRoleManagementPermission Load (0.4ms)[0m  [1m[34mSELECT  "role_management_permissions".* FROM "role_management_permissions" WHERE "role_management_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+Completed 200 OK in 2768ms (Views: 0.5ms | ActiveRecord: 45.6ms)
+
+
+Started GET "/en/role_groups/get_role?id=4" for 127.0.0.1 at 2020-10-15 19:45:24 +0400
+Processing by RoleGroupsController#get_role as JSON
+  Parameters: {"id"=>"4", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mRoleGroup Load (0.5ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:80
+  [1m[36mProductGroupPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mProductTypePermission Load (0.3ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mProductImportPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mProductCatalogPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mSuppliersPermission Load (0.3ms)[0m  [1m[34mSELECT  "suppliers_permissions".* FROM "suppliers_permissions" WHERE "suppliers_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mCompanyPermission Load (0.4ms)[0m  [1m[34mSELECT  "company_permissions".* FROM "company_permissions" WHERE "company_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mSystemDataPermission Load (0.4ms)[0m  [1m[34mSELECT  "system_data_permissions".* FROM "system_data_permissions" WHERE "system_data_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mRoleManagementPermission Load (0.5ms)[0m  [1m[34mSELECT  "role_management_permissions".* FROM "role_management_permissions" WHERE "role_management_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 4], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+Completed 200 OK in 130ms (Views: 0.6ms | ActiveRecord: 36.5ms)
+
+

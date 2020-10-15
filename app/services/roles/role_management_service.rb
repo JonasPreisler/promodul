@@ -18,6 +18,19 @@ module Roles
       { roles: @role_group.as_json(only: [:id, :name, :updated_at]) }
     end
 
+    def get_role_json_view
+      { role: @role_group.as_json(only: [:name], include: {
+                                                 product_group_permission:    { only: [:id, :show_data, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
+                                                 product_type_permission:     { only: [:id, :show_data, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
+                                                 product_import_permission:   { only: [:id, :show_data, :import] },
+                                                 product_catalog_permission:  { only: [:id, :show_data, :read_data, :create_data, :edit_data, :set_price_data, :delete_record] },
+                                                 suppliers_permission:        { only: [:id, :show_data, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
+                                                 company_permission:          { only: [:id, :show_data, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
+                                                 system_data_permission:      { only: [:id, :show_data, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
+                                                 role_management_permission:  { only: [:id, :show_data, :read_data, :create_data, :edit_data, :activate_data, :delete_record]}
+                                                  })}
+    end
+
     def create_role
       @role_group = RoleGroup.new(@params)
       @role_group.id_name = @params[:name].downcase.parameterize(separator: '_')
@@ -27,6 +40,10 @@ module Roles
 
     def list
       @role_group = RoleGroup.all
+    end
+
+    def get_role
+      find_role
     end
 
     def update
@@ -60,7 +77,7 @@ module Roles
     end
 
     def find_role
-      @role_group = RoleGroup.find(params[:id])
+      @role_group = RoleGroup.find_by_id(params[:id])
       fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @role_group
     end
   end

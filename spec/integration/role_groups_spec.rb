@@ -340,62 +340,62 @@ describe 'SubCategory', type: :request do
     end
   end
 
-  #path '/{locale}/departments/sub_department_list' do
-  #  get 'Returns sub companies' do
-  #    tags 'Company'
-  #    consumes 'application/json'
-  #
-  #    parameter({
-  #                  :in => :header,
-  #                  :type => :string,
-  #                  :name => :Authorization,
-  #                  :required => true,
-  #                  :description => 'Client token'
-  #              })
-  #
-  #    parameter name: :locale, in: :path, type: :string, required: true, default: "en"
-  #    parameter name: :parent_id, in: :query, type: :integer, required: true
-  #
-  #    response '200', 'OK' do
-  #      schema type: :object,
-  #             properties: {
-  #                 sub_departments: {
-  #                     type: :array,
-  #                     items: {
-  #                         properties: {
-  #                             id: {type: :integer},
-  #                             name: {type: :string},
-  #                             description:  { type: :string },
-  #                             address:      { type: :string },
-  #                             phone_number: { type: :string },
-  #                             parent_id:    { type: :integer },
-  #                             country: {
-  #                                 type: :object,
-  #                                 properties: {
-  #                                     name: { type: :string }
-  #                                 }
-  #                             },
-  #                             city:    {
-  #                                 type: :object,
-  #                                 properties: {
-  #                                     name: { type: :object }
-  #                                 }
-  #                             }
-  #                         }
-  #                     }
-  #                 }
-  #             }
-  #
-  #      run_test!
-  #    end
-  #
-  #    response '404', 'Not found' do
-  #      schema type: :object,
-  #             properties: {}
-  #      run_test!
-  #    end
-  #
-  #  end
-  #end
+  path '/{locale}/role_groups/get_role' do
+    get 'Returns Role' do
+      tags 'Role Management'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      parameter name: :id, in: :query, type: :integer, required: true
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   sub_departments: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               id: {type: :integer},
+                               name: {type: :string},
+                               description:  { type: :string },
+                               address:      { type: :string },
+                               phone_number: { type: :string },
+                               parent_id:    { type: :integer },
+                               country: {
+                                   type: :object,
+                                   properties: {
+                                       name: { type: :string }
+                                   }
+                               },
+                               city:    {
+                                   type: :object,
+                                   properties: {
+                                       name: { type: :object }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+
+        run_test!
+      end
+
+      response '404', 'Not found' do
+        schema type: :object,
+               properties: {}
+        run_test!
+      end
+
+    end
+  end
 
 end
