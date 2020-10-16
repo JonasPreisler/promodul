@@ -3,7 +3,7 @@ class SettingsController < ApplicationController
   include ControllerResponse
 
   #ToDO: Need remove after authorization will works
-  skip_before_action :validate_authentication
+  #skip_before_action :validate_authentication
 
   def country
     service = Settings::CountryAndCityService.new(country_params)

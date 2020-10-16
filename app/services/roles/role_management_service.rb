@@ -39,6 +39,7 @@ module Roles
     end
 
     def list
+      binding.pry
       @role_group = RoleGroup.all
     end
 

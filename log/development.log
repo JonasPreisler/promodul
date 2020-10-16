@@ -10075,3 +10075,820 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 130ms (Views: 0.6ms | ActiveRecord: 36.5ms)
 
 
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-15 19:46:18 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-15 19:46:18 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-15 19:46:18 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-15 19:46:18 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-15 19:46:19 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-15 19:46:19 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-16 16:37:19 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-16 16:37:19 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-16 16:37:19 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-16 16:37:19 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-16 16:37:20 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-16 16:37:20 +0400
+Started GET "/en/role_groups/list" for 127.0.0.1 at 2020-10-16 17:11:24 +0400
+Processing by RoleGroupsController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mRoleGroup Load (0.7ms)[0m  [1m[34mSELECT "role_groups".* FROM "role_groups"[0m
+  ↳ app/services/roles/role_management_service.rb:18
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/en/role_groups/list" for 127.0.0.1 at 2020-10-16 17:12:00 +0400
+Processing by RoleGroupsController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT "role_groups".* FROM "role_groups"[0m
+  ↳ app/services/roles/role_management_service.rb:18
+Completed 200 OK in 22233ms (Views: 0.2ms | ActiveRecord: 4.3ms)
+
+
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts"[0m
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 17:13:18 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "bukabuka"], ["phone_number", "bukabuka"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+  [1m[36mLockingType Load (2.0ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:38
+  [1m[36mCACHE LockingType Load (0.0ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:152
+Completed 401 Unauthorized in 116ms (Views: 0.2ms | ActiveRecord: 10.4ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 17:13:28 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "bukabuka"], ["phone_number", "bukabuka"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+  [1m[36mLockingType Load (0.4ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:38
+  [1m[36mCACHE LockingType Load (0.0ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:152
+Completed 401 Unauthorized in 6ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (35.8ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "LB5y7mABpyJ6Bvnz7qgs"], ["crypted_password", "$2a$10$PVAxXAlEWId1FFX0WipLjuFWBhQSzP.1ODkbTupnF8EUHLRUsoySa"], ["updated_at", "2020-10-16 13:14:02.018338"], ["id", 9]]
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.5ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "1fKUX6a9zxUJPfTGHTHZ"], ["crypted_password", "$2a$10$FJgLecPsNcrZpPUlQMIxLu6n8JvQX3p3rZGckYH/.7Cl958ewOrsm"], ["updated_at", "2020-10-16 13:14:02.125944"], ["id", 16]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "SQa8F8e5RzEdgLtzu5Nx"], ["crypted_password", "$2a$10$XiaGWuVHWJ/N2MnzXyGY5.6XXY.1QL/40o8ura1P1kD2RGetf7COC"], ["updated_at", "2020-10-16 13:14:02.188552"], ["id", 52]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "N9zc_2HVC1ADaNQdjvN_"], ["crypted_password", "$2a$10$/fU5xNxvWg7DpCu9.HjSru6Wjz8/mvL.92QXtCYevRH5aGv0JpD3K"], ["updated_at", "2020-10-16 13:14:02.242446"], ["id", 33]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "xBRCd-oHwXd6ehBcsnxf"], ["crypted_password", "$2a$10$KIlVr6ImIAFPR/0fRAriye8fUGNRi0BSsElzuQO9ITg7puPIMpdhi"], ["updated_at", "2020-10-16 13:14:02.295692"], ["id", 38]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "zUNdBNxHyQPTGVuEBpe6"], ["crypted_password", "$2a$10$/QAqsIC5O24jyRkvVlH.cOtdgJZsAc7z7uEin0rq8jeBAkT9YQ6OC"], ["updated_at", "2020-10-16 13:14:02.349776"], ["id", 40]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "pEZ7DhscV6gC2zsjGbTs"], ["crypted_password", "$2a$10$jO6uiuHVrlc0SIdLo8I6furOMguFInRq3kMB.1aI28i7EVLUWXkqy"], ["updated_at", "2020-10-16 13:14:02.403257"], ["id", 39]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "7s_5xb_NexmWg79fhT9n"], ["crypted_password", "$2a$10$POCifZqYeyoZJQTApYp5T.XhzDx9Oplz2C1gJm7ebTKh.mWYOQtk2"], ["updated_at", "2020-10-16 13:14:02.457652"], ["id", 41]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.3ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "EXyhxq_YE8JyaTAyjsB6"], ["crypted_password", "$2a$10$YAZCaP3VKcrxR33pY6SojeXW6J5PFVMojETVwzWat34UwnrpVt1r2"], ["updated_at", "2020-10-16 13:14:02.511504"], ["id", 43]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.6ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "a9yjtraaVsnLLWDzCc4z"], ["crypted_password", "$2a$10$NiM3AMz2kCM9GW5Hb7ZMieXQzdYnnBWYY0CucNNvNhMeqA0JG/aMS"], ["updated_at", "2020-10-16 13:14:02.565024"], ["id", 44]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.3ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "aXmzxxPUMJg2ZvTv5sqY"], ["crypted_password", "$2a$10$Zi8jJ4ckcCQAEpRuc0QviOqukD4yZPhVgiHVLeAzdo7Ho/cziA.QS"], ["updated_at", "2020-10-16 13:14:02.618153"], ["id", 45]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.3ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "Yf2p-Dma6X2E1L2cs33L"], ["crypted_password", "$2a$10$evNVXPY4rfjuHAtwAIDs3e1tfi.hGaQwMHsEPIZ1mMDb8mHVwqy5S"], ["updated_at", "2020-10-16 13:14:02.673205"], ["id", 46]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "y48ScEpBWurD6yYtdkKo"], ["crypted_password", "$2a$10$JT6H8xJ0naMFRzgB4kwDGOB/ByPoq7Rkq9UmV9Zc/zHuNtVmeWBAi"], ["updated_at", "2020-10-16 13:14:02.726211"], ["id", 47]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "Ki78SmJeepCyT8aeGsC-"], ["crypted_password", "$2a$10$fHkwbP6nk5FaC2OG6exmX.fgnS7F.HJkzZ8f2oOqVNaoTrlPReSN."], ["updated_at", "2020-10-16 13:14:02.779195"], ["id", 48]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "Fz47dMChdj-BZLsb5AUt"], ["crypted_password", "$2a$10$gFor7jdqIfEaa/a6suHyaeZBWEE0Pmyc4tiCPp5FykcGycozJxtEq"], ["updated_at", "2020-10-16 13:14:02.832581"], ["id", 49]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "1r7wb26zAWvFUAoayLe9"], ["crypted_password", "$2a$10$aJm9E6NVcmvw1tFZRH2gguDmUxwSkjDN3qN4ieegi5FCQ4WPDx8hi"], ["updated_at", "2020-10-16 13:14:02.885460"], ["id", 50]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.3ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "FnFM9zhvvrM8SzARXopj"], ["crypted_password", "$2a$10$vxPhhHXeszr94j0MZLwqcO7DsNf007e5dnvWnJgEJC/bmu1aA1UC."], ["updated_at", "2020-10-16 13:14:02.938526"], ["id", 51]]
+  [1m[35m (152.3ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 17:14:21 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "bukabuka"], ["phone_number", "bukabuka"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+  [1m[36mLockingType Load (0.2ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:38
+  [1m[36mCACHE LockingType Load (0.0ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:152
+Completed 401 Unauthorized in 4ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 17:14:23 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "bukabuka"], ["phone_number", "bukabuka"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+  [1m[36mLockingType Load (0.3ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:38
+  [1m[36mCACHE LockingType Load (0.0ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:152
+Completed 401 Unauthorized in 6ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 17:14:23 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "bukabuka"], ["phone_number", "bukabuka"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+  [1m[36mLockingType Load (0.3ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:38
+  [1m[36mCACHE LockingType Load (0.0ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:152
+Completed 401 Unauthorized in 6ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "tbBQ-5Qxgc-AKDC-Wksz"], ["crypted_password", "$2a$10$SVTsgyzAAXvKWbYZBTmire3OZsgZJo2zEHAmXTpjiJ7kqxElfsAKe"], ["updated_at", "2020-10-16 13:15:11.702878"], ["id", 9]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "SiwViHE5EKss-TsY-A-z"], ["crypted_password", "$2a$10$euEiauZMSVIcd.OmNDdBzeJRsgZDrhIvpgYwoa1A6HxgUPcGzJrvO"], ["updated_at", "2020-10-16 13:15:11.761252"], ["id", 16]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.3ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "fwy3WwRQeNFow_ByESy2"], ["crypted_password", "$2a$10$PYI7zV6.hKvHeo3eqzdIP.hBXC9K5RZYH/.QTg/MmzXpNiWAP4/Oa"], ["updated_at", "2020-10-16 13:15:11.815045"], ["id", 52]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "5KzWaiysdwdhPN_4vcTT"], ["crypted_password", "$2a$10$S/aNg4SsT3WIo43MUan.X.6BR2KppSoiCEqxByXVZblAxSJs2QQXS"], ["updated_at", "2020-10-16 13:15:11.868545"], ["id", 33]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "uCM7dPmhTLsYv5T4g6G4"], ["crypted_password", "$2a$10$56nq/WrLlUfXtGbaA2LvP.5ZABtJK4ASPT0OGejOp/i2Vuj.jwcfa"], ["updated_at", "2020-10-16 13:15:11.921866"], ["id", 38]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "3hm-Aw25W-Sz2RAvip-H"], ["crypted_password", "$2a$10$IwhDV0dQVRDyZf47XdTiZ.voMrQs4oG0HQ/piQk7uNzpEEjBBWEna"], ["updated_at", "2020-10-16 13:15:11.974750"], ["id", 40]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "FZ7RJ4m3ApeodJCTGyRJ"], ["crypted_password", "$2a$10$uRwtqTLN8VAcZcfwZOCCvOY/BTIoT0LRxvIeLFKC86VAOs9ZZP9p."], ["updated_at", "2020-10-16 13:15:12.028750"], ["id", 39]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "pCswhzWBcpobZugrYpDS"], ["crypted_password", "$2a$10$QfST3poKhTcC3TKUOB1Mqufr8qVYuwMSG9hY1Q5EvDdIOufcm/2.C"], ["updated_at", "2020-10-16 13:15:12.081535"], ["id", 41]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "UiPRKUeCKXhtYytEmoX1"], ["crypted_password", "$2a$10$XM.ODvLpWFSB1auEW/wHI.kNNK1a9REkCORHZAA4T5jzvR9Vq9AAK"], ["updated_at", "2020-10-16 13:15:12.134603"], ["id", 43]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.3ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "KWx7XgQjDxe7PsmXXJWC"], ["crypted_password", "$2a$10$k8YNHHHezMSdt/uoH3KxZOfVHf9hZELguUzGFE1RD7GwtfX6zKSJ6"], ["updated_at", "2020-10-16 13:15:12.187414"], ["id", 44]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "1RM5pWqqzz9qgHhsegBZ"], ["crypted_password", "$2a$10$u5nWSobh02L1QCzwCfkdq.boeu6P7GrsVneSsIhJMQzE/MffcOY32"], ["updated_at", "2020-10-16 13:15:12.240435"], ["id", 45]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "5yFQmiShx69pGj9Fjyqz"], ["crypted_password", "$2a$10$tMBGy5xTF3I9QoC27GtcX.5.VU.Ny1aAgq9Xd4WN4.8Gg5noxSIGO"], ["updated_at", "2020-10-16 13:15:12.293305"], ["id", 46]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "TGMdg9aw25s59w-VaVN3"], ["crypted_password", "$2a$10$Eyj93J6ijvoPbx9XtFjCp.tXpaKLjGK3uzCUrawsuJ5gDlmN9vQBG"], ["updated_at", "2020-10-16 13:15:12.346360"], ["id", 47]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "pGoQ6kisniWoRj-9Bj-7"], ["crypted_password", "$2a$10$1zaUdGbr3YOlzKNHOkf69u0cYhYswsGXRg3EF0dJfuM33yBI6F81."], ["updated_at", "2020-10-16 13:15:12.399189"], ["id", 48]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.3ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "yzr3-EGyxx-mhdYQ6kzs"], ["crypted_password", "$2a$10$qmkSawcH2ZnxP5LhGhzWMO1SMMtWLN/Fd5wEF78jV2f0YlA2dDsEu"], ["updated_at", "2020-10-16 13:15:12.452005"], ["id", 49]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "KL_M8nhDN3jSqt-zGznK"], ["crypted_password", "$2a$10$iEjPkJCcGx1iLz2dzbxEAe.mlj/Vgrpxa1/MOO.BubTZ7SlPx8pOi"], ["updated_at", "2020-10-16 13:15:12.504761"], ["id", 50]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "A38RizyD1znM8eWxvPv8"], ["crypted_password", "$2a$10$tgmNafyTL5p6bddJyXeEtuR0o4BsfLqFxDrpQG1dPGCQccraRLXvi"], ["updated_at", "2020-10-16 13:15:12.557692"], ["id", 51]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 17:16:14 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "bukabuka"], ["phone_number", "bukabuka"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+  [1m[36mLockingType Load (0.2ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:38
+  [1m[36mCACHE LockingType Load (0.0ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:152
+Completed 401 Unauthorized in 77163ms (Views: 0.2ms | ActiveRecord: 8.7ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 17:18:44 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (1.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "bukabuka"], ["phone_number", "bukabuka"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+  [1m[36mLockingType Load (0.4ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:38
+  [1m[36mCACHE LockingType Load (0.0ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:152
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):9
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ (pry):10
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1[0m  [["username", "bukabuka"]]
+  ↳ app/services/auth/service.rb:125
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ (pry):12
+  [1m[36mCACHE UserAccount Load (0.1ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ (pry):13
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ (pry):14
+  [1m[36mUserAccount Update (37.1ms)[0m  [1m[33mUPDATE "user_accounts" SET "password" = $1 WHERE "user_accounts"."id" = $2[0m  [["password", "Qwerty12"], ["id", 16]]
+  ↳ (pry):14
+  [1m[36mUserAccount Load (1.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ (pry):15
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):15
+  [1m[36mUserAccount Update (0.5ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "qNzLijzJxJDaxRDKRexZ"], ["crypted_password", "$2a$10$qlNC1KSwNzpGB0VztN50ruVCusQbwePok10K3DiqyUpipZgZLpOEK"], ["updated_at", "2020-10-16 13:21:39.367468"], ["id", 16]]
+  ↳ (pry):15
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ (pry):15
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "bukabuka"], ["phone_number", "bukabuka"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+  [1m[36mLockingType Load (0.2ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:38
+  [1m[36mCACHE LockingType Load (0.0ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:152
+Completed 401 Unauthorized in 179114ms (Views: 0.2ms | ActiveRecord: 48.4ms)
+
+
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1[0m  [["username", "bukabuka"]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "salt" = $1, "crypted_password" = $2, "updated_at" = $3 WHERE "user_accounts"."id" = $4[0m  [["salt", "m-xq8a8VzVQhP8xGVUVC"], ["crypted_password", "$2a$10$rNl.o80cEisLwKkibRchCuCFJAdk5o4QN4rGxfvzu/hilgE88IA7u"], ["updated_at", "2020-10-16 13:22:05.715067"], ["id", 16]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 17:22:14 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "bukabuka"], ["phone_number", "bukabuka"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+  [1m[36mLockingType Load (0.1ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:38
+  [1m[36mCACHE LockingType Load (0.0ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:152
+Completed 401 Unauthorized in 8041ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 17:22:38 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mUserAccount Load (1.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ (pry):17
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "bukabuka"], ["phone_number", "bukabuka"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+  [1m[36mLockingType Load (0.7ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:38
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "bukabuka"], ["phone_number", "bukabuka"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+  [1m[36mCACHE LockingType Load (0.0ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:38
+  [1m[36mCACHE LockingType Load (0.0ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:152
+Completed 401 Unauthorized in 150047ms (Views: 0.3ms | ActiveRecord: 20.6ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 17:25:14 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "bukabuka"], ["phone_number", "bukabuka"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+Completed 401 Unauthorized in 7705ms (Views: 0.2ms | ActiveRecord: 7.2ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 17:26:40 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "bukabuka"], ["phone_number", "bukabuka"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "bukabuka"], ["phone_number", "bukabuka"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+Completed 401 Unauthorized in 29610ms (Views: 0.5ms | ActiveRecord: 7.6ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 17:27:50 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "blabla"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:162
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "bukabuka"], ["phone_number", "bukabuka"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+Completed 401 Unauthorized in 11833ms (Views: 0.6ms | ActiveRecord: 7.2ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 17:28:14 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "blabla"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:162
+Completed 401 Unauthorized in 10220ms (Views: 0.2ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 17:28:37 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "blabla"], ["LIMIT", 1]]
+  ↳ (pry):25
+  [1m[36mUserAccount Load (1.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ (pry):26
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "blabla"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:163
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "blabla"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:163
+Completed 401 Unauthorized in 42684ms (Views: 0.2ms | ActiveRecord: 6.5ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 17:29:24 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:163
+Completed 200 OK in 19227ms (Views: 0.2ms | ActiveRecord: 4.8ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 17:41:12 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:163
+Completed 200 OK in 10555ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/en/role_groups/list" for 127.0.0.1 at 2020-10-16 17:41:44 +0400
+Processing by RoleGroupsController#list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1[0m  [["user_account_id", 16]]
+  ↳ app/controllers/role_groups_controller.rb:15
+  [1m[36mRoleGroup Load (1.6ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):41
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):43
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ (pry):43
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ (pry):43
+  [1m[36mUserRole Create (2.7ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 16], ["role_group_id", 5]]
+  ↳ (pry):43
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ (pry):43
+Unpermitted parameters: :format, :locale
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT "role_groups".* FROM "role_groups"[0m
+  ↳ app/services/roles/role_management_service.rb:18
+Completed 200 OK in 477765ms (Views: 0.3ms | ActiveRecord: 28.5ms)
+
+
+Started GET "/en/role_groups/list" for 127.0.0.1 at 2020-10-16 17:49:46 +0400
+Processing by RoleGroupsController#list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.7ms)[0m  [1m[34mSELECT "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1[0m  [["user_account_id", 16]]
+  ↳ app/controllers/role_groups_controller.rb:15
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ (pry):49
+  [1m[36mProductGroupPermission Load (0.5ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ (pry):50
+Unpermitted parameters: :format, :locale
+  [1m[36mRoleGroup Load (1.2ms)[0m  [1m[34mSELECT "role_groups".* FROM "role_groups"[0m
+  ↳ app/services/roles/role_management_service.rb:18
+Completed 200 OK in 361783ms (Views: 0.7ms | ActiveRecord: 21.5ms)
+
+
+Started GET "/en/role_groups/list" for 127.0.0.1 at 2020-10-16 17:55:51 +0400
+Processing by RoleGroupsController#list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ (pry):72
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ (pry):75
+  [1m[36mProductGroupPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ (pry):84
+Unpermitted parameters: :format, :locale
+  [1m[36mRoleGroup Load (1.0ms)[0m  [1m[34mSELECT "role_groups".* FROM "role_groups"[0m
+  ↳ app/services/roles/role_management_service.rb:18
+Completed 200 OK in 688879ms (Views: 0.7ms | ActiveRecord: 22.6ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-16 18:18:20 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-16 18:18:20 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-16 18:18:20 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-16 18:18:20 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-16 18:18:21 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-16 18:18:21 +0400
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 18:18:31 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `current_account' for #<Account::CurrentUserService:0x00007f0220166448 @errors=[]>
+Did you mean?  current_user):
+  
+app/services/account/current_user_service.rb:33:in `current_user'
+app/controllers/users_controller.rb:10:in `current_user'
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 18:19:10 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 6110ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `bunding' for #<Account::CurrentUserService:0x00007f022c1b94c0 @errors=[]>
+Did you mean?  binding):
+  
+app/services/account/current_user_service.rb:33:in `current_user'
+app/controllers/users_controller.rb:11:in `current_user'
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 18:19:31 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 9401ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `current_account' for #<Account::CurrentUserService:0x0000562f48ba5e78 @errors=[]>
+Did you mean?  current_user):
+  
+app/services/account/current_user_service.rb:34:in `current_user'
+app/controllers/users_controller.rb:11:in `current_user'
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 18:19:48 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 14872ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `current_account' for #<Account::CurrentUserService:0x00007f02205b3460 @errors=[]>
+Did you mean?  current_user):
+  
+app/services/account/current_user_service.rb:34:in `current_user'
+app/controllers/users_controller.rb:11:in `current_user'
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 18:20:05 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 17761ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `current_account' for #<Account::CurrentUserService:0x00007f022c1cb1c0 @errors=[]>
+Did you mean?  current_user):
+  
+app/services/account/current_user_service.rb:34:in `current_user'
+app/controllers/users_controller.rb:11:in `current_user'
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 18:20:35 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Completed 500 Internal Server Error in 93998ms (ActiveRecord: 7.2ms)
+
+
+  
+NoMethodError (undefined method `current_account' for #<Account::CurrentUserService:0x0000562f472a6aa8 @errors=[]>
+Did you mean?  current_user):
+  
+app/services/account/current_user_service.rb:34:in `current_user'
+app/controllers/users_controller.rb:11:in `current_user'
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 18:22:11 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 18:22:28 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"sdcsdc", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"sdcsdc", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:163
+Completed 200 OK in 9983ms (Views: 0.2ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 18:22:59 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:14
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:14
+  [1m[36mProductGroupPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:14
+  [1m[36mProductTypePermission Load (0.5ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:14
+  [1m[36mProductImportPermission Load (0.5ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:14
+  [1m[36mProductCatalogPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:14
+Completed 500 Internal Server Error in 6163ms (ActiveRecord: 25.9ms)
+
+
+  
+NoMethodError (undefined method `supplier_permission' for #<RoleGroup:0x00007f022c6f9fe8>
+Did you mean?  suppliers_permission
+               suppliers_permission=):
+  
+app/services/account/current_user_service.rb:14:in `json_view'
+lib/controller_response.rb:30:in `respond_json_view'
+lib/controller_response.rb:43:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/users_controller.rb:12:in `current_user'
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 18:23:15 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:14
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:14
+  [1m[36mProductGroupPermission Load (0.2ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:14
+  [1m[36mProductTypePermission Load (0.2ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:14
+  [1m[36mProductImportPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:14
+  [1m[36mProductCatalogPermission Load (0.2ms)[0m  [1m[34mSELECT  "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:14
+  [1m[36mSuppliersPermission Load (0.4ms)[0m  [1m[34mSELECT  "suppliers_permissions".* FROM "suppliers_permissions" WHERE "suppliers_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:14
+  [1m[36mSystemDataPermission Load (0.4ms)[0m  [1m[34mSELECT  "system_data_permissions".* FROM "system_data_permissions" WHERE "system_data_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:14
+Completed 200 OK in 3574ms (Views: 0.4ms | ActiveRecord: 36.9ms)
+
+
+  [1m[36mUserAccount Load (37.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCustomer Load (0.9ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" ORDER BY "customers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCustomer Load (0.9ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."user_account_id" = $1[0m  [["user_account_id", 52]]
+  [1m[36mCustomer Load (1.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."user_account_id" = $1 ORDER BY "customers"."id" ASC LIMIT $2[0m  [["user_account_id", 52], ["LIMIT", 1]]
+  [1m[36mCustomer Load (0.9ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."user_account_id" = $1 ORDER BY "customers"."id" ASC LIMIT $2[0m  [["user_account_id", 52], ["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCustomer Load (0.7ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 52], ["LIMIT", 1]]
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 18:30:41 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mProductGroupPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mProductTypePermission Load (0.4ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mProductImportPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mProductCatalogPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mSuppliersPermission Load (0.3ms)[0m  [1m[34mSELECT  "suppliers_permissions".* FROM "suppliers_permissions" WHERE "suppliers_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mSystemDataPermission Load (0.3ms)[0m  [1m[34mSELECT  "system_data_permissions".* FROM "system_data_permissions" WHERE "system_data_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+Completed 200 OK in 5192ms (Views: 0.5ms | ActiveRecord: 43.3ms)
+
+
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 18:31:06 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCustomer Load (1.0ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mUserRole Load (0.9ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mRoleGroup Load (0.9ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mProductGroupPermission Load (0.5ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mProductTypePermission Load (0.5ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mProductImportPermission Load (0.5ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mProductCatalogPermission Load (0.6ms)[0m  [1m[34mSELECT  "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mSuppliersPermission Load (0.4ms)[0m  [1m[34mSELECT  "suppliers_permissions".* FROM "suppliers_permissions" WHERE "suppliers_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mSystemDataPermission Load (0.3ms)[0m  [1m[34mSELECT  "system_data_permissions".* FROM "system_data_permissions" WHERE "system_data_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+Completed 200 OK in 10130ms (Views: 0.5ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 18:32:40 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mProductGroupPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mProductTypePermission Load (0.3ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mProductImportPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mProductCatalogPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mSuppliersPermission Load (0.3ms)[0m  [1m[34mSELECT  "suppliers_permissions".* FROM "suppliers_permissions" WHERE "suppliers_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+  [1m[36mSystemDataPermission Load (0.3ms)[0m  [1m[34mSELECT  "system_data_permissions".* FROM "system_data_permissions" WHERE "system_data_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:16
+Completed 200 OK in 24203ms (Views: 0.4ms | ActiveRecord: 37.0ms)
+
+
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 18:34:01 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductGroupPermission Load (0.2ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductTypePermission Load (0.2ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductImportPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductCatalogPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mSuppliersPermission Load (0.2ms)[0m  [1m[34mSELECT  "suppliers_permissions".* FROM "suppliers_permissions" WHERE "suppliers_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mSystemDataPermission Load (0.4ms)[0m  [1m[34mSELECT  "system_data_permissions".* FROM "system_data_permissions" WHERE "system_data_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+Completed 200 OK in 4632ms (Views: 0.3ms | ActiveRecord: 38.3ms)
+
+
+  [1m[36mCompanyPermission Load (0.4ms)[0m  [1m[34mSELECT  "company_permissions".* FROM "company_permissions" ORDER BY "company_permissions"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleManagementPermission Load (0.6ms)[0m  [1m[34mSELECT  "role_management_permissions".* FROM "role_management_permissions" ORDER BY "role_management_permissions"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 18:36:59 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductGroupPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductTypePermission Load (0.3ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductImportPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductCatalogPermission Load (1.1ms)[0m  [1m[34mSELECT  "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mSuppliersPermission Load (0.4ms)[0m  [1m[34mSELECT  "suppliers_permissions".* FROM "suppliers_permissions" WHERE "suppliers_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mSystemDataPermission Load (0.3ms)[0m  [1m[34mSELECT  "system_data_permissions".* FROM "system_data_permissions" WHERE "system_data_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mCompanyPermission Load (0.3ms)[0m  [1m[34mSELECT  "company_permissions".* FROM "company_permissions" WHERE "company_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mRoleManagementPermission Load (0.4ms)[0m  [1m[34mSELECT  "role_management_permissions".* FROM "role_management_permissions" WHERE "role_management_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+Completed 200 OK in 5635ms (Views: 0.4ms | ActiveRecord: 45.3ms)
+
+
+  [1m[36mProductGroupPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" ORDER BY "product_group_permissions"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-16 18:47:37 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-16 18:47:37 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-16 18:47:37 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-16 18:47:37 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-16 18:47:37 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-16 18:47:37 +0400
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 18:47:49 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"sdcsdc", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"sdcsdc", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:163
+Completed 200 OK in 11473ms (Views: 0.2ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 18:48:23 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductGroupPermission Load (0.5ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductTypePermission Load (0.5ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductImportPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductCatalogPermission Load (0.5ms)[0m  [1m[34mSELECT  "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mSuppliersPermission Load (0.4ms)[0m  [1m[34mSELECT  "suppliers_permissions".* FROM "suppliers_permissions" WHERE "suppliers_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mSystemDataPermission Load (0.3ms)[0m  [1m[34mSELECT  "system_data_permissions".* FROM "system_data_permissions" WHERE "system_data_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mCompanyPermission Load (0.5ms)[0m  [1m[34mSELECT  "company_permissions".* FROM "company_permissions" WHERE "company_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mRoleManagementPermission Load (0.4ms)[0m  [1m[34mSELECT  "role_management_permissions".* FROM "role_management_permissions" WHERE "role_management_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+Completed 200 OK in 5334ms (Views: 0.4ms | ActiveRecord: 39.1ms)
+
+

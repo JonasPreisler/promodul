@@ -92,6 +92,8 @@ Rails.application.routes.draw do
       resource :user_roles
 
       get 'users/list', to: 'users#list'
+      get 'users/current_user', to: 'users#current_user'
+
     end
   end
 end

@@ -3,7 +3,13 @@ class UsersController < ApplicationController
   include ControllerResponse
 
   #ToDO: Need remove after authorization will works
-  skip_before_action :validate_authentication
+  #skip_before_action :validate_authentication
+
+  def current_user
+    service = Account::CurrentUserService.new(current_account)
+    service.current_user
+    rest_respond_service service
+  end
 
   def list
     service = Account::UsersService.new(users_params)
