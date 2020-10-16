@@ -27,7 +27,8 @@ module Roles
                                                  suppliers_permission:        { only: [:id, :show_data, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
                                                  company_permission:          { only: [:id, :show_data, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
                                                  system_data_permission:      { only: [:id, :show_data, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
-                                                 role_management_permission:  { only: [:id, :show_data, :read_data, :create_data, :edit_data, :activate_data, :delete_record]}
+                                                 role_management_permission:  { only: [:id, :show_data, :read_data, :create_data, :edit_data, :activate_data, :delete_record]},
+                                                 user_management_permission:  { only: [:id, :show_data, :read_data, :manage_data, :activate_data]}
                                                   })}
     end
 
@@ -39,7 +40,6 @@ module Roles
     end
 
     def list
-      binding.pry
       @role_group = RoleGroup.all
     end
 

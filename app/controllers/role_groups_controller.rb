@@ -46,6 +46,7 @@ class RoleGroupsController < ApplicationController
                   suppliers_permission_attributes:       {},
                   company_permission_attributes:         {},
                   system_data_permission_attributes:     {},
-                  role_management_permission_attributes: {})
+                  role_management_permission_attributes: {},
+                  user_management_permission: {})
   end
 end

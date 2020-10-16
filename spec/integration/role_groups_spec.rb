@@ -243,6 +243,16 @@ describe 'SubCategory', type: :request do
                       activate_data:   { type: :boolean },
                       delete_record:   { type: :boolean }
                   }
+              },
+              user_management_permission_attributes: {
+                  type: :object,
+                  properties: {
+                      id:              { type: :integer },
+                      show_data:       { type: :boolean },
+                      read_data:       { type: :boolean },
+                      manage_data:     { type: :boolean },
+                      activate_data:   { type: :boolean }
+                  }
               }
           }
       }

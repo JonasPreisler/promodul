@@ -26,4 +26,7 @@ class RoleGroup < ApplicationRecord
 
   has_one :role_management_permission, dependent: :destroy
   accepts_nested_attributes_for :role_management_permission, allow_destroy: true
+
+  has_one :user_management_permission, dependent: :destroy
+  accepts_nested_attributes_for :user_management_permission, allow_destroy: true
 end

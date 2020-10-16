@@ -25,6 +25,7 @@ module Account
                                                    system_data_permission: { only: [:show_data, :read_data, :create_data, :edit_data, :acivate_data, :delete_record] },
                                                    company_permission: { only: [:show_data, :read_data, :create_data, :edit_data, :acivate_data, :delete_record] },
                                                    role_management_permission: { only: [:show_data, :read_data, :create_data, :edit_data, :acivate_data, :delete_record] },
+                                                   user_management_permission: { only: [:show_data, :read_data, :manage_data, :acivate_data] }
 
                                                }
                                              }
@@ -34,7 +35,6 @@ module Account
     end
 
     def current_user
-      binding.pry
       @user = @current_user
     end
   end

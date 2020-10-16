@@ -10892,3 +10892,186 @@ Processing by UsersController#current_user as JSON
 Completed 200 OK in 5334ms (Views: 0.4ms | ActiveRecord: 39.1ms)
 
 
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUserManagementPermissions (20201016192055)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "user_management_permissions" ("id" bigserial primary key, "role_group_id" bigint NOT NULL, "show_data" boolean DEFAULT FALSE, "read_data" boolean DEFAULT FALSE, "manage_data" boolean DEFAULT FALSE, "activate_data" boolean DEFAULT FALSE, CONSTRAINT "fk_rails_a18522f10d"
+FOREIGN KEY ("role_group_id")
+  REFERENCES "role_groups" ("id")
+)[0m
+  ↳ db/migrate/20201016192055_create_user_management_permissions.rb:3
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_user_management_permissions_on_role_group_id" ON "user_management_permissions"  ("role_group_id")[0m
+  ↳ db/migrate/20201016192055_create_user_management_permissions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201016192055"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserManagementPermission Load (1.4ms)[0m  [1m[34mSELECT "user_management_permissions".* FROM "user_management_permissions"[0m
+  [1m[36mRoleGroup Load (2.5ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.8ms)[0m  [1m[34mSELECT "role_groups".* FROM "role_groups"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUserManagementPermission Create (2.4ms)[0m  [1m[32mINSERT INTO "user_management_permissions" ("role_group_id") VALUES ($1) RETURNING "id"[0m  [["role_group_id", 5]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUserRole Load (0.9ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUserRole Create (0.6ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 16], ["role_group_id", 5]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-16 23:44:34 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-16 23:44:34 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-16 23:44:34 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-16 23:44:34 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-16 23:44:34 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-16 23:44:34 +0400
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 23:46:20 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"sdcsd", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"sdcsd", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 11]]
+  ↳ /home/buka/.rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+Method: auth_current_user!, Error: undefined method `id' for #<UserAccount::ActiveRecord_Relation:0x0000562399155eb0>
+Did you mean?  ids
+Completed 500 Internal Server Error in 141ms (Views: 0.2ms | ActiveRecord: 7.1ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2020-10-16 23:46:47 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"sdcsd", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"sdcsd", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:158
+Completed 200 OK in 103ms (Views: 0.2ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 23:47:06 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductGroupPermission Load (0.6ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductTypePermission Load (0.7ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductImportPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductCatalogPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mSuppliersPermission Load (0.3ms)[0m  [1m[34mSELECT  "suppliers_permissions".* FROM "suppliers_permissions" WHERE "suppliers_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mSystemDataPermission Load (0.4ms)[0m  [1m[34mSELECT  "system_data_permissions".* FROM "system_data_permissions" WHERE "system_data_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mCompanyPermission Load (0.3ms)[0m  [1m[34mSELECT  "company_permissions".* FROM "company_permissions" WHERE "company_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mRoleManagementPermission Load (0.3ms)[0m  [1m[34mSELECT  "role_management_permissions".* FROM "role_management_permissions" WHERE "role_management_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+Completed 200 OK in 5144ms (Views: 0.3ms | ActiveRecord: 37.5ms)
+
+
+  [1m[36mUserRole Load (1.5ms)[0m  [1m[34mSELECT "user_roles".* FROM "user_roles"[0m
+  [1m[36mUserRole Load (0.7ms)[0m  [1m[34mSELECT "user_roles".* FROM "user_roles"[0m
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1[0m  [["username", "bukabuka"]]
+  [1m[36mRoleGroup Load (0.6ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUserManagementPermission Load (4.6ms)[0m  [1m[34mSELECT "user_management_permissions".* FROM "user_management_permissions"[0m
+  [1m[36mRoleGroup Load (0.9ms)[0m  [1m[34mSELECT "role_groups".* FROM "role_groups"[0m
+  [1m[36mUserRole Load (0.9ms)[0m  [1m[34mSELECT "user_roles".* FROM "user_roles"[0m
+  [1m[36mUserRole Load (0.7ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserRole Destroy (38.8ms)[0m  [1m[31mDELETE FROM "user_roles" WHERE "user_roles"."id" = $1[0m  [["id", 9]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUserRole Load (1.0ms)[0m  [1m[34mSELECT "user_roles".* FROM "user_roles"[0m
+  [1m[36mUserManagementPermission Load (0.9ms)[0m  [1m[34mSELECT "user_management_permissions".* FROM "user_management_permissions"[0m
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 23:55:03 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.5ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductGroupPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductTypePermission Load (0.4ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductImportPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductCatalogPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mSuppliersPermission Load (0.4ms)[0m  [1m[34mSELECT  "suppliers_permissions".* FROM "suppliers_permissions" WHERE "suppliers_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mSystemDataPermission Load (0.4ms)[0m  [1m[34mSELECT  "system_data_permissions".* FROM "system_data_permissions" WHERE "system_data_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mCompanyPermission Load (0.4ms)[0m  [1m[34mSELECT  "company_permissions".* FROM "company_permissions" WHERE "company_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mRoleManagementPermission Load (0.3ms)[0m  [1m[34mSELECT  "role_management_permissions".* FROM "role_management_permissions" WHERE "role_management_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mUserManagementPermission Load (0.2ms)[0m  [1m[34mSELECT  "user_management_permissions".* FROM "user_management_permissions" WHERE "user_management_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+Completed 200 OK in 3363ms (Views: 0.5ms | ActiveRecord: 46.7ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-16 23:58:11 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-16 23:58:11 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-16 23:58:11 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-16 23:58:11 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-16 23:58:12 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-16 23:58:12 +0400
+Started GET "/en/users/current_user" for 127.0.0.1 at 2020-10-16 23:58:31 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductGroupPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductTypePermission Load (0.6ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductImportPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mProductCatalogPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mSuppliersPermission Load (0.5ms)[0m  [1m[34mSELECT  "suppliers_permissions".* FROM "suppliers_permissions" WHERE "suppliers_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mSystemDataPermission Load (0.5ms)[0m  [1m[34mSELECT  "system_data_permissions".* FROM "system_data_permissions" WHERE "system_data_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mCompanyPermission Load (0.6ms)[0m  [1m[34mSELECT  "company_permissions".* FROM "company_permissions" WHERE "company_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mRoleManagementPermission Load (0.3ms)[0m  [1m[34mSELECT  "role_management_permissions".* FROM "role_management_permissions" WHERE "role_management_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mUserManagementPermission Load (0.3ms)[0m  [1m[34mSELECT  "user_management_permissions".* FROM "user_management_permissions" WHERE "user_management_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+Completed 200 OK in 197ms (Views: 0.5ms | ActiveRecord: 51.3ms)
+
+

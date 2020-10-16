@@ -225,6 +225,15 @@ describe 'Supplier ', type: :request do
                                                    delete_record: { type: :boolean },
                                                    activate_data: { type: :boolean }
                                                }
+                                           },
+                                           user_management_permission: {
+                                               type: :object,
+                                               properties: {
+                                                   show_data: { type: :boolean },
+                                                   read_data: { type: :boolean },
+                                                   manage_data: { type: :boolean },
+                                                   activate_data: { type: :boolean }
+                                               }
                                            }
                                        }
                                    }
