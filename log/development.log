@@ -11075,3 +11075,80 @@ Processing by UsersController#current_user as JSON
 Completed 200 OK in 197ms (Views: 0.5ms | ActiveRecord: 51.3ms)
 
 
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-17 00:01:35 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-17 00:01:36 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-17 00:01:36 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-17 00:01:36 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-17 00:01:36 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-17 00:01:36 +0400
+Started GET "/en/role_groups/get_role?id=5" for 127.0.0.1 at 2020-10-17 00:02:05 +0400
+Processing by RoleGroupsController#get_role as JSON
+  Parameters: {"id"=>"5", "locale"=>"en"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/role_groups/get_role?id=5" for 127.0.0.1 at 2020-10-17 00:02:27 +0400
+Processing by RoleGroupsController#get_role as JSON
+  Parameters: {"id"=>"5", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mRoleGroup Load (0.5ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:81
+  [1m[36mProductGroupPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mProductTypePermission Load (0.4ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mProductImportPermission Load (0.5ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mProductCatalogPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mSuppliersPermission Load (0.4ms)[0m  [1m[34mSELECT  "suppliers_permissions".* FROM "suppliers_permissions" WHERE "suppliers_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mCompanyPermission Load (0.4ms)[0m  [1m[34mSELECT  "company_permissions".* FROM "company_permissions" WHERE "company_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mSystemDataPermission Load (0.4ms)[0m  [1m[34mSELECT  "system_data_permissions".* FROM "system_data_permissions" WHERE "system_data_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mRoleManagementPermission Load (0.4ms)[0m  [1m[34mSELECT  "role_management_permissions".* FROM "role_management_permissions" WHERE "role_management_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mUserManagementPermission Load (0.4ms)[0m  [1m[34mSELECT  "user_management_permissions".* FROM "user_management_permissions" WHERE "user_management_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+Completed 200 OK in 165ms (Views: 0.4ms | ActiveRecord: 43.1ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-17 00:07:04 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-17 00:07:05 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-17 00:07:05 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-17 00:07:05 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-17 00:07:05 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-17 00:07:05 +0400
+Started GET "/en/role_groups/get_role?id=5" for 127.0.0.1 at 2020-10-17 00:07:17 +0400
+Processing by RoleGroupsController#get_role as JSON
+  Parameters: {"id"=>"5", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:81
+  [1m[36mProductGroupPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" WHERE "product_group_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mProductTypePermission Load (0.3ms)[0m  [1m[34mSELECT  "product_type_permissions".* FROM "product_type_permissions" WHERE "product_type_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mProductImportPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_import_permissions".* FROM "product_import_permissions" WHERE "product_import_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mProductCatalogPermission Load (0.3ms)[0m  [1m[34mSELECT  "product_catalog_permissions".* FROM "product_catalog_permissions" WHERE "product_catalog_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mSuppliersPermission Load (0.3ms)[0m  [1m[34mSELECT  "suppliers_permissions".* FROM "suppliers_permissions" WHERE "suppliers_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mCompanyPermission Load (0.3ms)[0m  [1m[34mSELECT  "company_permissions".* FROM "company_permissions" WHERE "company_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mSystemDataPermission Load (0.2ms)[0m  [1m[34mSELECT  "system_data_permissions".* FROM "system_data_permissions" WHERE "system_data_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mRoleManagementPermission Load (0.2ms)[0m  [1m[34mSELECT  "role_management_permissions".* FROM "role_management_permissions" WHERE "role_management_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+  [1m[36mUserManagementPermission Load (0.2ms)[0m  [1m[34mSELECT  "user_management_permissions".* FROM "user_management_permissions" WHERE "user_management_permissions"."role_group_id" = $1 LIMIT $2[0m  [["role_group_id", 5], ["LIMIT", 1]]
+  ↳ app/services/roles/role_management_service.rb:22
+Completed 200 OK in 16ms (Views: 0.4ms | ActiveRecord: 3.1ms)
+
+
