@@ -3,7 +3,7 @@ class RoleGroupsController < ApplicationController
   include ControllerResponse
 
   #ToDO: Need remove after authorization will works
-  skip_before_action :validate_authentication
+  #skip_before_action :validate_authentication
 
   def create
     service = Roles::RoleManagementService.new(role_params)
@@ -47,6 +47,6 @@ class RoleGroupsController < ApplicationController
                   company_permission_attributes:         {},
                   system_data_permission_attributes:     {},
                   role_management_permission_attributes: {},
-                  user_management_permission: {})
+                  user_management_permission_attributes: {})
   end
 end

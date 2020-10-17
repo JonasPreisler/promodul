@@ -3704,7 +3704,7 @@
                 "product_group_permission_attributes": {
                   "type": "object",
                   "properties": {
-                    "show_data": {
+                    "no_access": {
                       "type": "boolean"
                     },
                     "read_data": {
@@ -3727,7 +3727,7 @@
                 "product_type_permission_attributes": {
                   "type": "object",
                   "properties": {
-                    "show_data": {
+                    "no_access": {
                       "type": "boolean"
                     },
                     "read_data": {
@@ -3750,7 +3750,7 @@
                 "product_import_permission_attributes": {
                   "type": "object",
                   "properties": {
-                    "show_data": {
+                    "no_access": {
                       "type": "boolean"
                     },
                     "import": {
@@ -3761,7 +3761,7 @@
                 "product_catalog_permission_attributes": {
                   "type": "object",
                   "properties": {
-                    "show_data": {
+                    "no_access": {
                       "type": "boolean"
                     },
                     "read_data": {
@@ -3784,7 +3784,7 @@
                 "suppliers_permission_attributes": {
                   "type": "object",
                   "properties": {
-                    "show_data": {
+                    "no_access": {
                       "type": "boolean"
                     },
                     "read_data": {
@@ -3807,7 +3807,7 @@
                 "company_permission_attributes": {
                   "type": "object",
                   "properties": {
-                    "show_data": {
+                    "no_access": {
                       "type": "boolean"
                     },
                     "read_data": {
@@ -3830,7 +3830,7 @@
                 "system_data_permission_attributes": {
                   "type": "object",
                   "properties": {
-                    "show_data": {
+                    "no_access": {
                       "type": "boolean"
                     },
                     "read_data": {
@@ -3853,7 +3853,7 @@
                 "role_management_permission_attributes": {
                   "type": "object",
                   "properties": {
-                    "show_data": {
+                    "no_access": {
                       "type": "boolean"
                     },
                     "read_data": {
@@ -3869,6 +3869,23 @@
                       "type": "boolean"
                     },
                     "delete_record": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "user_management_permission_attributes": {
+                  "type": "object",
+                  "properties": {
+                    "no_access": {
+                      "type": "boolean"
+                    },
+                    "read_data": {
+                      "type": "boolean"
+                    },
+                    "manage_data": {
+                      "type": "boolean"
+                    },
+                    "activate_data": {
                       "type": "boolean"
                     }
                   }
@@ -3955,7 +3972,7 @@
                     "id": {
                       "type": "integer"
                     },
-                    "show_data": {
+                    "no_access": {
                       "type": "boolean"
                     },
                     "read_data": {
@@ -3981,7 +3998,7 @@
                     "id": {
                       "type": "integer"
                     },
-                    "show_data": {
+                    "no_access": {
                       "type": "boolean"
                     },
                     "read_data": {
@@ -4007,7 +4024,7 @@
                     "id": {
                       "type": "integer"
                     },
-                    "show_data": {
+                    "no_access": {
                       "type": "boolean"
                     },
                     "import": {
@@ -4021,7 +4038,7 @@
                     "id": {
                       "type": "integer"
                     },
-                    "show_data": {
+                    "no_access": {
                       "type": "boolean"
                     },
                     "read_data": {
@@ -4047,7 +4064,7 @@
                     "id": {
                       "type": "integer"
                     },
-                    "show_data": {
+                    "no_access": {
                       "type": "boolean"
                     },
                     "read_data": {
@@ -4073,7 +4090,7 @@
                     "id": {
                       "type": "integer"
                     },
-                    "show_data": {
+                    "no_access": {
                       "type": "boolean"
                     },
                     "read_data": {
@@ -4099,7 +4116,7 @@
                     "id": {
                       "type": "integer"
                     },
-                    "show_data": {
+                    "no_access": {
                       "type": "boolean"
                     },
                     "read_data": {
@@ -4125,7 +4142,7 @@
                     "id": {
                       "type": "integer"
                     },
-                    "show_data": {
+                    "no_access": {
                       "type": "boolean"
                     },
                     "read_data": {
@@ -4151,7 +4168,7 @@
                     "id": {
                       "type": "integer"
                     },
-                    "show_data": {
+                    "no_access": {
                       "type": "boolean"
                     },
                     "read_data": {
@@ -4351,7 +4368,7 @@
                         "id": {
                           "type": "integer"
                         },
-                        "show_data": {
+                        "no_access": {
                           "type": "boolean"
                         },
                         "read_data": {
@@ -4377,7 +4394,7 @@
                         "id": {
                           "type": "integer"
                         },
-                        "show_data": {
+                        "no_access": {
                           "type": "boolean"
                         },
                         "read_data": {
@@ -4403,7 +4420,7 @@
                         "id": {
                           "type": "integer"
                         },
-                        "show_data": {
+                        "no_access": {
                           "type": "boolean"
                         },
                         "import": {
@@ -4417,7 +4434,7 @@
                         "id": {
                           "type": "integer"
                         },
-                        "show_data": {
+                        "no_access": {
                           "type": "boolean"
                         },
                         "read_data": {
@@ -4443,7 +4460,7 @@
                         "id": {
                           "type": "integer"
                         },
-                        "show_data": {
+                        "no_access": {
                           "type": "boolean"
                         },
                         "read_data": {
@@ -4469,7 +4486,7 @@
                         "id": {
                           "type": "integer"
                         },
-                        "show_data": {
+                        "no_access": {
                           "type": "boolean"
                         },
                         "read_data": {
@@ -4495,7 +4512,7 @@
                         "id": {
                           "type": "integer"
                         },
-                        "show_data": {
+                        "no_access": {
                           "type": "boolean"
                         },
                         "read_data": {
@@ -4521,7 +4538,7 @@
                         "id": {
                           "type": "integer"
                         },
-                        "show_data": {
+                        "no_access": {
                           "type": "boolean"
                         },
                         "read_data": {
@@ -4547,7 +4564,7 @@
                         "id": {
                           "type": "integer"
                         },
-                        "show_data": {
+                        "no_access": {
                           "type": "boolean"
                         },
                         "read_data": {

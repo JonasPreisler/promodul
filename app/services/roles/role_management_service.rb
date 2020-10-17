@@ -20,15 +20,15 @@ module Roles
 
     def get_role_json_view
       { role: @role_group.as_json(only: [:name], include: {
-                                                 product_group_permission:    { only: [:id, :show_data, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
-                                                 product_type_permission:     { only: [:id, :show_data, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
-                                                 product_import_permission:   { only: [:id, :show_data, :import] },
-                                                 product_catalog_permission:  { only: [:id, :show_data, :read_data, :create_data, :edit_data, :set_price_data, :delete_record] },
-                                                 suppliers_permission:        { only: [:id, :show_data, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
-                                                 company_permission:          { only: [:id, :show_data, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
-                                                 system_data_permission:      { only: [:id, :show_data, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
-                                                 role_management_permission:  { only: [:id, :show_data, :read_data, :create_data, :edit_data, :activate_data, :delete_record]},
-                                                 user_management_permission:  { only: [:id, :show_data, :read_data, :manage_data, :activate_data]}
+                                                 product_group_permission:    { only: [:id, :no_access, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
+                                                 product_type_permission:     { only: [:id, :no_access, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
+                                                 product_import_permission:   { only: [:id, :no_access, :import] },
+                                                 product_catalog_permission:  { only: [:id, :no_access, :read_data, :create_data, :edit_data, :set_price_data, :delete_record] },
+                                                 suppliers_permission:        { only: [:id, :no_access, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
+                                                 company_permission:          { only: [:id, :no_access, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
+                                                 system_data_permission:      { only: [:id, :no_access, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
+                                                 role_management_permission:  { only: [:id, :no_access, :read_data, :create_data, :edit_data, :activate_data, :delete_record]},
+                                                 user_management_permission:  { only: [:id, :no_access, :read_data, :manage_data, :activate_data]}
                                                   })}
     end
 

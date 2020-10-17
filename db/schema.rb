@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_16_192055) do
+ActiveRecord::Schema.define(version: 2020_10_17_144231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,12 +56,12 @@ ActiveRecord::Schema.define(version: 2020_10_16_192055) do
 
   create_table "company_permissions", force: :cascade do |t|
     t.bigint "role_group_id", null: false
-    t.boolean "show_data", default: false
     t.boolean "read_data", default: false
     t.boolean "create_data", default: false
     t.boolean "edit_data", default: false
     t.boolean "delete_record", default: false
     t.boolean "activate_data", default: false
+    t.boolean "no_access", default: true
     t.index ["role_group_id"], name: "index_company_permissions_on_role_group_id"
   end
 
@@ -157,12 +157,12 @@ ActiveRecord::Schema.define(version: 2020_10_16_192055) do
 
   create_table "product_catalog_permissions", force: :cascade do |t|
     t.bigint "role_group_id", null: false
-    t.boolean "show_data", default: false
     t.boolean "read_data", default: false
     t.boolean "create_data", default: false
     t.boolean "edit_data", default: false
     t.boolean "set_price_data", default: false
     t.boolean "delete_record", default: false
+    t.boolean "no_access", default: true
     t.index ["role_group_id"], name: "index_product_catalog_permissions_on_role_group_id"
   end
 
@@ -190,12 +190,12 @@ ActiveRecord::Schema.define(version: 2020_10_16_192055) do
 
   create_table "product_group_permissions", force: :cascade do |t|
     t.bigint "role_group_id", null: false
-    t.boolean "show_data", default: false
     t.boolean "read_data", default: false
     t.boolean "create_data", default: false
     t.boolean "edit_data", default: false
     t.boolean "activate_data", default: false
     t.boolean "delete_record", default: false
+    t.boolean "no_access", default: true
     t.index ["role_group_id"], name: "index_product_group_permissions_on_role_group_id"
   end
 
@@ -209,8 +209,8 @@ ActiveRecord::Schema.define(version: 2020_10_16_192055) do
 
   create_table "product_import_permissions", force: :cascade do |t|
     t.bigint "role_group_id", null: false
-    t.boolean "show_data", default: false
     t.boolean "import", default: false
+    t.boolean "no_access", default: true
     t.index ["role_group_id"], name: "index_product_import_permissions_on_role_group_id"
   end
 
@@ -226,12 +226,12 @@ ActiveRecord::Schema.define(version: 2020_10_16_192055) do
 
   create_table "product_type_permissions", force: :cascade do |t|
     t.bigint "role_group_id", null: false
-    t.boolean "show_data", default: false
     t.boolean "read_data", default: false
     t.boolean "create_data", default: false
     t.boolean "edit_data", default: false
     t.boolean "activate_data", default: false
     t.boolean "delete_record", default: false
+    t.boolean "no_access", default: true
     t.index ["role_group_id"], name: "index_product_type_permissions_on_role_group_id"
   end
 
@@ -265,12 +265,12 @@ ActiveRecord::Schema.define(version: 2020_10_16_192055) do
 
   create_table "role_management_permissions", force: :cascade do |t|
     t.bigint "role_group_id", null: false
-    t.boolean "show_data", default: false
     t.boolean "read_data", default: false
     t.boolean "create_data", default: false
     t.boolean "edit_data", default: false
     t.boolean "delete_record", default: false
     t.boolean "activate_data", default: false
+    t.boolean "no_access", default: true
     t.index ["role_group_id"], name: "index_role_management_permissions_on_role_group_id"
   end
 
@@ -318,23 +318,23 @@ ActiveRecord::Schema.define(version: 2020_10_16_192055) do
 
   create_table "suppliers_permissions", force: :cascade do |t|
     t.bigint "role_group_id", null: false
-    t.boolean "show_data", default: false
     t.boolean "read_data", default: false
     t.boolean "create_data", default: false
     t.boolean "edit_data", default: false
     t.boolean "delete_record", default: false
     t.boolean "activate_data", default: false
+    t.boolean "no_access", default: true
     t.index ["role_group_id"], name: "index_suppliers_permissions_on_role_group_id"
   end
 
   create_table "system_data_permissions", force: :cascade do |t|
     t.bigint "role_group_id", null: false
-    t.boolean "show_data", default: false
     t.boolean "read_data", default: false
     t.boolean "create_data", default: false
     t.boolean "edit_data", default: false
     t.boolean "delete_record", default: false
     t.boolean "activate_data", default: false
+    t.boolean "no_access", default: true
     t.index ["role_group_id"], name: "index_system_data_permissions_on_role_group_id"
   end
 
@@ -370,10 +370,10 @@ ActiveRecord::Schema.define(version: 2020_10_16_192055) do
 
   create_table "user_management_permissions", force: :cascade do |t|
     t.bigint "role_group_id", null: false
-    t.boolean "show_data", default: false
     t.boolean "read_data", default: false
     t.boolean "manage_data", default: false
     t.boolean "activate_data", default: false
+    t.boolean "no_access", default: true
     t.index ["role_group_id"], name: "index_user_management_permissions_on_role_group_id"
   end
 

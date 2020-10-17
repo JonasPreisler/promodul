@@ -24,7 +24,7 @@ describe 'SubCategory', type: :request do
               product_group_permission_attributes: {
                   type: :object,
                   properties: {
-                      show_data:     { type: :boolean },
+                      no_access:     { type: :boolean },
                       read_data:     { type: :boolean },
                       create_data:   { type: :boolean },
                       edit_data:     { type: :boolean },
@@ -35,7 +35,7 @@ describe 'SubCategory', type: :request do
               product_type_permission_attributes: {
                   type: :object,
                   properties: {
-                      show_data:     { type: :boolean },
+                      no_access:     { type: :boolean },
                       read_data:     { type: :boolean },
                       create_data:   { type: :boolean },
                       edit_data:     { type: :boolean },
@@ -46,14 +46,14 @@ describe 'SubCategory', type: :request do
               product_import_permission_attributes: {
                   type: :object,
                   properties: {
-                      show_data:     { type: :boolean },
+                      no_access:     { type: :boolean },
                       import:   { type: :boolean }
                   }
               },
               product_catalog_permission_attributes: {
                   type: :object,
                   properties: {
-                      show_data:       { type: :boolean },
+                      no_access:       { type: :boolean },
                       read_data:       { type: :boolean },
                       create_data:     { type: :boolean },
                       edit_data:       { type: :boolean },
@@ -64,7 +64,7 @@ describe 'SubCategory', type: :request do
               suppliers_permission_attributes: {
                   type: :object,
                   properties: {
-                      show_data:       { type: :boolean },
+                      no_access:       { type: :boolean },
                       read_data:       { type: :boolean },
                       create_data:     { type: :boolean },
                       edit_data:       { type: :boolean },
@@ -75,7 +75,7 @@ describe 'SubCategory', type: :request do
               company_permission_attributes: {
                   type: :object,
                   properties: {
-                      show_data:       { type: :boolean },
+                      no_access:       { type: :boolean },
                       read_data:       { type: :boolean },
                       create_data:     { type: :boolean },
                       edit_data:       { type: :boolean },
@@ -86,7 +86,7 @@ describe 'SubCategory', type: :request do
               system_data_permission_attributes: {
                   type: :object,
                   properties: {
-                      show_data:       { type: :boolean },
+                      no_access:       { type: :boolean },
                       read_data:       { type: :boolean },
                       create_data:     { type: :boolean },
                       edit_data:       { type: :boolean },
@@ -97,12 +97,21 @@ describe 'SubCategory', type: :request do
               role_management_permission_attributes: {
                   type: :object,
                   properties: {
-                      show_data:       { type: :boolean },
+                      no_access:       { type: :boolean },
                       read_data:       { type: :boolean },
                       create_data:     { type: :boolean },
                       edit_data:       { type: :boolean },
                       activate_data:   { type: :boolean },
                       delete_record:   { type: :boolean }
+                  }
+              },
+              user_management_permission_attributes: {
+                  type: :object,
+                  properties: {
+                      no_access:       { type: :boolean },
+                      read_data:       { type: :boolean },
+                      manage_data:     { type: :boolean },
+                      activate_data:   { type: :boolean }
                   }
               }
           }
@@ -156,7 +165,7 @@ describe 'SubCategory', type: :request do
                   type: :object,
                   properties: {
                       id:            { type: :integer },
-                      show_data:     { type: :boolean },
+                      no_access:     { type: :boolean },
                       read_data:     { type: :boolean },
                       create_data:   { type: :boolean },
                       edit_data:     { type: :boolean },
@@ -168,7 +177,7 @@ describe 'SubCategory', type: :request do
                   type: :object,
                   properties: {
                       id:            { type: :integer },
-                      show_data:     { type: :boolean },
+                      no_access:     { type: :boolean },
                       read_data:     { type: :boolean },
                       create_data:   { type: :boolean },
                       edit_data:     { type: :boolean },
@@ -180,7 +189,7 @@ describe 'SubCategory', type: :request do
                   type: :object,
                   properties: {
                       id:            { type: :integer },
-                      show_data:     { type: :boolean },
+                      no_access:     { type: :boolean },
                       import:   { type: :boolean }
                   }
               },
@@ -188,7 +197,7 @@ describe 'SubCategory', type: :request do
                   type: :object,
                   properties: {
                       id:              { type: :integer },
-                      show_data:       { type: :boolean },
+                      no_access:       { type: :boolean },
                       read_data:       { type: :boolean },
                       create_data:     { type: :boolean },
                       edit_data:       { type: :boolean },
@@ -200,7 +209,7 @@ describe 'SubCategory', type: :request do
                   type: :object,
                   properties: {
                       id:              { type: :integer },
-                      show_data:       { type: :boolean },
+                      no_access:       { type: :boolean },
                       read_data:       { type: :boolean },
                       create_data:     { type: :boolean },
                       edit_data:       { type: :boolean },
@@ -212,7 +221,7 @@ describe 'SubCategory', type: :request do
                   type: :object,
                   properties: {
                       id:              { type: :integer },
-                      show_data:       { type: :boolean },
+                      no_access:       { type: :boolean },
                       read_data:       { type: :boolean },
                       create_data:     { type: :boolean },
                       edit_data:       { type: :boolean },
@@ -224,7 +233,7 @@ describe 'SubCategory', type: :request do
                   type: :object,
                   properties: {
                       id:              { type: :integer },
-                      show_data:       { type: :boolean },
+                      no_access:       { type: :boolean },
                       read_data:       { type: :boolean },
                       create_data:     { type: :boolean },
                       edit_data:       { type: :boolean },
@@ -236,7 +245,7 @@ describe 'SubCategory', type: :request do
                   type: :object,
                   properties: {
                       id:              { type: :integer },
-                      show_data:       { type: :boolean },
+                      no_access:       { type: :boolean },
                       read_data:       { type: :boolean },
                       create_data:     { type: :boolean },
                       edit_data:       { type: :boolean },
@@ -248,7 +257,7 @@ describe 'SubCategory', type: :request do
                   type: :object,
                   properties: {
                       id:              { type: :integer },
-                      show_data:       { type: :boolean },
+                      no_access:       { type: :boolean },
                       read_data:       { type: :boolean },
                       manage_data:     { type: :boolean },
                       activate_data:   { type: :boolean }
@@ -377,7 +386,7 @@ describe 'SubCategory', type: :request do
                                type: :object,
                                properties: {
                                    id:            { type: :integer },
-                                   show_data:     { type: :boolean },
+                                   no_access:     { type: :boolean },
                                    read_data:     { type: :boolean },
                                    create_data:   { type: :boolean },
                                    edit_data:     { type: :boolean },
@@ -389,7 +398,7 @@ describe 'SubCategory', type: :request do
                                type: :object,
                                properties: {
                                    id:            { type: :integer },
-                                   show_data:     { type: :boolean },
+                                   no_access:     { type: :boolean },
                                    read_data:     { type: :boolean },
                                    create_data:   { type: :boolean },
                                    edit_data:     { type: :boolean },
@@ -401,7 +410,7 @@ describe 'SubCategory', type: :request do
                                type: :object,
                                properties: {
                                    id:            { type: :integer },
-                                   show_data:     { type: :boolean },
+                                   no_access:     { type: :boolean },
                                    import:   { type: :boolean }
                                }
                            },
@@ -409,7 +418,7 @@ describe 'SubCategory', type: :request do
                                type: :object,
                                properties: {
                                    id:              { type: :integer },
-                                   show_data:       { type: :boolean },
+                                   no_access:       { type: :boolean },
                                    read_data:       { type: :boolean },
                                    create_data:     { type: :boolean },
                                    edit_data:       { type: :boolean },
@@ -421,7 +430,7 @@ describe 'SubCategory', type: :request do
                                type: :object,
                                properties: {
                                    id:              { type: :integer },
-                                   show_data:       { type: :boolean },
+                                   no_access:       { type: :boolean },
                                    read_data:       { type: :boolean },
                                    create_data:     { type: :boolean },
                                    edit_data:       { type: :boolean },
@@ -433,7 +442,7 @@ describe 'SubCategory', type: :request do
                                type: :object,
                                properties: {
                                    id:              { type: :integer },
-                                   show_data:       { type: :boolean },
+                                   no_access:       { type: :boolean },
                                    read_data:       { type: :boolean },
                                    create_data:     { type: :boolean },
                                    edit_data:       { type: :boolean },
@@ -445,7 +454,7 @@ describe 'SubCategory', type: :request do
                                type: :object,
                                properties: {
                                    id:              { type: :integer },
-                                   show_data:       { type: :boolean },
+                                   no_access:       { type: :boolean },
                                    read_data:       { type: :boolean },
                                    create_data:     { type: :boolean },
                                    edit_data:       { type: :boolean },
@@ -457,7 +466,7 @@ describe 'SubCategory', type: :request do
                                type: :object,
                                properties: {
                                    id:              { type: :integer },
-                                   show_data:       { type: :boolean },
+                                   no_access:       { type: :boolean },
                                    read_data:       { type: :boolean },
                                    create_data:     { type: :boolean },
                                    edit_data:       { type: :boolean },
@@ -469,13 +478,13 @@ describe 'SubCategory', type: :request do
                                type: :object,
                                properties: {
                                    id:              { type: :integer },
-                                   show_data:       { type: :boolean },
+                                   no_access:       { type: :boolean },
                                    read_data:       { type: :boolean },
                                    manage_data:     { type: :boolean },
                                    activate_data:   { type: :boolean }
                                }
                            }
-                           }
+                       }
 
                    }
                }
