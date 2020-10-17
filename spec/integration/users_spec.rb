@@ -145,7 +145,7 @@ describe 'Supplier ', type: :request do
                                            product_group_permission: {
                                                type: :object,
                                                properties: {
-                                                   show_data: { type: :boolean },
+                                                   no_access: { type: :boolean },
                                                    read_data: { type: :boolean },
                                                    create_data: { type: :boolean },
                                                    edit_data: { type: :boolean },
@@ -156,7 +156,7 @@ describe 'Supplier ', type: :request do
                                            product_type_permission: {
                                                type: :object,
                                                properties: {
-                                                   show_data: { type: :boolean },
+                                                   no_access: { type: :boolean },
                                                    read_data: { type: :boolean },
                                                    create_data: { type: :boolean },
                                                    edit_data: { type: :boolean },
@@ -167,14 +167,14 @@ describe 'Supplier ', type: :request do
                                            product_import_permission: {
                                                type: :object,
                                                properties: {
-                                                   show_data: { type: :boolean },
+                                                   no_access: { type: :boolean },
                                                    import: { type: :boolean }
                                                }
                                            },
                                            product_catalog_permission: {
                                                type: :object,
                                                properties: {
-                                                   show_data: { type: :boolean },
+                                                   no_access: { type: :boolean },
                                                    read_data: { type: :boolean },
                                                    create_data: { type: :boolean },
                                                    edit_data: { type: :boolean },
@@ -185,7 +185,7 @@ describe 'Supplier ', type: :request do
                                            suppliers_permission: {
                                                type: :object,
                                                properties: {
-                                                   show_data: { type: :boolean },
+                                                   no_access: { type: :boolean },
                                                    read_data: { type: :boolean },
                                                    create_data: { type: :boolean },
                                                    edit_data: { type: :boolean },
@@ -196,7 +196,7 @@ describe 'Supplier ', type: :request do
                                            system_data_permission: {
                                                type: :object,
                                                properties: {
-                                                   show_data: { type: :boolean },
+                                                   no_access: { type: :boolean },
                                                    read_data: { type: :boolean },
                                                    create_data: { type: :boolean },
                                                    edit_data: { type: :boolean },
@@ -207,7 +207,7 @@ describe 'Supplier ', type: :request do
                                            company_permission: {
                                                type: :object,
                                                properties: {
-                                                   show_data: { type: :boolean },
+                                                   no_access: { type: :boolean },
                                                    read_data: { type: :boolean },
                                                    create_data: { type: :boolean },
                                                    edit_data: { type: :boolean },
@@ -218,7 +218,7 @@ describe 'Supplier ', type: :request do
                                            role_management_permission: {
                                                type: :object,
                                                properties: {
-                                                   show_data: { type: :boolean },
+                                                   no_access: { type: :boolean },
                                                    read_data: { type: :boolean },
                                                    create_data: { type: :boolean },
                                                    edit_data: { type: :boolean },
@@ -229,7 +229,7 @@ describe 'Supplier ', type: :request do
                                            user_management_permission: {
                                                type: :object,
                                                properties: {
-                                                   show_data: { type: :boolean },
+                                                   no_access: { type: :boolean },
                                                    read_data: { type: :boolean },
                                                    manage_data: { type: :boolean },
                                                    activate_data: { type: :boolean }

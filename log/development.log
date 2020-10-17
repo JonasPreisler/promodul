@@ -11458,3 +11458,4 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 2.5ms)
 
 
+  [1m[36mProductGroupPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" ORDER BY "product_group_permissions"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
