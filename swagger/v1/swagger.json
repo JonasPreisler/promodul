@@ -6370,6 +6370,64 @@
         }
       }
     },
+    "/{locale}/users/approve_registration": {
+      "post": {
+        "summary": "Approve user registration",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "role_group_id",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
     "/{locale}/users/list": {
       "get": {
         "summary": "Get Users list",
@@ -6448,6 +6506,75 @@
         }
       }
     },
+    "/{locale}/users/unconfirmed_list": {
+      "get": {
+        "summary": "Get unconfirmed Users list",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "users": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "active": {
+                        "type": "boolean"
+                      },
+                      "phone_number": {
+                        "type": "string"
+                      },
+                      "username": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
     "/{locale}/users/current_user": {
       "get": {
         "summary": "Get current user",
@@ -6509,7 +6636,7 @@
                             "product_group_permission": {
                               "type": "object",
                               "properties": {
-                                "show_data": {
+                                "no_access": {
                                   "type": "boolean"
                                 },
                                 "read_data": {
@@ -6532,7 +6659,7 @@
                             "product_type_permission": {
                               "type": "object",
                               "properties": {
-                                "show_data": {
+                                "no_access": {
                                   "type": "boolean"
                                 },
                                 "read_data": {
@@ -6555,7 +6682,7 @@
                             "product_import_permission": {
                               "type": "object",
                               "properties": {
-                                "show_data": {
+                                "no_access": {
                                   "type": "boolean"
                                 },
                                 "import": {
@@ -6566,7 +6693,7 @@
                             "product_catalog_permission": {
                               "type": "object",
                               "properties": {
-                                "show_data": {
+                                "no_access": {
                                   "type": "boolean"
                                 },
                                 "read_data": {
@@ -6589,7 +6716,7 @@
                             "suppliers_permission": {
                               "type": "object",
                               "properties": {
-                                "show_data": {
+                                "no_access": {
                                   "type": "boolean"
                                 },
                                 "read_data": {
@@ -6612,7 +6739,7 @@
                             "system_data_permission": {
                               "type": "object",
                               "properties": {
-                                "show_data": {
+                                "no_access": {
                                   "type": "boolean"
                                 },
                                 "read_data": {
@@ -6635,7 +6762,7 @@
                             "company_permission": {
                               "type": "object",
                               "properties": {
-                                "show_data": {
+                                "no_access": {
                                   "type": "boolean"
                                 },
                                 "read_data": {
@@ -6658,7 +6785,7 @@
                             "role_management_permission": {
                               "type": "object",
                               "properties": {
-                                "show_data": {
+                                "no_access": {
                                   "type": "boolean"
                                 },
                                 "read_data": {
@@ -6681,7 +6808,7 @@
                             "user_management_permission": {
                               "type": "object",
                               "properties": {
-                                "show_data": {
+                                "no_access": {
                                   "type": "boolean"
                                 },
                                 "read_data": {

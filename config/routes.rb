@@ -92,7 +92,9 @@ Rails.application.routes.draw do
       resource :user_roles
 
       get 'users/list', to: 'users#list'
+      get 'users/unconfirmed_list', to: 'users#unconfirmed_list'
       get 'users/current_user', to: 'users#current_user'
+      post 'users/approve_registration', to: 'users#approve_registration'
 
     end
   end

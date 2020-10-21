@@ -17,9 +17,9 @@ module Account
       confirmation.finish_registration
       unless confirmation.errors.any?
         confirmation.store_auth_token!
+        confirmation.store_inactive_user!
         response.headers["Authorization"] = confirmation.authorization_token
       end
-
       rest_respond_service confirmation
     end
 

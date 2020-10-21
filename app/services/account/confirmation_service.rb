@@ -23,9 +23,9 @@ module Account
         update_attempts_count
 
         return if errors.any?
-
         ActiveRecord::Base.transaction do
-          set_active!(verification_service)
+          #Changed user confirmatio flow, now user should be confirmed by admin!
+          #set_active!(verification_service)
           delete_registration_codes!(verification_service)
         end
       end
@@ -63,6 +63,12 @@ module Account
 
         storage = TokenStorage::AutoLoginTokenService.new
         storage.store_auth_token(@auth_token, user_id)
+      end
+
+      def store_inactive_user!
+        user = @verification.user_account
+        storage = Account::ConfirmationStorageService.new
+        storage.store_user_in_redis(user, true)
       end
 
       def authorization_token

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   include ControllerResponse
 
   #ToDO: Need remove after authorization will works
-  #skip_before_action :validate_authentication
+  skip_before_action :validate_authentication
 
   def current_user
     service = Account::CurrentUserService.new(current_account)
@@ -14,6 +14,18 @@ class UsersController < ApplicationController
   def list
     service = Account::UsersService.new(users_params)
     service.users_list
+    rest_respond_service service
+  end
+
+  def approve_registration
+    service = Account::UsersService.new(approve_params)
+    service.approve_user_registration
+    rest_respond_service service
+  end
+
+  def unconfirmed_list
+    service = Account::UsersService.new(users_params)
+    service.unconfirmed_users_list
     rest_respond_service service
   end
 
@@ -28,5 +40,9 @@ class UsersController < ApplicationController
 
   def users_params
     params.permit(:id)
+  end
+
+  def approve_params
+    params.permit(:id, :role_group_id)
   end
 end

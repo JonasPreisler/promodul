@@ -11459,3 +11459,1645 @@ Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 2.5ms)
 
 
   [1m[36mProductGroupPermission Load (0.4ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" ORDER BY "product_group_permissions"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/en/users/list" for 127.0.0.1 at 2020-10-17 19:46:14 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 8ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUserAccount Load (1.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-19 18:06:36 +0400
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-19 18:06:36 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-19 18:06:36 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-19 18:06:36 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-19 18:06:37 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-19 18:06:37 +0400
+  [1m[36mTermsAndCondition Load (37.2ms)[0m  [1m[34mSELECT "terms_and_conditions".* FROM "terms_and_conditions"[0m
+  [1m[36mCustomerType Load (1.6ms)[0m  [1m[34mSELECT "customer_types".* FROM "customer_types"[0m
+Started POST "/en/account/registration" for 127.0.0.1 at 2020-10-19 18:09:03 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"name"=>"newtestuser", "delivery_address"=>"test address", "invoice_address"=>"test address", "username"=>"buka0101", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer", "locale"=>"en", "registration"=>{"name"=>"newtestuser", "delivery_address"=>"test address", "invoice_address"=>"test address", "username"=>"buka0101", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer"}}
+Unpermitted parameters: :format, :locale, :registration
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mTermsAndCondition Load (3.4ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" ORDER BY active_from DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:84
+  [1m[36mCountryPhoneIndex Load (2.5ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation_service.rb:21
+  [1m[36mCACHE CountryPhoneIndex Load (0.0ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation.rb:9
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:36
+  [1m[36mUserAccount Create (4.6ms)[0m  [1m[32mINSERT INTO "user_accounts" ("phone_number", "email", "crypted_password", "created_at", "updated_at", "salt", "username", "phone_number_iso") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["phone_number", "577520250"], ["email", "anzorurdia@gmail.com"], ["crypted_password", "$2a$10$/7tNVpkhWc5QNaEQxzpl8ucQ9ogJY4p2Bv7lHbvZOAF8hs3egc4ta"], ["created_at", "2020-10-19 14:09:31.442727"], ["updated_at", "2020-10-19 14:09:31.442727"], ["salt", "Wo8sTw4rU7AxWvoxBhju"], ["username", "buka0101"], ["phone_number_iso", "GE"]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mUserAccount Load (1.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):2
+  [1m[36mCustomerType Load (0.9ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "private_customer"], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:139
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomerType Load (0.3ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomer Exists (2.7ms)[0m  [1m[34mSELECT  1 AS one FROM "customers" WHERE "customers"."customer_type_id" = $1 AND "customers"."user_account_id" = $2 AND "customers"."active" = $3 LIMIT $4[0m  [["customer_type_id", 1], ["user_account_id", 53], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomer Create (2.7ms)[0m  [1m[32mINSERT INTO "customers" ("name", "delivery_address", "user_account_id", "customer_type_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "newtestuser"], ["delivery_address", "test address"], ["user_account_id", 53], ["customer_type_id", 1], ["created_at", "2020-10-19 14:10:23.643953"], ["updated_at", "2020-10-19 14:10:23.643953"]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomer Load (1.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" ORDER BY "customers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):3
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mTermsAndCondition Load (0.6ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" WHERE "terms_and_conditions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mTermsAndConditionAgreement Create (5.5ms)[0m  [1m[32mINSERT INTO "terms_and_condition_agreements" ("user_account_id", "terms_and_condition_id", "agreed_date") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_account_id", 53], ["terms_and_condition_id", 4], ["agreed_date", "2020-10-19 14:10:37.049090"]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mConfirmationType Load (1.8ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "registration"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:15
+  [1m[36mConfirmationCode Load (1.9ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."user_account_id" = $1 AND "confirmation_codes"."confirmation_type_id" = $2 ORDER BY "confirmation_codes"."id" ASC LIMIT $3[0m  [["user_account_id", 53], ["confirmation_type_id", 2], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:16
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationCode Create (0.9ms)[0m  [1m[32mINSERT INTO "confirmation_codes" ("confirmation_token", "sms_code", "generation_time", "failed_attempts_count", "user_account_id", "confirmation_type_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["confirmation_token", "KBx4dqnshb9qArf27VcqyGkk"], ["sms_code", "pending"], ["generation_time", "2020-10-19 14:11:10.766155"], ["failed_attempts_count", 0], ["user_account_id", 53], ["confirmation_type_id", 2]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationType Load (0.7ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "registration"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:15
+  [1m[36mConfirmationCode Load (1.3ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."user_account_id" = $1 AND "confirmation_codes"."confirmation_type_id" = $2 ORDER BY "confirmation_codes"."id" ASC LIMIT $3[0m  [["user_account_id", 53], ["confirmation_type_id", 2], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:16
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:67
+  [1m[36mConfirmationCode Update (1.2ms)[0m  [1m[33mUPDATE "confirmation_codes" SET "confirmation_token" = $1 WHERE "confirmation_codes"."id" = $2[0m  [["confirmation_token", "RcGEJXRGjNTZ3EVxGhWEM9zw"], ["id", 36]]
+  ↳ app/services/account/verification_service.rb:67
+  [1m[36mConfirmationCode Update (1.5ms)[0m  [1m[33mUPDATE "confirmation_codes" SET "generation_time" = $1, "retry_count" = $2 WHERE "confirmation_codes"."id" = $3[0m  [["generation_time", "2020-10-19 14:11:39.016446"], ["retry_count", 0], ["id", 36]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mCountryPhoneIndex Load (0.9ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:81
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/registration_service.rb:36
+Completed 200 OK in 206807ms (Views: 0.5ms | ActiveRecord: 118.7ms)
+
+
+Started PUT "/en/account/registration" for 127.0.0.1 at 2020-10-19 18:15:20 +0400
+Processing by Account::RegistrationController#confirm_registration as JSON
+  Parameters: {"sms_code"=>"015493", "token"=>"RcGEJXRGjNTZ3EVxGhWEM9zw", "locale"=>"en", "registration"=>{"sms_code"=>"015493", "token"=>"RcGEJXRGjNTZ3EVxGhWEM9zw"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mConfirmationCode Load (0.8ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "RcGEJXRGjNTZ3EVxGhWEM9zw"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mCACHE ConfirmationCode Load (0.1ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "RcGEJXRGjNTZ3EVxGhWEM9zw"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:132
+  [1m[36mCACHE ConfirmationCode Load (0.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "RcGEJXRGjNTZ3EVxGhWEM9zw"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:132
+Completed 400 Bad Request in 100212ms (Views: 0.2ms | ActiveRecord: 17.4ms)
+
+
+Started PUT "/en/account/registration" for 127.0.0.1 at 2020-10-19 18:17:05 +0400
+Processing by Account::RegistrationController#confirm_registration as JSON
+  Parameters: {"sms_code"=>"015493", "token"=>"RcGEJXRGjNTZ3EVxGhWEM9zw", "locale"=>"en", "registration"=>{"sms_code"=>"015493", "token"=>"RcGEJXRGjNTZ3EVxGhWEM9zw"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mConfirmationCode Load (0.8ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "RcGEJXRGjNTZ3EVxGhWEM9zw"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mCACHE ConfirmationCode Load (0.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "RcGEJXRGjNTZ3EVxGhWEM9zw"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:132
+Completed 400 Bad Request in 6529ms (Views: 0.8ms | ActiveRecord: 0.9ms)
+
+
+Started PUT "/en/account/registration" for 127.0.0.1 at 2020-10-19 18:17:45 +0400
+Processing by Account::RegistrationController#confirm_registration as JSON
+  Parameters: {"sms_code"=>"015493", "token"=>"RcGEJXRGjNTZ3EVxGhWEM9zw", "locale"=>"en", "registration"=>{"sms_code"=>"015493", "token"=>"RcGEJXRGjNTZ3EVxGhWEM9zw"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mConfirmationCode Load (0.9ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "RcGEJXRGjNTZ3EVxGhWEM9zw"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mCACHE ConfirmationCode Load (0.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "RcGEJXRGjNTZ3EVxGhWEM9zw"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:132
+Started PUT "/en/account/registration" for 127.0.0.1 at 2020-10-19 18:19:13 +0400
+Completed 400 Bad Request in 93592ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Processing by Account::RegistrationController#confirm_registration as JSON
+  Parameters: {"sms_code"=>"015493", "token"=>"RcGEJXRGjNTZ3EVxGhWEM9zw", "locale"=>"en", "registration"=>{"sms_code"=>"015493", "token"=>"RcGEJXRGjNTZ3EVxGhWEM9zw"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mConfirmationCode Load (0.5ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "RcGEJXRGjNTZ3EVxGhWEM9zw"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mCACHE ConfirmationCode Load (0.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "RcGEJXRGjNTZ3EVxGhWEM9zw"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:133
+Completed 400 Bad Request in 85614ms (Views: 0.9ms | ActiveRecord: 7.7ms)
+
+
+Started PUT "/en/account/registration" for 127.0.0.1 at 2020-10-19 18:20:56 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Account::RegistrationController#confirm_registration as JSON
+  Parameters: {"sms_code"=>"015493", "token"=>"RcGEJXRGjNTZ3EVxGhWEM9zw", "locale"=>"en", "registration"=>{"sms_code"=>"015493", "token"=>"RcGEJXRGjNTZ3EVxGhWEM9zw"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mConfirmationCode Load (0.5ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "RcGEJXRGjNTZ3EVxGhWEM9zw"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mCACHE ConfirmationCode Load (0.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "RcGEJXRGjNTZ3EVxGhWEM9zw"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:133
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:145
+  [1m[36mCountryPhoneIndex Load (0.4ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:146
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:155
+  [1m[36mConfirmationCode Update (1.2ms)[0m  [1m[33mUPDATE "confirmation_codes" SET "failed_attempts_count" = $1 WHERE "confirmation_codes"."id" = $2[0m  [["failed_attempts_count", 1], ["id", 36]]
+  ↳ app/services/account/confirmation_service.rb:155
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:155
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:35
+  [1m[36mUserAccount Update (3.5ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1, "updated_at" = $2 WHERE "user_accounts"."id" = $3[0m  [["active", true], ["updated_at", "2020-10-19 14:21:24.290249"], ["id", 53]]
+  ↳ app/services/account/confirmation_service.rb:118
+  [1m[36mConfirmationCode Destroy (0.4ms)[0m  [1m[31mDELETE FROM "confirmation_codes" WHERE "confirmation_codes"."id" = $1[0m  [["id", 36]]
+  ↳ app/services/account/confirmation_service.rb:128
+  [1m[35m (36.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:35
+Completed 200 OK in 96845ms (Views: 0.3ms | ActiveRecord: 62.1ms)
+
+
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRole Load (38.6ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRole Load (0.8ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Update (3.1ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 53]]
+  [1m[36mUserRole Load (0.7ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-21 12:07:25 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-21 12:07:25 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-21 12:07:25 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-21 12:07:25 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-21 12:07:27 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-21 12:07:27 +0400
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."active" = $1[0m  [["active", false]]
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" DESC LIMIT $2[0m  [["active", false], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (2.7ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/users/approve_registration?id=45&role_group_id=7" for 127.0.0.1 at 2020-10-21 12:08:45 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"45", "role_group_id"=>"7", "locale"=>"en"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/approve_registration?id=45&role_group_id=7" for 127.0.0.1 at 2020-10-21 12:08:59 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"45", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:61
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:67
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 9.3ms)
+
+
+  
+NoMethodError (undefined method `id' for #<Account::UsersService:0x00007efd68033880>):
+  
+app/services/account/users_service.rb:36:in `approve_registration'
+app/services/account/users_service.rb:30:in `approve_user_registration'
+app/controllers/users_controller.rb:22:in `approve_registration'
+Started POST "/en/users/approve_registration?id=45&role_group_id=7" for 127.0.0.1 at 2020-10-21 12:09:19 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"45", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ (pry):2
+  [1m[36mRoleGroup Load (0.9ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ (pry):3
+  [1m[36mCACHE UserAccount Load (0.1ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:62
+  [1m[36mCACHE RoleGroup Load (0.0ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+Completed 500 Internal Server Error in 39403ms (ActiveRecord: 25.9ms)
+
+
+  
+NoMethodError (undefined method `id' for #<Account::UsersService:0x00007efd744737b8>):
+  
+app/services/account/users_service.rb:37:in `approve_registration'
+app/services/account/users_service.rb:31:in `approve_user_registration'
+app/controllers/users_controller.rb:22:in `approve_registration'
+Started POST "/en/users/approve_registration?id=45&role_group_id=7" for 127.0.0.1 at 2020-10-21 12:10:34 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"45", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:63
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:69
+Completed 500 Internal Server Error in 3284ms (ActiveRecord: 11.7ms)
+
+
+  
+NoMethodError (undefined method `id' for #<Account::UsersService:0x00007efd740ef880>):
+  
+app/services/account/users_service.rb:37:in `approve_registration'
+app/services/account/users_service.rb:31:in `approve_user_registration'
+app/controllers/users_controller.rb:22:in `approve_registration'
+Started POST "/en/users/approve_registration?id=45&role_group_id=7" for 127.0.0.1 at 2020-10-21 12:11:09 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"45", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:65
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:72
+Completed 500 Internal Server Error in 9631ms (ActiveRecord: 10.9ms)
+
+
+  
+NoMethodError (undefined method `id' for #<Account::UsersService:0x0000555ff8822fc8>):
+  
+app/services/account/users_service.rb:38:in `approve_registration'
+app/services/account/users_service.rb:32:in `approve_user_registration'
+app/controllers/users_controller.rb:22:in `approve_registration'
+Started POST "/en/users/approve_registration?id=45&role_group_id=7" for 127.0.0.1 at 2020-10-21 12:11:50 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"45", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:65
+  [1m[36mRoleGroup Load (0.5ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:72
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Update (1.0ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 45]]
+  ↳ app/services/account/users_service.rb:47
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mUserRole Create (7.6ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 45], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/users_service.rb:39
+Completed 200 OK in 3959ms (Views: 0.2ms | ActiveRecord: 34.7ms)
+
+
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" DESC LIMIT $2[0m  [["active", false], ["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" DESC LIMIT $2[0m  [["active", false], ["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" DESC LIMIT $2[0m  [["active", false], ["LIMIT", 1]]
+Started POST "/en/users/approve_registration?id=44&role_group_id=7" for 127.0.0.1 at 2020-10-21 12:12:27 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"44", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:65
+  [1m[36mRoleGroup Load (0.8ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:72
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 44]]
+  ↳ app/services/account/users_service.rb:47
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mRoleGroup Load (0.6ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mUserRole Create (1.2ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 44], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[35m (36.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/users_service.rb:39
+Completed 200 OK in 10676ms (Views: 0.2ms | ActiveRecord: 40.9ms)
+
+
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" DESC LIMIT $2[0m  [["active", false], ["LIMIT", 1]]
+Started POST "/en/account/registration" for 127.0.0.1 at 2020-10-21 12:30:49 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"name"=>"string_test", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"zxcv", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>5, "customer_type"=>"private_customer", "locale"=>"en", "registration"=>{"name"=>"string_test", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"zxcv", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>5, "customer_type"=>"private_customer"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mTermsAndCondition Load (2.5ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" ORDER BY active_from DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:84
+Completed 400 Bad Request in 9226ms (Views: 0.5ms | ActiveRecord: 20.0ms)
+
+
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTermsAndCondition Load (1.0ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" ORDER BY "terms_and_conditions"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/account/registration" for 127.0.0.1 at 2020-10-21 12:31:37 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"name"=>"string_test", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"zxcv", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer", "locale"=>"en", "registration"=>{"name"=>"string_test", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"zxcv", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mTermsAndCondition Load (1.0ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" ORDER BY active_from DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:84
+  [1m[36mCountryPhoneIndex Load (1.0ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation_service.rb:21
+  [1m[36mCACHE CountryPhoneIndex Load (0.0ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation.rb:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:36
+  [1m[36mUserAccount Create (0.6ms)[0m  [1m[32mINSERT INTO "user_accounts" ("phone_number", "email", "crypted_password", "created_at", "updated_at", "salt", "username", "phone_number_iso") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["phone_number", "577520250"], ["email", "anzorurdia@gmail.com"], ["crypted_password", "$2a$10$PFxRszlTgspRxcgIPeIVhu2FK/sWu7S3sW/IXz1TxIYeLpiITFtYe"], ["created_at", "2020-10-21 08:31:42.767226"], ["updated_at", "2020-10-21 08:31:42.767226"], ["salt", "hbJSH7T_fHs8j6bbKTH1"], ["username", "zxcv"], ["phone_number_iso", "GE"]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomerType Load (0.9ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "private_customer"], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:139
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomerType Load (0.3ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomer Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "customers" WHERE "customers"."customer_type_id" = $1 AND "customers"."user_account_id" = $2 AND "customers"."active" = $3 LIMIT $4[0m  [["customer_type_id", 1], ["user_account_id", 54], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomer Create (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("name", "delivery_address", "user_account_id", "customer_type_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "string_test"], ["delivery_address", "string_test"], ["user_account_id", 54], ["customer_type_id", 1], ["created_at", "2020-10-21 08:31:43.360043"], ["updated_at", "2020-10-21 08:31:43.360043"]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mTermsAndCondition Load (0.3ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" WHERE "terms_and_conditions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mTermsAndConditionAgreement Create (0.9ms)[0m  [1m[32mINSERT INTO "terms_and_condition_agreements" ("user_account_id", "terms_and_condition_id", "agreed_date") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_account_id", 54], ["terms_and_condition_id", 4], ["agreed_date", "2020-10-21 08:31:43.973683"]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mConfirmationType Load (1.1ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "registration"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:15
+  [1m[36mConfirmationCode Load (0.8ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."user_account_id" = $1 AND "confirmation_codes"."confirmation_type_id" = $2 ORDER BY "confirmation_codes"."id" ASC LIMIT $3[0m  [["user_account_id", 54], ["confirmation_type_id", 2], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:16
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationCode Create (0.7ms)[0m  [1m[32mINSERT INTO "confirmation_codes" ("confirmation_token", "sms_code", "generation_time", "failed_attempts_count", "user_account_id", "confirmation_type_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["confirmation_token", "kat4c44UWmabw59pAY2zBZXk"], ["sms_code", "pending"], ["generation_time", "2020-10-21 08:31:45.768212"], ["failed_attempts_count", 0], ["user_account_id", 54], ["confirmation_type_id", 2]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mCountryPhoneIndex Load (0.8ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:97
+  [1m[35m (37.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/registration_service.rb:36
+Completed 200 OK in 18418ms (Views: 0.5ms | ActiveRecord: 98.8ms)
+
+
+Started PUT "/en/account/registration" for 127.0.0.1 at 2020-10-21 12:32:26 +0400
+Processing by Account::RegistrationController#confirm_registration as JSON
+  Parameters: {"sms_code"=>"240656", "token"=>"kat4c44UWmabw59pAY2zBZXk", "locale"=>"en", "registration"=>{"sms_code"=>"240656", "token"=>"kat4c44UWmabw59pAY2zBZXk"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mConfirmationCode Load (1.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "kat4c44UWmabw59pAY2zBZXk"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mCACHE ConfirmationCode Load (0.1ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "kat4c44UWmabw59pAY2zBZXk"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:138
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:150
+  [1m[36mCountryPhoneIndex Load (0.2ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:151
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:160
+  [1m[36mConfirmationCode Update (0.9ms)[0m  [1m[33mUPDATE "confirmation_codes" SET "failed_attempts_count" = $1 WHERE "confirmation_codes"."id" = $2[0m  [["failed_attempts_count", 1], ["id", 37]]
+  ↳ app/services/account/confirmation_service.rb:160
+  [1m[35m (37.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:160
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:35
+  [1m[36mUserAccount Update (0.5ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1, "updated_at" = $2 WHERE "user_accounts"."id" = $3[0m  [["active", true], ["updated_at", "2020-10-21 08:33:01.093066"], ["id", 54]]
+  ↳ app/services/account/confirmation_service.rb:123
+  [1m[36mConfirmationCode Destroy (1.0ms)[0m  [1m[31mDELETE FROM "confirmation_codes" WHERE "confirmation_codes"."id" = $1[0m  [["id", 37]]
+  ↳ app/services/account/confirmation_service.rb:133
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:35
+Completed 200 OK in 182741ms (Views: 0.4ms | ActiveRecord: 46.9ms)
+
+
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/account/registration" for 127.0.0.1 at 2020-10-21 14:55:46 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"name"=>"string_test", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"zxcv", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer", "locale"=>"en", "registration"=>{"name"=>"string_test", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"zxcv", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mTermsAndCondition Load (3.1ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" ORDER BY active_from DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:84
+  [1m[36mCountryPhoneIndex Load (2.1ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation_service.rb:21
+  [1m[36mCACHE CountryPhoneIndex Load (0.0ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation.rb:9
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:36
+  [1m[36mUserAccount Create (0.7ms)[0m  [1m[32mINSERT INTO "user_accounts" ("phone_number", "email", "crypted_password", "created_at", "updated_at", "salt", "username", "phone_number_iso") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["phone_number", "577520250"], ["email", "anzorurdia@gmail.com"], ["crypted_password", "$2a$10$yp7gJ2c5E24AUqbtbo7lsuIJ4Yrpo1c0AzrpcHf49dleIbmv5sgmW"], ["created_at", "2020-10-21 10:55:55.398175"], ["updated_at", "2020-10-21 10:55:55.398175"], ["salt", "Cs6BijFMTZDZz_bXGwd8"], ["username", "zxcv"], ["phone_number_iso", "GE"]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomerType Load (1.1ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "private_customer"], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:139
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 55], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomerType Load (1.0ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomer Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "customers" WHERE "customers"."customer_type_id" = $1 AND "customers"."user_account_id" = $2 AND "customers"."active" = $3 LIMIT $4[0m  [["customer_type_id", 1], ["user_account_id", 55], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomer Create (1.7ms)[0m  [1m[32mINSERT INTO "customers" ("name", "delivery_address", "user_account_id", "customer_type_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "string_test"], ["delivery_address", "string_test"], ["user_account_id", 55], ["customer_type_id", 1], ["created_at", "2020-10-21 10:55:55.842257"], ["updated_at", "2020-10-21 10:55:55.842257"]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 55], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mTermsAndCondition Load (0.7ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" WHERE "terms_and_conditions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mTermsAndConditionAgreement Create (3.2ms)[0m  [1m[32mINSERT INTO "terms_and_condition_agreements" ("user_account_id", "terms_and_condition_id", "agreed_date") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_account_id", 55], ["terms_and_condition_id", 4], ["agreed_date", "2020-10-21 10:55:56.271483"]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mConfirmationType Load (1.0ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "registration"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:15
+  [1m[36mConfirmationCode Load (2.2ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."user_account_id" = $1 AND "confirmation_codes"."confirmation_type_id" = $2 ORDER BY "confirmation_codes"."id" ASC LIMIT $3[0m  [["user_account_id", 55], ["confirmation_type_id", 2], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:16
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 55], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationCode Create (2.3ms)[0m  [1m[32mINSERT INTO "confirmation_codes" ("confirmation_token", "sms_code", "generation_time", "failed_attempts_count", "user_account_id", "confirmation_type_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["confirmation_token", "nfPksiKQAhDWQMsPXU9vQhBK"], ["sms_code", "pending"], ["generation_time", "2020-10-21 10:55:57.746633"], ["failed_attempts_count", 0], ["user_account_id", 55], ["confirmation_type_id", 2]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mCountryPhoneIndex Load (0.8ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:97
+  [1m[35m (36.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/registration_service.rb:36
+Completed 200 OK in 14799ms (Views: 0.4ms | ActiveRecord: 62.3ms)
+
+
+Started PUT "/en/account/registration" for 127.0.0.1 at 2020-10-21 14:56:25 +0400
+Processing by Account::RegistrationController#confirm_registration as JSON
+  Parameters: {"sms_code"=>"497897", "token"=>"nfPksiKQAhDWQMsPXU9vQhBK", "locale"=>"en", "registration"=>{"sms_code"=>"497897", "token"=>"nfPksiKQAhDWQMsPXU9vQhBK"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mConfirmationCode Load (0.8ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "nfPksiKQAhDWQMsPXU9vQhBK"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mUserAccount Load (1.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 55], ["LIMIT", 1]]
+  ↳ (pry):10
+  [1m[36mCACHE ConfirmationCode Load (0.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "nfPksiKQAhDWQMsPXU9vQhBK"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:138
+  [1m[36mCountryPhoneIndex Load (0.9ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:151
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:160
+  [1m[36mConfirmationCode Update (1.2ms)[0m  [1m[33mUPDATE "confirmation_codes" SET "failed_attempts_count" = $1 WHERE "confirmation_codes"."id" = $2[0m  [["failed_attempts_count", 1], ["id", 38]]
+  ↳ app/services/account/confirmation_service.rb:160
+  [1m[35m (36.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:160
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:35
+  [1m[36mUserAccount Update (1.1ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1, "updated_at" = $2 WHERE "user_accounts"."id" = $3[0m  [["active", true], ["updated_at", "2020-10-21 10:57:30.642584"], ["id", 55]]
+  ↳ app/services/account/confirmation_service.rb:123
+  [1m[36mConfirmationCode Destroy (1.1ms)[0m  [1m[31mDELETE FROM "confirmation_codes" WHERE "confirmation_codes"."id" = $1[0m  [["id", 38]]
+  ↳ app/services/account/confirmation_service.rb:133
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:35
+Completed 200 OK in 77116ms (Views: 0.3ms | ActiveRecord: 45.7ms)
+
+
+Started POST "/en/account/registration" for 127.0.0.1 at 2020-10-21 14:59:24 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"name"=>"string_test", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"zxcv", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer", "locale"=>"en", "registration"=>{"name"=>"string_test", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"zxcv", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mTermsAndCondition Load (1.0ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" ORDER BY active_from DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:84
+  [1m[36mCountryPhoneIndex Load (0.3ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation_service.rb:21
+  [1m[36mCACHE CountryPhoneIndex Load (0.0ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation.rb:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:36
+  [1m[36mUserAccount Create (0.4ms)[0m  [1m[32mINSERT INTO "user_accounts" ("phone_number", "email", "crypted_password", "created_at", "updated_at", "salt", "username", "phone_number_iso") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["phone_number", "577520250"], ["email", "anzorurdia@gmail.com"], ["crypted_password", "$2a$10$UbVFE15moIpeE.0YCtbg.OmveD6b5DjCgetSvgSUeKVK5W4Dc.wGW"], ["created_at", "2020-10-21 10:59:29.042707"], ["updated_at", "2020-10-21 10:59:29.042707"], ["salt", "YnVeAQyLHQZgYP-x7_oc"], ["username", "zxcv"], ["phone_number_iso", "GE"]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomerType Load (0.8ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "private_customer"], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:139
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomerType Load (0.2ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomer Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "customers" WHERE "customers"."customer_type_id" = $1 AND "customers"."user_account_id" = $2 AND "customers"."active" = $3 LIMIT $4[0m  [["customer_type_id", 1], ["user_account_id", 56], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomer Create (0.6ms)[0m  [1m[32mINSERT INTO "customers" ("name", "delivery_address", "user_account_id", "customer_type_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "string_test"], ["delivery_address", "string_test"], ["user_account_id", 56], ["customer_type_id", 1], ["created_at", "2020-10-21 10:59:29.496737"], ["updated_at", "2020-10-21 10:59:29.496737"]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mTermsAndCondition Load (0.5ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" WHERE "terms_and_conditions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mTermsAndConditionAgreement Create (0.7ms)[0m  [1m[32mINSERT INTO "terms_and_condition_agreements" ("user_account_id", "terms_and_condition_id", "agreed_date") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_account_id", 56], ["terms_and_condition_id", 4], ["agreed_date", "2020-10-21 10:59:29.874358"]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mConfirmationType Load (1.0ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "registration"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:15
+  [1m[36mConfirmationCode Load (0.4ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."user_account_id" = $1 AND "confirmation_codes"."confirmation_type_id" = $2 ORDER BY "confirmation_codes"."id" ASC LIMIT $3[0m  [["user_account_id", 56], ["confirmation_type_id", 2], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:16
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationCode Create (0.8ms)[0m  [1m[32mINSERT INTO "confirmation_codes" ("confirmation_token", "sms_code", "generation_time", "failed_attempts_count", "user_account_id", "confirmation_type_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["confirmation_token", "Pkv4Y2hgHGKwEvuJFAUEfkR9"], ["sms_code", "pending"], ["generation_time", "2020-10-21 10:59:31.065576"], ["failed_attempts_count", 0], ["user_account_id", 56], ["confirmation_type_id", 2]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mCountryPhoneIndex Load (0.6ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:87
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/registration_service.rb:36
+Completed 200 OK in 8606ms (Views: 0.4ms | ActiveRecord: 86.6ms)
+
+
+Started PUT "/en/account/registration" for 127.0.0.1 at 2020-10-21 14:59:55 +0400
+Processing by Account::RegistrationController#confirm_registration as JSON
+  Parameters: {"sms_code"=>"544448", "token"=>"Pkv4Y2hgHGKwEvuJFAUEfkR9", "locale"=>"en", "registration"=>{"sms_code"=>"544448", "token"=>"Pkv4Y2hgHGKwEvuJFAUEfkR9"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mConfirmationCode Load (0.6ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "Pkv4Y2hgHGKwEvuJFAUEfkR9"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mCACHE ConfirmationCode Load (0.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "Pkv4Y2hgHGKwEvuJFAUEfkR9"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:129
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:141
+  [1m[36mCountryPhoneIndex Load (0.6ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:142
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:151
+  [1m[36mConfirmationCode Update (0.9ms)[0m  [1m[33mUPDATE "confirmation_codes" SET "failed_attempts_count" = $1 WHERE "confirmation_codes"."id" = $2[0m  [["failed_attempts_count", 1], ["id", 39]]
+  ↳ app/services/account/confirmation_service.rb:151
+  [1m[35m (36.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:151
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:26
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1, "updated_at" = $2 WHERE "user_accounts"."id" = $3[0m  [["active", true], ["updated_at", "2020-10-21 11:00:44.469323"], ["id", 56]]
+  ↳ app/services/account/confirmation_service.rb:114
+  [1m[36mConfirmationCode Destroy (0.9ms)[0m  [1m[31mDELETE FROM "confirmation_codes" WHERE "confirmation_codes"."id" = $1[0m  [["id", 39]]
+  ↳ app/services/account/confirmation_service.rb:124
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:26
+Completed 200 OK in 52852ms (Views: 0.1ms | ActiveRecord: 42.8ms)
+
+
+Started POST "/en/account/registration" for 127.0.0.1 at 2020-10-21 15:01:52 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"name"=>"bukaurdiabuka", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"bukaurdiabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer", "locale"=>"en", "registration"=>{"name"=>"bukaurdiabuka", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"bukaurdiabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mTermsAndCondition Load (1.0ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" ORDER BY active_from DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:84
+  [1m[36mCountryPhoneIndex Load (0.6ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation_service.rb:21
+  [1m[36mCACHE CountryPhoneIndex Load (0.0ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation.rb:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:36
+  [1m[36mUserAccount Create (0.4ms)[0m  [1m[32mINSERT INTO "user_accounts" ("phone_number", "email", "crypted_password", "created_at", "updated_at", "salt", "username", "phone_number_iso") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["phone_number", "577520250"], ["email", "anzorurdia@gmail.com"], ["crypted_password", "$2a$10$frhgpPJZf2kRL7dpoV4imO8W41wMY6i/tayz7xyyyi30Fgwf.hNem"], ["created_at", "2020-10-21 11:01:58.166269"], ["updated_at", "2020-10-21 11:01:58.166269"], ["salt", "MYUgznDSVj7kdQ4J25c-"], ["username", "bukaurdiabuka"], ["phone_number_iso", "GE"]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomerType Load (0.5ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "private_customer"], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:139
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomerType Load (0.3ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomer Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "customers" WHERE "customers"."customer_type_id" = $1 AND "customers"."user_account_id" = $2 AND "customers"."active" = $3 LIMIT $4[0m  [["customer_type_id", 1], ["user_account_id", 57], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "delivery_address", "user_account_id", "customer_type_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "bukaurdiabuka"], ["delivery_address", "string_test"], ["user_account_id", 57], ["customer_type_id", 1], ["created_at", "2020-10-21 11:01:58.769414"], ["updated_at", "2020-10-21 11:01:58.769414"]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mTermsAndCondition Load (0.4ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" WHERE "terms_and_conditions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mTermsAndConditionAgreement Create (0.4ms)[0m  [1m[32mINSERT INTO "terms_and_condition_agreements" ("user_account_id", "terms_and_condition_id", "agreed_date") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_account_id", 57], ["terms_and_condition_id", 4], ["agreed_date", "2020-10-21 11:01:59.285965"]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mConfirmationType Load (0.9ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "registration"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:15
+  [1m[36mConfirmationCode Load (0.7ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."user_account_id" = $1 AND "confirmation_codes"."confirmation_type_id" = $2 ORDER BY "confirmation_codes"."id" ASC LIMIT $3[0m  [["user_account_id", 57], ["confirmation_type_id", 2], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:16
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationCode Create (0.5ms)[0m  [1m[32mINSERT INTO "confirmation_codes" ("confirmation_token", "sms_code", "generation_time", "failed_attempts_count", "user_account_id", "confirmation_type_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["confirmation_token", "2GShfr5TsYGgABUFQeU6emQL"], ["sms_code", "pending"], ["generation_time", "2020-10-21 11:02:00.485678"], ["failed_attempts_count", 0], ["user_account_id", 57], ["confirmation_type_id", 2]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mCountryPhoneIndex Load (0.6ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:88
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/registration_service.rb:36
+Completed 200 OK in 9488ms (Views: 0.5ms | ActiveRecord: 71.2ms)
+
+
+Started PUT "/en/account/registration" for 127.0.0.1 at 2020-10-21 15:02:28 +0400
+Processing by Account::RegistrationController#confirm_registration as JSON
+  Parameters: {"sms_code"=>"617546", "token"=>"2GShfr5TsYGgABUFQeU6emQL", "locale"=>"en", "registration"=>{"sms_code"=>"617546", "token"=>"2GShfr5TsYGgABUFQeU6emQL"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mConfirmationCode Load (0.5ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "2GShfr5TsYGgABUFQeU6emQL"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mCACHE ConfirmationCode Load (0.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "2GShfr5TsYGgABUFQeU6emQL"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:130
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:142
+  [1m[36mCountryPhoneIndex Load (0.9ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:143
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:152
+  [1m[36mConfirmationCode Update (0.4ms)[0m  [1m[33mUPDATE "confirmation_codes" SET "failed_attempts_count" = $1 WHERE "confirmation_codes"."id" = $2[0m  [["failed_attempts_count", 1], ["id", 40]]
+  ↳ app/services/account/confirmation_service.rb:152
+  [1m[35m (36.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:152
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:26
+  [1m[36mConfirmationCode Destroy (0.9ms)[0m  [1m[31mDELETE FROM "confirmation_codes" WHERE "confirmation_codes"."id" = $1[0m  [["id", 40]]
+  ↳ app/services/account/confirmation_service.rb:125
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:26
+Completed 200 OK in 13565ms (Views: 0.2ms | ActiveRecord: 43.0ms)
+
+
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 2]]
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/account/registration" for 127.0.0.1 at 2020-10-21 15:24:58 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"name"=>"bukaurdiabuka", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"bukaurdiabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer", "locale"=>"en", "registration"=>{"name"=>"bukaurdiabuka", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"bukaurdiabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mTermsAndCondition Load (2.1ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" ORDER BY active_from DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:84
+  [1m[36mCountryPhoneIndex Load (1.1ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation_service.rb:21
+  [1m[36mCACHE CountryPhoneIndex Load (0.1ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:36
+  [1m[36mUserAccount Create (0.5ms)[0m  [1m[32mINSERT INTO "user_accounts" ("phone_number", "email", "crypted_password", "created_at", "updated_at", "salt", "username", "phone_number_iso") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["phone_number", "577520250"], ["email", "anzorurdia@gmail.com"], ["crypted_password", "$2a$10$lMpErCGYK8GCftte3k4Ho.VtEmizYsXN.Iuf8f.ROmGbpJmYoHqVm"], ["created_at", "2020-10-21 11:25:03.799355"], ["updated_at", "2020-10-21 11:25:03.799355"], ["salt", "ykwSEz3wmbt3iZyHRJb7"], ["username", "bukaurdiabuka"], ["phone_number_iso", "GE"]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomerType Load (1.0ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "private_customer"], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:139
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomerType Load (0.2ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomer Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "customers" WHERE "customers"."customer_type_id" = $1 AND "customers"."user_account_id" = $2 AND "customers"."active" = $3 LIMIT $4[0m  [["customer_type_id", 1], ["user_account_id", 58], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomer Create (0.6ms)[0m  [1m[32mINSERT INTO "customers" ("name", "delivery_address", "user_account_id", "customer_type_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "bukaurdiabuka"], ["delivery_address", "string_test"], ["user_account_id", 58], ["customer_type_id", 1], ["created_at", "2020-10-21 11:25:04.207817"], ["updated_at", "2020-10-21 11:25:04.207817"]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mTermsAndCondition Load (0.4ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" WHERE "terms_and_conditions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mTermsAndConditionAgreement Create (1.5ms)[0m  [1m[32mINSERT INTO "terms_and_condition_agreements" ("user_account_id", "terms_and_condition_id", "agreed_date") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_account_id", 58], ["terms_and_condition_id", 4], ["agreed_date", "2020-10-21 11:25:04.682884"]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mConfirmationType Load (0.8ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "registration"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:15
+  [1m[36mConfirmationCode Load (0.8ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."user_account_id" = $1 AND "confirmation_codes"."confirmation_type_id" = $2 ORDER BY "confirmation_codes"."id" ASC LIMIT $3[0m  [["user_account_id", 58], ["confirmation_type_id", 2], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:16
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationCode Create (0.8ms)[0m  [1m[32mINSERT INTO "confirmation_codes" ("confirmation_token", "sms_code", "generation_time", "failed_attempts_count", "user_account_id", "confirmation_type_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["confirmation_token", "6puwncrTSwiusBTSK4bEfHZK"], ["sms_code", "pending"], ["generation_time", "2020-10-21 11:25:05.699788"], ["failed_attempts_count", 0], ["user_account_id", 58], ["confirmation_type_id", 2]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mCountryPhoneIndex Load (0.8ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:90
+  [1m[35m (36.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/registration_service.rb:36
+Completed 200 OK in 14826ms (Views: 3.9ms | ActiveRecord: 142.7ms)
+
+
+Started PUT "/en/account/registration" for 127.0.0.1 at 2020-10-21 15:25:40 +0400
+Processing by Account::RegistrationController#confirm_registration as JSON
+  Parameters: {"sms_code"=>"414135", "token"=>"6puwncrTSwiusBTSK4bEfHZK", "locale"=>"en", "registration"=>{"sms_code"=>"414135", "token"=>"6puwncrTSwiusBTSK4bEfHZK"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mConfirmationCode Load (0.9ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "6puwncrTSwiusBTSK4bEfHZK"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mCACHE ConfirmationCode Load (0.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "6puwncrTSwiusBTSK4bEfHZK"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:132
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:144
+  [1m[36mCountryPhoneIndex Load (0.9ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:145
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:154
+  [1m[36mConfirmationCode Update (1.2ms)[0m  [1m[33mUPDATE "confirmation_codes" SET "failed_attempts_count" = $1 WHERE "confirmation_codes"."id" = $2[0m  [["failed_attempts_count", 1], ["id", 41]]
+  ↳ app/services/account/confirmation_service.rb:154
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:154
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:26
+  [1m[36mConfirmationCode Destroy (1.1ms)[0m  [1m[31mDELETE FROM "confirmation_codes" WHERE "confirmation_codes"."id" = $1[0m  [["id", 41]]
+  ↳ app/services/account/confirmation_service.rb:127
+  [1m[35m (38.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:26
+Completed 200 OK in 157330ms (Views: 0.4ms | ActiveRecord: 48.0ms)
+
+
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started PUT "/en/account/registration" for 127.0.0.1 at 2020-10-21 15:31:14 +0400
+Processing by Account::RegistrationController#confirm_registration as JSON
+  Parameters: {"sms_code"=>"414135", "token"=>"6puwncrTSwiusBTSK4bEfHZK", "locale"=>"en", "registration"=>{"sms_code"=>"414135", "token"=>"6puwncrTSwiusBTSK4bEfHZK"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mConfirmationCode Load (1.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "6puwncrTSwiusBTSK4bEfHZK"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mConfirmationCode Load (1.2ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:132
+Completed 400 Bad Request in 6496ms (Views: 0.5ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/en/account/registration" for 127.0.0.1 at 2020-10-21 15:31:26 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"name"=>"bukaurdiabuka", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"bukaurdiabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer", "locale"=>"en", "registration"=>{"name"=>"bukaurdiabuka", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"bukaurdiabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mTermsAndCondition Load (1.0ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" ORDER BY active_from DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:84
+  [1m[36mCountryPhoneIndex Load (0.6ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation_service.rb:21
+  [1m[36mCACHE CountryPhoneIndex Load (0.0ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation.rb:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:36
+  [1m[36mUserAccount Create (0.4ms)[0m  [1m[32mINSERT INTO "user_accounts" ("phone_number", "email", "crypted_password", "created_at", "updated_at", "salt", "username", "phone_number_iso") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["phone_number", "577520250"], ["email", "anzorurdia@gmail.com"], ["crypted_password", "$2a$10$nqIaQa6T.YppJUqZvN6Yau1a1XGT/CuLEHtnI/U4yA8sROwiG/YIm"], ["created_at", "2020-10-21 11:31:30.400700"], ["updated_at", "2020-10-21 11:31:30.400700"], ["salt", "xGFssTCcJZkARshsDxXb"], ["username", "bukaurdiabuka"], ["phone_number_iso", "GE"]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomerType Load (0.9ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "private_customer"], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:139
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomerType Load (0.4ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomer Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "customers" WHERE "customers"."customer_type_id" = $1 AND "customers"."user_account_id" = $2 AND "customers"."active" = $3 LIMIT $4[0m  [["customer_type_id", 1], ["user_account_id", 59], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mCustomer Create (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("name", "delivery_address", "user_account_id", "customer_type_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "bukaurdiabuka"], ["delivery_address", "string_test"], ["user_account_id", 59], ["customer_type_id", 1], ["created_at", "2020-10-21 11:31:30.796603"], ["updated_at", "2020-10-21 11:31:30.796603"]]
+  ↳ app/services/account/registration_service.rb:114
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mTermsAndCondition Load (0.4ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" WHERE "terms_and_conditions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mTermsAndConditionAgreement Create (0.6ms)[0m  [1m[32mINSERT INTO "terms_and_condition_agreements" ("user_account_id", "terms_and_condition_id", "agreed_date") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_account_id", 59], ["terms_and_condition_id", 4], ["agreed_date", "2020-10-21 11:31:31.327584"]]
+  ↳ app/services/account/registration_service.rb:120
+  [1m[36mConfirmationType Load (0.6ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "registration"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:15
+  [1m[36mConfirmationCode Load (0.5ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."user_account_id" = $1 AND "confirmation_codes"."confirmation_type_id" = $2 ORDER BY "confirmation_codes"."id" ASC LIMIT $3[0m  [["user_account_id", 59], ["confirmation_type_id", 2], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:16
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationCode Create (0.5ms)[0m  [1m[32mINSERT INTO "confirmation_codes" ("confirmation_token", "sms_code", "generation_time", "failed_attempts_count", "user_account_id", "confirmation_type_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["confirmation_token", "EFfUQtLcwWwUaUJctM9V1eQA"], ["sms_code", "pending"], ["generation_time", "2020-10-21 11:31:32.591705"], ["failed_attempts_count", 0], ["user_account_id", 59], ["confirmation_type_id", 2]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mCountryPhoneIndex Load (0.7ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:90
+  [1m[35m (36.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/registration_service.rb:36
+Completed 200 OK in 14984ms (Views: 0.5ms | ActiveRecord: 108.2ms)
+
+
+Started PUT "/en/account/registration" for 127.0.0.1 at 2020-10-21 15:32:04 +0400
+Processing by Account::RegistrationController#confirm_registration as JSON
+  Parameters: {"sms_code"=>"356898", "token"=>"EFfUQtLcwWwUaUJctM9V1eQA", "locale"=>"en", "registration"=>{"sms_code"=>"356898", "token"=>"EFfUQtLcwWwUaUJctM9V1eQA"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mConfirmationCode Load (0.9ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "EFfUQtLcwWwUaUJctM9V1eQA"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mCACHE ConfirmationCode Load (0.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "EFfUQtLcwWwUaUJctM9V1eQA"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:132
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:144
+  [1m[36mCountryPhoneIndex Load (0.6ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:145
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:154
+  [1m[36mConfirmationCode Update (0.9ms)[0m  [1m[33mUPDATE "confirmation_codes" SET "failed_attempts_count" = $1 WHERE "confirmation_codes"."id" = $2[0m  [["failed_attempts_count", 1], ["id", 42]]
+  ↳ app/services/account/confirmation_service.rb:154
+  [1m[35m (36.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:154
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:26
+  [1m[36mConfirmationCode Destroy (1.0ms)[0m  [1m[31mDELETE FROM "confirmation_codes" WHERE "confirmation_codes"."id" = $1[0m  [["id", 42]]
+  ↳ app/services/account/confirmation_service.rb:127
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:26
+Completed 200 OK in 101062ms (Views: 0.4ms | ActiveRecord: 44.3ms)
+
+
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/users/approve_registration?id=59&role_group_id=7" for 127.0.0.1 at 2020-10-21 17:34:02 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"59", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:62
+  [1m[36mRoleGroup Load (1.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:37
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 59]]
+  ↳ app/services/account/users_service.rb:46
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:50
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:50
+  [1m[36mUserRole Create (0.9ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 59], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:50
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/users_service.rb:37
+Completed 200 OK in 57ms (Views: 0.1ms | ActiveRecord: 18.4ms)
+
+
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/users/approve_registration?id=59&role_group_id=7" for 127.0.0.1 at 2020-10-21 17:37:21 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"59", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:62
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:37
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 59]]
+  ↳ app/services/account/users_service.rb:46
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:50
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:50
+  [1m[36mUserRole Create (0.7ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 59], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:50
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/account/users_service.rb:37
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 12.4ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/services/account/users_service.rb:75:in `[]'
+app/services/account/users_service.rb:75:in `block in update_redis'
+app/services/account/users_service.rb:75:in `reject!'
+app/services/account/users_service.rb:75:in `update_redis'
+app/services/account/users_service.rb:40:in `block in approve_registration'
+app/services/account/users_service.rb:37:in `approve_registration'
+app/services/account/users_service.rb:30:in `approve_user_registration'
+app/controllers/users_controller.rb:22:in `approve_registration'
+Started POST "/en/users/approve_registration?id=59&role_group_id=7" for 127.0.0.1 at 2020-10-21 17:37:44 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"59", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:62
+  [1m[36mRoleGroup Load (0.1ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:37
+  [1m[36mUserAccount Update (0.3ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 59]]
+  ↳ app/services/account/users_service.rb:46
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:50
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:50
+  [1m[36mUserRole Create (0.3ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 59], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:50
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/account/users_service.rb:37
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.7ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/services/account/users_service.rb:75:in `[]'
+app/services/account/users_service.rb:75:in `block in update_redis'
+app/services/account/users_service.rb:75:in `reject!'
+app/services/account/users_service.rb:75:in `update_redis'
+app/services/account/users_service.rb:40:in `block in approve_registration'
+app/services/account/users_service.rb:37:in `approve_registration'
+app/services/account/users_service.rb:30:in `approve_user_registration'
+app/controllers/users_controller.rb:22:in `approve_registration'
+Started POST "/en/users/approve_registration?id=59&role_group_id=7" for 127.0.0.1 at 2020-10-21 17:39:04 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"59", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:62
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:37
+  [1m[36mUserAccount Update (0.3ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 59]]
+  ↳ app/services/account/users_service.rb:46
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:50
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:50
+  [1m[36mUserRole Create (0.5ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 59], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:50
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/account/users_service.rb:37
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 11.7ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/services/account/users_service.rb:76:in `[]'
+app/services/account/users_service.rb:76:in `block in update_redis'
+app/services/account/users_service.rb:76:in `reject!'
+app/services/account/users_service.rb:76:in `update_redis'
+app/services/account/users_service.rb:40:in `block in approve_registration'
+app/services/account/users_service.rb:37:in `approve_registration'
+app/services/account/users_service.rb:30:in `approve_user_registration'
+app/controllers/users_controller.rb:22:in `approve_registration'
+Started POST "/en/users/approve_registration?id=59&role_group_id=7" for 127.0.0.1 at 2020-10-21 17:39:08 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"59", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:62
+  [1m[36mRoleGroup Load (0.1ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:37
+  [1m[36mUserAccount Update (0.3ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 59]]
+  ↳ app/services/account/users_service.rb:46
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:50
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:50
+  [1m[36mUserRole Create (0.4ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 59], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:50
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/account/users_service.rb:37
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.8ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/services/account/users_service.rb:76:in `[]'
+app/services/account/users_service.rb:76:in `block in update_redis'
+app/services/account/users_service.rb:76:in `reject!'
+app/services/account/users_service.rb:76:in `update_redis'
+app/services/account/users_service.rb:40:in `block in approve_registration'
+app/services/account/users_service.rb:37:in `approve_registration'
+app/services/account/users_service.rb:30:in `approve_user_registration'
+app/controllers/users_controller.rb:22:in `approve_registration'
+Started POST "/en/users/approve_registration?id=59&role_group_id=7" for 127.0.0.1 at 2020-10-21 17:39:47 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"59", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:64
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:70
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 59]]
+  ↳ app/services/account/users_service.rb:48
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mUserRole Create (0.4ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 59], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/account/users_service.rb:39
+Completed 500 Internal Server Error in 5135ms (ActiveRecord: 15.2ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/services/account/users_service.rb:78:in `[]'
+app/services/account/users_service.rb:78:in `block in update_redis'
+app/services/account/users_service.rb:78:in `reject!'
+app/services/account/users_service.rb:78:in `update_redis'
+app/services/account/users_service.rb:42:in `block in approve_registration'
+app/services/account/users_service.rb:39:in `approve_registration'
+app/services/account/users_service.rb:31:in `approve_user_registration'
+app/controllers/users_controller.rb:22:in `approve_registration'
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+Started POST "/en/users/approve_registration?id=59&role_group_id=7" for 127.0.0.1 at 2020-10-21 17:40:58 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"59", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:74
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Update (1.2ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 59]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mUserRole Create (0.6ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 59], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/account/users_service.rb:39
+Completed 500 Internal Server Error in 87652ms (ActiveRecord: 24.8ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/services/account/users_service.rb:83:in `[]'
+app/services/account/users_service.rb:83:in `block in update_redis'
+app/services/account/users_service.rb:83:in `reject!'
+app/services/account/users_service.rb:83:in `update_redis'
+app/services/account/users_service.rb:45:in `block in approve_registration'
+app/services/account/users_service.rb:39:in `approve_registration'
+app/services/account/users_service.rb:31:in `approve_user_registration'
+app/controllers/users_controller.rb:22:in `approve_registration'
+Started POST "/en/users/approve_registration?id=59&role_group_id=7" for 127.0.0.1 at 2020-10-21 17:44:09 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"59", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+  [1m[36mRoleGroup Load (0.7ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:74
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Update (1.0ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 59]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mRoleGroup Load (0.7ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mUserRole Create (1.1ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 59], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/account/users_service.rb:39
+Completed 500 Internal Server Error in 135918ms (ActiveRecord: 6.4ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/services/account/users_service.rb:83:in `[]'
+app/services/account/users_service.rb:83:in `block in update_redis'
+app/services/account/users_service.rb:83:in `reject!'
+app/services/account/users_service.rb:83:in `update_redis'
+app/services/account/users_service.rb:45:in `block in approve_registration'
+app/services/account/users_service.rb:39:in `approve_registration'
+app/services/account/users_service.rb:31:in `approve_user_registration'
+app/controllers/users_controller.rb:22:in `approve_registration'
+Started POST "/en/users/approve_registration?id=59&role_group_id=7" for 127.0.0.1 at 2020-10-21 17:46:28 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"59", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:74
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Update (0.9ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 59]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mRoleGroup Load (0.6ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mUserRole Create (1.0ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 59], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[35m (36.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/users_service.rb:39
+Completed 200 OK in 129253ms (Views: 0.3ms | ActiveRecord: 59.8ms)
+
+
+Started POST "/en/users/approve_registration?id=59&role_group_id=7" for 127.0.0.1 at 2020-10-21 17:48:41 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"59", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+  [1m[36mRoleGroup Load (0.6ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:74
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Update (1.5ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 59]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mRoleGroup Load (0.6ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mUserRole Create (1.2ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 59], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/account/users_service.rb:39
+Completed 500 Internal Server Error in 935792ms (ActiveRecord: 6.4ms)
+
+
+  
+Redis::CommandError (ERR wrong number of arguments for 'sadd' command):
+  
+app/services/account/confirmation_storage_service.rb:14:in `store_user_in_redis'
+app/services/account/users_service.rb:85:in `update_redis'
+app/services/account/users_service.rb:45:in `block in approve_registration'
+app/services/account/users_service.rb:39:in `approve_registration'
+app/services/account/users_service.rb:31:in `approve_user_registration'
+app/controllers/users_controller.rb:22:in `approve_registration'
+Started POST "/en/users/approve_registration?id=59&role_group_id=7" for 127.0.0.1 at 2020-10-21 18:04:21 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"59", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:74
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Update (1.0ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 59]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mRoleGroup Load (0.1ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mUserRole Create (0.3ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 59], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[35m (36.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/users_service.rb:39
+Completed 200 OK in 10237ms (Views: 0.4ms | ActiveRecord: 52.3ms)
+
+
+Started POST "/en/account/registration" for 127.0.0.1 at 2020-10-21 18:04:45 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"name"=>"bukaurdiabuka", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"bukaurdiabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer", "locale"=>"en", "registration"=>{"name"=>"bukaurdiabuka", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"bukaurdiabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mTermsAndCondition Load (0.8ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" ORDER BY active_from DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:76
+  [1m[36mCountryPhoneIndex Load (0.5ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation_service.rb:21
+  [1m[36mCACHE CountryPhoneIndex Load (0.0ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:32
+  [1m[36mUserAccount Create (0.4ms)[0m  [1m[32mINSERT INTO "user_accounts" ("phone_number", "email", "crypted_password", "created_at", "updated_at", "salt", "username", "phone_number_iso") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["phone_number", "577520250"], ["email", "anzorurdia@gmail.com"], ["crypted_password", "$2a$10$Al58DuMESEKVju6mfhMw0OjrJh/j6OTNfEIy0RSzaxxrs2gH6PM96"], ["created_at", "2020-10-21 14:04:45.259171"], ["updated_at", "2020-10-21 14:04:45.259171"], ["salt", "xHiQPxTPEYyWWxxC-S-X"], ["username", "bukaurdiabuka"], ["phone_number_iso", "GE"]]
+  ↳ app/services/account/registration_service.rb:98
+  [1m[36mCustomerType Load (0.3ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "private_customer"], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:131
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomerType Load (0.3ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomer Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "customers" WHERE "customers"."customer_type_id" = $1 AND "customers"."user_account_id" = $2 AND "customers"."active" = $3 LIMIT $4[0m  [["customer_type_id", 1], ["user_account_id", 60], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomer Create (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("name", "delivery_address", "user_account_id", "customer_type_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "bukaurdiabuka"], ["delivery_address", "string_test"], ["user_account_id", 60], ["customer_type_id", 1], ["created_at", "2020-10-21 14:04:45.304492"], ["updated_at", "2020-10-21 14:04:45.304492"]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:112
+  [1m[36mTermsAndCondition Load (0.3ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" WHERE "terms_and_conditions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:112
+  [1m[36mTermsAndConditionAgreement Create (0.7ms)[0m  [1m[32mINSERT INTO "terms_and_condition_agreements" ("user_account_id", "terms_and_condition_id", "agreed_date") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_account_id", 60], ["terms_and_condition_id", 4], ["agreed_date", "2020-10-21 14:04:45.307690"]]
+  ↳ app/services/account/registration_service.rb:112
+  [1m[36mConfirmationType Load (0.2ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "registration"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:15
+  [1m[36mConfirmationCode Load (0.5ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."user_account_id" = $1 AND "confirmation_codes"."confirmation_type_id" = $2 ORDER BY "confirmation_codes"."id" ASC LIMIT $3[0m  [["user_account_id", 60], ["confirmation_type_id", 2], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:16
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationCode Create (0.8ms)[0m  [1m[32mINSERT INTO "confirmation_codes" ("confirmation_token", "sms_code", "generation_time", "failed_attempts_count", "user_account_id", "confirmation_type_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["confirmation_token", "Hn8cREkCP8fxaA51ei3ufQkR"], ["sms_code", "pending"], ["generation_time", "2020-10-21 14:04:45.347309"], ["failed_attempts_count", 0], ["user_account_id", 60], ["confirmation_type_id", 2]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mCountryPhoneIndex Load (0.3ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:84
+  [1m[35m (36.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/registration_service.rb:32
+Completed 200 OK in 7975ms (Views: 0.5ms | ActiveRecord: 67.9ms)
+
+
+Started PUT "/en/account/registration" for 127.0.0.1 at 2020-10-21 18:05:48 +0400
+Processing by Account::RegistrationController#confirm_registration as JSON
+  Parameters: {"sms_code"=>"414029", "token"=>"Hn8cREkCP8fxaA51ei3ufQkR", "locale"=>"en", "registration"=>{"sms_code"=>"414029", "token"=>"Hn8cREkCP8fxaA51ei3ufQkR"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mConfirmationCode Load (0.3ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "Hn8cREkCP8fxaA51ei3ufQkR"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mCACHE ConfirmationCode Load (0.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "Hn8cREkCP8fxaA51ei3ufQkR"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:124
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:136
+  [1m[36mCountryPhoneIndex Load (0.2ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:137
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:146
+  [1m[36mConfirmationCode Update (0.9ms)[0m  [1m[33mUPDATE "confirmation_codes" SET "failed_attempts_count" = $1 WHERE "confirmation_codes"."id" = $2[0m  [["failed_attempts_count", 1], ["id", 43]]
+  ↳ app/services/account/confirmation_service.rb:146
+  [1m[35m (36.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:146
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:26
+  [1m[36mConfirmationCode Destroy (0.9ms)[0m  [1m[31mDELETE FROM "confirmation_codes" WHERE "confirmation_codes"."id" = $1[0m  [["id", 43]]
+  ↳ app/services/account/confirmation_service.rb:119
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:26
+Completed 200 OK in 32643ms (Views: 0.4ms | ActiveRecord: 41.3ms)
+
+
+Started POST "/en/users/approve_registration?id=60&role_group_id=7" for 127.0.0.1 at 2020-10-21 18:06:31 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"60", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+  [1m[36mRoleGroup Load (0.8ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:74
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Update (0.9ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 60]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mRoleGroup Load (0.7ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mUserRole Create (1.5ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 60], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[35m (36.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/users_service.rb:39
+Completed 200 OK in 66955ms (Views: 0.5ms | ActiveRecord: 41.9ms)
+
+
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/users/approve_registration?id=60&role_group_id=7" for 127.0.0.1 at 2020-10-21 18:08:03 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"60", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:74
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Update (0.7ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 60]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mUserRole Create (0.6ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 60], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/account/users_service.rb:39
+Completed 500 Internal Server Error in 25507ms (ActiveRecord: 25.1ms)
+
+
+  
+Redis::CommandError (ERR wrong number of arguments for 'sadd' command):
+  
+app/services/account/confirmation_storage_service.rb:15:in `store_user_in_redis'
+app/services/account/users_service.rb:85:in `update_redis'
+app/services/account/users_service.rb:45:in `block in approve_registration'
+app/services/account/users_service.rb:39:in `approve_registration'
+app/services/account/users_service.rb:31:in `approve_user_registration'
+app/controllers/users_controller.rb:22:in `approve_registration'
+Started POST "/en/users/approve_registration?id=60&role_group_id=7" for 127.0.0.1 at 2020-10-21 18:08:42 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"60", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:74
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Update (1.0ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 60]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mRoleGroup Load (0.6ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mUserRole Create (0.8ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 60], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/account/users_service.rb:39
+Completed 500 Internal Server Error in 7534ms (ActiveRecord: 4.7ms)
+
+
+  
+Redis::CommandError (ERR wrong number of arguments for 'sadd' command):
+  
+app/services/account/confirmation_storage_service.rb:15:in `store_user_in_redis'
+app/services/account/users_service.rb:85:in `update_redis'
+app/services/account/users_service.rb:45:in `block in approve_registration'
+app/services/account/users_service.rb:39:in `approve_registration'
+app/services/account/users_service.rb:31:in `approve_user_registration'
+app/controllers/users_controller.rb:22:in `approve_registration'
+Started POST "/en/users/approve_registration?id=60&role_group_id=7" for 127.0.0.1 at 2020-10-21 18:09:04 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"60", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+  [1m[36mRoleGroup Load (0.5ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:74
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Update (1.1ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 60]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mRoleGroup Load (0.6ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mUserRole Create (1.3ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 60], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/account/users_service.rb:39
+Completed 500 Internal Server Error in 161114ms (ActiveRecord: 5.9ms)
+
+
+  
+Redis::CommandError (ERR wrong number of arguments for 'sadd' command):
+  
+app/services/account/confirmation_storage_service.rb:15:in `store_user_in_redis'
+app/services/account/users_service.rb:85:in `update_redis'
+app/services/account/users_service.rb:45:in `block in approve_registration'
+app/services/account/users_service.rb:39:in `approve_registration'
+app/services/account/users_service.rb:31:in `approve_user_registration'
+app/controllers/users_controller.rb:22:in `approve_registration'
+Started POST "/en/users/approve_registration?id=60&role_group_id=7" for 127.0.0.1 at 2020-10-21 18:11:49 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"60", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:74
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Update (1.0ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 60]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mUserRole Create (0.6ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 60], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[35m (36.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/users_service.rb:39
+Completed 200 OK in 13390ms (Views: 0.7ms | ActiveRecord: 73.2ms)
+
+
+Started POST "/en/account/registration" for 127.0.0.1 at 2020-10-21 18:12:10 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"name"=>"bukaurdiabuka", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"bukaurdiabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer", "locale"=>"en", "registration"=>{"name"=>"bukaurdiabuka", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"bukaurdiabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mTermsAndCondition Load (0.3ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" ORDER BY active_from DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:76
+  [1m[36mCountryPhoneIndex Load (0.2ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation_service.rb:21
+  [1m[36mCACHE CountryPhoneIndex Load (0.0ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:32
+  [1m[36mUserAccount Create (0.3ms)[0m  [1m[32mINSERT INTO "user_accounts" ("phone_number", "email", "crypted_password", "created_at", "updated_at", "salt", "username", "phone_number_iso") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["phone_number", "577520250"], ["email", "anzorurdia@gmail.com"], ["crypted_password", "$2a$10$QgYGPHGuMfqkDhPrIVjYCOQ6Xe53t9R.xthC9e6/A8BwLTjBw2VW6"], ["created_at", "2020-10-21 14:12:10.179714"], ["updated_at", "2020-10-21 14:12:10.179714"], ["salt", "yEXfxHzHkWDEbPWhEnwh"], ["username", "bukaurdiabuka"], ["phone_number_iso", "GE"]]
+  ↳ app/services/account/registration_service.rb:98
+  [1m[36mCustomerType Load (0.3ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "private_customer"], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:131
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomerType Load (0.4ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomer Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "customers" WHERE "customers"."customer_type_id" = $1 AND "customers"."user_account_id" = $2 AND "customers"."active" = $3 LIMIT $4[0m  [["customer_type_id", 1], ["user_account_id", 61], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomer Create (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("name", "delivery_address", "user_account_id", "customer_type_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "bukaurdiabuka"], ["delivery_address", "string_test"], ["user_account_id", 61], ["customer_type_id", 1], ["created_at", "2020-10-21 14:12:10.206588"], ["updated_at", "2020-10-21 14:12:10.206588"]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:112
+  [1m[36mTermsAndCondition Load (0.3ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" WHERE "terms_and_conditions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:112
+  [1m[36mTermsAndConditionAgreement Create (0.5ms)[0m  [1m[32mINSERT INTO "terms_and_condition_agreements" ("user_account_id", "terms_and_condition_id", "agreed_date") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_account_id", 61], ["terms_and_condition_id", 4], ["agreed_date", "2020-10-21 14:12:10.209594"]]
+  ↳ app/services/account/registration_service.rb:112
+  [1m[36mConfirmationType Load (0.4ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "registration"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:15
+  [1m[36mConfirmationCode Load (0.7ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."user_account_id" = $1 AND "confirmation_codes"."confirmation_type_id" = $2 ORDER BY "confirmation_codes"."id" ASC LIMIT $3[0m  [["user_account_id", 61], ["confirmation_type_id", 2], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:16
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationCode Create (0.5ms)[0m  [1m[32mINSERT INTO "confirmation_codes" ("confirmation_token", "sms_code", "generation_time", "failed_attempts_count", "user_account_id", "confirmation_type_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["confirmation_token", "XfbAYz2meJQBSsGs3vHnNWCW"], ["sms_code", "pending"], ["generation_time", "2020-10-21 14:12:10.244392"], ["failed_attempts_count", 0], ["user_account_id", 61], ["confirmation_type_id", 2]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mCountryPhoneIndex Load (0.2ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:84
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/registration_service.rb:32
+Completed 200 OK in 8656ms (Views: 0.5ms | ActiveRecord: 28.9ms)
+
+
+Started PUT "/en/account/registration" for 127.0.0.1 at 2020-10-21 18:12:36 +0400
+Processing by Account::RegistrationController#confirm_registration as JSON
+  Parameters: {"sms_code"=>"353019", "token"=>"XfbAYz2meJQBSsGs3vHnNWCW", "locale"=>"en", "registration"=>{"sms_code"=>"353019", "token"=>"XfbAYz2meJQBSsGs3vHnNWCW"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mConfirmationCode Load (0.3ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "XfbAYz2meJQBSsGs3vHnNWCW"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mCACHE ConfirmationCode Load (0.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "XfbAYz2meJQBSsGs3vHnNWCW"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:124
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:136
+  [1m[36mCountryPhoneIndex Load (0.2ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:137
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:146
+  [1m[36mConfirmationCode Update (0.4ms)[0m  [1m[33mUPDATE "confirmation_codes" SET "failed_attempts_count" = $1 WHERE "confirmation_codes"."id" = $2[0m  [["failed_attempts_count", 1], ["id", 44]]
+  ↳ app/services/account/confirmation_service.rb:146
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:146
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:26
+  [1m[36mConfirmationCode Destroy (0.3ms)[0m  [1m[31mDELETE FROM "confirmation_codes" WHERE "confirmation_codes"."id" = $1[0m  [["id", 44]]
+  ↳ app/services/account/confirmation_service.rb:119
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:26
+Completed 200 OK in 4801ms (Views: 0.6ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/en/users/approve_registration?id=61&role_group_id=7" for 127.0.0.1 at 2020-10-21 18:12:54 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"61", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+  [1m[36mRoleGroup Load (0.8ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:74
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Update (1.1ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 61]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mRoleGroup Load (0.8ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mUserRole Create (1.0ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 61], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/users_service.rb:39
+Completed 200 OK in 60775ms (Views: 0.4ms | ActiveRecord: 10.4ms)
+
+
+Started POST "/en/account/registration" for 127.0.0.1 at 2020-10-21 18:14:08 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"name"=>"bukaurdiabuka", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"bukaurdiabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer", "locale"=>"en", "registration"=>{"name"=>"bukaurdiabuka", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"bukaurdiabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mTermsAndCondition Load (0.3ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" ORDER BY active_from DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:76
+  [1m[36mCountryPhoneIndex Load (0.2ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation_service.rb:21
+  [1m[36mCACHE CountryPhoneIndex Load (0.0ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:32
+  [1m[36mUserAccount Create (0.3ms)[0m  [1m[32mINSERT INTO "user_accounts" ("phone_number", "email", "crypted_password", "created_at", "updated_at", "salt", "username", "phone_number_iso") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["phone_number", "577520250"], ["email", "anzorurdia@gmail.com"], ["crypted_password", "$2a$10$K.ZHvgODqebv/Kh5o48UCuBPRtCWS0chqhqzAAkS0/qf4yZWSQP4O"], ["created_at", "2020-10-21 14:14:08.927967"], ["updated_at", "2020-10-21 14:14:08.927967"], ["salt", "jyLh4mcmsdqYDieybCfo"], ["username", "bukaurdiabuka"], ["phone_number_iso", "GE"]]
+  ↳ app/services/account/registration_service.rb:98
+  [1m[36mCustomerType Load (0.2ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "private_customer"], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:131
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomerType Load (0.2ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomer Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "customers" WHERE "customers"."customer_type_id" = $1 AND "customers"."user_account_id" = $2 AND "customers"."active" = $3 LIMIT $4[0m  [["customer_type_id", 1], ["user_account_id", 62], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "delivery_address", "user_account_id", "customer_type_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "bukaurdiabuka"], ["delivery_address", "string_test"], ["user_account_id", 62], ["customer_type_id", 1], ["created_at", "2020-10-21 14:14:08.932026"], ["updated_at", "2020-10-21 14:14:08.932026"]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:112
+  [1m[36mTermsAndCondition Load (0.1ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" WHERE "terms_and_conditions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:112
+  [1m[36mTermsAndConditionAgreement Create (0.5ms)[0m  [1m[32mINSERT INTO "terms_and_condition_agreements" ("user_account_id", "terms_and_condition_id", "agreed_date") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_account_id", 62], ["terms_and_condition_id", 4], ["agreed_date", "2020-10-21 14:14:08.932808"]]
+  ↳ app/services/account/registration_service.rb:112
+  [1m[36mConfirmationType Load (0.2ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "registration"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:15
+  [1m[36mConfirmationCode Load (0.4ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."user_account_id" = $1 AND "confirmation_codes"."confirmation_type_id" = $2 ORDER BY "confirmation_codes"."id" ASC LIMIT $3[0m  [["user_account_id", 62], ["confirmation_type_id", 2], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:16
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationCode Create (0.5ms)[0m  [1m[32mINSERT INTO "confirmation_codes" ("confirmation_token", "sms_code", "generation_time", "failed_attempts_count", "user_account_id", "confirmation_type_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["confirmation_token", "yXHXTaDYN8FBXiwZsi6b2K9i"], ["sms_code", "pending"], ["generation_time", "2020-10-21 14:14:08.938125"], ["failed_attempts_count", 0], ["user_account_id", 62], ["confirmation_type_id", 2]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mCountryPhoneIndex Load (0.2ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:84
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/registration_service.rb:32
+Completed 200 OK in 5942ms (Views: 0.5ms | ActiveRecord: 7.9ms)
+
+
+Started PUT "/en/account/registration" for 127.0.0.1 at 2020-10-21 18:14:46 +0400
+Processing by Account::RegistrationController#confirm_registration as JSON
+  Parameters: {"sms_code"=>"970391", "token"=>"yXHXTaDYN8FBXiwZsi6b2K9i", "locale"=>"en", "registration"=>{"sms_code"=>"970391", "token"=>"yXHXTaDYN8FBXiwZsi6b2K9i"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mConfirmationCode Load (0.3ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "yXHXTaDYN8FBXiwZsi6b2K9i"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mCACHE ConfirmationCode Load (0.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "yXHXTaDYN8FBXiwZsi6b2K9i"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:124
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:136
+  [1m[36mCountryPhoneIndex Load (0.1ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:137
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:146
+  [1m[36mConfirmationCode Update (0.3ms)[0m  [1m[33mUPDATE "confirmation_codes" SET "failed_attempts_count" = $1 WHERE "confirmation_codes"."id" = $2[0m  [["failed_attempts_count", 1], ["id", 45]]
+  ↳ app/services/account/confirmation_service.rb:146
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:146
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:26
+  [1m[36mConfirmationCode Destroy (0.3ms)[0m  [1m[31mDELETE FROM "confirmation_codes" WHERE "confirmation_codes"."id" = $1[0m  [["id", 45]]
+  ↳ app/services/account/confirmation_service.rb:119
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:26
+Completed 200 OK in 14527ms (Views: 0.3ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/en/account/registration" for 127.0.0.1 at 2020-10-21 18:15:29 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"name"=>"bukaurdiabuka", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"bukaurdiabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer", "locale"=>"en", "registration"=>{"name"=>"bukaurdiabuka", "delivery_address"=>"string_test", "invoice_address"=>"string_test", "username"=>"bukaurdiabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"anzorurdia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "agreed_terms_and_conditions"=>true, "terms_and_conditions_id"=>4, "customer_type"=>"private_customer"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mTermsAndCondition Load (0.3ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" ORDER BY active_from DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:76
+  [1m[36mCountryPhoneIndex Load (0.2ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation_service.rb:21
+  [1m[36mCACHE CountryPhoneIndex Load (0.0ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:32
+  [1m[36mUserAccount Create (0.3ms)[0m  [1m[32mINSERT INTO "user_accounts" ("phone_number", "email", "crypted_password", "created_at", "updated_at", "salt", "username", "phone_number_iso") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["phone_number", "577520250"], ["email", "anzorurdia@gmail.com"], ["crypted_password", "$2a$10$S2ijZQ3.Ihw5xrlJyHd0aOWFpv4FSyqwd2PqHUtTjArhurESU/RAC"], ["created_at", "2020-10-21 14:15:29.496781"], ["updated_at", "2020-10-21 14:15:29.496781"], ["salt", "X9tDNAC2ExXmuqNk-m_a"], ["username", "bukaurdiabuka"], ["phone_number_iso", "GE"]]
+  ↳ app/services/account/registration_service.rb:98
+  [1m[36mCustomerType Load (0.2ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "private_customer"], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:131
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 63], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomerType Load (0.2ms)[0m  [1m[34mSELECT  "customer_types".* FROM "customer_types" WHERE "customer_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomer Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "customers" WHERE "customers"."customer_type_id" = $1 AND "customers"."user_account_id" = $2 AND "customers"."active" = $3 LIMIT $4[0m  [["customer_type_id", 1], ["user_account_id", 63], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mCustomer Create (0.2ms)[0m  [1m[32mINSERT INTO "customers" ("name", "delivery_address", "user_account_id", "customer_type_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "bukaurdiabuka"], ["delivery_address", "string_test"], ["user_account_id", 63], ["customer_type_id", 1], ["created_at", "2020-10-21 14:15:29.501602"], ["updated_at", "2020-10-21 14:15:29.501602"]]
+  ↳ app/services/account/registration_service.rb:106
+  [1m[36mUserAccount Load (0.1ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 63], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:112
+  [1m[36mTermsAndCondition Load (0.2ms)[0m  [1m[34mSELECT  "terms_and_conditions".* FROM "terms_and_conditions" WHERE "terms_and_conditions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:112
+  [1m[36mTermsAndConditionAgreement Create (0.3ms)[0m  [1m[32mINSERT INTO "terms_and_condition_agreements" ("user_account_id", "terms_and_condition_id", "agreed_date") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_account_id", 63], ["terms_and_condition_id", 4], ["agreed_date", "2020-10-21 14:15:29.502503"]]
+  ↳ app/services/account/registration_service.rb:112
+  [1m[36mConfirmationType Load (0.2ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "registration"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:15
+  [1m[36mConfirmationCode Load (0.3ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."user_account_id" = $1 AND "confirmation_codes"."confirmation_type_id" = $2 ORDER BY "confirmation_codes"."id" ASC LIMIT $3[0m  [["user_account_id", 63], ["confirmation_type_id", 2], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:16
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 63], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationCode Create (0.6ms)[0m  [1m[32mINSERT INTO "confirmation_codes" ("confirmation_token", "sms_code", "generation_time", "failed_attempts_count", "user_account_id", "confirmation_type_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["confirmation_token", "RhtmHk3exSwYhx9xyYdvWinj"], ["sms_code", "pending"], ["generation_time", "2020-10-21 14:15:29.506570"], ["failed_attempts_count", 0], ["user_account_id", 63], ["confirmation_type_id", 2]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mCountryPhoneIndex Load (0.2ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:84
+  [1m[35m (4.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/registration_service.rb:32
+Completed 200 OK in 5738ms (Views: 0.2ms | ActiveRecord: 8.3ms)
+
+
+Started PUT "/en/account/registration" for 127.0.0.1 at 2020-10-21 18:15:52 +0400
+Processing by Account::RegistrationController#confirm_registration as JSON
+  Parameters: {"sms_code"=>"993861", "token"=>"RhtmHk3exSwYhx9xyYdvWinj", "locale"=>"en", "registration"=>{"sms_code"=>"993861", "token"=>"RhtmHk3exSwYhx9xyYdvWinj"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mConfirmationCode Load (0.3ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "RhtmHk3exSwYhx9xyYdvWinj"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mCACHE ConfirmationCode Load (0.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "RhtmHk3exSwYhx9xyYdvWinj"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:124
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 63], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:136
+  [1m[36mCountryPhoneIndex Load (0.2ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/account/confirmation_service.rb:137
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:146
+  [1m[36mConfirmationCode Update (0.4ms)[0m  [1m[33mUPDATE "confirmation_codes" SET "failed_attempts_count" = $1 WHERE "confirmation_codes"."id" = $2[0m  [["failed_attempts_count", 1], ["id", 46]]
+  ↳ app/services/account/confirmation_service.rb:146
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:146
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/confirmation_service.rb:26
+  [1m[36mConfirmationCode Destroy (0.4ms)[0m  [1m[31mDELETE FROM "confirmation_codes" WHERE "confirmation_codes"."id" = $1[0m  [["id", 46]]
+  ↳ app/services/account/confirmation_service.rb:119
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/confirmation_service.rb:26
+Completed 200 OK in 16123ms (Views: 0.3ms | ActiveRecord: 5.8ms)
+
+
+Started POST "/en/users/approve_registration?id=63&role_group_id=7" for 127.0.0.1 at 2020-10-21 18:16:17 +0400
+Processing by UsersController#approve_registration as JSON
+  Parameters: {"id"=>"63", "role_group_id"=>"7", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 63], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:68
+  [1m[36mRoleGroup Load (0.6ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:74
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Update (1.3ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", true], ["id", 63]]
+  ↳ app/services/account/users_service.rb:52
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 63], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mRoleGroup Load (0.8ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[36mUserRole Create (1.4ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 63], ["role_group_id", 7]]
+  ↳ app/services/account/users_service.rb:56
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/users_service.rb:39
+Completed 200 OK in 31518ms (Views: 0.4ms | ActiveRecord: 9.3ms)
+
+
+  [1m[36mCustomer Load (4.5ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "customers"."active" = $1 ORDER BY "customers"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-10-21 18:33:55 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-10-21 18:33:56 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-10-21 18:33:56 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-10-21 18:33:56 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-10-21 18:33:56 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-10-21 18:33:56 +0400
+Started GET "/en/users/unconfirmed_list" for 127.0.0.1 at 2020-10-21 18:34:09 +0400
+Processing by UsersController#unconfirmed_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.9ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "customers"."active" = $1[0m  [["active", false]]
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 8.9ms)
+
+
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."active" = $1[0m  [["active", false]]
+Started GET "/en/users/unconfirmed_list" for 127.0.0.1 at 2020-10-21 18:35:25 +0400
+Processing by UsersController#unconfirmed_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "customers"."active" = $1[0m  [["active", false]]
+  ↳ app/services/account/users_service.rb:30
+  [1m[36mCustomer Load (1.7ms)[0m  [1m[34mSELECT "customers".* FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id"[0m
+  ↳ app/services/account/users_service.rb:30
+  [1m[36mCustomer Load (1.5ms)[0m  [1m[34mSELECT "customers".* FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", false]]
+  ↳ app/services/account/users_service.rb:30
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "customers"."active" = $1[0m  [["active", false]]
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 75739ms (Views: 0.2ms | ActiveRecord: 20.2ms)
+
+
+Started GET "/en/users/unconfirmed_list" for 127.0.0.1 at 2020-10-21 18:36:58 +0400
+Processing by UsersController#unconfirmed_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", false]]
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 2349ms (Views: 0.5ms | ActiveRecord: 12.1ms)
+
+
