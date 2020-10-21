@@ -276,6 +276,39 @@ describe 'Users ', type: :request do
     end
   end
 
+  path '/{locale}/users/listen_to_unconfirmed_users' do
+    get 'Listening to unconfirmed users' do
+      tags 'Users'
+      consumes 'application/json'
+      produces 'application/json'
+
+      parameter({
+                    in: :header,
+                    type: :string,
+                    name: :Authorization,
+                    required: true,
+                    description: 'JWT token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+
+      response '200', 'OK' do
+
+        schema type: :object,
+               properties: {
+                   pending: { type: :integer }
+               }
+        run_test!
+      end
+
+      response '400', 'Bad request' do
+        {}
+
+        run_test!
+      end
+    end
+  end
+
 
 end
 

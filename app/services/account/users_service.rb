@@ -18,6 +18,10 @@ module Account
       { success: true }
     end
 
+    def listen_to_unconfirmed_users_json_view
+      { pending: @pending_users }
+    end
+
     def users_list
       @users = Customer
                    .select("user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
@@ -32,6 +36,10 @@ module Account
                             user_accounts.email, user_accounts.username")
                    .joins(:user_account)
                    .where(user_accounts: { active: false })
+    end
+
+    def listen_to_unconfirmed_users
+      @pending_users = Account::ConfirmationStorageService.new.get_users_from_redis&.length
     end
 
     def approve_user_registration

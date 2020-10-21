@@ -29,6 +29,12 @@ class UsersController < ApplicationController
     rest_respond_service service
   end
 
+  def listen_to_unconfirmed_users
+    service = Account::UsersService.new(users_params)
+    service.listen_to_unconfirmed_users
+    rest_respond_service service
+  end
+
   #we don't need it yet
   #def manage
   #  service = Account::UsersService.new(users_params)

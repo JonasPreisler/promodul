@@ -94,6 +94,7 @@ Rails.application.routes.draw do
       get 'users/list', to: 'users#list'
       get 'users/unconfirmed_list', to: 'users#unconfirmed_list'
       get 'users/current_user', to: 'users#current_user'
+      get 'users/listen_to_unconfirmed_users', to: 'users#listen_to_unconfirmed_users'
       post 'users/approve_registration', to: 'users#approve_registration'
 
     end
