@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_17_144231) do
+ActiveRecord::Schema.define(version: 2020_11_19_220938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,40 @@ ActiveRecord::Schema.define(version: 2020_10_17_144231) do
     t.string "city_code", null: false
     t.bigint "country_id", null: false
     t.index ["country_id"], name: "index_cities_on_country_id"
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string "name", limit: 50, null: false
+    t.string "address"
+    t.string "vat_number", limit: 50
+    t.boolean "active", default: true, null: false
+    t.bigint "user_account_id", null: false
+    t.bigint "country_id", null: false
+    t.bigint "city_id", null: false
+    t.bigint "clients_group_id", null: false
+    t.bigint "clients_type_id", null: false
+    t.bigint "currency_id", null: false
+    t.string "phone"
+    t.string "web_address"
+    t.string "kunde_nr"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_clients_on_city_id"
+    t.index ["clients_group_id"], name: "index_clients_on_clients_group_id"
+    t.index ["clients_type_id"], name: "index_clients_on_clients_type_id"
+    t.index ["country_id"], name: "index_clients_on_country_id"
+    t.index ["currency_id"], name: "index_clients_on_currency_id"
+    t.index ["user_account_id"], name: "index_clients_on_user_account_id"
+  end
+
+  create_table "clients_groups", force: :cascade do |t|
+    t.json "name", null: false
+    t.string "id_name", limit: 50
+  end
+
+  create_table "clients_types", force: :cascade do |t|
+    t.json "name", null: false
+    t.string "id_name", limit: 50
   end
 
   create_table "companies", force: :cascade do |t|
@@ -385,6 +419,12 @@ ActiveRecord::Schema.define(version: 2020_10_17_144231) do
   end
 
   add_foreign_key "cities", "countries"
+  add_foreign_key "clients", "cities"
+  add_foreign_key "clients", "clients_groups"
+  add_foreign_key "clients", "clients_types"
+  add_foreign_key "clients", "countries"
+  add_foreign_key "clients", "currencies"
+  add_foreign_key "clients", "user_accounts"
   add_foreign_key "companies", "cities"
   add_foreign_key "companies", "companies", column: "parent_id"
   add_foreign_key "companies", "countries"

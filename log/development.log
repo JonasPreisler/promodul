@@ -13257,3 +13257,154 @@ Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
 
 
   [1m[36mRoleGroup Load (0.6ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-20 01:21:13 +0400
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-20 01:21:13 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-20 01:21:13 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-20 01:21:13 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-20 01:21:14 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-20 01:21:14 +0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (3.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateClientsGroups (20201119215831)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (26.3ms)[0m  [1m[35mCREATE TABLE "clients_groups" ("id" bigserial primary key, "name" json NOT NULL, "id_name" character varying(50))[0m
+  ↳ db/migrate/20201119215831_create_clients_groups.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201119215831"]]
+  ↳ bin/rails:9
+  [1m[35m (4.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateClientsTypes (20201119215850)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "clients_types" ("id" bigserial primary key, "name" json NOT NULL, "id_name" character varying(50))[0m
+  ↳ db/migrate/20201119215850_create_clients_types.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201119215850"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to FillClientsGroup (20201119215950)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mClientsGroup Create (3.5ms)[0m  [1m[32mINSERT INTO "clients_groups" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "\"Naeringskunde\""], ["id_name", "naeringskunde"]]
+  ↳ db/migrate/20201119215950_fill_clients_group.rb:3
+  [1m[36mClientsGroup Create (0.5ms)[0m  [1m[32mINSERT INTO "clients_groups" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "\"Privat kunde\""], ["id_name", "privat_kunde"]]
+  ↳ db/migrate/20201119215950_fill_clients_group.rb:4
+  [1m[36mClientsGroup Create (0.5ms)[0m  [1m[32mINSERT INTO "clients_groups" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "\"Offentlig\""], ["id_name", "offentlig"]]
+  ↳ db/migrate/20201119215950_fill_clients_group.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201119215950"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to FillClientsType (20201119220002)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mClientsType Create (0.9ms)[0m  [1m[32mINSERT INTO "clients_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "\"Sikkerhet\""], ["id_name", "sikkerhet"]]
+  ↳ db/migrate/20201119220002_fill_clients_type.rb:3
+  [1m[36mClientsType Create (0.5ms)[0m  [1m[32mINSERT INTO "clients_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "\"Elektro\""], ["id_name", "elektro"]]
+  ↳ db/migrate/20201119220002_fill_clients_type.rb:4
+  [1m[36mClientsType Create (0.4ms)[0m  [1m[32mINSERT INTO "clients_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "\"Bugg\""], ["id_name", "bugg"]]
+  ↳ db/migrate/20201119220002_fill_clients_type.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201119220002"]]
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mClientsType Load (0.7ms)[0m  [1m[34mSELECT "clients_types".* FROM "clients_types"[0m
+  [1m[36mClientsGroup Load (1.3ms)[0m  [1m[34mSELECT "clients_groups".* FROM "clients_groups"[0m
+  [1m[36mCompany Load (39.5ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateClients (20201119220938)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (20.9ms)[0m  [1m[35mCREATE TABLE "clients" ("id" bigserial primary key, "name" character varying(50) NOT NULL, "address" character varying, "vat_number" character varying(50), "active" boolean DEFAULT TRUE NOT NULL, "user_account_id" bigint NOT NULL, "country_id" bigint NOT NULL, "city_id" bigint NOT NULL, "clients_group_id" bigint NOT NULL, "clients_type_id" bigint NOT NULL, "currency_id" bigint NOT NULL, "phone" character varying, "web_address" character varying, "kunde_nr" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_f4e629f5e5"
+FOREIGN KEY ("user_account_id")
+  REFERENCES "user_accounts" ("id")
+, CONSTRAINT "fk_rails_b48dd4d0f7"
+FOREIGN KEY ("country_id")
+  REFERENCES "countries" ("id")
+, CONSTRAINT "fk_rails_6b5e4c0738"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+, CONSTRAINT "fk_rails_215a109696"
+FOREIGN KEY ("clients_group_id")
+  REFERENCES "clients_groups" ("id")
+, CONSTRAINT "fk_rails_067b041d8b"
+FOREIGN KEY ("clients_type_id")
+  REFERENCES "clients_types" ("id")
+, CONSTRAINT "fk_rails_b431e95a8a"
+FOREIGN KEY ("currency_id")
+  REFERENCES "currencies" ("id")
+)[0m
+  ↳ db/migrate/20201119220938_create_clients.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_clients_on_user_account_id" ON "clients"  ("user_account_id")[0m
+  ↳ db/migrate/20201119220938_create_clients.rb:3
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_clients_on_country_id" ON "clients"  ("country_id")[0m
+  ↳ db/migrate/20201119220938_create_clients.rb:3
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_clients_on_city_id" ON "clients"  ("city_id")[0m
+  ↳ db/migrate/20201119220938_create_clients.rb:3
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_clients_on_clients_group_id" ON "clients"  ("clients_group_id")[0m
+  ↳ db/migrate/20201119220938_create_clients.rb:3
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_clients_on_clients_type_id" ON "clients"  ("clients_type_id")[0m
+  ↳ db/migrate/20201119220938_create_clients.rb:3
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_clients_on_currency_id" ON "clients"  ("currency_id")[0m
+  ↳ db/migrate/20201119220938_create_clients.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201119220938"]]
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" ORDER BY "clients"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]

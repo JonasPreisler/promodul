@@ -15,7 +15,7 @@ module Account
       { current_user:  @user.as_json(only: [:phone_number, :email, :username], include:
                                  { user_role:
                                        { only: [:id], include:
-                                           { role_group: { only: [:name], include:
+                                           { role_group:  { only: [:name], include:
                                                {
                                                    product_group_permission: { only: [:no_access, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
                                                    product_type_permission: { only: [:no_access, :read_data, :create_data, :edit_data, :activate_data, :delete_record] },
