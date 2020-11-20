@@ -456,6 +456,133 @@
         }
       }
     },
+    "/{locale}/clients": {
+      "post": {
+        "summary": "Create client",
+        "tags": [
+          "Client"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "params",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "vat_number": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                },
+                "web_address": {
+                  "type": "string"
+                },
+                "kunde_nr": {
+                  "type": "string"
+                },
+                "country_id": {
+                  "type": "integer"
+                },
+                "city_id": {
+                  "type": "integer"
+                },
+                "user_account_id": {
+                  "type": "integer"
+                },
+                "clients_group_id": {
+                  "type": "integer"
+                },
+                "clients_type_id": {
+                  "type": "integer"
+                },
+                "currency_id": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "company": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "phone_number": {
+                      "type": "string"
+                    },
+                    "parent_id": {
+                      "type": "integer"
+                    },
+                    "country": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "city": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
     "/{locale}/companies": {
       "post": {
         "summary": "Create company",
