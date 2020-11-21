@@ -6,9 +6,26 @@ class ClientsController < ApplicationController
   skip_before_action :validate_authentication
 
   def create
-    binding.pry
     service = Clients::Service.new(clients_params)
     service.create_client
+    rest_respond_service service
+  end
+
+  def client_type
+    service = Clients::Service.new(clients_params)
+    service.get_types
+    rest_respond_service service
+  end
+
+  def client_group
+    service = Clients::Service.new(clients_params)
+    service.get_groups
+    rest_respond_service service
+  end
+
+  def clients_list
+    service = Clients::Service.new(clients_params)
+    service.client_list
     rest_respond_service service
   end
 

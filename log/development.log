@@ -13545,3 +13545,204 @@ Unpermitted parameters: :format, :locale, :client
   ↳ app/services/clients/service.rb:116
   [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
   ↳ app/services/clients/service.rb:116
+Completed 500 Internal Server Error in 266425ms (ActiveRecord: 88.5ms)
+
+
+  
+NoMethodError (undefined method `company_logo' for #<Client:0x00007f4a7ce33c58>):
+  
+app/services/clients/service.rb:14:in `json_view'
+lib/controller_response.rb:30:in `respond_json_view'
+lib/controller_response.rb:43:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/clients_controller.rb:12:in `create'
+  [1m[36mClient Load (4.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" ORDER BY "clients"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Load (1.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" ORDER BY "clients"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClientsGroup Load (2.7ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mClientsType Load (3.8ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (39.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started POST "/en/clients" for 127.0.0.1 at 2020-11-20 17:20:56 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ClientsController#create as JSON
+  Parameters: {"name"=>"sdcsdc", "address"=>"sdcsc", "vat_number"=>"sdcsd", "phone"=>"sdcsdc", "web_address"=>"sdcsd", "kunde_nr"=>"sdcsc", "country_id"=>4, "city_id"=>9, "user_account_id"=>56, "clients_group_id"=>2, "clients_type_id"=>2, "currency_id"=>5, "locale"=>"en", "client"=>{"name"=>"sdcsdc", "address"=>"sdcsc", "vat_number"=>"sdcsd", "user_account_id"=>56, "country_id"=>4, "city_id"=>9, "clients_group_id"=>2, "clients_type_id"=>2, "currency_id"=>5, "phone"=>"sdcsdc", "web_address"=>"sdcsd", "kunde_nr"=>"sdcsc"}}
+Unpermitted parameters: :format, :locale, :client
+  [1m[36mCountry Load (5.6ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:78
+  [1m[36mCity Load (1.5ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:84
+  [1m[36mCurrency Load (1.6ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:90
+  [1m[36mUserAccount Load (1.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:96
+  [1m[36mClientsGroup Load (0.3ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:102
+  [1m[36mClientsType Load (0.3ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:108
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/clients/service.rb:117
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:117
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:117
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:117
+  [1m[36mCACHE ClientsGroup Load (0.0ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:117
+  [1m[36mCACHE ClientsType Load (0.0ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:117
+  [1m[36mCACHE Currency Load (0.0ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:117
+  [1m[36mClient Create (10.1ms)[0m  [1m[32mINSERT INTO "clients" ("name", "address", "vat_number", "user_account_id", "country_id", "city_id", "clients_group_id", "clients_type_id", "currency_id", "phone", "web_address", "kunde_nr", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "sdcsdc"], ["address", "sdcsc"], ["vat_number", "sdcsd"], ["user_account_id", 56], ["country_id", 4], ["city_id", 9], ["clients_group_id", 2], ["clients_type_id", 2], ["currency_id", 5], ["phone", "sdcsdc"], ["web_address", "sdcsd"], ["kunde_nr", "sdcsc"], ["created_at", "2020-11-20 13:21:02.555853"], ["updated_at", "2020-11-20 13:21:02.555853"]]
+  ↳ app/services/clients/service.rb:117
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/clients/service.rb:117
+Completed 201 Created in 7265ms (Views: 0.6ms | ActiveRecord: 70.7ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-21 16:34:39 +0400
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-21 16:34:39 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-21 16:34:39 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-21 16:34:39 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-21 16:34:39 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-21 16:34:40 +0400
+  [1m[36mClientsGroup Load (6.1ms)[0m  [1m[34mSELECT "clients_groups".* FROM "clients_groups"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-21 17:11:48 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-21 17:11:48 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-21 17:11:48 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-21 17:11:48 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-21 17:11:49 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-21 17:11:49 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-21 17:12:46 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-21 17:12:46 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-21 17:12:46 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-21 17:12:46 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-21 17:12:47 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-21 17:12:47 +0400
+Started GET "/en/clients/client_type" for 127.0.0.1 at 2020-11-21 17:13:50 +0400
+Processing by ClientsController#client_type as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/clients/client_group" for 127.0.0.1 at 2020-11-21 17:14:02 +0400
+Processing by ClientsController#client_group as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/clients/client_type" for 127.0.0.1 at 2020-11-21 17:15:10 +0400
+Processing by ClientsController#client_type as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClientsType Load (5.1ms)[0m  [1m[34mSELECT "clients_types".* FROM "clients_types"[0m
+  ↳ app/services/clients/service.rb:45
+Completed 200 OK in 14517ms (Views: 0.7ms | ActiveRecord: 30.3ms)
+
+
+Started GET "/en/clients/client_type" for 127.0.0.1 at 2020-11-21 17:15:43 +0400
+Processing by ClientsController#client_type as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 200 OK in 4444ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-21 17:17:08 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-21 17:17:08 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-21 17:17:08 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-21 17:17:08 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-21 17:17:09 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-21 17:17:09 +0400
+Started GET "/en/clients/client_type" for 127.0.0.1 at 2020-11-21 17:17:22 +0400
+Processing by ClientsController#client_type as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 200 OK in 6994ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/clients/client_type" for 127.0.0.1 at 2020-11-21 17:18:32 +0400
+Processing by ClientsController#client_type as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClientsType Load (0.7ms)[0m  [1m[34mSELECT "clients_types".* FROM "clients_types"[0m
+  ↳ app/services/clients/service.rb:18
+Completed 200 OK in 3302ms (Views: 0.9ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/en/clients/client_group" for 127.0.0.1 at 2020-11-21 17:18:49 +0400
+Processing by ClientsController#client_group as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClientsGroup Load (0.6ms)[0m  [1m[34mSELECT "clients_groups".* FROM "clients_groups"[0m
+  ↳ app/services/clients/service.rb:22
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 6.7ms)
+
+
+  [1m[36mClient Load (8.9ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" ORDER BY "clients"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."active" = $1[0m  [["active", true]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-21 17:47:04 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-21 17:47:04 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-21 17:47:04 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-21 17:47:04 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-21 17:47:04 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-21 17:47:04 +0400
+Started GET "/en/clients/clients_list" for 127.0.0.1 at 2020-11-21 17:47:16 +0400
+Processing by ClientsController#clients_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."active" = $1[0m  [["active", true]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mClientsGroup Load (0.3ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mClientsType Load (0.2ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mCACHE ClientsGroup Load (0.0ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mCACHE ClientsType Load (0.0ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+Completed 200 OK in 57ms (Views: 0.2ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/en/clients/clients_list" for 127.0.0.1 at 2020-11-21 17:47:16 +0400
+Processing by ClientsController#clients_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (1.0ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."active" = $1[0m  [["active", true]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mClientsGroup Load (0.3ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mClientsType Load (0.3ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mCACHE ClientsGroup Load (0.0ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mCACHE ClientsType Load (0.0ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/en/clients/clients_list" for 127.0.0.1 at 2020-11-21 17:47:48 +0400
+Processing by ClientsController#clients_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."active" = $1[0m  [["active", true]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mClientsGroup Load (0.4ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mClientsType Load (0.2ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mCACHE ClientsGroup Load (0.0ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mCACHE ClientsType Load (0.0ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+Completed 200 OK in 45ms (Views: 0.2ms | ActiveRecord: 13.8ms)
+
+

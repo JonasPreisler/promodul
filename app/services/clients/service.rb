@@ -11,26 +11,44 @@ module Clients
     end
 
     def json_view
-      { client: @client.as_json(include: { country: { only: [:name]}, city: { only: [:name]}, company_logo: { only: [:uuid]}}) }
+      { client: @client.as_json(include: { clients_group: { only: [:name]}, clients_type: { only: [:name]} }, only: [:name] ) }
+    end
+
+    def client_type_json_view
+      { types: @types.as_json }
+    end
+
+    def client_group_json_view
+      { groups: @groups.as_json }
     end
 
     #def destroy_json_view
     #  { success: true }
     #end
-    #
-    #def company_list_json_view
-    #  { companies: @companies.as_json(include: { country: { only: [:name]}, city: { only: [:name]}, company_logo: { only: [:uuid]}}) }
-    #end
-    #
+
+    def clients_list_json_view
+      { clients: @clients.as_json(include: { clients_group: { only: [:name]}, clients_type: { only: [:name]} }, only: [:id, :name] ) }
+    end
+
     #def sub_company_list_json_view
     #  { sub_companies: @sub_companies.as_json(include: { country: { only: [:name]}, city: { only: [:name]}, company_logo: { only: [:uuid]}}) }
     #end
 
     def create_client
-      #ToDo: Ask Roy if Order should include client?
-      binding.pry
       validate_data!
       create_city_obj
+    end
+
+    def get_types
+      @types = ClientsType.all
+    end
+
+    def get_groups
+      @groups = ClientsGroup.all
+    end
+
+    def client_list
+      @clients = Client.where(active: true)
     end
 
     #def update_company
@@ -50,11 +68,9 @@ module Clients
     #  @company.save
     #  @errors << fill_errors(@company) if @company.errors.any?
     #end
-    #
-    #def company_list
-    #  @companies = Company.joins("LEFT JOIN company_logos ON company_logos.company_id = companies.id").where(parent_id: nil, active: true)
-    #end
-    #
+
+
+
     #def sub_company_list
     #  @sub_companies = Company.joins("LEFT JOIN company_logos ON company_logos.company_id = companies.id").where(parent_id: params[:parent_id], active: true)
     #end

@@ -23,7 +23,7 @@ describe 'Clients', type: :request do
               name:             { type: :string },
               address:          { type: :string },
               vat_number:       { type: :string },
-              phone:     { type: :string },
+              phone:            { type: :string },
               web_address:      { type: :string },
               kunde_nr:         { type: :string },
               country_id:       { type: :integer },
@@ -38,22 +38,18 @@ describe 'Clients', type: :request do
       response '201', 'ok' do
         schema type: :object,
                properties: {
-                   company: {
+                   client: {
                        type: :object,
                        properties: {
                            id: {type: :integer},
                            name: {type: :string},
-                           description:  { type: :string },
-                           address:      { type: :string },
-                           phone_number: { type: :string },
-                           parent_id:    { type: :integer },
-                           country: {
+                           clients_group: {
                                type: :object,
                                properties: {
                                    name: { type: :string }
                                }
                            },
-                           city:    {
+                           clients_type:    {
                                type: :object,
                                properties: {
                                    name: { type: :object }
@@ -73,6 +69,124 @@ describe 'Clients', type: :request do
 
     end
   end
+
+  path '/{locale}/clients/client_type' do
+    get 'Returns client types' do
+      tags 'Client'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   types: {
+                       type: :object,
+                       properties: {
+                           id:      { type: :integer },
+                           name:    { type: :string },
+                           id_name: { type: :string }
+                       }
+                   }
+               }
+
+        run_test!
+      end
+
+    end
+  end
+
+  path '/{locale}/clients/client_group' do
+    get 'Returns client groups' do
+      tags 'Client'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   groups: {
+                       type: :object,
+                       properties: {
+                           id:      { type: :integer },
+                           name:    { type: :string },
+                           id_name: { type: :string }
+                       }
+                   }
+               }
+
+        run_test!
+      end
+
+    end
+  end
+
+
+  path '/{locale}/clients/clients_list' do
+    get 'Returns clients' do
+      tags 'Client'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   clients: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               id: {type: :integer},
+                               name: {type: :string},
+                               clients_group: {
+                                   type: :object,
+                                   properties: {
+                                       name: { type: :string }
+                                   }
+                               },
+                               clients_type:    {
+                                   type: :object,
+                                   properties: {
+                                       name: { type: :object }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+
+        run_test!
+      end
+
+    end
+  end
+
+
 
   #path '/{locale}/companies' do
   #  put 'Update company' do

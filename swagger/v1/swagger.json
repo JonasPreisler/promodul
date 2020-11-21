@@ -535,7 +535,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "company": {
+                "client": {
                   "type": "object",
                   "properties": {
                     "id": {
@@ -544,19 +544,7 @@
                     "name": {
                       "type": "string"
                     },
-                    "description": {
-                      "type": "string"
-                    },
-                    "address": {
-                      "type": "string"
-                    },
-                    "phone_number": {
-                      "type": "string"
-                    },
-                    "parent_id": {
-                      "type": "integer"
-                    },
-                    "country": {
+                    "clients_group": {
                       "type": "object",
                       "properties": {
                         "name": {
@@ -564,7 +552,7 @@
                         }
                       }
                     },
-                    "city": {
+                    "clients_type": {
                       "type": "object",
                       "properties": {
                         "name": {
@@ -579,6 +567,174 @@
           },
           "404": {
             "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/{locale}/clients/client_type": {
+      "get": {
+        "summary": "Returns client types",
+        "tags": [
+          "Client"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "Client token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "types": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "id_name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{locale}/clients/client_group": {
+      "get": {
+        "summary": "Returns client groups",
+        "tags": [
+          "Client"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "Client token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "groups": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "id_name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{locale}/clients/clients_list": {
+      "get": {
+        "summary": "Returns clients",
+        "tags": [
+          "Client"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "Client token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "clients": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "clients_group": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "clients_type": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "object"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

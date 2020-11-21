@@ -98,6 +98,9 @@ Rails.application.routes.draw do
       post 'users/approve_registration', to: 'users#approve_registration'
 
       resource :clients
+      get 'clients/client_type',  to: 'clients#client_type'
+      get 'clients/client_group', to: 'clients#client_group'
+      get 'clients/clients_list', to: 'clients#clients_list'
 
     end
   end
