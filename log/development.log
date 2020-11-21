@@ -13746,3 +13746,43 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 45ms (Views: 0.2ms | ActiveRecord: 13.8ms)
 
 
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-21 18:11:03 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-21 18:11:03 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-21 18:11:03 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-21 18:11:03 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-21 18:11:04 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-21 18:11:04 +0400
+Started GET "/en/clients/%7Bcompany_id%7D" for 127.0.0.1 at 2020-11-21 18:11:14 +0400
+Processing by ClientsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"{company_id}"}
+Unpermitted parameters: :format, :locale
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (1.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 0], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:145
+Completed 200 OK in 23348ms (Views: 0.3ms | ActiveRecord: 8.4ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-21 18:13:04 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-21 18:13:04 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-21 18:13:04 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-21 18:13:04 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-21 18:13:04 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-21 18:13:04 +0400
+Started GET "/en/clients/2" for 127.0.0.1 at 2020-11-21 18:13:13 +0400
+Processing by ClientsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (3.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:145
+  [1m[36mClientsGroup Load (0.5ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:14
+  [1m[36mClientsType Load (0.4ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:14
+Completed 200 OK in 6442ms (Views: 0.2ms | ActiveRecord: 18.9ms)
+
+

@@ -55,11 +55,11 @@ module Clients
     #  validate_data!
     #  update_company_obj
     #end
-    #
-    #def show
-    #  find_company
-    #end
-    #
+
+    def show
+      find_client
+    end
+
     #def destroy
     #  validate_destroy
     #  find_company
@@ -140,9 +140,9 @@ module Clients
     #  @company.update(params)
     #  @errors << fill_errors(@company) if @company.errors.any?
     #end
-    #
-    #def find_company
-    #  @company = Company.joins("LEFT JOIN company_logos ON company_logos.company_id = companies.id").where(id: params[:id], active: true).last
-    #end
+
+    def find_client
+      @client = Client.where(id: params[:id], active: true).last
+    end
   end
 end

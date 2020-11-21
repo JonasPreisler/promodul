@@ -101,6 +101,7 @@ Rails.application.routes.draw do
       get 'clients/client_type',  to: 'clients#client_type'
       get 'clients/client_group', to: 'clients#client_group'
       get 'clients/clients_list', to: 'clients#clients_list'
+      get 'clients/:id',          to: 'clients#show'
 
     end
   end

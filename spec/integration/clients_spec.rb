@@ -186,6 +186,56 @@ describe 'Clients', type: :request do
     end
   end
 
+  path '/{locale}/clients/{id}' do
+    get 'Returns client' do
+      tags 'Client'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'JWT token'
+                })
+
+      parameter name: :id, in: :path, type: :integer, required: true
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+
+      response '201', 'ok' do
+        schema type: :object,
+               properties: {
+                   client: {
+                       type: :object,
+                       properties: {
+                           id: {type: :integer},
+                           name: {type: :string},
+                           clients_group: {
+                               type: :object,
+                               properties: {
+                                   name: { type: :string }
+                               }
+                           },
+                           clients_type:    {
+                               type: :object,
+                               properties: {
+                                   name: { type: :object }
+                               }
+                           }
+                       }
+                   }
+               }
+
+        run_test!
+      end
+
+      response '404', 'not found' do
+        run_test!
+      end
+
+    end
+  end
+
 
 
   #path '/{locale}/companies' do
