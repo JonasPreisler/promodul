@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_19_220938) do
+ActiveRecord::Schema.define(version: 2020_11_22_005617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(version: 2020_11_19_220938) do
     t.string "city_code", null: false
     t.bigint "country_id", null: false
     t.index ["country_id"], name: "index_cities_on_country_id"
+  end
+
+  create_table "client_contacts", force: :cascade do |t|
+    t.string "first_name", limit: 50, null: false
+    t.string "last_name"
+    t.string "email", limit: 50
+    t.string "phone", null: false
+    t.string "position"
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_client_contacts_on_client_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -419,6 +431,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_220938) do
   end
 
   add_foreign_key "cities", "countries"
+  add_foreign_key "client_contacts", "clients"
   add_foreign_key "clients", "cities"
   add_foreign_key "clients", "clients_groups"
   add_foreign_key "clients", "clients_types"

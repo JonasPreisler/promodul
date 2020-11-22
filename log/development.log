@@ -14029,3 +14029,51 @@ Completed 200 OK in 117ms (Views: 0.2ms | ActiveRecord: 31.0ms)
 
   [1m[36mClient Load (1.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" ORDER BY "clients"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mClient Update (5.3ms)[0m  [1m[33mUPDATE "clients" SET "active" = $1 WHERE "clients"."id" = $2[0m  [["active", true], ["id", 1]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-22 04:46:34 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-22 04:46:35 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-22 04:46:35 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-22 04:46:35 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-22 04:46:35 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-22 04:46:35 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateClientContacts (20201122005617)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateClientContacts (20201122005617)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateClientContacts (20201122005617)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (29.5ms)[0m  [1m[35mCREATE TABLE "client_contacts" ("id" bigserial primary key, "first_name" character varying(50) NOT NULL, "last_name" character varying, "email" character varying(50), "phone" character varying NOT NULL, "position" character varying, "client_id" bigint NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_766917a6b6"
+FOREIGN KEY ("client_id")
+  REFERENCES "clients" ("id")
+)[0m
+  ↳ db/migrate/20201122005617_create_client_contacts.rb:3
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_client_contacts_on_client_id" ON "client_contacts"  ("client_id")[0m
+  ↳ db/migrate/20201122005617_create_client_contacts.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201122005617"]]
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
