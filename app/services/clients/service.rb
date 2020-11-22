@@ -40,7 +40,7 @@ module Clients
 
     def create_client
       validate_data!
-      create_city_obj
+      create_client_obj
     end
 
     def get_types
@@ -118,7 +118,7 @@ module Clients
       fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless type
     end
 
-    def create_city_obj
+    def create_client_obj
       return if errors.any?
       @client = Client.new(params)
       @client.active = true

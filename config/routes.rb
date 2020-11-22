@@ -103,6 +103,8 @@ Rails.application.routes.draw do
       get 'clients/clients_list', to: 'clients#clients_list'
       get 'clients/:id',          to: 'clients#show'
 
+      resource :client_contacts
+
     end
   end
 end

@@ -14077,3 +14077,87 @@ FOREIGN KEY ("client_id")
   ↳ bin/rails:9
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[36mClientContact Load (0.7ms)[0m  [1m[34mSELECT  "client_contacts".* FROM "client_contacts" ORDER BY "client_contacts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-22 19:22:06 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-22 19:22:07 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-22 19:22:07 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-22 19:22:07 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-22 19:22:07 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-22 19:22:07 +0400
+  [1m[36mClientContact Load (0.6ms)[0m  [1m[34mSELECT  "client_contacts".* FROM "client_contacts" ORDER BY "client_contacts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-22 20:23:52 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-22 20:23:52 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-22 20:23:52 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-22 20:23:52 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-22 20:23:53 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-22 20:23:53 +0400
+Started POST "/en/client_contacts" for 127.0.0.1 at 2020-11-22 20:24:35 +0400
+Processing by ClientContactsController#create as JSON
+  Parameters: {"first_name"=>"buka", "last_name"=>"urdia", "email"=>"bukabuka@gmail.com", "phone"=>"856932698", "position"=>"Manager", "client_id"=>"2", "locale"=>"en", "client_contact"=>{"first_name"=>"buka", "last_name"=>"urdia", "email"=>"bukabuka@gmail.com", "phone"=>"856932698", "position"=>"Manager", "client_id"=>"2"}}
+Unpermitted parameters: :first_name, :last_name, :email, :position, :client_id, :format, :locale, :client_contact
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 5.1ms)
+
+
+  
+NoMethodError (undefined method `create_client' for #<Clients::ContactsService:0x00007fd020315130>
+Did you mean?  create_contact):
+  
+app/controllers/client_contacts_controller.rb:10:in `create'
+Started POST "/en/client_contacts" for 127.0.0.1 at 2020-11-22 20:25:06 +0400
+Processing by ClientContactsController#create as JSON
+  Parameters: {"first_name"=>"buka", "last_name"=>"urdia", "email"=>"bukabuka@gmail.com", "phone"=>"856932698", "position"=>"Manager", "client_id"=>"2", "locale"=>"en", "client_contact"=>{"first_name"=>"buka", "last_name"=>"urdia", "email"=>"bukabuka@gmail.com", "phone"=>"856932698", "position"=>"Manager", "client_id"=>"2"}}
+Unpermitted parameters: :first_name, :last_name, :email, :position, :client_id, :format, :locale, :client_contact
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" IS NULL AND "clients"."active" = $1 ORDER BY "clients"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/contacts_service.rb:87
+Completed 400 Bad Request in 95ms (Views: 0.6ms | ActiveRecord: 6.4ms)
+
+
+  [1m[36mClientContact Load (0.8ms)[0m  [1m[34mSELECT  "client_contacts".* FROM "client_contacts" ORDER BY "client_contacts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClientContact Load (1.1ms)[0m  [1m[34mSELECT "client_contacts".* FROM "client_contacts"[0m
+  [1m[36mClient Load (1.8ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+Started POST "/en/client_contacts" for 127.0.0.1 at 2020-11-22 20:26:42 +0400
+Processing by ClientContactsController#create as JSON
+  Parameters: {"first_name"=>"buka", "last_name"=>"urdia", "email"=>"bukabuka@gmail.com", "phone"=>"856932698", "position"=>"Manager", "client_id"=>"2", "locale"=>"en", "client_contact"=>{"first_name"=>"buka", "last_name"=>"urdia", "email"=>"bukabuka@gmail.com", "phone"=>"856932698", "position"=>"Manager", "client_id"=>"2"}}
+Unpermitted parameters: :format, :locale, :client_contact
+  [1m[36mClient Load (1.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/contacts_service.rb:88
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/clients/contacts_service.rb:76
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/contacts_service.rb:76
+  [1m[36mClientContact Create (4.4ms)[0m  [1m[32mINSERT INTO "client_contacts" ("first_name", "last_name", "email", "phone", "position", "client_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "buka"], ["last_name", "urdia"], ["email", "bukabuka@gmail.com"], ["phone", "856932698"], ["position", "Manager"], ["client_id", 2], ["created_at", "2020-11-22 16:26:47.992489"], ["updated_at", "2020-11-22 16:26:47.992489"]]
+  ↳ app/services/clients/contacts_service.rb:76
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/clients/contacts_service.rb:76
+Completed 201 Created in 5822ms (Views: 0.2ms | ActiveRecord: 23.0ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-22 20:28:06 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-22 20:28:06 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-22 20:28:06 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-22 20:28:06 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-22 20:28:07 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-22 20:28:07 +0400
+Started POST "/en/client_contacts" for 127.0.0.1 at 2020-11-22 20:28:28 +0400
+Processing by ClientContactsController#create as JSON
+  Parameters: {"first_name"=>"bukaaa", "last_name"=>"urdiaaa", "email"=>"bukabukabuka@gmail.com", "phone"=>"856932698", "position"=>"Managera", "client_id"=>"2", "locale"=>"en", "client_contact"=>{"first_name"=>"bukaaa", "last_name"=>"urdiaaa", "email"=>"bukabukabuka@gmail.com", "phone"=>"856932698", "position"=>"Managera", "client_id"=>"2"}}
+Unpermitted parameters: :format, :locale, :client_contact
+  [1m[36mClient Load (1.1ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/contacts_service.rb:88
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/clients/contacts_service.rb:76
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/contacts_service.rb:76
+  [1m[36mClientContact Create (1.4ms)[0m  [1m[32mINSERT INTO "client_contacts" ("first_name", "last_name", "email", "phone", "position", "client_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "bukaaa"], ["last_name", "urdiaaa"], ["email", "bukabukabuka@gmail.com"], ["phone", "856932698"], ["position", "Managera"], ["client_id", 2], ["created_at", "2020-11-22 16:28:31.986528"], ["updated_at", "2020-11-22 16:28:31.986528"]]
+  ↳ app/services/clients/contacts_service.rb:76
+  [1m[35m (36.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/clients/contacts_service.rb:76
+Completed 201 Created in 3626ms (Views: 45.0ms | ActiveRecord: 55.2ms)
+
+
