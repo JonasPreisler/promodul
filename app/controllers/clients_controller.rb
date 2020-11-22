@@ -30,30 +30,22 @@ class ClientsController < ApplicationController
   end
 
   def show
-    binding.pry
     service = Clients::Service.new(clients_params)
     service.show
     rest_respond_service service
   end
 
+  def update
+    service = Clients::Service.new(clients_params)
+    service.update_client
+    rest_respond_service service
+  end
 
-  #def update
-  #  service = Companies::CompaniesService.new(company_params)
-  #  service.update_company
-  #  rest_respond_service service
-  #end
-  #
-  #def destroy
-  #  service = Companies::CompaniesService.new(company_params)
-  #  service.destroy
-  #  rest_respond_service service
-  #end
-
-  #def clients_list
-  #  service = Companies::CompaniesService.new(company_params)
-  #  service.company_list
-  #  rest_respond_service service
-  #end
+  def destroy
+    service = Clients::Service.new(clients_params)
+    service.delete_client
+    rest_respond_service service
+  end
 
   private
 

@@ -13786,3 +13786,246 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 6442ms (Views: 0.2ms | ActiveRecord: 18.9ms)
 
 
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-22 04:01:58 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-22 04:01:59 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-22 04:01:59 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-22 04:01:59 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-22 04:01:59 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-22 04:01:59 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-22 04:14:32 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-22 04:14:32 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-22 04:14:32 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-22 04:14:32 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-22 04:14:32 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-22 04:14:32 +0400
+Started GET "/en/clients/clients_list" for 127.0.0.1 at 2020-11-22 04:20:51 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ClientsController#clients_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."active" = $1[0m  [["active", true]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mClientsGroup Load (0.2ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mClientsType Load (0.2ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mCACHE ClientsGroup Load (0.0ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mCACHE ClientsType Load (0.0ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+Completed 200 OK in 40ms (Views: 0.2ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/en/clients/2" for 127.0.0.1 at 2020-11-22 04:21:12 +0400
+Processing by ClientsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (1.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:135
+  [1m[36mClientsGroup Load (0.6ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:14
+  [1m[36mClientsType Load (0.5ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:14
+Completed 200 OK in 8728ms (Views: 0.6ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/en/clients/2" for 127.0.0.1 at 2020-11-22 04:22:26 +0400
+Processing by ClientsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Completed 500 Internal Server Error in 3161ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/buka/always24/app/services/clients/service.rb:30: syntax error, unexpected '}', expecting ')'
+...ents_type: { only: [:name]} } }
+...                              ^
+/home/buka/always24/app/services/clients/service.rb:142: syntax error, unexpected end-of-input, expecting end):
+  
+app/services/clients/service.rb:30: syntax error, unexpected '}', expecting ')'
+app/services/clients/service.rb:142: syntax error, unexpected end-of-input, expecting end
+app/controllers/clients_controller.rb:34:in `show'
+Started GET "/en/clients/2" for 127.0.0.1 at 2020-11-22 04:23:02 +0400
+Processing by ClientsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:139
+  [1m[36mClientsGroup Load (0.3ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mClientsType Load (0.4ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+Completed 200 OK in 4117ms (Views: 0.4ms | ActiveRecord: 16.5ms)
+
+
+Started GET "/en/clients/2" for 127.0.0.1 at 2020-11-22 04:23:38 +0400
+Processing by ClientsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (1.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:139
+  [1m[36mClientsGroup Load (0.2ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mClientsType Load (0.4ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+Completed 200 OK in 3359ms (Views: 0.3ms | ActiveRecord: 20.6ms)
+
+
+Started PUT "/en/clients" for 127.0.0.1 at 2020-11-22 04:25:26 +0400
+Processing by ClientsController#update as JSON
+  Parameters: {"id"=>2, "name"=>"buka", "address"=>"buka", "vat_number"=>"buka", "phone"=>"buka", "web_address"=>"buka", "kunde_nr"=>"buka", "country_id"=>4, "city_id"=>9, "user_account_id"=>56, "clients_group_id"=>2, "clients_type_id"=>2, "currency_id"=>5, "locale"=>"en", "client"=>{"id"=>2, "name"=>"buka", "address"=>"buka", "vat_number"=>"buka", "user_account_id"=>56, "country_id"=>4, "city_id"=>9, "clients_group_id"=>2, "clients_type_id"=>2, "currency_id"=>5, "phone"=>"buka", "web_address"=>"buka", "kunde_nr"=>"buka"}}
+Unpermitted parameters: :format, :locale, :client
+  [1m[36mCountry Load (2.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:88
+  [1m[36mCity Load (1.7ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:94
+  [1m[36mCurrency Load (2.3ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:100
+  [1m[36mUserAccount Load (2.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:106
+  [1m[36mClientsGroup Load (0.5ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:112
+  [1m[36mClientsType Load (0.5ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:118
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:139
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/clients/service.rb:134
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:134
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:134
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:134
+  [1m[36mCACHE ClientsGroup Load (0.0ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:134
+  [1m[36mCACHE ClientsType Load (0.0ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:134
+  [1m[36mCACHE Currency Load (0.0ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:134
+  [1m[36mClient Update (2.3ms)[0m  [1m[33mUPDATE "clients" SET "name" = $1, "address" = $2, "vat_number" = $3, "phone" = $4, "web_address" = $5, "kunde_nr" = $6, "updated_at" = $7 WHERE "clients"."id" = $8[0m  [["name", "buka"], ["address", "buka"], ["vat_number", "buka"], ["phone", "buka"], ["web_address", "buka"], ["kunde_nr", "buka"], ["updated_at", "2020-11-22 00:25:31.518006"], ["id", 2]]
+  ↳ app/services/clients/service.rb:134
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/clients/service.rb:134
+Completed 200 OK in 5488ms (Views: 0.2ms | ActiveRecord: 43.2ms)
+
+
+Started GET "/en/clients/2" for 127.0.0.1 at 2020-11-22 04:25:37 +0400
+Processing by ClientsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (1.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:139
+  [1m[36mClientsGroup Load (0.8ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mClientsType Load (0.9ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+Completed 200 OK in 2450ms (Views: 1.1ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/en/clients/2" for 127.0.0.1 at 2020-11-22 04:29:10 +0400
+Processing by ClientsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:143
+  [1m[36mClientsGroup Load (0.2ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mClientsType Load (0.2ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+Completed 200 OK in 3458ms (Views: 0.3ms | ActiveRecord: 20.3ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-22 04:43:16 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-22 04:43:16 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-22 04:43:16 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-22 04:43:16 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-22 04:43:17 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-22 04:43:17 +0400
+Started GET "/en/clients/clients_list" for 127.0.0.1 at 2020-11-22 04:43:26 +0400
+Processing by ClientsController#clients_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."active" = $1[0m  [["active", true]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mClientsGroup Load (0.3ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mClientsType Load (0.4ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mCACHE ClientsGroup Load (0.0ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mCACHE ClientsType Load (0.0ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:38
+Completed 200 OK in 43ms (Views: 0.2ms | ActiveRecord: 12.7ms)
+
+
+Started DELETE "/en/clients?id=1" for 127.0.0.1 at 2020-11-22 04:43:42 +0400
+Processing by ClientsController#destroy as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 1], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:138
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/clients/service.rb:71
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:71
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:71
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:71
+  [1m[36mClientsGroup Load (0.3ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:71
+  [1m[36mClientsType Load (0.3ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:71
+  [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:71
+  [1m[36mClient Update (0.4ms)[0m  [1m[33mUPDATE "clients" SET "active" = $1, "updated_at" = $2 WHERE "clients"."id" = $3[0m  [["active", false], ["updated_at", "2020-11-22 00:43:42.774657"], ["id", 1]]
+  ↳ app/services/clients/service.rb:71
+  [1m[35m (36.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/clients/service.rb:71
+Completed 200 OK in 88ms (Views: 0.3ms | ActiveRecord: 51.3ms)
+
+
+  [1m[36mClient Load (0.8ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" ORDER BY "clients"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Load (1.1ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" ORDER BY "clients"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Update (36.7ms)[0m  [1m[33mUPDATE "clients" SET "active" = $1 WHERE "clients"."id" = $2[0m  [["active", true], ["id", 1]]
+Started DELETE "/en/clients?id=1" for 127.0.0.1 at 2020-11-22 04:44:47 +0400
+Processing by ClientsController#destroy as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 1], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:138
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/clients/service.rb:71
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:71
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:71
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:71
+  [1m[36mClientsGroup Load (0.2ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:71
+  [1m[36mClientsType Load (0.3ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:71
+  [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:71
+  [1m[36mClient Update (0.5ms)[0m  [1m[33mUPDATE "clients" SET "active" = $1, "updated_at" = $2 WHERE "clients"."id" = $3[0m  [["active", false], ["updated_at", "2020-11-22 00:44:47.374196"], ["id", 1]]
+  ↳ app/services/clients/service.rb:71
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/clients/service.rb:71
+Completed 200 OK in 117ms (Views: 0.2ms | ActiveRecord: 31.0ms)
+
+
+  [1m[36mClient Load (1.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" ORDER BY "clients"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Update (5.3ms)[0m  [1m[33mUPDATE "clients" SET "active" = $1 WHERE "clients"."id" = $2[0m  [["active", true], ["id", 1]]
