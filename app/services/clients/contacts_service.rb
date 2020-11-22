@@ -14,17 +14,13 @@ module Clients
       { contact: @contact.as_json(only: [:id, :first_name, :last_name, :email, :phone, :position, :created_at] )}
     end
 
-    #def client_type_json_view
-    #  { types: @types.as_json }
-    #end
-    #
-    #def client_group_json_view
-    #  { groups: @groups.as_json }
-    #end
-    #
-    #def destroy_json_view
-    #  { success: true }
-    #end
+    def contacts_list_json_view
+      { contacts: @clients.as_json(only: [:id, :first_name, :last_name, :email, :phone, :position, :created_at] ) }
+    end
+
+    def destroy_json_view
+      { success: true }
+    end
 
     #def show_json_view
     #  { client: @client.as_json(include: { clients_group: { only: [:id, :name]},
@@ -34,35 +30,32 @@ module Clients
     #                                       city: { only: [:name]  } }) }
     #end
 
-    #def clients_list_json_view
-    #  { clients: @clients.as_json(include: { clients_group: { only: [:name]}, clients_type: { only: [:name]} }, only: [:id, :name] ) }
-    #end
+
 
     def create_contact
       validate_data!
       create_client_obj
     end
 
-    #def client_list
-    #  @clients = Client.where(active: true)
-    #end
-    #
-    #def update_client
-    #  validate_data!
-    #  update_client_obj
-    #end
-    #
-    #def show
-    #  find_client
-    #end
-    #
-    #def delete_client
-    #  find_client
-    #  return if @errors.any?
-    #  @client.active = false
-    #  @client.save
-    #  @errors << fill_errors(@client) if @client.errors.any?
-    #end
+    def contact_list
+      @clients = ClientContact.where(client_id: params[:client_id])
+    end
+
+    def update_client
+      validate_data!
+      update_contact_obj
+    end
+
+    def show
+      find_contact
+    end
+
+    def delete_client
+      find_contact
+      return if @errors.any?
+      @contact.destroy
+      @errors << fill_errors(@contact) if @contact.errors.any?
+    end
 
     private
 
@@ -77,16 +70,21 @@ module Clients
       @errors << fill_errors(@contact) if @contact.errors.any?
     end
 
-    #def update_client_obj
-    #  find_client
-    #  @client.update(params)
-    #  @errors << fill_errors(@client) if @client.errors.any?
-    #end
+    def update_contact_obj
+      find_contact
+      return if errors.any?
+      @contact.update(params)
+      @errors << fill_errors(@contact) if @contact.errors.any?
+    end
 
     def validate_client
-      binding.pry
       @client = Client.where(id: params[:client_id], active: true).last
       fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @client
+    end
+
+    def find_contact
+      @contact = ClientContact.find_by_id(params[:id])
+      fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @contact
     end
   end
 end

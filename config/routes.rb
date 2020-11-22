@@ -104,6 +104,8 @@ Rails.application.routes.draw do
       get 'clients/:id',          to: 'clients#show'
 
       resource :client_contacts
+      get 'client_contacts/contacts_list', to: 'client_contacts#contacts_list'
+      get 'client_contacts/:id',          to: 'client_contacts#show'
 
     end
   end

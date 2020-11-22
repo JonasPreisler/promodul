@@ -11,9 +11,9 @@ class ClientContactsController < ApplicationController
     rest_respond_service service
   end
 
-  def clients_list
+  def contacts_list
     service = Clients::ContactsService.new(clients_params)
-    service.client_list
+    service.contact_list
     rest_respond_service service
   end
 
