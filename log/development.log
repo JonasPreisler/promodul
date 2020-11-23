@@ -14336,3 +14336,117 @@ Completed 200 OK in 40ms (Views: 0.4ms | ActiveRecord: 37.0ms)
 
 
   [1m[36mClientContact Load (1.0ms)[0m  [1m[34mSELECT "client_contacts".* FROM "client_contacts"[0m
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-23 04:41:49 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-23 04:41:49 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-23 04:41:49 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-23 04:41:49 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-23 04:41:50 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-23 04:41:50 +0400
+Started GET "/en/clients/clients_list" for 127.0.0.1 at 2020-11-23 04:42:05 +0400
+Processing by ClientsController#clients_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."active" = $1[0m  [["active", true]]
+  ↳ app/services/clients/service.rb:38
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 6.3ms)
+
+
+  
+NoMethodError (undefined method `client_contact' for #<Client:0x000055b8831f8790>
+Did you mean?  client_contacts
+               client_contacts=
+               client_contact_ids):
+  
+app/services/clients/service.rb:38:in `clients_list_json_view'
+lib/controller_response.rb:22:in `respond_action_json_view'
+lib/controller_response.rb:41:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/clients_controller.rb:29:in `clients_list'
+Started GET "/en/clients/clients_list" for 127.0.0.1 at 2020-11-23 04:42:23 +0400
+Processing by ClientsController#clients_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."active" = $1[0m  [["active", true]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mClientContact Load (0.4ms)[0m  [1m[34mSELECT "client_contacts".* FROM "client_contacts" WHERE "client_contacts"."client_id" = $1[0m  [["client_id", 2]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mClientsGroup Load (0.3ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mClientsType Load (0.3ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mClientContact Load (0.4ms)[0m  [1m[34mSELECT "client_contacts".* FROM "client_contacts" WHERE "client_contacts"."client_id" = $1[0m  [["client_id", 1]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mCACHE ClientsGroup Load (0.0ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mCACHE ClientsType Load (0.0ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:38
+Completed 200 OK in 73ms (Views: 0.2ms | ActiveRecord: 16.5ms)
+
+
+Started POST "/en/client_contacts" for 127.0.0.1 at 2020-11-23 04:43:27 +0400
+Processing by ClientContactsController#create as JSON
+  Parameters: {"first_name"=>"kaiakaia", "last_name"=>"kaiakaia", "email"=>"kaiakaia", "phone"=>"kaiakaia", "position"=>"kaiakaia", "client_id"=>"2", "locale"=>"en", "client_contact"=>{"first_name"=>"kaiakaia", "last_name"=>"kaiakaia", "email"=>"kaiakaia", "phone"=>"kaiakaia", "position"=>"kaiakaia", "client_id"=>"2"}}
+Unpermitted parameters: :format, :locale, :client_contact
+  [1m[36mClient Load (0.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/contacts_service.rb:81
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/clients/contacts_service.rb:69
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/contacts_service.rb:69
+  [1m[36mClientContact Create (0.6ms)[0m  [1m[32mINSERT INTO "client_contacts" ("first_name", "last_name", "email", "phone", "position", "client_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "kaiakaia"], ["last_name", "kaiakaia"], ["email", "kaiakaia"], ["phone", "kaiakaia"], ["position", "kaiakaia"], ["client_id", 2], ["created_at", "2020-11-23 00:43:27.944065"], ["updated_at", "2020-11-23 00:43:27.944065"]]
+  ↳ app/services/clients/contacts_service.rb:69
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/clients/contacts_service.rb:69
+Completed 201 Created in 10ms (Views: 0.3ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/en/clients/clients_list" for 127.0.0.1 at 2020-11-23 04:43:32 +0400
+Processing by ClientsController#clients_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."active" = $1[0m  [["active", true]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mClientContact Load (0.2ms)[0m  [1m[34mSELECT "client_contacts".* FROM "client_contacts" WHERE "client_contacts"."client_id" = $1[0m  [["client_id", 2]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mClientsGroup Load (0.2ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mClientsType Load (0.2ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mClientContact Load (0.2ms)[0m  [1m[34mSELECT "client_contacts".* FROM "client_contacts" WHERE "client_contacts"."client_id" = $1[0m  [["client_id", 1]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mCACHE ClientsGroup Load (0.0ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mCACHE ClientsType Load (0.0ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:38
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-23 04:45:53 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-23 04:45:53 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-23 04:45:53 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-23 04:45:54 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-23 04:45:54 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-23 04:45:54 +0400
+Started GET "/en/clients/clients_list" for 127.0.0.1 at 2020-11-23 04:46:07 +0400
+Processing by ClientsController#clients_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."active" = $1[0m  [["active", true]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mClientContact Load (0.3ms)[0m  [1m[34mSELECT "client_contacts".* FROM "client_contacts" WHERE "client_contacts"."client_id" = $1[0m  [["client_id", 2]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mClientsGroup Load (0.2ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mClientsType Load (0.2ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mClientContact Load (0.3ms)[0m  [1m[34mSELECT "client_contacts".* FROM "client_contacts" WHERE "client_contacts"."client_id" = $1[0m  [["client_id", 1]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mCACHE ClientsGroup Load (0.0ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:38
+  [1m[36mCACHE ClientsType Load (0.0ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:38
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+

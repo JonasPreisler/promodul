@@ -35,7 +35,7 @@ module Clients
     end
 
     def clients_list_json_view
-      { clients: @clients.as_json(include: { clients_group: { only: [:name]}, clients_type: { only: [:name]} }, only: [:id, :name] ) }
+      { clients: @clients.as_json(include: { client_contacts: {only: [:first_name, :last_name] }, clients_group: { only: [:name]}, clients_type: { only: [:name]} }, only: [:id, :name] ) }
     end
 
     def create_client

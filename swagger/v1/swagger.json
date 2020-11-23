@@ -1260,6 +1260,19 @@
                       "name": {
                         "type": "string"
                       },
+                      "client_contacts": {
+                        "type": "array",
+                        "items": {
+                          "properties": {
+                            "first_name": {
+                              "type": "string"
+                            },
+                            "last_name": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
                       "clients_group": {
                         "type": "object",
                         "properties": {
