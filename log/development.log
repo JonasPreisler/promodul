@@ -14450,3 +14450,39 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 1.5ms)
 
 
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/en/users/list" for 127.0.0.1 at 2020-11-23 05:06:02 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (5.6ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "customers"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 73ms (Views: 0.8ms | ActiveRecord: 16.8ms)
+
+
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  [1m[36mUserAccount Update (1.8ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1 WHERE "user_accounts"."id" = $2[0m  [["active", false], ["id", 44]]
+Started GET "/en/users/list" for 127.0.0.1 at 2020-11-23 05:06:50 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "customers"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 44], ["LIMIT", 1]]
+Started GET "/en/users/list" for 127.0.0.1 at 2020-11-23 05:11:48 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.8ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 52ms (Views: 0.7ms | ActiveRecord: 10.0ms)
+
+

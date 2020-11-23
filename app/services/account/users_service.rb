@@ -27,7 +27,7 @@ module Account
                    .select("user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
                             user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name")
                    .joins(user_account: [user_role: :role_group])
-                   .where(active: true)
+                   .where(user_accounts: { active: true})
     end
 
     def unconfirmed_users_list
