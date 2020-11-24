@@ -14596,3 +14596,584 @@ FOREIGN KEY ("user_account_id")
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
   [1m[36mProduct Load (5.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-24 18:33:50 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-24 18:33:50 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-24 18:33:50 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-24 18:33:50 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-24 18:33:50 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-24 18:33:50 +0400
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/orders" for 127.0.0.1 at 2020-11-24 18:43:32 +0400
+Processing by OrdersController#create as JSON
+  Parameters: {"title"=>"buka", "description"=>"aba description", "start_time"=>"05-09-2020", "deadline"=>"12-12-2020", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "locale"=>"en", "order"=>{"title"=>"buka", "description"=>"aba description", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "start_time"=>"05-09-2020", "deadline"=>"12-12-2020"}}
+Completed 500 Internal Server Error in 6135ms (ActiveRecord: 2.9ms)
+
+
+  
+NameError (uninitialized constant Orders::OrdersService):
+  
+app/controllers/orders_controller.rb:10:in `create'
+Started POST "/en/orders" for 127.0.0.1 at 2020-11-24 18:44:51 +0400
+Processing by OrdersController#create as JSON
+  Parameters: {"title"=>"buka", "description"=>"aba description", "start_time"=>"05-09-2020", "deadline"=>"12-12-2020", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "locale"=>"en", "order"=>{"title"=>"buka", "description"=>"aba description", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "start_time"=>"05-09-2020", "deadline"=>"12-12-2020"}}
+Completed 500 Internal Server Error in 2066ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant Orders::OrdersService):
+  
+app/controllers/orders_controller.rb:10:in `create'
+Started POST "/en/orders" for 127.0.0.1 at 2020-11-24 18:45:11 +0400
+Processing by OrdersController#create as JSON
+  Parameters: {"title"=>"buka", "description"=>"aba description", "start_time"=>"05-09-2020", "deadline"=>"12-12-2020", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "locale"=>"en", "order"=>{"title"=>"buka", "description"=>"aba description", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "start_time"=>"05-09-2020", "deadline"=>"12-12-2020"}}
+Completed 500 Internal Server Error in 1962ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant Orders::OrdersService):
+  
+app/controllers/orders_controller.rb:10:in `create'
+Started POST "/en/orders" for 127.0.0.1 at 2020-11-24 18:45:21 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by OrdersController#create as JSON
+  Parameters: {"title"=>"buka", "description"=>"aba description", "start_time"=>"05-09-2020", "deadline"=>"12-12-2020", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "locale"=>"en", "order"=>{"title"=>"buka", "description"=>"aba description", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "start_time"=>"05-09-2020", "deadline"=>"12-12-2020"}}
+Completed 500 Internal Server Error in 2455ms (ActiveRecord: 1.9ms)
+
+
+  
+NameError (uninitialized constant Orders::OrdersService):
+  
+app/controllers/orders_controller.rb:10:in `create'
+Started POST "/en/orders" for 127.0.0.1 at 2020-11-24 18:46:09 +0400
+Processing by OrdersController#create as JSON
+  Parameters: {"title"=>"buka", "description"=>"aba description", "start_time"=>"05-09-2020", "deadline"=>"12-12-2020", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "locale"=>"en", "order"=>{"title"=>"buka", "description"=>"aba description", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "start_time"=>"05-09-2020", "deadline"=>"12-12-2020"}}
+Unpermitted parameters: :format, :locale, :order
+  [1m[36mClient Load (2.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:89
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:96
+  [1m[36mOrderType Load (2.3ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:102
+Completed 500 Internal Server Error in 14815ms (ActiveRecord: 42.8ms)
+
+
+  
+NoMethodError (undefined method `active=' for #<Order:0x00007f16982f7f00>):
+  
+app/services/orders/orders_services.rb:110:in `create_order_obj'
+app/services/orders/orders_services.rb:44:in `create_order'
+app/controllers/orders_controller.rb:11:in `create'
+Started POST "/en/orders" for 127.0.0.1 at 2020-11-24 18:46:39 +0400
+Processing by OrdersController#create as JSON
+  Parameters: {"title"=>"buka", "description"=>"aba description", "start_time"=>"05-09-2020", "deadline"=>"12-12-2020", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "locale"=>"en", "order"=>{"title"=>"buka", "description"=>"aba description", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "start_time"=>"05-09-2020", "deadline"=>"12-12-2020"}}
+Unpermitted parameters: :format, :locale, :order
+  [1m[36mClient Load (1.1ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:89
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:96
+  [1m[36mOrderType Load (0.6ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:102
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/orders_services.rb:110
+  [1m[36mCACHE UserAccount Load (0.1ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:110
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:110
+  [1m[36mCACHE OrderType Load (0.0ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:110
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/orders/orders_services.rb:110
+Completed 400 Bad Request in 7365ms (Views: 0.2ms | ActiveRecord: 39.5ms)
+
+
+Started POST "/en/orders" for 127.0.0.1 at 2020-11-24 18:46:55 +0400
+Processing by OrdersController#create as JSON
+  Parameters: {"title"=>"buka", "description"=>"aba description", "start_time"=>"05-09-2020", "deadline"=>"12-12-2020", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "locale"=>"en", "order"=>{"title"=>"buka", "description"=>"aba description", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "start_time"=>"05-09-2020", "deadline"=>"12-12-2020"}}
+Unpermitted parameters: :format, :locale, :order
+  [1m[36mClient Load (1.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:89
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:96
+  [1m[36mOrderType Load (1.0ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:102
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):5
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ (pry):5
+  [1m[36mClient Load (1.1ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ (pry):5
+  [1m[36mCACHE OrderType Load (0.0ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ (pry):5
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):5
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):6
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):6
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):10
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):10
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/orders_services.rb:110
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:110
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:110
+  [1m[36mOrderType Load (0.4ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:110
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/orders/orders_services.rb:110
+Completed 400 Bad Request in 54483ms (Views: 0.3ms | ActiveRecord: 9.9ms)
+
+
+  [1m[36mOrderStatus Load (3.7ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses"[0m
+  [1m[36mOrderStatus Load (0.9ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+Started POST "/en/orders" for 127.0.0.1 at 2020-11-24 18:50:35 +0400
+Processing by OrdersController#create as JSON
+  Parameters: {"title"=>"buka", "description"=>"aba description", "start_time"=>"05-09-2020", "deadline"=>"12-12-2020", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "locale"=>"en", "order"=>{"title"=>"buka", "description"=>"aba description", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "start_time"=>"05-09-2020", "deadline"=>"12-12-2020"}}
+Unpermitted parameters: :format, :locale, :order
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:89
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:96
+  [1m[36mOrderType Load (0.7ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:102
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mCACHE OrderType Load (0.0ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/orders/orders_services.rb:111
+Completed 400 Bad Request in 10424ms (Views: 0.2ms | ActiveRecord: 32.1ms)
+
+
+Started POST "/en/orders" for 127.0.0.1 at 2020-11-24 18:50:56 +0400
+Processing by OrdersController#create as JSON
+  Parameters: {"title"=>"buka", "description"=>"aba description", "start_time"=>"05-09-2020", "deadline"=>"12-12-2020", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "locale"=>"en", "order"=>{"title"=>"buka", "description"=>"aba description", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "start_time"=>"05-09-2020", "deadline"=>"12-12-2020"}}
+Unpermitted parameters: :format, :locale, :order
+  [1m[36mClient Load (1.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:89
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:96
+  [1m[36mOrderType Load (0.8ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:102
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mCACHE OrderType Load (0.0ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/orders/orders_services.rb:111
+Completed 400 Bad Request in 26118ms (Views: 0.7ms | ActiveRecord: 4.9ms)
+
+
+Started POST "/en/orders" for 127.0.0.1 at 2020-11-24 18:51:47 +0400
+Processing by OrdersController#create as JSON
+  Parameters: {"title"=>"buka", "description"=>"aba description", "start_time"=>"05-09-2020", "deadline"=>"12-12-2020", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "locale"=>"en", "order"=>{"title"=>"buka", "description"=>"aba description", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "start_time"=>"05-09-2020", "deadline"=>"12-12-2020"}}
+Unpermitted parameters: :format, :locale, :order
+  [1m[36mClient Load (1.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:90
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:97
+  [1m[36mOrderType Load (0.5ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:103
+  [1m[36mOrderStatus Load (0.3ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:117
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[36mCACHE OrderType Load (0.0ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[36mOrderStatus Load (0.3ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[36mOrder Create (42.4ms)[0m  [1m[32mINSERT INTO "orders" ("title", "description", "client_id", "order_type_id", "order_status_id", "user_account_id", "start_time", "deadline", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "buka"], ["description", "aba description"], ["client_id", 2], ["order_type_id", 2], ["order_status_id", 1], ["user_account_id", 64], ["start_time", "2020-09-05 00:00:00"], ["deadline", "12-12-2020"], ["created_at", "2020-11-24 14:52:25.428007"], ["updated_at", "2020-11-24 14:52:25.428007"]]
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/orders_services.rb:112
+Completed 204 No Content in 37875ms (Views: 0.6ms | ActiveRecord: 82.4ms)
+
+
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrderStatus Load (0.5ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrderType Load (0.3ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Started POST "/en/orders" for 127.0.0.1 at 2020-11-24 18:57:48 +0400
+Processing by OrdersController#create as JSON
+  Parameters: {"title"=>"bukaaa", "description"=>"aba description", "start_time"=>"05-09-2020", "deadline"=>"12-12-2020", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "locale"=>"en", "order"=>{"title"=>"bukaaa", "description"=>"aba description", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "start_time"=>"05-09-2020", "deadline"=>"12-12-2020"}}
+Unpermitted parameters: :format, :locale, :order
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:90
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:97
+  [1m[36mOrderType Load (0.6ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:103
+  [1m[36mOrderStatus Load (0.4ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:117
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[36mCACHE OrderType Load (0.0ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[36mOrderStatus Load (0.4ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("title", "description", "client_id", "order_type_id", "order_status_id", "user_account_id", "start_time", "deadline", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "bukaaa"], ["description", "aba description"], ["client_id", 2], ["order_type_id", 2], ["order_status_id", 1], ["user_account_id", 64], ["start_time", "2020-09-05 00:00:00"], ["deadline", "12-12-2020"], ["created_at", "2020-11-24 14:57:55.518394"], ["updated_at", "2020-11-24 14:57:55.518394"]]
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/orders_services.rb:112
+Completed 201 Created in 6797ms (Views: 0.2ms | ActiveRecord: 43.0ms)
+
+
+Started POST "/en/orders" for 127.0.0.1 at 2020-11-24 18:59:04 +0400
+Processing by OrdersController#create as JSON
+  Parameters: {"title"=>"buka123a", "description"=>"aba description", "start_time"=>"05-09-2020", "deadline"=>"12-12-2020", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "locale"=>"en", "order"=>{"title"=>"buka123a", "description"=>"aba description", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "start_time"=>"05-09-2020", "deadline"=>"12-12-2020"}}
+Unpermitted parameters: :format, :locale, :order
+  [1m[36mClient Load (0.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:90
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:97
+  [1m[36mOrderType Load (0.7ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:103
+  [1m[36mOrderStatus Load (0.6ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:117
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[36mCACHE OrderType Load (0.0ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[36mOrderStatus Load (0.3ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("title", "description", "client_id", "order_type_id", "order_status_id", "user_account_id", "start_time", "deadline", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "buka123a"], ["description", "aba description"], ["client_id", 2], ["order_type_id", 2], ["order_status_id", 1], ["user_account_id", 64], ["start_time", "2020-09-05 00:00:00"], ["deadline", "12-12-2020"], ["created_at", "2020-11-24 14:59:09.430385"], ["updated_at", "2020-11-24 14:59:09.430385"]]
+  ↳ app/services/orders/orders_services.rb:112
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/orders_services.rb:112
+Completed 201 Created in 4539ms (Views: 0.3ms | ActiveRecord: 55.1ms)
+
+
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 64], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-24 19:03:40 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-24 19:03:40 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-24 19:03:40 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-24 19:03:40 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-24 19:03:41 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-24 19:03:41 +0400
+Started POST "/en/orders" for 127.0.0.1 at 2020-11-24 19:04:33 +0400
+Processing by OrdersController#create as JSON
+  Parameters: {"title"=>"buka12wedwd3a", "description"=>"aba description", "start_time"=>"05-09-2020", "deadline"=>"12-12-2020", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "locale"=>"en", "order"=>{"title"=>"buka12wedwd3a", "description"=>"aba description", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "start_time"=>"05-09-2020", "deadline"=>"12-12-2020"}}
+Unpermitted parameters: :format, :locale, :order
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:90
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:97
+  [1m[36mOrderType Load (0.4ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:103
+  [1m[36mOrderStatus Load (0.6ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:116
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mCACHE OrderType Load (0.0ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mOrderStatus Load (0.2ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mOrder Create (1.0ms)[0m  [1m[32mINSERT INTO "orders" ("title", "description", "client_id", "order_type_id", "order_status_id", "user_account_id", "start_time", "deadline", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "buka12wedwd3a"], ["description", "aba description"], ["client_id", 2], ["order_type_id", 2], ["order_status_id", 1], ["user_account_id", 64], ["start_time", "2020-09-05 00:00:00"], ["deadline", "12-12-2020"], ["created_at", "2020-11-24 15:04:33.334264"], ["updated_at", "2020-11-24 15:04:33.334264"]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/orders_services.rb:111
+Completed 201 Created in 185ms (Views: 0.4ms | ActiveRecord: 29.6ms)
+
+
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Load (0.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrderStatus Load (0.4ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrderType Load (0.3ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-24 19:12:40 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-24 19:12:40 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-24 19:12:40 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-24 19:12:40 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-24 19:12:41 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-24 19:12:41 +0400
+Started POST "/en/orders" for 127.0.0.1 at 2020-11-24 19:12:57 +0400
+Processing by OrdersController#create as JSON
+  Parameters: {"title"=>"sdf", "description"=>"aba description", "start_time"=>"05-09-2020", "deadline"=>"12-12-2020", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "locale"=>"en", "order"=>{"title"=>"sdf", "description"=>"aba description", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "start_time"=>"05-09-2020", "deadline"=>"12-12-2020"}}
+Unpermitted parameters: :format, :locale, :order
+  [1m[36mClient Load (1.1ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:90
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:97
+  [1m[36mOrderType Load (0.4ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:103
+  [1m[36mOrderStatus Load (0.4ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:116
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mCACHE OrderType Load (0.0ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mOrderStatus Load (0.2ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mOrder Create (1.3ms)[0m  [1m[32mINSERT INTO "orders" ("title", "description", "client_id", "order_type_id", "order_status_id", "user_account_id", "start_time", "deadline", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "sdf"], ["description", "aba description"], ["client_id", 2], ["order_type_id", 2], ["order_status_id", 1], ["user_account_id", 64], ["start_time", "2020-09-05 00:00:00"], ["deadline", "12-12-2020"], ["created_at", "2020-11-24 15:12:57.332072"], ["updated_at", "2020-11-24 15:12:57.332072"]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[35m (38.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/orders_services.rb:111
+Completed 201 Created in 59ms (Views: 0.5ms | ActiveRecord: 42.6ms)
+
+
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrderStatus Load (0.3ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrderType Load (0.3ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+Started POST "/en/orders" for 127.0.0.1 at 2020-11-24 19:14:19 +0400
+Processing by OrdersController#create as JSON
+  Parameters: {"title"=>"sdf", "description"=>"aba description", "start_time"=>"05-09-2020", "deadline"=>"12-12-2020", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "locale"=>"en", "order"=>{"title"=>"sdf", "description"=>"aba description", "client_id"=>2, "order_type_id"=>2, "user_account_id"=>64, "start_time"=>"05-09-2020", "deadline"=>"12-12-2020"}}
+Unpermitted parameters: :format, :locale, :order
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:90
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:97
+  [1m[36mOrderType Load (0.3ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:103
+  [1m[36mOrderStatus Load (0.3ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:116
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mCACHE OrderType Load (0.0ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mOrderStatus Load (0.3ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("title", "description", "client_id", "order_type_id", "order_status_id", "user_account_id", "start_time", "deadline", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "sdf"], ["description", "aba description"], ["client_id", 2], ["order_type_id", 2], ["order_status_id", 1], ["user_account_id", 64], ["start_time", "2020-09-05 00:00:00"], ["deadline", "12-12-2020"], ["created_at", "2020-11-24 15:14:19.219167"], ["updated_at", "2020-11-24 15:14:19.219167"]]
+  ↳ app/services/orders/orders_services.rb:111
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/orders_services.rb:111
+Completed 201 Created in 81ms (Views: 0.5ms | ActiveRecord: 23.6ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-24 19:22:33 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-24 19:22:33 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-24 19:22:33 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-24 19:22:33 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-24 19:22:34 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-24 19:22:34 +0400
+Started GET "/en/orders/order_type" for 127.0.0.1 at 2020-11-24 19:22:47 +0400
+Processing by OrdersController#order_type as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 227ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `clients_params' for #<OrdersController:0x00007f169c2e6850>
+Did you mean?  clients_path):
+  
+app/controllers/orders_controller.rb:15:in `order_type'
+Started GET "/en/orders/order_type" for 127.0.0.1 at 2020-11-24 19:23:02 +0400
+Processing by OrdersController#order_type as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/orders/order_type" for 127.0.0.1 at 2020-11-24 19:23:27 +0400
+Processing by OrdersController#order_type as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/orders/order_type" for 127.0.0.1 at 2020-11-24 19:23:44 +0400
+Processing by OrdersController#order_type as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrderType Load (0.5ms)[0m  [1m[34mSELECT "order_types".* FROM "order_types"[0m
+  ↳ app/services/orders/orders_services.rb:22
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/en/orders/orders_list" for 127.0.0.1 at 2020-11-24 19:23:53 +0400
+Processing by OrdersController#orders_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `client_list' for #<Orders::OrdersServices:0x00007f169c3a7438>):
+  
+app/controllers/orders_controller.rb:22:in `orders_list'
+Started GET "/en/orders/orders_list" for 127.0.0.1 at 2020-11-24 19:24:10 +0400
+Processing by OrdersController#orders_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/orders/orders_list" for 127.0.0.1 at 2020-11-24 19:24:31 +0400
+Processing by OrdersController#orders_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/orders/orders_list" for 127.0.0.1 at 2020-11-24 19:24:41 +0400
+Processing by OrdersController#orders_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/orders/orders_list" for 127.0.0.1 at 2020-11-24 19:25:58 +0400
+Processing by OrdersController#orders_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/services/orders/orders_services.rb:38
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 4.3ms)
+
+
+  
+NoMethodError (undefined method `client_contacts' for #<Order:0x00007f169c7d5460>
+Did you mean?  client_id_was):
+  
+app/services/orders/orders_services.rb:38:in `orders_list_json_view'
+lib/controller_response.rb:22:in `respond_action_json_view'
+lib/controller_response.rb:41:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/orders_controller.rb:23:in `orders_list'
+Started GET "/en/orders/orders_list" for 127.0.0.1 at 2020-11-24 19:26:37 +0400
+Processing by OrdersController#orders_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/orders/orders_list" for 127.0.0.1 at 2020-11-24 19:26:52 +0400
+Processing by OrdersController#orders_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mClient Load (0.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mOrderStatus Load (0.4ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mOrderType Load (0.2ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE OrderType Load (0.0ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE OrderType Load (0.0ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE OrderType Load (0.0ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE OrderType Load (0.0ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE OrderType Load (0.0ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:38
+Completed 200 OK in 130ms (Views: 0.9ms | ActiveRecord: 22.8ms)
+
+
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-24 19:37:09 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-24 19:37:09 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-24 19:37:09 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-24 19:37:09 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-24 19:37:09 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-24 19:37:09 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-24 19:39:05 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-24 19:39:05 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-24 19:39:05 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-24 19:39:05 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-24 19:39:05 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-24 19:39:05 +0400
+Started GET "/en/orders/1" for 127.0.0.1 at 2020-11-24 19:39:15 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"1"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:122
+  [1m[36mClient Load (0.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:30
+  [1m[36mOrderStatus Load (0.3ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:30
+  [1m[36mOrderType Load (0.3ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:30
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:30
+Completed 200 OK in 100ms (Views: 0.3ms | ActiveRecord: 20.7ms)
+
+

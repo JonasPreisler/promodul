@@ -107,6 +107,11 @@ Rails.application.routes.draw do
       get 'client_contacts/contacts_list', to: 'client_contacts#contacts_list'
       get 'client_contacts/:id',          to: 'client_contacts#show'
 
+      resource :orders
+      get 'orders/order_type',  to: 'orders#order_type'
+      get 'orders/orders_list', to: 'orders#orders_list'
+      get 'orders/:id',         to: 'orders#show'
+
     end
   end
 end
