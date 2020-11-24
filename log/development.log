@@ -14486,3 +14486,113 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 52ms (Views: 0.7ms | ActiveRecord: 10.0ms)
 
 
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateOrderStatuses (20201124011057)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "order_statuses" ("id" bigserial primary key, "name" json NOT NULL, "id_name" character varying NOT NULL)[0m
+  ↳ db/migrate/20201124011057_create_order_statuses.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201124011057"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateOrderTypes (20201124011106)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "order_types" ("id" bigserial primary key, "name" json NOT NULL, "id_name" character varying NOT NULL)[0m
+  ↳ db/migrate/20201124011106_create_order_types.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201124011106"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to FillOrderStatus (20201124011239)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mOrderStatus Create (0.7ms)[0m  [1m[32mINSERT INTO "order_statuses" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"en\":\"Open\",\"no\":\"Åpen\"}"], ["id_name", "open"]]
+  ↳ db/migrate/20201124011239_fill_order_status.rb:3
+  [1m[36mOrderStatus Create (0.2ms)[0m  [1m[32mINSERT INTO "order_statuses" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"en\":\"Booked\",\"no\":\"Bestilt\"}"], ["id_name", "booked"]]
+  ↳ db/migrate/20201124011239_fill_order_status.rb:4
+  [1m[36mOrderStatus Create (0.4ms)[0m  [1m[32mINSERT INTO "order_statuses" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"en\":\"In progress\",\"no\":\"I prosess\"}"], ["id_name", "in_progress"]]
+  ↳ db/migrate/20201124011239_fill_order_status.rb:5
+  [1m[36mOrderStatus Create (0.2ms)[0m  [1m[32mINSERT INTO "order_statuses" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"en\":\"Done\",\"no\":\"Ferdig\"}"], ["id_name", "done"]]
+  ↳ db/migrate/20201124011239_fill_order_status.rb:6
+  [1m[36mOrderStatus Create (0.4ms)[0m  [1m[32mINSERT INTO "order_statuses" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"en\":\"Canceled\",\"no\":\"avbrutt\"}"], ["id_name", "canceled"]]
+  ↳ db/migrate/20201124011239_fill_order_status.rb:7
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201124011239"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to FillOrderType (20201124011243)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mOrderType Create (0.6ms)[0m  [1m[32mINSERT INTO "order_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"en\":\"Hourly based\",\"no\":\"Timebasert\"}"], ["id_name", "hourly_based"]]
+  ↳ db/migrate/20201124011243_fill_order_type.rb:3
+  [1m[36mOrderType Create (0.3ms)[0m  [1m[32mINSERT INTO "order_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"en\":\"Fixed price\",\"no\":\"Fast pris\"}"], ["id_name", "fixed_price"]]
+  ↳ db/migrate/20201124011243_fill_order_type.rb:4
+  [1m[36mOrderType Create (0.2ms)[0m  [1m[32mINSERT INTO "order_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"en\":\"Internal based\",\"no\":\"Intern basert\"}"], ["id_name", "internal_based"]]
+  ↳ db/migrate/20201124011243_fill_order_type.rb:5
+  [1m[36mOrderType Create (0.2ms)[0m  [1m[32mINSERT INTO "order_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"en\":\"Repetitive\",\"no\":\"Repeterende\"}"], ["id_name", "repetitive"]]
+  ↳ db/migrate/20201124011243_fill_order_type.rb:6
+  [1m[36mOrderType Create (0.2ms)[0m  [1m[32mINSERT INTO "order_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "{\"en\":\"Reclamation\",\"no\":\"gjenvinning\"}"], ["id_name", "reclamation"]]
+  ↳ db/migrate/20201124011243_fill_order_type.rb:7
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201124011243"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateOrders (20201124012638)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (15.8ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "title" character varying(50) NOT NULL, "description" character varying, "client_id" bigint NOT NULL, "order_type_id" bigint NOT NULL, "order_status_id" bigint NOT NULL, "user_account_id" bigint, "start_time" timestamp NOT NULL, "deadline" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5c8e53c896"
+FOREIGN KEY ("client_id")
+  REFERENCES "clients" ("id")
+, CONSTRAINT "fk_rails_aea2044a0b"
+FOREIGN KEY ("order_type_id")
+  REFERENCES "order_types" ("id")
+, CONSTRAINT "fk_rails_7a22cf8b0e"
+FOREIGN KEY ("order_status_id")
+  REFERENCES "order_statuses" ("id")
+, CONSTRAINT "fk_rails_57bb407dbc"
+FOREIGN KEY ("user_account_id")
+  REFERENCES "user_accounts" ("id")
+)[0m
+  ↳ db/migrate/20201124012638_create_orders.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_client_id" ON "orders"  ("client_id")[0m
+  ↳ db/migrate/20201124012638_create_orders.rb:3
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_order_type_id" ON "orders"  ("order_type_id")[0m
+  ↳ db/migrate/20201124012638_create_orders.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_order_status_id" ON "orders"  ("order_status_id")[0m
+  ↳ db/migrate/20201124012638_create_orders.rb:3
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_user_account_id" ON "orders"  ("user_account_id")[0m
+  ↳ db/migrate/20201124012638_create_orders.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201124012638"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mProduct Load (5.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]

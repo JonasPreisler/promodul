@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_22_005617) do
+ActiveRecord::Schema.define(version: 2020_11_24_012638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -199,6 +199,33 @@ ActiveRecord::Schema.define(version: 2020_11_22_005617) do
   create_table "locking_types", force: :cascade do |t|
     t.json "name", null: false
     t.string "id_name", limit: 50
+  end
+
+  create_table "order_statuses", force: :cascade do |t|
+    t.json "name", null: false
+    t.string "id_name", null: false
+  end
+
+  create_table "order_types", force: :cascade do |t|
+    t.json "name", null: false
+    t.string "id_name", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "title", limit: 50, null: false
+    t.string "description"
+    t.bigint "client_id", null: false
+    t.bigint "order_type_id", null: false
+    t.bigint "order_status_id", null: false
+    t.bigint "user_account_id"
+    t.datetime "start_time", null: false
+    t.string "deadline"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_orders_on_client_id"
+    t.index ["order_status_id"], name: "index_orders_on_order_status_id"
+    t.index ["order_type_id"], name: "index_orders_on_order_type_id"
+    t.index ["user_account_id"], name: "index_orders_on_user_account_id"
   end
 
   create_table "product_catalog_permissions", force: :cascade do |t|
@@ -451,6 +478,10 @@ ActiveRecord::Schema.define(version: 2020_11_22_005617) do
   add_foreign_key "departments", "companies"
   add_foreign_key "departments", "countries"
   add_foreign_key "departments", "departments", column: "parent_id"
+  add_foreign_key "orders", "clients"
+  add_foreign_key "orders", "order_statuses"
+  add_foreign_key "orders", "order_types"
+  add_foreign_key "orders", "user_accounts"
   add_foreign_key "product_catalog_permissions", "role_groups"
   add_foreign_key "product_characteristics", "products"
   add_foreign_key "product_characteristics", "sub_categories"
