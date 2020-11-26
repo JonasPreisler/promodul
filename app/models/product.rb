@@ -9,6 +9,7 @@ class Product < ApplicationRecord
 
   has_many :supplier_products
   has_many :product_images, dependent: :destroy
+  has_many :order_products
   #accepts_nested_attributes_for :product_images
 
   validates :name,      presence: true

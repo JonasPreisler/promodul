@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_012638) do
+ActiveRecord::Schema.define(version: 2020_11_26_174739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -199,6 +199,14 @@ ActiveRecord::Schema.define(version: 2020_11_24_012638) do
   create_table "locking_types", force: :cascade do |t|
     t.json "name", null: false
     t.string "id_name", limit: 50
+  end
+
+  create_table "order_products", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "order_id", null: false
+    t.integer "count", null: false
+    t.index ["order_id"], name: "index_order_products_on_order_id"
+    t.index ["product_id"], name: "index_order_products_on_product_id"
   end
 
   create_table "order_statuses", force: :cascade do |t|
@@ -478,6 +486,8 @@ ActiveRecord::Schema.define(version: 2020_11_24_012638) do
   add_foreign_key "departments", "companies"
   add_foreign_key "departments", "countries"
   add_foreign_key "departments", "departments", column: "parent_id"
+  add_foreign_key "order_products", "orders"
+  add_foreign_key "order_products", "products"
   add_foreign_key "orders", "clients"
   add_foreign_key "orders", "order_statuses"
   add_foreign_key "orders", "order_types"
