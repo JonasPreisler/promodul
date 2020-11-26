@@ -22,14 +22,6 @@ module Orders
       { success: true }
     end
 
-    #def show_json_view
-    #  { order: @order.as_json(include: {  client: {only: [:name]  },
-    #                                      order_status: { only: [:name] },
-    #                                      order_type: { only: [:name] },
-    #                                      user_account: { only: [:username] } },
-    #                          only: [:id, :start_time, :title, :description, :created_at]) }
-    #end
-
     def order_products_list_json_view
       { products: @order_products.as_json(include: { product: { only: [:name, :code, :full_name] } }, only: [:id, :count]) }
     end
