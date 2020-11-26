@@ -22,24 +22,24 @@ class OrderProductsController < ApplicationController
     service.order_products_list
     rest_respond_service service
   end
-  #
-  #def show
-  #  service = Orders::OrdersServices.new(orders_params)
-  #  service.show
-  #  rest_respond_service service
-  #end
 
-  #def update
-  #  service = Clients::Service.new(clients_params)
-  #  service.update_client
-  #  rest_respond_service service
-  #end
-  #
-  #def destroy
-  #  service = Clients::Service.new(clients_params)
-  #  service.delete_client
-  #  rest_respond_service service
-  #end
+  def show
+    service = Orders::OrderProductsServices.new(order_product_params)
+    service.show
+    rest_respond_service service
+  end
+
+  def update
+    service = Orders::OrderProductsServices.new(order_product_params)
+    service.update_order_prod
+    rest_respond_service service
+  end
+
+  def destroy
+    service = Orders::OrderProductsServices.new(order_product_params)
+    service.delete_order_prod
+    rest_respond_service service
+  end
 
   private
 

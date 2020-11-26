@@ -11,16 +11,16 @@ module Orders
     end
 
     def json_view
-      { order_product: @order_product.as_json(include: { product: { only: [:name, :code, :full_name] } }, only: [:count]) }
+      { order_product: @order_product.as_json(include: { product: { only: [:name, :code, :full_name] } }, only: [:id, :count]) }
     end
 
     def product_order_list_json_view
       { products: @products.as_json(only: [:id, :name, :full_name, :code]) }
     end
 
-    #def destroy_json_view
-    #  { success: true }
-    #end
+    def destroy_json_view
+      { success: true }
+    end
 
     #def show_json_view
     #  { order: @order.as_json(include: {  client: {only: [:name]  },
@@ -31,7 +31,7 @@ module Orders
     #end
 
     def order_products_list_json_view
-      { products: @order_products.as_json(include: { product: { only: [:name, :code, :full_name] } }, only: [:count]) }
+      { products: @order_products.as_json(include: { product: { only: [:name, :code, :full_name] } }, only: [:id, :count]) }
     end
 
     def create_order_product
@@ -47,22 +47,20 @@ module Orders
       @order_products = OrderProduct.where(order_id: params[:id])
     end
 
-    #def update_client
-    #  validate_data!
-    #  update_client_obj
-    #end
-
-    def show
-      find_order
+    def update_order_prod
+      update_order_product
     end
 
-    #def delete_client
-    #  find_client
-    #  return if @errors.any?
-    #  @client.active = false
-    #  @client.save
-    #  @errors << fill_errors(@client) if @client.errors.any?
-    #end
+    def show
+      find_order_product
+    end
+
+    def delete_order_prod
+      find_order_product
+      return if @errors.any?
+      @order_product.destroy
+      @errors << fill_errors(@order_product) if @order_product.errors.any?
+    end
 
     private
 
@@ -91,16 +89,16 @@ module Orders
     def default_status
       @status = OrderStatus.find_by(id_name: :open)
     end
-    #
-    #def update_client_obj
-    #  find_client
-    #  @client.update(params)
-    #  @errors << fill_errors(@client) if @client.errors.any?
-    #end
 
-    def find_order
-      @order = Order.find_by_id(params[:id])
-      fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @order
+    def update_order_product
+      find_order_product
+      @order_product.update(params)
+      @errors << fill_errors(@order_product) if @order_product.errors.any?
+    end
+
+    def find_order_product
+      @order_product = OrderProduct.find_by_id(params[:id])
+      fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @order_product
     end
   end
 end
