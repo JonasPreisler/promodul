@@ -7975,6 +7975,88 @@
         }
       }
     },
+    "/{locale}/tasks/status_progress/{id}": {
+      "get": {
+        "summary": "Returns task progress",
+        "tags": [
+          "Order"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "Client token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "id_name",
+            "in": "query",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "task": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "start_time": {
+                      "type": "string"
+                    },
+                    "deadline": {
+                      "type": "string"
+                    },
+                    "task_status": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "object"
+                        }
+                      }
+                    },
+                    "user_account": {
+                      "type": "object",
+                      "properties": {
+                        "username": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/{locale}/terms_and_conditions": {
       "post": {
         "summary": "Create terms and conditions",

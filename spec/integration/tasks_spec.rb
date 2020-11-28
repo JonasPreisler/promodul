@@ -115,6 +115,55 @@ describe 'Orders', type: :request do
     end
   end
 
+  path '/{locale}/tasks/status_progress/{id}' do
+    get 'Returns task progress' do
+      tags 'Order'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      parameter name: :id, in: :path, type: :integer, required: true
+      parameter name: :id_name, in: :query, type: :string, required: true
+
+      response '201', 'ok' do
+        schema type: :object,
+               properties: {
+                   task: {
+                       type: :object,
+                       properties: {
+                           id:         {type: :integer},
+                           title:      {type: :string},
+                           start_time: { type: :string},
+                           deadline:   { type: :string},
+                           task_status:    {
+                               type: :object,
+                               properties: {
+                                   name: { type: :object }
+                               }
+                           },
+                           user_account:    {
+                               type: :object,
+                               properties: {
+                                   username: { type: :object }
+                               }
+                           }
+                       }
+                   }
+               }
+
+        run_test!
+      end
+
+    end
+  end
+
   #path '/{locale}/orders/order_type' do
   #  get 'Returns order types' do
   #    tags 'Order'

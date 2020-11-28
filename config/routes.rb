@@ -119,6 +119,7 @@ Rails.application.routes.draw do
 
       resource :tasks
       get 'tasks/tasks_list/:id', to: 'tasks#tasks_list'
+      get 'tasks/status_progress/:id', to: 'tasks#status_progress'
     end
   end
 end

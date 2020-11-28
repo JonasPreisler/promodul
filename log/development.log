@@ -16298,3 +16298,92 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 69ms (Views: 0.6ms | ActiveRecord: 16.5ms)
 
 
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-29 03:27:46 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-29 03:27:46 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-29 03:27:46 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-29 03:27:46 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-29 03:27:47 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-29 03:27:47 +0400
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTaskStatus Load (1.3ms)[0m  [1m[34mSELECT "task_statuses".* FROM "task_statuses"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-29 03:28:50 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-29 03:28:50 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-29 03:28:50 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-29 03:28:50 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-29 03:28:50 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-29 03:28:50 +0400
+Started GET "/en/tasks/status_progress/2" for 127.0.0.1 at 2020-11-29 03:29:04 +0400
+Processing by TasksController#status_progress as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+  [1m[36mTaskStatus Load (0.5ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:83
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:88
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 8.2ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/services/tasks/services.rb:59:in `progress'
+app/controllers/tasks_controller.rb:28:in `status_progress'
+Started GET "/en/tasks/status_progress/2" for 127.0.0.1 at 2020-11-29 03:29:34 +0400
+Processing by TasksController#status_progress as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+Unpermitted parameters: :format, :locale
+  [1m[36mTaskStatus Load (0.7ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:84
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:90
+Completed 500 Internal Server Error in 26544ms (ActiveRecord: 15.5ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/services/tasks/services.rb:59:in `progress'
+app/controllers/tasks_controller.rb:29:in `status_progress'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-29 03:30:28 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-29 03:30:28 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-29 03:30:28 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-29 03:30:28 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-29 03:30:28 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-29 03:30:28 +0400
+Started GET "/en/tasks/status_progress/2?id_name=in_progress" for 127.0.0.1 at 2020-11-29 03:30:42 +0400
+Processing by TasksController#status_progress as JSON
+  Parameters: {"id_name"=>"in_progress", "locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+Unpermitted parameters: :format, :locale
+  [1m[36mTaskStatus Load (0.8ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "in_progress"], ["LIMIT", 1]]
+  ↳ (pry):5
+  [1m[36mCACHE TaskStatus Load (0.1ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "in_progress"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:84
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ (pry):6
+  [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:90
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/tasks/services.rb:59
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:59
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:59
+  [1m[36mTaskStatus Load (0.2ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:59
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:59
+  [1m[36mTask Update (0.5ms)[0m  [1m[33mUPDATE "tasks" SET "task_status_id" = $1, "updated_at" = $2 WHERE "tasks"."id" = $3[0m  [["task_status_id", 2], ["updated_at", "2020-11-28 23:31:06.772843"], ["id", 2]]
+  ↳ app/services/tasks/services.rb:59
+  [1m[35m (36.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/tasks/services.rb:59
+Completed 200 OK in 24108ms (Views: 0.8ms | ActiveRecord: 59.2ms)
+
+

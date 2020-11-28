@@ -52,6 +52,14 @@ module Tasks
       @tasks = Task.where(order_id: params[:id])
     end
 
+    def progress
+      find_status
+      find_task
+      return if errors.any?
+      @task.update(task_status_id: @status.id)
+      @errors << fill_errors(@task) if @task.errors.any?
+    end
+
     #def update_client
     #  validate_data!
     #  update_client_obj
@@ -70,6 +78,17 @@ module Tasks
     #end
 
     private
+
+    def find_status
+      @status = TaskStatus.find_by(id_name: params[:id_name])
+      fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @status
+    end
+
+    def find_task
+      return if errors.any?
+      @task = Task.find(params[:id])
+      fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @task
+    end
 
     def validate_data!
       validate_order

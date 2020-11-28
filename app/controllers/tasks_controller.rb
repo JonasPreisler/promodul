@@ -22,6 +22,13 @@ class TasksController < ApplicationController
     service.task_list
     rest_respond_service service
   end
+
+  def status_progress
+    service = Tasks::Services.new(progress_params)
+    service.progress
+    rest_respond_service service
+  end
+
   #
   #def show
   #  service = Orders::OrdersServices.new(orders_params)
@@ -45,5 +52,9 @@ class TasksController < ApplicationController
 
   def task_params
     params.permit(:id, :title, :description, :order_id, :user_account_id, :product_id, :start_time, :deadline)
+  end
+
+  def progress_params
+    params.permit(:id, :id_name)
   end
 end
