@@ -7897,6 +7897,84 @@
         }
       }
     },
+    "/{locale}/tasks/tasks_list/{order_id}": {
+      "get": {
+        "summary": "Returns order tasks",
+        "tags": [
+          "Order"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "Client token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "order_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "products": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "start_time": {
+                        "type": "string"
+                      },
+                      "deadline": {
+                        "type": "string"
+                      },
+                      "task_status": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "object"
+                          }
+                        }
+                      },
+                      "user_account": {
+                        "type": "object",
+                        "properties": {
+                          "username": {
+                            "type": "object"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/{locale}/terms_and_conditions": {
       "post": {
         "summary": "Create terms and conditions",

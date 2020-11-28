@@ -66,6 +66,55 @@ describe 'Orders', type: :request do
     end
   end
 
+  path '/{locale}/tasks/tasks_list/{order_id}' do
+    get 'Returns order tasks' do
+      tags 'Order'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      parameter name: :order_id, in: :path, type: :integer, required: true
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   products: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               id:         {type: :integer},
+                               title:      {type: :string},
+                               start_time: { type: :string},
+                               deadline:   { type: :string},
+                               task_status:    {
+                                   type: :object,
+                                   properties: {
+                                       name: { type: :object }
+                                   }
+                               },
+                               user_account:    {
+                                   type: :object,
+                                   properties: {
+                                       username: { type: :object }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+        run_test!
+      end
+
+    end
+  end
+
   #path '/{locale}/orders/order_type' do
   #  get 'Returns order types' do
   #    tags 'Order'

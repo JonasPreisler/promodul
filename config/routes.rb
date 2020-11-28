@@ -118,6 +118,7 @@ Rails.application.routes.draw do
       get 'order_products/:id',                      to: 'order_products#show'
 
       resource :tasks
+      get 'tasks/tasks_list/:id', to: 'tasks#tasks_list'
     end
   end
 end

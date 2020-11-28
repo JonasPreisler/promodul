@@ -32,13 +32,11 @@ module Tasks
     #                          only: [:id, :start_time, :title, :description, :created_at]) }
     #end
     #
-    #def orders_list_json_view
-    #  { orders: @orders.as_json(include: {  client: {only: [:name]  },
-    #                                        order_status: { only: [:name] },
-    #                                        order_type: { only: [:name] },
-    #                                        user_account: { only: [:username] } },
-    #                            only: [:id, :start_time, :title]) }
-    #end
+    def tasks_list_json_view
+      { tasks: @tasks.as_json(include: {  task_status: { only: [:name] },
+                                          user_account: { only: [:username] } },
+                              only: [:id, :start_time, :deadline, :title, :description]) }
+    end
 
     def create_task
       validate_data!
@@ -50,9 +48,9 @@ module Tasks
     #  @types = OrderType.all
     #end
     #
-    #def order_list
-    #  @orders = Order.all
-    #end
+    def task_list
+      @tasks = Task.where(order_id: params[:id])
+    end
 
     #def update_client
     #  validate_data!

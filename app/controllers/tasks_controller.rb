@@ -16,12 +16,12 @@ class TasksController < ApplicationController
   #  service.get_types
   #  rest_respond_service service
   #end
-  #
-  #def orders_list
-  #  service = Orders::OrdersServices.new(orders_params)
-  #  service.order_list
-  #  rest_respond_service service
-  #end
+
+  def tasks_list
+    service = Tasks::Services.new(task_params)
+    service.task_list
+    rest_respond_service service
+  end
   #
   #def show
   #  service = Orders::OrdersServices.new(orders_params)
