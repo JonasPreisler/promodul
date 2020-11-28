@@ -116,6 +116,8 @@ Rails.application.routes.draw do
       get 'order_products/product_order_list',       to: 'order_products#product_order_list'
       get 'order_products/order_products_list/:id',  to: 'order_products#order_products_list'
       get 'order_products/:id',                      to: 'order_products#show'
+
+      resource :tasks
     end
   end
 end

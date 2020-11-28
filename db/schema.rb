@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_26_174739) do
+ActiveRecord::Schema.define(version: 2020_11_28_120551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -419,6 +419,29 @@ ActiveRecord::Schema.define(version: 2020_11_26_174739) do
     t.index ["role_group_id"], name: "index_system_data_permissions_on_role_group_id"
   end
 
+  create_table "task_statuses", force: :cascade do |t|
+    t.json "name", null: false
+    t.string "id_name", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title", limit: 50, null: false
+    t.string "description"
+    t.bigint "task_status_id", null: false
+    t.bigint "product_id", null: false
+    t.bigint "order_id", null: false
+    t.bigint "user_account_id"
+    t.datetime "start_time", null: false
+    t.datetime "deadline"
+    t.string "tracked_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_tasks_on_order_id"
+    t.index ["product_id"], name: "index_tasks_on_product_id"
+    t.index ["task_status_id"], name: "index_tasks_on_task_status_id"
+    t.index ["user_account_id"], name: "index_tasks_on_user_account_id"
+  end
+
   create_table "terms_and_condition_agreements", force: :cascade do |t|
     t.bigint "user_account_id", null: false
     t.bigint "terms_and_condition_id", null: false
@@ -510,6 +533,10 @@ ActiveRecord::Schema.define(version: 2020_11_26_174739) do
   add_foreign_key "suppliers", "integration_systems"
   add_foreign_key "suppliers_permissions", "role_groups"
   add_foreign_key "system_data_permissions", "role_groups"
+  add_foreign_key "tasks", "orders"
+  add_foreign_key "tasks", "products"
+  add_foreign_key "tasks", "task_statuses"
+  add_foreign_key "tasks", "user_accounts"
   add_foreign_key "terms_and_condition_agreements", "terms_and_conditions"
   add_foreign_key "terms_and_condition_agreements", "user_accounts"
   add_foreign_key "user_management_permissions", "role_groups"

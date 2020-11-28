@@ -6,6 +6,6 @@ class Order < ApplicationRecord
 
   #has_many :order_images
   #has_many :order_files
-  #has_many :tasks
+  has_many :tasks
   has_many :products
 end
