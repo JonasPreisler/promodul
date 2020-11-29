@@ -7895,6 +7895,177 @@
             "description": "Not Found"
           }
         }
+      },
+      "put": {
+        "summary": "Update task",
+        "tags": [
+          "Order"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "params",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "start_time": {
+                  "type": "string"
+                },
+                "deadline": {
+                  "type": "string"
+                },
+                "tracked_time": {
+                  "type": "string"
+                },
+                "order_id": {
+                  "type": "integer"
+                },
+                "product_id": {
+                  "type": "integer"
+                },
+                "user_account_id": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "task": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "start_time": {
+                      "type": "string"
+                    },
+                    "deadline": {
+                      "type": "string"
+                    },
+                    "tracked_time": {
+                      "type": "string"
+                    },
+                    "task_status": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "object"
+                        }
+                      }
+                    },
+                    "user_account": {
+                      "type": "object",
+                      "properties": {
+                        "username": {
+                          "type": "object"
+                        }
+                      }
+                    },
+                    "product": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete task",
+        "tags": [
+          "Order"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
       }
     },
     "/{locale}/tasks/tasks_list/{order_id}": {
@@ -8053,6 +8224,99 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/{locale}/tasks/{id}": {
+      "get": {
+        "summary": "Returns task",
+        "tags": [
+          "Order"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "task": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "start_time": {
+                      "type": "string"
+                    },
+                    "deadline": {
+                      "type": "string"
+                    },
+                    "tracked_time": {
+                      "type": "string"
+                    },
+                    "task_status": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "object"
+                        }
+                      }
+                    },
+                    "user_account": {
+                      "type": "object",
+                      "properties": {
+                        "username": {
+                          "type": "object"
+                        }
+                      }
+                    },
+                    "product": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "not found"
           }
         }
       }

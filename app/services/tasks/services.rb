@@ -16,22 +16,17 @@ module Tasks
                               only: [:id, :start_time, :deadline, :title, :description]) }
     end
 
-    #def order_type_json_view
-    #  { types: @types.as_json }
-    #end
+    def destroy_json_view
+      { success: true }
+    end
 
-    #def destroy_json_view
-    #  { success: true }
-    #end
+    def show_json_view
+      { task: @task.as_json(include: {  task_status: { only: [:name] },
+                                        user_account: { only: [:username] },
+                                        product: { only: [:name] } },
+                              only: [:id, :title, :description, :start_time, :deadline, :tracked_time, :created_at]) }
+    end
 
-    #def show_json_view
-    #  { order: @order.as_json(include: {  client: {only: [:name]  },
-    #                                      order_status: { only: [:name] },
-    #                                      order_type: { only: [:name] },
-    #                                      user_account: { only: [:username] } },
-    #                          only: [:id, :start_time, :title, :description, :created_at]) }
-    #end
-    #
     def tasks_list_json_view
       { tasks: @tasks.as_json(include: {  task_status: { only: [:name] },
                                           user_account: { only: [:username] } },
@@ -44,10 +39,6 @@ module Tasks
       create_task_obj
     end
 
-    #def get_types
-    #  @types = OrderType.all
-    #end
-    #
     def task_list
       @tasks = Task.where(order_id: params[:id])
     end
@@ -60,22 +51,21 @@ module Tasks
       @errors << fill_errors(@task) if @task.errors.any?
     end
 
-    #def update_client
-    #  validate_data!
-    #  update_client_obj
-    #end
+    def update_task
+      find_task
+      update_task_obj
+    end
 
-    #def show
-    #  find_order
-    #end
+    def show
+      find_task
+    end
 
-    #def delete_client
-    #  find_client
-    #  return if @errors.any?
-    #  @client.active = false
-    #  @client.save
-    #  @errors << fill_errors(@client) if @client.errors.any?
-    #end
+    def delete_task
+      find_task
+      return if @errors.any?
+      @task.destroy
+      @errors << fill_errors(@task) if @task.errors.any?
+    end
 
     private
 
@@ -125,16 +115,10 @@ module Tasks
     def default_status
       @status = TaskStatus.find_by(id_name: :open)
     end
-    #
-    ##def update_client_obj
-    ##  find_client
-    ##  @client.update(params)
-    ##  @errors << fill_errors(@client) if @client.errors.any?
-    ##end
-    #
-    #def find_order
-    #  @order = Order.find_by_id(params[:id])
-    #  fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @order
-    #end
+
+    def update_task_obj
+      @task.update(params)
+      @errors << fill_errors(@task) if @task.errors.any?
+    end
   end
 end

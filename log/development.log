@@ -16387,3 +16387,258 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 24108ms (Views: 0.8ms | ActiveRecord: 59.2ms)
 
 
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-29 03:42:16 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-29 03:42:17 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-29 03:42:17 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-29 03:42:17 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-29 03:42:17 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-29 03:42:17 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-29 03:43:46 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-29 03:43:46 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-29 03:43:46 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-29 03:43:46 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-29 03:43:47 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-29 03:43:47 +0400
+Started GET "/en/tasks/2" for 127.0.0.1 at 2020-11-29 03:43:56 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/tasks/2"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/en/tasks/2" for 127.0.0.1 at 2020-11-29 03:44:12 +0400
+Processing by TasksController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:84
+  [1m[36mTaskStatus Load (0.3ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:28
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:28
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:28
+Completed 200 OK in 71ms (Views: 0.3ms | ActiveRecord: 18.6ms)
+
+
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-29 03:46:38 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-29 03:46:38 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-29 03:46:38 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-29 03:46:38 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-29 03:46:39 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-29 03:46:39 +0400
+Started GET "/en/tasks/2" for 127.0.0.1 at 2020-11-29 03:46:50 +0400
+Processing by TasksController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:84
+  [1m[36mTaskStatus Load (0.5ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:28
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:28
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:28
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 2.5ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-29 03:54:31 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-29 03:54:31 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-29 03:54:31 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-29 03:54:31 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-29 03:54:32 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-29 03:54:32 +0400
+Started PUT "/en/tasks" for 127.0.0.1 at 2020-11-29 03:55:10 +0400
+Processing by TasksController#update as JSON
+  Parameters: {"id"=>2, "title"=>"updated name", "tracked_time"=>"8", "locale"=>"en", "task"=>{"id"=>2, "title"=>"updated name", "tracked_time"=>"8"}}
+Unpermitted parameters: :title, :tracked_time, :format, :locale, :task
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:95
+Completed 500 Internal Server Error in 102ms (ActiveRecord: 6.6ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/services/tasks/services.rb:126:in `update_task_obj'
+app/services/tasks/services.rb:60:in `update_task'
+app/controllers/tasks_controller.rb:34:in `update'
+Started PUT "/en/tasks" for 127.0.0.1 at 2020-11-29 03:56:08 +0400
+Processing by TasksController#update as JSON
+  Parameters: {"id"=>2, "title"=>"updated name", "tracked_time"=>"8", "locale"=>"en", "task"=>{"id"=>2, "title"=>"updated name", "tracked_time"=>"8"}}
+Unpermitted parameters: :title, :tracked_time, :format, :locale, :task
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:96
+  [1m[36mTask Load (1.7ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ (pry):8
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/tasks/services.rb:128
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:128
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:128
+  [1m[36mTaskStatus Load (0.2ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:128
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:128
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/tasks/services.rb:128
+Completed 400 Bad Request in 23162ms (Views: 0.2ms | ActiveRecord: 29.4ms)
+
+
+Started PUT "/en/tasks" for 127.0.0.1 at 2020-11-29 03:56:52 +0400
+Processing by TasksController#update as JSON
+  Parameters: {"id"=>2, "title"=>"updated name", "tracked_time"=>"8", "locale"=>"en", "task"=>{"id"=>2, "title"=>"updated name", "tracked_time"=>"8"}}
+Unpermitted parameters: :title, :tracked_time, :format, :locale, :task
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:95
+Completed 500 Internal Server Error in 18625ms (ActiveRecord: 3.0ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/services/tasks/services.rb:128:in `update_task_obj'
+app/services/tasks/services.rb:60:in `update_task'
+app/controllers/tasks_controller.rb:34:in `update'
+Started PUT "/en/tasks" for 127.0.0.1 at 2020-11-29 03:57:47 +0400
+Processing by TasksController#update as JSON
+  Parameters: {"id"=>2, "title"=>"updated name", "tracked_time"=>"8", "locale"=>"en", "task"=>{"id"=>2, "title"=>"updated name", "tracked_time"=>"8"}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:95
+Completed 500 Internal Server Error in 21127ms (ActiveRecord: 3.0ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/services/tasks/services.rb:128:in `update_task_obj'
+app/services/tasks/services.rb:60:in `update_task'
+app/controllers/tasks_controller.rb:34:in `update'
+Started PUT "/en/tasks" for 127.0.0.1 at 2020-11-29 03:58:30 +0400
+Processing by TasksController#update as JSON
+  Parameters: {"id"=>2, "title"=>"updated name", "tracked_time"=>"8", "locale"=>"en", "task"=>{"id"=>2, "title"=>"updated name", "tracked_time"=>"8"}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:96
+Completed 500 Internal Server Error in 8209ms (ActiveRecord: 2.8ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/services/tasks/services.rb:129:in `update_task_obj'
+app/services/tasks/services.rb:60:in `update_task'
+app/controllers/tasks_controller.rb:34:in `update'
+Started PUT "/en/tasks" for 127.0.0.1 at 2020-11-29 03:58:41 +0400
+Processing by TasksController#update as JSON
+  Parameters: {"id"=>2, "title"=>"updated name", "tracked_time"=>"8", "locale"=>"en", "task"=>{"id"=>2, "title"=>"updated name", "tracked_time"=>"8"}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:96
+Completed 500 Internal Server Error in 4054ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/services/tasks/services.rb:129:in `update_task_obj'
+app/services/tasks/services.rb:60:in `update_task'
+app/controllers/tasks_controller.rb:34:in `update'
+Started PUT "/en/tasks" for 127.0.0.1 at 2020-11-29 03:58:55 +0400
+Processing by TasksController#update as JSON
+  Parameters: {"id"=>2, "title"=>"updated name", "tracked_time"=>"8", "locale"=>"en", "task"=>{"id"=>2, "title"=>"updated name", "tracked_time"=>"8"}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:97
+Completed 500 Internal Server Error in 19377ms (ActiveRecord: 3.0ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/services/tasks/services.rb:130:in `update_task_obj'
+app/services/tasks/services.rb:60:in `update_task'
+app/controllers/tasks_controller.rb:34:in `update'
+Started PUT "/en/tasks" for 127.0.0.1 at 2020-11-29 04:00:21 +0400
+Processing by TasksController#update as JSON
+  Parameters: {"id"=>2, "title"=>"updated name", "tracked_time"=>"8", "locale"=>"en", "task"=>{"id"=>2, "title"=>"updated name", "tracked_time"=>"8"}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:86
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/tasks/services.rb:127
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:127
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:127
+  [1m[36mTaskStatus Load (0.2ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:127
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:127
+  [1m[36mTask Update (0.5ms)[0m  [1m[33mUPDATE "tasks" SET "title" = $1, "tracked_time" = $2, "updated_at" = $3 WHERE "tasks"."id" = $4[0m  [["title", "updated name"], ["tracked_time", "8"], ["updated_at", "2020-11-29 00:00:26.607046"], ["id", 2]]
+  ↳ app/services/tasks/services.rb:127
+  [1m[35m (36.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/tasks/services.rb:127
+Completed 200 OK in 5284ms (Views: 0.2ms | ActiveRecord: 60.0ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-11-29 04:03:28 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-11-29 04:03:29 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-11-29 04:03:29 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-11-29 04:03:29 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-11-29 04:03:29 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-11-29 04:03:29 +0400
+Started DELETE "/en/tasks?id=2" for 127.0.0.1 at 2020-11-29 04:03:40 +0400
+Processing by TasksController#destroy as JSON
+  Parameters: {"id"=>"2", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:81
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/tasks/services.rb:66
+  [1m[36mTask Destroy (0.4ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 2]]
+  ↳ app/services/tasks/services.rb:66
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/tasks/services.rb:66
+Completed 200 OK in 5662ms (Views: 0.2ms | ActiveRecord: 20.2ms)
+
+
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m

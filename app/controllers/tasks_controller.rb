@@ -11,12 +11,6 @@ class TasksController < ApplicationController
     rest_respond_service service
   end
 
-  #def order_type
-  #  service = Orders::OrdersServices.new(orders_params)
-  #  service.get_types
-  #  rest_respond_service service
-  #end
-
   def tasks_list
     service = Tasks::Services.new(task_params)
     service.task_list
@@ -29,29 +23,28 @@ class TasksController < ApplicationController
     rest_respond_service service
   end
 
-  #
-  #def show
-  #  service = Orders::OrdersServices.new(orders_params)
-  #  service.show
-  #  rest_respond_service service
-  #end
+  def show
+    service = Tasks::Services.new(progress_params)
+    service.show
+    rest_respond_service service
+  end
 
-  #def update
-  #  service = Clients::Service.new(clients_params)
-  #  service.update_client
-  #  rest_respond_service service
-  #end
-  #
-  #def destroy
-  #  service = Clients::Service.new(clients_params)
-  #  service.delete_client
-  #  rest_respond_service service
-  #end
+  def update
+    service = Tasks::Services.new(task_params)
+    service.update_task
+    rest_respond_service service
+  end
+
+  def destroy
+    service = Tasks::Services.new(task_params)
+    service.delete_task
+    rest_respond_service service
+  end
 
   private
 
   def task_params
-    params.permit(:id, :title, :description, :order_id, :user_account_id, :product_id, :start_time, :deadline)
+    params.permit(:id, :title, :description, :order_id, :user_account_id, :product_id, :start_time, :deadline, :tracked_time)
   end
 
   def progress_params
