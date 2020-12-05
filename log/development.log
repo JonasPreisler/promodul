@@ -16642,3 +16642,254 @@ Completed 200 OK in 5662ms (Views: 0.2ms | ActiveRecord: 20.2ms)
 
   [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  [1m[36mProductVatType Load (41.0ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" ORDER BY "product_vat_types"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProductVatType Load (0.4ms)[0m  [1m[34mSELECT "product_vat_types".* FROM "product_vat_types"[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddVatTypeIntoClients (20201205142003)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "clients" ADD "product_vat_types_id" bigint[0m
+  ↳ db/migrate/20201205142003_add_vat_type_into_clients.rb:3
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE  INDEX  "index_clients_on_product_vat_types_id" ON "clients"  ("product_vat_types_id")[0m
+  ↳ db/migrate/20201205142003_add_vat_type_into_clients.rb:3
+  [1m[35m (5.0ms)[0m  [1m[35mALTER TABLE "clients" ADD CONSTRAINT "fk_rails_2ea73ee213"
+FOREIGN KEY ("product_vat_types_id")
+  REFERENCES "product_vat_types" ("id")
+[0m
+  ↳ db/migrate/20201205142003_add_vat_type_into_clients.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201205142003"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2020-12-05 18:39:17 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HealthController#check_health as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[36mProductVatType Load (0.8ms)[0m  [1m[34mSELECT "product_vat_types".* FROM "product_vat_types"[0m
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-05 18:39:54 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-05 18:39:54 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-05 18:39:54 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-05 18:39:54 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-05 18:39:56 +0400
+Started GET "/en/clients/3" for 127.0.0.1 at 2020-12-05 18:40:42 +0400
+Processing by ClientsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"3"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (1.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 3], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:137
+Completed 404 Not Found in 94ms (Views: 0.2ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/en/clients/2" for 127.0.0.1 at 2020-12-05 18:40:46 +0400
+Processing by ClientsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 2], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:137
+  [1m[36mClientsGroup Load (3.0ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mClientsType Load (2.1ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mCurrency Load (2.4ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mCountry Load (1.7ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mCity Load (1.6ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+Completed 200 OK in 140ms (Views: 0.5ms | ActiveRecord: 39.8ms)
+
+
+  [1m[36mCountry Load (1.1ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mCity Load (1.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+Started POST "/en/clients" for 127.0.0.1 at 2020-12-05 18:42:32 +0400
+Processing by ClientsController#create as JSON
+  Parameters: {"name"=>"dcdcdcdc", "address"=>"dcdcdc", "product_vat_type_id"=>3, "phone"=>"dcdcdc", "web_address"=>"dcdcdcd", "kunde_nr"=>"dcdcdcdcd", "country_id"=>4, "city_id"=>9, "user_account_id"=>0, "clients_group_id"=>2, "clients_type_id"=>2, "currency_id"=>5, "locale"=>"en", "client"=>{"name"=>"dcdcdcdc", "address"=>"dcdcdc", "user_account_id"=>0, "country_id"=>4, "city_id"=>9, "clients_group_id"=>2, "clients_type_id"=>2, "currency_id"=>5, "phone"=>"dcdcdc", "web_address"=>"dcdcdcd", "kunde_nr"=>"dcdcdcdcd"}}
+Unpermitted parameters: :format, :locale, :client
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:88
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:94
+  [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:100
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:106
+Completed 400 Bad Request in 65ms (Views: 0.2ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/en/clients" for 127.0.0.1 at 2020-12-05 18:42:47 +0400
+Processing by ClientsController#create as JSON
+  Parameters: {"name"=>"dcdcdcdc", "address"=>"dcdcdc", "product_vat_type_id"=>3, "phone"=>"dcdcdc", "web_address"=>"dcdcdcd", "kunde_nr"=>"dcdcdcdcd", "country_id"=>4, "city_id"=>9, "user_account_id"=>3, "clients_group_id"=>2, "clients_type_id"=>2, "currency_id"=>5, "locale"=>"en", "client"=>{"name"=>"dcdcdcdc", "address"=>"dcdcdc", "user_account_id"=>3, "country_id"=>4, "city_id"=>9, "clients_group_id"=>2, "clients_type_id"=>2, "currency_id"=>5, "phone"=>"dcdcdc", "web_address"=>"dcdcdcd", "kunde_nr"=>"dcdcdcdcd"}}
+Unpermitted parameters: :format, :locale, :client
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:88
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:94
+  [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:100
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:106
+Completed 400 Bad Request in 3ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+  [1m[36mUserAccount Load (2.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/clients" for 127.0.0.1 at 2020-12-05 18:43:06 +0400
+Processing by ClientsController#create as JSON
+  Parameters: {"name"=>"dcdcdcdc", "address"=>"dcdcdc", "product_vat_type_id"=>3, "phone"=>"dcdcdc", "web_address"=>"dcdcdcd", "kunde_nr"=>"dcdcdcdcd", "country_id"=>4, "city_id"=>9, "user_account_id"=>64, "clients_group_id"=>2, "clients_type_id"=>2, "currency_id"=>5, "locale"=>"en", "client"=>{"name"=>"dcdcdcdc", "address"=>"dcdcdc", "user_account_id"=>64, "country_id"=>4, "city_id"=>9, "clients_group_id"=>2, "clients_type_id"=>2, "currency_id"=>5, "phone"=>"dcdcdc", "web_address"=>"dcdcdcd", "kunde_nr"=>"dcdcdcdcd"}}
+Unpermitted parameters: :format, :locale, :client
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:88
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:94
+  [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:100
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:106
+  [1m[36mClientsGroup Load (0.4ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:112
+  [1m[36mClientsType Load (0.3ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:118
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 3.4ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'product_vat_type_id' for Client.):
+  
+app/services/clients/service.rb:124:in `create_client_obj'
+app/services/clients/service.rb:44:in `create_client'
+app/controllers/clients_controller.rb:10:in `create'
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" ORDER BY "clients"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddVatTypeIntoClients (20201205142003)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "clients" DROP COLUMN "product_vat_types_id"[0m
+  ↳ db/migrate/20201205142003_add_vat_type_into_clients.rb:7
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20201205142003"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddVatTypeIntoClients (20201205142003)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (23.8ms)[0m  [1m[35mALTER TABLE "clients" ADD "product_vat_type_id" bigint[0m
+  ↳ db/migrate/20201205142003_add_vat_type_into_clients.rb:3
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE  INDEX  "index_clients_on_product_vat_type_id" ON "clients"  ("product_vat_type_id")[0m
+  ↳ db/migrate/20201205142003_add_vat_type_into_clients.rb:3
+  [1m[35m (3.8ms)[0m  [1m[35mALTER TABLE "clients" ADD CONSTRAINT "fk_rails_429068f528"
+FOREIGN KEY ("product_vat_type_id")
+  REFERENCES "product_vat_types" ("id")
+[0m
+  ↳ db/migrate/20201205142003_add_vat_type_into_clients.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201205142003"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" ORDER BY "clients"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/clients" for 127.0.0.1 at 2020-12-05 18:45:05 +0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ClientsController#create as JSON
+  Parameters: {"name"=>"dcdcdcdc", "address"=>"dcdcdc", "product_vat_type_id"=>3, "phone"=>"dcdcdc", "web_address"=>"dcdcdcd", "kunde_nr"=>"dcdcdcdcd", "country_id"=>4, "city_id"=>9, "user_account_id"=>64, "clients_group_id"=>2, "clients_type_id"=>2, "currency_id"=>5, "locale"=>"en", "client"=>{"name"=>"dcdcdcdc", "address"=>"dcdcdc", "user_account_id"=>64, "country_id"=>4, "city_id"=>9, "clients_group_id"=>2, "clients_type_id"=>2, "currency_id"=>5, "phone"=>"dcdcdc", "web_address"=>"dcdcdcd", "kunde_nr"=>"dcdcdcdcd", "product_vat_type_id"=>3}}
+Unpermitted parameters: :format, :locale, :client
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:88
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:94
+  [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:100
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:106
+  [1m[36mClientsGroup Load (0.3ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:112
+  [1m[36mClientsType Load (0.4ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:118
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/clients/service.rb:126
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:126
+  [1m[36mCACHE Country Load (0.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:126
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:126
+  [1m[36mCACHE ClientsGroup Load (0.0ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:126
+  [1m[36mCACHE ClientsType Load (0.0ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:126
+  [1m[36mCACHE Currency Load (0.0ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:126
+  [1m[36mProductVatType Load (0.3ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:126
+  [1m[36mClient Create (8.4ms)[0m  [1m[32mINSERT INTO "clients" ("name", "address", "user_account_id", "country_id", "city_id", "clients_group_id", "clients_type_id", "currency_id", "phone", "web_address", "kunde_nr", "created_at", "updated_at", "product_vat_type_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "dcdcdcdc"], ["address", "dcdcdc"], ["user_account_id", 64], ["country_id", 4], ["city_id", 9], ["clients_group_id", 2], ["clients_type_id", 2], ["currency_id", 5], ["phone", "dcdcdc"], ["web_address", "dcdcdcd"], ["kunde_nr", "dcdcdcdcd"], ["created_at", "2020-12-05 14:45:05.851688"], ["updated_at", "2020-12-05 14:45:05.851688"], ["product_vat_type_id", 3]]
+  ↳ app/services/clients/service.rb:126
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/clients/service.rb:126
+Completed 201 Created in 126ms (Views: 0.2ms | ActiveRecord: 37.3ms)
+
+
+  [1m[36mClient Load (1.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" ORDER BY "clients"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/en/clients/3" for 127.0.0.1 at 2020-12-05 18:45:27 +0400
+Processing by ClientsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"3"}
+Unpermitted parameters: :format, :locale
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 3], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:137
+  [1m[36mClientsGroup Load (0.2ms)[0m  [1m[34mSELECT  "clients_groups".* FROM "clients_groups" WHERE "clients_groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mClientsType Load (0.2ms)[0m  [1m[34mSELECT  "clients_types".* FROM "clients_types" WHERE "clients_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mProductVatType Load (0.1ms)[0m  [1m[34mSELECT  "product_vat_types".* FROM "product_vat_types" WHERE "product_vat_types"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/clients/service.rb:30
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 1.4ms)
+
+

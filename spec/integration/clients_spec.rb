@@ -22,7 +22,7 @@ describe 'Clients', type: :request do
           properties: {
               name:             { type: :string },
               address:          { type: :string },
-              vat_number:       { type: :string },
+              product_vat_type_id:       { type: :integer },
               phone:            { type: :string },
               web_address:      { type: :string },
               kunde_nr:         { type: :string },
@@ -266,7 +266,7 @@ describe 'Clients', type: :request do
               id:           {type: :integer},
               name:             { type: :string },
               address:          { type: :string },
-              vat_number:       { type: :string },
+              product_vat_type_id:       { type: :integer },
               phone:            { type: :string },
               web_address:      { type: :string },
               kunde_nr:         { type: :string },

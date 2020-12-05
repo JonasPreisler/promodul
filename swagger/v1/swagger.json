@@ -878,8 +878,8 @@
                 "address": {
                   "type": "string"
                 },
-                "vat_number": {
-                  "type": "string"
+                "product_vat_type_id": {
+                  "type": "integer"
                 },
                 "phone": {
                   "type": "string"
@@ -994,8 +994,8 @@
                 "address": {
                   "type": "string"
                 },
-                "vat_number": {
-                  "type": "string"
+                "product_vat_type_id": {
+                  "type": "integer"
                 },
                 "phone": {
                   "type": "string"

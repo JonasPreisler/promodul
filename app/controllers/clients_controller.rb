@@ -50,7 +50,7 @@ class ClientsController < ApplicationController
   private
 
   def clients_params
-    params.permit(:id, :name, :address, :vat_number, :active, :phone_number, :country_id, :city_id, :user_account_id,
+    params.permit(:id, :name, :address, :product_vat_type_id, :active, :phone_number, :country_id, :city_id, :user_account_id,
                   :phone, :web_address, :kunde_nr, :currency_id, :clients_group_id, :clients_type_id)
   end
 

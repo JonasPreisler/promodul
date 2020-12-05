@@ -31,6 +31,7 @@ module Clients
                                            clients_type: { only: [:id, :name] },
                                            currency: { only: [:id, :name, :code, :symbol] },
                                            country: { only: [:name]},
+                                           product_vat_type: { only: [:name]},
                                            city: { only: [:name]  } }) }
     end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_28_120551) do
+ActiveRecord::Schema.define(version: 2020_12_05_142003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,11 +61,13 @@ ActiveRecord::Schema.define(version: 2020_11_28_120551) do
     t.string "kunde_nr"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_vat_type_id"
     t.index ["city_id"], name: "index_clients_on_city_id"
     t.index ["clients_group_id"], name: "index_clients_on_clients_group_id"
     t.index ["clients_type_id"], name: "index_clients_on_clients_type_id"
     t.index ["country_id"], name: "index_clients_on_country_id"
     t.index ["currency_id"], name: "index_clients_on_currency_id"
+    t.index ["product_vat_type_id"], name: "index_clients_on_product_vat_type_id"
     t.index ["user_account_id"], name: "index_clients_on_user_account_id"
   end
 
@@ -495,6 +497,7 @@ ActiveRecord::Schema.define(version: 2020_11_28_120551) do
   add_foreign_key "clients", "clients_types"
   add_foreign_key "clients", "countries"
   add_foreign_key "clients", "currencies"
+  add_foreign_key "clients", "product_vat_types"
   add_foreign_key "clients", "user_accounts"
   add_foreign_key "companies", "cities"
   add_foreign_key "companies", "companies", column: "parent_id"
