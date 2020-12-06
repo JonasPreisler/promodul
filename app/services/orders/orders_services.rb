@@ -79,7 +79,7 @@ module Orders
     def open_order_list
       @orders = Order
                     .select("id, title as name, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, deadline as end")
-                    .where(order_status_id: 1)
+                    .where(order_status_id: 1, user_accoint_id: nil )
     end
 
     def my_order_list
@@ -151,7 +151,7 @@ module Orders
 
     def validate_data!
       validate_client
-      validate_user_account
+      #validate_user_account
       #validate_department
       validate_order_type
     end

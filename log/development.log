@@ -18198,3 +18198,51 @@ app/controllers/application_controller.rb:8:in `set_locale'
   [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT id, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, deadline as end FROM "orders"[0m
   [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT id, title as name, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, deadline as end FROM "orders"[0m
   [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT id, title as name, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, deadline as end FROM "orders"[0m
+Started POST "/pusher/auth" for 127.0.0.1 at 2020-12-07 02:07:09 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"socket_id"=>"6015.31927017", "channel_name"=>"private-KRYPYGWETRCJTOX", "locale"=>"pusher"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+I18n::InvalidLocale ("pusher" is not a valid locale):
+  
+app/controllers/application_controller.rb:8:in `set_locale'
+Started POST "/en/orders" for 127.0.0.1 at 2020-12-07 02:10:53 +0400
+Processing by OrdersController#create as JSON
+  Parameters: {"title"=>"bukaa", "description"=>"asasxasxasx", "start_time"=>"05-12-2020", "deadline"=>"2020-12-09", "client_id"=>1, "order_type_id"=>2, "locale"=>"en", "order"=>{"title"=>"bukaa", "description"=>"asasxasxasx", "client_id"=>1, "order_type_id"=>2, "start_time"=>"05-12-2020", "deadline"=>"2020-12-09"}}
+Unpermitted parameters: :format, :locale, :order
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 1], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:160
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:167
+  [1m[36mOrderStatus Load (1.3ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:186
+Completed 400 Bad Request in 68ms (Views: 0.3ms | ActiveRecord: 21.9ms)
+
+
+Started POST "/en/orders" for 127.0.0.1 at 2020-12-07 02:11:19 +0400
+Processing by OrdersController#create as JSON
+  Parameters: {"title"=>"bukaa", "description"=>"asasxasxasx", "start_time"=>"05-12-2020", "deadline"=>"2020-12-09", "client_id"=>1, "order_type_id"=>2, "locale"=>"en", "order"=>{"title"=>"bukaa", "description"=>"asasxasxasx", "client_id"=>1, "order_type_id"=>2, "start_time"=>"05-12-2020", "deadline"=>"2020-12-09"}}
+Unpermitted parameters: :format, :locale, :order
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 1], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:160
+  [1m[36mOrderType Load (0.4ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:173
+  [1m[36mOrderStatus Load (0.3ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:186
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/orders_services.rb:181
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:181
+  [1m[36mCACHE OrderType Load (0.0ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:181
+  [1m[36mOrderStatus Load (0.3ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:181
+  [1m[36mOrder Create (3.4ms)[0m  [1m[32mINSERT INTO "orders" ("title", "description", "client_id", "order_type_id", "order_status_id", "start_time", "deadline", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "bukaa"], ["description", "asasxasxasx"], ["client_id", 1], ["order_type_id", 2], ["order_status_id", 1], ["start_time", "2020-12-05 00:00:00"], ["deadline", "2020-12-09"], ["created_at", "2020-12-06 22:11:19.344240"], ["updated_at", "2020-12-06 22:11:19.344240"]]
+  ↳ app/services/orders/orders_services.rb:181
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/orders_services.rb:181
+Completed 201 Created in 94ms (Views: 0.4ms | ActiveRecord: 27.7ms)
+
+
