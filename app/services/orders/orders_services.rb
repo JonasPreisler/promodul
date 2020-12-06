@@ -58,6 +58,10 @@ module Orders
       { overview: overview_json }
     end
 
+    def claim_order_json_view
+      { success: true }
+    end
+
     def create_order
       validate_data!
       default_status
@@ -78,6 +82,12 @@ module Orders
 
     def my_order_list
       @orders = Order.where(user_account_id: params[:user_account_id])
+    end
+
+    def claim_order
+      @order = Order.find(params[:order_id])
+      @order.update(user_account_id: params[:user_account_id])
+      @errors << fill_errors(@order) if @order.errors.any?
     end
 
     def overview

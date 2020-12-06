@@ -47,6 +47,12 @@ class OrdersController < ApplicationController
     rest_respond_service service
   end
 
+  def claim_order
+    service = Orders::OrdersServices.new(claim_params)
+    service.claim_order
+    rest_respond_service service
+  end
+
   #def update
   #  service = Clients::Service.new(clients_params)
   #  service.update_client
@@ -63,5 +69,9 @@ class OrdersController < ApplicationController
 
   def orders_params
     params.permit(:id, :title, :description, :client_id, :user_account_id, :order_type_id, :start_time, :deadline, :type)
+  end
+
+  def claim_params
+    params.permit(:order_id, :user_account_id)
   end
 end

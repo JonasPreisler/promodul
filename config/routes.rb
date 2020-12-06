@@ -114,6 +114,7 @@ Rails.application.routes.draw do
       get 'orders/:id',         to: 'orders#show'
       get 'orders/overview/:id', to: 'orders#overview'
       get 'orders/my_orders_list/:user_account_id', to: 'orders#my_orders_list'
+      post 'orders/claim_order',         to: 'orders#claim_order'
 
       resource :order_products
       get 'order_products/product_order_list',       to: 'order_products#product_order_list'

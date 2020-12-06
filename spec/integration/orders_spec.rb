@@ -77,6 +77,45 @@ describe 'Clients', type: :request do
     end
   end
 
+  path '/{locale}/orders/claim_order' do
+    post 'Claim Order' do
+      tags 'Order'
+      consumes 'application/json'
+      produces 'application/json'
+
+      parameter({
+                    in: :header,
+                    type: :string,
+                    name: :Authorization,
+                    required: true,
+                    description: 'JWT token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      parameter name: :params, in: :body, schema: {
+          type: :object,
+          properties: {
+              order_id:            { type: :integer },
+              user_account_id:  { type: :integer }
+          }
+      }
+      response '201', 'ok' do
+        schema type: :object,
+               properties: {
+                   success: { type: :boolean }
+               }
+
+        run_test!
+      end
+
+      response '404', 'Not Found' do
+
+        run_test!
+      end
+
+    end
+  end
+
   path '/{locale}/orders/order_type' do
     get 'Returns order types' do
       tags 'Order'

@@ -18111,3 +18111,34 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 13580ms (Views: 0.5ms | ActiveRecord: 35.6ms)
 
 
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-06 19:30:23 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-06 19:30:23 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-06 19:30:23 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-06 19:30:23 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-06 19:30:24 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-06 19:30:24 +0400
+Started POST "/en/orders/claim_order" for 127.0.0.1 at 2020-12-06 19:30:41 +0400
+Processing by OrdersController#claim_order as JSON
+  Parameters: {"order_id"=>6, "user_account_id"=>64, "locale"=>"en", "order"=>{"user_account_id"=>64}}
+Unpermitted parameters: :format, :locale, :order
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:88
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/orders_services.rb:89
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:89
+  [1m[36mOrderType Load (0.4ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:89
+  [1m[36mOrderStatus Load (0.3ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:89
+  [1m[36mOrder Update (3.3ms)[0m  [1m[33mUPDATE "orders" SET "user_account_id" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["user_account_id", 64], ["updated_at", "2020-12-06 15:30:42.070002"], ["id", 6]]
+  ↳ app/services/orders/orders_services.rb:89
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/orders_services.rb:89
+Completed 200 OK in 65ms (Views: 0.2ms | ActiveRecord: 24.8ms)
+
+
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
