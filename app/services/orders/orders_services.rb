@@ -78,8 +78,12 @@ module Orders
 
     def open_order_list
       @orders = Order
-                    .select("id, title as name, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, deadline as end")
+                    .select("id, title as name, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, TO_CHAR(start_time + (3 * interval '20 minute'), 'yyyy-mm-dd hh:mm') as end")
                     .where(order_status_id: 1, user_account_id: nil )
+
+      select GetDate(),DateAdd(Minute,15,GetDate())
+
+      (20 * interval '1 minute')
     end
 
     def my_order_list
