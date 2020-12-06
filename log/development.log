@@ -16893,3 +16893,321 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 1.4ms)
 
 
+Started POST "/pusher/auth" for 127.0.0.1 at 2020-12-05 23:37:32 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"socket_id"=>"6024.30870397", "channel_name"=>"private-KRYPYGWETRCJTOX", "locale"=>"pusher"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+I18n::InvalidLocale ("pusher" is not a valid locale):
+  
+app/controllers/application_controller.rb:8:in `set_locale'
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTask Load (3.8ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTaskStatus Load (36.9ms)[0m  [1m[34mSELECT "task_statuses".* FROM "task_statuses"[0m
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 5]]
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 4]]
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 3]]
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 2]]
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 1]]
+  [1m[35m (10.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."order_status_id" = $2[0m  [["order_id", 6], ["order_status_id", 1]]
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."order_status_id" = $2[0m  [["order_id", 6], ["order_status_id", 1]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 1]]
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 1]]
+  [1m[36mTaskStatus Load (0.8ms)[0m  [1m[34mSELECT "task_statuses".* FROM "task_statuses"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_is" = $1[0m  [["order_is", 6]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  [1m[36mClient Load (1.8ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  [1m[36mClient Load (37.9ms)[0m  [1m[34mSELECT "clients".* FROM "clients" ORDER BY "clients"."created_at" ASC[0m
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTask Load (37.3ms)[0m  [1m[34mSELECT SUM(tracked_time) FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT  SUM(tracked_time) FROM "tasks" WHERE "tasks"."order_id" = $1 LIMIT $2[0m  [["order_id", 6], ["LIMIT", 11]]
+  [1m[36mTask Load (1.4ms)[0m  [1m[34mSELECT  SUM(tracked_time) FROM "tasks" WHERE "tasks"."order_id" = $1 ORDER BY "tasks"."id" DESC LIMIT $2[0m  [["order_id", 6], ["LIMIT", 1]]
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT SUM(tracked_time) FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.tracked_time[0m  [["order_id", 6]]
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT  SUM(tracked_time) FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.tracked_time LIMIT $2[0m  [["order_id", 6], ["LIMIT", 11]]
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT SUM(tracked_time) FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.tracked_time[0m  [["order_id", 6]]
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT  SUM(tracked_time) FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.tracked_time LIMIT $2[0m  [["order_id", 6], ["LIMIT", 11]]
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT SUM(tracked_time) FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY "tasks"."tracked_time"[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  SUM(tracked_time) FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY "tasks"."tracked_time" LIMIT $2[0m  [["order_id", 6], ["LIMIT", 11]]
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT SUM(tracked_time) as sum_tacked_time FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY "tasks"."tracked_time"[0m  [["order_id", 6]]
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT  SUM(tracked_time) as sum_tacked_time FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY "tasks"."tracked_time" LIMIT $2[0m  [["order_id", 6], ["LIMIT", 11]]
+  [1m[36mTask Load (1.2ms)[0m  [1m[34mSELECT SUM(tasks.tracked_time) as sum_tacked_time FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.tracked_time[0m  [["order_id", 6]]
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT  SUM(tasks.tracked_time) as sum_tacked_time FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.tracked_time LIMIT $2[0m  [["order_id", 6], ["LIMIT", 11]]
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.tracked_time[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.tracked_time LIMIT $2[0m  [["order_id", 6], ["LIMIT", 11]]
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY "tasks"."id"[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mTask Load (1.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.order_id[0m  [["order_id", 6]]
+  [1m[36mTask Load (1.5ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.order_id LIMIT $2[0m  [["order_id", 6], ["LIMIT", 11]]
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.order_id[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT taks.order_id, tasks.tracked_amount FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.order_id[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT  taks.order_id, tasks.tracked_amount FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.order_id LIMIT $2[0m  [["order_id", 6], ["LIMIT", 11]]
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT taks.order_id, tasks.tracked_amount FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.order_id[0m  [["order_id", 6]]
+  [1m[36mTask Load (1.4ms)[0m  [1m[34mSELECT tasks.order_id, tasks.tracked_amount FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.order_id[0m  [["order_id", 6]]
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT  tasks.order_id, tasks.tracked_amount FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.order_id LIMIT $2[0m  [["order_id", 6], ["LIMIT", 11]]
+  [1m[36mTask Load (1.4ms)[0m  [1m[34mSELECT tasks.order_id, tasks.tracked_amount FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.order_id[0m  [["order_id", 6]]
+  [1m[36mTask Load (1.9ms)[0m  [1m[34mSELECT tasks.order_id, tasks.tracked_time FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.order_id[0m  [["order_id", 6]]
+  [1m[36mTask Load (1.6ms)[0m  [1m[34mSELECT  tasks.order_id, tasks.tracked_time FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.order_id LIMIT $2[0m  [["order_id", 6], ["LIMIT", 11]]
+  [1m[36mTask Load (1.2ms)[0m  [1m[34mSELECT tasks.order_id, tasks.tracked_time FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.order_id[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT tasks.order_id FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.order_id[0m  [["order_id", 6]]
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT SUM("tasks"."tracked_time") AS sum_tracked_time, tasks.order_id AS tasks_order_id FROM "tasks" WHERE "tasks"."order_id" = $1 GROUP BY tasks.order_id[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrderProduct Load (0.4ms)[0m  [1m[34mSELECT "order_products".* FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mProductPrice Load (2.7ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  [1m[36mOrderProduct Load (0.9ms)[0m  [1m[34mSELECT "order_products".* FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "order_products"."id" FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mOrderProduct Load (0.7ms)[0m  [1m[34mSELECT  "order_products".* FROM "order_products" WHERE "order_products"."order_id" = $1 LIMIT $2[0m  [["order_id", 6], ["LIMIT", 11]]
+  [1m[36mOrderProduct Load (0.7ms)[0m  [1m[34mSELECT "order_products"."product_id" FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mOrderProduct Load (0.8ms)[0m  [1m[34mSELECT  "order_products"."product_id" FROM "order_products" WHERE "order_products"."order_id" = $1 LIMIT $2[0m  [["order_id", 6], ["LIMIT", 11]]
+  [1m[36mOrderProduct Load (0.9ms)[0m  [1m[34mSELECT  "order_products"."product_id" FROM "order_products" WHERE "order_products"."order_id" = $1 LIMIT $2[0m  [["order_id", 6], ["LIMIT", 11]]
+  [1m[36mOrderProduct Load (0.9ms)[0m  [1m[34mSELECT "order_products"."product_id" FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "order_products"."product_id" FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "tasks"."product_id" FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mProductPrice Load (0.3ms)[0m  [1m[34mSELECT  "product_prices".* FROM "product_prices" ORDER BY "product_prices"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSupplierProduct Load (39.3ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" ORDER BY "supplier_products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSupplierProduct Load (0.7ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1 LIMIT $2[0m  [["product_id", 2], ["LIMIT", 1]]
+  [1m[36mSupplierProduct Load (1.1ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1 LIMIT $2[0m  [["product_id", 2], ["LIMIT", 1]]
+  [1m[36mSupplierProductPrice Load (5.9ms)[0m  [1m[34mSELECT  "supplier_product_prices".* FROM "supplier_product_prices" WHERE "supplier_product_prices"."supplier_product_id" = $1 LIMIT $2[0m  [["supplier_product_id", 7], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "orders"."user_account_id" FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "tasks"."product_id" FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+Started POST "/pusher/auth" for 127.0.0.1 at 2020-12-06 04:34:05 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthController#login as JSON
+  Parameters: {"socket_id"=>"6024.30936366", "channel_name"=>"private-KRYPYGWETRCJTOX", "locale"=>"pusher"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+I18n::InvalidLocale ("pusher" is not a valid locale):
+  
+app/controllers/application_controller.rb:8:in `set_locale'
+Started POST "/pusher/auth" for 127.0.0.1 at 2020-12-06 13:01:19 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"socket_id"=>"6013.31328003", "channel_name"=>"private-KRYPYGWETRCJTOX", "locale"=>"pusher"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+I18n::InvalidLocale ("pusher" is not a valid locale):
+  
+app/controllers/application_controller.rb:8:in `set_locale'
+Started POST "/pusher/auth" for 127.0.0.1 at 2020-12-06 17:50:17 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"socket_id"=>"6038.31624669", "channel_name"=>"private-KRYPYGWETRCJTOX", "locale"=>"pusher"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+I18n::InvalidLocale ("pusher" is not a valid locale):
+  
+app/controllers/application_controller.rb:8:in `set_locale'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-06 18:00:58 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-06 18:00:58 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-06 18:00:58 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-06 18:00:58 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-06 18:00:59 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-06 18:00:59 +0400
+Started GET "/en/orders/overview6" for 127.0.0.1 at 2020-12-06 18:01:10 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"overview6"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:156
+Completed 404 Not Found in 99ms (Views: 0.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/en/orders/overview6" for 127.0.0.1 at 2020-12-06 18:01:48 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"overview6"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:157
+Completed 404 Not Found in 19ms (Views: 0.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/en/orders/overview6" for 127.0.0.1 at 2020-12-06 18:01:50 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"overview6"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:157
+Completed 404 Not Found in 6ms (Views: 2.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/en/orders/overview6" for 127.0.0.1 at 2020-12-06 18:01:51 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"overview6"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:157
+Completed 404 Not Found in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-06 18:01:53 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-06 18:01:53 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-06 18:01:53 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-06 18:01:53 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-06 18:01:54 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-06 18:01:54 +0400
+Started GET "/en/orders/overview6" for 127.0.0.1 at 2020-12-06 18:02:05 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"overview6"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:157
+Completed 404 Not Found in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-06 18:03:02 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-06 18:03:02 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-06 18:03:02 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-06 18:03:02 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-06 18:03:02 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-06 18:03:02 +0400
+Started GET "/en/orders/overview/6" for 127.0.0.1 at 2020-12-06 18:03:13 +0400
+Processing by OrdersController#overview as JSON
+  Parameters: {"locale"=>"en", "id"=>"6"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 1]]
+  ↳ app/services/orders/orders_services.rb:106
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 2]]
+  ↳ app/services/orders/orders_services.rb:107
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 3]]
+  ↳ app/services/orders/orders_services.rb:108
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:109
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:100
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "order_products"."product_id" FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:84
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "tasks"."product_id" FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:85
+  [1m[36mProductPrice Load (1.4ms)[0m  [1m[34mSELECT "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" IN ($1, $2)[0m  [["product_id", 15], ["product_id", 15]]
+  ↳ app/services/orders/orders_services.rb:87
+  [1m[36mSupplierProduct Load (0.5ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:88
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "orders"."user_account_id" FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 6]]
+  ↳ app/services/orders/orders_services.rb:76
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "tasks"."product_id" FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:77
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT "user_accounts"."username" FROM "user_accounts" WHERE "user_accounts"."id" IN ($1, $2)[0m  [["id", 64], ["id", 15]]
+  ↳ app/services/orders/orders_services.rb:60
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 1]]
+  ↳ app/services/orders/orders_services.rb:106
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 2]]
+  ↳ app/services/orders/orders_services.rb:107
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 3]]
+  ↳ app/services/orders/orders_services.rb:108
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:109
+  [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:100
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "order_products"."product_id" FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:84
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "tasks"."product_id" FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:85
+  [1m[36mCACHE ProductPrice Load (0.1ms)[0m  [1m[34mSELECT "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" IN ($1, $2)[0m  [["product_id", 15], ["product_id", 15]]
+  ↳ app/services/orders/orders_services.rb:87
+  [1m[36mCACHE SupplierProduct Load (0.0ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:88
+Completed 500 Internal Server Error in 70115ms (ActiveRecord: 46.5ms)
+
+
+  
+TypeError (nil can't be coerced into BigDecimal):
+  
+app/services/orders/orders_services.rb:88:in `+'
+app/services/orders/orders_services.rb:88:in `block in order_price'
+app/services/orders/orders_services.rb:87:in `order_price'
+app/services/orders/orders_services.rb:64:in `overview'
+app/controllers/orders_controller.rb:35:in `overview'
+Started GET "/en/orders/overview/6" for 127.0.0.1 at 2020-12-06 18:04:26 +0400
+Processing by OrdersController#overview as JSON
+  Parameters: {"locale"=>"en", "id"=>"6"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "order_products"."product_id" FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:84
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "tasks"."product_id" FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:85
+  [1m[36mProductPrice Load (0.7ms)[0m  [1m[34mSELECT "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" IN ($1, $2)[0m  [["product_id", 15], ["product_id", 15]]
+  ↳ app/services/orders/orders_services.rb:87
+  [1m[36mSupplierProduct Load (0.4ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:88
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 1]]
+  ↳ app/services/orders/orders_services.rb:106
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 2]]
+  ↳ app/services/orders/orders_services.rb:107
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 3]]
+  ↳ app/services/orders/orders_services.rb:108
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:109
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:100
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "order_products"."product_id" FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:84
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "tasks"."product_id" FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:85
+  [1m[36mCACHE ProductPrice Load (0.0ms)[0m  [1m[34mSELECT "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" IN ($1, $2)[0m  [["product_id", 15], ["product_id", 15]]
+  ↳ app/services/orders/orders_services.rb:87
+  [1m[36mCACHE SupplierProduct Load (0.0ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:88
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "orders"."user_account_id" FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 6]]
+  ↳ app/services/orders/orders_services.rb:76
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "tasks"."product_id" FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:77
+Completed 200 OK in 14229ms (Views: 0.2ms | ActiveRecord: 30.9ms)
+
+
+Started GET "/en/orders/overview/6" for 127.0.0.1 at 2020-12-06 18:06:38 +0400
+Processing by OrdersController#overview as JSON
+  Parameters: {"locale"=>"en", "id"=>"6"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 1]]
+  ↳ app/services/orders/orders_services.rb:113
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 2]]
+  ↳ app/services/orders/orders_services.rb:114
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 3]]
+  ↳ app/services/orders/orders_services.rb:115
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:116
+  [1m[36mTask Load (1.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:107
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "order_products"."product_id" FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:91
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "tasks"."product_id" FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:92
+  [1m[36mProductPrice Load (0.4ms)[0m  [1m[34mSELECT "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" IN ($1, $2)[0m  [["product_id", 15], ["product_id", 15]]
+  ↳ app/services/orders/orders_services.rb:94
+  [1m[36mSupplierProduct Load (0.3ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:95
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "orders"."user_account_id" FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 6]]
+  ↳ app/services/orders/orders_services.rb:83
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "tasks"."product_id" FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:84
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT "user_accounts"."username" FROM "user_accounts" WHERE "user_accounts"."id" IN ($1, $2)[0m  [["id", 64], ["id", 15]]
+  ↳ lib/controller_response.rb:26
+Completed 200 OK in 3607ms (Views: 9.8ms | ActiveRecord: 30.5ms)
+
+

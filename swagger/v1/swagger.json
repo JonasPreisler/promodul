@@ -3467,6 +3467,90 @@
         }
       }
     },
+    "/{locale}/orders/overview/{id}": {
+      "get": {
+        "summary": "Returns orders overview",
+        "tags": [
+          "Order"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "overview": {
+                  "type": "object",
+                  "properties": {
+                    "percentage_of_tasks": {
+                      "type": "object",
+                      "properties": {
+                        "open": {
+                          "type": "integer"
+                        },
+                        "in_progress": {
+                          "type": "integer"
+                        },
+                        "done": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "worked_hours": {
+                      "type": "integer"
+                    },
+                    "order_price": {
+                      "type": "number"
+                    },
+                    "order_members": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "username": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "not found"
+          }
+        }
+      }
+    },
     "/{locale}/product_images": {
       "post": {
         "summary": "Create image of Product",

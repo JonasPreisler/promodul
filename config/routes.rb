@@ -111,6 +111,7 @@ Rails.application.routes.draw do
       get 'orders/order_type',  to: 'orders#order_type'
       get 'orders/orders_list', to: 'orders#orders_list'
       get 'orders/:id',         to: 'orders#show'
+      get 'orders/overview/:id', to: 'orders#overview'
 
       resource :order_products
       get 'order_products/product_order_list',       to: 'order_products#product_order_list'

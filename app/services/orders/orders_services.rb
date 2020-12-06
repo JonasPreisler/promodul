@@ -42,6 +42,10 @@ module Orders
                                only: [:id, :start_time, :title]) }
     end
 
+    def overview_json_view
+      { overview: overview_json }
+    end
+
     def create_order
       validate_data!
       default_status
@@ -56,24 +60,62 @@ module Orders
       @orders = Order.all
     end
 
-    #def update_client
-    #  validate_data!
-    #  update_client_obj
-    #end
+    def overview
+
+    end
+
+    def overview_json
+      {
+          percentage_of_tasks: percentage_of_tasks,
+          worked_hours: worked_hours,
+          order_price: order_price,
+          order_members: order_members,
+      }
+    end
 
     def show
       find_order
     end
 
-    #def delete_client
-    #  find_client
-    #  return if @errors.any?
-    #  @client.active = false
-    #  @client.save
-    #  @errors << fill_errors(@client) if @client.errors.any?
-    #end
-
     private
+
+    def order_members
+      order_ids = Order.select(:user_account_id).where(id: params[:id]).pluck(:user_account_id)
+      tasks_ids = Task.select(:user_account_id).where(order_id: params[:id]).pluck(:product_id)
+      users = order_ids.union(tasks_ids)
+      UserAccount.select('username').where(id: users)
+    end
+
+    def order_price
+      order_price = 0
+      order_ids = OrderProduct.select(:product_id).where(order_id: 6).pluck(:product_id)
+      tasks_ids = Task.select(:product_id).where(order_id: 6).pluck(:product_id)
+      product_ids = order_ids + tasks_ids
+      ProductPrice.where(product_id: product_ids).each do |x|
+        cost_price = x.list_price_amount + SupplierProduct.find_by_product_id(x.product_id)&.supplier_product_price.to_i
+        if x.list_price_type.eql?("fix_price")
+          order_price += cost_price + x.list_price_amount.to_d
+        else
+          order_price += ((cost_price*(100 + x.list_price_amount.to_d))/100).ceil(2)
+        end
+      end
+      order_price
+    end
+
+    def worked_hours
+      sum = 0
+      Task.where(order_id: 6).each { |x| sum += x.tracked_time.to_i }
+      sum
+    end
+
+    def percentage_of_tasks
+      {
+          open: Task.where(order_id: 6, task_status_id: 1).size,
+          in_progress: Task.where(order_id: 6, task_status_id: 2).size,
+          done: Task.where(order_id: 6, task_status_id: 3).size,
+          total: Task.where(order_id: 6).size
+      }
+    end
 
     def validate_data!
       validate_client

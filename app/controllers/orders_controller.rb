@@ -29,6 +29,12 @@ class OrdersController < ApplicationController
     rest_respond_service service
   end
 
+  def overview
+    service = Orders::OrdersServices.new(orders_params)
+    service.overview
+    rest_respond_service service
+  end
+
   #def update
   #  service = Clients::Service.new(clients_params)
   #  service.update_client
