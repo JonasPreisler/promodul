@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  belongs_to :user_account
+  belongs_to :user_account, optional: true
   belongs_to :client
   belongs_to :order_type
   belongs_to :order_status
