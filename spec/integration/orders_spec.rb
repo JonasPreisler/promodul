@@ -171,6 +171,102 @@ describe 'Clients', type: :request do
     end
   end
 
+  path '/{locale}/orders/my_orders_list/{id}' do
+    get 'Returns my orders' do
+      tags 'Order'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      parameter name: :id, in: :path, type: :integer, required: true
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   clients: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               id:         {type: :integer},
+                               title:      {type: :string},
+                               start_time: { type: :string},
+                               order_type: {
+                                   type: :object,
+                                   properties: {
+                                       name: { type: :string }
+                                   }
+                               },
+                               order_status:    {
+                                   type: :object,
+                                   properties: {
+                                       name: { type: :object }
+                                   }
+                               },
+                               client:    {
+                                   type: :object,
+                                   properties: {
+                                       name: { type: :object }
+                                   }
+                               },
+                               user_account:    {
+                                   type: :object,
+                                   properties: {
+                                       username: { type: :object }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+        run_test!
+      end
+
+    end
+  end
+
+  path '/{locale}/orders/open_orders_list' do
+    get 'Returns my orders' do
+      tags 'Order'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   events: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               id:         {type: :integer},
+                               name:      {type: :string},
+                               start: { type: :string},
+                               end: { type: :string}
+                           }
+                       }
+                   }
+               }
+        run_test!
+      end
+
+    end
+  end
+
   path '/{locale}/orders/{id}' do
     get 'Returns order' do
       tags 'Order'

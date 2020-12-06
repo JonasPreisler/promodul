@@ -42,6 +42,18 @@ module Orders
                                only: [:id, :start_time, :title]) }
     end
 
+    def my_orders_list_json_view
+      { orders: @orders.as_json(include: {  client: {only: [:name]  },
+                                            order_status: { only: [:name] },
+                                            order_type: { only: [:name] },
+                                            user_account: { only: [:username] } },
+                                only: [:id, :start_time, :title]) }
+    end
+
+    def open_orders_list_json_view
+      { orders: @orders.as_json(only: [:id, :name, :start, :end]) }
+    end
+
     def overview_json_view
       { overview: overview_json }
     end
@@ -58,6 +70,14 @@ module Orders
 
     def order_list
       @orders = Order.all
+    end
+
+    def open_order_list
+      @orders = Order.select('id, title as name, start_time as start, deadline as end').where(order_status_id: 1)
+    end
+
+    def my_order_list
+      @orders = Order.where(user_account_id: params[:user_account_id])
     end
 
     def overview

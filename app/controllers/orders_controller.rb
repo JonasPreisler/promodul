@@ -23,6 +23,18 @@ class OrdersController < ApplicationController
     rest_respond_service service
   end
 
+  def open_orders_list
+    service = Orders::OrdersServices.new(orders_params)
+    service.open_order_list
+    rest_respond_service service
+  end
+
+  def my_orders_list
+    service = Orders::OrdersServices.new(orders_params)
+    service.my_order_list
+    rest_respond_service service
+  end
+
   def show
     service = Orders::OrdersServices.new(orders_params)
     service.show
@@ -50,6 +62,6 @@ class OrdersController < ApplicationController
   private
 
   def orders_params
-    params.permit(:id, :title, :description, :client_id, :user_account_id, :order_type_id, :start_time, :deadline)
+    params.permit(:id, :title, :description, :client_id, :user_account_id, :order_type_id, :start_time, :deadline, :type)
   end
 end
