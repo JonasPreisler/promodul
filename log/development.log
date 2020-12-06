@@ -18142,3 +18142,48 @@ Completed 200 OK in 65ms (Views: 0.2ms | ActiveRecord: 24.8ms)
 
 
   [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/pusher/auth" for 127.0.0.1 at 2020-12-06 22:12:30 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"socket_id"=>"6042.31853882", "channel_name"=>"private-KRYPYGWETRCJTOX", "locale"=>"pusher"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+I18n::InvalidLocale ("pusher" is not a valid locale):
+  
+app/controllers/application_controller.rb:8:in `set_locale'
+  [1m[36mOrder Load (1.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders"."start_time" FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders"."start_time" FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (6.9ms)[0m  [1m[34mSELECT  dd/MM/yyyy, hh:mm:ss start_time FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders"."start_time" FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT  FORMAT (start_time, 'dd/MM/yyyy, hh:mm:ss ') FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT  CAST (start_time, 'dd/MM/yyyy, hh:mm:ss ') FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  CAST(start_time, 'dd/MM/yyyy, hh:mm:ss ') FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT  CAST(start_time, dd/MM/yyyy, hh:mm:ss) FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (9.4ms)[0m  [1m[34mSELECT  to_char(start_time, 'dd/MM/yyyy, hh:mm:ss ') FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  to_char(orders.start_time, 'dd/MM/yyyy, hh:mm:ss ') FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT  (orders.start_time, 'dd/MM/yyyy, hh:mm:ss ') FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT  (orders.start_time, 'dd/MM/yyyy, hh:mm:ss') as bb FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (1.4ms)[0m  [1m[34mSELECT  FORMAT(orders.start_time, 'dd/MM/yyyy, hh:mm:ss') as bb FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (1.5ms)[0m  [1m[34mSELECT  TO_CHAR(orders.start_time, 'dd/MM/yyyy, hh:mm:ss') as bb FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (36.3ms)[0m  [1m[34mSELECT  TO_CHAR(orders.start_date, 'dd/MM/yyyy, hh:mm:ss') as bb FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT  TO_CHAR(orders.start_time, 'dd/MM/yyyy, hh:mm:ss') as bb FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  TO_CHAR(start_time, 'dd/MM/yyyy, hh:mm:ss') as bb FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT TO_CHAR(start_time, 'dd/MM/yyyy, hh:mm:ss') as bb FROM "orders"[0m
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT TO_CHAR(start_time, 'dd/MM/yyyy, hh:mm:ss') as bb FROM "orders"[0m
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT TO_CHAR(start_time, 'dd/MM/yyyy, hh:mm:ss') as start FROM "orders"[0m
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start FROM "orders"[0m
+  [1m[36mOrder Load (1.5ms)[0m  [1m[34mSELECT TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start, TO_CHAR(deadline, 'dd/MM/yyyy hh:mm:ss') FROM "orders"[0m
+  [1m[36mOrder Load (1.3ms)[0m  [1m[34mSELECT TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start, TO_CHAR(deadline, 'dd/MM/yyyy hh:mm:ss') as end FROM "orders"[0m
+  [1m[36mOrder Load (1.5ms)[0m  [1m[34mSELECT TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start, TO_CHAR(deadline, 'ddTO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as end') as end FROM "orders"[0m
+  [1m[36mOrder Load (1.5ms)[0m  [1m[34mSELECT TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start, TO_CHAR(deadline, TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as end') as end FROM "orders"[0m
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start, TO_CHAR(deadline, TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as end) as end FROM "orders"[0m
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start FROM "orders"[0m
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start, TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start FROM "orders"[0m
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start, TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as end FROM "orders"[0m
+  [1m[36mOrder Load (1.7ms)[0m  [1m[34mSELECT TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start, TO_CHAR(deadline, 'dd/MM/yyyy hh:mm:ss') as end FROM "orders"[0m
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  id, TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start, deadline as end FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT  id, TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start, deadline as end FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
