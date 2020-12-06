@@ -18187,3 +18187,8 @@ app/controllers/application_controller.rb:8:in `set_locale'
   [1m[36mOrder Load (1.7ms)[0m  [1m[34mSELECT TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start, TO_CHAR(deadline, 'dd/MM/yyyy hh:mm:ss') as end FROM "orders"[0m
   [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  id, TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start, deadline as end FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT  id, TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start, deadline as end FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (2.0ms)[0m  [1m[34mSELECT  id, TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start, deadline as end FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT  id, TO_CHAR(start_time, 'dd/MM/yyyy hh:mm:ss') as start, deadline as end FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  id, TO_CHAR(start_time, 'dd-MM-yyyy hh:mm:ss') as start, deadline as end FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT  id, TO_CHAR(start_time, 'dd-MM-yyyy hh:mm:ss') as start, deadline as end FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
