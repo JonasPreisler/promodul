@@ -18196,3 +18196,5 @@ app/controllers/application_controller.rb:8:in `set_locale'
   [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT id, TO_CHAR(start_time, 'dd-MM-yyyy hh:mm') as start, deadline as end FROM "orders"[0m
   [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT id, TO_CHAR(start_time, 'dd-MM-yyyy hh:mm') as start, deadline as end FROM "orders"[0m
   [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT id, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, deadline as end FROM "orders"[0m
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT id, title as name, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, deadline as end FROM "orders"[0m
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT id, title as name, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, deadline as end FROM "orders"[0m
