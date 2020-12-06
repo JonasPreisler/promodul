@@ -77,7 +77,6 @@ module Orders
     end
 
     def open_order_list
-      YYYY-MM-DD
       @orders = Order
                     .select("id, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, deadline as end")
                     .where(order_status_id: 1)
