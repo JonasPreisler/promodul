@@ -274,7 +274,9 @@ describe 'Clients', type: :request do
                                type: :array,
                                items: {
                                    properties: {
-                                       username: { type: :integer}
+                                       username: { type: :integer },
+                                       email: { type: :string },
+                                       phone_number: { type: :string }
                                    }
                                }
                            }

@@ -3536,6 +3536,12 @@
                         "properties": {
                           "username": {
                             "type": "integer"
+                          },
+                          "email": {
+                            "type": "string"
+                          },
+                          "phone_number": {
+                            "type": "string"
                           }
                         }
                       }

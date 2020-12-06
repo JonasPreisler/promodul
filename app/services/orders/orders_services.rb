@@ -83,7 +83,7 @@ module Orders
       order_ids = Order.select(:user_account_id).where(id: params[:id]).pluck(:user_account_id)
       tasks_ids = Task.select(:user_account_id).where(order_id: params[:id]).pluck(:product_id)
       users = order_ids.union(tasks_ids)
-      UserAccount.select('username').where(id: users)
+      UserAccount.select('username, email, phone_number').where(id: users)
     end
 
     def order_price
