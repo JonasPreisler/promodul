@@ -18246,3 +18246,5 @@ Unpermitted parameters: :format, :locale, :order
 Completed 201 Created in 94ms (Views: 0.4ms | ActiveRecord: 27.7ms)
 
 
+  [1m[36mOrder Load (1.5ms)[0m  [1m[34mSELECT id, title as name, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, deadline as end FROM "orders" WHERE "orders"."order_status_id" = $1 AND "orders"."user_account_id" IS NULL[0m  [["order_status_id", 1]]
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT id, title as name, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, deadline as end FROM "orders" WHERE "orders"."order_status_id" = $1 AND "orders"."user_account_id" IS NULL[0m  [["order_status_id", 1]]
