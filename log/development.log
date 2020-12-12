@@ -18831,3 +18831,366 @@ Migrating to AddNewStatusToOrders (20201212172906)
   ↳ bin/rails:9
   [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mOrderStatus Load (0.6ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "claimed"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-12 22:27:22 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-12 22:27:22 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-12 22:27:22 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-12 22:27:22 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-12 22:27:25 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-12 22:27:25 +0400
+  [1m[36mProduct Load (3.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mProduct Load (36.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 3]]
+Started POST "/en/order_products" for 127.0.0.1 at 2020-12-12 22:29:39 +0400
+Processing by OrderProductsController#create as JSON
+  Parameters: {"_json"=>[{"order_id"=>6, "product_id"=>13, "count"=>2}, {"order_id"=>6, "product_id"=>14, "count"=>2}, {"order_id"=>6, "product_id"=>15, "count"=>2}], "locale"=>"en", "order_product"=>{}}
+Unpermitted parameters: :_json, :format, :locale, :order_product
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:70
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:65
+Completed 400 Bad Request in 757ms (Views: 0.3ms | ActiveRecord: 9.2ms)
+
+
+Started POST "/en/order_products" for 127.0.0.1 at 2020-12-12 22:30:03 +0400
+Processing by OrderProductsController#create as JSON
+  Parameters: {"_json"=>[{"order_id"=>6, "product_id"=>13, "count"=>2}, {"order_id"=>6, "product_id"=>14, "count"=>2}, {"order_id"=>6, "product_id"=>15, "count"=>2}], "locale"=>"en", "order_product"=>{}}
+Unpermitted parameters: :_json, :format, :locale, :order_product
+Unpermitted parameters: :_json, :format, :locale, :order_product
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:70
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:65
+Completed 400 Bad Request in 42617ms (Views: 0.2ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/en/order_products" for 127.0.0.1 at 2020-12-12 22:30:59 +0400
+Processing by OrderProductsController#create as JSON
+  Parameters: {"_json"=>[{"order_id"=>6, "product_id"=>13, "count"=>2}, {"order_id"=>6, "product_id"=>14, "count"=>2}, {"order_id"=>6, "product_id"=>15, "count"=>2}], "locale"=>"en", "order_product"=>{}}
+Unpermitted parameters: :_json, :format, :locale, :order_product
+Unpermitted parameters: :_json, :format, :locale, :order_product
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:70
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:65
+Completed 400 Bad Request in 11954ms (Views: 1.0ms | ActiveRecord: 7.6ms)
+
+
+Started POST "/en/order_products" for 127.0.0.1 at 2020-12-12 22:31:21 +0400
+Processing by OrderProductsController#create as JSON
+  Parameters: {"_json"=>[{"order_id"=>6, "product_id"=>13, "count"=>2}, {"order_id"=>6, "product_id"=>14, "count"=>2}, {"order_id"=>6, "product_id"=>15, "count"=>2}], "locale"=>"en", "order_product"=>{}}
+Unpermitted parameters: :_json, :format, :locale, :order_product
+Unpermitted parameters: :_json, :format, :locale, :order_product
+Unpermitted parameters: :_json, :format, :locale, :order_product
+Unpermitted parameters: :_json, :format, :locale, :order_product
+  [1m[36mOrder Load (1.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:70
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:65
+Completed 400 Bad Request in 35123ms (Views: 0.4ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/en/order_products" for 127.0.0.1 at 2020-12-12 22:32:14 +0400
+Processing by OrderProductsController#create as JSON
+  Parameters: {"_json"=>[{"order_id"=>6, "product_id"=>13, "count"=>2}, {"order_id"=>6, "product_id"=>14, "count"=>2}, {"order_id"=>6, "product_id"=>15, "count"=>2}], "locale"=>"en", "order_product"=>{}}
+Completed 500 Internal Server Error in 6032ms (ActiveRecord: 1.6ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/services/orders/order_products_services.rb:71:in `validate_order'
+app/services/orders/order_products_services.rb:61:in `validate_data!'
+app/services/orders/order_products_services.rb:31:in `create_order_product'
+app/controllers/order_products_controller.rb:11:in `create'
+Started POST "/en/order_products" for 127.0.0.1 at 2020-12-12 22:33:57 +0400
+Processing by OrderProductsController#create as JSON
+  Parameters: {"_json"=>[{"order_id"=>6, "product_id"=>13, "count"=>2}, {"order_id"=>6, "product_id"=>14, "count"=>2}, {"order_id"=>6, "product_id"=>15, "count"=>2}], "locale"=>"en", "order_product"=>{}}
+Completed 500 Internal Server Error in 25264ms (ActiveRecord: 1.8ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/services/orders/order_products_services.rb:74:in `validate_order'
+app/services/orders/order_products_services.rb:64:in `validate_data!'
+app/services/orders/order_products_services.rb:32:in `block in create_order_product'
+app/services/orders/order_products_services.rb:31:in `each'
+app/services/orders/order_products_services.rb:31:in `create_order_product'
+app/controllers/order_products_controller.rb:11:in `create'
+Started POST "/en/order_products" for 127.0.0.1 at 2020-12-12 22:34:44 +0400
+Processing by OrderProductsController#create as JSON
+  Parameters: {"_json"=>[{"order_id"=>6, "product_id"=>13, "count"=>2}, {"order_id"=>6, "product_id"=>14, "count"=>2}, {"order_id"=>6, "product_id"=>15, "count"=>2}], "locale"=>"en", "order_product"=>{}}
+Completed 500 Internal Server Error in 20626ms (ActiveRecord: 11.0ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/services/orders/order_products_services.rb:75:in `validate_order'
+app/services/orders/order_products_services.rb:65:in `validate_data!'
+app/services/orders/order_products_services.rb:33:in `block in create_order_product'
+app/services/orders/order_products_services.rb:31:in `each'
+app/services/orders/order_products_services.rb:31:in `create_order_product'
+app/controllers/order_products_controller.rb:11:in `create'
+Started POST "/en/order_products" for 127.0.0.1 at 2020-12-12 22:36:00 +0400
+Processing by OrderProductsController#create as JSON
+  Parameters: {"_json"=>[{"order_id"=>6, "product_id"=>13, "count"=>2}, {"order_id"=>6, "product_id"=>14, "count"=>2}, {"order_id"=>6, "product_id"=>15, "count"=>2}], "locale"=>"en", "order_product"=>{}}
+Completed 500 Internal Server Error in 10370ms (ActiveRecord: 2.0ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/services/orders/order_products_services.rb:75:in `validate_order'
+app/services/orders/order_products_services.rb:65:in `validate_data!'
+app/services/orders/order_products_services.rb:33:in `block in create_order_product'
+app/services/orders/order_products_services.rb:31:in `each'
+app/services/orders/order_products_services.rb:31:in `create_order_product'
+app/controllers/order_products_controller.rb:11:in `create'
+Started POST "/en/order_products" for 127.0.0.1 at 2020-12-12 22:36:24 +0400
+Processing by OrderProductsController#create as JSON
+  Parameters: {"_json"=>[{"order_id"=>6, "product_id"=>13, "count"=>2}, {"order_id"=>6, "product_id"=>14, "count"=>2}, {"order_id"=>6, "product_id"=>15, "count"=>2}], "locale"=>"en", "order_product"=>{}}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):26
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ (pry):26
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ (pry):26
+  [1m[36mOrderProduct Create (1.0ms)[0m  [1m[32mINSERT INTO "order_products" ("product_id", "order_id", "count") VALUES ($1, $2, $3) RETURNING "id"[0m  [["product_id", 13], ["order_id", 6], ["count", 2]]
+  ↳ (pry):26
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ (pry):26
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/order_products_services.rb:85
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:85
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:85
+  [1m[36mOrderProduct Create (1.7ms)[0m  [1m[32mINSERT INTO "order_products" ("product_id", "order_id", "count") VALUES ($1, $2, $3) RETURNING "id"[0m  [["product_id", 13], ["order_id", 6], ["count", 2]]
+  ↳ app/services/orders/order_products_services.rb:85
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/order_products_services.rb:85
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/order_products_services.rb:85
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:85
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:85
+  [1m[36mOrderProduct Create (1.6ms)[0m  [1m[32mINSERT INTO "order_products" ("product_id", "order_id", "count") VALUES ($1, $2, $3) RETURNING "id"[0m  [["product_id", 14], ["order_id", 6], ["count", 2]]
+  ↳ app/services/orders/order_products_services.rb:85
+  [1m[35m (7.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/order_products_services.rb:85
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/order_products_services.rb:85
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:85
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:85
+  [1m[36mOrderProduct Create (1.1ms)[0m  [1m[32mINSERT INTO "order_products" ("product_id", "order_id", "count") VALUES ($1, $2, $3) RETURNING "id"[0m  [["product_id", 15], ["order_id", 6], ["count", 2]]
+  ↳ app/services/orders/order_products_services.rb:85
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/order_products_services.rb:85
+Completed 201 Created in 34687ms (Views: 0.8ms | ActiveRecord: 48.7ms)
+
+
+Started POST "/en/order_products" for 127.0.0.1 at 2020-12-12 22:37:54 +0400
+Processing by OrderProductsController#create as JSON
+  Parameters: {"_json"=>[{"order_id"=>6, "product_id"=>13, "count"=>2}, {"order_id"=>6, "product_id"=>14, "count"=>2}, {"order_id"=>6, "product_id"=>15, "count"=>2}], "locale"=>"en", "order_product"=>{}}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrderProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "order_products" ("product_id", "order_id", "count") VALUES ($1, $2, $3) RETURNING "id"[0m  [["product_id", 13], ["order_id", 6], ["count", 2]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrderProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "order_products" ("product_id", "order_id", "count") VALUES ($1, $2, $3) RETURNING "id"[0m  [["product_id", 14], ["order_id", 6], ["count", 2]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrderProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "order_products" ("product_id", "order_id", "count") VALUES ($1, $2, $3) RETURNING "id"[0m  [["product_id", 15], ["order_id", 6], ["count", 2]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrderProduct Load (0.3ms)[0m  [1m[34mSELECT "order_products".* FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+Completed 201 Created in 2492ms (Views: 0.4ms | ActiveRecord: 29.3ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-12 22:39:08 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-12 22:39:08 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-12 22:39:08 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-12 22:39:08 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-12 22:39:12 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-12 22:39:12 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-12 22:39:49 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-12 22:39:49 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-12 22:39:49 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-12 22:39:49 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-12 22:39:51 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-12 22:39:51 +0400
+Started POST "/en/order_products" for 127.0.0.1 at 2020-12-12 22:40:36 +0400
+Processing by OrderProductsController#create as JSON
+  Parameters: {"_json"=>[{"order_id"=>6, "product_id"=>13, "count"=>2}, {"order_id"=>6, "product_id"=>14, "count"=>3}, {"order_id"=>6, "product_id"=>15, "count"=>5}], "locale"=>"en", "order_product"=>{}}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrderProduct Create (1.1ms)[0m  [1m[32mINSERT INTO "order_products" ("product_id", "order_id", "count") VALUES ($1, $2, $3) RETURNING "id"[0m  [["product_id", 13], ["order_id", 6], ["count", 2]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrderProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "order_products" ("product_id", "order_id", "count") VALUES ($1, $2, $3) RETURNING "id"[0m  [["product_id", 14], ["order_id", 6], ["count", 3]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrderProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "order_products" ("product_id", "order_id", "count") VALUES ($1, $2, $3) RETURNING "id"[0m  [["product_id", 15], ["order_id", 6], ["count", 5]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrderProduct Load (0.5ms)[0m  [1m[34mSELECT "order_products".* FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+Completed 201 Created in 3553ms (Views: 0.5ms | ActiveRecord: 11.3ms)
+
+
+Started POST "/en/order_products" for 127.0.0.1 at 2020-12-12 22:41:02 +0400
+Processing by OrderProductsController#create as JSON
+  Parameters: {"_json"=>[{"order_id"=>6, "product_id"=>13, "count"=>2}, {"order_id"=>6, "product_id"=>14, "count"=>3}, {"order_id"=>6, "product_id"=>15, "count"=>5}], "locale"=>"en", "order_product"=>{}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrderProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "order_products" ("product_id", "order_id", "count") VALUES ($1, $2, $3) RETURNING "id"[0m  [["product_id", 13], ["order_id", 6], ["count", 2]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrderProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "order_products" ("product_id", "order_id", "count") VALUES ($1, $2, $3) RETURNING "id"[0m  [["product_id", 14], ["order_id", 6], ["count", 3]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrderProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "order_products" ("product_id", "order_id", "count") VALUES ($1, $2, $3) RETURNING "id"[0m  [["product_id", 15], ["order_id", 6], ["count", 5]]
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/order_products_services.rb:82
+  [1m[36mOrderProduct Load (0.3ms)[0m  [1m[34mSELECT "order_products".* FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/order_products_services.rb:14
+Completed 201 Created in 57ms (Views: 0.8ms | ActiveRecord: 17.0ms)
+
+

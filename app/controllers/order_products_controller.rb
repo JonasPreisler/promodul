@@ -6,7 +6,7 @@ class OrderProductsController < ApplicationController
   skip_before_action :validate_authentication
 
   def create
-    service = Orders::OrderProductsServices.new(order_product_params)
+    service = Orders::OrderProductsServices.new(params["_json"])
     service.create_order_product
     rest_respond_service service
   end
@@ -49,5 +49,9 @@ class OrderProductsController < ApplicationController
 
   def product_params
     params.permit({})
+  end
+
+  def bulk_order_products
+    params.permit(_json:[])
   end
 end

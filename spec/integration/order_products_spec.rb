@@ -18,35 +18,34 @@ describe 'Clients', type: :request do
 
       parameter name: :locale, in: :path, type: :string, required: true, default: "en"
       parameter name: :params, in: :body, schema: {
-          type: :object,
-          properties: {
-              order_id:    { type: :integer },
-              product_id:  { type: :integer },
-              count:       { type: :integer }
+          type: :array,
+          items: {
+              properties: {
+                  order_id:    { type: :integer },
+                  product_id:  { type: :integer },
+                  count:       { type: :integer }
+              }
           }
+
       }
-      response '201', 'ok' do
+      response '200', 'OK' do
         schema type: :object,
                properties: {
-                   order_product: {
-                       type: :object,
-                       properties: {
-                           id:         {type: :integer},
-                           count:      {type: :integer},
-                           product: {
-                               type: :object,
-                               properties: {
-                                   name: { type: :string },
-                                   full_name: { type: :string },
-                                   code: { type: :string}
-                               }
+                   products: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               id:         {type: :integer},
+                               name: { type: :string },
+                               full_name: { type: :string },
+                               code: { type: :string}
                            }
                        }
                    }
                }
-
         run_test!
       end
+
 
       response '404', 'Not Found' do
 

@@ -27,8 +27,10 @@ module Orders
     end
 
     def create_order_product
-      validate_data!
-      create_order_product_obj
+      params.each do |obj|
+        create_order_product_obj(obj)
+      end
+      @order_product = OrderProduct.where(order_id: params.first[:order_id])
     end
 
     def product_list
@@ -71,9 +73,12 @@ module Orders
       fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless order
     end
 
-    def create_order_product_obj
+    def create_order_product_obj(obj)
       return if errors.any?
-      @order_product = OrderProduct.new(params)
+      @order_product = OrderProduct.new
+      @order_product.order_id = obj[:order_id]
+      @order_product.product_id = obj[:product_id]
+      @order_product.count = obj[:count]
       @order_product.save
       @errors << fill_errors(@order_product) if @order_product.errors.any?
     end
