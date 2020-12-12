@@ -121,9 +121,9 @@ module Orders
       }
     end
 
-    def show
-      find_order
-    end
+    #def show
+    #  find_order
+    #end
 
     private
 
