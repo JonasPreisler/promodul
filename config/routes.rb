@@ -112,7 +112,7 @@ Rails.application.routes.draw do
       get 'orders/orders_list', to: 'orders#orders_list'
       get 'orders/open_orders_list', to: 'orders#open_orders_list'
       get 'orders/:id',         to: 'orders#show'
-      #get 'orders/overview/:id', to: 'orders#overview'
+      get 'orders/overview/:id', to: 'orders#overview'
       get 'orders/my_orders_list/:user_account_id', to: 'orders#my_orders_list'
       get 'orders/all_orders_list', to: 'orders#all_orders_list'
       post 'orders/claim_order',         to: 'orders#claim_order'

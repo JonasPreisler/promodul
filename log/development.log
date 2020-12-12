@@ -19556,3 +19556,123 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 31ms (Views: 0.4ms | ActiveRecord: 10.3ms)
 
 
+Started GET "/en/orders/all_orders_list" for 127.0.0.1 at 2020-12-12 23:29:33 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"all_orders_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT orders.id,
+                             title as name,
+                             TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start,
+                             TO_CHAR(start_time + (3 * interval '20 minute'), 'yyyy-mm-dd hh:mm') as end,
+                             json_language(order_statuses.name) as status,
+                             user_accounts.username AS employ FROM "orders" INNER JOIN "order_statuses" ON "order_statuses"."id" = "orders"."order_status_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "orders"."user_account_id"[0m
+  ↳ app/services/orders/orders_services.rb:30
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 5.6ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedFunction: ERROR:  function json_language(json) does not exist
+LINE 5:                              json_language(order_statuses.na...
+                                     ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+: SELECT orders.id,
+                             title as name,
+                             TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start,
+                             TO_CHAR(start_time + (3 * interval '20 minute'), 'yyyy-mm-dd hh:mm') as end,
+                             json_language(order_statuses.name) as status,
+                             user_accounts.username AS employ FROM "orders" INNER JOIN "order_statuses" ON "order_statuses"."id" = "orders"."order_status_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "orders"."user_account_id"):
+  
+app/services/orders/orders_services.rb:30:in `show_json_view'
+lib/controller_response.rb:22:in `respond_action_json_view'
+lib/controller_response.rb:41:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/orders_controller.rb:41:in `show'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-13 02:04:25 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-13 02:04:25 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-13 02:04:25 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-13 02:04:25 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-13 02:04:26 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-13 02:04:26 +0400
+Started GET "/en/orders/overview/6" for 127.0.0.1 at 2020-12-13 02:04:35 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/orders/overview/6"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-13 02:05:13 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-13 02:05:13 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-13 02:05:13 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-13 02:05:13 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-13 02:05:14 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-13 02:05:14 +0400
+Started GET "/en/orders/overview/6" for 127.0.0.1 at 2020-12-13 02:05:25 +0400
+Processing by OrdersController#overview as JSON
+  Parameters: {"locale"=>"en", "id"=>"6"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:128
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 1]]
+  ↳ app/services/orders/orders_services.rb:165
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 2]]
+  ↳ app/services/orders/orders_services.rb:166
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 3]]
+  ↳ app/services/orders/orders_services.rb:167
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:168
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:156
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "order_products"."product_id" FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:140
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "tasks"."product_id" FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:141
+  [1m[36mProductPrice Load (0.6ms)[0m  [1m[34mSELECT "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)[0m  [["product_id", 15], ["product_id", 13], ["product_id", 13], ["product_id", 14], ["product_id", 15], ["product_id", 13], ["product_id", 14], ["product_id", 15], ["product_id", 13], ["product_id", 14], ["product_id", 15], ["product_id", 13], ["product_id", 14], ["product_id", 15], ["product_id", 15]]
+  ↳ app/services/orders/orders_services.rb:143
+  [1m[36mSupplierProduct Load (0.4ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:144
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "orders"."user_account_id" FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 6]]
+  ↳ app/services/orders/orders_services.rb:132
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "tasks"."product_id" FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:133
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT username, email, phone_number FROM "user_accounts" WHERE "user_accounts"."id" IN ($1, $2)[0m  [["id", 64], ["id", 15]]
+  ↳ lib/controller_response.rb:26
+Completed 200 OK in 110ms (Views: 10.4ms | ActiveRecord: 24.8ms)
+
+
+Started GET "/en/orders/all_orders_list" for 127.0.0.1 at 2020-12-13 02:05:36 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"all_orders_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (1.4ms)[0m  [1m[34mSELECT orders.id,
+                             title as name,
+                             TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start,
+                             TO_CHAR(start_time + (3 * interval '20 minute'), 'yyyy-mm-dd hh:mm') as end,
+                             order_statuses.name AS status,
+                             user_accounts.username AS employ FROM "orders" INNER JOIN "order_statuses" ON "order_statuses"."id" = "orders"."order_status_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "orders"."user_account_id"[0m
+  ↳ app/services/orders/orders_services.rb:30
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 3.4ms)
+
+
