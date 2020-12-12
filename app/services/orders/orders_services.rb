@@ -87,8 +87,9 @@ module Orders
     end
 
     def claim_order
+      status_id = OrderStatus.find_by_id_name(claimed).id
       @order = Order.find(params[:order_id])
-      @order.update(user_account_id: params[:user_account_id])
+      @order.update(user_account_id: params[:user_account_id], order_status_id: status_id)
       @errors << fill_errors(@order) if @order.errors.any?
     end
 
