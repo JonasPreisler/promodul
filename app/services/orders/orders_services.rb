@@ -87,17 +87,17 @@ module Orders
     end
 
     def claim_order
-      @order = Order.find(params[:id])
+      @order = Order.find(params[:order_id])
       @order.update(user_account_id: params[:user_account_id])
       @errors << fill_errors(@order) if @order.errors.any?
     end
 
     def overview
-
     end
 
     def overview_json
       {
+          order_title: get_order,
           percentage_of_tasks: percentage_of_tasks,
           worked_hours: worked_hours,
           order_price: order_price,
@@ -111,6 +111,10 @@ module Orders
 
     private
 
+    def get_order
+      Order.find(params[:id]).title
+    end
+
     def order_members
       order_ids = Order.select(:user_account_id).where(id: params[:id]).pluck(:user_account_id)
       tasks_ids = Task.select(:user_account_id).where(order_id: params[:id]).pluck(:product_id)
@@ -120,8 +124,8 @@ module Orders
 
     def order_price
       order_price = 0
-      order_ids = OrderProduct.select(:product_id).where(order_id: 6).pluck(:product_id)
-      tasks_ids = Task.select(:product_id).where(order_id: 6).pluck(:product_id)
+      order_ids = OrderProduct.select(:product_id).where(order_id: params[:id]).pluck(:product_id)
+      tasks_ids = Task.select(:product_id).where(order_id: params[:id]).pluck(:product_id)
       product_ids = order_ids + tasks_ids
       ProductPrice.where(product_id: product_ids).each do |x|
         cost_price = x.list_price_amount + SupplierProduct.find_by_product_id(x.product_id)&.supplier_product_price.to_i
@@ -136,16 +140,19 @@ module Orders
 
     def worked_hours
       sum = 0
-      Task.where(order_id: 6).each { |x| sum += x.tracked_time.to_i }
+      Task.where(order_id: params[:id]).each do |x|
+        time = x&.tracked_time
+        sum += time
+      end
       sum
     end
 
     def percentage_of_tasks
       {
-          open: Task.where(order_id: 6, task_status_id: 1).size,
-          in_progress: Task.where(order_id: 6, task_status_id: 2).size,
-          done: Task.where(order_id: 6, task_status_id: 3).size,
-          total: Task.where(order_id: 6).size
+          open: Task.where(order_id: params[:id], task_status_id: 1).size,
+          in_progress: Task.where(order_id: params[:id], task_status_id: 2).size,
+          done: Task.where(order_id: params[:id], task_status_id: 3).size,
+          total: Task.where(order_id: params[:id]).size
       }
     end
 

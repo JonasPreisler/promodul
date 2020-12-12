@@ -18559,3 +18559,111 @@ Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-12 21:01:5
 Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-12 21:01:50 +0400
 Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-12 21:01:51 +0400
 Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-12 21:01:51 +0400
+  [1m[35m (4.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 7]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 7]]
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+Started GET "/en/orders/overview/3" for 127.0.0.1 at 2020-12-12 21:11:25 +0400
+Processing by OrdersController#overview as JSON
+  Parameters: {"locale"=>"en", "id"=>"3"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 1]]
+  ↳ app/services/orders/orders_services.rb:145
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 2]]
+  ↳ app/services/orders/orders_services.rb:146
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 6], ["task_status_id", 3]]
+  ↳ app/services/orders/orders_services.rb:147
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:148
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:139
+Completed 500 Internal Server Error in 5465ms (ActiveRecord: 10.7ms)
+
+
+  
+TypeError (nil can't be coerced into Integer):
+  
+app/services/orders/orders_services.rb:139:in `+'
+app/services/orders/orders_services.rb:139:in `block in worked_hours'
+app/services/orders/orders_services.rb:139:in `worked_hours'
+app/services/orders/orders_services.rb:102:in `overview_json'
+app/services/orders/orders_services.rb:58:in `overview_json_view'
+lib/controller_response.rb:22:in `respond_action_json_view'
+lib/controller_response.rb:41:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/orders_controller.rb:47:in `overview'
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+Started GET "/en/orders/overview/3" for 127.0.0.1 at 2020-12-12 21:15:46 +0400
+Processing by OrdersController#overview as JSON
+  Parameters: {"locale"=>"en", "id"=>"3"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 3], ["task_status_id", 1]]
+  ↳ app/services/orders/orders_services.rb:148
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 3], ["task_status_id", 2]]
+  ↳ app/services/orders/orders_services.rb:149
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 3], ["task_status_id", 3]]
+  ↳ app/services/orders/orders_services.rb:150
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/services/orders/orders_services.rb:151
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/services/orders/orders_services.rb:139
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "order_products"."product_id" FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:123
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "tasks"."product_id" FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:124
+  [1m[36mProductPrice Load (2.7ms)[0m  [1m[34mSELECT "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" IN ($1, $2)[0m  [["product_id", 15], ["product_id", 15]]
+  ↳ app/services/orders/orders_services.rb:126
+  [1m[36mSupplierProduct Load (5.0ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:127
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "orders"."user_account_id" FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 3]]
+  ↳ app/services/orders/orders_services.rb:115
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "tasks"."product_id" FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/services/orders/orders_services.rb:116
+  [1m[36mUserAccount Load (2.7ms)[0m  [1m[34mSELECT username, email, phone_number FROM "user_accounts" WHERE "user_accounts"."id" = $1[0m  [["id", 64]]
+  ↳ lib/controller_response.rb:26
+Completed 200 OK in 3685ms (Views: 10.9ms | ActiveRecord: 52.9ms)
+
+
+Started GET "/en/orders/overview/3" for 127.0.0.1 at 2020-12-12 21:17:04 +0400
+Processing by OrdersController#overview as JSON
+  Parameters: {"locale"=>"en", "id"=>"3"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:116
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 3], ["task_status_id", 1]]
+  ↳ app/services/orders/orders_services.rb:153
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 3], ["task_status_id", 2]]
+  ↳ app/services/orders/orders_services.rb:154
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1 AND "tasks"."task_status_id" = $2[0m  [["order_id", 3], ["task_status_id", 3]]
+  ↳ app/services/orders/orders_services.rb:155
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/services/orders/orders_services.rb:156
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/services/orders/orders_services.rb:144
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "order_products"."product_id" FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:128
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "tasks"."product_id" FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/orders_services.rb:129
+  [1m[36mProductPrice Load (0.3ms)[0m  [1m[34mSELECT "product_prices".* FROM "product_prices" WHERE "product_prices"."product_id" IN ($1, $2)[0m  [["product_id", 15], ["product_id", 15]]
+  ↳ app/services/orders/orders_services.rb:131
+  [1m[36mSupplierProduct Load (0.3ms)[0m  [1m[34mSELECT  "supplier_products".* FROM "supplier_products" WHERE "supplier_products"."product_id" = $1 LIMIT $2[0m  [["product_id", 15], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:132
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "orders"."user_account_id" FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 3]]
+  ↳ app/services/orders/orders_services.rb:120
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "tasks"."product_id" FROM "tasks" WHERE "tasks"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/services/orders/orders_services.rb:121
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT username, email, phone_number FROM "user_accounts" WHERE "user_accounts"."id" = $1[0m  [["id", 64]]
+  ↳ lib/controller_response.rb:26
+Completed 200 OK in 2601ms (Views: 9.5ms | ActiveRecord: 31.2ms)
+
+
