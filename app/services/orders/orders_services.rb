@@ -87,7 +87,7 @@ module Orders
     end
 
     def claim_order
-      @order = Order.find(params[:order_id])
+      @order = Order.find(params[:id])
       @order.update(user_account_id: params[:user_account_id])
       @errors << fill_errors(@order) if @order.errors.any?
     end

@@ -18526,3 +18526,36 @@ Completed 201 Created in 130ms (Views: 0.6ms | ActiveRecord: 35.5ms)
   [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT id, title as name, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, TO_CHAR(start_time + (3 * interval '20 minute'), 'yyyy-mm-dd hh:mm') as end FROM "orders"[0m
   [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT id, title as name, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, TO_CHAR(start_time + (3 * interval '20 minute'), 'yyyy-mm-dd hh:mm') as end FROM "orders" WHERE "orders"."order_status_id" = $1 AND "orders"."user_account_id" IS NULL[0m  [["order_status_id", 1]]
   [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT id, title as name, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, TO_CHAR(start_time + (3 * interval '20 minute'), 'yyyy-mm-dd hh:mm') as end FROM "orders" WHERE "orders"."order_status_id" = $1 AND "orders"."user_account_id" IS NULL[0m  [["order_status_id", 1]]
+Started POST "/pusher/auth" for 127.0.0.1 at 2020-12-07 11:38:46 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"socket_id"=>"6043.32281335", "channel_name"=>"private-KRYPYGWETRCJTOX", "locale"=>"pusher"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+I18n::InvalidLocale ("pusher" is not a valid locale):
+  
+app/controllers/application_controller.rb:8:in `set_locale'
+Started POST "/pusher/auth" for 127.0.0.1 at 2020-12-07 15:39:51 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"socket_id"=>"6063.35514", "channel_name"=>"private-KRYPYGWETRCJTOX", "locale"=>"pusher"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+I18n::InvalidLocale ("pusher" is not a valid locale):
+  
+app/controllers/application_controller.rb:8:in `set_locale'
+Started GET "/" for 127.0.0.1 at 2020-12-12 21:01:45 +0400
+  [1m[35m (70.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HealthController#check_health as HTML
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-12 21:01:50 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-12 21:01:50 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-12 21:01:50 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-12 21:01:50 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-12 21:01:51 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-12 21:01:51 +0400
