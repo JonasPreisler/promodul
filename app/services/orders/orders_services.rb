@@ -141,7 +141,7 @@ module Orders
     def worked_hours
       sum = 0
       Task.where(order_id: params[:id]).each do |x|
-        time = x&.tracked_time
+        time = x&.tracked_time.to_i
         sum += time
       end
       sum
