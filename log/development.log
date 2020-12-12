@@ -19194,3 +19194,302 @@ Processing by OrderProductsController#create as JSON
 Completed 201 Created in 57ms (Views: 0.8ms | ActiveRecord: 17.0ms)
 
 
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-12 22:53:30 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-12 22:53:30 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-12 22:53:30 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-12 22:53:30 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-12 22:53:31 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-12 22:53:31 +0400
+Started GET "/en/orders/admin_orders_list" for 127.0.0.1 at 2020-12-12 22:53:39 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"admin_orders_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:215
+Completed 404 Not Found in 13ms (Views: 0.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/en/orders/admin_orders_list" for 127.0.0.1 at 2020-12-12 22:54:12 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"admin_orders_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:216
+Completed 404 Not Found in 10ms (Views: 0.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-12 22:54:16 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-12 22:54:16 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-12 22:54:16 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-12 22:54:16 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-12 22:54:18 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-12 22:54:18 +0400
+Started GET "/en/orders/admin_orders_list" for 127.0.0.1 at 2020-12-12 22:54:26 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"admin_orders_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:216
+Completed 404 Not Found in 2ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-12 22:55:19 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-12 22:55:19 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-12 22:55:19 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-12 22:55:19 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-12 22:55:22 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-12 22:55:22 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-12 22:55:34 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-12 22:55:34 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-12 22:55:34 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-12 22:55:34 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-12 22:55:35 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-12 22:55:35 +0400
+Started GET "/en/orders/admin_orders_list" for 127.0.0.1 at 2020-12-12 22:55:43 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"admin_orders_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:216
+Completed 404 Not Found in 1ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/en/orders/admin_orders_list" for 127.0.0.1 at 2020-12-12 22:57:17 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"admin_orders_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:216
+Completed 404 Not Found in 9642ms (Views: 0.5ms | ActiveRecord: 4.2ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/en/orders/admin_orders_list" for 127.0.0.1 at 2020-12-12 22:58:30 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"admin_orders_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:216
+Completed 404 Not Found in 6829ms (Views: 0.5ms | ActiveRecord: 0.8ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-12 22:59:20 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-12 22:59:20 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-12 22:59:20 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-12 22:59:20 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-12 22:59:23 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-12 22:59:23 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-12 22:59:25 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-12 22:59:25 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-12 22:59:25 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-12 22:59:25 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-12 22:59:26 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-12 22:59:26 +0400
+Started GET "/en/orders/open_orders_list" for 127.0.0.1 at 2020-12-12 22:59:43 +0400
+Processing by OrdersController#open_orders_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (38.3ms)[0m  [1m[34mSELECT id, title as name, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, TO_CHAR(start_time + (3 * interval '20 minute'), 'yyyy-mm-dd hh:mm') as end FROM "orders" WHERE "orders"."order_status_id" = $1 AND "orders"."user_account_id" IS NULL[0m  [["order_status_id", 1]]
+  ↳ app/services/orders/orders_services.rb:54
+Completed 200 OK in 6083ms (Views: 0.2ms | ActiveRecord: 42.4ms)
+
+
+Started GET "/en/orders/admin_orders_list" for 127.0.0.1 at 2020-12-12 23:00:04 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"admin_orders_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:216
+Completed 404 Not Found in 7662ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-12 23:01:26 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-12 23:01:26 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-12 23:01:26 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-12 23:01:26 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-12 23:01:29 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-12 23:01:29 +0400
+Started GET "/en/orders/all_orders_list" for 127.0.0.1 at 2020-12-12 23:01:39 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"all_orders_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:216
+Completed 404 Not Found in 8ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-12 23:02:46 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-12 23:02:46 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-12 23:02:46 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-12 23:02:46 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-12 23:02:49 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-12 23:02:49 +0400
+Started GET "/en/orders/all_orders_list" for 127.0.0.1 at 2020-12-12 23:03:04 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"all_orders_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:216
+Completed 404 Not Found in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/en/orders/all_orders_list" for 127.0.0.1 at 2020-12-12 23:03:19 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"all_orders_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:216
+Completed 404 Not Found in 5619ms (Views: 0.7ms | ActiveRecord: 3.0ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-12 23:04:02 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-12 23:04:03 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-12 23:04:03 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-12 23:04:03 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-12 23:04:03 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-12 23:04:03 +0400
+Started GET "/en/orders/all_orders_list" for 127.0.0.1 at 2020-12-12 23:04:17 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"all_orders_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:216
+Completed 404 Not Found in 10384ms (Views: 0.3ms | ActiveRecord: 10.8ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-12 23:06:20 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-12 23:06:20 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-12 23:06:20 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-12 23:06:20 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-12 23:06:20 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-12 23:06:20 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-12 23:06:24 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-12 23:06:24 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-12 23:06:24 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-12 23:06:24 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-12 23:06:24 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-12 23:06:24 +0400
+Started GET "/en/orders/all_orders_list" for 127.0.0.1 at 2020-12-12 23:06:37 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"all_orders_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:216
+Completed 404 Not Found in 13755ms (Views: 0.2ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/en/orders/all_orders_list" for 127.0.0.1 at 2020-12-12 23:07:53 +0400
+Processing by OrdersController#all_orders_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 200 OK in 6561ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/orders/all_orders_list" for 127.0.0.1 at 2020-12-12 23:08:49 +0400
+Processing by OrdersController#all_orders_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (1.5ms)[0m  [1m[34mSELECT id,
+                             title as name,
+                             TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start,
+                             TO_CHAR(start_time + (3 * interval '20 minute'), 'yyyy-mm-dd hh:mm') as end,
+                             order_statuses.name AS status,
+                             user_accounts.username AS employ FROM "orders" INNER JOIN "order_statuses" ON "order_statuses"."id" = "orders"."order_status_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "orders"."user_account_id"[0m
+  ↳ app/services/orders/orders_services.rb:58
+Completed 500 Internal Server Error in 3580ms (ActiveRecord: 9.8ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::AmbiguousColumn: ERROR:  column reference "id" is ambiguous
+LINE 1: SELECT id,
+               ^
+: SELECT id,
+                             title as name,
+                             TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start,
+                             TO_CHAR(start_time + (3 * interval '20 minute'), 'yyyy-mm-dd hh:mm') as end,
+                             order_statuses.name AS status,
+                             user_accounts.username AS employ FROM "orders" INNER JOIN "order_statuses" ON "order_statuses"."id" = "orders"."order_status_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "orders"."user_account_id"):
+  
+app/services/orders/orders_services.rb:58:in `all_orders_list_json_view'
+lib/controller_response.rb:22:in `respond_action_json_view'
+lib/controller_response.rb:41:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/orders_controller.rb:61:in `all_orders_list'
+Started GET "/en/orders/all_orders_list" for 127.0.0.1 at 2020-12-12 23:09:18 +0400
+Processing by OrdersController#all_orders_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT orders.id,
+                             title as name,
+                             TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start,
+                             TO_CHAR(start_time + (3 * interval '20 minute'), 'yyyy-mm-dd hh:mm') as end,
+                             order_statuses.name AS status,
+                             user_accounts.username AS employ FROM "orders" INNER JOIN "order_statuses" ON "order_statuses"."id" = "orders"."order_status_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "orders"."user_account_id"[0m
+  ↳ app/services/orders/orders_services.rb:58
+Completed 200 OK in 3576ms (Views: 0.4ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/en/orders/all_orders_list" for 127.0.0.1 at 2020-12-12 23:11:44 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"all_orders_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:220
+Completed 404 Not Found in 8324ms (Views: 0.4ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/en/orders/all_orders_list" for 127.0.0.1 at 2020-12-12 23:11:58 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"all_orders_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:220
+Completed 404 Not Found in 115395ms (Views: 0.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/en/orders/2" for 127.0.0.1 at 2020-12-12 23:14:06 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:220
+  [1m[36mClient Load (6.9ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:30
+  [1m[36mOrderStatus Load (0.3ms)[0m  [1m[34mSELECT  "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:30
+  [1m[36mOrderType Load (2.7ms)[0m  [1m[34mSELECT  "order_types".* FROM "order_types" WHERE "order_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:30
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:30
+Completed 200 OK in 5527ms (Views: 0.3ms | ActiveRecord: 42.9ms)
+
+
+Started GET "/en/orders/all_orders_list" for 127.0.0.1 at 2020-12-12 23:14:18 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"all_orders_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/orders/orders_services.rb:220
+Completed 404 Not Found in 2429ms (Views: 0.4ms | ActiveRecord: 1.1ms)
+
+

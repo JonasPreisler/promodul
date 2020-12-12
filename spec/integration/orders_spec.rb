@@ -429,4 +429,40 @@ describe 'Clients', type: :request do
     end
   end
 
+  path '/{locale}/orders/all_orders_list' do
+    get 'Returns all orders' do
+      tags 'Order'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   events: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               id:         {type: :integer},
+                               name:      {type: :string},
+                               start: { type: :string},
+                               end: { type: :string}
+                           }
+                       }
+                   }
+               }
+        run_test!
+      end
+
+    end
+  end
+
 end

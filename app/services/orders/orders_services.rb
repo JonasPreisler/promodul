@@ -54,6 +54,10 @@ module Orders
       { orders: @orders.as_json(only: [:id, :name, :start, :end]) }
     end
 
+    def all_orders_list_json_view
+      { orders: @orders.as_json(only: [:id, :name, :start, :end, :employ, :status]) }
+    end
+
     def overview_json_view
       { overview: overview_json }
     end
@@ -80,6 +84,17 @@ module Orders
       @orders = Order
                     .select("id, title as name, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, TO_CHAR(start_time + (3 * interval '20 minute'), 'yyyy-mm-dd hh:mm') as end")
                     .where(order_status_id: 1, user_account_id: nil )
+    end
+
+    def admin_order_list
+      @orders = Order
+                    .select("orders.id,
+                             title as name,
+                             TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start,
+                             TO_CHAR(start_time + (3 * interval '20 minute'), 'yyyy-mm-dd hh:mm') as end,
+                             order_statuses.name AS status,
+                             user_accounts.username AS employ")
+                    .joins(:order_status, :user_account)
     end
 
     def my_order_list
