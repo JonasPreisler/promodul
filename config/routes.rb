@@ -126,6 +126,10 @@ Rails.application.routes.draw do
       get 'tasks/tasks_list/:id', to: 'tasks#tasks_list'
       get 'tasks/status_progress/:id', to: 'tasks#status_progress'
       get 'tasks/:id',                      to: 'tasks#show'
+
+      resource :order_comments
+      get 'order_comments/comments_list/:order_id', to: 'order_comments#comments_list'
+
     end
   end
 end

@@ -19676,3 +19676,330 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 3.4ms)
 
 
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateOrderComments (20201213121958)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (34.7ms)[0m  [1m[35mCREATE TABLE "order_comments" ("id" bigserial primary key, "order_id" bigint NOT NULL, "user_account_id" bigint NOT NULL, "comment" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_887770e183"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_9e0f3b8d95"
+FOREIGN KEY ("user_account_id")
+  REFERENCES "user_accounts" ("id")
+)[0m
+  ↳ db/migrate/20201213121958_create_order_comments.rb:3
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_order_comments_on_order_id" ON "order_comments"  ("order_id")[0m
+  ↳ db/migrate/20201213121958_create_order_comments.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_order_comments_on_user_account_id" ON "order_comments"  ("user_account_id")[0m
+  ↳ db/migrate/20201213121958_create_order_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201213121958"]]
+  ↳ bin/rails:9
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mOrderComment Load (0.7ms)[0m  [1m[34mSELECT  "order_comments".* FROM "order_comments" ORDER BY "order_comments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-13 18:09:30 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-13 18:09:30 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-13 18:09:30 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-13 18:09:30 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-13 18:09:31 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-13 18:09:31 +0400
+Started POST "/en/order_comments" for 127.0.0.1 at 2020-12-13 18:10:18 +0400
+Processing by OrderCommentsController#create as JSON
+  Parameters: {"comment"=>"yleo shena", "user_account_id"=>64, "order_id"=>6, "locale"=>"en", "order_comment"=>{"order_id"=>6, "user_account_id"=>64, "comment"=>"yleo shena"}}
+Unpermitted parameters: :format, :locale, :order_comment
+Unpermitted parameters: :format, :locale, :order_comment
+Completed 500 Internal Server Error in 13458ms (ActiveRecord: 11.8ms)
+
+
+  
+NoMethodError (undefined method `order_status_id=' for #<OrderComment:0x00007f6a981620d8>
+Did you mean?  order_id=):
+  
+app/services/orders/comments_service.rb:20:in `create_comment'
+app/controllers/order_comments_controller.rb:11:in `create'
+Started POST "/en/order_comments" for 127.0.0.1 at 2020-12-13 18:10:52 +0400
+Processing by OrderCommentsController#create as JSON
+  Parameters: {"comment"=>"yleo shena", "user_account_id"=>64, "order_id"=>6, "locale"=>"en", "order_comment"=>{"order_id"=>6, "user_account_id"=>64, "comment"=>"yleo shena"}}
+Unpermitted parameters: :format, :locale, :order_comment
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/comments_service.rb:20
+  [1m[36mOrderComment Create (3.3ms)[0m  [1m[32mINSERT INTO "order_comments" ("order_id", "user_account_id", "comment", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["order_id", 6], ["user_account_id", 64], ["comment", "yleo shena"], ["created_at", "2020-12-13 14:10:55.115653"], ["updated_at", "2020-12-13 14:10:55.115653"]]
+  ↳ app/services/orders/comments_service.rb:20
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/comments_service.rb:20
+  [1m[36mOrderComment Load (0.6ms)[0m  [1m[34mSELECT "order_comments".* FROM "order_comments" WHERE "order_comments"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/comments_service.rb:14
+Completed 201 Created in 3026ms (Views: 0.3ms | ActiveRecord: 13.0ms)
+
+
+  [1m[36mOrderComment Load (0.5ms)[0m  [1m[34mSELECT "order_comments".* FROM "order_comments" WHERE "order_comments"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mOrderComment Load (0.4ms)[0m  [1m[34mSELECT "order_comments".* FROM "order_comments" WHERE "order_comments"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mOrderComment Load (0.8ms)[0m  [1m[34mSELECT "order_comments".* FROM "order_comments" WHERE "order_comments"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mOrderComment Load (0.4ms)[0m  [1m[34mSELECT "order_comments".* FROM "order_comments" WHERE "order_comments"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mOrderComment Load (0.3ms)[0m  [1m[34mSELECT  "order_comments".* FROM "order_comments" ORDER BY "order_comments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrderComment Load (0.7ms)[0m  [1m[34mSELECT "order_comments".* FROM "order_comments" WHERE "order_comments"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mOrderComment Load (0.9ms)[0m  [1m[34mSELECT "order_comments".* FROM "order_comments" WHERE "order_comments"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mOrderComment Load (0.4ms)[0m  [1m[34mSELECT "order_comments".* FROM "order_comments" WHERE "order_comments"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  [1m[36mOrderComment Load (1.0ms)[0m  [1m[34mSELECT "order_comments".* FROM "order_comments" WHERE "order_comments"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+Started POST "/en/order_comments" for 127.0.0.1 at 2020-12-13 18:17:01 +0400
+Processing by OrderCommentsController#create as JSON
+  Parameters: {"comment"=>"yleo shena", "user_account_id"=>64, "order_id"=>6, "locale"=>"en", "order_comment"=>{"order_id"=>6, "user_account_id"=>64, "comment"=>"yleo shena"}}
+Unpermitted parameters: :format, :locale, :order_comment
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/orders/comments_service.rb:21
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/comments_service.rb:21
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/orders/comments_service.rb:21
+  [1m[36mOrderComment Create (0.8ms)[0m  [1m[32mINSERT INTO "order_comments" ("order_id", "user_account_id", "comment", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["order_id", 6], ["user_account_id", 64], ["comment", "yleo shena"], ["created_at", "2020-12-13 14:17:01.952059"], ["updated_at", "2020-12-13 14:17:01.952059"]]
+  ↳ app/services/orders/comments_service.rb:21
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/orders/comments_service.rb:21
+  [1m[36mOrderComment Load (0.4ms)[0m  [1m[34mSELECT "order_comments".* FROM "order_comments" WHERE "order_comments"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/comments_service.rb:16
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/comments_service.rb:16
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/comments_service.rb:16
+Completed 201 Created in 73ms (Views: 0.3ms | ActiveRecord: 16.9ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-13 18:17:41 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-13 18:17:41 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-13 18:17:41 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-13 18:17:41 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-13 18:17:41 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-13 18:17:41 +0400
+Started GET "/en/orders_comments/comments_list/6" for 127.0.0.1 at 2020-12-13 18:18:05 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/orders_comments/comments_list/6"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/en/orders_comments/comments_list/6" for 127.0.0.1 at 2020-12-13 18:18:26 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/orders_comments/comments_list/6"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-13 18:18:29 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-13 18:18:29 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-13 18:18:29 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-13 18:18:29 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-13 18:18:32 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-13 18:18:32 +0400
+Started GET "/en/orders_comments/comments_list/6" for 127.0.0.1 at 2020-12-13 18:18:46 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/orders_comments/comments_list/6"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-13 18:19:05 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-13 18:19:05 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-13 18:19:05 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-13 18:19:05 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-13 18:19:06 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-13 18:19:06 +0400
+Started GET "/en/orders_comments/comments_list/6" for 127.0.0.1 at 2020-12-13 18:19:15 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/orders_comments/comments_list/6"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-13 18:20:13 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-13 18:20:13 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-13 18:20:13 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-13 18:20:13 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-13 18:20:13 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-13 18:20:13 +0400
+Started GET "/en/order_comments/comments_list/6" for 127.0.0.1 at 2020-12-13 18:20:22 +0400
+Processing by OrderCommentsController#comments_list as JSON
+  Parameters: {"locale"=>"en", "id"=>"6"}
+Unpermitted parameters: :format, :locale, :id
+  [1m[36mOrderComment Load (0.4ms)[0m  [1m[34mSELECT "order_comments".* FROM "order_comments" WHERE "order_comments"."order_id" IS NULL[0m
+  ↳ app/services/orders/comments_service.rb:16
+Completed 200 OK in 2753ms (Views: 0.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/en/order_comments/comments_list/6" for 127.0.0.1 at 2020-12-13 18:20:30 +0400
+Processing by OrderCommentsController#comments_list as JSON
+  Parameters: {"locale"=>"en", "id"=>"6"}
+Unpermitted parameters: :format, :locale, :id
+Unpermitted parameters: :format, :locale, :id
+  [1m[36mOrderComment Load (0.9ms)[0m  [1m[34mSELECT "order_comments".* FROM "order_comments" WHERE "order_comments"."order_id" IS NULL[0m
+  ↳ app/services/orders/comments_service.rb:16
+Completed 200 OK in 8168ms (Views: 0.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/en/order_comments/comments_list/6" for 127.0.0.1 at 2020-12-13 18:20:49 +0400
+Processing by OrderCommentsController#comments_list as JSON
+  Parameters: {"locale"=>"en", "id"=>"6"}
+Unpermitted parameters: :format, :locale
+Unpermitted parameters: :format, :locale
+  [1m[36mOrderComment Load (0.6ms)[0m  [1m[34mSELECT "order_comments".* FROM "order_comments" WHERE "order_comments"."order_id" IS NULL[0m
+  ↳ app/services/orders/comments_service.rb:16
+Completed 200 OK in 6181ms (Views: 0.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/en/order_comments/comments_list/6" for 127.0.0.1 at 2020-12-13 18:21:33 +0400
+Processing by OrderCommentsController#comments_list as JSON
+  Parameters: {"locale"=>"en", "order_id"=>"6"}
+Unpermitted parameters: :format, :locale
+Unpermitted parameters: :format, :locale
+  [1m[36mOrderComment Load (1.4ms)[0m  [1m[34mSELECT "order_comments".* FROM "order_comments" WHERE "order_comments"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/comments_service.rb:16
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/comments_service.rb:16
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/comments_service.rb:16
+Completed 200 OK in 5816ms (Views: 0.5ms | ActiveRecord: 15.8ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-13 18:22:01 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-13 18:22:01 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-13 18:22:01 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-13 18:22:01 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-13 18:22:01 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-13 18:22:01 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2020-12-13 18:22:03 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2020-12-13 18:22:03 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2020-12-13 18:22:03 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2020-12-13 18:22:03 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2020-12-13 18:22:03 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2020-12-13 18:22:03 +0400
+Started GET "/en/order_comments/comments_list/6" for 127.0.0.1 at 2020-12-13 18:22:14 +0400
+Processing by OrderCommentsController#comments_list as JSON
+  Parameters: {"locale"=>"en", "order_id"=>"6"}
+Unpermitted parameters: :format, :locale
+  [1m[36mOrderComment Load (1.6ms)[0m  [1m[34mSELECT "order_comments".* FROM "order_comments" WHERE "order_comments"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/services/orders/comments_service.rb:16
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/comments_service.rb:16
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  ↳ app/services/orders/comments_service.rb:16
+Completed 200 OK in 2510ms (Views: 1.0ms | ActiveRecord: 2.6ms)
+
+
