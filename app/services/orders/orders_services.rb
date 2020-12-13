@@ -143,7 +143,7 @@ module Orders
       ProductPrice.where(product_id: product_ids).each do |x|
         cost_price = x.list_price_amount + SupplierProduct.find_by_product_id(x.product_id)&.supplier_product_price&.price&.to_i
         if x.list_price_type.eql?("fix_price")
-          order_price += cost_price + x.list_price_amount.to_d
+          order_price += cost_price + x.list_price_amount&.to_d
         else
           order_price += ((cost_price*(100 + x.list_price_amount.to_d))/100).ceil(2)
         end
