@@ -109,7 +109,6 @@ module Orders
     end
 
     def overview_json
-      binding.pry
       {
           order_title: get_order,
           percentage_of_tasks: percentage_of_tasks,
