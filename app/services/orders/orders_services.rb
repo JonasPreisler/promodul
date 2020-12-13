@@ -141,7 +141,12 @@ module Orders
       tasks_ids = Task.select(:product_id).where(order_id: params[:id]).pluck(:product_id)
       product_ids = order_ids + tasks_ids
       ProductPrice.where(product_id: product_ids).each do |x|
-        cost_price = x.list_price_amount&.to_i + SupplierProduct.find_by_product_id(x.product_id)&.supplier_product_price&.price&.to_i
+        kk = SupplierProduct.find_by_product_id(x.product_id)&.supplier_product_price&.price&.to_i
+        if kk
+          cost_price = x.list_price_amount&.to_i + kk
+        else
+          cost_price = x.list_price_amount&.to_i
+        end
         if x.list_price_type.eql?("fix_price")
           order_price += cost_price + x.list_price_amount&.to_d
         else
