@@ -20003,3 +20003,16 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 2510ms (Views: 1.0ms | ActiveRecord: 2.6ms)
 
 
+Started POST "/en/orders/claim_order" for 127.0.0.1 at 2020-12-13 18:29:20 +0400
+Processing by OrdersController#claim_order as JSON
+  Parameters: {"order_id"=>6, "user_account_id"=>64, "locale"=>"en", "order"=>{"user_account_id"=>64}}
+Unpermitted parameters: :format, :locale, :order
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 3.7ms)
+
+
+  
+NameError (undefined local variable or method `claimed' for #<Orders::OrdersServices:0x00007ff1782c6a20>
+Did you mean?  claim_order):
+  
+app/services/orders/orders_services.rb:102:in `claim_order'
+app/controllers/orders_controller.rb:52:in `claim_order'
