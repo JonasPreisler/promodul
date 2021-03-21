@@ -10,19 +10,15 @@ describe 'Registration ', type: :request do
       parameter name: :params, in: :body, schema: {
           type: :object,
           properties: {
-              name: {type: :string},
-              delivery_address: {type: :string},
-              invoice_address: {type: :string},
+              first_name: {type: :string},
+              last_name: {type: :string},
               username: {type: :string},
               phone_number: {type: :string},
               phone_number_iso: {type: :string},
               email: {type: :string},
               password: {type: :string},
-              password_confirmation: {type: :string},
-              agreed_terms_and_conditions: {type: :boolean},
-              terms_and_conditions_id: {type: :integer},
-              customer_type: {type: :string}
-          },required: [:customer_type, :name, :delivery_address, :invoice_address, :phone_number, :username, :password, :password_confirmation, :agreed_terms_and_conditions, :terms_and_conditions_id]
+              password_confirmation: {type: :string}
+          },required: [:first_name, :last_name, :phone_number, :username, :password, :password_confirmation]
       }
       parameter name: :locale, in: :path, type: :string, required: true, default: "en"
       response '200', 'OK' do

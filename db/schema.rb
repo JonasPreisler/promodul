@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_13_121958) do
+ActiveRecord::Schema.define(version: 2021_03_21_184536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -160,12 +160,11 @@ ActiveRecord::Schema.define(version: 2020_12_13_121958) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string "name", limit: 50, null: false
+    t.string "name"
     t.string "delivery_address"
     t.datetime "invoice_address"
     t.boolean "active", default: true, null: false
     t.integer "user_account_id"
-    t.integer "customer_type_id", null: false
     t.string "legal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -482,6 +481,9 @@ ActiveRecord::Schema.define(version: 2020_12_13_121958) do
     t.string "salt"
     t.string "username"
     t.string "phone_number_iso", limit: 2, default: "de", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "birth_date"
   end
 
   create_table "user_management_permissions", force: :cascade do |t|
@@ -516,7 +518,6 @@ ActiveRecord::Schema.define(version: 2020_12_13_121958) do
   add_foreign_key "company_permissions", "role_groups"
   add_foreign_key "confirmation_codes", "confirmation_types"
   add_foreign_key "confirmation_codes", "user_accounts"
-  add_foreign_key "customers", "customer_types"
   add_foreign_key "department_logos", "departments"
   add_foreign_key "departments", "cities"
   add_foreign_key "departments", "companies"

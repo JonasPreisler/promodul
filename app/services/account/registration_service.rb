@@ -12,7 +12,7 @@ module Account
     end
 
     def sign_up_json_view
-      { confirmation_token: @token } if @token
+      { success: true }
     end
 
     def customer_types_json_view
@@ -24,17 +24,87 @@ module Account
     end
 
     def call
-      validate_agreements
       validate_phone_number
       validate_password_matching
       return if @errors.any?
-
       ActiveRecord::Base.transaction do
         register_user!
         create_customer!
-        create_terms_and_conditions
         generate_token
+        finish_registration
       end
+    end
+
+    def finish_registration
+      verification_service = Account::VerificationService.new({ user: nil, token: @token })
+      @verification = verification_service.verification
+      validate_token(verification_service)
+      validate_generation_time(verification_service)
+      validate_attempts(verification_service)
+      update_attempts_count
+      return if errors.any?
+      ActiveRecord::Base.transaction do
+        set_active!(verification_service)
+        delete_registration_codes!(verification_service)
+      end
+    end
+
+    def authorization_token
+      "Bearer #{ @auth_token }"
+    end
+
+    def delete_registration_codes!(verification_service)
+      verification_service.verification.destroy
+    end
+
+    def set_active!(verification_service)
+      user = verification_service.verification.user_account
+      user.active = true
+      user.save!
+    end
+
+    def update_attempts_count
+      return if errors.any? || @verification.nil?
+      @verification.failed_attempts_count  = 1
+      @verification.save
+    end
+
+    def validate_token(verification_service)
+      return if errors.any?
+      code = ConfirmationCode.find_by_confirmation_token(verification_service.verification&.confirmation_token)
+      fill_custom_errors(self, :confirmation_token, :invalid, I18n.t("custom.errors.invalid_token")) unless code
+    end
+
+    def validate_attempts(verification_service)
+      return if errors.any?
+      valid_try = verification_service.valid_single_code_retry?
+      fill_custom_errors(self, :sms_code, :invalid_retry_count, I18n.t("custom.errors.registration_attempts_count")) unless valid_try
+    end
+
+    def validate_generation_time(verification_service)
+      return if errors.any?
+      validation = verification_service.valid_generation_time?
+      fill_custom_errors(self, :generation_time,:invalid_time, I18n.t("custom.errors.registration_invalid_time")) unless validation
+    end
+
+    def validate_retry_count(service)
+      return if errors.any?
+      validation = service.valid_retry_count?
+      fill_custom_errors(self, :sms_code, :invalid_retry_count, I18n.t("custom.errors.registration_retry_count")) unless validation
+    end
+
+    def store_auth_token!
+      @auth_token = SecureRandom.hex
+      user_id = @verification.user_account_id
+
+      storage = TokenStorage::AutoLoginTokenService.new
+      storage.store_auth_token(@auth_token, user_id)
+    end
+
+    def store_inactive_user!
+      user = @verification.user_account
+      storage = Account::ConfirmationStorageService.new
+      storage.store_user_in_redis(user, true)
     end
 
     def cancel(token)
@@ -94,7 +164,7 @@ module Account
     end
 
     def register_user!
-      @user = UserAccount.new(@registration_params.slice(:phone_number, :phone_number_iso, :email, :password, :username))
+      @user = UserAccount.new(@registration_params.slice(:phone_number, :phone_number_iso, :email, :password, :username, :first_name, :last_name))
       @user.save
       @errors.concat(fill_errors(@user))
     rescue ActiveRecord::RecordNotUnique
@@ -128,7 +198,6 @@ module Account
                 :invoice_address,
                 :legal_id).
           merge(user_account_id: @user.id,
-                customer_type_id: CustomerType.find_by_id_name(@registration_params[:customer_type].to_sym).id,
                 active: true)
     end
   end

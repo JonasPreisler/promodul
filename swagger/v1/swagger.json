@@ -5516,13 +5516,10 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": {
+                "first_name": {
                   "type": "string"
                 },
-                "delivery_address": {
-                  "type": "string"
-                },
-                "invoice_address": {
+                "last_name": {
                   "type": "string"
                 },
                 "username": {
@@ -5542,28 +5539,15 @@
                 },
                 "password_confirmation": {
                   "type": "string"
-                },
-                "agreed_terms_and_conditions": {
-                  "type": "boolean"
-                },
-                "terms_and_conditions_id": {
-                  "type": "integer"
-                },
-                "customer_type": {
-                  "type": "string"
                 }
               },
               "required": [
-                "customer_type",
-                "name",
-                "delivery_address",
-                "invoice_address",
+                "first_name",
+                "last_name",
                 "phone_number",
                 "username",
                 "password",
-                "password_confirmation",
-                "agreed_terms_and_conditions",
-                "terms_and_conditions_id"
+                "password_confirmation"
               ]
             }
           },

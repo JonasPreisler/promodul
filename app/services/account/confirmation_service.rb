@@ -19,9 +19,8 @@ module Account
         validate_token(verification_service)
         validate_generation_time(verification_service)
         validate_attempts(verification_service)
-        validate_sms_code(verification_service)
+        #validate_sms_code(verification_service)
         update_attempts_count
-
         return if errors.any?
         ActiveRecord::Base.transaction do
           #Changed user confirmatio flow, now user should be confirmed by admin!
@@ -32,7 +31,6 @@ module Account
 
       def send_confirmation
         @verification = Account::VerificationService.new({ user: @user, confirmation_type: @confirmation_type }).generate_codes
-        send_sms
         @verification.confirmation_token
       end
 
