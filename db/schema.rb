@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_184536) do
+ActiveRecord::Schema.define(version: 2021_03_22_210612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -193,6 +193,11 @@ ActiveRecord::Schema.define(version: 2021_03_21_184536) do
     t.index ["country_id"], name: "index_departments_on_country_id"
   end
 
+  create_table "external_resource_types", force: :cascade do |t|
+    t.string "name", limit: 150
+    t.string "id_name", limit: 150
+  end
+
   create_table "integration_systems", force: :cascade do |t|
     t.string "name"
   end
@@ -200,6 +205,11 @@ ActiveRecord::Schema.define(version: 2021_03_21_184536) do
   create_table "locking_types", force: :cascade do |t|
     t.json "name", null: false
     t.string "id_name", limit: 50
+  end
+
+  create_table "machine_models", force: :cascade do |t|
+    t.string "name", limit: 150
+    t.string "id_name", limit: 150
   end
 
   create_table "order_comments", force: :cascade do |t|
@@ -466,6 +476,11 @@ ActiveRecord::Schema.define(version: 2021_03_21_184536) do
     t.string "version", limit: 50, null: false
     t.string "description"
     t.string "terms_and_condition"
+  end
+
+  create_table "tool_models", force: :cascade do |t|
+    t.string "name", limit: 150
+    t.string "id_name", limit: 150
   end
 
   create_table "user_accounts", force: :cascade do |t|

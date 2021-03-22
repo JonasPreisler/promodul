@@ -63,10 +63,19 @@ Rails.application.routes.draw do
 
       post 'settings/country', to: 'settings#country'
       post 'settings/city', to: 'settings#city'
+      post 'settings/machine_model', to: 'settings#machine_model'
+      post 'settings/tool_model', to: 'settings#tool_model'
+      post 'settings/external_source_type', to: 'settings#external_source_type'
       get 'settings/countries', to: 'settings#countries'
       get 'settings/cities', to: 'settings#cities'
+      get 'settings/machine_models', to: 'settings#machine_models'
+      get 'settings/tool_models', to: 'settings#tool_models'
+      get 'settings/external_source_types', to: 'settings#external_source_types'
       delete  'settings/destroy_country', to: 'settings#destroy_country'
       delete  'settings/destroy_city', to: 'settings#destroy_city'
+      delete  'settings/destroy_machine_model', to: 'settings#destroy_machine_model'
+      delete  'settings/destroy_tool_model', to: 'settings#destroy_tool_model'
+      delete  'settings/destroy_external_source_type', to: 'settings#destroy_external_source_type'
 
       resource :companies
       get 'companies/company_list', to: 'companies#company_list'

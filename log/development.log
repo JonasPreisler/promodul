@@ -22084,3 +22084,590 @@ Unpermitted parameters: :format, :locale, :auth
 Completed 200 OK in 74ms (Views: 0.1ms | ActiveRecord: 4.8ms)
 
 
+Started GET "/" for 127.0.0.1 at 2021-03-23 00:41:40 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HealthController#check_health as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-23 00:41:47 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-23 00:41:47 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-23 00:41:47 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-23 00:41:47 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-23 00:41:48 +0400
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:44:09 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:44:59 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:45:00 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-23 00:45:02 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-23 00:45:02 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-23 00:45:02 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-23 00:45:02 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-23 00:45:02 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-23 00:45:02 +0400
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:45:12 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:45:25 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):3
+  [1m[36mUserRole Load (0.8ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):4
+  [1m[36mCustomer Load (1.6ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 114618ms (Views: 0.6ms | ActiveRecord: 19.8ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-23 00:52:22 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-23 00:52:22 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-23 00:52:22 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-23 00:52:22 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-23 00:52:22 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-23 00:52:22 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-23 00:52:41 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-23 00:52:41 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-23 00:52:41 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-23 00:52:41 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-23 00:52:43 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-23 00:52:43 +0400
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:53:37 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 500 Internal Server Error in 24775ms (ActiveRecord: 6.5ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  missing FROM-clause entry for table "user_accounts"
+LINE 1: SELECT user_accounts.id, customers.name, user_accounts.activ...
+               ^
+: SELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" WHERE "user_accounts"."active" = $1):
+  
+app/services/account/users_service.rb:14:in `json_view'
+lib/controller_response.rb:30:in `respond_json_view'
+lib/controller_response.rb:43:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/users_controller.rb:18:in `list'
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:54:18 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 3.1ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  missing FROM-clause entry for table "user_accounts"
+LINE 1: SELECT user_accounts.id, customers.name, user_accounts.activ...
+               ^
+: SELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" WHERE "user_accounts"."active" = $1):
+  
+app/services/account/users_service.rb:14:in `json_view'
+lib/controller_response.rb:30:in `respond_json_view'
+lib/controller_response.rb:43:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/users_controller.rb:17:in `list'
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:54:49 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 2.8ms)
+
+
+  
+ActiveRecord::ConfigurationError (Can't join 'Customer' to association named 'user_accounts'; perhaps you misspelled it?):
+  
+app/services/account/users_service.rb:14:in `json_view'
+lib/controller_response.rb:30:in `respond_json_view'
+lib/controller_response.rb:43:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/users_controller.rb:17:in `list'
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:54:59 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 6.2ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  missing FROM-clause entry for table "user_roles"
+LINE 1: ...ser_accounts.active, user_accounts.phone_number,  user_roles...
+                                                             ^
+: SELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1):
+  
+app/services/account/users_service.rb:14:in `json_view'
+lib/controller_response.rb:30:in `respond_json_view'
+lib/controller_response.rb:43:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/users_controller.rb:17:in `list'
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:55:13 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 3.1ms)
+
+
+  
+ActiveRecord::ConfigurationError (Can't join 'Customer' to association named 'user_accounts'; perhaps you misspelled it?):
+  
+app/services/account/users_service.rb:14:in `json_view'
+lib/controller_response.rb:30:in `respond_json_view'
+lib/controller_response.rb:43:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/users_controller.rb:17:in `list'
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" ORDER BY "customers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:56:07 +0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 6.8ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  missing FROM-clause entry for table "user_roles"
+LINE 1: ...ser_accounts.active, user_accounts.phone_number,  user_roles...
+                                                             ^
+: SELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1):
+  
+app/services/account/users_service.rb:14:in `json_view'
+lib/controller_response.rb:30:in `respond_json_view'
+lib/controller_response.rb:43:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/users_controller.rb:17:in `list'
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:56:51 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number
+                            user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 5.2ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near "."
+LINE 2:                             user_accounts.email, user_accoun...
+                                                 ^
+: SELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number
+                            user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1):
+  
+app/services/account/users_service.rb:14:in `json_view'
+lib/controller_response.rb:30:in `respond_json_view'
+lib/controller_response.rb:43:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/users_controller.rb:17:in `list'
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:57:06 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number
+                            user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near "."
+LINE 2:                             user_accounts.email, user_accoun...
+                                                 ^
+: SELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number
+                            user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1):
+  
+app/services/account/users_service.rb:14:in `json_view'
+lib/controller_response.rb:30:in `respond_json_view'
+lib/controller_response.rb:43:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/users_controller.rb:17:in `list'
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:57:07 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number
+                            user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near "."
+LINE 2:                             user_accounts.email, user_accoun...
+                                                 ^
+: SELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number
+                            user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1):
+  
+app/services/account/users_service.rb:14:in `json_view'
+lib/controller_response.rb:30:in `respond_json_view'
+lib/controller_response.rb:43:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/users_controller.rb:17:in `list'
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:57:08 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number
+                            user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near "."
+LINE 2:                             user_accounts.email, user_accoun...
+                                                 ^
+: SELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number
+                            user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1):
+  
+app/services/account/users_service.rb:14:in `json_view'
+lib/controller_response.rb:30:in `respond_json_view'
+lib/controller_response.rb:43:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/users_controller.rb:17:in `list'
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:57:09 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number
+                            user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near "."
+LINE 2:                             user_accounts.email, user_accoun...
+                                                 ^
+: SELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number
+                            user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1):
+  
+app/services/account/users_service.rb:14:in `json_view'
+lib/controller_response.rb:30:in `respond_json_view'
+lib/controller_response.rb:43:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/users_controller.rb:17:in `list'
+  [1m[36mCustomer Load (0.7ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number, user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:57:57 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.8ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 39ms (Views: 1.2ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 00:58:04 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.5ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateMachineModels (20210322210527)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (28.1ms)[0m  [1m[35mCREATE TABLE "machine_models" ("id" bigserial primary key, "name" character varying(150), "id_name" character varying(150))[0m
+  ↳ db/migrate/20210322210527_create_machine_models.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210322210527"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateToolModels (20210322210542)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "tool_models" ("id" bigserial primary key, "name" character varying(150), "id_name" character varying(150))[0m
+  ↳ db/migrate/20210322210542_create_tool_models.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210322210542"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateExternalResourceTypes (20210322210612)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "external_resource_types" ("id" bigserial primary key, "name" character varying(150), "id_name" character varying(150))[0m
+  ↳ db/migrate/20210322210612_create_external_resource_types.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210322210612"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mMachineModel Load (0.3ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" ORDER BY "machine_models"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-23 02:00:13 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-23 02:00:13 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-23 02:00:13 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-23 02:00:13 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-23 02:00:13 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-23 02:00:13 +0400
+Started POST "/en/settings/machine_model" for 127.0.0.1 at 2021-03-23 02:00:54 +0400
+Processing by SettingsController#machine_model as JSON
+  Parameters: {"name"=>"BMW", "locale"=>"en", "setting"=>{"name"=>"BMW"}}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/settings/machine_model" for 127.0.0.1 at 2021-03-23 02:01:11 +0400
+Processing by SettingsController#machine_model as JSON
+  Parameters: {"name"=>"BMW", "locale"=>"en", "setting"=>{"name"=>"BMW"}}
+Unpermitted parameters: :format, :locale, :setting
+  [1m[36mMachineModel Load (0.5ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id_name" = $1 ORDER BY "machine_models"."id" ASC LIMIT $2[0m  [["id_name", "bmw"], ["LIMIT", 1]]
+  ↳ app/services/settings/models_service.rb:51
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/models_service.rb:52
+  [1m[36mMachineModel Create (0.5ms)[0m  [1m[32mINSERT INTO "machine_models" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "BMW"], ["id_name", "bmw"]]
+  ↳ app/services/settings/models_service.rb:52
+  [1m[35m (23.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/settings/models_service.rb:52
+Completed 200 OK in 38ms (Views: 0.5ms | ActiveRecord: 28.3ms)
+
+
+Started POST "/en/settings/machine_model" for 127.0.0.1 at 2021-03-23 02:01:28 +0400
+Processing by SettingsController#machine_model as JSON
+  Parameters: {"name"=>"Opel", "locale"=>"en", "setting"=>{"name"=>"Opel"}}
+Unpermitted parameters: :format, :locale, :setting
+  [1m[36mMachineModel Load (0.3ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id_name" = $1 ORDER BY "machine_models"."id" ASC LIMIT $2[0m  [["id_name", "opel"], ["LIMIT", 1]]
+  ↳ app/services/settings/models_service.rb:51
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/models_service.rb:52
+  [1m[36mMachineModel Create (0.2ms)[0m  [1m[32mINSERT INTO "machine_models" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Opel"], ["id_name", "opel"]]
+  ↳ app/services/settings/models_service.rb:52
+  [1m[35m (36.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/settings/models_service.rb:52
+Completed 200 OK in 39ms (Views: 0.2ms | ActiveRecord: 36.7ms)
+
+
+Started POST "/en/settings/tool_model" for 127.0.0.1 at 2021-03-23 02:01:41 +0400
+Processing by SettingsController#tool_model as JSON
+  Parameters: {"name"=>"Cat", "locale"=>"en", "setting"=>{"name"=>"Cat"}}
+Unpermitted parameters: :format, :locale, :setting
+  [1m[36mToolModel Load (0.5ms)[0m  [1m[34mSELECT  "tool_models".* FROM "tool_models" WHERE "tool_models"."id_name" = $1 ORDER BY "tool_models"."id" ASC LIMIT $2[0m  [["id_name", "cat"], ["LIMIT", 1]]
+  ↳ app/services/settings/models_service.rb:57
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/models_service.rb:58
+  [1m[36mToolModel Create (0.6ms)[0m  [1m[32mINSERT INTO "tool_models" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Cat"], ["id_name", "cat"]]
+  ↳ app/services/settings/models_service.rb:58
+  [1m[35m (19.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/settings/models_service.rb:58
+Completed 200 OK in 43ms (Views: 0.4ms | ActiveRecord: 23.5ms)
+
+
+Started POST "/en/settings/tool_model" for 127.0.0.1 at 2021-03-23 02:01:47 +0400
+Processing by SettingsController#tool_model as JSON
+  Parameters: {"name"=>"Man", "locale"=>"en", "setting"=>{"name"=>"Man"}}
+Unpermitted parameters: :format, :locale, :setting
+  [1m[36mToolModel Load (0.4ms)[0m  [1m[34mSELECT  "tool_models".* FROM "tool_models" WHERE "tool_models"."id_name" = $1 ORDER BY "tool_models"."id" ASC LIMIT $2[0m  [["id_name", "man"], ["LIMIT", 1]]
+  ↳ app/services/settings/models_service.rb:57
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/models_service.rb:58
+  [1m[36mToolModel Create (0.3ms)[0m  [1m[32mINSERT INTO "tool_models" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Man"], ["id_name", "man"]]
+  ↳ app/services/settings/models_service.rb:58
+  [1m[35m (36.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/settings/models_service.rb:58
+Completed 200 OK in 42ms (Views: 0.6ms | ActiveRecord: 37.3ms)
+
+
+Started POST "/en/settings/external_source_type" for 127.0.0.1 at 2021-03-23 02:01:59 +0400
+Processing by SettingsController#external_source_type as JSON
+  Parameters: {"name"=>"Bosh", "locale"=>"en", "setting"=>{"name"=>"Bosh"}}
+Unpermitted parameters: :format, :locale, :setting
+  [1m[36mExternalResourceType Load (1.2ms)[0m  [1m[34mSELECT  "external_resource_types".* FROM "external_resource_types" WHERE "external_resource_types"."id_name" = $1 ORDER BY "external_resource_types"."id" ASC LIMIT $2[0m  [["id_name", "bosh"], ["LIMIT", 1]]
+  ↳ app/services/settings/models_service.rb:63
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/models_service.rb:64
+  [1m[36mExternalResourceType Create (1.1ms)[0m  [1m[32mINSERT INTO "external_resource_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Bosh"], ["id_name", "bosh"]]
+  ↳ app/services/settings/models_service.rb:64
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/settings/models_service.rb:64
+Completed 200 OK in 38ms (Views: 0.3ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/en/settings/machine_models" for 127.0.0.1 at 2021-03-23 02:02:07 +0400
+Processing by SettingsController#machine_models as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `gsub' for nil:NilClass):
+  
+app/services/settings/models_service.rb:11:in `initialize'
+app/controllers/settings_controller.rb:45:in `new'
+app/controllers/settings_controller.rb:45:in `machine_models'
+Started GET "/en/settings/machine_models" for 127.0.0.1 at 2021-03-23 02:02:33 +0400
+Processing by SettingsController#machine_models as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mMachineModel Load (0.3ms)[0m  [1m[34mSELECT "machine_models".* FROM "machine_models"[0m
+  ↳ app/services/settings/models_service.rb:39
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/en/settings/tool_models" for 127.0.0.1 at 2021-03-23 02:02:46 +0400
+Processing by SettingsController#tool_models as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mToolModel Load (0.5ms)[0m  [1m[34mSELECT "tool_models".* FROM "tool_models"[0m
+  ↳ app/services/settings/models_service.rb:43
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/en/settings/external_source_types" for 127.0.0.1 at 2021-03-23 02:02:56 +0400
+Processing by SettingsController#external_source_types as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `external_source_types' for #<Settings::ModelsService:0x00007f444824c190>):
+  
+app/controllers/settings_controller.rb:52:in `external_source_types'
+Started GET "/en/settings/external_source_types" for 127.0.0.1 at 2021-03-23 02:03:26 +0400
+Processing by SettingsController#external_source_types as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mExternalResourceType Load (0.3ms)[0m  [1m[34mSELECT "external_resource_types".* FROM "external_resource_types"[0m
+  ↳ app/services/settings/models_service.rb:47
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 3.1ms)
+
+
+Started DELETE "/en/settings/destroy_machine_model?id=1" for 127.0.0.1 at 2021-03-23 02:03:35 +0400
+Processing by SettingsController#destroy_machine_model as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mMachineModel Load (0.2ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/settings/models_service.rb:81
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/models_service.rb:82
+  [1m[36mMachineModel Destroy (0.3ms)[0m  [1m[31mDELETE FROM "machine_models" WHERE "machine_models"."id" = $1[0m  [["id", 1]]
+  ↳ app/services/settings/models_service.rb:82
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/settings/models_service.rb:82
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 8.0ms)
+
+
+Started DELETE "/en/settings/destroy_tool_model?id=2" for 127.0.0.1 at 2021-03-23 02:03:44 +0400
+Processing by SettingsController#destroy_tool_model as JSON
+  Parameters: {"id"=>"2", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mToolModel Load (0.2ms)[0m  [1m[34mSELECT  "tool_models".* FROM "tool_models" WHERE "tool_models"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/settings/models_service.rb:93
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/models_service.rb:94
+  [1m[36mToolModel Destroy (0.4ms)[0m  [1m[31mDELETE FROM "tool_models" WHERE "tool_models"."id" = $1[0m  [["id", 2]]
+  ↳ app/services/settings/models_service.rb:94
+  [1m[35m (36.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/settings/models_service.rb:94
+Completed 200 OK in 46ms (Views: 0.2ms | ActiveRecord: 40.3ms)
+
+
+Started DELETE "/en/settings/destroy_external_source_type?id=1" for 127.0.0.1 at 2021-03-23 02:03:52 +0400
+Processing by SettingsController#destroy_external_source_type as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mExternalResourceType Load (0.2ms)[0m  [1m[34mSELECT  "external_resource_types".* FROM "external_resource_types" WHERE "external_resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/settings/models_service.rb:87
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/models_service.rb:88
+  [1m[36mExternalResourceType Destroy (0.3ms)[0m  [1m[31mDELETE FROM "external_resource_types" WHERE "external_resource_types"."id" = $1[0m  [["id", 1]]
+  ↳ app/services/settings/models_service.rb:88
+  [1m[35m (36.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/settings/models_service.rb:88
+Completed 200 OK in 40ms (Views: 0.2ms | ActiveRecord: 37.0ms)
+
+
+Started GET "/en/settings/machine_models" for 127.0.0.1 at 2021-03-23 02:04:00 +0400
+Processing by SettingsController#machine_models as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mMachineModel Load (0.3ms)[0m  [1m[34mSELECT "machine_models".* FROM "machine_models"[0m
+  ↳ app/services/settings/models_service.rb:39
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/en/settings/tool_models" for 127.0.0.1 at 2021-03-23 02:04:06 +0400
+Processing by SettingsController#tool_models as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mToolModel Load (0.2ms)[0m  [1m[34mSELECT "tool_models".* FROM "tool_models"[0m
+  ↳ app/services/settings/models_service.rb:43
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/en/settings/external_source_types" for 127.0.0.1 at 2021-03-23 02:04:10 +0400
+Processing by SettingsController#external_source_types as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mExternalResourceType Load (0.3ms)[0m  [1m[34mSELECT "external_resource_types".* FROM "external_resource_types"[0m
+  ↳ app/services/settings/models_service.rb:47
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+

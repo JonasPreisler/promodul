@@ -5597,240 +5597,6 @@
             }
           }
         }
-      },
-      "put": {
-        "summary": "Confirm registration",
-        "tags": [
-          "Registration"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "params",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "sms_code": {
-                  "type": "string"
-                },
-                "token": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "sms_code",
-                "token"
-              ]
-            }
-          },
-          {
-            "name": "locale",
-            "in": "path",
-            "type": "string",
-            "required": true,
-            "default": "en"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "token": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          }
-        }
-      }
-    },
-    "/{locale}/account/registration/sms_code": {
-      "post": {
-        "summary": "Get new sms code",
-        "tags": [
-          "Registration"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "locale",
-            "in": "path",
-            "type": "string",
-            "required": true,
-            "default": "ka"
-          },
-          {
-            "name": "params",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "token": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "token"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No content"
-          },
-          "400": {
-            "description": "Bad request"
-          }
-        }
-      }
-    },
-    "/{locale}/account/registration/customer_types": {
-      "get": {
-        "summary": "customer types",
-        "tags": [
-          "Registration"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "locale",
-            "in": "path",
-            "type": "string",
-            "required": true,
-            "default": "en"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "customer_types": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
-                    "id_name": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          }
-        }
-      }
-    },
-    "/{locale}/account/registration/create_customer": {
-      "post": {
-        "summary": "Customer registration",
-        "tags": [
-          "Registration"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "params",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "delivery_address": {
-                  "type": "string"
-                },
-                "invoice_address": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "user_account_id": {
-                  "type": "integer"
-                },
-                "customer_type": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "customer_type",
-                "delivery_address",
-                "invoice_address",
-                "user_account_id"
-              ]
-            }
-          },
-          {
-            "name": "locale",
-            "in": "path",
-            "type": "string",
-            "required": true,
-            "default": "en"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "confirmation_token": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "errors": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "message": {
-                        "type": "string"
-                      },
-                      "code": {
-                        "type": "integer"
-                      },
-                      "field": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
       }
     },
     "/{locale}/role_groups": {
@@ -6834,6 +6600,213 @@
         }
       }
     },
+    "/{locale}/settings/machine_model": {
+      "post": {
+        "summary": "Add machine model into the system",
+        "tags": [
+          "Settings"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "params",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "machine_model": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "id_name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/{locale}/settings/tool_model": {
+      "post": {
+        "summary": "Add tool model into the system",
+        "tags": [
+          "Settings"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "params",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "tool_model": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "id_name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/{locale}/settings/external_source_type": {
+      "post": {
+        "summary": "Add external_source_type into the system",
+        "tags": [
+          "Settings"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "params",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "external_type": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "id_name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
     "/{locale}/settings/city": {
       "post": {
         "summary": "Add city into the system",
@@ -7043,6 +7016,189 @@
         }
       }
     },
+    "/{locale}/settings/machine_models": {
+      "get": {
+        "summary": "Returns machine models",
+        "tags": [
+          "Settings"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "Client token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "machine_models": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "id_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{locale}/settings/tool_models": {
+      "get": {
+        "summary": "Returns tool models",
+        "tags": [
+          "Settings"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "Client token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "tool_models": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "id_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{locale}/settings/external_source_types": {
+      "get": {
+        "summary": "Returns external types models",
+        "tags": [
+          "Settings"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "Client token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "external_source_types": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "id_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+              }
+            }
+          }
+        }
+      }
+    },
     "/{locale}/settings/destroy_country": {
       "delete": {
         "summary": "delete country",
@@ -7093,6 +7249,153 @@
       }
     },
     "/{locale}/settings/destroy_city": {
+      "delete": {
+        "summary": "delete city",
+        "tags": [
+          "Settings"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/{locale}/settings/destroy_machine_model": {
+      "delete": {
+        "summary": "delete city",
+        "tags": [
+          "Settings"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/{locale}/settings/destroy_tool_model": {
+      "delete": {
+        "summary": "delete city",
+        "tags": [
+          "Settings"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/{locale}/settings/destroy_external_source_type": {
       "delete": {
         "summary": "delete city",
         "tags": [
@@ -9068,64 +9371,6 @@
         }
       }
     },
-    "/{locale}/users/approve_registration": {
-      "post": {
-        "summary": "Approve user registration",
-        "tags": [
-          "Users"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "header",
-            "type": "string",
-            "name": "Authorization",
-            "required": true,
-            "description": "JWT token"
-          },
-          {
-            "name": "id",
-            "in": "query",
-            "type": "integer",
-            "required": true
-          },
-          {
-            "name": "role_group_id",
-            "in": "query",
-            "type": "integer",
-            "required": true
-          },
-          {
-            "name": "locale",
-            "in": "path",
-            "type": "string",
-            "required": true,
-            "default": "en"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "success": {
-                  "type": "boolean"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          }
-        }
-      }
-    },
     "/{locale}/users/list": {
       "get": {
         "summary": "Get Users list",
@@ -9190,75 +9435,6 @@
                         "type": "integer"
                       },
                       "role_name": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          }
-        }
-      }
-    },
-    "/{locale}/users/unconfirmed_list": {
-      "get": {
-        "summary": "Get unconfirmed Users list",
-        "tags": [
-          "Users"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "header",
-            "type": "string",
-            "name": "Authorization",
-            "required": true,
-            "description": "JWT token"
-          },
-          {
-            "name": "locale",
-            "in": "path",
-            "type": "string",
-            "required": true,
-            "default": "en"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "users": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
-                      "name": {
-                        "type": "string"
-                      },
-                      "active": {
-                        "type": "boolean"
-                      },
-                      "phone_number": {
-                        "type": "string"
-                      },
-                      "username": {
-                        "type": "string"
-                      },
-                      "email": {
                         "type": "string"
                       }
                     }
@@ -9525,52 +9701,6 @@
                       }
                     }
                   }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          }
-        }
-      }
-    },
-    "/{locale}/users/listen_to_unconfirmed_users": {
-      "get": {
-        "summary": "Listening to unconfirmed users",
-        "tags": [
-          "Users"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "header",
-            "type": "string",
-            "name": "Authorization",
-            "required": true,
-            "description": "JWT token"
-          },
-          {
-            "name": "locale",
-            "in": "path",
-            "type": "string",
-            "required": true,
-            "default": "en"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "pending": {
-                  "type": "integer"
                 }
               }
             }

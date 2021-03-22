@@ -24,10 +24,17 @@ module Account
 
     def users_list
       @users = Customer
-                   .select("user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
-                            user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name")
-                   .joins(user_account: [user_role: :role_group])
+                   .select("user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username")
+                   .joins(:user_account)
                    .where(user_accounts: { active: true})
+
+        #ToDo: Change query when we add roles.
+      #@users = Customer
+      #             .select("user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
+      #                      user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name")
+      #             .joins(user_account: [user_role: :role_group])
+      #             .where(user_accounts: { active: true})
     end
 
     def unconfirmed_users_list
