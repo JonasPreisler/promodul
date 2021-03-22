@@ -1,6 +1,6 @@
 module Products
   class EsSearchService
-    include Umg::ErrorsFormat
+    include ErrorsFormat
     require 'chewy_helper'
 
     attr_reader :search_params, :errors, :response_code, :total, :search_result
