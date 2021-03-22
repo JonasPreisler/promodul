@@ -21803,3 +21803,219 @@ Completed 200 OK in 125ms (Views: 0.2ms | ActiveRecord: 4.3ms)
   [1m[36mRoleGroup Load (36.5ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mProductGroupPermission Load (3.9ms)[0m  [1m[34mSELECT  "product_group_permissions".* FROM "product_group_permissions" ORDER BY "product_group_permissions"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-22 14:16:19 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-22 14:16:19 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-22 14:16:19 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-22 14:16:19 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-22 14:16:19 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-22 14:16:19 +0400
+Started POST "/en/auth" for 127.0.0.1 at 2021-03-22 14:16:31 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (1.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = $1 OR "user_accounts"."phone_number" = $2) AND "user_accounts"."active" = $3 ORDER BY "user_accounts"."id" ASC LIMIT $4[0m  [["username", "bukabuka"], ["phone_number", "bukabuka"], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:9
+  [1m[36mLockingType Load (0.3ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:38
+  [1m[36mCACHE LockingType Load (0.0ms)[0m  [1m[34mSELECT  "locking_types".* FROM "locking_types" WHERE "locking_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "password_error_limited"], ["LIMIT", 1]]
+  ↳ app/services/auth/locking_management_service.rb:152
+Method: has_failed_attempts?, Error: undefined method `+' for nil:NilClass
+Method: auth_current_user!, Error: undefined method `>' for true:TrueClass
+Completed 500 Internal Server Error in 767ms (Views: 0.6ms | ActiveRecord: 9.8ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2021-03-22 14:20:32 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+Completed 401 Unauthorized in 8011ms (Views: 0.1ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/en/account/registration" for 127.0.0.1 at 2021-03-22 14:21:34 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"first_name"=>"kaia", "last_name"=>"kata", "username"=>"kaiakata", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"string@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "locale"=>"en", "registration"=>{"first_name"=>"kaia", "last_name"=>"kata", "username"=>"kaiakata", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"string@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mCountryPhoneIndex Load (1.3ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation_service.rb:21
+  [1m[36mCACHE CountryPhoneIndex Load (0.0ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:30
+  [1m[36mUserAccount Create (0.5ms)[0m  [1m[32mINSERT INTO "user_accounts" ("phone_number", "email", "crypted_password", "created_at", "updated_at", "salt", "username", "phone_number_iso", "first_name", "last_name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["phone_number", "577520250"], ["email", "string@gmail.com"], ["crypted_password", "$2a$10$d8XqAzTifYceh6CTsxMX6.Ac4siFfzqUoAOIENULAnGN4muRtvROq"], ["created_at", "2021-03-22 10:21:34.593020"], ["updated_at", "2021-03-22 10:21:34.593020"], ["salt", "2iCBQLqtDMEVRsyJSpif"], ["username", "kaiakata"], ["phone_number_iso", "GE"], ["first_name", "kaia"], ["last_name", "kata"]]
+  ↳ app/services/account/registration_service.rb:168
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 91], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:176
+  [1m[36mCustomer Create (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("user_account_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_account_id", 91], ["created_at", "2021-03-22 10:21:34.638818"], ["updated_at", "2021-03-22 10:21:34.638818"]]
+  ↳ app/services/account/registration_service.rb:176
+  [1m[36mConfirmationType Load (0.3ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "registration"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:15
+  [1m[36mConfirmationCode Load (0.7ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."user_account_id" = $1 AND "confirmation_codes"."confirmation_type_id" = $2 ORDER BY "confirmation_codes"."id" ASC LIMIT $3[0m  [["user_account_id", 91], ["confirmation_type_id", 2], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:16
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 91], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationCode Create (0.7ms)[0m  [1m[32mINSERT INTO "confirmation_codes" ("confirmation_token", "sms_code", "generation_time", "failed_attempts_count", "user_account_id", "confirmation_type_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["confirmation_token", "eSujDCxdacnukc5ygaS7pJAD"], ["sms_code", "pending"], ["generation_time", "2021-03-22 10:21:34.690660"], ["failed_attempts_count", 0], ["user_account_id", 91], ["confirmation_type_id", 2]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationCode Load (0.7ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "eSujDCxdacnukc5ygaS7pJAD"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mCACHE ConfirmationCode Load (0.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "eSujDCxdacnukc5ygaS7pJAD"], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:74
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 91], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:69
+  [1m[36mConfirmationCode Update (0.4ms)[0m  [1m[33mUPDATE "confirmation_codes" SET "failed_attempts_count" = $1 WHERE "confirmation_codes"."id" = $2[0m  [["failed_attempts_count", 1], ["id", 61]]
+  ↳ app/services/account/registration_service.rb:69
+  [1m[36mUserAccount Update (0.4ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1, "updated_at" = $2 WHERE "user_accounts"."id" = $3[0m  [["active", true], ["updated_at", "2021-03-22 10:21:34.725944"], ["id", 91]]
+  ↳ app/services/account/registration_service.rb:63
+  [1m[36mConfirmationCode Destroy (0.3ms)[0m  [1m[31mDELETE FROM "confirmation_codes" WHERE "confirmation_codes"."id" = $1[0m  [["id", 61]]
+  ↳ app/services/account/registration_service.rb:57
+  [1m[35m (36.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/registration_service.rb:30
+Completed 200 OK in 264ms (Views: 0.2ms | ActiveRecord: 58.3ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2021-03-22 14:21:48 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"kaiakata", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"kaiakata", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'kaiakata' OR "user_accounts"."phone_number" = 'kaiakata') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+Completed 401 Unauthorized in 4049ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2021-03-22 14:21:59 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"kaiakata", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"kaiakata", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'kaiakata' OR "user_accounts"."phone_number" = 'kaiakata') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'kaiakata' OR "user_accounts"."phone_number" = 'kaiakata') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+Completed 401 Unauthorized in 64906ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2021-03-22 14:23:06 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"kaiakata", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"kaiakata", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'kaiakata' OR "user_accounts"."phone_number" = 'kaiakata') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1[0m  [["username", "kaiakata"]]
+  ↳ app/services/auth/service.rb:158
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'kaiakata' OR "user_accounts"."phone_number" = 'kaiakata') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'kaiakata' OR "user_accounts"."phone_number" = 'kaiakata') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'kaiakata' OR "user_accounts"."phone_number" = 'kaiakata') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+Completed 401 Unauthorized in 207637ms (Views: 0.1ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/en/account/registration" for 127.0.0.1 at 2021-03-22 14:27:00 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"first_name"=>"kaia", "last_name"=>"kata", "username"=>"bukabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"string@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "locale"=>"en", "registration"=>{"first_name"=>"kaia", "last_name"=>"kata", "username"=>"bukabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"string@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[36mCountryPhoneIndex Load (0.5ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation_service.rb:21
+  [1m[36mCACHE CountryPhoneIndex Load (0.0ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" WHERE "country_phone_indices"."iso_code" = $1 LIMIT $2[0m  [["iso_code", "GE"], ["LIMIT", 1]]
+  ↳ app/services/validations/phone_number_validation.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:30
+  [1m[36mUserAccount Create (0.4ms)[0m  [1m[32mINSERT INTO "user_accounts" ("phone_number", "email", "crypted_password", "created_at", "updated_at", "salt", "username", "phone_number_iso", "first_name", "last_name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["phone_number", "577520250"], ["email", "string@gmail.com"], ["crypted_password", "$2a$10$l14dV0TTDcXGwvonlagC7eBKvQFRRD.vSXEwrODhppkG5R1q2ZBea"], ["created_at", "2021-03-22 10:27:00.615800"], ["updated_at", "2021-03-22 10:27:00.615800"], ["salt", "AnckPUUVtkWPusMktQx9"], ["username", "bukabuka"], ["phone_number_iso", "GE"], ["first_name", "kaia"], ["last_name", "kata"]]
+  ↳ app/services/account/registration_service.rb:168
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:176
+  [1m[36mCustomer Create (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("user_account_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_account_id", 92], ["created_at", "2021-03-22 10:27:00.630178"], ["updated_at", "2021-03-22 10:27:00.630178"]]
+  ↳ app/services/account/registration_service.rb:176
+  [1m[36mConfirmationType Load (0.2ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "registration"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:15
+  [1m[36mConfirmationCode Load (0.4ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."user_account_id" = $1 AND "confirmation_codes"."confirmation_type_id" = $2 ORDER BY "confirmation_codes"."id" ASC LIMIT $3[0m  [["user_account_id", 92], ["confirmation_type_id", 2], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:16
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationCode Create (0.5ms)[0m  [1m[32mINSERT INTO "confirmation_codes" ("confirmation_token", "sms_code", "generation_time", "failed_attempts_count", "user_account_id", "confirmation_type_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["confirmation_token", "6GFcuY59EgdTUhCRUbJuA4CC"], ["sms_code", "pending"], ["generation_time", "2021-03-22 10:27:00.652733"], ["failed_attempts_count", 0], ["user_account_id", 92], ["confirmation_type_id", 2]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationCode Load (0.2ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "6GFcuY59EgdTUhCRUbJuA4CC"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mCACHE ConfirmationCode Load (0.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "6GFcuY59EgdTUhCRUbJuA4CC"], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:74
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:69
+  [1m[36mConfirmationCode Update (0.5ms)[0m  [1m[33mUPDATE "confirmation_codes" SET "failed_attempts_count" = $1 WHERE "confirmation_codes"."id" = $2[0m  [["failed_attempts_count", 1], ["id", 62]]
+  ↳ app/services/account/registration_service.rb:69
+  [1m[36mUserAccount Update (0.6ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1, "updated_at" = $2 WHERE "user_accounts"."id" = $3[0m  [["active", true], ["updated_at", "2021-03-22 10:27:00.661106"], ["id", 92]]
+  ↳ app/services/account/registration_service.rb:63
+  [1m[36mConfirmationCode Destroy (0.3ms)[0m  [1m[31mDELETE FROM "confirmation_codes" WHERE "confirmation_codes"."id" = $1[0m  [["id", 62]]
+  ↳ app/services/account/registration_service.rb:57
+  [1m[35m (36.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/registration_service.rb:30
+Completed 200 OK in 169ms (Views: 0.4ms | ActiveRecord: 55.8ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2021-03-22 14:27:30 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+Completed 401 Unauthorized in 5194ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/auth" for 127.0.0.1 at 2021-03-22 14:31:38 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE ("user_accounts"."username" = 'bukabuka' OR "user_accounts"."phone_number" = 'bukabuka') AND "user_accounts"."active" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ config/initializers/active_record_adapter.rb:23
+Completed 200 OK in 32569ms (Views: 0.2ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2021-03-22 14:33:04 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1[0m  [["username", "bukabuka"]]
+  ↳ app/services/auth/service.rb:158
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ (pry):4
+Method: auth_current_user!, Error: at least 2 arguments required
+Completed 500 Internal Server Error in 66188ms (Views: 0.2ms | ActiveRecord: 6.4ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2021-03-22 14:34:12 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:161
+Completed 200 OK in 4094ms (Views: 0.2ms | ActiveRecord: 6.4ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2021-03-22 14:35:05 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"kaiakata", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"kaiakata", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "kaiakata"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 64ms (Views: 0.2ms | ActiveRecord: 8.9ms)
+
+

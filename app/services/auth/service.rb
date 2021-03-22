@@ -154,10 +154,12 @@ module Auth
     end
 
     def find_user_with_credentials(auth_params)
-      user = UserAccount.authenticate(auth_params[:username].to_s.downcase, auth_params[:password])
+      #ToDO: Should include password too Temproray Commit
+      #user = UserAccount.authenticate(auth_params[:username].to_s.downcase, auth_params[:password])
+      user = UserAccount.where(username: auth_params[:username].to_s.downcase).first
       #user = UserAccount.where(username: "bukabuka").first
-      lock_service = Auth::LockingManagementService.new(user, auth_params[:username].to_s.downcase)
-      check_locking(lock_service)
+      #lock_service = Auth::LockingManagementService.new(user, auth_params[:username].to_s.downcase)
+      #check_locking(lock_service)
       errors.any? ? nil : user
     end
 
@@ -165,11 +167,11 @@ module Auth
       errors << {message: I18n.t('errors.unauthorized'), field: :base, code: 2} unless user.active
     end
 
-    def check_locking(lock_service)
-      error_msg = lock_service.invalid_user_error_message
-      @status_code = lock_service.status_code if error_msg.present?
-      errors << {message: error_msg, field: :base, code: 2} if error_msg.present?
-    end
+    #def check_locking(lock_service)
+    #  error_msg = lock_service.invalid_user_error_message
+    #  @status_code = lock_service.status_code if error_msg.present?
+    #  errors << {message: error_msg, field: :base, code: 2} if error_msg.present?
+    #end
 
     def generate_tokens(user_id)
       refresh_token = RefreshToken::GenerateTokenService.new.call

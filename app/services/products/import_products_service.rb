@@ -9,7 +9,6 @@ module Products
     end
 
     def create_and_call
-      binding.pry
       Products::ImportProductsWorker.new.perform(params, 52)
       #Xlsx::ImportTransactionsWorker.perform_async(params, current_user.id)
     end
