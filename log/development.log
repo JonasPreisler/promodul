@@ -23445,3 +23445,215 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 22ms (Views: 0.3ms | ActiveRecord: 5.9ms)
 
 
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 983], ["LIMIT", 1]]
+  [1m[36mResource Load (0.9ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 983], ["LIMIT", 1]]
+  [1m[36mResource Load (0.8ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-28 02:48:35 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-28 02:48:35 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-28 02:48:35 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-28 02:48:35 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-28 02:48:36 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-28 02:48:36 +0400
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-03-28 02:48:45 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResource Load (0.9ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:56
+  [1m[36mResource Load (0.7ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  ↳ app/services/resources/resources_service.rb:64
+  [1m[36mResource Load (0.8ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as external_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:73
+Completed 200 OK in 32ms (Views: 0.4ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-03-28 02:48:45 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResource Load (0.6ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:56
+  [1m[36mResource Load (0.6ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  ↳ app/services/resources/resources_service.rb:64
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as external_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:73
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.7ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-28 02:49:48 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-28 02:49:48 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-28 02:49:48 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-28 02:49:48 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-28 02:49:48 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-28 02:49:48 +0400
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-03-28 02:49:57 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResource Load (2.0ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:56
+  [1m[36mResource Load (0.6ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  ↳ app/services/resources/resources_service.rb:64
+  [1m[36mResource Load (0.6ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as external_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:73
+Completed 200 OK in 31ms (Views: 0.5ms | ActiveRecord: 13.9ms)
+
+
+Started PUT "/en/resources" for 127.0.0.1 at 2021-03-28 02:50:39 +0400
+Processing by ResourcesController#update as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResourceType Load (0.3ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:113
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:131
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/services/resources/resources_service.rb:126:in `update_resource_obj'
+app/services/resources/resources_service.rb:78:in `update_resource'
+app/controllers/resources_controller.rb:28:in `update'
+Started PUT "/en/resources" for 127.0.0.1 at 2021-03-28 02:51:04 +0400
+Processing by ResourcesController#update as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResourceType Load (0.2ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:113
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):1
+  [1m[36mCACHE Resource Load (0.0ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:132
+Completed 500 Internal Server Error in 24649ms (ActiveRecord: 6.0ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/services/resources/resources_service.rb:127:in `update_resource_obj'
+app/services/resources/resources_service.rb:78:in `update_resource'
+app/controllers/resources_controller.rb:29:in `update'
+Started PUT "/en/resources" for 127.0.0.1 at 2021-03-28 02:51:42 +0400
+Processing by ResourcesController#update as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResourceType Load (0.4ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:113
+  [1m[36mResource Load (1.0ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:132
+Completed 500 Internal Server Error in 23508ms (ActiveRecord: 1.4ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/services/resources/resources_service.rb:127:in `update_resource_obj'
+app/services/resources/resources_service.rb:78:in `update_resource'
+app/controllers/resources_controller.rb:29:in `update'
+Started PUT "/en/resources" for 127.0.0.1 at 2021-03-28 02:53:13 +0400
+Processing by ResourcesController#update as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResourceType Load (0.4ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:113
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:132
+Completed 500 Internal Server Error in 18631ms (ActiveRecord: 0.8ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/services/resources/resources_service.rb:127:in `update_resource_obj'
+app/services/resources/resources_service.rb:78:in `update_resource'
+app/controllers/resources_controller.rb:29:in `update'
+Started PUT "/en/resources" for 127.0.0.1 at 2021-03-28 02:53:53 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ResourcesController#update as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Unpermitted parameters: :format, :locale
+  [1m[36mResourceType Load (0.8ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:113
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:132
+Completed 500 Internal Server Error in 26162ms (ActiveRecord: 5.0ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/services/resources/resources_service.rb:127:in `update_resource_obj'
+app/services/resources/resources_service.rb:78:in `update_resource'
+app/controllers/resources_controller.rb:29:in `update'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-28 02:56:04 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-28 02:56:04 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-28 02:56:04 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-28 02:56:04 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-28 02:56:05 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-28 02:56:05 +0400
+Started PUT "/en/resources" for 127.0.0.1 at 2021-03-28 02:56:18 +0400
+Processing by ResourcesController#update as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResourceType Load (0.6ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:113
+  [1m[36mResource Load (0.6ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:132
+Completed 500 Internal Server Error in 24676ms (ActiveRecord: 5.9ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/services/resources/resources_service.rb:127:in `update_resource_obj'
+app/services/resources/resources_service.rb:78:in `update_resource'
+app/controllers/resources_controller.rb:29:in `update'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-28 02:57:47 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-28 02:57:47 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-28 02:57:47 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-28 02:57:47 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-28 02:57:49 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-28 02:57:49 +0400
+Started PUT "/en/resources" for 127.0.0.1 at 2021-03-28 02:57:59 +0400
+Processing by ResourcesController#update as JSON
+  Parameters: {"id"=>1, "name"=>"kaia chnageebiii", "description"=>"aba description", "resource_type_id"=>1, "model_on_type"=>"MachineModel", "model_on_id"=>2, "locale"=>"en", "resource"=>{"id"=>1, "resource_type_id"=>1, "model_on_type"=>"MachineModel", "model_on_id"=>2, "name"=>"kaia chnageebiii", "description"=>"aba description"}}
+Unpermitted parameters: :format, :locale, :resource
+  [1m[36mResourceType Load (0.3ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:113
+  [1m[36mResource Load (1.0ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:132
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/resources_service.rb:127
+  [1m[36mMachineModel Load (0.6ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:127
+  [1m[36mCACHE ResourceType Load (0.0ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:127
+  [1m[36mResource Update (0.5ms)[0m  [1m[33mUPDATE "resources" SET "name" = $1, "description" = $2 WHERE "resources"."id" = $3[0m  [["name", "kaia chnageebiii"], ["description", "aba description"], ["id", 1]]
+  ↳ app/services/resources/resources_service.rb:127
+  [1m[35m (36.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/resources_service.rb:127
+Completed 200 OK in 6672ms (Views: 0.2ms | ActiveRecord: 58.5ms)
+
+
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]

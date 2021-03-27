@@ -24,8 +24,8 @@ class ResourcesController < ApplicationController
   end
 
   def update
-    service = Companies::CompaniesService.new(company_params)
-    service.update_company
+    service = Resources::ResourcesService.new(resource_params)
+    service.update_resource
     rest_respond_service service
   end
   #

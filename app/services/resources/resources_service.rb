@@ -73,11 +73,11 @@ module Resources
           .as_json
     end
 
-    #def update_company
-    #  validate_data!
-    #  update_company_obj
-    #end
-    #
+    def update_resource
+      validate_data!
+      update_resource_obj
+    end
+
     #def show
     #  find_company
     #end
@@ -121,15 +121,16 @@ module Resources
       @errors << fill_errors(@resource) if @resource.errors.any?
     end
 
-    #def update_company_obj
-    #  find_company
-    #  @company.update(params)
-    #  @errors << fill_errors(@company) if @company.errors.any?
-    #end
-    #
-    #def find_company
-    #  @company = Company.joins("LEFT JOIN company_logos ON company_logos.company_id = companies.id").where(id: params[:id], active: true).last
-    #end
+    def update_resource_obj
+      find_resource
+      @resource.update(params)
+      @errors << fill_errors(@resource) if @resource.errors.any?
+    end
+
+    def find_resource
+      @resource = Resource.find_by_id(params[:id])
+      fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @resource
+    end
 
   end
 end

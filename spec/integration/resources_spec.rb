@@ -145,6 +145,50 @@ describe 'Resources', type: :request do
     end
   end
 
+  path '/{locale}/resources' do
+    put 'update resource' do
+      tags 'Resources'
+      consumes 'application/json'
+      produces 'application/json'
+
+      parameter({
+                    in: :header,
+                    type: :string,
+                    name: :Authorization,
+                    required: true,
+                    description: 'JWT token'
+                })
+
+      parameter name: :locale, in: :path,  type: :string,  required: true, default: "en"
+      parameter name: :params, in: :body, schema: {
+          type: :object,
+          properties: {
+              id: { type: :integer },
+              name:         { type: :string },
+              description:  { type: :string },
+              resource_type_id:      { type: :integer },
+              model_on_type: { type: :string },
+              model_on_id:   { type: :integer }
+          }
+      }
+
+      response '204', 'OK' do
+
+        schema type: :object,
+               properties: {
+                   success: { type: :boolean }
+               }
+
+        run_test!
+      end
+
+      response '404', 'Not Found' do
+
+        run_test!
+      end
+    end
+  end
+
   path '/{locale}/departments/department_list' do
     get 'Returns companies' do
       tags 'Company'
