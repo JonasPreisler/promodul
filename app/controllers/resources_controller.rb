@@ -28,30 +28,12 @@ class ResourcesController < ApplicationController
     service.update_resource
     rest_respond_service service
   end
-  #
-  #def destroy
-  #  service = Companies::CompaniesService.new(company_params)
-  #  service.destroy
-  #  rest_respond_service service
-  #end
-  #
-  #def show
-  #  service = Companies::CompaniesService.new(company_params)
-  #  service.show
-  #  rest_respond_service service
-  #end
-  #
-  #def company_list
-  #  service = Companies::CompaniesService.new(company_params)
-  #  service.company_list
-  #  rest_respond_service service
-  #end
-  #
-  #def sub_company_list
-  #  service = Companies::CompaniesService.new(company_params)
-  #  service.sub_company_list
-  #  rest_respond_service service
-  #end
+
+  def destroy
+    service = Resources::ResourcesService.new(resource_params)
+    service.destroy
+    rest_respond_service service
+  end
 
   private
 

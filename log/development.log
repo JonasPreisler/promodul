@@ -23657,3 +23657,36 @@ Completed 200 OK in 6672ms (Views: 0.2ms | ActiveRecord: 58.5ms)
 
 
   [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResource Destroy (36.6ms)[0m  [1m[31mDELETE FROM "resources" WHERE "resources"."id" = $1[0m  [["id", 1]]
+  [1m[36mResource Load (0.9ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-28 03:41:27 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-28 03:41:27 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-28 03:41:27 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-28 03:41:27 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-28 03:41:27 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-28 03:41:27 +0400
+Started DELETE "/en/resources?id=2" for 127.0.0.1 at 2021-03-28 03:41:39 +0400
+Processing by ResourcesController#destroy as JSON
+  Parameters: {"id"=>"2", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:130
+  [1m[36mResource Destroy (14.0ms)[0m  [1m[31mDELETE FROM "resources" WHERE "resources"."id" = $1[0m  [["id", 2]]
+  ↳ app/services/resources/resources_service.rb:88
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/resources_service.rb:89
+  [1m[36mMachineModel Load (0.3ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:89
+  [1m[36mResourceType Load (0.3ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:89
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/resources/resources_service.rb:89
+Completed 200 OK in 54ms (Views: 0.2ms | ActiveRecord: 26.3ms)
+
+
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]

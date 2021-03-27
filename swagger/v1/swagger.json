@@ -5738,6 +5738,53 @@
             "description": "Not Found"
           }
         }
+      },
+      "delete": {
+        "summary": "delete resource",
+        "tags": [
+          "Resources"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
       }
     },
     "/{locale}/resources/resource_list": {

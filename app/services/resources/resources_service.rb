@@ -14,9 +14,9 @@ module Resources
       { success: true }
     end
 
-    #def destroy_json_view
-    #  { success: true }
-    #end
+    def destroy_json_view
+      { success: true }
+    end
 
     def resource_list_json_view
       { resources: @list.as_json() }
@@ -25,10 +25,6 @@ module Resources
     def resource_type_list_json_view
       { types: @type_list.as_json() }
     end
-
-    #def sub_company_list_json_view
-    #  { sub_companies: @sub_companies.as_json(include: { country: { only: [:name]}, city: { only: [:name]}, company_logo: { only: [:uuid]}}) }
-    #end
 
     def create_resource
       validate_data!
@@ -78,32 +74,15 @@ module Resources
       update_resource_obj
     end
 
-    #def show
-    #  find_company
-    #end
-    #
-    #def destroy
-    #  validate_destroy
-    #  find_company
-    #  return if @errors.any?
-    #  @company.active = false
-    #  @company.save
-    #  @errors << fill_errors(@company) if @company.errors.any?
-    #end
-    #
-    #def company_list
-    #  @companies = Company.joins("LEFT JOIN company_logos ON company_logos.company_id = companies.id").where(parent_id: nil, active: true)
-    #end
-    #
-    #def sub_company_list
-    #  @sub_companies = Company.joins("LEFT JOIN company_logos ON company_logos.company_id = companies.id").where(parent_id: params[:parent_id], active: true)
-    #end
+    def destroy
+      find_resource
+      return if @errors.any?
+      @resource.delete
+      @resource.save
+      @errors << fill_errors(@resource) if @resource.errors.any?
+    end
 
     private
-
-    #def validate_destroy
-    #  fill_custom_errors(self, :base,:invalid, I18n.t("You can not delete Company")) if Company.where(parent_id: params[:id]).present?
-    #end
 
     def validate_data!
       validate_resource_type
