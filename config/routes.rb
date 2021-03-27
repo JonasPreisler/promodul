@@ -139,6 +139,10 @@ Rails.application.routes.draw do
       resource :order_comments
       get 'order_comments/comments_list/:order_id', to: 'order_comments#comments_list'
 
+      resource :resources
+      get 'resources/resource_list',       to: 'resources#resource_list'
+      get 'resources/resource_type_list',       to: 'resources#resource_type_list'
+
     end
   end
 end

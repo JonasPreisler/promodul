@@ -22671,3 +22671,777 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/en/users/list" for 127.0.0.1 at 2021-03-23 02:15:33 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.9ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 33ms (Views: 1.3ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-27 22:47:01 +0400
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-27 22:47:02 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-27 22:47:02 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-27 22:47:02 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-27 22:47:04 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-27 22:47:04 +0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateResourceTypes (20210327191601)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (28.5ms)[0m  [1m[35mCREATE TABLE "resource_types" ("id" bigserial primary key, "name" character varying, "id_name" character varying)[0m
+  ↳ db/migrate/20210327191601_create_resource_types.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210327191601"]]
+  ↳ bin/rails:9
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (3.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to FillResourceTypes (20210327191821)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mResourceType Create (0.6ms)[0m  [1m[32mINSERT INTO "resource_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Machine"], ["id_name", "machine"]]
+  ↳ db/migrate/20210327191821_fill_resource_types.rb:3
+  [1m[36mResourceType Create (0.3ms)[0m  [1m[32mINSERT INTO "resource_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Tool"], ["id_name", "tool"]]
+  ↳ db/migrate/20210327191821_fill_resource_types.rb:4
+  [1m[36mResourceType Create (0.3ms)[0m  [1m[32mINSERT INTO "resource_types" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "External Resource"], ["id_name", "external_resource"]]
+  ↳ db/migrate/20210327191821_fill_resource_types.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210327191821"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mResourceType Load (0.3ms)[0m  [1m[34mSELECT "resource_types".* FROM "resource_types"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateResources (20210327192543)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (20.1ms)[0m  [1m[35mCREATE TABLE "resources" ("id" bigserial primary key, "resource_type_id" bigint NOT NULL, "models_type" character varying, "models_id" bigint, "name" character varying, "description" character varying, CONSTRAINT "fk_rails_c69d2ac9ba"
+FOREIGN KEY ("resource_type_id")
+  REFERENCES "resource_types" ("id")
+)[0m
+  ↳ db/migrate/20210327192543_create_resources.rb:3
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_resources_on_resource_type_id" ON "resources"  ("resource_type_id")[0m
+  ↳ db/migrate/20210327192543_create_resources.rb:3
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE  INDEX  "index_resources_on_models_type_and_models_id" ON "resources"  ("models_type", "models_id")[0m
+  ↳ db/migrate/20210327192543_create_resources.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210327192543"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mResource Load (0.7ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResourceType Load (0.4ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" ORDER BY "resource_types"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-28 00:02:39 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-28 00:02:40 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-28 00:02:40 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-28 00:02:40 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-28 00:02:40 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-28 00:02:40 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-28 00:03:10 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-28 00:03:10 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-28 00:03:10 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-28 00:03:10 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-28 00:03:10 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-28 00:03:10 +0400
+  [1m[36mMachineModel Load (37.8ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" ORDER BY "machine_models"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mMachineModel Load (0.8ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" ORDER BY "machine_models"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/resources" for 127.0.0.1 at 2021-03-28 00:04:58 +0400
+Processing by ResourcesController#create as JSON
+  Parameters: {"name"=>"new pipia", "description"=>"this is Fluggengegenxolen", "resource_type_id"=>1, "models_type"=>"MachineModel", "models_id"=>1, "locale"=>"en", "resource"=>{"resource_type_id"=>1, "models_type"=>"MachineModel", "models_id"=>1, "name"=>"new pipia", "description"=>"this is Fluggengegenxolen"}}
+Unpermitted parameters: :format, :locale, :resource
+  [1m[36mCountry Load (4.5ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:71
+Completed 500 Internal Server Error in 15954ms (ActiveRecord: 15.3ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'resource_type_id' for Company.):
+  
+app/services/resources/resources_service.rb:77:in `create_resource_obj'
+app/services/resources/resources_service.rb:31:in `create_resource'
+app/controllers/resources_controller.rb:10:in `create'
+Started POST "/en/resources" for 127.0.0.1 at 2021-03-28 00:05:59 +0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ResourcesController#create as JSON
+  Parameters: {"name"=>"new pipia", "description"=>"this is Fluggengegenxolen", "resource_type_id"=>1, "models_type"=>"MachineModel", "models_id"=>1, "locale"=>"en", "resource"=>{"resource_type_id"=>1, "models_type"=>"MachineModel", "models_id"=>1, "name"=>"new pipia", "description"=>"this is Fluggengegenxolen"}}
+Unpermitted parameters: :format, :locale, :resource
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:71
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):2
+  [1m[36mMachineModel Load (1.0ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (pry):2
+  [1m[36mResourceType Load (0.4ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (pry):2
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):2
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):3
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mMachineModel Load (0.3ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResourceType Load (0.3ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/resources/resources_service.rb:78
+Completed 400 Bad Request in 118618ms (Views: 0.2ms | ActiveRecord: 38.5ms)
+
+
+Started POST "/en/resources" for 127.0.0.1 at 2021-03-28 00:08:00 +0400
+Processing by ResourcesController#create as JSON
+  Parameters: {"name"=>"new pipia", "description"=>"this is Fluggengegenxolen", "resource_type_id"=>1, "models_type"=>"MachineModel", "models_id"=>1, "locale"=>"en", "resource"=>{"resource_type_id"=>1, "models_type"=>"MachineModel", "models_id"=>1, "name"=>"new pipia", "description"=>"this is Fluggengegenxolen"}}
+Unpermitted parameters: :format, :locale, :resource
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:71
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):5
+  [1m[36mMachineModel Load (0.7ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (pry):5
+  [1m[36mResourceType Load (0.7ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (pry):5
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):5
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):6
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):6
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mMachineModel Load (0.9ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResourceType Load (0.7ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/resources/resources_service.rb:78
+Completed 400 Bad Request in 181361ms (Views: 0.9ms | ActiveRecord: 38.6ms)
+
+
+Started POST "/en/resources" for 127.0.0.1 at 2021-03-28 00:11:05 +0400
+Processing by ResourcesController#create as JSON
+  Parameters: {"name"=>"new pipia", "description"=>"this is Fluggengegenxolen", "resource_type_id"=>1, "models_type"=>"MachineModel", "models_id"=>1, "locale"=>"en", "resource"=>{"resource_type_id"=>1, "models_type"=>"MachineModel", "models_id"=>1, "name"=>"new pipia", "description"=>"this is Fluggengegenxolen"}}
+Unpermitted parameters: :format, :locale, :resource
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:71
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):8
+  [1m[36mResourceType Load (0.4ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (pry):8
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):9
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResourceType Load (0.3ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/resources/resources_service.rb:78
+Completed 400 Bad Request in 364415ms (Views: 0.2ms | ActiveRecord: 22.4ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateResources (20210327192543)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (8.8ms)[0m  [1m[35mDROP TABLE "resources"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20210327192543"]]
+  ↳ bin/rails:9
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateResources (20210327192543)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "resources" ("id" bigserial primary key, "resource_type_id" bigint NOT NULL, "model_type" character varying, "model_id" bigint, "name" character varying, "description" character varying, CONSTRAINT "fk_rails_c69d2ac9ba"
+FOREIGN KEY ("resource_type_id")
+  REFERENCES "resource_types" ("id")
+)[0m
+  ↳ db/migrate/20210327192543_create_resources.rb:3
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_resources_on_resource_type_id" ON "resources"  ("resource_type_id")[0m
+  ↳ db/migrate/20210327192543_create_resources.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_resources_on_model_type_and_model_id" ON "resources"  ("model_type", "model_id")[0m
+  ↳ db/migrate/20210327192543_create_resources.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210327192543"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started POST "/en/resources" for 127.0.0.1 at 2021-03-28 00:20:51 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ResourcesController#create as JSON
+  Parameters: {"name"=>"new pipia", "description"=>"this is Fluggengegenxolen", "resource_type_id"=>1, "models_type"=>"MachineModel", "models_id"=>1, "locale"=>"en", "resource"=>{"resource_type_id"=>1, "name"=>"new pipia", "description"=>"this is Fluggengegenxolen"}}
+Unpermitted parameters: :format, :locale, :resource
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:71
+Completed 500 Internal Server Error in 31480ms (ActiveRecord: 11.3ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'models_type' for Resource.):
+  
+app/services/resources/resources_service.rb:77:in `create_resource_obj'
+app/services/resources/resources_service.rb:31:in `create_resource'
+app/controllers/resources_controller.rb:10:in `create'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started POST "/en/resources" for 127.0.0.1 at 2021-03-28 00:21:38 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ResourcesController#create as JSON
+  Parameters: {"name"=>"new pipia", "description"=>"this is Fluggengegenxolen", "resource_type_id"=>1, "models_type"=>"MachineModel", "models_id"=>1, "locale"=>"en", "resource"=>{"resource_type_id"=>1, "name"=>"new pipia", "description"=>"this is Fluggengegenxolen"}}
+Unpermitted parameters: :models_type, :models_id, :format, :locale, :resource
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:71
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResourceType Load (0.3ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/resources/resources_service.rb:78
+Completed 400 Bad Request in 17493ms (Views: 0.4ms | ActiveRecord: 17.1ms)
+
+
+Started POST "/en/resources" for 127.0.0.1 at 2021-03-28 00:22:05 +0400
+Processing by ResourcesController#create as JSON
+  Parameters: {"name"=>"new pipia", "description"=>"this is Fluggengegenxolen", "resource_type_id"=>1, "model_type"=>"MachineModel", "model_id"=>1, "locale"=>"en", "resource"=>{"resource_type_id"=>1, "model_type"=>"MachineModel", "model_id"=>1, "name"=>"new pipia", "description"=>"this is Fluggengegenxolen"}}
+Unpermitted parameters: :format, :locale, :resource
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:71
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):3
+  [1m[36mMachineModel Load (0.4ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (pry):3
+  [1m[36mResourceType Load (0.3ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (pry):3
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):3
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):4
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mMachineModel Load (0.4ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResourceType Load (0.4ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/resources/resources_service.rb:78
+Completed 400 Bad Request in 33737ms (Views: 0.2ms | ActiveRecord: 6.5ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateResources (20210327192543)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE "resources"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20210327192543"]]
+  ↳ bin/rails:9
+  [1m[35m (36.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateResources (20210327192543)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE "resources" ("id" bigserial primary key, "resource_type_id" bigint NOT NULL, "model_on_type" character varying, "model_on_id" bigint, "name" character varying, "description" character varying, CONSTRAINT "fk_rails_c69d2ac9ba"
+FOREIGN KEY ("resource_type_id")
+  REFERENCES "resource_types" ("id")
+)[0m
+  ↳ db/migrate/20210327192543_create_resources.rb:3
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_resources_on_resource_type_id" ON "resources"  ("resource_type_id")[0m
+  ↳ db/migrate/20210327192543_create_resources.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_resources_on_model_on_type_and_model_on_id" ON "resources"  ("model_on_type", "model_on_id")[0m
+  ↳ db/migrate/20210327192543_create_resources.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210327192543"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started POST "/en/resources" for 127.0.0.1 at 2021-03-28 00:24:54 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ResourcesController#create as JSON
+  Parameters: {"name"=>"new pipia", "description"=>"this is Fluggengegenxolen", "resource_type_id"=>1, "model_on_type"=>"MachineModel", "model_on_id"=>1, "locale"=>"en", "resource"=>{"resource_type_id"=>1, "model_on_type"=>"MachineModel", "model_on_id"=>1, "name"=>"new pipia", "description"=>"this is Fluggengegenxolen"}}
+Unpermitted parameters: :format, :locale, :resource
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:71
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):2
+  [1m[36mMachineModel Load (0.3ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (pry):2
+  [1m[36mResourceType Load (0.5ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (pry):2
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):2
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):3
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):3
+  [1m[36mMachineModel Load (1.7ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" ORDER BY "machine_models"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mMachineModel Load (0.3ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResourceType Load (0.2ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/resources/resources_service.rb:78
+Completed 400 Bad Request in 75291ms (Views: 0.2ms | ActiveRecord: 19.9ms)
+
+
+Started POST "/en/resources" for 127.0.0.1 at 2021-03-28 00:26:16 +0400
+Processing by ResourcesController#create as JSON
+  Parameters: {"name"=>"new pipia", "description"=>"this is Fluggengegenxolen", "resource_type_id"=>1, "model_on_type"=>"MachineModel", "model_on_id"=>2, "locale"=>"en", "resource"=>{"resource_type_id"=>1, "model_on_type"=>"MachineModel", "model_on_id"=>2, "name"=>"new pipia", "description"=>"this is Fluggengegenxolen"}}
+Unpermitted parameters: :format, :locale, :resource
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:71
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):8
+  [1m[36mMachineModel Load (0.8ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ (pry):8
+  [1m[36mResourceType Load (0.8ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (pry):8
+  [1m[36mResource Create (2.4ms)[0m  [1m[32mINSERT INTO "resources" ("resource_type_id", "model_on_type", "model_on_id", "name", "description") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["resource_type_id", 1], ["model_on_type", "MachineModel"], ["model_on_id", 2], ["name", "new pipia"], ["description", "this is Fluggengegenxolen"]]
+  ↳ (pry):8
+  [1m[35m (13.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ (pry):8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mMachineModel Load (0.2ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResourceType Load (0.2ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResource Create (0.4ms)[0m  [1m[32mINSERT INTO "resources" ("resource_type_id", "model_on_type", "model_on_id", "name", "description") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["resource_type_id", 1], ["model_on_type", "MachineModel"], ["model_on_id", 2], ["name", "new pipia"], ["description", "this is Fluggengegenxolen"]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[35m (4.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/resources_service.rb:78
+Completed 400 Bad Request in 406546ms (Views: 0.2ms | ActiveRecord: 22.9ms)
+
+
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-28 00:34:46 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-28 00:34:46 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-28 00:34:46 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-28 00:34:46 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-28 00:34:48 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-28 00:34:48 +0400
+Started POST "/en/resources" for 127.0.0.1 at 2021-03-28 00:35:20 +0400
+Processing by ResourcesController#create as JSON
+  Parameters: {"name"=>"kaia kata", "description"=>"maaagari asworebs kata", "resource_type_id"=>1, "model_on_type"=>"MachineModel", "model_on_id"=>2, "locale"=>"en", "resource"=>{"resource_type_id"=>1, "model_on_type"=>"MachineModel", "model_on_id"=>2, "name"=>"kaia kata", "description"=>"maaagari asworebs kata"}}
+Unpermitted parameters: :format, :locale, :resource
+  [1m[36mCountry Load (0.4ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:71
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mMachineModel Load (0.4ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResourceType Load (0.4ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResource Create (1.1ms)[0m  [1m[32mINSERT INTO "resources" ("resource_type_id", "model_on_type", "model_on_id", "name", "description") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["resource_type_id", 1], ["model_on_type", "MachineModel"], ["model_on_id", 2], ["name", "kaia kata"], ["description", "maaagari asworebs kata"]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/resources_service.rb:78
+Completed 400 Bad Request in 5015ms (Views: 0.3ms | ActiveRecord: 24.9ms)
+
+
+Started POST "/en/resources" for 127.0.0.1 at 2021-03-28 00:35:42 +0400
+Processing by ResourcesController#create as JSON
+  Parameters: {"name"=>"kaia kata", "description"=>"maaagari asworebs kata", "resource_type_id"=>1, "model_on_type"=>"MachineModel", "model_on_id"=>2, "locale"=>"en", "resource"=>{"resource_type_id"=>1, "model_on_type"=>"MachineModel", "model_on_id"=>2, "name"=>"kaia kata", "description"=>"maaagari asworebs kata"}}
+Unpermitted parameters: :format, :locale, :resource
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:71
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):2
+  [1m[36mMachineModel Load (0.9ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ (pry):2
+  [1m[36mResourceType Load (0.8ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (pry):2
+  [1m[36mResource Create (1.1ms)[0m  [1m[32mINSERT INTO "resources" ("resource_type_id", "model_on_type", "model_on_id", "name", "description") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["resource_type_id", 1], ["model_on_type", "MachineModel"], ["model_on_id", 2], ["name", "kaia kata"], ["description", "maaagari asworebs kata"]]
+  ↳ (pry):2
+  [1m[35m (36.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ (pry):2
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mMachineModel Load (0.2ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResourceType Load (0.3ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResource Create (0.5ms)[0m  [1m[32mINSERT INTO "resources" ("resource_type_id", "model_on_type", "model_on_id", "name", "description") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["resource_type_id", 1], ["model_on_type", "MachineModel"], ["model_on_id", 2], ["name", "kaia kata"], ["description", "maaagari asworebs kata"]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/resources_service.rb:78
+Completed 400 Bad Request in 19956ms (Views: 0.3ms | ActiveRecord: 43.8ms)
+
+
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/resources" for 127.0.0.1 at 2021-03-28 00:36:48 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ResourcesController#create as JSON
+  Parameters: {"name"=>"kaia kata", "description"=>"maaagari asworebs kata", "resource_type_id"=>1, "model_on_type"=>"MachineModel", "model_on_id"=>2, "locale"=>"en", "resource"=>{"resource_type_id"=>1, "model_on_type"=>"MachineModel", "model_on_id"=>2, "name"=>"kaia kata", "description"=>"maaagari asworebs kata"}}
+Unpermitted parameters: :format, :locale, :resource
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:71
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mMachineModel Load (0.4ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResourceType Load (0.3ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResource Create (0.6ms)[0m  [1m[32mINSERT INTO "resources" ("resource_type_id", "model_on_type", "model_on_id", "name", "description") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["resource_type_id", 1], ["model_on_type", "MachineModel"], ["model_on_id", 2], ["name", "kaia kata"], ["description", "maaagari asworebs kata"]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/resources_service.rb:78
+Completed 400 Bad Request in 9335ms (Views: 0.3ms | ActiveRecord: 19.2ms)
+
+
+Started POST "/en/resources" for 127.0.0.1 at 2021-03-28 00:37:23 +0400
+Processing by ResourcesController#create as JSON
+  Parameters: {"name"=>"kaia kata", "description"=>"maaagari asworebs kata", "resource_type_id"=>1, "model_on_type"=>"MachineModel", "model_on_id"=>2, "locale"=>"en", "resource"=>{"resource_type_id"=>1, "model_on_type"=>"MachineModel", "model_on_id"=>2, "name"=>"kaia kata", "description"=>"maaagari asworebs kata"}}
+Unpermitted parameters: :format, :locale, :resource
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:71
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mMachineModel Load (0.2ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResourceType Load (0.2ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResource Create (0.4ms)[0m  [1m[32mINSERT INTO "resources" ("resource_type_id", "model_on_type", "model_on_id", "name", "description") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["resource_type_id", 1], ["model_on_type", "MachineModel"], ["model_on_id", 2], ["name", "kaia kata"], ["description", "maaagari asworebs kata"]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/resources_service.rb:78
+Completed 400 Bad Request in 57010ms (Views: 0.2ms | ActiveRecord: 11.1ms)
+
+
+Started POST "/en/resources" for 127.0.0.1 at 2021-03-28 00:38:37 +0400
+Processing by ResourcesController#create as JSON
+  Parameters: {"name"=>"kaia kata", "description"=>"maaagari asworebs kata", "resource_type_id"=>1, "model_on_type"=>"MachineModel", "model_on_id"=>2, "locale"=>"en", "resource"=>{"resource_type_id"=>1, "model_on_type"=>"MachineModel", "model_on_id"=>2, "name"=>"kaia kata", "description"=>"maaagari asworebs kata"}}
+Unpermitted parameters: :format, :locale, :resource
+  [1m[36mResourceType Load (0.4ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:71
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/resources_service.rb:79
+  [1m[36mMachineModel Load (0.3ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:79
+  [1m[36mCACHE ResourceType Load (0.0ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:79
+  [1m[36mResource Create (0.4ms)[0m  [1m[32mINSERT INTO "resources" ("resource_type_id", "model_on_type", "model_on_id", "name", "description") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["resource_type_id", 1], ["model_on_type", "MachineModel"], ["model_on_id", 2], ["name", "kaia kata"], ["description", "maaagari asworebs kata"]]
+  ↳ app/services/resources/resources_service.rb:79
+  [1m[35m (36.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/resources_service.rb:79
+Completed 201 Created in 5473ms (Views: 0.1ms | ActiveRecord: 46.2ms)
+
+
+  [1m[36mToolModel Load (36.6ms)[0m  [1m[34mSELECT  "tool_models".* FROM "tool_models" ORDER BY "tool_models"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/resources" for 127.0.0.1 at 2021-03-28 00:42:13 +0400
+Processing by ResourcesController#create as JSON
+  Parameters: {"name"=>"kaia", "description"=>"maaagari  kata", "resource_type_id"=>2, "model_on_type"=>"ToolModel", "model_on_id"=>1, "locale"=>"en", "resource"=>{"resource_type_id"=>2, "model_on_type"=>"ToolModel", "model_on_id"=>1, "name"=>"kaia", "description"=>"maaagari  kata"}}
+Unpermitted parameters: :format, :locale, :resource
+  [1m[36mResourceType Load (0.2ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:71
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mToolModel Load (0.3ms)[0m  [1m[34mSELECT  "tool_models".* FROM "tool_models" WHERE "tool_models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mCACHE ResourceType Load (0.0ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResource Create (0.4ms)[0m  [1m[32mINSERT INTO "resources" ("resource_type_id", "model_on_type", "model_on_id", "name", "description") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["resource_type_id", 2], ["model_on_type", "ToolModel"], ["model_on_id", 1], ["name", "kaia"], ["description", "maaagari  kata"]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/resources_service.rb:78
+Completed 201 Created in 5836ms (Views: 0.1ms | ActiveRecord: 13.9ms)
+
+
+  [1m[36mResource Load (0.6ms)[0m  [1m[34mSELECT "resources".* FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id"[0m
+  [1m[36mResource Load (0.7ms)[0m  [1m[34mSELECT "resources".* FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = 1[0m
+  [1m[36mResource Load (1.1ms)[0m  [1m[34mSELECT "resources".* FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = 2[0m
+  [1m[36mResource Load (1.6ms)[0m  [1m[34mSELECT "resources".* FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id[0m
+  [1m[36mResource Load (0.7ms)[0m  [1m[34mSELECT "resources".* FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1[0m  [["model_on_type", "MachibeModel"]]
+  [1m[36mResource Load (1.7ms)[0m  [1m[34mSELECT "resources".* FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1[0m  [["model_on_type", "MachineModel"]]
+  [1m[36mResource Load (2.0ms)[0m  [1m[34mSELECT "resources".* FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_type"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (1.3ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_type"."id_name" = $2 LIMIT $3[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"], ["LIMIT", 11]]
+  [1m[36mResource Load (1.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_type"."id_name" = $2 ORDER BY "resources"."id" DESC LIMIT $3[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"], ["LIMIT", 1]]
+  [1m[36mResource Load (2.2ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2 ORDER BY "resources"."id" DESC LIMIT $3[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"], ["LIMIT", 1]]
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT "resources".* FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1[0m  [["model_on_type", "MachineModel"]]
+  [1m[36mResourceType Load (0.8ms)[0m  [1m[34mSELECT "resource_types".* FROM "resource_types"[0m
+  [1m[36mResource Load (0.7ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2 ORDER BY "resources"."id" DESC LIMIT $3[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"], ["LIMIT", 1]]
+  [1m[36mResource Load (1.7ms)[0m  [1m[34mSELECT "resources".* FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (1.5ms)[0m  [1m[34mSELECT name, description, machine_models.name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (1.1ms)[0m  [1m[34mSELECT  name, description, machine_models.name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2 LIMIT $3[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"], ["LIMIT", 11]]
+  [1m[36mResource Load (1.5ms)[0m  [1m[34mSELECT name, description, machine_models.name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (1.3ms)[0m  [1m[34mSELECT name, description, machine_models.name as model_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (1.3ms)[0m  [1m[34mSELECT name, description FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (1.6ms)[0m  [1m[34mSELECT name as resource_name, description FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (1.8ms)[0m  [1m[34mSELECT "resources"."description" FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (0.9ms)[0m  [1m[34mSELECT resources.name, description FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT id, resources.name, description, machine_models.name as model_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT  id, resources.name, description, machine_models.name as model_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2 LIMIT $3[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"], ["LIMIT", 11]]
+  [1m[36mResource Load (1.6ms)[0m  [1m[34mSELECT id, resources.name, description, machine_models.name as model_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (2.0ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as model_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (2.3ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as model_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (1.6ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as model_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (1.8ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as machine_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (1.8ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (1.9ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (2.6ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ToolModel"], ["id_name", "machine"]]
+  [1m[36mResource Load (1.7ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  [1m[36mResource Load (0.7ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  [1m[36mExternalResourceType Load (3.8ms)[0m  [1m[34mSELECT "external_resource_types".* FROM "external_resource_types"[0m
+  [1m[36mResourceType Load (1.0ms)[0m  [1m[34mSELECT "resource_types".* FROM "resource_types"[0m
+  [1m[36mResource Load (1.4ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  [1m[36mResource Load (1.8ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  [1m[36mResource Load (1.6ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  [1m[36mResource Load (1.5ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  [1m[36mResource Load (1.7ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-28 01:22:07 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-28 01:22:07 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-28 01:22:07 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-28 01:22:07 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-28 01:22:07 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-28 01:22:07 +0400
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-03-28 01:22:20 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResource Load (0.9ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:48
+  [1m[36mResource Load (0.7ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:56
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 9.6ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  missing FROM-clause entry for table "tool_models"
+LINE 1: SELECT resources.id, resources.name, description, tool_model...
+                                                          ^
+: SELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2):
+  
+app/services/resources/resources_service.rb:56:in `get_tools'
+app/services/resources/resources_service.rb:38:in `resource_list'
+app/controllers/resources_controller.rb:16:in `resource_list'
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-03-28 01:22:38 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:49
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:57
+  [1m[36mResource Load (0.7ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as external_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:66
+  [1m[36mResource Load (1.6ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  ↳ app/services/resources/resources_service.rb:35
+  [1m[36mResource Load (1.9ms)[0m  [1m[34mSELECT  resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2 LIMIT $3[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"], ["LIMIT", 11]]
+  ↳ app/services/resources/resources_service.rb:35
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT  resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2 ORDER BY "resources"."id" DESC LIMIT $3[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"], ["LIMIT", 1]]
+  ↳ (pry):5
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:57
+  [1m[36mResource Load (2.0ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  ↳ app/services/resources/resources_service.rb:35
+  [1m[36mCACHE Resource Load (0.0ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:49
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:57
+Completed 500 Internal Server Error in 119003ms (ActiveRecord: 13.5ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  missing FROM-clause entry for table "tool_models"
+LINE 1: SELECT resources.id, resources.name, description, tool_model...
+                                                          ^
+: SELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2):
+  
+app/services/resources/resources_service.rb:57:in `get_tools'
+app/services/resources/resources_service.rb:39:in `resource_list'
+app/controllers/resources_controller.rb:16:in `resource_list'
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-03-28 01:24:42 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResource Load (0.6ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:49
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  ↳ app/services/resources/resources_service.rb:57
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as external_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:66
+  [1m[36mCACHE Resource Load (0.0ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:49
+  [1m[36mCACHE Resource Load (0.0ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  ↳ app/services/resources/resources_service.rb:57
+  [1m[36mCACHE Resource Load (0.0ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as external_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:66
+Completed 200 OK in 12823ms (Views: 0.3ms | ActiveRecord: 8.6ms)
+
+
+  [1m[36mResourceType Load (0.4ms)[0m  [1m[34mSELECT "resource_types".* FROM "resource_types"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-28 01:29:49 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-28 01:29:49 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-28 01:29:49 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-28 01:29:49 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-28 01:29:50 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-28 01:29:50 +0400
+Started GET "/en/resources/resource_type_list" for 127.0.0.1 at 2021-03-28 01:30:01 +0400
+Processing by ResourcesController#resource_type_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResourceType Load (0.7ms)[0m  [1m[34mSELECT "resource_types".* FROM "resource_types"[0m
+  ↳ app/services/resources/resources_service.rb:26
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 4.6ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-28 01:30:23 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-28 01:30:23 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-28 01:30:23 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-28 01:30:23 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-28 01:30:23 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-28 01:30:23 +0400
+Started GET "/en/resources/resource_type_list" for 127.0.0.1 at 2021-03-28 01:30:35 +0400
+Processing by ResourcesController#resource_type_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResourceType Load (0.9ms)[0m  [1m[34mSELECT "resource_types".* FROM "resource_types"[0m
+  ↳ app/services/resources/resources_service.rb:26
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-03-28 01:30:41 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResource Load (1.2ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:56
+  [1m[36mResource Load (0.7ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  ↳ app/services/resources/resources_service.rb:64
+  [1m[36mResource Load (0.6ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as external_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:73
+Completed 200 OK in 22ms (Views: 0.3ms | ActiveRecord: 5.9ms)
+
+

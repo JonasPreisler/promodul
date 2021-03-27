@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_210612) do
+ActiveRecord::Schema.define(version: 2021_03_27_192543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -358,6 +358,21 @@ ActiveRecord::Schema.define(version: 2021_03_22_210612) do
     t.index ["code"], name: "index_products_on_code", unique: true
   end
 
+  create_table "resource_types", force: :cascade do |t|
+    t.string "name"
+    t.string "id_name"
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.bigint "resource_type_id", null: false
+    t.string "model_on_type"
+    t.bigint "model_on_id"
+    t.string "name"
+    t.string "description"
+    t.index ["model_on_type", "model_on_id"], name: "index_resources_on_model_on_type_and_model_on_id"
+    t.index ["resource_type_id"], name: "index_resources_on_resource_type_id"
+  end
+
   create_table "role_groups", force: :cascade do |t|
     t.string "name", null: false
     t.string "id_name", null: false
@@ -554,6 +569,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_210612) do
   add_foreign_key "product_import_permissions", "role_groups"
   add_foreign_key "product_prices", "products"
   add_foreign_key "product_type_permissions", "role_groups"
+  add_foreign_key "resources", "resource_types"
   add_foreign_key "role_management_permissions", "role_groups"
   add_foreign_key "sub_categories", "categories"
   add_foreign_key "supplier_product_prices", "currencies"
