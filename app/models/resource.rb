@@ -6,5 +6,7 @@ class Resource < ApplicationRecord
   belongs_to :model_on, polymorphic: true
   belongs_to :resource_type
 
+  has_many :attachments, as: :attached_on
+
   #has_one :provider_policy_picture, class_name: 'ProviderPolicyPicture', foreign_key: 'provider_id'
 end

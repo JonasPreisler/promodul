@@ -143,6 +143,10 @@ Rails.application.routes.draw do
       get 'resources/resource_list',       to: 'resources#resource_list'
       get 'resources/resource_type_list',       to: 'resources#resource_type_list'
 
+      resource :attachments
+      get  'attachments/file', to: 'attachments#show_file'
+      delete  'attachments/:uuid', to: 'attachments#destroy'
+
     end
   end
 end

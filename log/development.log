@@ -23690,3 +23690,763 @@ Completed 200 OK in 54ms (Views: 0.2ms | ActiveRecord: 26.3ms)
 
 
   [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-29 22:03:35 +0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-29 22:03:35 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-29 22:03:35 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-29 22:03:35 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-29 22:03:35 +0400
+Started POST "/en/settings/tool_model" for 127.0.0.1 at 2021-03-29 22:04:46 +0400
+Processing by SettingsController#tool_model as JSON
+  Parameters: {"name"=>"string", "locale"=>"en", "setting"=>{"name"=>"string"}}
+Unpermitted parameters: :format, :locale, :setting
+  [1m[36mToolModel Load (2.3ms)[0m  [1m[34mSELECT  "tool_models".* FROM "tool_models" WHERE "tool_models"."id_name" = $1 ORDER BY "tool_models"."id" ASC LIMIT $2[0m  [["id_name", "string"], ["LIMIT", 1]]
+  ↳ app/services/settings/models_service.rb:57
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/models_service.rb:58
+  [1m[36mToolModel Create (2.6ms)[0m  [1m[32mINSERT INTO "tool_models" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "string"], ["id_name", "string"]]
+  ↳ app/services/settings/models_service.rb:58
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/settings/models_service.rb:58
+Completed 200 OK in 38ms (Views: 0.4ms | ActiveRecord: 23.2ms)
+
+
+Started POST "/en/settings/machine_model" for 127.0.0.1 at 2021-03-29 22:05:19 +0400
+Processing by SettingsController#machine_model as JSON
+  Parameters: {"name"=>"string", "locale"=>"en", "setting"=>{"name"=>"string"}}
+Unpermitted parameters: :format, :locale, :setting
+  [1m[36mMachineModel Load (1.9ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" WHERE "machine_models"."id_name" = $1 ORDER BY "machine_models"."id" ASC LIMIT $2[0m  [["id_name", "string"], ["LIMIT", 1]]
+  ↳ app/services/settings/models_service.rb:51
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/settings/models_service.rb:52
+  [1m[36mMachineModel Create (1.0ms)[0m  [1m[32mINSERT INTO "machine_models" ("name", "id_name") VALUES ($1, $2) RETURNING "id"[0m  [["name", "string"], ["id_name", "string"]]
+  ↳ app/services/settings/models_service.rb:52
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/settings/models_service.rb:52
+Completed 200 OK in 29ms (Views: 0.1ms | ActiveRecord: 8.6ms)
+
+
+  [1m[36mMachineModel Load (0.3ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" ORDER BY "machine_models"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/en/resources/resource_type_list" for 127.0.0.1 at 2021-03-29 22:06:20 +0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ResourcesController#resource_type_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResourceType Load (3.6ms)[0m  [1m[34mSELECT "resource_types".* FROM "resource_types"[0m
+  ↳ app/services/resources/resources_service.rb:26
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/en/settings/machine_models" for 127.0.0.1 at 2021-03-29 22:08:13 +0400
+Processing by SettingsController#machine_models as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mMachineModel Load (0.5ms)[0m  [1m[34mSELECT "machine_models".* FROM "machine_models"[0m
+  ↳ app/services/settings/models_service.rb:39
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-03-29 22:10:25 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResource Load (5.7ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:52
+  [1m[36mResource Load (0.7ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  ↳ app/services/resources/resources_service.rb:60
+  [1m[36mResource Load (1.2ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as external_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:69
+Completed 200 OK in 38ms (Views: 0.4ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/history/orders" for 127.0.0.1 at 2021-03-29 23:39:31 +0400
+Processing by OrdersController#show as JSON
+  Parameters: {"locale"=>"history"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+I18n::InvalidLocale ("history" is not a valid locale):
+  
+app/controllers/application_controller.rb:8:in `set_locale'
+Started GET "/markets/ethbtc" for 127.0.0.1 at 2021-03-30 01:48:50 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/markets/ethbtc"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/favicon.ico" for 127.0.0.1 at 2021-03-30 01:48:50 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[36mProductImage Load (3.5ms)[0m  [1m[34mSELECT  "product_images".* FROM "product_images" ORDER BY "product_images"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateAttachments (20210329215315)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (24.2ms)[0m  [1m[35mCREATE TABLE "attachments" ("id" bigserial primary key, "attached_on_type" character varying, "attached_on_id" bigint, "file" character varying(50), "uuid" uuid NOT NULL, "exp_date" timestamp, "is_active" boolean DEFAULT TRUE NOT NULL)[0m
+  ↳ db/migrate/20210329215315_create_attachments.rb:3
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE  INDEX  "index_attachments_on_attached_on_type_and_attached_on_id" ON "attachments"  ("attached_on_type", "attached_on_id")[0m
+  ↳ db/migrate/20210329215315_create_attachments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210329215315"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mAttachment Load (0.4ms)[0m  [1m[34mSELECT  "attachments".* FROM "attachments" ORDER BY "attachments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-30 02:18:44 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-30 02:18:44 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-30 02:18:44 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-30 02:18:44 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-30 02:18:44 +0400
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-03-30 02:21:46 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Unknown key: :polymorphic. Valid keys are: :class_name, :anonymous_class, :foreign_key, :validate, :autosave, :table_name, :before_add, :after_add, :before_remove, :after_remove, :extend, :primary_key, :dependent, :as, :through, :source, :source_type, :inverse_of, :counter_cache, :join_table, :foreign_type, :index_errors):
+  
+app/models/resource.rb:9:in `<class:Resource>'
+app/models/resource.rb:1:in `<main>'
+app/services/resources/resources_service.rb:48:in `get_models'
+app/services/resources/resources_service.rb:37:in `resource_list'
+app/controllers/resources_controller.rb:16:in `resource_list'
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-03-30 02:24:35 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResource Load (1.4ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:52
+  [1m[36mResource Load (0.7ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  ↳ app/services/resources/resources_service.rb:60
+  [1m[36mResource Load (0.6ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as external_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:69
+Completed 200 OK in 33ms (Views: 0.4ms | ActiveRecord: 12.4ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-30 02:26:28 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-30 02:26:28 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-30 02:26:28 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-30 02:26:28 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-30 02:26:33 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-30 02:26:33 +0400
+Started POST "/en/attachment" for 127.0.0.1 at 2021-03-30 02:26:53 +0400
+  
+ActionController::RoutingError (No route matches [POST] "/en/attachment"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-30 02:27:51 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-30 02:27:52 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-30 02:27:52 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-30 02:27:52 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-30 02:27:52 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-30 02:27:52 +0400
+Started POST "/en/attachments" for 127.0.0.1 at 2021-03-30 02:28:17 +0400
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x000055d8c4ef54a0 @tempfile=#<Tempfile:/tmp/RackMultipart20210330-14582-1gzehuw.pdf>, @original_filename="Anzor Urdia CV (1).pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Anzor Urdia CV (1).pdf\"\r\nContent-Type: application/pdf\r\n">, "attached_on_id"=>"3", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 73865ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant Resources::AttachmentsService):
+  
+app/controllers/attachments_controller.rb:10:in `create'
+Started POST "/en/attachments" for 127.0.0.1 at 2021-03-30 02:30:02 +0400
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff2040516a0 @tempfile=#<Tempfile:/tmp/RackMultipart20210330-14582-r262fa.pdf>, @original_filename="Anzor Urdia CV (1).pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Anzor Urdia CV (1).pdf\"\r\nContent-Type: application/pdf\r\n">, "attached_on_id"=>"3", "locale"=>"en"}
+Completed 500 Internal Server Error in 154104ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant Resources::AttachmentsService):
+  
+app/controllers/attachments_controller.rb:10:in `create'
+Started POST "/en/attachments" for 127.0.0.1 at 2021-03-30 02:32:40 +0400
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x000055d8c96955f8 @tempfile=#<Tempfile:/tmp/RackMultipart20210330-14582-12xoxxy.pdf>, @original_filename="Anzor Urdia CV (1).pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Anzor Urdia CV (1).pdf\"\r\nContent-Type: application/pdf\r\n">, "attached_on_id"=>"3", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Completed 201 Created in 49436ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/attachments" for 127.0.0.1 at 2021-03-30 02:33:45 +0400
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff21c48e548 @tempfile=#<Tempfile:/tmp/RackMultipart20210330-14582-1i5cdfa.pdf>, @original_filename="Anzor Urdia CV (1).pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Anzor Urdia CV (1).pdf\"\r\nContent-Type: application/pdf\r\n">, "attached_on_id"=>"3", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:16
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/resources/attachments_service.rb:16
+Completed 400 Bad Request in 44105ms (Views: 0.4ms | ActiveRecord: 7.8ms)
+
+
+Started POST "/en/attachments" for 127.0.0.1 at 2021-03-30 02:35:34 +0400
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff21c3bb120 @tempfile=#<Tempfile:/tmp/RackMultipart20210330-14582-13noa1w.pdf>, @original_filename="Anzor Urdia CV (1).pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Anzor Urdia CV (1).pdf\"\r\nContent-Type: application/pdf\r\n">, "attached_on_id"=>"3", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:16
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/resources/attachments_service.rb:16
+Completed 400 Bad Request in 10273ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-30 02:35:55 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-30 02:35:55 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-30 02:35:55 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-30 02:35:55 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-30 02:35:55 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-30 02:35:55 +0400
+Started POST "/en/attachments" for 127.0.0.1 at 2021-03-30 02:36:17 +0400
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00007f66940fdd98 @tempfile=#<Tempfile:/tmp/RackMultipart20210330-16864-7iit0y.pdf>, @original_filename="Anzor Urdia CV-2.pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Anzor Urdia CV-2.pdf\"\r\nContent-Type: application/pdf\r\n">, "attached_on_id"=>"3", "attached_on_type"=>"Resource", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:16
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/resources/attachments_service.rb:16
+Completed 400 Bad Request in 23943ms (Views: 0.3ms | ActiveRecord: 5.5ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-30 02:37:07 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-30 02:37:07 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-30 02:37:07 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-30 02:37:07 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-30 02:37:07 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-30 02:37:07 +0400
+Started POST "/en/attachments" for 127.0.0.1 at 2021-03-30 02:37:32 +0400
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00007f476c0fff68 @tempfile=#<Tempfile:/tmp/RackMultipart20210330-17986-1i75wki.pdf>, @original_filename="Anzor Urdia CV (1).pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Anzor Urdia CV (1).pdf\"\r\nContent-Type: application/pdf\r\n">, "attached_on_id"=>"3", "attached_on_type"=>"Resource", "exp_date"=>"23/2/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):3
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):3
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:16
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/resources/attachments_service.rb:16
+Completed 400 Bad Request in 71748ms (Views: 0.5ms | ActiveRecord: 11.7ms)
+
+
+Started POST "/en/attachments" for 127.0.0.1 at 2021-03-30 02:39:04 +0400
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00007f47741de698 @tempfile=#<Tempfile:/tmp/RackMultipart20210330-17986-1kg1pj9.pdf>, @original_filename="Anzor Urdia CV (1).pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Anzor Urdia CV (1).pdf\"\r\nContent-Type: application/pdf\r\n">, "attached_on_id"=>"3", "attached_on_type"=>"Resource", "exp_date"=>"23/2/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:16
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/resources/attachments_service.rb:16
+Completed 400 Bad Request in 4428ms (Views: 0.3ms | ActiveRecord: 6.3ms)
+
+
+Started POST "/en/attachments" for 127.0.0.1 at 2021-03-30 02:39:13 +0400
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00007f476c02e940 @tempfile=#<Tempfile:/tmp/RackMultipart20210330-17986-xuhai.pdf>, @original_filename="Anzor Urdia CV (1).pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Anzor Urdia CV (1).pdf\"\r\nContent-Type: application/pdf\r\n">, "attached_on_id"=>"3", "attached_on_type"=>"Resource", "exp_date"=>"23/2/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):6
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:16
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/resources/attachments_service.rb:16
+Completed 400 Bad Request in 38061ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/en/attachments" for 127.0.0.1 at 2021-03-30 02:51:59 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00007f0aec358240 @tempfile=#<Tempfile:/tmp/RackMultipart20210330-25908-11y7nyn.pdf>, @original_filename="Anzor Urdia CV (1).pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Anzor Urdia CV (1).pdf\"\r\nContent-Type: application/pdf\r\n">, "attached_on_id"=>"3", "attached_on_type"=>"Resource", "exp_date"=>"23/2/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):2
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):2
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:16
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/resources/attachments_service.rb:16
+Completed 500 Internal Server Error in 43525ms (ActiveRecord: 10.3ms)
+
+
+  
+NoMethodError (undefined method `image_changed?' for #<Attachment:0x00007f0aed11a590>):
+  
+app/models/attachment.rb:10:in `refresh_uuid'
+app/services/resources/attachments_service.rb:16:in `create_file'
+app/controllers/attachments_controller.rb:11:in `create'
+Started POST "/en/attachments" for 127.0.0.1 at 2021-03-30 02:52:46 +0400
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00007f0aec82c708 @tempfile=#<Tempfile:/tmp/RackMultipart20210330-25908-ssx5ec.pdf>, @original_filename="Anzor Urdia CV (1).pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Anzor Urdia CV (1).pdf\"\r\nContent-Type: application/pdf\r\n">, "attached_on_id"=>"3", "attached_on_type"=>"Resource", "exp_date"=>"23/2/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):4
+  [1m[36mAttachment Create (2.0ms)[0m  [1m[32mINSERT INTO "attachments" ("attached_on_type", "attached_on_id", "file", "uuid", "exp_date") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["attached_on_type", "Resource"], ["attached_on_id", 3], ["file", "Anzor_Urdia_CV__1_.pdf"], ["uuid", "26ec2d21-8775-48c5-b1de-0e74b0f8e2db"], ["exp_date", "2021-02-23 00:00:00"]]
+  ↳ (pry):4
+  [1m[35m (31.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ (pry):4
+  [1m[36mAttachment Load (0.8ms)[0m  [1m[34mSELECT  "attachments".* FROM "attachments" ORDER BY "attachments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):5
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:16
+  [1m[36mAttachment Create (0.4ms)[0m  [1m[32mINSERT INTO "attachments" ("attached_on_type", "attached_on_id", "file", "uuid", "exp_date") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["attached_on_type", "Resource"], ["attached_on_id", 3], ["file", "Anzor_Urdia_CV__1_.pdf"], ["uuid", "98738aef-6500-4925-b8e4-ad2594146f3d"], ["exp_date", "2021-02-23 00:00:00"]]
+  ↳ app/services/resources/attachments_service.rb:16
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/attachments_service.rb:16
+Completed 201 Created in 44753ms (Views: 0.1ms | ActiveRecord: 44.7ms)
+
+
+Started POST "/en/attachments" for 127.0.0.1 at 2021-03-30 02:54:48 +0400
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00005651e561bab0 @tempfile=#<Tempfile:/tmp/RackMultipart20210330-25908-v0xiku.pdf>, @original_filename="Anzor Urdia CV (1).pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Anzor Urdia CV (1).pdf\"\r\nContent-Type: application/pdf\r\n">, "attached_on_id"=>"3", "attached_on_type"=>"Resource", "exp_date"=>"23/2/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:20
+  [1m[36mAttachment Create (0.3ms)[0m  [1m[32mINSERT INTO "attachments" ("attached_on_type", "attached_on_id", "file", "uuid", "exp_date") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["attached_on_type", "Resource"], ["attached_on_id", 3], ["file", "Anzor_Urdia_CV__1_.pdf"], ["uuid", "066ac5b0-ef88-45c4-a860-91847e297f17"], ["exp_date", "2021-02-23 00:00:00"]]
+  ↳ app/services/resources/attachments_service.rb:20
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/attachments_service.rb:20
+Completed 201 Created in 2996ms (Views: 0.1ms | ActiveRecord: 7.2ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-30 03:02:34 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-30 03:02:34 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-30 03:02:34 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-30 03:02:34 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-30 03:02:34 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-30 03:02:34 +0400
+  [1m[36mAttachment Load (1.2ms)[0m  [1m[34mSELECT  "attachments".* FROM "attachments" ORDER BY "attachments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/en/attachment/file?uuid=066ac5b0-ef88-45c4-a860-91847e297f17" for 127.0.0.1 at 2021-03-30 03:02:56 +0400
+  
+ActionController::RoutingError (uninitialized constant AttachmentController):
+  
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `block in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `rescue in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:56:in `load_missing_constant'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/en/attachment/file?uuid=066ac5b0-ef88-45c4-a860-91847e297f17" for 127.0.0.1 at 2021-03-30 03:03:11 +0400
+  
+ActionController::RoutingError (uninitialized constant AttachmentController):
+  
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `block in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `rescue in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:56:in `load_missing_constant'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-30 03:05:05 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-30 03:05:05 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-30 03:05:05 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-30 03:05:05 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-30 03:05:08 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-30 03:05:08 +0400
+Started GET "/en/attachment/file?uuid=066ac5b0-ef88-45c4-a860-91847e297f17" for 127.0.0.1 at 2021-03-30 03:05:15 +0400
+  
+ActionController::RoutingError (uninitialized constant AttachmentController):
+  
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `block in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `rescue in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:56:in `load_missing_constant'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-03-30 03:06:16 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-03-30 03:06:16 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-03-30 03:06:16 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-03-30 03:06:16 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-03-30 03:06:16 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-03-30 03:06:16 +0400
+Started GET "/en/attachments/file?uuid=066ac5b0-ef88-45c4-a860-91847e297f17" for 127.0.0.1 at 2021-03-30 03:06:22 +0400
+  
+AbstractController::ActionNotFound (The action 'file' could not be found for AttachmentsController):
+  
+actionpack (5.2.1) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/en/attachments/file?uuid=066ac5b0-ef88-45c4-a860-91847e297f17" for 127.0.0.1 at 2021-03-30 03:06:48 +0400
+Processing by AttachmentsController#show_file as JSON
+  Parameters: {"uuid"=>"066ac5b0-ef88-45c4-a860-91847e297f17", "locale"=>"en"}
+Unpermitted parameters: :uuid, :format, :locale
+  [1m[36mAttachment Load (1.2ms)[0m  [1m[34mSELECT  "attachments".* FROM "attachments" WHERE "attachments"."uuid" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/resources/attachments_service.rb:55
+  [1m[36mCACHE Attachment Load (0.1ms)[0m  [1m[34mSELECT  "attachments".* FROM "attachments" WHERE "attachments"."uuid" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):2
+  [1m[36mCACHE Attachment Load (0.0ms)[0m  [1m[34mSELECT  "attachments".* FROM "attachments" WHERE "attachments"."uuid" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/resources/attachments_service.rb:55
+Completed 400 Bad Request in 35359ms (Views: 0.2ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/en/attachments/file?uuid=066ac5b0-ef88-45c4-a860-91847e297f17" for 127.0.0.1 at 2021-03-30 03:07:26 +0400
+Processing by AttachmentsController#show_file as JSON
+  Parameters: {"uuid"=>"066ac5b0-ef88-45c4-a860-91847e297f17", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mAttachment Load (0.4ms)[0m  [1m[34mSELECT  "attachments".* FROM "attachments" WHERE "attachments"."uuid" = $1 LIMIT $2[0m  [["uuid", "066ac5b0-ef88-45c4-a860-91847e297f17"], ["LIMIT", 1]]
+  ↳ app/services/resources/attachments_service.rb:55
+  [1m[36mCACHE Attachment Load (0.0ms)[0m  [1m[34mSELECT  "attachments".* FROM "attachments" WHERE "attachments"."uuid" = $1 LIMIT $2[0m  [["uuid", "066ac5b0-ef88-45c4-a860-91847e297f17"], ["LIMIT", 1]]
+  ↳ app/services/resources/attachments_service.rb:55
+Completed 500 Internal Server Error in 10726ms (ActiveRecord: 7.8ms)
+
+
+  
+NameError (undefined local variable or method `file' for #<Resources::AttachmentsService:0x00007fd600320950>):
+  
+app/services/resources/attachments_service.rb:34:in `read_file'
+app/controllers/attachments_controller.rb:17:in `show_file'
+Started GET "/en/attachments/file?uuid=066ac5b0-ef88-45c4-a860-91847e297f17" for 127.0.0.1 at 2021-03-30 03:08:17 +0400
+Processing by AttachmentsController#show_file as JSON
+  Parameters: {"uuid"=>"066ac5b0-ef88-45c4-a860-91847e297f17", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT  "attachments".* FROM "attachments" WHERE "attachments"."uuid" = $1 LIMIT $2[0m  [["uuid", "066ac5b0-ef88-45c4-a860-91847e297f17"], ["LIMIT", 1]]
+  ↳ app/services/resources/attachments_service.rb:55
+Completed 500 Internal Server Error in 2627ms (ActiveRecord: 3.9ms)
+
+
+  
+NameError (undefined local variable or method `file' for #<Resources::AttachmentsService:0x00007fd5e403c660>):
+  
+app/services/resources/attachments_service.rb:34:in `read_file'
+app/controllers/attachments_controller.rb:17:in `show_file'
+Started GET "/en/attachments/file?uuid=066ac5b0-ef88-45c4-a860-91847e297f17" for 127.0.0.1 at 2021-03-30 03:08:32 +0400
+Processing by AttachmentsController#show_file as JSON
+  Parameters: {"uuid"=>"066ac5b0-ef88-45c4-a860-91847e297f17", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT  "attachments".* FROM "attachments" WHERE "attachments"."uuid" = $1 LIMIT $2[0m  [["uuid", "066ac5b0-ef88-45c4-a860-91847e297f17"], ["LIMIT", 1]]
+  ↳ app/services/resources/attachments_service.rb:55
+Completed 500 Internal Server Error in 50546ms (ActiveRecord: 4.0ms)
+
+
+  
+NameError (undefined local variable or method `file' for #<Resources::AttachmentsService:0x00007fd5f40664a0>):
+  
+app/services/resources/attachments_service.rb:34:in `read_file'
+app/controllers/attachments_controller.rb:17:in `show_file'
+Started GET "/en/attachments/file?uuid=066ac5b0-ef88-45c4-a860-91847e297f17" for 127.0.0.1 at 2021-03-30 03:09:26 +0400
+Processing by AttachmentsController#show_file as JSON
+  Parameters: {"uuid"=>"066ac5b0-ef88-45c4-a860-91847e297f17", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mAttachment Load (0.4ms)[0m  [1m[34mSELECT  "attachments".* FROM "attachments" WHERE "attachments"."uuid" = $1 LIMIT $2[0m  [["uuid", "066ac5b0-ef88-45c4-a860-91847e297f17"], ["LIMIT", 1]]
+  ↳ app/services/resources/attachments_service.rb:55
+Sent data Anzor_Urdia_CV__1_.pdf (0.7ms)
+Completed 200 OK in 8853ms (Views: 0.2ms | ActiveRecord: 5.7ms)
+
+
+Started POST "/en/attachments" for 127.0.0.1 at 2021-03-30 03:10:50 +0400
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x000056096cc89008 @tempfile=#<Tempfile:/tmp/RackMultipart20210330-31540-z6em4t.pdf>, @original_filename="Anzor Urdia CV -1.pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Anzor Urdia CV -1.pdf\"\r\nContent-Type: application/pdf\r\n">, "attached_on_id"=>"3", "attached_on_type"=>"Resource", "exp_date"=>"23/11/2025", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:20
+  [1m[36mAttachment Create (0.5ms)[0m  [1m[32mINSERT INTO "attachments" ("attached_on_type", "attached_on_id", "file", "uuid", "exp_date") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["attached_on_type", "Resource"], ["attached_on_id", 3], ["file", "Anzor_Urdia_CV_-1.pdf"], ["uuid", "4d3c01aa-f81d-4776-9925-94b82b7524c5"], ["exp_date", "2025-11-23 00:00:00"]]
+  ↳ app/services/resources/attachments_service.rb:20
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/attachments_service.rb:20
+Completed 201 Created in 5207ms (Views: 0.1ms | ActiveRecord: 5.0ms)
+
+

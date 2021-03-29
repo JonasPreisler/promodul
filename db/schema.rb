@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_27_192543) do
+ActiveRecord::Schema.define(version: 2021_03_29_215315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachments", force: :cascade do |t|
+    t.string "attached_on_type"
+    t.bigint "attached_on_id"
+    t.string "file", limit: 50
+    t.uuid "uuid", null: false
+    t.datetime "exp_date"
+    t.boolean "is_active", default: true, null: false
+    t.index ["attached_on_type", "attached_on_id"], name: "index_attachments_on_attached_on_type_and_attached_on_id"
+  end
 
   create_table "business_types", force: :cascade do |t|
     t.json "name", null: false
