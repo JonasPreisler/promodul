@@ -22,7 +22,9 @@ class AttachmentsController < ApplicationController
   end
 
   def get_files
-
+    service = Resources::AttachmentsService.new(file_params)
+    service.files
+    rest_respond_service service
   end
   #
   #def destroy
@@ -36,6 +38,6 @@ class AttachmentsController < ApplicationController
   private
 
   def file_params
-    params.permit(:attached_on_id, :attached_on_type, :file, :exp_date, :uuid)
+    params.permit(:attached_on_id, :attached_on_type, :file, :exp_date, :uuid, :model_on_type, :model_on_id)
   end
 end

@@ -14,6 +14,10 @@ module Resources
       { success: true }
     end
 
+    def get_files_json_view
+      { files: @files.as_json }
+    end
+
     def create_file
       @file = Attachment.new(@file_params)
       @file.save
@@ -28,6 +32,42 @@ module Resources
         return
       end
       @file.file.file
+    end
+
+    def files
+      resource = get_resource
+      user = get_user
+
+      base_query = ""
+      base_query += "attached_on_type = :attached_type" if @file_params[:attached_on_type]
+      base_query += " AND attached_on_id = :attached_id" if @file_params[:attached_on_id]
+
+      @files = Attachment
+                   .select('id, pol_type, type_on, name, file as file_name, uuid')
+                   .joins("JOIN (#{ resource } UNION #{ user }) attached_obj ON attached_obj.obj_id = attachments.attached_on_id AND attached_obj.pol_type = attachments.attached_on_type")
+                   .where(base_query, attached_type: @file_params[:attached_on_type], attached_id: @file_params[:attached_on_id])
+                   .where(is_active: true)
+                   .group_by{ |obj| obj.pol_type}
+
+      @files['Resource'] = @files['Resource'].group_by{ |obj| obj.type_on } if @files['Resource'].present?
+      @files['UserAccount'] = @files['UserAccount'].group_by{ |obj| obj.type_on } if @files['UserAccount'].present?
+
+    end
+
+    def get_resource
+      base_query = ""
+      base_query += "model_on_type = :model_type_on" if @file_params[:model_on_type]
+      base_query += " AND model_on_id = :model_type_id" if @file_params[:model_on_id]
+      Resource
+          .select("id as obj_id, 'Resource' as pol_type, model_on_type as type_on, name")
+          .where(base_query, model_type_on: @file_params[:model_on_type])
+          .to_sql
+    end
+
+    def get_user
+      UserAccount
+          .select("id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name")
+          .to_sql
     end
 
     def delete_picture

@@ -113,6 +113,105 @@
         }
       }
     },
+    "/{locale}/attachments/get_files": {
+      "get": {
+        "summary": "Returns files",
+        "tags": [
+          "Attachment"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "attached_on_type",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "attached_on_id",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "model_on_type",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "model_on_id",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "files": {
+                  "type": "object",
+                  "properties": {
+                    "Resource": {
+                      "type": "object",
+                      "properties": {
+                        "ToolModel": {
+                          "type": "array",
+                          "items": {
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "uuid": {
+                                "type": "string"
+                              },
+                              "pol_type": {
+                                "type": "string"
+                              },
+                              "type_on": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "file_name": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
     "/{locale}/attachment/{uuid}": {
       "delete": {
         "summary": "Destroy product image",
