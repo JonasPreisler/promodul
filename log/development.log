@@ -25425,3 +25425,15 @@ Completed 200 OK in 3657ms (Views: 0.2ms | ActiveRecord: 2.6ms)
   [1m[36mCountryPhoneIndex Load (2.8ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" ORDER BY "country_phone_indices"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mCountryPhoneIndex Load (0.3ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" ORDER BY "country_phone_indices"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mCountryPhoneIndex Load (0.5ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" ORDER BY "country_phone_indices"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/en/users/list" for 127.0.0.1 at 2021-04-06 22:27:31 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (6.2ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 98ms (Views: 1.7ms | ActiveRecord: 15.9ms)
+
+
