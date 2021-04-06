@@ -24,7 +24,7 @@ module Account
     end
 
     def call
-      validate_phone_number
+      #validate_phone_number
       validate_password_matching
       return if @errors.any?
       ActiveRecord::Base.transaction do

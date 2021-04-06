@@ -25314,3 +25314,114 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 50ms (Views: 0.4ms | ActiveRecord: 11.7ms)
 
 
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-06 21:41:45 +0400
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-06 21:41:45 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-06 21:41:45 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-06 21:41:45 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-06 21:41:46 +0400
+Started POST "/en/auth" for 127.0.0.1 at 2021-04-06 21:41:58 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (3.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 234ms (Views: 0.2ms | ActiveRecord: 33.7ms)
+
+
+Started GET "/en/users/current_user" for 127.0.0.1 at 2021-04-06 21:42:22 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `split' for nil:NilClass):
+  
+lib/methods_service.rb:66:in `get_user_id'
+lib/methods_service.rb:4:in `current_account'
+app/controllers/users_controller.rb:9:in `current_user'
+Started GET "/en/users/current_user" for 127.0.0.1 at 2021-04-06 21:43:12 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `split' for nil:NilClass):
+  
+lib/methods_service.rb:66:in `get_user_id'
+lib/methods_service.rb:4:in `current_account'
+app/controllers/users_controller.rb:9:in `current_user'
+Started GET "/en/users/current_user" for 127.0.0.1 at 2021-04-06 21:43:14 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `split' for nil:NilClass):
+  
+lib/methods_service.rb:66:in `get_user_id'
+lib/methods_service.rb:4:in `current_account'
+app/controllers/users_controller.rb:9:in `current_user'
+Started GET "/en/users/current_user" for 127.0.0.1 at 2021-04-06 21:43:23 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (4.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mRoleGroup Load (2.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+Completed 500 Internal Server Error in 3849ms (ActiveRecord: 25.5ms)
+
+
+  
+NoMethodError (undefined method `product_group_permission' for #<RoleGroup:0x00007f1ff4261c20>):
+  
+app/services/account/current_user_service.rb:15:in `json_view'
+lib/controller_response.rb:30:in `respond_json_view'
+lib/controller_response.rb:43:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/users_controller.rb:11:in `current_user'
+Started GET "/en/users/current_user" for 127.0.0.1 at 2021-04-06 21:44:35 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.7ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+Completed 200 OK in 3766ms (Views: 0.2ms | ActiveRecord: 20.4ms)
+
+
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/auth" for 127.0.0.1 at 2021-04-06 21:45:32 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"meraba", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"meraba", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "meraba"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 78ms (Views: 0.2ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/en/users/current_user" for 127.0.0.1 at 2021-04-06 21:45:45 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:6
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+Completed 200 OK in 3657ms (Views: 0.2ms | ActiveRecord: 2.6ms)
+
+
+  [1m[36mCountryPhoneIndex Load (2.8ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" ORDER BY "country_phone_indices"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCountryPhoneIndex Load (0.3ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" ORDER BY "country_phone_indices"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCountryPhoneIndex Load (0.5ms)[0m  [1m[34mSELECT  "country_phone_indices".* FROM "country_phone_indices" ORDER BY "country_phone_indices"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
