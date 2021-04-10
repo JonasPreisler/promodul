@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_29_215315) do
+ActiveRecord::Schema.define(version: 2021_04_10_131727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -368,6 +368,19 @@ ActiveRecord::Schema.define(version: 2021_03_29_215315) do
     t.index ["code"], name: "index_products_on_code", unique: true
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "project_id"
+    t.string "address"
+    t.string "post_number"
+    t.string "contact_person"
+    t.bigint "user_account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_account_id"], name: "index_projects_on_user_account_id"
+  end
+
   create_table "resource_types", force: :cascade do |t|
     t.string "name"
     t.string "id_name"
@@ -579,6 +592,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_215315) do
   add_foreign_key "product_import_permissions", "role_groups"
   add_foreign_key "product_prices", "products"
   add_foreign_key "product_type_permissions", "role_groups"
+  add_foreign_key "projects", "user_accounts"
   add_foreign_key "resources", "resource_types"
   add_foreign_key "role_management_permissions", "role_groups"
   add_foreign_key "sub_categories", "categories"

@@ -5753,6 +5753,188 @@
         }
       }
     },
+    "/{locale}/projects": {
+      "post": {
+        "summary": "Create project",
+        "tags": [
+          "Projects"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "params",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "post_number": {
+                  "type": "string"
+                },
+                "contact_person": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "category": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "post_number": {
+                      "type": "boolean"
+                    },
+                    "contact_person": {
+                      "type": "boolean"
+                    },
+                    "project_id": {
+                      "type": "string"
+                    },
+                    "user_account": {
+                      "type": "object",
+                      "properties": {
+                        "first_name": {
+                          "type": "string"
+                        },
+                        "last_name": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/{locale}/projects/projects_list": {
+      "get": {
+        "summary": "Returns Project list",
+        "tags": [
+          "Projects"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "Client token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projects": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "post_number": {
+                        "type": "boolean"
+                      },
+                      "contact_person": {
+                        "type": "boolean"
+                      },
+                      "project_id": {
+                        "type": "string"
+                      },
+                      "user_account": {
+                        "type": "object",
+                        "properties": {
+                          "first_name": {
+                            "type": "string"
+                          },
+                          "last_name": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+              }
+            }
+          }
+        }
+      }
+    },
     "/{locale}/account/registration": {
       "post": {
         "summary": "UserAccount Account registration",

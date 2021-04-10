@@ -147,6 +147,9 @@ Rails.application.routes.draw do
       get  'attachments/file', to: 'attachments#show_file'
       get  'attachments/get_files', to: 'attachments#get_files'
       delete  'attachments/:uuid', to: 'attachments#destroy'
+
+      resource :projects
+      get 'projects/projects_list',       to: 'projects#projects_list'
     end
   end
 end
