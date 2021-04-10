@@ -60,6 +60,55 @@ describe 'Category ', type: :request do
     end
   end
 
+  path '/{locale}/projects/{id}' do
+    get 'Returns project' do
+      tags 'Projects'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'JWT token'
+                })
+
+      parameter name: :id, in: :path, type: :integer, required: true
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+
+      response '201', 'ok' do
+        schema type: :object,
+               properties: {
+                   project: {
+                       type: :object,
+                       properties: {
+                           id: {type: :integer},
+                           title: {type: :string},
+                           description: {type: :string},
+                           post_number: {type: :boolean},
+                           contact_person: {type: :boolean},
+                           project_id: {type: :string},
+                           user_account: {
+                               type: :object,
+                               properties: {
+                                   first_name: { type: :string },
+                                   last_name: { type: :string }
+                               }
+                           }
+                       }
+                   }
+               }
+
+        run_test!
+      end
+
+      response '404', 'not found' do
+        run_test!
+      end
+
+    end
+  end
+
   path '/{locale}/categories' do
     put 'Update category' do
       tags 'Category and Sub category'

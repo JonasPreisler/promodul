@@ -16,7 +16,7 @@ module Projects
     end
 
     def show_json_view
-      { orders: @orders.as_json(only: [:id, :name, :start, :end, :employ, :status]) }
+      { project: @project.as_json(include: { user_account: { only: [:first_name, :last_name]}}) }
     end
 
     def projects_list_json_view
@@ -54,6 +54,10 @@ module Projects
 
     def projects_list
       @projects = Project.all
+    end
+
+    def overview
+      @project = Project.find_by_id(@params[:id])
     end
 
     #def open_order_list

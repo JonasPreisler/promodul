@@ -17,6 +17,20 @@ class ProjectsController < ApplicationController
     rest_respond_service service
   end
 
+  def show
+    service = Projects::ProjectsServices.new(project_params, nil)
+    service.overview
+    rest_respond_service service
+  end
+
+
+  #def overview
+  #  service = Projects::ProjectsServices.new(project_params, nil)
+  #  service.overview
+  #  rest_respond_service service
+  #end
+
+
   #def open_orders_list
   #  service = Orders::OrdersServices.new(orders_params)
   #  service.open_order_list
@@ -35,12 +49,7 @@ class ProjectsController < ApplicationController
   #  rest_respond_service service
   #end
   #
-  #def overview
-  #  service = Orders::OrdersServices.new(orders_params)
-  #  service.overview
-  #  rest_respond_service service
-  #end
-  #
+
   #def claim_order
   #  service = Orders::OrdersServices.new(claim_params)
   #  service.claim_order

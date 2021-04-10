@@ -150,6 +150,7 @@ Rails.application.routes.draw do
 
       resource :projects
       get 'projects/projects_list',       to: 'projects#projects_list'
+      get 'projects/:id',         to: 'projects#show'
     end
   end
 end
