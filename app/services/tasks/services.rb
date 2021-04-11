@@ -41,6 +41,7 @@ module Tasks
 
     def build_object(task)
       {
+          id: task.id,
           title: task.title,
           description: task.description,
           status:  task.task_status.id_name,
