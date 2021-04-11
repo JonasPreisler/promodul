@@ -170,7 +170,7 @@ describe 'Orders', type: :request do
 
   path '/{locale}/tasks/{id}' do
     get 'Returns task' do
-      tags 'Order'
+      tags 'Projects'
       consumes 'application/json'
 
       parameter({
@@ -192,27 +192,28 @@ describe 'Orders', type: :request do
                        properties: {
                            id:         {type: :integer},
                            title:      {type: :string},
-                           description:      {type: :string},
                            start_time: { type: :string},
                            deadline:   { type: :string},
-                           tracked_time:   { type: :string},
-                           task_status:    {
-                               type: :object,
-                               properties: {
-                                   name: { type: :object }
+                           status:     { type: :string},
+                           project_name: { type: :string},
+                           users:    {
+                               type: :array,
+                               items: {
+                                   properties: {
+                                       first_name: { type: :object },
+                                       last_name_name: { type: :object }
+                                   }
                                }
+
                            },
-                           user_account:    {
-                               type: :object,
-                               properties: {
-                                   username: { type: :object }
+                           resources:    {
+                               type: :array,
+                               items: {
+                                   properties: {
+                                       name: { type: :object }
+                                   }
                                }
-                           },
-                           product: {
-                               type: :object,
-                               properties: {
-                                   name: { type: :integer }
-                               }
+
                            }
                        }
                    }

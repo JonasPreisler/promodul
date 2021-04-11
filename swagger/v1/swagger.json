@@ -9896,7 +9896,7 @@
       "get": {
         "summary": "Returns task",
         "tags": [
-          "Order"
+          "Projects"
         ],
         "consumes": [
           "application/json"
@@ -9938,39 +9938,38 @@
                     "title": {
                       "type": "string"
                     },
-                    "description": {
-                      "type": "string"
-                    },
                     "start_time": {
                       "type": "string"
                     },
                     "deadline": {
                       "type": "string"
                     },
-                    "tracked_time": {
+                    "status": {
                       "type": "string"
                     },
-                    "task_status": {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "object"
+                    "project_name": {
+                      "type": "string"
+                    },
+                    "users": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "first_name": {
+                            "type": "object"
+                          },
+                          "last_name_name": {
+                            "type": "object"
+                          }
                         }
                       }
                     },
-                    "user_account": {
-                      "type": "object",
-                      "properties": {
-                        "username": {
-                          "type": "object"
-                        }
-                      }
-                    },
-                    "product": {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "integer"
+                    "resources": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "name": {
+                            "type": "object"
+                          }
                         }
                       }
                     }

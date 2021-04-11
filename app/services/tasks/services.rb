@@ -19,10 +19,7 @@ module Tasks
     end
 
     def show_json_view
-      { task: @task.as_json(include: {  task_status: { only: [:name] },
-                                        user_account: { only: [:username] },
-                                        product: { only: [:name] } },
-                              only: [:id, :title, :description, :start_time, :deadline, :tracked_time, :created_at]) }
+      { task: @task.as_json }
     end
 
     def tasks_list_json_view
@@ -82,6 +79,8 @@ module Tasks
 
     def show
       find_task
+      return if errors.any?
+      @task = build_object(@task)
     end
 
     def delete_task
