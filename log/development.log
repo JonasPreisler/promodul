@@ -26948,3 +26948,87 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 111ms (Views: 0.2ms | ActiveRecord: 27.0ms)
 
 
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/attachments" for 127.0.0.1 at 2021-04-12 00:07:21 +0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00007f4f9c3f5fa0 @tempfile=#<Tempfile:/tmp/RackMultipart20210412-30343-tw1t0h.jpg>, @original_filename="landing.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"landing.jpg\"\r\nContent-Type: image/jpeg\r\n">, "attached_on_id"=>"1", "attached_on_type"=>"Project", "exp_date"=>"23/11/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:23
+  [1m[36mAttachment Create (7.0ms)[0m  [1m[32mINSERT INTO "attachments" ("attached_on_type", "attached_on_id", "file", "uuid", "exp_date") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["attached_on_type", "Project"], ["attached_on_id", 1], ["file", "landing.jpg"], ["uuid", "8f6e8c3a-44db-428e-82f1-0653c860ba4b"], ["exp_date", "2021-11-23 00:00:00"]]
+  ↳ app/services/resources/attachments_service.rb:23
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/attachments_service.rb:23
+Completed 201 Created in 43ms (Views: 0.3ms | ActiveRecord: 15.2ms)
+
+
+Started GET "/en/attachments/get_files" for 127.0.0.1 at 2021-04-12 00:07:31 +0400
+Processing by AttachmentsController#get_files as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mAttachment Load (38.0ms)[0m  [1m[34mSELECT id, pol_type, type_on, name, file as file_name, uuid FROM "attachments" JOIN (SELECT id as obj_id, 'Resource' as pol_type, model_on_type as type_on, name FROM "resources" UNION SELECT id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" UNION SELECT id as obj_id, 'Project' as pol_type, 'project' as type_on, title as name FROM "projects") attached_obj ON attached_obj.obj_id = attachments.attached_on_id AND attached_obj.pol_type = attachments.attached_on_type WHERE "attachments"."is_active" = $1[0m  [["is_active", true]]
+  ↳ app/services/resources/attachments_service.rb:51
+Completed 200 OK in 82ms (Views: 0.2ms | ActiveRecord: 44.2ms)
+
+
+  [1m[36mAttachment Load (0.7ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments"[0m
+Started POST "/en/attachments" for 127.0.0.1 at 2021-04-12 00:10:24 +0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00007fa1303717b0 @tempfile=#<Tempfile:/tmp/RackMultipart20210412-31283-1nkzx1t.jpg>, @original_filename="piradoba.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"piradoba.jpg\"\r\nContent-Type: image/jpeg\r\n">, "attached_on_id"=>"93", "attached_on_type"=>"UserAccount", "exp_date"=>"23/11/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:23
+  [1m[36mAttachment Create (1.0ms)[0m  [1m[32mINSERT INTO "attachments" ("attached_on_type", "attached_on_id", "file", "uuid", "exp_date") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["attached_on_type", "UserAccount"], ["attached_on_id", 93], ["file", "piradoba.jpg"], ["uuid", "def71f8c-f739-49f5-a11a-f582ae5e373c"], ["exp_date", "2021-11-23 00:00:00"]]
+  ↳ app/services/resources/attachments_service.rb:23
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/attachments_service.rb:23
+Completed 201 Created in 31ms (Views: 0.2ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/en/attachments/get_files" for 127.0.0.1 at 2021-04-12 00:10:31 +0400
+Processing by AttachmentsController#get_files as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mAttachment Load (2.0ms)[0m  [1m[34mSELECT id, pol_type, type_on, name, file as file_name, uuid FROM "attachments" JOIN (SELECT id as obj_id, 'Resource' as pol_type, model_on_type as type_on, name FROM "resources" UNION SELECT id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" UNION SELECT id as obj_id, 'Project' as pol_type, 'project' as type_on, title as name FROM "projects") attached_obj ON attached_obj.obj_id = attachments.attached_on_id AND attached_obj.pol_type = attachments.attached_on_type WHERE "attachments"."is_active" = $1[0m  [["is_active", true]]
+  ↳ app/services/resources/attachments_service.rb:51
+Completed 200 OK in 39ms (Views: 0.3ms | ActiveRecord: 7.9ms)
+
+
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/attachments" for 127.0.0.1 at 2021-04-12 00:12:33 +0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00007f439c357f78 @tempfile=#<Tempfile:/tmp/RackMultipart20210412-32273-8uzp8d.jpg>, @original_filename="piradoba.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"piradoba.jpg\"\r\nContent-Type: image/jpeg\r\n">, "attached_on_id"=>"1", "attached_on_type"=>"Project", "exp_date"=>"23/11/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:23
+  [1m[36mAttachment Create (0.9ms)[0m  [1m[32mINSERT INTO "attachments" ("attached_on_type", "attached_on_id", "file", "uuid", "exp_date") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["attached_on_type", "Project"], ["attached_on_id", 1], ["file", "piradoba.jpg"], ["uuid", "64993254-0978-4c0b-a204-edb2b5185464"], ["exp_date", "2021-11-23 00:00:00"]]
+  ↳ app/services/resources/attachments_service.rb:23
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/attachments_service.rb:23
+Completed 201 Created in 32ms (Views: 0.3ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/en/attachments/get_files" for 127.0.0.1 at 2021-04-12 00:12:40 +0400
+Processing by AttachmentsController#get_files as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mAttachment Load (2.0ms)[0m  [1m[34mSELECT id, pol_type, type_on, name, file as file_name, uuid FROM "attachments" JOIN (SELECT id as obj_id, 'Resource' as pol_type, model_on_type as type_on, name FROM "resources" UNION SELECT id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" UNION SELECT id as obj_id, 'Project' as pol_type, 'title' as type_on, title as name FROM "projects") attached_obj ON attached_obj.obj_id = attachments.attached_on_id AND attached_obj.pol_type = attachments.attached_on_type WHERE "attachments"."is_active" = $1[0m  [["is_active", true]]
+  ↳ app/services/resources/attachments_service.rb:51
+Completed 200 OK in 45ms (Views: 0.3ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/en/attachments/get_files" for 127.0.0.1 at 2021-04-12 00:13:10 +0400
+Processing by AttachmentsController#get_files as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mAttachment Load (1.3ms)[0m  [1m[34mSELECT id, pol_type, type_on, name, file as file_name, uuid FROM "attachments" JOIN (SELECT id as obj_id, 'Resource' as pol_type, model_on_type as type_on, name FROM "resources" UNION SELECT id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" UNION SELECT id as obj_id, 'Project' as pol_type, title as type_on, title as name FROM "projects") attached_obj ON attached_obj.obj_id = attachments.attached_on_id AND attached_obj.pol_type = attachments.attached_on_type WHERE "attachments"."is_active" = $1[0m  [["is_active", true]]
+  ↳ app/services/resources/attachments_service.rb:51
+Completed 200 OK in 79ms (Views: 0.4ms | ActiveRecord: 12.4ms)
+
+

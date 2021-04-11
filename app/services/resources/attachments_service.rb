@@ -37,6 +37,7 @@ module Resources
     def files
       resource = get_resource
       user = get_user
+      project = get_project
 
       base_query = ""
       base_query += "attached_on_type = :attached_type" if @file_params[:attached_on_type]
@@ -44,13 +45,14 @@ module Resources
 
       @files = Attachment
                    .select('id, pol_type, type_on, name, file as file_name, uuid')
-                   .joins("JOIN (#{ resource } UNION #{ user }) attached_obj ON attached_obj.obj_id = attachments.attached_on_id AND attached_obj.pol_type = attachments.attached_on_type")
+                   .joins("JOIN (#{ resource } UNION #{ user } UNION #{ project }) attached_obj ON attached_obj.obj_id = attachments.attached_on_id AND attached_obj.pol_type = attachments.attached_on_type")
                    .where(base_query, attached_type: @file_params[:attached_on_type], attached_id: @file_params[:attached_on_id])
                    .where(is_active: true)
                    .group_by{ |obj| obj.pol_type}
 
       @files['Resource'] = @files['Resource'].group_by{ |obj| obj.type_on } if @files['Resource'].present?
       @files['UserAccount'] = @files['UserAccount'].group_by{ |obj| obj.type_on } if @files['UserAccount'].present?
+      @files['Project'] = @files['Project'].group_by{ |obj| obj.type_on } if @files['Project'].present?
 
     end
 
@@ -67,6 +69,12 @@ module Resources
     def get_user
       UserAccount
           .select("id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name")
+          .to_sql
+    end
+
+    def get_project
+      Project
+          .select("id as obj_id, 'Project' as pol_type, title as type_on, title as name")
           .to_sql
     end
 
