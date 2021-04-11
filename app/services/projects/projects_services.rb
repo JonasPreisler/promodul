@@ -16,7 +16,7 @@ module Projects
     end
 
     def show_json_view
-      { project: @project.as_json(include: { user_account: { only: [:first_name, :last_name]}}) }
+      { project: @project.as_json(include: { user_account: { only: [:first_name, :last_name]}}), members: @members }
     end
 
     def projects_list_json_view
@@ -58,6 +58,22 @@ module Projects
 
     def overview
       @project = Project.find_by_id(@params[:id])
+      get_members
+    end
+
+    def get_members
+      @members = UserAccount
+                    .select("user_accounts.id, first_name, last_name, 'employ' AS status")
+                    .joins(user_account_tasks: [task: :project])
+                    .where(projects: { id: @project.id })
+                    .group('user_accounts.id')
+                    .as_json
+      @members << {
+          id: @project.user_account.id,
+          first_name: @project.user_account.first_name,
+          last_name: @project.user_account.last_name,
+          status: "manager"
+      }
     end
 
     #def open_order_list

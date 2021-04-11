@@ -96,6 +96,15 @@ describe 'Category ', type: :request do
                                }
                            }
                        }
+                   },
+                   members: {
+                       type: :object,
+                       properties: {
+                           id: {type: :integer},
+                           first_name: { type: :string },
+                           last_name: { type: :string },
+                           status: { type: :string }
+                       }
                    }
                }
 
