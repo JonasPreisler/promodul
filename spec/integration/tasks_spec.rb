@@ -3,8 +3,8 @@ require 'swagger_helper'
 describe 'Orders', type: :request do
 
   path '/{locale}/tasks' do
-    post 'Create Order task' do
-      tags 'Order'
+    post 'Create project task' do
+      tags 'Projects'
       consumes 'application/json'
       produces 'application/json'
 
@@ -24,35 +24,29 @@ describe 'Orders', type: :request do
               description:      { type: :string },
               start_time:       { type: :string },
               deadline:         { type: :string },
-              order_id:         { type: :integer },
-              product_id:         { type: :integer },
-              user_account_id:  { type: :integer }
+              project_id:         { type: :integer },
+              user_account_tasks_attributes: {
+                  type: :array,
+                  items: {
+                      properties: {
+                          user_account_id:     { type: :integer }
+                      }
+                  }
+              },
+              task_resources_attributes: {
+                  type: :array,
+                  items: {
+                      properties: {
+                          resource_id:     { type: :integer }
+                      }
+                  }
+              }
           }
       }
       response '201', 'ok' do
         schema type: :object,
                properties: {
-                   task: {
-                       type: :object,
-                       properties: {
-                           id:         {type: :integer},
-                           title:      {type: :string},
-                           start_time: { type: :string},
-                           deadline:   { type: :string},
-                           task_status:    {
-                               type: :object,
-                               properties: {
-                                   name: { type: :object }
-                               }
-                           },
-                           user_account:    {
-                               type: :object,
-                               properties: {
-                                   username: { type: :object }
-                               }
-                           }
-                       }
-                   }
+                   success: { type: :boolean }
                }
 
         run_test!
@@ -66,9 +60,9 @@ describe 'Orders', type: :request do
     end
   end
 
-  path '/{locale}/tasks/tasks_list/{order_id}' do
-    get 'Returns order tasks' do
-      tags 'Order'
+  path '/{locale}/tasks/tasks_list/{project_id}' do
+    get 'Returns project tasks' do
+      tags 'Projects'
       consumes 'application/json'
 
       parameter({
@@ -80,12 +74,12 @@ describe 'Orders', type: :request do
                 })
 
       parameter name: :locale, in: :path, type: :string, required: true, default: "en"
-      parameter name: :order_id, in: :path, type: :integer, required: true
+      parameter name: :project_id, in: :path, type: :integer, required: true
 
       response '200', 'OK' do
         schema type: :object,
                properties: {
-                   products: {
+                   tasks: {
                        type: :array,
                        items: {
                            properties: {
@@ -93,17 +87,26 @@ describe 'Orders', type: :request do
                                title:      {type: :string},
                                start_time: { type: :string},
                                deadline:   { type: :string},
-                               task_status:    {
-                                   type: :object,
-                                   properties: {
-                                       name: { type: :object }
+                               status:     { type: :string},
+                               project_name: { type: :string},
+                               users:    {
+                                   type: :array,
+                                   items: {
+                                       properties: {
+                                           first_name: { type: :object },
+                                           last_name_name: { type: :object }
+                                       }
                                    }
+
                                },
-                               user_account:    {
-                                   type: :object,
-                                   properties: {
-                                       username: { type: :object }
+                               resources:    {
+                                   type: :array,
+                                   items: {
+                                       properties: {
+                                           name: { type: :object }
+                                       }
                                    }
+
                                }
                            }
                        }

@@ -11,9 +11,7 @@ module Tasks
     end
 
     def json_view
-      { task: @task.as_json(include: {  task_status: { only: [:name] },
-                                        user_account: { only: [:username] } },
-                              only: [:id, :start_time, :deadline, :title, :description]) }
+      { success: true }
     end
 
     def destroy_json_view
@@ -28,19 +26,45 @@ module Tasks
     end
 
     def tasks_list_json_view
-      { tasks: @tasks.as_json(include: {  task_status: { only: [:name] },
-                                          user_account: { only: [:username] } },
-                              only: [:id, :start_time, :deadline, :title, :description]) }
+      { tasks: @builded_object }
     end
 
     def create_task
-      validate_data!
+      #validate_data!
       default_status
       create_task_obj
     end
 
     def task_list
-      @tasks = Task.where(order_id: params[:id])
+      @builded_object = []
+      Task.where(project_id: params["id"]).each do |task|
+        @builded_object << build_object(task)
+      end
+    end
+
+    def build_object(task)
+      {
+          title: task.title,
+          description: task.description,
+          status:  task.task_status.id_name,
+          start_time: task.start_time,
+          deadline: task.deadline,
+          project_name:  task.project.title,
+          users: get_users(task),
+          resources: get_resources(task)
+      }
+    end
+
+    def get_users(task)
+      UserAccount
+          .select('user_accounts.id, first_name, last_name')
+          .joins(user_account_tasks: :task)
+          .where(tasks: {id: task.id })
+          .group('user_accounts.id').as_json
+    end
+
+    def get_resources(task)
+      Resource.select('resources.id, name').joins(task_resources: :task).where(tasks: {id: task.id }).group('resources.id').as_json
     end
 
     def progress
@@ -81,9 +105,7 @@ module Tasks
     end
 
     def validate_data!
-      validate_order
-      validate_user_account
-      validate_product
+      validate_dates
     end
 
     def validate_order

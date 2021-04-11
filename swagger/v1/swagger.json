@@ -9443,9 +9443,9 @@
     },
     "/{locale}/tasks": {
       "post": {
-        "summary": "Create Order task",
+        "summary": "Create project task",
         "tags": [
-          "Order"
+          "Projects"
         ],
         "consumes": [
           "application/json"
@@ -9486,14 +9486,28 @@
                 "deadline": {
                   "type": "string"
                 },
-                "order_id": {
+                "project_id": {
                   "type": "integer"
                 },
-                "product_id": {
-                  "type": "integer"
+                "user_account_tasks_attributes": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "user_account_id": {
+                        "type": "integer"
+                      }
+                    }
+                  }
                 },
-                "user_account_id": {
-                  "type": "integer"
+                "task_resources_attributes": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "resource_id": {
+                        "type": "integer"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -9505,38 +9519,8 @@
             "schema": {
               "type": "object",
               "properties": {
-                "task": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
-                    "title": {
-                      "type": "string"
-                    },
-                    "start_time": {
-                      "type": "string"
-                    },
-                    "deadline": {
-                      "type": "string"
-                    },
-                    "task_status": {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "object"
-                        }
-                      }
-                    },
-                    "user_account": {
-                      "type": "object",
-                      "properties": {
-                        "username": {
-                          "type": "object"
-                        }
-                      }
-                    }
-                  }
+                "success": {
+                  "type": "boolean"
                 }
               }
             }
@@ -9718,11 +9702,11 @@
         }
       }
     },
-    "/{locale}/tasks/tasks_list/{order_id}": {
+    "/{locale}/tasks/tasks_list/{project_id}": {
       "get": {
-        "summary": "Returns order tasks",
+        "summary": "Returns project tasks",
         "tags": [
-          "Order"
+          "Projects"
         ],
         "consumes": [
           "application/json"
@@ -9743,7 +9727,7 @@
             "default": "en"
           },
           {
-            "name": "order_id",
+            "name": "project_id",
             "in": "path",
             "type": "integer",
             "required": true
@@ -9755,7 +9739,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "products": {
+                "tasks": {
                   "type": "array",
                   "items": {
                     "properties": {
@@ -9771,19 +9755,32 @@
                       "deadline": {
                         "type": "string"
                       },
-                      "task_status": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "object"
+                      "status": {
+                        "type": "string"
+                      },
+                      "project_name": {
+                        "type": "string"
+                      },
+                      "users": {
+                        "type": "array",
+                        "items": {
+                          "properties": {
+                            "first_name": {
+                              "type": "object"
+                            },
+                            "last_name_name": {
+                              "type": "object"
+                            }
                           }
                         }
                       },
-                      "user_account": {
-                        "type": "object",
-                        "properties": {
-                          "username": {
-                            "type": "object"
+                      "resources": {
+                        "type": "array",
+                        "items": {
+                          "properties": {
+                            "name": {
+                              "type": "object"
+                            }
                           }
                         }
                       }

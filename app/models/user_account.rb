@@ -20,4 +20,6 @@ class UserAccount < ApplicationRecord
   has_many :confirmation_code, class_name: 'ConfirmationCode', foreign_key: :user_account_id, dependent: :destroy
   has_many :terms_and_condition_agreements, dependent: :destroy, class_name: 'TermsAndConditionAgreement', foreign_key: :user_account_id
 
+  has_many :attachments, as: :attached_on
+  has_many :user_account_tasks
 end
