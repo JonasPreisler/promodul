@@ -1,6 +1,6 @@
 require 'swagger_helper'
 
-describe 'Category ', type: :request do
+describe 'Projects ', type: :request do
   path '/{locale}/projects' do
     post 'Create project' do
       tags 'Projects'
@@ -19,11 +19,14 @@ describe 'Category ', type: :request do
       parameter name: :params, in: :body, schema: {
           type: :object,
           properties: {
-              title:   {type: :string},
-              description:   {type: :string},
-              address:    {type: :string},
-              post_number:    {type: :string},
-              contact_person: {type: :string}
+              title:   { type: :string },
+              description:   { type: :string },
+              address:    { type: :string },
+              post_number:    { type: :string },
+              contact_person: { type: :string },
+              start_date: { type: :string },
+              deadline: { type: :string },
+              contact_person: { type: :string }
           }
       }
       response '201', 'ok' do
@@ -37,6 +40,8 @@ describe 'Category ', type: :request do
                            description: {type: :string},
                            post_number: {type: :boolean},
                            contact_person: {type: :boolean},
+                           start_date: { type: :string },
+                           deadline: { type: :string },
                            project_id: {type: :string},
                            user_account: {
                                type: :object,
@@ -87,6 +92,8 @@ describe 'Category ', type: :request do
                            description: {type: :string},
                            post_number: {type: :boolean},
                            contact_person: {type: :boolean},
+                           start_date: { type: :string },
+                           deadline: { type: :string },
                            project_id: {type: :string},
                            user_account: {
                                type: :object,

@@ -5800,6 +5800,12 @@
                 },
                 "contact_person": {
                   "type": "string"
+                },
+                "start_date": {
+                  "type": "string"
+                },
+                "deadline": {
+                  "type": "string"
                 }
               }
             }
@@ -5828,6 +5834,12 @@
                     },
                     "contact_person": {
                       "type": "boolean"
+                    },
+                    "start_date": {
+                      "type": "string"
+                    },
+                    "deadline": {
+                      "type": "string"
                     },
                     "project_id": {
                       "type": "string"
@@ -5908,6 +5920,12 @@
                     },
                     "contact_person": {
                       "type": "boolean"
+                    },
+                    "start_date": {
+                      "type": "string"
+                    },
+                    "deadline": {
+                      "type": "string"
                     },
                     "project_id": {
                       "type": "string"

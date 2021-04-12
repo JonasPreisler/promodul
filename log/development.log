@@ -27032,3 +27032,166 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 79ms (Views: 0.4ms | ActiveRecord: 12.4ms)
 
 
+Started GET "/en/projects/78" for 127.0.0.1 at 2021-04-12 23:44:40 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"78"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 78], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:60
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 2.2ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/services/projects/projects_services.rb:68:in `get_members'
+app/services/projects/projects_services.rb:61:in `overview'
+app/controllers/projects_controller.rb:22:in `show'
+Started GET "/en/tasks/tasks_list/34" for 127.0.0.1 at 2021-04-12 23:45:27 +0400
+Processing by TasksController#tasks_list as JSON
+  Parameters: {"locale"=>"en", "id"=>"34"}
+Unpermitted parameters: :format, :locale
+  [1m[36mTask Load (2.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 34]]
+  ↳ app/services/tasks/services.rb:37
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2021-04-12 23:45:57 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"cdd", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"cdd", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (1.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "cdd"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 401 Unauthorized in 17ms (Views: 0.2ms | ActiveRecord: 8.8ms)
+
+
+Started POST "/en/client_contacts" for 127.0.0.1 at 2021-04-12 23:46:30 +0400
+Processing by ClientContactsController#create as JSON
+  Parameters: {"first_name"=>"string", "last_name"=>"string", "email"=>"string", "phone"=>"string", "position"=>"string", "client_id"=>"999999", "locale"=>"en", "client_contact"=>{"first_name"=>"string", "last_name"=>"string", "email"=>"string", "phone"=>"string", "position"=>"string", "client_id"=>"999999"}}
+Unpermitted parameters: :format, :locale, :client_contact
+  [1m[36mClient Load (9.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 AND "clients"."active" = $2 ORDER BY "clients"."id" DESC LIMIT $3[0m  [["id", 999999], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/clients/contacts_service.rb:81
+Completed 400 Bad Request in 121ms (Views: 0.2ms | ActiveRecord: 14.7ms)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddNewColumnsToProject (20210412210028)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "projects" ADD "start_date" timestamp[0m
+  ↳ db/migrate/20210412210028_add_new_columns_to_project.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "projects" ADD "deadline" timestamp[0m
+  ↳ db/migrate/20210412210028_add_new_columns_to_project.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210412210028"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-13 01:06:31 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-13 01:06:31 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-13 01:06:31 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-13 01:06:31 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-13 01:06:32 +0400
+Started GET "/en/projects/1" for 127.0.0.1 at 2021-04-13 01:06:47 +0400
+Processing by ProjectsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"1"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProject Load (1.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:60
+  [1m[36mUserAccount Load (1.3ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 1]]
+  ↳ app/services/projects/projects_services.rb:70
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:72
+Completed 200 OK in 96ms (Views: 0.7ms | ActiveRecord: 16.9ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-13 01:07:30 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-13 01:07:30 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-13 01:07:30 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-13 01:07:30 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-13 01:07:31 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-13 01:07:31 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-13 01:09:26 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-13 01:09:26 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-13 01:09:26 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-13 01:09:26 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-13 01:09:27 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-13 01:09:27 +0400
+Started POST "/en/projects" for 127.0.0.1 at 2021-04-13 01:10:19 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"string11", "description"=>"string11", "address"=>"string11", "post_number"=>"string11", "contact_person"=>"string11", "start_date"=>"23/11/2021", "deadline"=>"23/11/2022", "locale"=>"en", "project"=>{"title"=>"string11", "description"=>"string11", "address"=>"string11", "post_number"=>"string11", "contact_person"=>"string11", "start_date"=>"23/11/2021", "deadline"=>"23/11/2022"}}
+Unpermitted parameters: :format, :locale, :project
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `split' for nil:NilClass):
+  
+lib/methods_service.rb:66:in `get_user_id'
+lib/methods_service.rb:4:in `current_account'
+app/controllers/projects_controller.rb:9:in `create'
+Started POST "/en/auth" for 127.0.0.1 at 2021-04-13 01:10:43 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (1.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 112ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/en/projects" for 127.0.0.1 at 2021-04-13 01:11:28 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"string11", "description"=>"string11", "address"=>"string11", "post_number"=>"string11", "contact_person"=>"string11", "start_date"=>"23/11/2021", "deadline"=>"23/11/2022", "locale"=>"en", "project"=>{"title"=>"string11", "description"=>"string11", "address"=>"string11", "post_number"=>"string11", "contact_person"=>"string11", "start_date"=>"23/11/2021", "deadline"=>"23/11/2022"}}
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:45
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:46
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:48
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:39
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "project_id", "address", "post_number", "contact_person", "user_account_id", "created_at", "updated_at", "start_date", "deadline") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["title", "string11"], ["description", "string11"], ["project_id", "00002"], ["address", "string11"], ["post_number", "string11"], ["contact_person", "string11"], ["user_account_id", 16], ["created_at", "2021-04-12 21:11:28.400388"], ["updated_at", "2021-04-12 21:11:28.400388"], ["start_date", "2021-11-23 00:00:00"], ["deadline", "2022-11-23 00:00:00"]]
+  ↳ app/services/projects/projects_services.rb:39
+  [1m[35m (24.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/projects/projects_services.rb:39
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:15
+Completed 201 Created in 35ms (Views: 0.4ms | ActiveRecord: 26.6ms)
+
+
+Started GET "/en/projects/2" for 127.0.0.1 at 2021-04-13 01:11:40 +0400
+Processing by ProjectsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"2"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:60
+  [1m[36mUserAccount Load (1.6ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 2]]
+  ↳ app/services/projects/projects_services.rb:70
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:72
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 2.6ms)
+
+
