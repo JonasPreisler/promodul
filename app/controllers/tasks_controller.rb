@@ -17,6 +17,12 @@ class TasksController < ApplicationController
     rest_respond_service service
   end
 
+  def user_task_list
+    service = Tasks::Services.new(task_params)
+    service.user_task_list
+    rest_respond_service service
+  end
+
   def show
     service = Tasks::Services.new(progress_params)
     service.show
@@ -24,11 +30,11 @@ class TasksController < ApplicationController
   end
 
 
-  #def status_progress
-  #  service = Tasks::Services.new(progress_params)
-  #  service.progress
-  #  rest_respond_service service
-  #end
+  def status_progress
+    service = Tasks::Services.new(progress_params)
+    service.progress
+    rest_respond_service service
+  end
 
   #def update
   #  service = Tasks::Services.new(task_params)

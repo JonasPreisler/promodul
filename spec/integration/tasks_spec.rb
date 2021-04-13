@@ -118,9 +118,66 @@ describe 'Orders', type: :request do
     end
   end
 
+  path '/{locale}/tasks/user_task_list' do
+    get 'Returns tasks' do
+      tags 'Tasks'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   tasks: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               id:         {type: :integer},
+                               title:      {type: :string},
+                               start_time: { type: :string},
+                               deadline:   { type: :string},
+                               status:     { type: :string},
+                               project_name: { type: :string},
+                               users:    {
+                                   type: :array,
+                                   items: {
+                                       properties: {
+                                           first_name: { type: :object },
+                                           last_name_name: { type: :object }
+                                       }
+                                   }
+
+                               },
+                               resources:    {
+                                   type: :array,
+                                   items: {
+                                       properties: {
+                                           name: { type: :object }
+                                       }
+                                   }
+
+                               }
+                           }
+                       }
+                   }
+               }
+        run_test!
+      end
+
+    end
+  end
+
   path '/{locale}/tasks/status_progress/{id}' do
     get 'Returns task progress' do
-      tags 'Order'
+      tags 'Tasks'
       consumes 'application/json'
 
       parameter({
@@ -144,18 +201,28 @@ describe 'Orders', type: :request do
                            id:         {type: :integer},
                            title:      {type: :string},
                            start_time: { type: :string},
+                           description: { type: :string},
                            deadline:   { type: :string},
-                           task_status:    {
-                               type: :object,
-                               properties: {
-                                   name: { type: :object }
+                           status:     { type: :string},
+                           project_name: { type: :string},
+                           users:    {
+                               type: :array,
+                               items: {
+                                   properties: {
+                                       first_name: { type: :object },
+                                       last_name_name: { type: :object }
+                                   }
                                }
+
                            },
-                           user_account:    {
-                               type: :object,
-                               properties: {
-                                   username: { type: :object }
+                           resources:    {
+                               type: :array,
+                               items: {
+                                   properties: {
+                                       name: { type: :object }
+                                   }
                                }
+
                            }
                        }
                    }
@@ -193,6 +260,7 @@ describe 'Orders', type: :request do
                            id:         {type: :integer},
                            title:      {type: :string},
                            start_time: { type: :string},
+                           description: { type: :string},
                            deadline:   { type: :string},
                            status:     { type: :string},
                            project_name: { type: :string},
@@ -228,6 +296,7 @@ describe 'Orders', type: :request do
 
     end
   end
+
 
   path '/{locale}/tasks' do
     put 'Update task' do

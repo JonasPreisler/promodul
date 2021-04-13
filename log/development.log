@@ -27195,3 +27195,400 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 2.6ms)
 
 
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-14 00:45:58 +0400
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-14 00:45:58 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-14 00:45:58 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-14 00:45:58 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-14 00:45:58 +0400
+  [1m[36mTask Load (3.0ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-14 00:58:46 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-14 00:58:46 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-14 00:58:46 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-14 00:58:46 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-14 00:58:47 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-14 00:58:47 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-14 00:59:48 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-14 00:59:49 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-14 00:59:49 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-14 00:59:49 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-14 00:59:49 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-14 00:59:49 +0400
+Started GET "/en/tasks/user_tasks_list" for 127.0.0.1 at 2021-04-14 01:00:03 +0400
+Processing by TasksController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"user_tasks_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:114
+Completed 404 Not Found in 17ms (ActiveRecord: 6.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Task with 'id'=user_tasks_list):
+  
+app/services/tasks/services.rb:114:in `find_task'
+app/services/tasks/services.rb:93:in `show'
+app/controllers/tasks_controller.rb:28:in `show'
+Started GET "/en/tasks/user_tasks_list" for 127.0.0.1 at 2021-04-14 01:00:40 +0400
+  
+AbstractController::ActionNotFound (The action 'user_tasks_list' could not be found for TasksController):
+  
+actionpack (5.2.1) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/en/tasks/user_tasks_list" for 127.0.0.1 at 2021-04-14 01:01:04 +0400
+Processing by TasksController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"user_tasks_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:114
+Completed 404 Not Found in 9ms (ActiveRecord: 3.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Task with 'id'=user_tasks_list):
+  
+app/services/tasks/services.rb:114:in `find_task'
+app/services/tasks/services.rb:93:in `show'
+app/controllers/tasks_controller.rb:28:in `show'
+Started GET "/en/tasks/user_tasks_list" for 127.0.0.1 at 2021-04-14 01:01:23 +0400
+Processing by TasksController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"user_tasks_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:114
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Task with 'id'=user_tasks_list):
+  
+app/services/tasks/services.rb:114:in `find_task'
+app/services/tasks/services.rb:93:in `show'
+app/controllers/tasks_controller.rb:28:in `show'
+Started GET "/en/tasks/user_tasks_list" for 127.0.0.1 at 2021-04-14 01:01:24 +0400
+Processing by TasksController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"user_tasks_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:114
+Completed 404 Not Found in 1ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Task with 'id'=user_tasks_list):
+  
+app/services/tasks/services.rb:114:in `find_task'
+app/services/tasks/services.rb:93:in `show'
+app/controllers/tasks_controller.rb:28:in `show'
+Started GET "/en/tasks/user_tasks_list" for 127.0.0.1 at 2021-04-14 01:02:10 +0400
+Processing by TasksController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"user_tasks_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:115
+Completed 404 Not Found in 11ms (ActiveRecord: 4.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Task with 'id'=user_tasks_list):
+  
+app/services/tasks/services.rb:115:in `find_task'
+app/services/tasks/services.rb:94:in `show'
+app/controllers/tasks_controller.rb:29:in `show'
+Started GET "/en/tasks/user_tasks_list" for 127.0.0.1 at 2021-04-14 01:02:11 +0400
+Processing by TasksController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"user_tasks_list"}
+Unpermitted parameters: :format, :locale
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:115
+Completed 404 Not Found in 1ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Task with 'id'=user_tasks_list):
+  
+app/services/tasks/services.rb:115:in `find_task'
+app/services/tasks/services.rb:94:in `show'
+app/controllers/tasks_controller.rb:29:in `show'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-14 01:02:26 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-14 01:02:26 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-14 01:02:26 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-14 01:02:26 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-14 01:02:29 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-14 01:02:29 +0400
+Started GET "/en/tasks/user_task_list" for 127.0.0.1 at 2021-04-14 01:02:41 +0400
+Processing by TasksController#user_task_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/services/tasks/services.rb:49
+  [1m[36mTaskStatus Load (2.9ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:59
+  [1m[36mProject Load (3.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:62
+  [1m[36mUserAccount Load (8.3ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" WHERE "tasks"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 3]]
+  ↳ app/services/tasks/services.rb:73
+  [1m[36mResource Load (3.4ms)[0m  [1m[34mSELECT resources.id, name FROM "resources" INNER JOIN "task_resources" ON "task_resources"."resource_id" = "resources"."id" INNER JOIN "tasks" ON "tasks"."id" = "task_resources"."task_id" WHERE "tasks"."id" = $1 GROUP BY resources.id[0m  [["id", 3]]
+  ↳ app/services/tasks/services.rb:77
+Completed 500 Internal Server Error in 3323ms (ActiveRecord: 38.1ms)
+
+
+  
+NoMethodError (undefined method `<<' for nil:NilClass):
+  
+app/services/tasks/services.rb:50:in `block in user_task_list'
+app/services/tasks/services.rb:49:in `user_task_list'
+app/controllers/tasks_controller.rb:23:in `user_task_list'
+Started GET "/en/tasks/user_task_list" for 127.0.0.1 at 2021-04-14 01:02:57 +0400
+Processing by TasksController#user_task_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/services/tasks/services.rb:50
+  [1m[36mTaskStatus Load (0.2ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:60
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:63
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" WHERE "tasks"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 3]]
+  ↳ app/services/tasks/services.rb:74
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT resources.id, name FROM "resources" INNER JOIN "task_resources" ON "task_resources"."resource_id" = "resources"."id" INNER JOIN "tasks" ON "tasks"."id" = "task_resources"."task_id" WHERE "tasks"."id" = $1 GROUP BY resources.id[0m  [["id", 3]]
+  ↳ app/services/tasks/services.rb:78
+  [1m[36mCACHE TaskStatus Load (0.0ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:60
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:63
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" WHERE "tasks"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 4]]
+  ↳ app/services/tasks/services.rb:74
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT resources.id, name FROM "resources" INNER JOIN "task_resources" ON "task_resources"."resource_id" = "resources"."id" INNER JOIN "tasks" ON "tasks"."id" = "task_resources"."task_id" WHERE "tasks"."id" = $1 GROUP BY resources.id[0m  [["id", 4]]
+  ↳ app/services/tasks/services.rb:78
+  [1m[36mCACHE TaskStatus Load (0.0ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:60
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:63
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" WHERE "tasks"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 5]]
+  ↳ app/services/tasks/services.rb:74
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT resources.id, name FROM "resources" INNER JOIN "task_resources" ON "task_resources"."resource_id" = "resources"."id" INNER JOIN "tasks" ON "tasks"."id" = "task_resources"."task_id" WHERE "tasks"."id" = $1 GROUP BY resources.id[0m  [["id", 5]]
+  ↳ app/services/tasks/services.rb:78
+  [1m[36mCACHE TaskStatus Load (0.0ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:60
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:63
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" WHERE "tasks"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 6]]
+  ↳ app/services/tasks/services.rb:74
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT resources.id, name FROM "resources" INNER JOIN "task_resources" ON "task_resources"."resource_id" = "resources"."id" INNER JOIN "tasks" ON "tasks"."id" = "task_resources"."task_id" WHERE "tasks"."id" = $1 GROUP BY resources.id[0m  [["id", 6]]
+  ↳ app/services/tasks/services.rb:78
+Completed 200 OK in 2371ms (Views: 1.9ms | ActiveRecord: 23.3ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-14 01:10:22 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-14 01:10:22 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-14 01:10:22 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-14 01:10:22 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-14 01:10:22 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-14 01:10:22 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-14 01:11:16 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-14 01:11:16 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-14 01:11:16 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-14 01:11:16 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-14 01:11:16 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-14 01:11:16 +0400
+Started GET "/en/tasks/status_progress/3?id_name=in_progress" for 127.0.0.1 at 2021-04-14 01:11:43 +0400
+Processing by TasksController#status_progress as JSON
+  Parameters: {"id_name"=>"in_progress", "locale"=>"en", "id"=>"3"}
+Unpermitted parameters: :format, :locale
+  [1m[36mTaskStatus Load (0.3ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "in_progress"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:110
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:116
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):1
+  [1m[36mTaskStatus Load (0.3ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ (pry):1
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (pry):1
+  [1m[36mTask Update (38.0ms)[0m  [1m[33mUPDATE "tasks" SET "task_status_id" = $1, "updated_at" = $2 WHERE "tasks"."id" = $3[0m  [["task_status_id", 6], ["updated_at", "2021-04-13 21:11:54.505517"], ["id", 3]]
+  ↳ (pry):1
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ (pry):1
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/tasks/services.rb:85
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/tasks/services.rb:85
+Completed 200 OK in 139072ms (Views: 0.2ms | ActiveRecord: 52.3ms)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-14 01:14:11 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-14 01:14:11 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-14 01:14:11 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-14 01:14:11 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-14 01:14:11 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-14 01:14:11 +0400
+Started GET "/en/tasks/status_progress/3?id_name=done" for 127.0.0.1 at 2021-04-14 01:14:32 +0400
+Processing by TasksController#status_progress as JSON
+  Parameters: {"id_name"=>"done", "locale"=>"en", "id"=>"3"}
+Unpermitted parameters: :format, :locale
+  [1m[36mTaskStatus Load (0.3ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "done"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:115
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:121
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/tasks/services.rb:89
+  [1m[36mTaskStatus Load (0.3ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:89
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:89
+  [1m[36mTask Update (0.5ms)[0m  [1m[33mUPDATE "tasks" SET "task_status_id" = $1, "updated_at" = $2 WHERE "tasks"."id" = $3[0m  [["task_status_id", 7], ["updated_at", "2021-04-13 21:14:35.411975"], ["id", 3]]
+  ↳ app/services/tasks/services.rb:89
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/tasks/services.rb:89
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" WHERE "tasks"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 3]]
+  ↳ app/services/tasks/services.rb:77
+  [1m[36mResource Load (1.3ms)[0m  [1m[34mSELECT resources.id, name FROM "resources" INNER JOIN "task_resources" ON "task_resources"."resource_id" = "resources"."id" INNER JOIN "tasks" ON "tasks"."id" = "task_resources"."task_id" WHERE "tasks"."id" = $1 GROUP BY resources.id[0m  [["id", 3]]
+  ↳ app/services/tasks/services.rb:81
+Completed 500 Internal Server Error in 3028ms (ActiveRecord: 28.4ms)
+
+
+  
+NoMethodError (undefined method `errors' for #<Hash:0x0000556060ab9ee0>):
+  
+app/services/tasks/services.rb:91:in `progress'
+app/controllers/tasks_controller.rb:35:in `status_progress'
+Started GET "/en/tasks/status_progress/3?id_name=done" for 127.0.0.1 at 2021-04-14 01:14:53 +0400
+Processing by TasksController#status_progress as JSON
+  Parameters: {"id_name"=>"done", "locale"=>"en", "id"=>"3"}
+Unpermitted parameters: :format, :locale
+  [1m[36mTaskStatus Load (0.2ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "done"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:114
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:120
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/tasks/services.rb:89
+  [1m[36mTaskStatus Load (0.3ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:89
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:89
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/tasks/services.rb:89
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" WHERE "tasks"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 3]]
+  ↳ app/services/tasks/services.rb:77
+  [1m[36mResource Load (0.6ms)[0m  [1m[34mSELECT resources.id, name FROM "resources" INNER JOIN "task_resources" ON "task_resources"."resource_id" = "resources"."id" INNER JOIN "tasks" ON "tasks"."id" = "task_resources"."task_id" WHERE "tasks"."id" = $1 GROUP BY resources.id[0m  [["id", 3]]
+  ↳ app/services/tasks/services.rb:81
+Completed 200 OK in 1887ms (Views: 0.2ms | ActiveRecord: 20.9ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-14 01:16:17 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-14 01:16:17 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-14 01:16:17 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-14 01:16:17 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-14 01:16:17 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-14 01:16:18 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-14 01:18:52 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-14 01:18:52 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-14 01:18:52 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-14 01:18:52 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-14 01:18:52 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-14 01:18:52 +0400
+Started POST "/en/projects" for 127.0.0.1 at 2021-04-14 01:19:30 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"string12", "description"=>"string12", "address"=>"string12", "post_number"=>"0179", "contact_person"=>"string12", "start_date"=>"23/11/23", "deadline"=>"23/11/24", "locale"=>"en", "project"=>{"title"=>"string12", "description"=>"string12", "address"=>"string12", "post_number"=>"0179", "contact_person"=>"string12", "start_date"=>"23/11/23", "deadline"=>"23/11/24"}}
+Unpermitted parameters: :format, :locale, :project
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `split' for nil:NilClass):
+  
+lib/methods_service.rb:66:in `get_user_id'
+lib/methods_service.rb:4:in `current_account'
+app/controllers/projects_controller.rb:9:in `create'
+Started POST "/en/auth" for 127.0.0.1 at 2021-04-14 01:26:39 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (4.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 91ms (Views: 0.3ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/en/projects" for 127.0.0.1 at 2021-04-14 01:26:56 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"string12", "description"=>"string12", "address"=>"string12", "post_number"=>"0179", "contact_person"=>"string12", "start_date"=>"23/11/23", "deadline"=>"23/11/24", "locale"=>"en", "project"=>{"title"=>"string12", "description"=>"string12", "address"=>"string12", "post_number"=>"0179", "contact_person"=>"string12", "start_date"=>"23/11/23", "deadline"=>"23/11/24"}}
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:45
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:46
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:48
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:39
+  [1m[36mProject Create (5.8ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "project_id", "address", "post_number", "contact_person", "user_account_id", "created_at", "updated_at", "start_date", "deadline") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["title", "string12"], ["description", "string12"], ["project_id", "00003"], ["address", "string12"], ["post_number", "0179"], ["contact_person", "string12"], ["user_account_id", 16], ["created_at", "2021-04-13 21:26:56.978190"], ["updated_at", "2021-04-13 21:26:56.978190"], ["start_date", "0023-11-23 00:00:00"], ["deadline", "0023-11-24 00:00:00"]]
+  ↳ app/services/projects/projects_services.rb:39
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/projects/projects_services.rb:39
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:15
+Completed 201 Created in 19ms (Views: 0.4ms | ActiveRecord: 9.8ms)
+
+

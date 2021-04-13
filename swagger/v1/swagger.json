@@ -9828,11 +9828,96 @@
         }
       }
     },
+    "/{locale}/tasks/user_task_list": {
+      "get": {
+        "summary": "Returns tasks",
+        "tags": [
+          "Tasks"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "Client token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "tasks": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "start_time": {
+                        "type": "string"
+                      },
+                      "deadline": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "project_name": {
+                        "type": "string"
+                      },
+                      "users": {
+                        "type": "array",
+                        "items": {
+                          "properties": {
+                            "first_name": {
+                              "type": "object"
+                            },
+                            "last_name_name": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      },
+                      "resources": {
+                        "type": "array",
+                        "items": {
+                          "properties": {
+                            "name": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/{locale}/tasks/status_progress/{id}": {
       "get": {
         "summary": "Returns task progress",
         "tags": [
-          "Order"
+          "Tasks"
         ],
         "consumes": [
           "application/json"
@@ -9883,22 +9968,38 @@
                     "start_time": {
                       "type": "string"
                     },
+                    "description": {
+                      "type": "string"
+                    },
                     "deadline": {
                       "type": "string"
                     },
-                    "task_status": {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "object"
+                    "status": {
+                      "type": "string"
+                    },
+                    "project_name": {
+                      "type": "string"
+                    },
+                    "users": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "first_name": {
+                            "type": "object"
+                          },
+                          "last_name_name": {
+                            "type": "object"
+                          }
                         }
                       }
                     },
-                    "user_account": {
-                      "type": "object",
-                      "properties": {
-                        "username": {
-                          "type": "object"
+                    "resources": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "name": {
+                            "type": "object"
+                          }
                         }
                       }
                     }
@@ -9957,6 +10058,9 @@
                       "type": "string"
                     },
                     "start_time": {
+                      "type": "string"
+                    },
+                    "description": {
                       "type": "string"
                     },
                     "deadline": {

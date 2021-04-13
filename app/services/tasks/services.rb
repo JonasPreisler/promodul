@@ -26,6 +26,14 @@ module Tasks
       { tasks: @builded_object }
     end
 
+    def user_task_list_json_view
+      { tasks: @builded_object }
+    end
+
+    def status_progress_json_view
+      { task: @task.as_json }
+    end
+
     def create_task
       #validate_data!
       default_status
@@ -35,6 +43,14 @@ module Tasks
     def task_list
       @builded_object = []
       Task.where(project_id: params["id"]).each do |task|
+        @builded_object << build_object(task)
+      end
+    end
+
+    def user_task_list
+      @builded_object = []
+      #After Roles here we will ad if else statment for fifferent role, Admin, manager, employ
+      Task.all.each do |task|
         @builded_object << build_object(task)
       end
     end
@@ -70,7 +86,7 @@ module Tasks
       find_task
       return if errors.any?
       @task.update(task_status_id: @status.id)
-      @errors << fill_errors(@task) if @task.errors.any?
+      @task = build_object(@task)
     end
 
     def update_task
