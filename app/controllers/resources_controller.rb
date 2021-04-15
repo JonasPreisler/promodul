@@ -35,6 +35,12 @@ class ResourcesController < ApplicationController
     rest_respond_service service
   end
 
+  def resource_calendar
+    service = Resources::ResourcesService.new(resource_params)
+    service.resource_calendar
+    rest_respond_service service
+  end
+
   private
 
   def resource_params

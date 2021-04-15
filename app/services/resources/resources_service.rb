@@ -26,6 +26,10 @@ module Resources
       { types: @type_list.as_json() }
     end
 
+    def resource_calendar_json_view
+      { dates: @dates.as_json }
+    end
+
     def create_resource
       validate_data!
       create_resource_obj
@@ -80,6 +84,14 @@ module Resources
       @resource.delete
       @resource.save
       @errors << fill_errors(@resource) if @resource.errors.any?
+    end
+
+    def resource_calendar
+      @dates = Resource
+                   .select('projects.id, tasks.id as task_id, tasks.title as task_title,
+                            tasks.start_time as start, tasks.deadline as end, projects.title')
+                   .joins(task_resources: [task: :project])
+                   .where(id: @params[:id])
     end
 
     private

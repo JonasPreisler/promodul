@@ -101,6 +101,7 @@ Rails.application.routes.draw do
       resource :user_roles
 
       get 'users/list', to: 'users#list'
+      get 'users/user_calendar/:id', to: 'users#user_calendar'
       get 'users/unconfirmed_list', to: 'users#unconfirmed_list'
       get 'users/current_user', to: 'users#current_user'
       get 'users/listen_to_unconfirmed_users', to: 'users#listen_to_unconfirmed_users'
@@ -143,6 +144,7 @@ Rails.application.routes.draw do
       resource :resources
       get 'resources/resource_list',       to: 'resources#resource_list'
       get 'resources/resource_type_list',       to: 'resources#resource_type_list'
+      get 'resources/resource_calendar/:id', to: 'resources#resource_calendar'
 
       resource :attachments
       get  'attachments/file', to: 'attachments#show_file'
@@ -151,7 +153,9 @@ Rails.application.routes.draw do
 
       resource :projects
       get 'projects/projects_list',       to: 'projects#projects_list'
+      get 'projects/project_calendar',       to: 'projects#project_calendar'
       get 'projects/:id',         to: 'projects#show'
+
     end
   end
 end

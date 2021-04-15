@@ -31,6 +31,10 @@ module Projects
                                 only: [:id, :start_time, :title]) }
     end
 
+    def project_calendar_json_view
+      { dates: @dates.as_json }
+    end
+
 
     def create_project
       @project = Project.new(@params)
@@ -74,6 +78,13 @@ module Projects
           last_name: @project.user_account.last_name,
           status: "manager"
       }
+    end
+
+    def project_calendar
+      @dates = Project
+                   .select("projects.id, title, project_id, start_date as start,
+                            deadline as end, user_accounts.first_name, user_accounts.last_name")
+                   .joins(:user_account)
     end
 
     #def open_order_list

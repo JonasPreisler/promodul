@@ -36,6 +36,45 @@ describe 'Users ', type: :request do
   #  end
   #end
 
+  path '/{locale}/users/user_calendar/{id}' do
+    get 'Returns calendar dates' do
+      tags 'Users'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      parameter name: :id, in: :path, type: :integer, required: true
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   dates: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               id: {type: :integer},
+                               title: {type: :string},
+                               start:  { type: :string },
+                               end:      { type: :string },
+                               task_title: { type: :string}
+                           }
+                       }
+                   }
+               }
+
+        run_test!
+      end
+
+    end
+  end
+
   path '/{locale}/users/list' do
     get 'Get Users list' do
       tags 'Users'

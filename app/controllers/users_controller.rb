@@ -35,6 +35,12 @@ class UsersController < ApplicationController
     rest_respond_service service
   end
 
+  def user_calendar
+    service = Account::UsersService.new(users_params)
+    service.user_calendar
+    rest_respond_service service
+  end
+
   #we don't need it yet
   #def manage
   #  service = Account::UsersService.new(users_params)

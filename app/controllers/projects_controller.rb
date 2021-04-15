@@ -23,6 +23,12 @@ class ProjectsController < ApplicationController
     rest_respond_service service
   end
 
+  def project_calendar
+    service = Projects::ProjectsServices.new(project_params, nil)
+    service.project_calendar
+    rest_respond_service service
+  end
+
 
   #def overview
   #  service = Projects::ProjectsServices.new(project_params, nil)

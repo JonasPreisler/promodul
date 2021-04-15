@@ -22,6 +22,10 @@ module Account
       { pending: @pending_users }
     end
 
+    def user_calendar_json_view
+      { dates: @dates.as_json }
+    end
+
     def users_list
       @users = Customer
                    .select("user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
@@ -52,6 +56,15 @@ module Account
     def approve_user_registration
       validate_data
       approve_registration
+    end
+
+    def user_calendar
+      @dates = UserAccount
+                   .select('projects.id, tasks.id as task_id, tasks.title as task_title,
+                            tasks.start_time as start, tasks.deadline as end, projects.title')
+                   .joins(user_account_tasks: [task: :project])
+                   .where(id: @params[:id])
+                   .as_json
     end
 
     private
