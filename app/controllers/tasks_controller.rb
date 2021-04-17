@@ -36,22 +36,22 @@ class TasksController < ApplicationController
     rest_respond_service service
   end
 
-  #def update
-  #  service = Tasks::Services.new(task_params)
-  #  service.update_task
-  #  rest_respond_service service
-  #end
-  #
-  #def destroy
-  #  service = Tasks::Services.new(task_params)
-  #  service.delete_task
-  #  rest_respond_service service
-  #end
+  def update
+    service = Tasks::Services.new(task_params)
+    service.update_task
+    rest_respond_service service
+  end
+
+  def destroy
+    service = Tasks::Services.new(task_params)
+    service.delete_task
+    rest_respond_service service
+  end
 
   private
 
   def task_params
-    params.permit(:id, :title, :description, :project_id, :start_time, :deadline, user_account_tasks_attributes: [:user_account_id], task_resources_attributes: [:resource_id] )
+    params.permit(:id, :title, :description, :project_id, :start_time, :deadline, user_account_tasks_attributes: [:id, :user_account_id, :_destroy], task_resources_attributes: [:id, :resource_id, :_destroy] )
   end
 
   def progress_params

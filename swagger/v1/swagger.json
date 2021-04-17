@@ -9867,7 +9867,7 @@
       "put": {
         "summary": "Update task",
         "tags": [
-          "Order"
+          "Projects"
         ],
         "consumes": [
           "application/json"
@@ -9911,17 +9911,40 @@
                 "deadline": {
                   "type": "string"
                 },
-                "tracked_time": {
-                  "type": "string"
-                },
-                "order_id": {
+                "project_id": {
                   "type": "integer"
                 },
-                "product_id": {
-                  "type": "integer"
+                "user_account_tasks_attributes": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "user_account_id": {
+                        "type": "integer"
+                      },
+                      "_destroy": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
                 },
-                "user_account_id": {
-                  "type": "integer"
+                "task_resources_attributes": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "resource_id": {
+                        "type": "integer"
+                      },
+                      "_destroy": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -9933,49 +9956,37 @@
             "schema": {
               "type": "object",
               "properties": {
-                "task": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
-                    "title": {
-                      "type": "string"
-                    },
-                    "description": {
-                      "type": "string"
-                    },
-                    "start_time": {
-                      "type": "string"
-                    },
-                    "deadline": {
-                      "type": "string"
-                    },
-                    "tracked_time": {
-                      "type": "string"
-                    },
-                    "task_status": {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "object"
-                        }
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "start_time": {
+                  "type": "string"
+                },
+                "deadline": {
+                  "type": "string"
+                },
+                "project_id": {
+                  "type": "integer"
+                },
+                "user_account_tasks_attributes": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "user_account_id": {
+                        "type": "integer"
                       }
-                    },
-                    "user_account": {
-                      "type": "object",
-                      "properties": {
-                        "username": {
-                          "type": "object"
-                        }
-                      }
-                    },
-                    "product": {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "integer"
-                        }
+                    }
+                  }
+                },
+                "task_resources_attributes": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "resource_id": {
+                        "type": "integer"
                       }
                     }
                   }
@@ -9991,7 +10002,7 @@
       "delete": {
         "summary": "Delete task",
         "tags": [
-          "Order"
+          "Projects"
         ],
         "consumes": [
           "multipart/form-data"

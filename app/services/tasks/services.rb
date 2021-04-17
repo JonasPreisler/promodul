@@ -72,14 +72,14 @@ module Tasks
 
     def get_users(task)
       UserAccount
-          .select('user_accounts.id, first_name, last_name')
+          .select('user_accounts.id, first_name, last_name, user_account_tasks.id as task_user_id')
           .joins(user_account_tasks: :task)
           .where(tasks: {id: task.id })
-          .group('user_accounts.id').as_json
+          .group('user_accounts.id, user_account_tasks.id').as_json
     end
 
     def get_resources(task)
-      Resource.select('resources.id, name').joins(task_resources: :task).where(tasks: {id: task.id }).group('resources.id').as_json
+      Resource.select('resources.id, name, task_resources.id as task_resource_id').joins(task_resources: :task).where(tasks: {id: task.id }).group('resources.id, task_resources.id').as_json
     end
 
     def progress
@@ -104,7 +104,14 @@ module Tasks
     def delete_task
       find_task
       return if @errors.any?
-      @task.destroy
+      ActiveRecord::Base.transaction do
+        user_tasks = UserAccountTask.where(task_id: @task.id)
+        resource_tasks = TaskResource.where(task_id: @task.id)
+        user_tasks.delete_all if user_tasks
+        resource_tasks.delete_all if resource_tasks
+        @task.destroy
+      end
+
       @errors << fill_errors(@task) if @task.errors.any?
     end
 

@@ -300,7 +300,7 @@ describe 'Orders', type: :request do
 
   path '/{locale}/tasks' do
     put 'Update task' do
-      tags 'Order'
+      tags 'Projects'
       consumes 'application/json'
       produces 'application/json'
 
@@ -321,42 +321,51 @@ describe 'Orders', type: :request do
               description:      { type: :string },
               start_time:       { type: :string },
               deadline:         { type: :string },
-              tracked_time:   { type: :string},
-              order_id:         { type: :integer },
-              product_id:         { type: :integer },
-              user_account_id:  { type: :integer }
+              project_id:         { type: :integer },
+              user_account_tasks_attributes: {
+                  type: :array,
+                  items: {
+                      properties: {
+                          id: {type: :integer},
+                          user_account_id:     { type: :integer },
+                          _destroy: { type: :boolean }
+                      }
+                  }
+              },
+              task_resources_attributes: {
+                  type: :array,
+                  items: {
+                      properties: {
+                          id: { type: :integer },
+                          resource_id:     { type: :integer },
+                          _destroy: { type: :boolean }
+                      }
+                  }
+              }
           }
       }
 
       response '201', 'ok' do
         schema type: :object,
                properties: {
-                   task: {
-                       type: :object,
-                       properties: {
-                           id:         {type: :integer},
-                           title:      {type: :string},
-                           description:      {type: :string},
-                           start_time: { type: :string},
-                           deadline:   { type: :string},
-                           tracked_time:   { type: :string},
-                           task_status:    {
-                               type: :object,
-                               properties: {
-                                   name: { type: :object }
-                               }
-                           },
-                           user_account:    {
-                               type: :object,
-                               properties: {
-                                   username: { type: :object }
-                               }
-                           },
-                           product: {
-                               type: :object,
-                               properties: {
-                                   name: { type: :integer }
-                               }
+                   title:            { type: :string },
+                   description:      { type: :string },
+                   start_time:       { type: :string },
+                   deadline:         { type: :string },
+                   project_id:         { type: :integer },
+                   user_account_tasks_attributes: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               user_account_id:     { type: :integer }
+                           }
+                       }
+                   },
+                   task_resources_attributes: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               resource_id:     { type: :integer }
                            }
                        }
                    }
@@ -375,7 +384,7 @@ describe 'Orders', type: :request do
 
   path '/{locale}/tasks' do
     delete 'Delete task' do
-      tags 'Order'
+      tags 'Projects'
       consumes 'multipart/form-data'
 
       parameter({
