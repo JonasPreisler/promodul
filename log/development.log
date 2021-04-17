@@ -27946,3 +27946,250 @@ Unpermitted parameters: :format, :locale, :project
 Completed 200 OK in 3479ms (Views: 0.3ms | ActiveRecord: 13.0ms)
 
 
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35m (39.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks"[0m
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 1]]
+  [1m[36mAttachment Load (37.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attached_on_type" = $1[0m  [["attached_on_type", "Project"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-17 14:52:56 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-17 14:52:56 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-17 14:52:56 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-17 14:52:56 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-17 14:52:56 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-17 14:52:56 +0400
+Started POST "/en/auth" for 127.0.0.1 at 2021-04-17 14:53:07 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 106ms (Views: 0.2ms | ActiveRecord: 6.6ms)
+
+
+Started DELETE "/en/projects?id=1" for 127.0.0.1 at 2021-04-17 14:53:32 +0400
+Processing by ProjectsController#destroy as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:127
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:114
+  [1m[36mProject Destroy (3.4ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = $1[0m  [["id", 1]]
+  ↳ (pry):2
+  [1m[36mTask Load (1.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/services/projects/projects_services.rb:115
+  [1m[36mTask Load (1.5ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1 LIMIT $2[0m  [["project_id", 1], ["LIMIT", 11]]
+  ↳ app/services/projects/projects_services.rb:115
+  [1m[36mProject Destroy (0.5ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = $1[0m  [["id", 1]]
+  ↳ app/services/projects/projects_services.rb:116
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/projects/projects_services.rb:114
+Completed 500 Internal Server Error in 51483ms (ActiveRecord: 24.1ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::InFailedSqlTransaction: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+: DELETE FROM "projects" WHERE "projects"."id" = $1):
+  
+app/services/projects/projects_services.rb:116:in `block in delete_project'
+app/services/projects/projects_services.rb:114:in `delete_project'
+app/controllers/projects_controller.rb:40:in `destroy'
+Started DELETE "/en/projects?id=1" for 127.0.0.1 at 2021-04-17 14:54:45 +0400
+Processing by ProjectsController#destroy as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:127
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:114
+  [1m[36mTask Destroy (41.4ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ (pry):5
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ (pry):6
+  [1m[36mTask Destroy (0.4ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/services/projects/projects_services.rb:116
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/projects/projects_services.rb:114
+Completed 500 Internal Server Error in 29754ms (ActiveRecord: 51.5ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::InFailedSqlTransaction: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+: DELETE FROM "tasks" WHERE "tasks"."project_id" = $1):
+  
+app/services/projects/projects_services.rb:116:in `block in delete_project'
+app/services/projects/projects_services.rb:114:in `delete_project'
+app/controllers/projects_controller.rb:40:in `destroy'
+Started DELETE "/en/projects?id=1" for 127.0.0.1 at 2021-04-17 14:55:18 +0400
+Processing by ProjectsController#destroy as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:127
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:114
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ (pry):8
+  [1m[36mTask Destroy (1.3ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 4]]
+  ↳ (pry):8
+  [1m[36mTask Destroy (0.7ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 4]]
+  ↳ (pry):10
+  [1m[36mTask Destroy (0.4ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/services/projects/projects_services.rb:116
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/projects/projects_services.rb:114
+Completed 500 Internal Server Error in 54924ms (ActiveRecord: 12.8ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::InFailedSqlTransaction: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+: DELETE FROM "tasks" WHERE "tasks"."project_id" = $1):
+  
+app/services/projects/projects_services.rb:116:in `block in delete_project'
+app/services/projects/projects_services.rb:114:in `delete_project'
+app/controllers/projects_controller.rb:40:in `destroy'
+Started DELETE "/en/projects?id=1" for 127.0.0.1 at 2021-04-17 14:56:15 +0400
+Processing by ProjectsController#destroy as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:127
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:114
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ (pry):11
+  [1m[36mTask Destroy (1.0ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 4]]
+  ↳ (pry):11
+  [1m[36mTask Destroy (0.9ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 4]]
+  ↳ app/services/projects/projects_services.rb:116
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/projects/projects_services.rb:114
+Completed 500 Internal Server Error in 265493ms (ActiveRecord: 23.8ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::InFailedSqlTransaction: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+: DELETE FROM "tasks" WHERE "tasks"."id" = $1):
+  
+app/services/projects/projects_services.rb:116:in `block (2 levels) in delete_project'
+app/services/projects/projects_services.rb:116:in `block in delete_project'
+app/services/projects/projects_services.rb:114:in `delete_project'
+app/controllers/projects_controller.rb:40:in `destroy'
+Started DELETE "/en/projects?id=1" for 127.0.0.1 at 2021-04-17 15:00:51 +0400
+Processing by ProjectsController#destroy as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:127
+  [1m[36mUserAccountTask Load (1.2ms)[0m  [1m[34mSELECT  "user_account_tasks".* FROM "user_account_tasks" ORDER BY "user_account_tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):15
+  [1m[36mCACHE UserAccountTask Load (0.1ms)[0m  [1m[34mSELECT  "user_account_tasks".* FROM "user_account_tasks" ORDER BY "user_account_tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):16
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):16
+  [1m[36mUserAccountTask Destroy (0.7ms)[0m  [1m[31mDELETE FROM "user_account_tasks" WHERE "user_account_tasks"."id" = $1[0m  [["id", 5]]
+  ↳ (pry):16
+  [1m[35m (36.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ (pry):16
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:114
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/services/projects/projects_services.rb:116
+  [1m[36mTask Destroy (0.9ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 4]]
+  ↳ app/services/projects/projects_services.rb:116
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/projects/projects_services.rb:114
+Completed 500 Internal Server Error in 42625ms (ActiveRecord: 55.1ms)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "tasks" violates foreign key constraint "fk_rails_cf6b2afe16" on table "user_account_tasks"
+DETAIL:  Key (id)=(4) is still referenced from table "user_account_tasks".
+: DELETE FROM "tasks" WHERE "tasks"."id" = $1):
+  
+app/services/projects/projects_services.rb:116:in `block (2 levels) in delete_project'
+app/services/projects/projects_services.rb:116:in `block in delete_project'
+app/services/projects/projects_services.rb:114:in `delete_project'
+app/controllers/projects_controller.rb:40:in `destroy'
+Started DELETE "/en/projects?id=1" for 127.0.0.1 at 2021-04-17 15:04:12 +0400
+Processing by ProjectsController#destroy as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:140
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:114
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1 LIMIT $2[0m  [["project_id", 1], ["LIMIT", 11]]
+  ↳ app/services/projects/projects_services.rb:125
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/services/projects/projects_services.rb:125
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/projects/projects_services.rb:114
+Completed 500 Internal Server Error in 59790ms (ActiveRecord: 25.7ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/services/projects/projects_services.rb:126:in `delete_tasks'
+app/services/projects/projects_services.rb:116:in `block in delete_project'
+app/services/projects/projects_services.rb:114:in `delete_project'
+app/controllers/projects_controller.rb:40:in `destroy'
+Started DELETE "/en/projects?id=1" for 127.0.0.1 at 2021-04-17 15:05:54 +0400
+Processing by ProjectsController#destroy as JSON
+  Parameters: {"id"=>"1", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:142
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:114
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/services/projects/projects_services.rb:126
+  [1m[36mUserAccountTask Destroy (0.2ms)[0m  [1m[31mDELETE FROM "user_account_tasks" WHERE "user_account_tasks"."task_id" = $1[0m  [["task_id", 4]]
+  ↳ app/services/projects/projects_services.rb:129
+  [1m[36mTaskResource Destroy (4.6ms)[0m  [1m[31mDELETE FROM "task_resources" WHERE "task_resources"."task_id" = $1[0m  [["task_id", 4]]
+  ↳ app/services/projects/projects_services.rb:130
+  [1m[36mUserAccountTask Destroy (0.3ms)[0m  [1m[31mDELETE FROM "user_account_tasks" WHERE "user_account_tasks"."task_id" = $1[0m  [["task_id", 5]]
+  ↳ app/services/projects/projects_services.rb:129
+  [1m[36mTaskResource Destroy (0.3ms)[0m  [1m[31mDELETE FROM "task_resources" WHERE "task_resources"."task_id" = $1[0m  [["task_id", 5]]
+  ↳ app/services/projects/projects_services.rb:130
+  [1m[36mUserAccountTask Destroy (0.5ms)[0m  [1m[31mDELETE FROM "user_account_tasks" WHERE "user_account_tasks"."task_id" = $1[0m  [["task_id", 6]]
+  ↳ app/services/projects/projects_services.rb:129
+  [1m[36mTaskResource Destroy (0.3ms)[0m  [1m[31mDELETE FROM "task_resources" WHERE "task_resources"."task_id" = $1[0m  [["task_id", 6]]
+  ↳ app/services/projects/projects_services.rb:130
+  [1m[36mUserAccountTask Destroy (0.3ms)[0m  [1m[31mDELETE FROM "user_account_tasks" WHERE "user_account_tasks"."task_id" = $1[0m  [["task_id", 3]]
+  ↳ app/services/projects/projects_services.rb:129
+  [1m[36mTaskResource Destroy (0.3ms)[0m  [1m[31mDELETE FROM "task_resources" WHERE "task_resources"."task_id" = $1[0m  [["task_id", 3]]
+  ↳ app/services/projects/projects_services.rb:130
+  [1m[36mTask Destroy (0.9ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/services/projects/projects_services.rb:132
+  [1m[36mProject Destroy (0.6ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = $1[0m  [["id", 1]]
+  ↳ app/services/projects/projects_services.rb:118
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/projects/projects_services.rb:114
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/services/projects/projects_services.rb:120
+Completed 200 OK in 27294ms (Views: 0.2ms | ActiveRecord: 25.8ms)
+
+
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 1]]

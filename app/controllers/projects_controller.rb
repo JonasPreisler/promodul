@@ -35,11 +35,11 @@ class ProjectsController < ApplicationController
     rest_respond_service service
   end
 
-  #def destroy
-  #  service = Clients::Service.new(clients_params)
-  #  service.delete_client
-  #  rest_respond_service service
-  #end
+  def destroy
+    service = Projects::ProjectsServices.new(project_params, current_account)
+    service.delete_project
+    rest_respond_service service
+  end
 
   private
 

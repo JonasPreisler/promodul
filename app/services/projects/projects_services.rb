@@ -35,6 +35,9 @@ module Projects
       { dates: @dates.as_json }
     end
 
+    def destroy_json_view
+      { success: true  }
+    end
 
     def create_project
       validate_dates
@@ -100,11 +103,42 @@ module Projects
       @errors << fill_errors(@project) if @project.errors.any?
     end
 
+    def delete_project
+      find_project
+      return if errors.any?
+      find_tasks
+      find_attachments
+      ActiveRecord::Base.transaction do
+        delete_tasks
+        @attachments.delete_all
+        @project.destroy
+      end
+      @errors << fill_errors(@project) if @project.errors.any?
+    end
+
+    def delete_tasks
+      @tasks.each do |t|
+        user_tasks = UserAccountTask.where(task_id: t.id)
+        resource_tasks = TaskResource.where(task_id: t.id)
+        user_tasks.delete_all if user_tasks
+        resource_tasks.delete_all if resource_tasks
+      end
+      @tasks.delete_all
+    end
+
     private
 
     def find_project
       @project = Project.find_by_id(@params[:id])
       fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @project
+    end
+
+    def find_tasks
+      @tasks = Task.where(project_id: @project.id)
+    end
+
+    def find_attachments
+      @attachments = Attachment.where(attached_on_type: "Project", attached_on_id: @project.id)
     end
 
     def validate_dates

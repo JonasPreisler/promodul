@@ -288,6 +288,39 @@ describe 'Projects ', type: :request do
     end
   end
 
+  path '/{locale}/projects' do
+    delete 'delete project' do
+      tags 'Projects'
+      consumes 'multipart/form-data'
+
+      parameter({
+                    in: :header,
+                    type: :string,
+                    name: :Authorization,
+                    required: true,
+                    description: 'JWT token'
+                })
+
+      parameter name: :locale, in: :path,  type: :string,  required: true, default: "en"
+      parameter name: :id,     in: :query,  type: :integer,  required: true
+
+      response '204', 'OK' do
+
+        schema type: :object,
+               properties: {
+                   success: { type: :boolean }
+               }
+
+        run_test!
+      end
+
+      response '404', 'Not Found' do
+
+        run_test!
+      end
+    end
+  end
+
 end
 
 
