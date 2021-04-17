@@ -65,7 +65,8 @@ module Tasks
           deadline: task.deadline,
           project_name:  task.project.title,
           users: get_users(task),
-          resources: get_resources(task)
+          resources: get_resources(task),
+          project_id: task.project.id
       }
     end
 
