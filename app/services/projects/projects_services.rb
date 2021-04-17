@@ -37,6 +37,8 @@ module Projects
 
 
     def create_project
+      validate_dates
+      return if errors.any?
       @project = Project.new(@params)
       @project.user_account_id = @current_user.id
       @project.project_id = generate_id
@@ -87,52 +89,33 @@ module Projects
                    .joins(:user_account)
     end
 
-    #def open_order_list
-    #  @orders = Order
-    #                .select("id, title as name, TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start, TO_CHAR(start_time + (3 * interval '20 minute'), 'yyyy-mm-dd hh:mm') as end")
-    #                .where(order_status_id: 1, user_account_id: nil )
-    #end
-    #
-    #def admin_order_list
-    #  @orders = Order
-    #                .select("orders.id,
-    #                         title as name,
-    #                         TO_CHAR(start_time, 'yyyy-mm-dd hh:mm') as start,
-    #                         TO_CHAR(start_time + (3 * interval '20 minute'), 'yyyy-mm-dd hh:mm') as end,
-    #                         order_statuses.name AS status,
-    #                         user_accounts.username AS employ")
-    #                .joins(:order_status, :user_account)
-    #end
-    #
-    #def my_order_list
-    #  @orders = Order.where(user_account_id: params[:user_account_id])
-    #end
-    #
-    #def claim_order
-    #  status_id = OrderStatus.find_by_id_name(:claimed).id
-    #  @order = Order.find(params[:order_id])
-    #  @order.update(user_account_id: params[:user_account_id], order_status_id: status_id)
-    #  @errors << fill_errors(@order) if @order.errors.any?
-    #end
-    #
-    #def overview
-    #end
-    #
-    #def overview_json
-    #  {
-    #      order_title: get_order,
-    #      percentage_of_tasks: percentage_of_tasks,
-    #      worked_hours: worked_hours,
-    #      order_price: order_price,
-    #      order_members: order_members,
-    #  }
-    #end
+    def update_project
+      find_project
+      return if errors.any?
+      validate_dates
+      return if errors.any?
+      @project.assign_attributes(@params)
+      @project.save
 
-    #def show
-    #  find_order
-    #end
+      @errors << fill_errors(@project) if @project.errors.any?
+    end
 
     private
+
+    def find_project
+      @project = Project.find_by_id(@params[:id])
+      fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @project
+    end
+
+    def validate_dates
+      if params[:start_date].to_datetime < DateTime.now.beginning_of_day
+        fill_custom_errors(self, :base,:invalid, "The project start date can't be less than today")
+      end
+      return if errors.any?
+      if params[:start_date].to_datetime > params[:deadline].to_datetime
+        fill_custom_errors(self, :base,:invalid, "The deadline should be greater than the start date")
+      end
+    end
 
     #def get_order
     #  Order.find(params[:id]).title

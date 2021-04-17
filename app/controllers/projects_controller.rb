@@ -29,51 +29,12 @@ class ProjectsController < ApplicationController
     rest_respond_service service
   end
 
+  def update
+    service = Projects::ProjectsServices.new(project_params, current_account)
+    service.update_project
+    rest_respond_service service
+  end
 
-  #def overview
-  #  service = Projects::ProjectsServices.new(project_params, nil)
-  #  service.overview
-  #  rest_respond_service service
-  #end
-
-
-  #def open_orders_list
-  #  service = Orders::OrdersServices.new(orders_params)
-  #  service.open_order_list
-  #  rest_respond_service service
-  #end
-  #
-  #def my_orders_list
-  #  service = Orders::OrdersServices.new(orders_params)
-  #  service.my_order_list
-  #  rest_respond_service service
-  #end
-  #
-  #def show
-  #  service = Orders::OrdersServices.new(orders_params)
-  #  service.admin_order_list
-  #  rest_respond_service service
-  #end
-  #
-
-  #def claim_order
-  #  service = Orders::OrdersServices.new(claim_params)
-  #  service.claim_order
-  #  rest_respond_service service
-  #end
-  #
-  #def all_orders_list
-  #  service = Orders::OrdersServices.new(orders_params)
-  #  service.admin_order_list
-  #  rest_respond_service service
-  #end
-
-  #def update
-  #  service = Clients::Service.new(clients_params)
-  #  service.update_client
-  #  rest_respond_service service
-  #end
-  #
   #def destroy
   #  service = Clients::Service.new(clients_params)
   #  service.delete_client

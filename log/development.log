@@ -27726,3 +27726,223 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 38ms (Views: 0.4ms | ActiveRecord: 8.7ms)
 
 
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-17 14:01:41 +0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-17 14:01:41 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-17 14:01:41 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-17 14:01:41 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-17 14:01:42 +0400
+Started POST "/en/projects" for 127.0.0.1 at 2021-04-17 14:10:30 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"asdasdasd", "description"=>"asdasdasd", "address"=>"asdasdas", "post_number"=>"asdasdasd", "contact_person"=>"asdasdasd", "start_date"=>"23/12/021", "deadline"=>"22/12/2021", "locale"=>"en", "project"=>{"title"=>"asdasdasd", "description"=>"asdasdasd", "address"=>"asdasdas", "post_number"=>"asdasdasd", "contact_person"=>"asdasdasd", "start_date"=>"23/12/021", "deadline"=>"22/12/2021"}}
+Unpermitted parameters: :format, :locale, :project
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 10.7ms)
+
+
+  
+NoMethodError (undefined method `split' for nil:NilClass):
+  
+lib/methods_service.rb:66:in `get_user_id'
+lib/methods_service.rb:4:in `current_account'
+app/controllers/projects_controller.rb:9:in `create'
+Started POST "/en/auth" for 127.0.0.1 at 2021-04-17 14:10:52 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (4.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 252ms (Views: 0.2ms | ActiveRecord: 30.3ms)
+
+
+Started POST "/en/projects" for 127.0.0.1 at 2021-04-17 14:11:07 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"asdasdasd", "description"=>"asdasdasd", "address"=>"asdasdas", "post_number"=>"asdasdasd", "contact_person"=>"asdasdasd", "start_date"=>"23/12/021", "deadline"=>"22/12/2021", "locale"=>"en", "project"=>{"title"=>"asdasdasd", "description"=>"asdasdasd", "address"=>"asdasdas", "post_number"=>"asdasdasd", "contact_person"=>"asdasdasd", "start_date"=>"23/12/021", "deadline"=>"22/12/2021"}}
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (2.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:50
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:51
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:53
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:44
+  [1m[36mProject Create (8.0ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "project_id", "address", "post_number", "contact_person", "user_account_id", "created_at", "updated_at", "start_date", "deadline") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["title", "asdasdasd"], ["description", "asdasdasd"], ["project_id", "00004"], ["address", "asdasdas"], ["post_number", "asdasdasd"], ["contact_person", "asdasdasd"], ["user_account_id", 16], ["created_at", "2021-04-17 10:13:16.804541"], ["updated_at", "2021-04-17 10:13:16.804541"], ["start_date", "0021-12-23 00:00:00"], ["deadline", "2021-12-22 00:00:00"]]
+  ↳ app/services/projects/projects_services.rb:44
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/projects/projects_services.rb:44
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:15
+Completed 201 Created in 129374ms (Views: 0.4ms | ActiveRecord: 16.4ms)
+
+
+Started POST "/en/projects" for 127.0.0.1 at 2021-04-17 14:14:45 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"asdasdasd", "description"=>"asdasdasd", "address"=>"asdasdas", "post_number"=>"asdasdasd", "contact_person"=>"asdasdasd", "start_date"=>"23/12/021", "deadline"=>"22/12/2021", "locale"=>"en", "project"=>{"title"=>"asdasdasd", "description"=>"asdasdasd", "address"=>"asdasdas", "post_number"=>"asdasdasd", "contact_person"=>"asdasdasd", "start_date"=>"23/12/021", "deadline"=>"22/12/2021"}}
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:51
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:52
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:45
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "project_id", "address", "post_number", "contact_person", "user_account_id", "created_at", "updated_at", "start_date", "deadline") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["title", "asdasdasd"], ["description", "asdasdasd"], ["project_id", "00005"], ["address", "asdasdas"], ["post_number", "asdasdasd"], ["contact_person", "asdasdasd"], ["user_account_id", 16], ["created_at", "2021-04-17 10:14:45.201000"], ["updated_at", "2021-04-17 10:14:45.201000"], ["start_date", "0021-12-23 00:00:00"], ["deadline", "2021-12-22 00:00:00"]]
+  ↳ app/services/projects/projects_services.rb:45
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/projects/projects_services.rb:45
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:15
+Completed 201 Created in 50ms (Views: 0.4ms | ActiveRecord: 10.9ms)
+
+
+Started POST "/en/projects" for 127.0.0.1 at 2021-04-17 14:15:03 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"asdasdasd", "description"=>"asdasdasd", "address"=>"asdasdas", "post_number"=>"asdasdasd", "contact_person"=>"asdasdasd", "start_date"=>"23/12/2021", "deadline"=>"22/12/2021", "locale"=>"en", "project"=>{"title"=>"asdasdasd", "description"=>"asdasdasd", "address"=>"asdasdas", "post_number"=>"asdasdasd", "contact_person"=>"asdasdasd", "start_date"=>"23/12/2021", "deadline"=>"22/12/2021"}}
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Completed 400 Bad Request in 37ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/en/projects/projects_list" for 127.0.0.1 at 2021-04-17 14:22:37 +0400
+Processing by ProjectsController#projects_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+Completed 200 OK in 49ms (Views: 0.7ms | ActiveRecord: 11.3ms)
+
+
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-17 14:28:11 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-17 14:28:11 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-17 14:28:11 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-17 14:28:11 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-17 14:28:11 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-17 14:28:11 +0400
+Started GET "/en/projects/1" for 127.0.0.1 at 2021-04-17 14:28:21 +0400
+Processing by ProjectsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"1"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:66
+  [1m[36mUserAccount Load (8.9ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 1]]
+  ↳ app/services/projects/projects_services.rb:76
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:78
+Completed 200 OK in 111ms (Views: 0.6ms | ActiveRecord: 24.7ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2021-04-17 14:28:53 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 81ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+
+
+Started PUT "/en/projects" for 127.0.0.1 at 2021-04-17 14:30:21 +0400
+Processing by ProjectsController#update as JSON
+  Parameters: {"id"=>1, "title"=>"updated title", "description"=>"updated description", "address"=>"updated address", "post_number"=>"22222", "contact_person"=>"updated contact person", "start_date"=>"23/11/2021", "deadline"=>"23/11/2321", "locale"=>"en", "project"=>{"id"=>1, "title"=>"updated title", "description"=>"updated description", "address"=>"updated address", "post_number"=>"22222", "contact_person"=>"updated contact person", "start_date"=>"23/11/2021", "deadline"=>"23/11/2321"}}
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:106
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:98
+  [1m[36mProject Update (0.4ms)[0m  [1m[33mUPDATE "projects" SET "title" = $1, "description" = $2, "address" = $3, "post_number" = $4, "contact_person" = $5, "start_date" = $6, "deadline" = $7, "updated_at" = $8 WHERE "projects"."id" = $9[0m  [["title", "updated title"], ["description", "updated description"], ["address", "updated address"], ["post_number", "22222"], ["contact_person", "updated contact person"], ["start_date", "2021-11-23 00:00:00"], ["deadline", "2321-11-23 00:00:00"], ["updated_at", "2021-04-17 10:30:35.047781"], ["id", 1]]
+  ↳ app/services/projects/projects_services.rb:98
+  [1m[35m (36.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/projects/projects_services.rb:98
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:15
+Completed 200 OK in 13160ms (Views: 0.4ms | ActiveRecord: 38.4ms)
+
+
+Started PUT "/en/projects" for 127.0.0.1 at 2021-04-17 14:32:48 +0400
+Processing by ProjectsController#update as JSON
+  Parameters: {"id"=>1, "title"=>"updated title", "description"=>"updated description", "address"=>"updated address", "post_number"=>"22222", "contact_person"=>"updated contact person", "start_date"=>"23/11/2020", "deadline"=>"23/11/2321", "locale"=>"en", "project"=>{"id"=>1, "title"=>"updated title", "description"=>"updated description", "address"=>"updated address", "post_number"=>"22222", "contact_person"=>"updated contact person", "start_date"=>"23/11/2020", "deadline"=>"23/11/2321"}}
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:108
+Completed 400 Bad Request in 2856ms (Views: 0.3ms | ActiveRecord: 11.9ms)
+
+
+Started PUT "/en/projects" for 127.0.0.1 at 2021-04-17 14:33:31 +0400
+Processing by ProjectsController#update as JSON
+  Parameters: {"id"=>1, "title"=>"updated title", "description"=>"updated description", "address"=>"updated address", "post_number"=>"22222", "contact_person"=>"updated contact person", "start_date"=>"17/04/2021", "deadline"=>"23/11/1990", "locale"=>"en", "project"=>{"id"=>1, "title"=>"updated title", "description"=>"updated description", "address"=>"updated address", "post_number"=>"22222", "contact_person"=>"updated contact person", "start_date"=>"17/04/2021", "deadline"=>"23/11/1990"}}
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:108
+Completed 400 Bad Request in 3105ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started PUT "/en/projects" for 127.0.0.1 at 2021-04-17 14:34:11 +0400
+Processing by ProjectsController#update as JSON
+  Parameters: {"id"=>1, "title"=>"updated title", "description"=>"updated description", "address"=>"updated address", "post_number"=>"22222", "contact_person"=>"updated contact person", "start_date"=>"17/04/2021", "deadline"=>"23/11/1990", "locale"=>"en", "project"=>{"id"=>1, "title"=>"updated title", "description"=>"updated description", "address"=>"updated address", "post_number"=>"22222", "contact_person"=>"updated contact person", "start_date"=>"17/04/2021", "deadline"=>"23/11/1990"}}
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:108
+Completed 400 Bad Request in 114480ms (Views: 0.2ms | ActiveRecord: 7.1ms)
+
+
+Started PUT "/en/projects" for 127.0.0.1 at 2021-04-17 14:36:11 +0400
+Processing by ProjectsController#update as JSON
+  Parameters: {"id"=>1, "title"=>"updated title", "description"=>"updated description", "address"=>"updated address", "post_number"=>"22222", "contact_person"=>"updated contact person", "start_date"=>"17/04/2021", "deadline"=>"23/11/1990", "locale"=>"en", "project"=>{"id"=>1, "title"=>"updated title", "description"=>"updated description", "address"=>"updated address", "post_number"=>"22222", "contact_person"=>"updated contact person", "start_date"=>"17/04/2021", "deadline"=>"23/11/1990"}}
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:108
+Completed 400 Bad Request in 3044ms (Views: 0.3ms | ActiveRecord: 15.1ms)
+
+
+Started PUT "/en/projects" for 127.0.0.1 at 2021-04-17 14:38:09 +0400
+Processing by ProjectsController#update as JSON
+  Parameters: {"id"=>1, "title"=>"updated title2", "description"=>"updated description2", "address"=>"updated address", "post_number"=>"22222", "contact_person"=>"updated contact person", "start_date"=>"17/04/2021", "deadline"=>"23/11/2022", "locale"=>"en", "project"=>{"id"=>1, "title"=>"updated title2", "description"=>"updated description2", "address"=>"updated address", "post_number"=>"22222", "contact_person"=>"updated contact person", "start_date"=>"17/04/2021", "deadline"=>"23/11/2022"}}
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:106
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:98
+  [1m[36mProject Update (0.4ms)[0m  [1m[33mUPDATE "projects" SET "title" = $1, "description" = $2, "start_date" = $3, "deadline" = $4, "updated_at" = $5 WHERE "projects"."id" = $6[0m  [["title", "updated title2"], ["description", "updated description2"], ["start_date", "2021-04-17 00:00:00"], ["deadline", "2022-11-23 00:00:00"], ["updated_at", "2021-04-17 10:38:12.740801"], ["id", 1]]
+  ↳ app/services/projects/projects_services.rb:98
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/projects/projects_services.rb:98
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:15
+Completed 200 OK in 3479ms (Views: 0.3ms | ActiveRecord: 13.0ms)
+
+
