@@ -88,7 +88,7 @@ module Resources
 
     def resource_calendar
       @dates = Resource
-                   .select('projects.id, tasks.id as task_id, tasks.title as task_title, task_status.id_name as task_status,
+                   .select('projects.id, tasks.id as task_id, tasks.title as task_title, task_statuses.id_name as task_status,
                             tasks.start_time as start, tasks.deadline as end, projects.title')
                    .joins(task_resources: [task: [:task_status, :project]])
                    .where(id: @params[:id])
