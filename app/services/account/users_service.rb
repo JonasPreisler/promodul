@@ -60,9 +60,9 @@ module Account
 
     def user_calendar
       @dates = UserAccount
-                   .select('projects.id, tasks.id as task_id, tasks.title as task_title,
+                   .select('projects.id, tasks.id as task_id, tasks.title as task_title, task_status.id_name as task_status
                             tasks.start_time as start, tasks.deadline as end, projects.title')
-                   .joins(user_account_tasks: [task: :project])
+                   .joins(user_account_tasks: [task: [:task_status, :project]])
                    .where(id: @params[:id])
                    .as_json
     end
