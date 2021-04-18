@@ -118,11 +118,11 @@ module Tasks
     private
 
     def validate_dates
-      if params[:start_date].to_datetime < DateTime.now.beginning_of_day
+      if params[:start_time].to_datetime < DateTime.now.beginning_of_day
         fill_custom_errors(self, :base,:invalid, "The task start date can't be less than today")
       end
       return if errors.any?
-      if params[:start_date].to_datetime > params[:deadline].to_datetime
+      if params[:start_time].to_datetime > params[:deadline].to_datetime
         fill_custom_errors(self, :base,:invalid, "The deadline should be greater than the start date")
       end
     end
