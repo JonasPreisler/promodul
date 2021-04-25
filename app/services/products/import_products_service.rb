@@ -14,10 +14,8 @@ module Products
     end
 
     def call
-      binding.pry
       @file_path ||= params["excel"].tempfile
       imported_items = load_imported_items.as_json( only: [:"Our excel columns"])
-      binding.pry
       #ToDo: Here should be Products Excel Type Enums(like: always24, Any Provider or something like this.)
       #@excel_type = BankType.find_by(id_name: params["file_type"])
       counter = 0
@@ -55,15 +53,12 @@ module Products
     end
 
     def load_imported_items
-      binding.pry
       object_hash = []
       spreadsheets = open_spreadsheet
       spreadsheet = spreadsheets.sheet("Ark1")
-      binding.pry
       #need to add get_sheet for different excells
       header = get_header_columns
       (obj_data[:starting_point]..spreadsheet.last_row).map do |i|
-        binding.pry
         row = Hash[[header, spreadsheet.row(i)].transpose] if validations_by_type(spreadsheet, i)
         object_hash.push(row)
       end

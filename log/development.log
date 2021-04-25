@@ -28546,3 +28546,135 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 2525ms (Views: 0.6ms | ActiveRecord: 45.3ms)
 
 
+  [1m[36mProject Load (1.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2021-04-25 19:32:40 +0400
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HealthController#check_health as HTML
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2021-04-25 19:32:40 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-25 19:32:52 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-25 19:32:52 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-25 19:32:52 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-25 19:32:52 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-25 19:32:53 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-25 19:32:53 +0400
+  [1m[36mProject Load (2.8ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/auth" for 127.0.0.1 at 2021-04-25 19:37:17 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (7.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 307ms (Views: 0.4ms | ActiveRecord: 33.1ms)
+
+
+Started POST "/en/projects" for 127.0.0.1 at 2021-04-25 19:38:15 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"test_project", "description"=>"test project description", "address"=>"gogebashvili streat 10", "post_number"=>"577520250", "contact_person"=>"anzor", "start_date"=>"26/04/2021", "deadline"=>"30/04/2021", "locale"=>"en", "project"=>{"title"=>"test_project", "description"=>"test project description", "address"=>"gogebashvili streat 10", "post_number"=>"577520250", "contact_person"=>"anzor", "start_date"=>"26/04/2021", "deadline"=>"30/04/2021"}}
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:54
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:55
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:57
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:48
+  [1m[36mProject Create (4.6ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "project_id", "address", "post_number", "contact_person", "user_account_id", "created_at", "updated_at", "start_date", "deadline") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["title", "test_project"], ["description", "test project description"], ["project_id", "00006"], ["address", "gogebashvili streat 10"], ["post_number", "577520250"], ["contact_person", "anzor"], ["user_account_id", 16], ["created_at", "2021-04-25 15:38:15.829969"], ["updated_at", "2021-04-25 15:38:15.829969"], ["start_date", "2021-04-26 00:00:00"], ["deadline", "2021-04-30 00:00:00"]]
+  ↳ app/services/projects/projects_services.rb:48
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/projects/projects_services.rb:48
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:15
+Completed 201 Created in 44ms (Views: 0.3ms | ActiveRecord: 10.3ms)
+
+
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResource Load (2.8ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-25 19:41:10 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"test task", "description"=>"test task description", "start_time"=>"27/04/2021", "deadline"=>"01/05/2021", "project_id"=>6, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"test task", "description"=>"test task description", "start_time"=>"27/04/2021", "deadline"=>"01/05/2021", "project_id"=>6, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ (pry):4
+Completed 201 Created in 244314ms (Views: 0.1ms | ActiveRecord: 5.0ms)
+
+
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-25 19:46:57 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"test task", "description"=>"test task description", "start_time"=>"27/04/2021", "deadline"=>"01/05/2021", "project_id"=>6, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"test task", "description"=>"test task description", "start_time"=>"27/04/2021", "deadline"=>"01/05/2021", "project_id"=>6, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:123
+  [1m[36mTaskStatus Load (3.2ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:185
+Completed 400 Bad Request in 3635ms (Views: 0.6ms | ActiveRecord: 17.8ms)
+
+
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-25 19:47:19 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"test task", "description"=>"test task description", "start_time"=>"24/04/2021", "deadline"=>"01/05/2021", "project_id"=>6, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"test task", "description"=>"test task description", "start_time"=>"24/04/2021", "deadline"=>"01/05/2021", "project_id"=>6, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:123
+  [1m[36mTaskStatus Load (0.2ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:185
+Completed 400 Bad Request in 2968ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-25 19:47:57 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"test task", "description"=>"test task description", "start_time"=>"25/04/2021", "deadline"=>"01/05/2021", "project_id"=>6, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"test task", "description"=>"test task description", "start_time"=>"25/04/2021", "deadline"=>"01/05/2021", "project_id"=>6, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:124
+  [1m[36mTaskStatus Load (0.3ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:186
+Completed 400 Bad Request in 2529ms (Views: 0.4ms | ActiveRecord: 11.2ms)
+
+
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-25 19:48:10 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"test task", "description"=>"test task description", "start_time"=>"24/04/2021", "deadline"=>"01/05/2021", "project_id"=>6, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"test task", "description"=>"test task description", "start_time"=>"24/04/2021", "deadline"=>"01/05/2021", "project_id"=>6, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mTaskStatus Load (0.3ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:186
+Completed 400 Bad Request in 2514ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+

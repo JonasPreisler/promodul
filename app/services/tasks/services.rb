@@ -36,6 +36,7 @@ module Tasks
 
     def create_task
       validate_dates
+      validate_project_dates
       default_status
       create_task_obj
     end
@@ -116,6 +117,18 @@ module Tasks
     end
 
     private
+
+    def validate_project_dates
+      return if errors.any?
+      @project = Project.find(@params[:project_id])
+      if params[:start_time].to_datetime < @project.start_date
+        fill_custom_errors(self, :base,:invalid, "The task start date can't be less Project's date")
+      end
+      return if errors.any?
+      if params[:deadline].to_datetime > @project.deadline
+        fill_custom_errors(self, :base,:invalid, "The task deadline date can't be greater then Project's date")
+      end
+    end
 
     def validate_dates
       if params[:start_time].to_datetime < DateTime.now.beginning_of_day
