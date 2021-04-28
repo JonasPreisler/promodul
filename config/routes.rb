@@ -101,6 +101,7 @@ Rails.application.routes.draw do
       resource :user_roles
 
       get 'users/list', to: 'users#list'
+      get 'users/task_user_list', to: 'users#task_user_list'
       get 'users/user_calendar/:id', to: 'users#user_calendar'
       get 'users/unconfirmed_list', to: 'users#unconfirmed_list'
       get 'users/current_user', to: 'users#current_user'

@@ -17,6 +17,12 @@ class UsersController < ApplicationController
     rest_respond_service service
   end
 
+  def task_user_list
+    service = Account::UsersService.new(task_users)
+    service.task_user_list
+    rest_respond_service service
+  end
+
   def approve_registration
     service = Account::UsersService.new(approve_params)
     service.approve_user_registration
@@ -49,6 +55,10 @@ class UsersController < ApplicationController
   #end
 
   private
+
+  def task_users
+    params.permit(:start_date, :deadline)
+  end
 
   def users_params
     params.permit(:id)

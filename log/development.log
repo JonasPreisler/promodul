@@ -28678,3 +28678,733 @@ Unpermitted parameters: :format, :locale, :task
 Completed 400 Bad Request in 2514ms (Views: 0.2ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/en/users/list" for 127.0.0.1 at 2021-04-25 19:51:38 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (5.5ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:14
+Completed 200 OK in 65ms (Views: 1.4ms | ActiveRecord: 14.6ms)
+
+
+  [1m[36mUserAccount Load (4.9ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id"[0m
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-25 20:12:30 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"test task", "description"=>"test task description", "start_time"=>"26/04/2021", "deadline"=>"27/04/2021", "project_id"=>6, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"test task", "description"=>"test task description", "start_time"=>"26/04/2021", "deadline"=>"27/04/2021", "project_id"=>6, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:123
+  [1m[36mTaskStatus Load (0.5ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:185
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/tasks/services.rb:180
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:180
+  [1m[36mResource Load (0.3ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:180
+  [1m[36mTaskStatus Load (0.3ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:180
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:180
+  [1m[36mTask Create (1.8ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "task_status_id", "start_time", "deadline", "created_at", "updated_at", "project_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["title", "test task"], ["description", "test task description"], ["task_status_id", 5], ["start_time", "2021-04-26 00:00:00"], ["deadline", "2021-04-27 00:00:00"], ["created_at", "2021-04-25 16:12:30.490254"], ["updated_at", "2021-04-25 16:12:30.490254"], ["project_id", 6]]
+  ↳ app/services/tasks/services.rb:180
+  [1m[36mUserAccountTask Create (1.6ms)[0m  [1m[32mINSERT INTO "user_account_tasks" ("user_account_id", "task_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_account_id", 93], ["task_id", 8], ["created_at", "2021-04-25 16:12:30.493852"], ["updated_at", "2021-04-25 16:12:30.493852"]]
+  ↳ app/services/tasks/services.rb:180
+  [1m[36mTaskResource Create (2.7ms)[0m  [1m[32mINSERT INTO "task_resources" ("resource_id", "task_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_id", 9], ["task_id", 8], ["created_at", "2021-04-25 16:12:30.496392"], ["updated_at", "2021-04-25 16:12:30.496392"]]
+  ↳ app/services/tasks/services.rb:180
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/tasks/services.rb:180
+Completed 201 Created in 123ms (Views: 0.2ms | ActiveRecord: 32.9ms)
+
+
+  [1m[36mUserAccount Load (1.4ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id"[0m
+  [1m[36mUserAccount Load (2.4ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id[0m
+  [1m[36mUserAccount Load (1.8ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id[0m
+  [1m[36mUserAccount Load (4.4ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.tasks_id[0m
+  [1m[36mUserAccount Load (1.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.tasks_id LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUserAccount Load (1.8ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id[0m
+  [1m[36mUserAccount Load (2.1ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN projects ON projects.id = tasks.project_id[0m
+  [1m[36mUserAccount Load (1.7ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN projects ON projects.id = tasks.project_id[0m
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id[0m
+  [1m[36mUserAccount Load (1.8ms)[0m  [1m[34mSELECT tasks.start_date FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id[0m
+  [1m[36mUserAccount Load (1.3ms)[0m  [1m[34mSELECT  tasks.start_date FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUserAccount Load (1.2ms)[0m  [1m[34mSELECT tasks.start_date FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id[0m
+  [1m[36mUserAccount Load (1.6ms)[0m  [1m[34mSELECT tasks.start_time FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id[0m
+  [1m[36mUserAccount Load (1.8ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id[0m
+  [1m[36mUserAccount Load (1.7ms)[0m  [1m[34mSELECT user_accounts.id, tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id[0m
+  [1m[36mUserAccount Load (1.8ms)[0m  [1m[34mSELECT user_accounts.id, user_accounts.first_name, user_accounts.last_name, tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id[0m
+  [1m[36mCustomer Load (1.0ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", false]]
+  [1m[36mCustomer Load (1.4ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,user_accounts.email, user_accounts.username FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", false]]
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."user_account_id" = $1[0m  [["user_account_id", 93]]
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 11]]
+  [1m[36mUserAccount Load (1.4ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."user_account_id" = $1[0m  [["user_account_id", 93]]
+  [1m[36mUserAccount Load (1.8ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  [1m[36mUserAccount Load (1.4ms)[0m  [1m[34mSELECT tasks.start_date FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  [1m[36mUserAccount Load (1.7ms)[0m  [1m[34mSELECT tasks.start_time FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  [1m[36mUserAccount Load (1.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 7]]
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  [1m[36mUserAccount Load (1.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  [1m[36mCustomer Load (2.2ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  [1m[36mCustomer Load (0.8ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  [1m[36mCustomer Load (1.5ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+Started GET "/" for 127.0.0.1 at 2021-04-29 01:15:51 +0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HealthController#check_health as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2021-04-29 01:15:51 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-29 01:15:56 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-29 01:15:56 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-29 01:15:56 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-29 01:15:56 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-29 01:15:59 +0400
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-29 01:16:12 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-29 01:16:12 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-29 01:16:12 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-29 01:16:12 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-29 01:16:14 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-29 01:16:14 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-29 01:17:15 +0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-29 01:17:15 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-29 01:17:15 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-29 01:17:15 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-29 01:17:19 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-29 01:17:19 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-29 01:19:49 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-29 01:19:49 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-29 01:19:49 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-29 01:19:49 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-29 01:19:52 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-29 01:19:52 +0400
+Started GET "/en/users/task_user_list" for 127.0.0.1 at 2021-04-29 01:20:23 +0400
+Processing by UsersController#task_user_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (2.6ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:39
+Completed 500 Internal Server Error in 19569ms (ActiveRecord: 28.8ms)
+
+
+  
+NoMethodError (undefined method `id' for #<Hash:0x00007fe0f435c7f8>):
+  
+app/services/account/users_service.rb:121:in `get_user_dates'
+app/services/account/users_service.rb:84:in `block in set_dates'
+app/services/account/users_service.rb:83:in `each'
+app/services/account/users_service.rb:83:in `set_dates'
+app/services/account/users_service.rb:77:in `task_user_list'
+app/controllers/users_controller.rb:23:in `task_user_list'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-29 01:21:42 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-29 01:21:43 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-29 01:21:43 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-29 01:21:43 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-29 01:21:48 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-29 01:21:48 +0400
+Started GET "/en/users/task_user_list?start_date=26%2F04%2F2021&deadline=30%2F04%2F2021" for 127.0.0.1 at 2021-04-29 01:22:06 +0400
+Processing by UsersController#task_user_list as JSON
+  Parameters: {"start_date"=>"26/04/2021", "deadline"=>"30/04/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.8ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:39
+Completed 500 Internal Server Error in 49202ms (ActiveRecord: 20.9ms)
+
+
+  
+NoMethodError (undefined method `id' for #<Hash:0x00007f63d83dc078>):
+  
+app/services/account/users_service.rb:121:in `get_user_dates'
+app/services/account/users_service.rb:84:in `block in set_dates'
+app/services/account/users_service.rb:83:in `each'
+app/services/account/users_service.rb:83:in `set_dates'
+app/services/account/users_service.rb:77:in `task_user_list'
+app/controllers/users_controller.rb:23:in `task_user_list'
+Started GET "/en/users/task_user_list?start_date=26%2F04%2F2021&deadline=30%2F04%2F2021" for 127.0.0.1 at 2021-04-29 01:22:59 +0400
+Processing by UsersController#task_user_list as JSON
+  Parameters: {"start_date"=>"26/04/2021", "deadline"=>"30/04/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:39
+Completed 500 Internal Server Error in 12928ms (ActiveRecord: 8.2ms)
+
+
+  
+NoMethodError (undefined method `id' for #<Hash:0x00007f63d00ce488>):
+  
+app/services/account/users_service.rb:124:in `get_user_dates'
+app/services/account/users_service.rb:86:in `block in set_dates'
+app/services/account/users_service.rb:84:in `each'
+app/services/account/users_service.rb:84:in `set_dates'
+app/services/account/users_service.rb:77:in `task_user_list'
+app/controllers/users_controller.rb:23:in `task_user_list'
+Started GET "/en/users/task_user_list?start_date=26%2F04%2F2021&deadline=30%2F04%2F2021" for 127.0.0.1 at 2021-04-29 01:23:41 +0400
+Processing by UsersController#task_user_list as JSON
+  Parameters: {"start_date"=>"26/04/2021", "deadline"=>"30/04/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 39]]
+  ↳ app/services/account/users_service.rb:125
+Completed 500 Internal Server Error in 9306ms (ActiveRecord: 8.6ms)
+
+
+  
+TypeError (can't iterate from NilClass):
+  
+app/services/account/users_service.rb:110:in `each'
+app/services/account/users_service.rb:110:in `to_a'
+app/services/account/users_service.rb:110:in `block in calculate_dates'
+app/services/account/users_service.rb:109:in `each'
+app/services/account/users_service.rb:109:in `calculate_dates'
+app/services/account/users_service.rb:93:in `build_available_dates'
+app/services/account/users_service.rb:86:in `block in set_dates'
+app/services/account/users_service.rb:84:in `each'
+app/services/account/users_service.rb:84:in `set_dates'
+app/services/account/users_service.rb:77:in `task_user_list'
+app/controllers/users_controller.rb:23:in `task_user_list'
+Started GET "/en/users/task_user_list?start_date=26%2F04%2F2021&deadline=30%2F04%2F2021" for 127.0.0.1 at 2021-04-29 01:24:19 +0400
+Processing by UsersController#task_user_list as JSON
+  Parameters: {"start_date"=>"26/04/2021", "deadline"=>"30/04/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 39]]
+  ↳ app/services/account/users_service.rb:126
+Completed 500 Internal Server Error in 63396ms (ActiveRecord: 6.7ms)
+
+
+  
+TypeError (can't iterate from NilClass):
+  
+app/services/account/users_service.rb:111:in `each'
+app/services/account/users_service.rb:111:in `to_a'
+app/services/account/users_service.rb:111:in `block in calculate_dates'
+app/services/account/users_service.rb:110:in `each'
+app/services/account/users_service.rb:110:in `calculate_dates'
+app/services/account/users_service.rb:93:in `build_available_dates'
+app/services/account/users_service.rb:86:in `block in set_dates'
+app/services/account/users_service.rb:84:in `each'
+app/services/account/users_service.rb:84:in `set_dates'
+app/services/account/users_service.rb:77:in `task_user_list'
+app/controllers/users_controller.rb:23:in `task_user_list'
+Started GET "/en/users/task_user_list?start_date=26%2F04%2F2021&deadline=30%2F04%2F2021" for 127.0.0.1 at 2021-04-29 01:25:30 +0400
+Processing by UsersController#task_user_list as JSON
+  Parameters: {"start_date"=>"26/04/2021", "deadline"=>"30/04/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 39]]
+  ↳ app/services/account/users_service.rb:126
+Completed 500 Internal Server Error in 39304ms (ActiveRecord: 8.9ms)
+
+
+  
+TypeError (can't iterate from NilClass):
+  
+app/services/account/users_service.rb:111:in `each'
+app/services/account/users_service.rb:111:in `to_a'
+app/services/account/users_service.rb:111:in `block in calculate_dates'
+app/services/account/users_service.rb:110:in `each'
+app/services/account/users_service.rb:110:in `calculate_dates'
+app/services/account/users_service.rb:93:in `build_available_dates'
+app/services/account/users_service.rb:86:in `block in set_dates'
+app/services/account/users_service.rb:84:in `each'
+app/services/account/users_service.rb:84:in `set_dates'
+app/services/account/users_service.rb:77:in `task_user_list'
+app/controllers/users_controller.rb:23:in `task_user_list'
+Started GET "/en/users/task_user_list?start_date=26%2F04%2F2021&deadline=30%2F04%2F2021" for 127.0.0.1 at 2021-04-29 01:26:18 +0400
+Processing by UsersController#task_user_list as JSON
+  Parameters: {"start_date"=>"26/04/2021", "deadline"=>"30/04/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 39]]
+  ↳ app/services/account/users_service.rb:126
+Completed 500 Internal Server Error in 111729ms (ActiveRecord: 1.2ms)
+
+
+  
+TypeError (can't iterate from NilClass):
+  
+app/services/account/users_service.rb:111:in `each'
+app/services/account/users_service.rb:111:in `to_a'
+app/services/account/users_service.rb:111:in `block in calculate_dates'
+app/services/account/users_service.rb:110:in `each'
+app/services/account/users_service.rb:110:in `calculate_dates'
+app/services/account/users_service.rb:93:in `build_available_dates'
+app/services/account/users_service.rb:86:in `block in set_dates'
+app/services/account/users_service.rb:84:in `each'
+app/services/account/users_service.rb:84:in `set_dates'
+app/services/account/users_service.rb:77:in `task_user_list'
+app/controllers/users_controller.rb:23:in `task_user_list'
+Started GET "/en/users/task_user_list?start_date=26%2F04%2F2021&deadline=30%2F04%2F2021" for 127.0.0.1 at 2021-04-29 01:28:12 +0400
+Processing by UsersController#task_user_list as JSON
+  Parameters: {"start_date"=>"26/04/2021", "deadline"=>"30/04/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 39]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1[0m  [["id", 39]]
+  ↳ app/services/account/users_service.rb:85
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 39]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 40]]
+  ↳ app/services/account/users_service.rb:126
+Completed 500 Internal Server Error in 257973ms (ActiveRecord: 3.2ms)
+
+
+  
+TypeError (can't iterate from NilClass):
+  
+app/services/account/users_service.rb:111:in `each'
+app/services/account/users_service.rb:111:in `to_a'
+app/services/account/users_service.rb:111:in `block in calculate_dates'
+app/services/account/users_service.rb:110:in `each'
+app/services/account/users_service.rb:110:in `calculate_dates'
+app/services/account/users_service.rb:93:in `build_available_dates'
+app/services/account/users_service.rb:86:in `block in set_dates'
+app/services/account/users_service.rb:84:in `each'
+app/services/account/users_service.rb:84:in `set_dates'
+app/services/account/users_service.rb:77:in `task_user_list'
+app/controllers/users_controller.rb:23:in `task_user_list'
+Started GET "/en/users/task_user_list?start_date=26%2F04%2F2021&deadline=30%2F04%2F2021" for 127.0.0.1 at 2021-04-29 01:32:33 +0400
+Processing by UsersController#task_user_list as JSON
+  Parameters: {"start_date"=>"26/04/2021", "deadline"=>"30/04/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 39]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 40]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (1.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 41]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 43]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 45]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 46]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 47]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 48]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 49]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 50]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 51]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 52]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 53]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 54]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 55]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 56]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 59]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 60]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 61]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[35m (17.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts"[0m
+  ↳ (pry):30
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 62]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (2.0ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 63]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (1.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 76]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (1.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 77]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 78]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (1.8ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 79]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 80]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 81]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (2.0ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 82]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 84]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 87]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 88]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 89]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (1.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 90]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 91]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 92]]
+  ↳ app/services/account/users_service.rb:127
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  ↳ app/services/account/users_service.rb:127
+Completed 500 Internal Server Error in 50317ms (ActiveRecord: 61.7ms)
+
+
+  
+TypeError (can't iterate from Time):
+  
+app/services/account/users_service.rb:112:in `each'
+app/services/account/users_service.rb:112:in `to_a'
+app/services/account/users_service.rb:112:in `block in calculate_dates'
+app/services/account/users_service.rb:111:in `each'
+app/services/account/users_service.rb:111:in `calculate_dates'
+app/services/account/users_service.rb:94:in `build_available_dates'
+app/services/account/users_service.rb:86:in `block in set_dates'
+app/services/account/users_service.rb:84:in `each'
+app/services/account/users_service.rb:84:in `set_dates'
+app/services/account/users_service.rb:77:in `task_user_list'
+app/controllers/users_controller.rb:23:in `task_user_list'
+Started GET "/en/users/task_user_list?start_date=26%2F04%2F2021&deadline=30%2F04%2F2021" for 127.0.0.1 at 2021-04-29 01:34:05 +0400
+Processing by UsersController#task_user_list as JSON
+  Parameters: {"start_date"=>"26/04/2021", "deadline"=>"30/04/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 39]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 40]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 41]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 43]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 45]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 46]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 47]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 48]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 49]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 50]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 51]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 52]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (1.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 53]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 54]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 55]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 56]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (1.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 59]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 60]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 61]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (1.8ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 62]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 63]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 76]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 77]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 78]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 79]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 80]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 81]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 82]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 84]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 87]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 88]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 89]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 90]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 91]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 92]]
+  ↳ app/services/account/users_service.rb:126
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  ↳ app/services/account/users_service.rb:126
+Completed 500 Internal Server Error in 59035ms (ActiveRecord: 36.4ms)
+
+
+  
+TypeError (can't iterate from Time):
+  
+app/services/account/users_service.rb:111:in `each'
+app/services/account/users_service.rb:111:in `to_a'
+app/services/account/users_service.rb:111:in `block in calculate_dates'
+app/services/account/users_service.rb:110:in `each'
+app/services/account/users_service.rb:110:in `calculate_dates'
+app/services/account/users_service.rb:92:in `build_available_dates'
+app/services/account/users_service.rb:85:in `block in set_dates'
+app/services/account/users_service.rb:84:in `each'
+app/services/account/users_service.rb:84:in `set_dates'
+app/services/account/users_service.rb:77:in `task_user_list'
+app/controllers/users_controller.rb:23:in `task_user_list'
+Started GET "/en/users/task_user_list?start_date=26%2F04%2F2021&deadline=30%2F04%2F2021" for 127.0.0.1 at 2021-04-29 01:36:03 +0400
+Processing by UsersController#task_user_list as JSON
+  Parameters: {"start_date"=>"26/04/2021", "deadline"=>"30/04/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 39]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 40]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 41]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 43]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 45]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 46]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 47]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 48]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 49]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 50]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 51]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 52]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 53]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 54]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 55]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 56]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 59]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 60]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 61]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 62]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 63]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 76]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 77]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 78]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 79]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 80]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 81]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 82]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 84]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 87]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 88]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 89]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 90]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 91]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 92]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  ↳ app/services/account/users_service.rb:125
+Completed 500 Internal Server Error in 172561ms (ActiveRecord: 22.8ms)
+
+
+  
+TypeError (can't iterate from Time):
+  
+app/services/account/users_service.rb:110:in `each'
+app/services/account/users_service.rb:110:in `to_a'
+app/services/account/users_service.rb:110:in `block in calculate_dates'
+app/services/account/users_service.rb:109:in `each'
+app/services/account/users_service.rb:109:in `calculate_dates'
+app/services/account/users_service.rb:92:in `build_available_dates'
+app/services/account/users_service.rb:85:in `block in set_dates'
+app/services/account/users_service.rb:84:in `each'
+app/services/account/users_service.rb:84:in `set_dates'
+app/services/account/users_service.rb:77:in `task_user_list'
+app/controllers/users_controller.rb:23:in `task_user_list'
+Started GET "/en/users/task_user_list?start_date=26%2F04%2F2021&deadline=30%2F04%2F2021" for 127.0.0.1 at 2021-04-29 01:38:59 +0400
+Processing by UsersController#task_user_list as JSON
+  Parameters: {"start_date"=>"26/04/2021", "deadline"=>"30/04/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:39
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 39]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 40]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 41]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 43]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 45]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 46]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 47]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 48]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 49]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 50]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 51]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 52]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 53]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 54]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 55]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 56]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 59]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 60]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 61]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 62]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 63]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 76]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 77]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 78]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 79]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 80]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 81]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 82]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 84]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 87]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 88]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 89]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 90]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 91]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 92]]
+  ↳ app/services/account/users_service.rb:125
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  ↳ app/services/account/users_service.rb:125
+Completed 200 OK in 7348ms (Views: 3.8ms | ActiveRecord: 24.2ms)
+
+

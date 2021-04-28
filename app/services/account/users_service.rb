@@ -26,12 +26,17 @@ module Account
       { dates: @dates.as_json }
     end
 
+    def task_user_list_json_view
+      { employees: @users.as_json }
+    end
+
     def users_list
       @users = Customer
                    .select("user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
                             user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name")
                    .joins(:user_account)
                    .where(user_accounts: { active: true})
+                   .as_json
 
         #ToDo: Change query when we add roles.
       #@users = Customer
@@ -66,7 +71,60 @@ module Account
                    .as_json
     end
 
+    def task_user_list
+      users_list
+      set_dates
+    end
+
     private
+
+    def set_dates
+      @users.each do |user|
+        user.merge!(available_dates: build_available_dates(get_user_dates(user)))
+      end
+    end
+
+    def build_available_dates(user_dates)
+      dates_array = []
+      user_dates.reject! { |record| record["start_time"].nil? }
+      dates = user_dates.any? ? calculate_dates(user_dates) : [period.step(1).to_a]
+      dates.each do |date|
+        dates_array << set_date_obj(date)
+      end
+      dates_array
+    end
+
+    def set_date_obj(date)
+      {
+          first: date.first,
+          last: date.last
+      }
+    end
+
+    def calculate_dates(user_dates)
+      new_period = period.step(1).to_a
+      user_dates.each do |date|
+        new_period -= (date["start_time"].to_datetime..date["deadline"].to_datetime).step(1).to_a
+      end
+      new_period.chunk_while { |a,b| a+1.days == b}
+    end
+
+    def calculate_overlap
+
+    end
+
+    def get_user_dates(user)
+      UserAccount
+          .select("tasks.start_time, tasks.deadline")
+          .joins("LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id")
+          .joins("LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id")
+          .where(user_accounts: { id: user["id"] })
+          .as_json
+    end
+
+    def period
+      @params[:start_date].to_datetime...@params[:deadline].to_datetime
+    end
 
     def approve_registration
       return if errors.any?

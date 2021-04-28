@@ -10820,6 +10820,108 @@
         }
       }
     },
+    "/{locale}/users/task_user_list": {
+      "get": {
+        "summary": "Get Task Users list",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "deadline",
+            "in": "query",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "employees": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "active": {
+                        "type": "boolean"
+                      },
+                      "phone_number": {
+                        "type": "string"
+                      },
+                      "username": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "role_group_id": {
+                        "type": "integer"
+                      },
+                      "user_role_id": {
+                        "type": "integer"
+                      },
+                      "role_name": {
+                        "type": "string"
+                      },
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "first": {
+                            "type": "string"
+                          },
+                          "last": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
     "/{locale}/users/current_user": {
       "get": {
         "summary": "Get current user",
