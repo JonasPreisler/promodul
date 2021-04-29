@@ -144,6 +144,7 @@ Rails.application.routes.draw do
 
       resource :resources
       get 'resources/resource_list',       to: 'resources#resource_list'
+      get 'resources/task_resource_list',       to: 'resources#task_resource_list'
       get 'resources/resource_type_list',       to: 'resources#resource_type_list'
       get 'resources/resource_calendar/:id', to: 'resources#resource_calendar'
 

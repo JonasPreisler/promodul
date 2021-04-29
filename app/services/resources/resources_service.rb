@@ -30,6 +30,10 @@ module Resources
       { dates: @dates.as_json }
     end
 
+    def task_resource_list_json_view
+      { resources: @list.as_json() }
+    end
+
     def create_resource
       validate_data!
       create_resource_obj
@@ -94,7 +98,62 @@ module Resources
                    .where(id: @params[:id])
     end
 
+    def task_resource_list
+      resource_list
+      set_dates
+    end
+
     private
+
+    def set_dates
+      @list[:machines].each do |machine|
+        machine.merge!(available_dates: build_available_dates(get_resource_dates(machine)))
+      end
+      @list[:tools].each do |tool|
+        tool.merge!(available_dates: build_available_dates(get_resource_dates(tool)))
+      end
+      @list[:external_resources].each do |external|
+        external.merge!(available_dates: build_available_dates(get_resource_dates(external)))
+      end
+    end
+
+    def build_available_dates(resource_dates)
+      dates_array = []
+      resource_dates.reject! { |record| record["start_time"].nil? }
+      dates = resource_dates.any? ? calculate_dates(resource_dates) : [period.step(1).to_a]
+      dates.each do |date|
+        dates_array << set_date_obj(date)
+      end
+      dates_array
+    end
+
+    def set_date_obj(date)
+      {
+          first: date.first,
+          last: date.last
+      }
+    end
+
+    def calculate_dates(user_dates)
+      new_period = period.step(1).to_a
+      user_dates.each do |date|
+        new_period -= (date["start_time"].to_datetime..date["deadline"].to_datetime).step(1).to_a
+      end
+      new_period.chunk_while { |a,b| a+1.days == b}
+    end
+
+    def get_resource_dates(data)
+      Resource
+          .select("tasks.start_time, tasks.deadline")
+          .joins("LEFT JOIN task_resources ON task_resources.resource_id = resources.id")
+          .joins("LEFT JOIN tasks ON tasks.id = task_resources.task_id")
+          .where(resources: { id: data["id"] })
+          .as_json
+    end
+
+    def period
+      @params[:start_date].to_datetime...@params[:deadline].to_datetime
+    end
 
     def validate_data!
       validate_resource_type

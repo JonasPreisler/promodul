@@ -160,15 +160,16 @@ describe 'Users ', type: :request do
                                role_group_id: { type: :integer },
                                user_role_id:  { type: :integer },
                                role_name:     { type: :string },
-                               type: :array,
-                               items: {
-                                   type: :object,
-                                   properties: {
-                                       first: { type: :string },
-                                       last: { type: :string },
+                               available_dates: {
+                                   type: :array,
+                                   items: {
+                                       type: :object,
+                                       properties: {
+                                           first: { type: :string },
+                                           last: { type: :string },
+                                       }
                                    }
                                }
-
                            }
                        }
                    }

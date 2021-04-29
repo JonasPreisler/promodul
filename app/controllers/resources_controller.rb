@@ -41,7 +41,17 @@ class ResourcesController < ApplicationController
     rest_respond_service service
   end
 
+  def task_resource_list
+    service = Resources::ResourcesService.new(task_resource_params)
+    service.task_resource_list
+    rest_respond_service service
+  end
+
   private
+
+  def task_resource_params
+    params.permit(:start_date, :deadline)
+  end
 
   def resource_params
     params.permit(:id, :name, :description, :resource_type_id, :model_on_type, :model_on_id)

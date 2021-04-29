@@ -261,4 +261,95 @@ describe 'Resources', type: :request do
     end
   end
 
+  path '/{locale}/resources/task_resource_list' do
+    get 'Returns task resources' do
+      tags 'Resources'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      parameter name: :start_date, in: :query, type: :string, required: true
+      parameter name: :deadline, in: :query, type: :string, required: true
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   machines: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               id: {type: :integer},
+                               name: {type: :string},
+                               description:  { type: :string },
+                               mod_name:      { type: :string },
+                               available_dates: {
+                                   type: :array,
+                                   items: {
+                                       type: :object,
+                                       properties: {
+                                           first: { type: :string },
+                                           last: { type: :string },
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                   },
+                   tools: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               id: {type: :integer},
+                               name: {type: :string},
+                               description:  { type: :string },
+                               tool_name:      { type: :string },
+                               available_dates: {
+                                   type: :array,
+                                   items: {
+                                       type: :object,
+                                       properties: {
+                                           first: { type: :string },
+                                           last: { type: :string },
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                   },
+                   external_resources: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               id: {type: :integer},
+                               name: {type: :string},
+                               description:  { type: :string },
+                               external_name:      { type: :string },
+                               available_dates: {
+                                   type: :array,
+                                   items: {
+                                       type: :object,
+                                       properties: {
+                                           first: { type: :string },
+                                           last: { type: :string },
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+
+        run_test!
+      end
+
+    end
+  end
+
 end

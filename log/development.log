@@ -29408,3 +29408,46 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 7348ms (Views: 3.8ms | ActiveRecord: 24.2ms)
 
 
+  [1m[36mTaskResource Load (2.6ms)[0m  [1m[34mSELECT  "task_resources".* FROM "task_resources" ORDER BY "task_resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResource Load (6.8ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.user_account_id = resource.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 9]]
+  [1m[36mResource Load (1.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resource.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 9]]
+  [1m[36mResource Load (3.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 9]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-30 00:10:51 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-30 00:10:51 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-30 00:10:51 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-30 00:10:51 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-30 00:10:52 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-30 00:10:52 +0400
+Started GET "/en/resources/task_resource_list?start_date=23%2F04%2F2021&deadline=30%2F04%2F2021" for 127.0.0.1 at 2021-04-30 00:11:26 +0400
+Processing by ResourcesController#task_resource_list as JSON
+  Parameters: {"start_date"=>"23/04/2021", "deadline"=>"30/04/2021", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResource Load (16.8ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:60
+  [1m[36mResource Load (2.4ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  ↳ app/services/resources/resources_service.rb:68
+  [1m[36mResource Load (0.9ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as external_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:77
+  [1m[36mResource Load (1.2ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 3]]
+  ↳ app/services/resources/resources_service.rb:151
+  [1m[36mResource Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 4]]
+  ↳ app/services/resources/resources_service.rb:151
+  [1m[36mResource Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 5]]
+  ↳ app/services/resources/resources_service.rb:151
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 6]]
+  ↳ app/services/resources/resources_service.rb:151
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 7]]
+  ↳ app/services/resources/resources_service.rb:151
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 8]]
+  ↳ app/services/resources/resources_service.rb:151
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 9]]
+  ↳ app/services/resources/resources_service.rb:151
+Completed 200 OK in 84ms (Views: 0.5ms | ActiveRecord: 36.2ms)
+
+

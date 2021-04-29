@@ -109,10 +109,6 @@ module Account
       new_period.chunk_while { |a,b| a+1.days == b}
     end
 
-    def calculate_overlap
-
-    end
-
     def get_user_dates(user)
       UserAccount
           .select("tasks.start_time, tasks.deadline")
