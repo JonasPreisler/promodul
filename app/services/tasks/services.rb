@@ -37,6 +37,8 @@ module Tasks
     def create_task
       validate_dates
       validate_project_dates
+      validate_users
+      validate_resources
       default_status
       create_task_obj
     end
@@ -117,6 +119,60 @@ module Tasks
     end
 
     private
+
+    def validate_users
+      return if errors.any?
+      return if params["user_account_tasks_attributes"].nil?
+      params["user_account_tasks_attributes"].each do |x|
+        user_dates = get_user_dates(x["user_account_id"])
+        user_dates.reject! { |record| record["start_time"].nil? }
+        user_dates.each do |date|
+          if period.overlaps?(date["start_time"].to_datetime..date["deadline"].to_datetime)
+            fill_custom_errors(self, :base,:invalid, "Employee #{date["first_name"] + " " + date["last_name"]} is busy on this dates")
+          end
+        end
+      end
+    end
+
+    def validate_resources
+      return if errors.any?
+      return if params["task_resources_attributes"].nil?
+      params["task_resources_attributes"].each do |x|
+        resource_dates = get_resource_dates(x["resource_id"])
+        resource_dates.reject! { |record| record["start_time"].nil? }
+        resource_dates.each do |date|
+          if period.overlaps?(date["start_time"].to_datetime..date["deadline"].to_datetime)
+            fill_custom_errors(self, :base,:invalid, "Resource #{date["name"]} is busy on this dates")
+          end
+        end
+      end
+    end
+
+    def get_resource_dates(data)
+      Resource
+          .select("name, tasks.start_time, tasks.deadline")
+          .joins("LEFT JOIN task_resources ON task_resources.resource_id = resources.id")
+          .joins("LEFT JOIN tasks ON tasks.id = task_resources.task_id")
+          .where(resources: { id: data })
+          .as_json
+    end
+
+    def period
+      @params["start_time"].to_datetime..@params["deadline"].to_datetime
+    end
+
+    def employee
+
+    end
+
+    def get_user_dates(user)
+      UserAccount
+          .select("first_name, last_name, tasks.start_time, tasks.deadline")
+          .joins("LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id")
+          .joins("LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id")
+          .where(user_accounts: { id: user })
+          .as_json
+    end
 
     def validate_project_dates
       return if errors.any?

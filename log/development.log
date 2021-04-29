@@ -29451,3 +29451,269 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 84ms (Views: 0.5ms | ActiveRecord: 36.2ms)
 
 
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-04-30 00:14:01 +0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-04-30 00:14:01 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-04-30 00:14:01 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-04-30 00:14:01 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-04-30 00:14:01 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-04-30 00:14:01 +0400
+Started GET "/en/projects/projects_list" for 127.0.0.1 at 2021-04-30 00:27:37 +0400
+Processing by ProjectsController#projects_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+Completed 200 OK in 66ms (Views: 0.8ms | ActiveRecord: 13.6ms)
+
+
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-30 00:28:56 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"29/04/2021", "deadline"=>"30/04/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"29/04/2021", "deadline"=>"30/04/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mTaskStatus Load (0.5ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:185
+Completed 400 Bad Request in 15ms (Views: 0.2ms | ActiveRecord: 5.6ms)
+
+
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-30 00:29:28 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:123
+  [1m[36mTaskStatus Load (0.1ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:185
+Completed 400 Bad Request in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-30 00:49:18 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):7
+  [1m[36mTaskStatus Load (0.4ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:195
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/tasks/services.rb:190
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:190
+  [1m[36mResource Load (0.3ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:190
+  [1m[36mTaskStatus Load (0.3ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:190
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:190
+  [1m[36mTask Create (1.4ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "task_status_id", "start_time", "deadline", "created_at", "updated_at", "project_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["title", "sdfsdfsd"], ["description", "sdfsdfsdf"], ["task_status_id", 5], ["start_time", "2021-04-30 00:00:00"], ["deadline", "2021-05-30 00:00:00"], ["created_at", "2021-04-29 21:00:25.534547"], ["updated_at", "2021-04-29 21:00:25.534547"], ["project_id", 2]]
+  ↳ app/services/tasks/services.rb:190
+  [1m[36mUserAccountTask Create (0.6ms)[0m  [1m[32mINSERT INTO "user_account_tasks" ("user_account_id", "task_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_account_id", 93], ["task_id", 9], ["created_at", "2021-04-29 21:00:25.537169"], ["updated_at", "2021-04-29 21:00:25.537169"]]
+  ↳ app/services/tasks/services.rb:190
+  [1m[36mTaskResource Create (0.5ms)[0m  [1m[32mINSERT INTO "task_resources" ("resource_id", "task_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_id", 9], ["task_id", 9], ["created_at", "2021-04-29 21:00:25.538584"], ["updated_at", "2021-04-29 21:00:25.538584"]]
+  ↳ app/services/tasks/services.rb:190
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/tasks/services.rb:190
+Completed 201 Created in 666969ms (Views: 0.2ms | ActiveRecord: 34.3ms)
+
+
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-30 01:00:41 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 1.6ms)
+
+
+  
+SyntaxError (/home/buka/always24/app/services/tasks/services.rb:130: syntax error, unexpected tIDENTIFIER, expecting tSTRING_DEND
+...loyee #{date["first_name"] date["last_name"]} is busy on thi...
+...                           ^~~~):
+  
+app/services/tasks/services.rb:130: syntax error, unexpected tIDENTIFIER, expecting tSTRING_DEND
+app/controllers/tasks_controller.rb:9:in `create'
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-30 01:01:13 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Unpermitted parameters: :format, :locale, :task
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.5ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/services/tasks/services.rb:153:in `[]'
+app/services/tasks/services.rb:153:in `get_user_dates'
+app/services/tasks/services.rb:125:in `block in validate_users'
+app/services/tasks/services.rb:124:in `each'
+app/services/tasks/services.rb:124:in `validate_users'
+app/services/tasks/services.rb:40:in `create_task'
+app/controllers/tasks_controller.rb:10:in `create'
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-30 01:01:42 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Unpermitted parameters: :format, :locale, :task
+Completed 500 Internal Server Error in 38362ms (ActiveRecord: 1.6ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/services/tasks/services.rb:157:in `[]'
+app/services/tasks/services.rb:157:in `get_user_dates'
+app/services/tasks/services.rb:127:in `block in validate_users'
+app/services/tasks/services.rb:125:in `each'
+app/services/tasks/services.rb:125:in `validate_users'
+app/services/tasks/services.rb:40:in `create_task'
+app/controllers/tasks_controller.rb:10:in `create'
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-30 01:02:22 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT first_name, last_name, tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  ↳ app/services/tasks/services.rb:158
+Completed 500 Internal Server Error in 106492ms (ActiveRecord: 6.4ms)
+
+
+  
+NoMethodError (undefined method `overlap?' for "30/04/2021".."30/05/2021":Range):
+  
+app/services/tasks/services.rb:133:in `block (2 levels) in validate_users'
+app/services/tasks/services.rb:131:in `each'
+app/services/tasks/services.rb:131:in `block in validate_users'
+app/services/tasks/services.rb:125:in `each'
+app/services/tasks/services.rb:125:in `validate_users'
+app/services/tasks/services.rb:40:in `create_task'
+app/controllers/tasks_controller.rb:10:in `create'
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-30 01:04:11 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT first_name, last_name, tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  ↳ app/services/tasks/services.rb:158
+Completed 500 Internal Server Error in 69816ms (ActiveRecord: 6.7ms)
+
+
+  
+NoMethodError (undefined method `overlap?' for Fri, 30 Apr 2021 00:00:00 +0000..Sun, 30 May 2021 00:00:00 +0000:Range):
+  
+app/services/tasks/services.rb:133:in `block (2 levels) in validate_users'
+app/services/tasks/services.rb:131:in `each'
+app/services/tasks/services.rb:131:in `block in validate_users'
+app/services/tasks/services.rb:125:in `each'
+app/services/tasks/services.rb:125:in `validate_users'
+app/services/tasks/services.rb:40:in `create_task'
+app/controllers/tasks_controller.rb:10:in `create'
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-30 01:05:43 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT first_name, last_name, tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  ↳ app/services/tasks/services.rb:158
+Completed 500 Internal Server Error in 128652ms (ActiveRecord: 5.0ms)
+
+
+  
+NoMethodError (undefined method `overlap?' for Fri, 30 Apr 2021 00:00:00 +0000..Sun, 30 May 2021 00:00:00 +0000:Range):
+  
+app/services/tasks/services.rb:133:in `block (2 levels) in validate_users'
+app/services/tasks/services.rb:131:in `each'
+app/services/tasks/services.rb:131:in `block in validate_users'
+app/services/tasks/services.rb:125:in `each'
+app/services/tasks/services.rb:125:in `validate_users'
+app/services/tasks/services.rb:40:in `create_task'
+app/controllers/tasks_controller.rb:10:in `create'
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-30 01:07:57 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT first_name, last_name, tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  ↳ app/services/tasks/services.rb:158
+  [1m[36mTaskStatus Load (0.4ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:225
+Completed 400 Bad Request in 40821ms (Views: 0.2ms | ActiveRecord: 11.1ms)
+
+
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-30 01:09:28 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT first_name, last_name, tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  ↳ app/services/tasks/services.rb:162
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):30
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT first_name, last_name, tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  ↳ app/services/tasks/services.rb:162
+  [1m[36mTaskStatus Load (0.5ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:229
+Completed 400 Bad Request in 188459ms (Views: 0.2ms | ActiveRecord: 14.6ms)
+
+
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-30 01:12:46 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}], "locale"=>"en", "task"=>{"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "task_resources_attributes"=>[{"resource_id"=>9}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT first_name, last_name, tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  ↳ app/services/tasks/services.rb:170
+  [1m[36mResource Load (0.7ms)[0m  [1m[34mSELECT name, tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 9]]
+  ↳ app/services/tasks/services.rb:153
+  [1m[36mTaskStatus Load (0.2ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:237
+Completed 400 Bad Request in 43ms (Views: 0.2ms | ActiveRecord: 12.0ms)
+
+
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-30 01:14:07 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "locale"=>"en", "task"=>{"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:175
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT first_name, last_name, tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  ↳ app/services/tasks/services.rb:170
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 10.1ms)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/services/tasks/services.rb:136:in `validate_resources'
+app/services/tasks/services.rb:41:in `create_task'
+app/controllers/tasks_controller.rb:10:in `create'
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-30 01:14:20 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "locale"=>"en", "task"=>{"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:176
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT first_name, last_name, tasks.start_time, tasks.deadline FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  ↳ app/services/tasks/services.rb:171
+Completed 500 Internal Server Error in 49666ms (ActiveRecord: 8.9ms)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/services/tasks/services.rb:137:in `validate_resources'
+app/services/tasks/services.rb:41:in `create_task'
+app/controllers/tasks_controller.rb:10:in `create'
+Started POST "/en/tasks" for 127.0.0.1 at 2021-04-30 01:15:13 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}], "locale"=>"en", "task"=>{"title"=>"sdfsdfsd", "description"=>"sdfsdfsdf", "start_time"=>"30/04/2021", "deadline"=>"30/05/2021", "project_id"=>2, "user_account_tasks_attributes"=>[{"user_account_id"=>93}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:179
+  [1m[36mTaskStatus Load (0.5ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:241
+Completed 400 Bad Request in 29ms (Views: 0.2ms | ActiveRecord: 9.6ms)
+
+
