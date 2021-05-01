@@ -3,7 +3,7 @@ class CompaniesController < ApplicationController
   include ControllerResponse
 
   #ToDO: Need remove after authorization will works
-  #skip_before_action :validate_authentication
+  skip_before_action :validate_authentication
 
   def create
     service = Companies::CompaniesService.new(company_params)
@@ -44,6 +44,6 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.permit(:id, :name, :description, :address, :country_id, :city_id, :parent_id)
+    params.permit(:id, :name, :description, :phone_number, :address, :country_id, :city_id, :parent_id)
   end
 end

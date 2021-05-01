@@ -18,7 +18,7 @@ describe 'SubCategory', type: :request do
 
       parameter name: :locale, in: :path, type: :string, required: true, default: "en"
       parameter name: :user_account_id,     in: :query,  type: :integer,  required: true
-      parameter name: :role_group_id,     in: :query,  type: :integer,  required: true
+      parameter name: :id_name,     in: :query,  type: :string,  required: true
 
       response '201', 'ok' do
         schema type: :object,

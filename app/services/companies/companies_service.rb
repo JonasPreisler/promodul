@@ -11,7 +11,7 @@ module Companies
     end
 
     def json_view
-      { company: @company.as_json(include: { country: { only: [:name]}, city: { only: [:name]}, company_logo: { only: [:uuid]}}) }
+      { company: @company.as_json(include: { company_logo: { only: [:uuid]}}) }
     end
 
     def destroy_json_view
@@ -27,7 +27,7 @@ module Companies
     end
 
     def create_company
-      validate_data!
+      #validate_data!
       create_company_obj
     end
 

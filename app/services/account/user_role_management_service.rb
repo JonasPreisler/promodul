@@ -53,7 +53,7 @@ module Account
 
     def validate_role!
       return if errors.any?
-      @role_group = RoleGroup.find(params[:role_group_id])
+      @role_group = RoleGroup.find_by_id_name(params[:id_name])
       fill_custom_errors(self, :base, :invalid, I18n.t("custom.errors.validation.business_customer")) unless @user
     end
 

@@ -42,6 +42,27 @@ module MethodsService
     end
   end
 
+  def is_super_admin?
+    if current_account.user_role.role_group.id_name != "super_admin"
+      render :json => {permission_dined: "You don't have access to this functionality"}, status: 401
+      false
+    end
+  end
+
+  def is_project_manager?
+    if current_account.user_role.role_group.id_name != "project_manager"
+      render :json => {permission_dined: "You don't have access to this functionality"}, status: 401
+      false
+    end
+  end
+
+  def is_employee?
+    if current_account.user_role.role_group.id_name != "employee"
+      render :json => {permission_dined: "You don't have access to this functionality"}, status: 401
+      false
+    end
+  end
+
   #def validate_policy_and_terms
   #  service = Umg::AgreementService.new(current_account)
   #  service.agreement_info

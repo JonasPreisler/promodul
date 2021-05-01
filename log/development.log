@@ -29717,3 +29717,653 @@ Unpermitted parameters: :format, :locale, :task
 Completed 400 Bad Request in 29ms (Views: 0.2ms | ActiveRecord: 9.6ms)
 
 
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveCountriesAndCities (20210501164147)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (121.2ms)[0m  [1m[35mALTER TABLE "companies" DROP COLUMN "countries_id"[0m
+  ↳ db/migrate/20210501164147_remove_countries_and_cities.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveCountriesAndCities (20210501164147)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[36mCompany Load (9.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  [1m[36mCompany Destroy (47.3ms)[0m  [1m[31mDELETE FROM "companies"[0m
+  [1m[36mDepartment Load (0.6ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  [1m[36mDepartment Destroy (8.1ms)[0m  [1m[31mDELETE FROM "departments"[0m
+  [1m[36mDepartment Destroy (0.6ms)[0m  [1m[31mDELETE FROM "departments" WHERE "departments"."parrent_id" IS NULL[0m
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDepartment Destroy (2.1ms)[0m  [1m[31mDELETE FROM "departments" WHERE "departments"."parent_id" IS NULL[0m
+  [1m[36mDepartmentLogo Destroy (36.8ms)[0m  [1m[31mDELETE FROM "department_logos"[0m
+  [1m[36mDepartment Destroy (34.6ms)[0m  [1m[31mDELETE FROM "departments" WHERE "departments"."parent_id" IS NULL[0m
+  [1m[36mDepartment Destroy (1.2ms)[0m  [1m[31mDELETE FROM "departments" WHERE "departments"."parrent_id" IS NULL[0m
+  [1m[36mDepartment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "departments"[0m
+  [1m[36mCompany Destroy (43.2ms)[0m  [1m[31mDELETE FROM "companies"[0m
+  [1m[36mCompany Destroy (2.8ms)[0m  [1m[31mDELETE FROM "companies" WHERE "companies"."parent_id" IS NULL[0m
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."parent_id" IS NULL[0m
+  [1m[36mCompany Destroy (37.6ms)[0m  [1m[31mDELETE FROM "companies" WHERE "companies"."parent_id" IS NULL[0m
+  [1m[36mCompany Destroy (36.5ms)[0m  [1m[31mDELETE FROM "companies" WHERE "companies"."parent_id" IS NOT NULL[0m
+  [1m[36mCompany Destroy (0.6ms)[0m  [1m[31mDELETE FROM "companies" WHERE "companies"."parent_id" IS NULL[0m
+  [1m[36mCompanyLogo Destroy (36.3ms)[0m  [1m[31mDELETE FROM "company_logos"[0m
+  [1m[36mCompany Destroy (5.9ms)[0m  [1m[31mDELETE FROM "companies" WHERE "companies"."parent_id" IS NULL[0m
+  [1m[36mCompany Destroy (0.3ms)[0m  [1m[31mDELETE FROM "companies"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveCountriesAndCities (20210501164147)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveCountriesAndCities (20210501164147)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (9.4ms)[0m  [1m[35mALTER TABLE "companies" DROP CONSTRAINT "fk_rails_d0676b5972"[0m
+  ↳ db/migrate/20210501164147_remove_countries_and_cities.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "companies" DROP COLUMN "countries_id"[0m
+  ↳ db/migrate/20210501164147_remove_countries_and_cities.rb:4
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveCountriesAndCities (20210501164147)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "companies" DROP COLUMN "countries_id"[0m
+  ↳ db/migrate/20210501164147_remove_countries_and_cities.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveCountriesAndCities (20210501164147)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "companies" DROP COLUMN "countries_id"[0m
+  ↳ db/migrate/20210501164147_remove_countries_and_cities.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveCountriesAndCities (20210501164147)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "companies" DROP COLUMN "countries_id"[0m
+  ↳ db/migrate/20210501164147_remove_countries_and_cities.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveCountriesAndCities (20210501164147)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (10.6ms)[0m  [1m[35mALTER TABLE "companies" DROP COLUMN "country_id"[0m
+  ↳ db/migrate/20210501164147_remove_countries_and_cities.rb:3
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "companies" DROP COLUMN "city_id"[0m
+  ↳ db/migrate/20210501164147_remove_countries_and_cities.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210501164147"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (3.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-05-01 20:49:28 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-05-01 20:49:28 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-05-01 20:49:28 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-05-01 20:49:28 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-05-01 20:49:28 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-05-01 20:49:28 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-05-01 20:54:43 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-05-01 20:54:44 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-05-01 20:54:44 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-05-01 20:54:44 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-05-01 20:54:44 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-05-01 20:54:44 +0400
+Started POST "/en/companies" for 127.0.0.1 at 2021-05-01 20:56:03 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"base company", "description"=>"hey hey", "address"=>"gogebashvili streat", "phone_number"=>"577520250", "locale"=>"en", "company"=>{"name"=>"base company", "description"=>"hey hey", "address"=>"gogebashvili streat", "phone_number"=>"577520250"}}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 0.2ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/en/companies" for 127.0.0.1 at 2021-05-01 20:56:32 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"base company", "description"=>"hey hey", "address"=>"gogebashvili streat", "phone_number"=>"577520250", "locale"=>"en", "company"=>{"name"=>"base company", "description"=>"hey hey", "address"=>"gogebashvili streat", "phone_number"=>"577520250"}}
+Unpermitted parameters: :phone_number, :format, :locale, :company
+  [1m[36mCountry Load (4.0ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:72
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:84
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/companies/companies_service.rb:84
+Completed 400 Bad Request in 926ms (Views: 0.8ms | ActiveRecord: 11.2ms)
+
+
+Started POST "/en/companies" for 127.0.0.1 at 2021-05-01 20:56:51 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"base company", "description"=>"hey hey", "address"=>"gogebashvili streat", "phone_number"=>"577520250", "locale"=>"en", "company"=>{"name"=>"base company", "description"=>"hey hey", "address"=>"gogebashvili streat", "phone_number"=>"577520250"}}
+Unpermitted parameters: :phone_number, :format, :locale, :company
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:84
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/companies/companies_service.rb:84
+Completed 400 Bad Request in 12ms (Views: 0.2ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/en/companies" for 127.0.0.1 at 2021-05-01 20:57:11 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"base company", "description"=>"hey hey", "address"=>"gogebashvili streat", "phone_number"=>"577520250", "locale"=>"en", "company"=>{"name"=>"base company", "description"=>"hey hey", "address"=>"gogebashvili streat", "phone_number"=>"577520250"}}
+Unpermitted parameters: :phone_number, :format, :locale, :company
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):2
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (pry):2
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:85
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/companies/companies_service.rb:85
+Completed 400 Bad Request in 73885ms (Views: 0.2ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/en/companies" for 127.0.0.1 at 2021-05-01 20:58:29 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"base company", "description"=>"hey hey", "address"=>"gogebashvili streat", "phone_number"=>"577520250", "locale"=>"en", "company"=>{"name"=>"base company", "description"=>"hey hey", "address"=>"gogebashvili streat", "phone_number"=>"577520250"}}
+Unpermitted parameters: :format, :locale, :company
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):6
+  [1m[36mCompany Create (36.3ms)[0m  [1m[32mINSERT INTO "companies" ("name", "description", "address", "phone_number") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "base company"], ["description", "hey hey"], ["address", "gogebashvili streat"], ["phone_number", "577520250"]]
+  ↳ (pry):6
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ (pry):6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:85
+  [1m[36mCompany Create (0.3ms)[0m  [1m[32mINSERT INTO "companies" ("name", "description", "address", "phone_number") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "base company"], ["description", "hey hey"], ["address", "gogebashvili streat"], ["phone_number", "577520250"]]
+  ↳ app/services/companies/companies_service.rb:85
+  [1m[35m (36.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/companies_service.rb:85
+Completed 500 Internal Server Error in 15822ms (ActiveRecord: 85.1ms)
+
+
+  
+NoMethodError (undefined method `country' for #<Company:0x00007f7bdc32c710>):
+  
+app/services/companies/companies_service.rb:14:in `json_view'
+lib/controller_response.rb:30:in `respond_json_view'
+lib/controller_response.rb:43:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/companies_controller.rb:11:in `create'
+Started POST "/en/companies" for 127.0.0.1 at 2021-05-01 20:59:16 +0400
+Processing by CompaniesController#create as JSON
+  Parameters: {"name"=>"base company", "description"=>"hey hey", "address"=>"gogebashvili streat", "phone_number"=>"577520250", "locale"=>"en", "company"=>{"name"=>"base company", "description"=>"hey hey", "address"=>"gogebashvili streat", "phone_number"=>"577520250"}}
+Unpermitted parameters: :format, :locale, :company
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/companies_service.rb:85
+  [1m[36mCompany Create (0.4ms)[0m  [1m[32mINSERT INTO "companies" ("name", "description", "address", "phone_number") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "base company"], ["description", "hey hey"], ["address", "gogebashvili streat"], ["phone_number", "577520250"]]
+  ↳ app/services/companies/companies_service.rb:85
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/companies_service.rb:85
+  [1m[36mCompanyLogo Load (0.4ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 LIMIT $2[0m  [["company_id", 15], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:14
+Completed 201 Created in 3327ms (Views: 0.2ms | ActiveRecord: 8.5ms)
+
+
+  [1m[36mUserRole Load (2.1ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRole Load (1.1ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (36.0ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.5ms)[0m  [1m[34mSELECT "role_groups".* FROM "role_groups"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddNewRoles (20210501202119)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210501202119"]]
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddNewRoles (20210501202119)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mRoleGroup Destroy (0.5ms)[0m  [1m[31mDELETE FROM "role_groups" WHERE "role_groups"."id_name" IN ($1, $2, $3)[0m  [["id_name", "super_admin"], ["id_name", "project_manager"], ["id_name", "employee"]]
+  ↳ db/migrate/20210501202119_add_new_roles.rb:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20210501202119"]]
+  ↳ bin/rails:9
+  [1m[35m (31.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddNewRoles (20210501202119)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mRoleGroup Create (36.5ms)[0m  [1m[32mINSERT INTO "role_groups" ("name", "id_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Super Admin"], ["id_name", "super_admin"], ["created_at", "2021-05-01 20:26:06.926042"], ["updated_at", "2021-05-01 20:26:06.926042"]]
+  ↳ db/migrate/20210501202119_add_new_roles.rb:3
+  [1m[36mRoleGroup Create (1.1ms)[0m  [1m[32mINSERT INTO "role_groups" ("name", "id_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Project Manager"], ["id_name", "project_manager"], ["created_at", "2021-05-01 20:26:06.964995"], ["updated_at", "2021-05-01 20:26:06.964995"]]
+  ↳ db/migrate/20210501202119_add_new_roles.rb:4
+  [1m[36mRoleGroup Create (0.7ms)[0m  [1m[32mINSERT INTO "role_groups" ("name", "id_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Employee"], ["id_name", "employee"], ["created_at", "2021-05-01 20:26:06.968508"], ["updated_at", "2021-05-01 20:26:06.968508"]]
+  ↳ db/migrate/20210501202119_add_new_roles.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210501202119"]]
+  ↳ bin/rails:9
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1[0m  [["username", "bukabuka"]]
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRole Load (1.0ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.9ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" ORDER BY "role_groups"."id" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRole Load (0.7ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRole Load (0.1ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUserRole Create (5.2ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 93], ["role_group_id", 8]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRole Load (0.7ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.7ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUserAccount Load (1.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRole Load (0.8ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.6ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-05-02 00:38:28 +0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-05-02 00:38:29 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-05-02 00:38:29 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-05-02 00:38:29 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-05-02 00:38:29 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-05-02 00:38:29 +0400
+Started POST "/en/user_roles?user_account_id=94&id_name=employee" for 127.0.0.1 at 2021-05-02 00:39:08 +0400
+Processing by UserRolesController#create as JSON
+  Parameters: {"user_account_id"=>"94", "id_name"=>"employee", "locale"=>"en"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/user_roles?user_account_id=94&id_name=employee" for 127.0.0.1 at 2021-05-02 00:39:20 +0400
+Processing by UserRolesController#create as JSON
+  Parameters: {"user_account_id"=>"94", "id_name"=>"employee", "locale"=>"en"}
+Unpermitted parameters: :id_name, :format, :locale
+Unpermitted parameters: :id_name, :format, :locale
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 94], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:50
+Completed 404 Not Found in 14856ms (ActiveRecord: 6.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find UserAccount with 'id'=94):
+  
+app/services/account/user_role_management_service.rb:50:in `validate_user!'
+app/services/account/user_role_management_service.rb:18:in `initialize_role'
+app/controllers/user_roles_controller.rb:11:in `create'
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/user_roles?user_account_id=93&id_name=employee" for 127.0.0.1 at 2021-05-02 00:39:59 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UserRolesController#create as JSON
+  Parameters: {"user_account_id"=>"93", "id_name"=>"employee", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:50
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id_name" = $1 LIMIT $2[0m  [["id_name", "employee"], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:56
+  [1m[36mUserRole Load (0.7ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 ORDER BY "user_roles"."id" ASC LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:63
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/user_role_management_service.rb:65
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:65
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/services/account/user_role_management_service.rb:65
+  [1m[36mUserRole Update (0.4ms)[0m  [1m[33mUPDATE "user_roles" SET "role_group_id" = $1 WHERE "user_roles"."id" = $2[0m  [["role_group_id", 10], ["id", 31]]
+  ↳ app/services/account/user_role_management_service.rb:65
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/user_role_management_service.rb:65
+Completed 201 Created in 13784ms (Views: 0.4ms | ActiveRecord: 18.8ms)
+
+
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRole Load (0.8ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRole Load (0.7ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (1.1ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRole Load (0.7ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.5ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Started POST "/en/auth" for 127.0.0.1 at 2021-05-02 00:43:16 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"meraba", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"meraba", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "meraba"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 100ms (Views: 0.2ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/en/users/current_user" for 127.0.0.1 at 2021-05-02 00:43:42 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+Completed 200 OK in 31ms (Views: 0.3ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-02 00:57:13 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mResource Load (1.1ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:60
+  [1m[36mResource Load (0.8ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  ↳ app/services/resources/resources_service.rb:68
+  [1m[36mResource Load (0.6ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as external_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:77
+Completed 200 OK in 17865ms (Views: 0.3ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-02 00:59:08 +0400
+  
+ActionController::RoutingError (undefined method `is_super_admin?' for ResourcesController:Class):
+  
+app/controllers/resources_controller.rb:7:in `<class:ResourcesController>'
+app/controllers/resources_controller.rb:1:in `<main>'
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-02 00:59:24 +0400
+  
+ActionController::RoutingError (undefined method `is_super_admin?' for ResourcesController:Class):
+  
+app/controllers/resources_controller.rb:9:in `<class:ResourcesController>'
+app/controllers/resources_controller.rb:1:in `<main>'
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-02 00:59:28 +0400
+  
+ActionController::RoutingError (undefined method `is_super_admin?' for ResourcesController:Class):
+  
+app/controllers/resources_controller.rb:9:in `<class:ResourcesController>'
+app/controllers/resources_controller.rb:1:in `<main>'
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-02 00:59:36 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (undefined method `is_super_admin?' for ResourcesController:Class):
+  
+app/controllers/resources_controller.rb:9:in `<class:ResourcesController>'
+app/controllers/resources_controller.rb:1:in `<main>'
+Started POST "/en/auth" for 127.0.0.1 at 2021-05-02 00:59:49 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"meraba", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"meraba", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "meraba"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 96ms (Views: 0.2ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-02 01:00:05 +0400
+  
+ActionController::RoutingError (undefined method `is_super_admin?' for ResourcesController:Class):
+  
+app/controllers/resources_controller.rb:9:in `<class:ResourcesController>'
+app/controllers/resources_controller.rb:1:in `<main>'
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-02 01:00:14 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ (pry):4
+  [1m[36mRoleGroup Load (0.5ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ (pry):5
+Completed 500 Internal Server Error in 88738ms (ActiveRecord: 19.9ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<ResourcesController:0x00007f2d284a2390>):
+  
+lib/methods_service.rb:47:in `is_super_admin?'
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-02 01:01:48 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 3227ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<ResourcesController:0x00007f2d284ee2e0>):
+  
+lib/methods_service.rb:47:in `is_super_admin?'
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-02 01:03:24 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 3449ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<ResourcesController:0x0000561c679c8dd8>):
+  
+lib/methods_service.rb:47:in `is_super_admin?'
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-02 01:03:55 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 2633ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<ResourcesController:0x0000561c6549ceb0>):
+  
+lib/methods_service.rb:47:in `is_super_admin?'
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-02 01:04:06 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.2ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ (pry):7
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ (pry):7
+Completed 500 Internal Server Error in 13790ms (ActiveRecord: 10.8ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<ResourcesController:0x00007f2d20059318>):
+  
+lib/methods_service.rb:47:in `is_super_admin?'
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-02 01:05:48 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 4470ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<ResourcesController:0x00007f2d2028fd08>):
+  
+lib/methods_service.rb:47:in `is_super_admin?'
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-02 01:06:08 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 4973ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<ResourcesController:0x0000561c668c8538>):
+  
+lib/methods_service.rb:47:in `is_super_admin?'
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-02 01:06:51 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.5ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:47
+  [1m[36mRoleGroup Load (0.5ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:47
+Filter chain halted as :is_super_admin? rendered or redirected
+Completed 401 Unauthorized in 6108ms (Views: 0.2ms | ActiveRecord: 12.5ms)
+
+
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (1.4ms)[0m  [1m[34mSELECT "role_groups".* FROM "role_groups"[0m
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-02 01:11:02 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:46
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:46
+Filter chain halted as :is_super_admin? rendered or redirected
+Completed 401 Unauthorized in 4339ms (Views: 0.2ms | ActiveRecord: 13.2ms)
+
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_12_210028) do
+ActiveRecord::Schema.define(version: 2021_05_01_202119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,12 +96,8 @@ ActiveRecord::Schema.define(version: 2021_04_12_210028) do
     t.string "description"
     t.string "address"
     t.string "phone_number"
-    t.bigint "country_id"
-    t.bigint "city_id"
     t.integer "parent_id"
     t.boolean "active", default: true
-    t.index ["city_id"], name: "index_companies_on_city_id"
-    t.index ["country_id"], name: "index_companies_on_country_id"
   end
 
   create_table "company_logos", force: :cascade do |t|
@@ -579,9 +575,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_210028) do
   add_foreign_key "clients", "currencies"
   add_foreign_key "clients", "product_vat_types"
   add_foreign_key "clients", "user_accounts"
-  add_foreign_key "companies", "cities"
   add_foreign_key "companies", "companies", column: "parent_id"
-  add_foreign_key "companies", "countries"
   add_foreign_key "company_logos", "companies"
   add_foreign_key "company_permissions", "role_groups"
   add_foreign_key "confirmation_codes", "confirmation_types"

@@ -1671,15 +1671,6 @@
                 },
                 "phone_number": {
                   "type": "string"
-                },
-                "country_id": {
-                  "type": "integer"
-                },
-                "city_id": {
-                  "type": "integer"
-                },
-                "parent_id": {
-                  "type": "integer"
                 }
               }
             }
@@ -1708,25 +1699,6 @@
                     },
                     "phone_number": {
                       "type": "string"
-                    },
-                    "parent_id": {
-                      "type": "integer"
-                    },
-                    "country": {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "city": {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "object"
-                        }
-                      }
                     }
                   }
                 }
@@ -10749,9 +10721,9 @@
             "required": true
           },
           {
-            "name": "role_group_id",
+            "name": "id_name",
             "in": "query",
-            "type": "integer",
+            "type": "string",
             "required": true
           }
         ],

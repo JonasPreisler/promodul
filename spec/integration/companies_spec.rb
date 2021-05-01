@@ -23,10 +23,7 @@ describe 'SubCategory', type: :request do
               name:         { type: :string },
               description:  { type: :string },
               address:      { type: :string },
-              phone_number: { type: :string },
-              country_id: { type: :integer },
-              city_id:    { type: :integer },
-              parent_id:    { type: :integer }
+              phone_number: { type: :string }
           }
       }
       response '201', 'ok' do
@@ -39,20 +36,7 @@ describe 'SubCategory', type: :request do
                            name: {type: :string},
                            description:  { type: :string },
                            address:      { type: :string },
-                           phone_number: { type: :string },
-                           parent_id:    { type: :integer },
-                           country: {
-                               type: :object,
-                               properties: {
-                                   name: { type: :string }
-                               }
-                           },
-                           city:    {
-                               type: :object,
-                               properties: {
-                                   name: { type: :object }
-                               }
-                           }
+                           phone_number: { type: :string }
                        }
                    }
                }
