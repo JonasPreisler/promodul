@@ -4,7 +4,7 @@ class ResourcesController < ApplicationController
 
   #ToDO: Need remove after authorization will works
   skip_before_action :validate_authentication
-  before_action :is_super_admin? || :is_project_manager?
+  #before_action :is_super_admin? || :is_project_manager?
 
   def create
     service = Resources::ResourcesService.new(resource_params)
