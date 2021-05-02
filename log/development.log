@@ -31141,3 +31141,41 @@ Completed 200 OK in 3529ms (Views: 1.3ms | ActiveRecord: 49.1ms)
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
   [1m[36mRoleGroup Load (0.7ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id_name" = $1 LIMIT $2[0m  [["id_name", "employee"], ["LIMIT", 1]]
   [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id_name" = $1 LIMIT $2[0m  [["id_name", "employee"], ["LIMIT", 1]]
+Started GET "/en/users/list" for 127.0.0.1 at 2021-05-02 16:53:13 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mCustomer Load (1.8ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "user_accounts"."active" = $1 AND "companies"."id" = $2 AND "role_groups"."id_name" IN ($3, $4)[0m  [["active", true], ["id", 15], ["id_name", "project_manager"], ["id_name", "employee"]]
+  ↳ app/services/account/users_service.rb:43
+Completed 200 OK in 114ms (Views: 0.3ms | ActiveRecord: 23.6ms)
+
+
+Started GET "/en/users/list" for 127.0.0.1 at 2021-05-02 16:53:26 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.2ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "user_accounts"."active" = $1 AND "companies"."id" = $2 AND "role_groups"."id_name" IN ($3, $4)[0m  [["active", true], ["id", 15], ["id_name", "project_manager"], ["id_name", "employee"]]
+  ↳ app/services/account/users_service.rb:43
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.6ms)
+
+
