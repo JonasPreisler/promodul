@@ -4,39 +4,40 @@ class ProjectsController < ApplicationController
 
   #ToDO: Need remove after authorization will works
   skip_before_action :validate_authentication
+  before_action :is_admin_or_manager?
 
   def create
-    service = Projects::ProjectsServices.new(project_params, current_account)
+    service = Projects::ProjectsServices.new(project_params, current_account, current_company)
     service.create_project
     rest_respond_service service
   end
 
   def projects_list
-    service = Projects::ProjectsServices.new(project_params, nil)
+    service = Projects::ProjectsServices.new(project_params, current_account, current_company)
     service.projects_list
     rest_respond_service service
   end
 
   def show
-    service = Projects::ProjectsServices.new(project_params, nil)
+    service = Projects::ProjectsServices.new(project_params, current_account, current_company)
     service.overview
     rest_respond_service service
   end
 
   def project_calendar
-    service = Projects::ProjectsServices.new(project_params, nil)
+    service = Projects::ProjectsServices.new(project_params, current_account, current_company)
     service.project_calendar
     rest_respond_service service
   end
 
   def update
-    service = Projects::ProjectsServices.new(project_params, current_account)
+    service = Projects::ProjectsServices.new(project_params, current_account, current_company)
     service.update_project
     rest_respond_service service
   end
 
   def destroy
-    service = Projects::ProjectsServices.new(project_params, current_account)
+    service = Projects::ProjectsServices.new(project_params, current_account, current_company)
     service.delete_project
     rest_respond_service service
   end

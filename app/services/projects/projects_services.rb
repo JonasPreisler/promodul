@@ -5,10 +5,11 @@ module Projects
 
     attr_reader :errors, :params
 
-    def initialize(params, current_user)
+    def initialize(params, current_user, current_company)
       @params = params
       @errors = []
       @current_user = current_user
+      @current_company = current_company
     end
 
     def json_view
@@ -62,7 +63,15 @@ module Projects
     end
 
     def projects_list
-      @projects = Project.all
+      @projects = Project
+                      .joins(user_account: :company)
+                      .where(companies: { id: @current_company.id })
+
+      @projects = @projects.where(user_accounts: {id: @current_user.id}) if project_manager?
+    end
+
+    def project_manager?
+      @current_user.user_role.role_group.id_name.eql?("project_manager")
     end
 
     def overview
@@ -89,7 +98,10 @@ module Projects
       @dates = Project
                    .select("projects.id, title, project_id, start_date as start,
                             deadline as end, user_accounts.first_name, user_accounts.last_name")
-                   .joins(:user_account)
+                   .joins(user_account: :company)
+                   .where(companies: { id: @current_company.id })
+
+      @dates = @dates.where(user_accounts: {id: @current_user.id}) if project_manager?
     end
 
     def update_project

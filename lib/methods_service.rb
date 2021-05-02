@@ -5,6 +5,11 @@ module MethodsService
     @current_account ||= UserAccount.find(user_id)
   end
 
+  def current_company
+    return nil unless @current_account
+    @current_company = @current_account.company
+  end
+
   def current_customer
     customer_id = request.params[:customer_id]
     account = current_account
@@ -44,6 +49,13 @@ module MethodsService
 
   def is_super_admin?
     if current_account.user_role.role_group.id_name != "super_admin"
+      render :json => {permission_dined: "You don't have access to this functionality"}, status: 401
+      false
+    end
+  end
+
+  def is_admin_or_manager?
+    if current_account.user_role.role_group.id_name != "super_admin" && current_account.user_role.role_group.id_name != "project_manager"
       render :json => {permission_dined: "You don't have access to this functionality"}, status: 401
       false
     end

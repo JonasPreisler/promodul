@@ -5,9 +5,11 @@ module Tasks
 
     attr_reader :errors, :params
 
-    def initialize(params)
+    def initialize(params, account, company)
       @params = params
       @errors = []
+      @current_company = company
+      @current_user = account
     end
 
     def json_view
@@ -51,11 +53,17 @@ module Tasks
     end
 
     def user_task_list
+      tasks = Task.joins(project: [user_account: :company]).where(companies: {id: @current_company.id})
+      tasks = tasks.where(user_accounts: {id: @current_user.id}) if project_manager?
       @builded_object = []
-      #After Roles here we will ad if else statment for fifferent role, Admin, manager, employ
-      Task.all.each do |task|
+
+      tasks.all.each do |task|
         @builded_object << build_object(task)
       end
+    end
+
+    def project_manager?
+      @current_user.user_role.role_group.id_name.eql?("project_manager")
     end
 
     def build_object(task)

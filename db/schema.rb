@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_01_202119) do
+ActiveRecord::Schema.define(version: 2021_05_02_110143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -548,6 +548,8 @@ ActiveRecord::Schema.define(version: 2021_05_01_202119) do
     t.string "first_name"
     t.string "last_name"
     t.datetime "birth_date"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_user_accounts_on_company_id"
   end
 
   create_table "user_management_permissions", force: :cascade do |t|
@@ -621,6 +623,7 @@ ActiveRecord::Schema.define(version: 2021_05_01_202119) do
   add_foreign_key "terms_and_condition_agreements", "user_accounts"
   add_foreign_key "user_account_tasks", "tasks"
   add_foreign_key "user_account_tasks", "user_accounts"
+  add_foreign_key "user_accounts", "companies"
   add_foreign_key "user_management_permissions", "role_groups"
   add_foreign_key "user_roles", "role_groups"
   add_foreign_key "user_roles", "user_accounts"

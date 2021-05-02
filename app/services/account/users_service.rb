@@ -5,9 +5,11 @@ module Account
 
     attr_reader :errors, :params
 
-    def initialize(params)
+    def initialize(params, account, company)
       @params = params
       @errors = []
+      @current_account = account
+      @current_company = company
     end
 
     def json_view
@@ -34,16 +36,19 @@ module Account
       @users = Customer
                    .select("user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
                             user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name")
-                   .joins(:user_account)
+                   .joins(user_account: [:company, [user_role: :role_group]])
                    .where(user_accounts: { active: true})
+                   .where(companies: { id: @current_company.id })
+                   .where(role_groups: { id_name: id_names})
                    .as_json
+    end
 
-        #ToDo: Change query when we add roles.
-      #@users = Customer
-      #             .select("user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,  user_roles.id as user_role_id,
-      #                      user_accounts.email, user_accounts.username, user_roles.role_group_id, role_groups.name as role_name")
-      #             .joins(user_account: [user_role: :role_group])
-      #             .where(user_accounts: { active: true})
+    def id_names
+      if @current_account.user_role.role_group.id_name.eql?("super_admin")
+        [:project_manager, :employee]
+      else
+        [:employee]
+      end
     end
 
     def unconfirmed_users_list

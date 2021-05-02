@@ -30367,3 +30367,594 @@ Filter chain halted as :is_super_admin? rendered or redirected
 Completed 401 Unauthorized in 4339ms (Views: 0.2ms | ActiveRecord: 13.2ms)
 
 
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddCompanyToAccount (20210502110143)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "user_accounts" ADD "company_id" bigint[0m
+  ↳ db/migrate/20210502110143_add_company_to_account.rb:3
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE  INDEX  "index_user_accounts_on_company_id" ON "user_accounts"  ("company_id")[0m
+  ↳ db/migrate/20210502110143_add_company_to_account.rb:3
+  [1m[35m (7.5ms)[0m  [1m[35mALTER TABLE "user_accounts" ADD CONSTRAINT "fk_rails_4f4083b22e"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+[0m
+  ↳ db/migrate/20210502110143_add_company_to_account.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210502110143"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (1.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Update (39.3ms)[0m  [1m[33mUPDATE "user_accounts" SET "company_id" = $1 WHERE "user_accounts"."id" = $2[0m  [["company_id", 15], ["id", 93]]
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-05-02 15:06:17 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-05-02 15:06:17 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-05-02 15:06:17 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-05-02 15:06:17 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-05-02 15:06:19 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-05-02 15:06:19 +0400
+Started POST "/en/auth" for 127.0.0.1 at 2021-05-02 15:06:37 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"meraba", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"meraba", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "meraba"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 108ms (Views: 0.2ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/en/users/list" for 127.0.0.1 at 2021-05-02 15:06:49 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):3
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):4
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ (pry):4
+  [1m[36mCustomer Load (0.9ms)[0m  [1m[34mSELECT "customers".* FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ (pry):5
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):6
+  [1m[36mUserAccount Load (4.5ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  ↳ app/services/account/users_service.rb:34
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  ↳ app/services/account/users_service.rb:34
+  [1m[36mCustomer Load (2.7ms)[0m  [1m[34mSELECT "customers".* FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  ↳ app/services/account/users_service.rb:34
+  [1m[36mCustomer Load (0.8ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+  ↳ app/services/account/users_service.rb:40
+Completed 200 OK in 537493ms (Views: 1.4ms | ActiveRecord: 23.7ms)
+
+
+Started GET "/en/users/list" for 127.0.0.1 at 2021-05-02 15:15:51 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:46
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:46
+Filter chain halted as :is_super_admin? rendered or redirected
+Completed 401 Unauthorized in 58ms (Views: 0.2ms | ActiveRecord: 10.9ms)
+
+
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRole Load (1.0ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUserRole Update (36.3ms)[0m  [1m[33mUPDATE "user_roles" SET "role_group_id" = $1 WHERE "user_roles"."id" = $2[0m  [["role_group_id", 8], ["id", 31]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/en/users/list" for 127.0.0.1 at 2021-05-02 15:16:58 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:51
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:51
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 57464ms (Views: 0.2ms | ActiveRecord: 18.8ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 3)):
+  
+app/services/account/users_service.rb:8:in `initialize'
+app/controllers/users_controller.rb:17:in `new'
+app/controllers/users_controller.rb:17:in `list'
+Started GET "/en/users/list" for 127.0.0.1 at 2021-05-02 15:18:00 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.2ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:51
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:51
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mCustomer Load (1.3ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "user_accounts"."active" = $1 AND "companies"."id" = $2 AND "role_groups"."id_name" = $3[0m  [["active", true], ["id", 15], ["id_name", "employee"]]
+  ↳ app/services/account/users_service.rb:44
+Completed 200 OK in 44594ms (Views: 0.1ms | ActiveRecord: 23.0ms)
+
+
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (1.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 91], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUserRole Create (4.6ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 91], ["role_group_id", 9]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 92], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.6ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUserRole Create (0.6ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 92], ["role_group_id", 10]]
+  [1m[35m (36.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/en/users/list" for 127.0.0.1 at 2021-05-02 15:19:58 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:51
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:51
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mCustomer Load (1.5ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "user_accounts"."active" = $1 AND "companies"."id" = $2 AND "role_groups"."id_name" IN ($3, $4)[0m  [["active", true], ["id", 15], ["id_name", "project_manager"], ["id_name", "employee"]]
+  ↳ app/services/account/users_service.rb:44
+Completed 200 OK in 3552ms (Views: 0.2ms | ActiveRecord: 20.0ms)
+
+
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (1.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  [1m[36mUserAccount Update (37.8ms)[0m  [1m[33mUPDATE "user_accounts" SET "company_id" = $1 WHERE "user_accounts"."id" = $2[0m  [["company_id", 15], ["id", 91]]
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  [1m[36mUserAccount Update (37.0ms)[0m  [1m[33mUPDATE "user_accounts" SET "company_id" = $1 WHERE "user_accounts"."id" = $2[0m  [["company_id", 15], ["id", 92]]
+Started GET "/en/users/list" for 127.0.0.1 at 2021-05-02 15:20:50 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:51
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:51
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mCustomer Load (2.0ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "user_accounts"."active" = $1 AND "companies"."id" = $2 AND "role_groups"."id_name" IN ($3, $4)[0m  [["active", true], ["id", 15], ["id_name", "project_manager"], ["id_name", "employee"]]
+  ↳ app/services/account/users_service.rb:44
+Completed 200 OK in 7312ms (Views: 0.3ms | ActiveRecord: 22.7ms)
+
+
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 2]]
+  [1m[36mUserRole Load (0.6ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRole Load (0.8ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  [1m[36mUserRole Load (0.8ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  [1m[36mUserRole Load (0.5ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  [1m[36mUserRole Update (36.8ms)[0m  [1m[33mUPDATE "user_roles" SET "role_group_id" = $1 WHERE "user_roles"."id" = $2[0m  [["role_group_id", 9], ["id", 31]]
+Started GET "/en/users/list" for 127.0.0.1 at 2021-05-02 15:22:21 +0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:51
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:51
+Filter chain halted as :is_super_admin? rendered or redirected
+Completed 401 Unauthorized in 50ms (Views: 0.2ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/en/users/list" for 127.0.0.1 at 2021-05-02 15:23:11 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:48
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/account/users_service.rb:48
+  [1m[36mCustomer Load (1.8ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "user_accounts"."active" = $1 AND "companies"."id" = $2 AND "role_groups"."id_name" = $3[0m  [["active", true], ["id", 15], ["id_name", "employee"]]
+  ↳ app/services/account/users_service.rb:44
+Completed 200 OK in 5807ms (Views: 0.2ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/en/users/list" for 127.0.0.1 at 2021-05-02 15:24:55 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 95ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `is_admin_or_manager?' for #<UsersController:0x0000561a218cee98>):
+  
+activesupport (5.2.1) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (5.2.1) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.2.1) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `each'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (5.2.1) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.1) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/en/users/list" for 127.0.0.1 at 2021-05-02 15:25:07 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Filter chain halted as :is_admin_or_manager? rendered or redirected
+Completed 401 Unauthorized in 53ms (Views: 0.2ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/en/users/list" for 127.0.0.1 at 2021-05-02 15:25:22 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.2ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Filter chain halted as :is_admin_or_manager? rendered or redirected
+Completed 401 Unauthorized in 65ms (Views: 0.2ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/en/users/list" for 127.0.0.1 at 2021-05-02 15:25:25 +0400
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.2ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Filter chain halted as :is_admin_or_manager? rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/en/users/list" for 127.0.0.1 at 2021-05-02 15:25:32 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ (pry):1
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ (pry):1
+Filter chain halted as :is_admin_or_manager? rendered or redirected
+Completed 401 Unauthorized in 41882ms (Views: 0.2ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/en/users/list" for 127.0.0.1 at 2021-05-02 15:26:26 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mCustomer Load (1.4ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "user_accounts"."active" = $1 AND "companies"."id" = $2 AND "role_groups"."id_name" = $3[0m  [["active", true], ["id", 15], ["id_name", "employee"]]
+  ↳ app/services/account/users_service.rb:44
+Completed 200 OK in 4038ms (Views: 0.4ms | ActiveRecord: 20.8ms)
+
+
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  [1m[36mUserRole Load (1.7ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  [1m[36mUserRole Load (0.9ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  [1m[36mUserRole Update (6.8ms)[0m  [1m[33mUPDATE "user_roles" SET "role_group_id" = $1 WHERE "user_roles"."id" = $2[0m  [["role_group_id", 8], ["id", 31]]
+Started GET "/en/projects/projects_list" for 127.0.0.1 at 2021-05-02 15:31:21 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#projects_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProject Load (1.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+Completed 200 OK in 55ms (Views: 0.7ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/en/projects/projects_list" for 127.0.0.1 at 2021-05-02 15:32:39 +0400
+Processing by ProjectsController#projects_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:23
+Completed 200 OK in 3368ms (Views: 0.6ms | ActiveRecord: 9.2ms)
+
+
+  [1m[36mProject Load (1.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id"[0m
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUserAccount Update (7.7ms)[0m  [1m[33mUPDATE "user_accounts" SET "company_id" = $1 WHERE "user_accounts"."id" = $2[0m  [["company_id", 15], ["id", 16]]
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUserRole Create (4.5ms)[0m  [1m[32mINSERT INTO "user_roles" ("user_account_id", "role_group_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_account_id", 16], ["role_group_id", 9]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (1.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" WHERE "companies"."id" = $1[0m  [["id", 15]]
+  [1m[36mProject Load (1.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" WHERE "companies"."id" = $1 AND "user_accounts"."id" = $2[0m  [["id", 15], ["id", 16]]
+  [1m[36mProject Load (1.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  [1m[36mProject Load (1.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 2]]
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 2]]
+  [1m[36mProject Update (38.1ms)[0m  [1m[33mUPDATE "projects" SET "user_account_id" = $1 WHERE "projects"."id" = $2[0m  [["user_account_id", 92], ["id", 5]]
+  [1m[36mProject Update (1.3ms)[0m  [1m[33mUPDATE "projects" SET "user_account_id" = $1 WHERE "projects"."id" = $2[0m  [["user_account_id", 92], ["id", 6]]
+  [1m[36mProject Load (1.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" WHERE "companies"."id" = $1[0m  [["id", 15]]
+  [1m[36mProject Load (1.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" WHERE "companies"."id" = $1 AND "user_accounts"."id" = $2[0m  [["id", 15], ["id", 16]]
+  [1m[36mProject Load (2.1ms)[0m  [1m[34mSELECT projects.id, title, project_id, start_date as start,deadline as end, user_accounts.first_name, user_accounts.last_name FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id"[0m
+  [1m[36mProject Load (1.6ms)[0m  [1m[34mSELECT projects.id, title, project_id, start_date as start,deadline as end, user_accounts.first_name, user_accounts.last_name FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" WHERE "companies"."id" = $1[0m  [["id", 15]]
+  [1m[36mProject Load (1.6ms)[0m  [1m[34mSELECT projects.id, title, project_id, start_date as start,deadline as end, user_accounts.first_name, user_accounts.last_name FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" WHERE "companies"."id" = $1[0m  [["id", 15]]
+  [1m[36mProject Load (1.6ms)[0m  [1m[34mSELECT projects.id, title, project_id, start_date as start,deadline as end, user_accounts.first_name, user_accounts.last_name FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" WHERE "companies"."id" = $1 AND "user_accounts"."id" = $2[0m  [["id", 15], ["id", 92]]
+  [1m[36mTask Load (39.9ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTask Load (1.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" WHERE "companies"."id" = $1[0m  [["id", 16]]
+  [1m[36mTask Load (1.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" WHERE "companies"."id" = $1[0m  [["id", 15]]
+  [1m[36mTask Load (1.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" WHERE "companies"."id" = $1[0m  [["id", 15]]
+  [1m[36mTask Load (1.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" WHERE "companies"."id" = $1[0m  [["id", 15]]
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" WHERE "companies"."id" = $1 AND "user_accounts"."id" = $2[0m  [["id", 15], ["id", 16]]
+Started GET "/en/projects/projects_list" for 127.0.0.1 at 2021-05-02 16:31:25 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#projects_list as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `split' for nil:NilClass):
+  
+lib/methods_service.rb:99:in `get_user_id'
+lib/methods_service.rb:4:in `current_account'
+lib/methods_service.rb:58:in `is_admin_or_manager?'
+Started POST "/en/auth" for 127.0.0.1 at 2021-05-02 16:31:36 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"meraba", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"meraba", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "meraba"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 96ms (Views: 0.3ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/en/projects/projects_list" for 127.0.0.1 at 2021-05-02 16:31:49 +0400
+Processing by ProjectsController#projects_list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 11.9ms)
+
+
+  
+NoMethodError (undefined method `user_role' for nil:NilClass):
+  
+app/services/projects/projects_services.rb:74:in `project_manager?'
+app/services/projects/projects_services.rb:70:in `projects_list'
+app/controllers/projects_controller.rb:17:in `projects_list'
+Started GET "/en/projects/projects_list" for 127.0.0.1 at 2021-05-02 16:32:14 +0400
+Processing by ProjectsController#projects_list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.2ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 15.7ms)
+
+
+  
+NoMethodError (undefined method `user_role' for nil:NilClass):
+  
+app/services/projects/projects_services.rb:74:in `project_manager?'
+app/services/projects/projects_services.rb:70:in `projects_list'
+app/controllers/projects_controller.rb:17:in `projects_list'
+Started GET "/en/projects/projects_list" for 127.0.0.1 at 2021-05-02 16:32:54 +0400
+Processing by ProjectsController#projects_list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.2ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" WHERE "companies"."id" = $1[0m  [["id", 15]]
+  ↳ app/services/projects/projects_services.rb:24
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:24
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:24
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:24
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:24
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:24
+Completed 200 OK in 79ms (Views: 0.6ms | ActiveRecord: 17.5ms)
+
+
+Started GET "/en/tasks/user_task_list" for 127.0.0.1 at 2021-05-02 16:33:21 +0400
+Processing by TasksController#user_task_list as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 93], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:67
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:67
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" WHERE "companies"."id" = $1[0m  [["id", 15]]
+  ↳ app/services/tasks/services.rb:60
+  [1m[36mTaskStatus Load (3.5ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:75
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:78
+  [1m[36mUserAccount Load (3.8ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, user_account_tasks.id as task_user_id FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" WHERE "tasks"."id" = $1 GROUP BY user_accounts.id, user_account_tasks.id[0m  [["id", 8]]
+  ↳ app/services/tasks/services.rb:90
+  [1m[36mResource Load (4.9ms)[0m  [1m[34mSELECT resources.id, name, task_resources.id as task_resource_id FROM "resources" INNER JOIN "task_resources" ON "task_resources"."resource_id" = "resources"."id" INNER JOIN "tasks" ON "tasks"."id" = "task_resources"."task_id" WHERE "tasks"."id" = $1 GROUP BY resources.id, task_resources.id[0m  [["id", 8]]
+  ↳ app/services/tasks/services.rb:94
+  [1m[36mCACHE TaskStatus Load (0.1ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:75
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:78
+  [1m[36mUserAccount Load (2.0ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, user_account_tasks.id as task_user_id FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" WHERE "tasks"."id" = $1 GROUP BY user_accounts.id, user_account_tasks.id[0m  [["id", 9]]
+  ↳ app/services/tasks/services.rb:90
+  [1m[36mResource Load (1.8ms)[0m  [1m[34mSELECT resources.id, name, task_resources.id as task_resource_id FROM "resources" INNER JOIN "task_resources" ON "task_resources"."resource_id" = "resources"."id" INNER JOIN "tasks" ON "tasks"."id" = "task_resources"."task_id" WHERE "tasks"."id" = $1 GROUP BY resources.id, task_resources.id[0m  [["id", 9]]
+  ↳ app/services/tasks/services.rb:94
+Completed 200 OK in 3529ms (Views: 1.3ms | ActiveRecord: 49.1ms)
+
+
