@@ -6,7 +6,7 @@ module Account
 
     #UserAccount registration Step-1
     def sign_up
-      registration = Account::RegistrationService.new(user_account_params)
+      registration = Account::RegistrationService.new(user_account_params, current_company)
       registration.call
       rest_respond_service registration
     end
@@ -32,21 +32,21 @@ module Account
 
     #Cencel registration/Delete account
     def cancel_registration
-      registration = Account::RegistrationService.new
+      registration = Account::RegistrationService.new(current_company)
       registration.cancel(params[:token])
       rest_respond_service registration
     end
 
     #Get Customer types for registration
     def customer_types
-      service = Account::RegistrationService.new
+      service = Account::RegistrationService.new(current_company)
       service.customer_types
       rest_respond_service service
     end
 
     #Create Only Customer on existing UserAccount
     def create_customer
-      registration = Account::RegistrationService.new(customer_params)
+      registration = Account::RegistrationService.new(customer_params, current_company)
       registration.create_business_customer
       rest_respond_service registration
     end

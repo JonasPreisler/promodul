@@ -6,9 +6,10 @@ module Account
 
     attr_reader :token , :errors
 
-    def initialize(registration_params = {}, user_id = nil )
+    def initialize(registration_params = {}, company, user_id = nil )
       @registration_params = registration_params
       @errors = []
+      @current_company = company
     end
 
     def sign_up_json_view
@@ -29,6 +30,7 @@ module Account
       return if @errors.any?
       ActiveRecord::Base.transaction do
         register_user!
+        set_base_role!
         create_customer!
         generate_token
         finish_registration
@@ -165,10 +167,15 @@ module Account
 
     def register_user!
       @user = UserAccount.new(@registration_params.slice(:phone_number, :phone_number_iso, :email, :password, :username, :first_name, :last_name))
+      @user.company_id = @current_company.id
       @user.save
       @errors.concat(fill_errors(@user))
     rescue ActiveRecord::RecordNotUnique
       fill_custom_errors(self,:username, :not_unique,  I18n.t('custom.errors.phone_number_duplicated')) if UserAccount.exists?(username: @registration_params[:username])
+    end
+
+    def set_base_role!
+      UserRole.create(user_account_id: @user.id, role_group_id: RoleGroup.find_by_id_name("employee").id)
     end
 
     def create_customer!
