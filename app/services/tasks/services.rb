@@ -90,8 +90,40 @@ module Tasks
     end
 
     def get_resources(task)
-      Resource.select('resources.id, name, task_resources.id as task_resource_id').joins(task_resources: :task).where(tasks: {id: task.id }).group('resources.id, task_resources.id').as_json
+      {
+          models: get_models(task),
+          tools: get_tools(task),
+          resources: get_external_resources(task)
+      }
     end
+
+    def get_models(task)
+      Resource
+          .select('resources.id, resources.name, task_resources.id as task_resource_id')
+          .joins(:resource_type, task_resources: :task)
+          .where(model_on_type: "MachineModel", resource_types: { id_name: "machine"})
+          .where(tasks: {id: task.id })
+          .group('resources.id, task_resources.id').as_json
+    end
+
+    def get_tools(task)
+      Resource
+          .select('resources.id, resources.name, task_resources.id as task_resource_id')
+          .joins(:resource_type, task_resources: :task)
+          .where(model_on_type: "ToolModel", resource_types: { id_name: "tool"})
+          .where(tasks: {id: task.id })
+          .group('resources.id, task_resources.id').as_json
+    end
+
+    def get_external_resources(task)
+      Resource
+          .select('resources.id, resources.name, task_resources.id as task_resource_id')
+          .joins(:resource_type, task_resources: :task)
+          .where(model_on_type: "ExternalResourceType", resource_types: { id_name: "external_resource"})
+          .where(tasks: {id: task.id })
+          .group('resources.id, task_resources.id').as_json
+    end
+
 
     def progress
       find_status
