@@ -107,12 +107,15 @@ module Resources
 
     def set_dates
       @list[:machines].each do |machine|
+        machine.merge!(checked: false)
         machine.merge!(available_dates: build_available_dates(get_resource_dates(machine)))
       end
       @list[:tools].each do |tool|
+        tool.merge!(checked: false)
         tool.merge!(available_dates: build_available_dates(get_resource_dates(tool)))
       end
       @list[:external_resources].each do |external|
+        external.merge!(checked: false)
         external.merge!(available_dates: build_available_dates(get_resource_dates(external)))
       end
     end

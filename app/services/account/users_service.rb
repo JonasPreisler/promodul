@@ -85,6 +85,7 @@ module Account
 
     def set_dates
       @users.each do |user|
+        user.merge!(checked: false)
         user.merge!(available_dates: build_available_dates(get_user_dates(user)))
       end
     end
