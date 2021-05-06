@@ -35,7 +35,7 @@ module Account
     def users_list
       @users = Customer
                    .select("user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
-                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name")
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name, role_groups.id_name as user_role")
                    .joins(user_account: [:company, [user_role: :role_group]])
                    .where(user_accounts: { active: true})
                    .where(companies: { id: @current_company.id })
