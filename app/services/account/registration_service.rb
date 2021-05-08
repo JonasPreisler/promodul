@@ -6,7 +6,8 @@ module Account
 
     attr_reader :token , :errors
 
-    def initialize(registration_params = {}, user_id = nil )
+    def initialize(current_company, registration_params = {}, user_id = nil )
+      @current_company = current_company
       @registration_params = registration_params
       @errors = []
     end
@@ -165,6 +166,7 @@ module Account
 
     def register_user!
       @user = UserAccount.new(@registration_params.slice(:phone_number, :phone_number_iso, :email, :password, :username, :first_name, :last_name))
+      @user.company_id = @current_company.id
       @user.save
       @errors.concat(fill_errors(@user))
     rescue ActiveRecord::RecordNotUnique

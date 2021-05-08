@@ -2,11 +2,12 @@ module Account
   class RegistrationController < ApplicationController
     require 'controller_response'
     include ControllerResponse
-    skip_before_action :validate_authentication
+    #skip_before_action :validate_authentication
 
     #UserAccount registration Step-1
     def sign_up
-      registration = Account::RegistrationService.new(user_account_params)
+      current_account
+      registration = Account::RegistrationService.new(current_company, user_account_params)
       registration.call
       rest_respond_service registration
     end

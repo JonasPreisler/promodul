@@ -31187,3 +31187,176 @@ Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.6ms)
   [1m[36mCustomer Load (16.1ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
   [1m[36mCustomer Load (3.6ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name, role_groups.id_name FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
   [1m[36mCustomer Load (3.1ms)[0m  [1m[34mSELECT user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name, role_groups.id_name as user_role FROM "customers" INNER JOIN "user_accounts" ON "user_accounts"."id" = "customers"."user_account_id" INNER JOIN "companies" ON "companies"."id" = "user_accounts"."company_id" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "user_accounts"."active" = $1[0m  [["active", true]]
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-05-08 13:24:43 +0400
+  [1m[35m (48.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-05-08 13:24:43 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-05-08 13:24:43 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-05-08 13:24:43 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-05-08 13:24:43 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-05-08 13:24:43 +0400
+Started POST "/en/auth" for 127.0.0.1 at 2021-05-08 13:24:55 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (3.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 295ms (Views: 0.7ms | ActiveRecord: 32.2ms)
+
+
+Started POST "/en/account/registration" for 127.0.0.1 at 2021-05-08 13:25:47 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"first_name"=>"buka", "last_name"=>"urdia", "username"=>"kabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"kabuka@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "locale"=>"en", "registration"=>{"first_name"=>"buka", "last_name"=>"urdia", "username"=>"kabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"kabuka@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:30
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/registration_service.rb:30
+Completed 400 Bad Request in 308ms (Views: 0.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/en/account/registration" for 127.0.0.1 at 2021-05-08 13:26:20 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"first_name"=>"buka", "last_name"=>"urdia", "username"=>"kabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"kabuka@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "locale"=>"en", "registration"=>{"first_name"=>"buka", "last_name"=>"urdia", "username"=>"kabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"kabuka@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:30
+  [1m[36mUserAccount Load (5.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):2
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/registration_service.rb:30
+Completed 400 Bad Request in 351962ms (Views: 0.2ms | ActiveRecord: 11.0ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-05-08 13:33:45 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-05-08 13:33:45 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-05-08 13:33:45 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-05-08 13:33:45 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-05-08 13:33:45 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-05-08 13:33:45 +0400
+Started POST "/en/auth" for 127.0.0.1 at 2021-05-08 13:34:47 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 112ms (Views: 0.4ms | ActiveRecord: 6.8ms)
+
+
+Started POST "/en/account/registration" for 127.0.0.1 at 2021-05-08 13:35:05 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"first_name"=>"buka", "last_name"=>"urdia", "username"=>"kabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"kabuka@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "locale"=>"en", "registration"=>{"first_name"=>"buka", "last_name"=>"urdia", "username"=>"kabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"kabuka@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:31
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):2
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/account/registration_service.rb:31
+Completed 500 Internal Server Error in 23294ms (ActiveRecord: 1.1ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/services/account/registration_service.rb:170:in `register_user!'
+app/services/account/registration_service.rb:33:in `block in call'
+app/services/account/registration_service.rb:31:in `call'
+app/controllers/account/registration_controller.rb:10:in `sign_up'
+Started POST "/en/auth" for 127.0.0.1 at 2021-05-08 13:35:44 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"meraba", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"meraba", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "meraba"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/en/account/registration" for 127.0.0.1 at 2021-05-08 13:36:00 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"first_name"=>"buka", "last_name"=>"urdia", "username"=>"kabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"kabuka@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "locale"=>"en", "registration"=>{"first_name"=>"buka", "last_name"=>"urdia", "username"=>"kabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"kabuka@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:31
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/account/registration_service.rb:31
+Completed 500 Internal Server Error in 6655ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/services/account/registration_service.rb:170:in `register_user!'
+app/services/account/registration_service.rb:33:in `block in call'
+app/services/account/registration_service.rb:31:in `call'
+app/controllers/account/registration_controller.rb:10:in `sign_up'
+Started POST "/en/account/registration" for 127.0.0.1 at 2021-05-08 13:36:16 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"first_name"=>"buka", "last_name"=>"urdia", "username"=>"kabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"kabuka@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "locale"=>"en", "registration"=>{"first_name"=>"buka", "last_name"=>"urdia", "username"=>"kabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"kabuka@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :registration
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:31
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/account/registration_service.rb:31
+Completed 500 Internal Server Error in 16738ms (ActiveRecord: 11.6ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/services/account/registration_service.rb:170:in `register_user!'
+app/services/account/registration_service.rb:33:in `block in call'
+app/services/account/registration_service.rb:31:in `call'
+app/controllers/account/registration_controller.rb:10:in `sign_up'
+Started POST "/en/account/registration" for 127.0.0.1 at 2021-05-08 13:36:36 +0400
+Processing by Account::RegistrationController#sign_up as JSON
+  Parameters: {"first_name"=>"buka", "last_name"=>"urdia", "username"=>"kabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"kabuka@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "locale"=>"en", "registration"=>{"first_name"=>"buka", "last_name"=>"urdia", "username"=>"kabuka", "phone_number"=>"577520250", "phone_number_iso"=>"GE", "email"=>"kabuka@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCompany Load (1.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+Unpermitted parameters: :format, :locale, :registration
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/account/registration_service.rb:31
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:171
+  [1m[36mUserAccount Create (48.6ms)[0m  [1m[32mINSERT INTO "user_accounts" ("phone_number", "email", "crypted_password", "created_at", "updated_at", "salt", "username", "phone_number_iso", "first_name", "last_name", "company_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["phone_number", "577520250"], ["email", "kabuka@gmail.com"], ["crypted_password", "$2a$10$wfXNs922VVEejRzzhZMIF.aVLsWFB63eiHZfLwz26ZMmgOv5m4lKa"], ["created_at", "2021-05-08 09:37:11.030096"], ["updated_at", "2021-05-08 09:37:11.030096"], ["salt", "hgiGGxDAHrxsAH7TxRqD"], ["username", "kabuka"], ["phone_number_iso", "GE"], ["first_name", "buka"], ["last_name", "urdia"], ["company_id", 15]]
+  ↳ app/services/account/registration_service.rb:171
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 94], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:179
+  [1m[36mCustomer Create (2.9ms)[0m  [1m[32mINSERT INTO "customers" ("user_account_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_account_id", 94], ["created_at", "2021-05-08 09:37:11.125104"], ["updated_at", "2021-05-08 09:37:11.125104"]]
+  ↳ app/services/account/registration_service.rb:179
+  [1m[36mConfirmationType Load (2.5ms)[0m  [1m[34mSELECT  "confirmation_types".* FROM "confirmation_types" WHERE "confirmation_types"."id_name" = $1 LIMIT $2[0m  [["id_name", "registration"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:15
+  [1m[36mConfirmationCode Load (2.3ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."user_account_id" = $1 AND "confirmation_codes"."confirmation_type_id" = $2 ORDER BY "confirmation_codes"."id" ASC LIMIT $3[0m  [["user_account_id", 94], ["confirmation_type_id", 2], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:16
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 94], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationCode Create (1.4ms)[0m  [1m[32mINSERT INTO "confirmation_codes" ("confirmation_token", "sms_code", "generation_time", "failed_attempts_count", "user_account_id", "confirmation_type_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["confirmation_token", "ztiCTfiUxohwoXP1GtkeVo7w"], ["sms_code", "pending"], ["generation_time", "2021-05-08 09:37:11.162144"], ["failed_attempts_count", 0], ["user_account_id", 94], ["confirmation_type_id", 2]]
+  ↳ app/services/account/verification_service.rb:57
+  [1m[36mConfirmationCode Load (0.3ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "ztiCTfiUxohwoXP1GtkeVo7w"], ["LIMIT", 1]]
+  ↳ app/services/account/verification_service.rb:11
+  [1m[36mCACHE ConfirmationCode Load (0.0ms)[0m  [1m[34mSELECT  "confirmation_codes".* FROM "confirmation_codes" WHERE "confirmation_codes"."confirmation_token" = $1 LIMIT $2[0m  [["confirmation_token", "ztiCTfiUxohwoXP1GtkeVo7w"], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:76
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 94], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:71
+  [1m[36mConfirmationCode Update (0.4ms)[0m  [1m[33mUPDATE "confirmation_codes" SET "failed_attempts_count" = $1 WHERE "confirmation_codes"."id" = $2[0m  [["failed_attempts_count", 1], ["id", 64]]
+  ↳ app/services/account/registration_service.rb:71
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/account/registration_service.rb:65
+  [1m[36mUserAccount Update (1.5ms)[0m  [1m[33mUPDATE "user_accounts" SET "active" = $1, "updated_at" = $2 WHERE "user_accounts"."id" = $3[0m  [["active", true], ["updated_at", "2021-05-08 09:37:11.173590"], ["id", 94]]
+  ↳ app/services/account/registration_service.rb:65
+  [1m[36mConfirmationCode Destroy (0.3ms)[0m  [1m[31mDELETE FROM "confirmation_codes" WHERE "confirmation_codes"."id" = $1[0m  [["id", 64]]
+  ↳ app/services/account/registration_service.rb:59
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/account/registration_service.rb:31
+Completed 200 OK in 34912ms (Views: 0.2ms | ActiveRecord: 110.2ms)
+
+
