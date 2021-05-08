@@ -12,7 +12,7 @@ module Account
 
     def json_view
 
-      { current_user:  @user.as_json(only: [:id, :phone_number, :email, :username, :first_name, :last_name], include:
+      { current_user:  @user.as_json(only: [:id, :phone_number, :email, :username, :first_name, :last_name, :company_id], include:
                                  { user_role:
                                        { only: [:id], include:
                                            { role_group:  { only: [:name]

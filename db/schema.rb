@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_02_110143) do
+ActiveRecord::Schema.define(version: 2021_05_08_213126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -390,6 +390,8 @@ ActiveRecord::Schema.define(version: 2021_05_02_110143) do
     t.bigint "model_on_id"
     t.string "name"
     t.string "description"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_resources_on_company_id"
     t.index ["model_on_type", "model_on_id"], name: "index_resources_on_model_on_type_and_model_on_id"
     t.index ["resource_type_id"], name: "index_resources_on_resource_type_id"
   end
@@ -604,6 +606,7 @@ ActiveRecord::Schema.define(version: 2021_05_02_110143) do
   add_foreign_key "product_prices", "products"
   add_foreign_key "product_type_permissions", "role_groups"
   add_foreign_key "projects", "user_accounts"
+  add_foreign_key "resources", "companies"
   add_foreign_key "resources", "resource_types"
   add_foreign_key "role_management_permissions", "role_groups"
   add_foreign_key "sub_categories", "categories"

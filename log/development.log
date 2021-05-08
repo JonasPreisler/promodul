@@ -31365,3 +31365,298 @@ Completed 200 OK in 34912ms (Views: 0.2ms | ActiveRecord: 110.2ms)
   [1m[36mRoleGroup Load (3.4ms)[0m  [1m[34mSELECT "role_groups".* FROM "role_groups"[0m
   [1m[36mRoleGroup Load (0.6ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id_name" = $1 LIMIT $2[0m  [["id_name", "employee"], ["LIMIT", 1]]
   [1m[36mRoleGroup Load (0.8ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id_name" = $1 LIMIT $2[0m  [["id_name", "employee"], ["LIMIT", 1]]
+Started GET "/en/companies/3" for 127.0.0.1 at 2021-05-08 14:46:27 +0400
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CompaniesController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"3"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (45.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" LEFT JOIN company_logos ON company_logos.company_id = companies.id WHERE "companies"."id" = $1 AND "companies"."active" = $2 ORDER BY "companies"."id" DESC LIMIT $3[0m  [["id", 3], ["active", true], ["LIMIT", 1]]
+  ↳ app/services/companies/companies_service.rb:95
+Completed 200 OK in 128ms (Views: 1.6ms | ActiveRecord: 88.8ms)
+
+
+Started POST "/en/company_logos" for 127.0.0.1 at 2021-05-08 14:46:47 +0400
+Processing by CompanyLogosController#create as JSON
+  Parameters: {"logo"=>#<ActionDispatch::Http::UploadedFile:0x00007fa44014d3e0 @tempfile=#<Tempfile:/tmp/RackMultipart20210508-8281-9n6vb0.jpg>, @original_filename="criipto-errors.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"logo\"; filename=\"criipto-errors.jpg\"\r\nContent-Type: image/jpeg\r\n">, "company_id"=>"45", "locale"=>"en"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/company_logos" for 127.0.0.1 at 2021-05-08 14:47:08 +0400
+Processing by CompanyLogosController#create as JSON
+  Parameters: {"logo"=>#<ActionDispatch::Http::UploadedFile:0x0000561505516f38 @tempfile=#<Tempfile:/tmp/RackMultipart20210508-8281-1k4x92y.jpg>, @original_filename="criipto-errors.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"logo\"; filename=\"criipto-errors.jpg\"\r\nContent-Type: image/jpeg\r\n">, "company_id"=>"45", "locale"=>"en"}
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):1
+Unpermitted parameters: :format, :locale
+  [1m[36mCompanyLogo Load (0.4ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 ORDER BY "company_logos"."id" ASC LIMIT $2[0m  [["company_id", 45], ["LIMIT", 1]]
+  ↳ app/services/companies/company_logo_service.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/company_logo_service.rb:16
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/services/companies/company_logo_service.rb:16
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/companies/company_logo_service.rb:16
+Completed 400 Bad Request in 14459ms (Views: 0.6ms | ActiveRecord: 22.7ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2021-05-08 14:47:33 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"anz200", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"anz200", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (4.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "anz200"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 401 Unauthorized in 44ms (Views: 0.3ms | ActiveRecord: 12.1ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2021-05-08 14:47:51 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"anz200", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"anz200", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "anz200"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 401 Unauthorized in 4ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-05-08 14:48:13 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-05-08 14:48:13 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-05-08 14:48:13 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-05-08 14:48:13 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-05-08 14:48:14 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-05-08 14:48:14 +0400
+Started POST "/en/auth" for 127.0.0.1 at 2021-05-08 14:48:24 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 104ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/en/company_logos" for 127.0.0.1 at 2021-05-08 14:48:47 +0400
+Processing by CompanyLogosController#create as JSON
+  Parameters: {"logo"=>#<ActionDispatch::Http::UploadedFile:0x00007fa45073c160 @tempfile=#<Tempfile:/tmp/RackMultipart20210508-8281-1qnc07u.jpg>, @original_filename="criipto-errors.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"logo\"; filename=\"criipto-errors.jpg\"\r\nContent-Type: image/jpeg\r\n">, "company_id"=>"15", "locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompanyLogo Load (0.4ms)[0m  [1m[34mSELECT  "company_logos".* FROM "company_logos" WHERE "company_logos"."company_id" = $1 ORDER BY "company_logos"."id" ASC LIMIT $2[0m  [["company_id", 15], ["LIMIT", 1]]
+  ↳ app/services/companies/company_logo_service.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/companies/company_logo_service.rb:16
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/companies/company_logo_service.rb:16
+  [1m[36mCompanyLogo Create (6.3ms)[0m  [1m[32mINSERT INTO "company_logos" ("company_id", "logo", "uuid") VALUES ($1, $2, $3) RETURNING "id"[0m  [["company_id", 15], ["logo", "criipto-errors.jpg"], ["uuid", "6ecac5e2-70e7-486e-915b-3defbcec90c5"]]
+  ↳ app/services/companies/company_logo_service.rb:16
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/companies/company_logo_service.rb:16
+Completed 201 Created in 4998ms (Views: 0.2ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/en/users/current_user" for 127.0.0.1 at 2021-05-08 14:54:47 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (1.9ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (1.1ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Filter chain halted as :is_admin_or_manager? rendered or redirected
+Completed 401 Unauthorized in 62ms (Views: 0.2ms | ActiveRecord: 17.6ms)
+
+
+Started GET "/en/users/current_user" for 127.0.0.1 at 2021-05-08 14:55:38 +0400
+Processing by UsersController#current_user as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.2ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/account/current_user_service.rb:15
+Completed 200 OK in 52ms (Views: 0.2ms | ActiveRecord: 10.8ms)
+
+
+  [1m[36mResource Load (2.6ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddCompanyToResource (20210508213126)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "resources" ADD "company_id" bigint[0m
+  ↳ db/migrate/20210508213126_add_company_to_resource.rb:3
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE  INDEX  "index_resources_on_company_id" ON "resources"  ("company_id")[0m
+  ↳ db/migrate/20210508213126_add_company_to_resource.rb:3
+  [1m[35m (8.3ms)[0m  [1m[35mALTER TABLE "resources" ADD CONSTRAINT "fk_rails_ceb298ba43"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+[0m
+  ↳ db/migrate/20210508213126_add_company_to_resource.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210508213126"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUserAccount Load (2.8ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResource Update All (4.2ms)[0m  [1m[33mUPDATE "resources" SET "company_id" = 15[0m
+Started POST "/en/auth" for 127.0.0.1 at 2021-05-09 01:52:21 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 97ms (Views: 0.2ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-09 01:52:33 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[36mResource Load (8.0ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."company_id" = $1 AND "resources"."model_on_type" = $2 AND "resource_types"."id_name" = $3[0m  [["company_id", 15], ["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:61
+  [1m[36mResource Load (1.4ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."company_id" = $1 AND "resources"."model_on_type" = $2 AND "resource_types"."id_name" = $3[0m  [["company_id", 15], ["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  ↳ app/services/resources/resources_service.rb:69
+  [1m[36mResource Load (0.7ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as external_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."company_id" = $1 AND "resources"."model_on_type" = $2 AND "resource_types"."id_name" = $3[0m  [["company_id", 15], ["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:78
+Completed 200 OK in 47ms (Views: 0.3ms | ActiveRecord: 17.1ms)
+
+
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 2]]
+  [1m[36mResource Load (1.0ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResource Load (1.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResource Update (38.3ms)[0m  [1m[33mUPDATE "resources" SET "company_id" = $1 WHERE "resources"."id" = $2[0m  [["company_id", 14], ["id", 9]]
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-09 01:53:40 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[36mResource Load (0.6ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."company_id" = $1 AND "resources"."model_on_type" = $2 AND "resource_types"."id_name" = $3[0m  [["company_id", 15], ["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:61
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."company_id" = $1 AND "resources"."model_on_type" = $2 AND "resource_types"."id_name" = $3[0m  [["company_id", 15], ["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  ↳ app/services/resources/resources_service.rb:69
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as external_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."company_id" = $1 AND "resources"."model_on_type" = $2 AND "resource_types"."id_name" = $3[0m  [["company_id", 15], ["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:78
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.9ms)
+
+
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResource Update (36.4ms)[0m  [1m[33mUPDATE "resources" SET "company_id" = $1 WHERE "resources"."id" = $2[0m  [["company_id", 15], ["id", 9]]
+Started POST "/en/resources" for 127.0.0.1 at 2021-05-09 01:55:23 +0400
+Processing by ResourcesController#create as JSON
+  Parameters: {"name"=>"aba testi", "description"=>"sdfsdfsdf", "resource_type_id"=>2, "model_on_type"=>"ToolModel", "model_on_id"=>1, "locale"=>"en", "resource"=>{"resource_type_id"=>2, "model_on_type"=>"ToolModel", "model_on_id"=>1, "name"=>"aba testi", "description"=>"sdfsdfsdf"}}
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale, :resource
+  [1m[36mResourceType Load (0.3ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:167
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/resources_service.rb:175
+  [1m[36mToolModel Load (0.4ms)[0m  [1m[34mSELECT  "tool_models".* FROM "tool_models" WHERE "tool_models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:175
+  [1m[36mCACHE ResourceType Load (0.0ms)[0m  [1m[34mSELECT  "resource_types".* FROM "resource_types" WHERE "resource_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:175
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/resources/resources_service.rb:175
+  [1m[36mResource Create (6.4ms)[0m  [1m[32mINSERT INTO "resources" ("resource_type_id", "model_on_type", "model_on_id", "name", "description", "company_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["resource_type_id", 2], ["model_on_type", "ToolModel"], ["model_on_id", 1], ["name", "aba testi"], ["description", "sdfsdfsdf"], ["company_id", 15]]
+  ↳ app/services/resources/resources_service.rb:175
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/resources_service.rb:175
+Completed 201 Created in 111ms (Views: 0.2ms | ActiveRecord: 23.3ms)
+
+
+Started GET "/en/resources/resource_list" for 127.0.0.1 at 2021-05-09 01:55:29 +0400
+Processing by ResourcesController#resource_list as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."company_id" = $1 AND "resources"."model_on_type" = $2 AND "resource_types"."id_name" = $3[0m  [["company_id", 15], ["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:61
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."company_id" = $1 AND "resources"."model_on_type" = $2 AND "resource_types"."id_name" = $3[0m  [["company_id", 15], ["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  ↳ app/services/resources/resources_service.rb:69
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as external_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."company_id" = $1 AND "resources"."model_on_type" = $2 AND "resource_types"."id_name" = $3[0m  [["company_id", 15], ["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:78
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/en/resources/task_resource_list?start_date=23%2F05%2F2021&deadline=26%2F05%2F2021" for 127.0.0.1 at 2021-05-09 01:56:30 +0400
+Processing by ResourcesController#task_resource_list as JSON
+  Parameters: {"start_date"=>"23/05/2021", "deadline"=>"26/05/2021", "locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."company_id" = $1 AND "resources"."model_on_type" = $2 AND "resource_types"."id_name" = $3[0m  [["company_id", 15], ["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:61
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."company_id" = $1 AND "resources"."model_on_type" = $2 AND "resource_types"."id_name" = $3[0m  [["company_id", 15], ["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  ↳ app/services/resources/resources_service.rb:69
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as external_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."company_id" = $1 AND "resources"."model_on_type" = $2 AND "resource_types"."id_name" = $3[0m  [["company_id", 15], ["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResource Load (40.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 3]]
+  ↳ app/services/resources/resources_service.rb:155
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 4]]
+  ↳ app/services/resources/resources_service.rb:155
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 5]]
+  ↳ app/services/resources/resources_service.rb:155
+  [1m[36mResource Load (0.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 6]]
+  ↳ app/services/resources/resources_service.rb:155
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 7]]
+  ↳ app/services/resources/resources_service.rb:155
+  [1m[36mResource Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 8]]
+  ↳ app/services/resources/resources_service.rb:155
+  [1m[36mResource Load (0.7ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 9]]
+  ↳ app/services/resources/resources_service.rb:155
+  [1m[36mResource Load (0.6ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 10]]
+  ↳ app/services/resources/resources_service.rb:155
+Completed 200 OK in 60ms (Views: 0.5ms | ActiveRecord: 46.2ms)
+
+
+  [1m[36mResource Load (0.3ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResource Update (36.1ms)[0m  [1m[33mUPDATE "resources" SET "company_id" = $1 WHERE "resources"."id" = $2[0m  [["company_id", 14], ["id", 10]]
+Started GET "/en/resources/task_resource_list?start_date=23%2F05%2F2021&deadline=26%2F05%2F2021" for 127.0.0.1 at 2021-05-09 01:56:49 +0400
+Processing by ResourcesController#task_resource_list as JSON
+  Parameters: {"start_date"=>"23/05/2021", "deadline"=>"26/05/2021", "locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT resources.id, resources.name, description, machine_models.name as mod_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN machine_models on machine_models.id = resources.model_on_id WHERE "resources"."company_id" = $1 AND "resources"."model_on_type" = $2 AND "resource_types"."id_name" = $3[0m  [["company_id", 15], ["model_on_type", "MachineModel"], ["id_name", "machine"]]
+  ↳ app/services/resources/resources_service.rb:61
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT resources.id, resources.name, description, tool_models.name as tool_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN tool_models on tool_models.id = resources.model_on_id WHERE "resources"."company_id" = $1 AND "resources"."model_on_type" = $2 AND "resource_types"."id_name" = $3[0m  [["company_id", 15], ["model_on_type", "ToolModel"], ["id_name", "tool"]]
+  ↳ app/services/resources/resources_service.rb:69
+  [1m[36mResource Load (0.3ms)[0m  [1m[34mSELECT resources.id, resources.name, description, external_resource_types.name as external_name FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id WHERE "resources"."company_id" = $1 AND "resources"."model_on_type" = $2 AND "resource_types"."id_name" = $3[0m  [["company_id", 15], ["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"]]
+  ↳ app/services/resources/resources_service.rb:78
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 3]]
+  ↳ app/services/resources/resources_service.rb:155
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 4]]
+  ↳ app/services/resources/resources_service.rb:155
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 5]]
+  ↳ app/services/resources/resources_service.rb:155
+  [1m[36mResource Load (0.3ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 6]]
+  ↳ app/services/resources/resources_service.rb:155
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 7]]
+  ↳ app/services/resources/resources_service.rb:155
+  [1m[36mResource Load (0.3ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 8]]
+  ↳ app/services/resources/resources_service.rb:155
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT tasks.start_time, tasks.deadline FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON tasks.id = task_resources.task_id WHERE "resources"."id" = $1[0m  [["id", 9]]
+  ↳ app/services/resources/resources_service.rb:155
+Completed 200 OK in 13ms (Views: 0.9ms | ActiveRecord: 4.1ms)
+
+

@@ -5,7 +5,8 @@ module Resources
 
     attr_reader :errors, :params
 
-    def initialize(params)
+    def initialize(current_account, params)
+      @current_account =  current_account
       @params = params
       @errors = []
     end
@@ -56,7 +57,7 @@ module Resources
       Resource
           .select('resources.id, resources.name, description, machine_models.name as mod_name')
           .joins(:resource_type).joins('INNER JOIN machine_models on machine_models.id = resources.model_on_id')
-          .where(model_on_type: "MachineModel", resource_types: { id_name: "machine"})
+          .where(company_id: @current_account.company_id, model_on_type: "MachineModel", resource_types: { id_name: "machine"})
           .as_json
     end
 
@@ -64,7 +65,7 @@ module Resources
       Resource
           .select('resources.id, resources.name, description, tool_models.name as tool_name')
           .joins(:resource_type).joins('INNER JOIN tool_models on tool_models.id = resources.model_on_id')
-          .where(model_on_type: "ToolModel", resource_types: { id_name: "tool"})
+          .where(company_id: @current_account.company_id, model_on_type: "ToolModel", resource_types: { id_name: "tool"})
           .as_json
     end
 
@@ -73,7 +74,7 @@ module Resources
           .select('resources.id, resources.name, description, external_resource_types.name as external_name')
           .joins(:resource_type)
           .joins('INNER JOIN external_resource_types on external_resource_types.id = resources.model_on_id')
-          .where(model_on_type: "ExternalResourceType", resource_types: { id_name: "external_resource"})
+          .where(company_id: @current_account.company_id, model_on_type: "ExternalResourceType", resource_types: { id_name: "external_resource"})
           .as_json
     end
 
@@ -170,6 +171,7 @@ module Resources
     def create_resource_obj
       return if errors.any?
       @resource = Resource.new(params)
+      @resource.company_id = @current_account.company_id
       @resource.save
       @errors << fill_errors(@resource) if @resource.errors.any?
     end

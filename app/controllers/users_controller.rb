@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   #ToDO: Need remove after authorization will works
   skip_before_action :validate_authentication
-  before_action :is_admin_or_manager?
+  #before_action :is_admin_or_manager?
 
   def current_user
     service = Account::CurrentUserService.new(current_account)

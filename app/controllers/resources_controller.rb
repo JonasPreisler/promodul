@@ -7,43 +7,43 @@ class ResourcesController < ApplicationController
   #before_action :is_super_admin? || :is_project_manager?
 
   def create
-    service = Resources::ResourcesService.new(resource_params)
+    service = Resources::ResourcesService.new(current_account, resource_params)
     service.create_resource
     rest_respond_service service
   end
 
   def resource_list
-    service = Resources::ResourcesService.new(resource_params)
+    service = Resources::ResourcesService.new(current_account, resource_params)
     service.resource_list
     rest_respond_service service
   end
 
   def resource_type_list
-    service = Resources::ResourcesService.new(resource_params)
+    service = Resources::ResourcesService.new(current_account, resource_params)
     service.resource_type_list
     rest_respond_service service
   end
 
   def update
-    service = Resources::ResourcesService.new(resource_params)
+    service = Resources::ResourcesService.new(current_account, resource_params)
     service.update_resource
     rest_respond_service service
   end
 
   def destroy
-    service = Resources::ResourcesService.new(resource_params)
+    service = Resources::ResourcesService.new(current_account, resource_params)
     service.destroy
     rest_respond_service service
   end
 
   def resource_calendar
-    service = Resources::ResourcesService.new(resource_params)
+    service = Resources::ResourcesService.new(current_account, resource_params)
     service.resource_calendar
     rest_respond_service service
   end
 
   def task_resource_list
-    service = Resources::ResourcesService.new(task_resource_params)
+    service = Resources::ResourcesService.new(current_account, task_resource_params)
     service.task_resource_list
     rest_respond_service service
   end
