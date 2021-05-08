@@ -31,9 +31,14 @@ module Account
       ActiveRecord::Base.transaction do
         register_user!
         create_customer!
+        add_default_role!
         generate_token
         finish_registration
       end
+    end
+
+    def add_default_role!
+      UserRole.create(user_account_id: @user.id, role_group_id: RoleGroup.find_by_id_name("employee").id)
     end
 
     def finish_registration
