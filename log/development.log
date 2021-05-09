@@ -31660,3 +31660,44 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 13ms (Views: 0.9ms | ActiveRecord: 4.1ms)
 
 
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-05-10 03:52:51 +0400
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-05-10 03:52:51 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-05-10 03:52:51 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-05-10 03:52:51 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-05-10 03:52:55 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-05-10 03:52:55 +0400
+Started POST "/en/auth" for 127.0.0.1 at 2021-05-10 03:53:05 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (4.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 157ms (Views: 0.2ms | ActiveRecord: 30.5ms)
+
+
+Started GET "/en/settings/machine_models" for 127.0.0.1 at 2021-05-10 03:53:21 +0400
+Processing by SettingsController#machine_models as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[36mMachineModel Load (0.6ms)[0m  [1m[34mSELECT "machine_models".* FROM "machine_models" WHERE "machine_models"."company_id" = $1[0m  [["company_id", 15]]
+  ↳ app/services/settings/models_service.rb:40
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 2.9ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column machine_models.company_id does not exist
+LINE 1: ...CT "machine_models".* FROM "machine_models" WHERE "machine_m...
+                                                             ^
+: SELECT "machine_models".* FROM "machine_models" WHERE "machine_models"."company_id" = $1):
+  
+app/services/settings/models_service.rb:40:in `machine_models_json_view'
+lib/controller_response.rb:22:in `respond_action_json_view'
+lib/controller_response.rb:41:in `rest_response_body'
+lib/controller_response.rb:8:in `rest_respond_service'
+app/controllers/settings_controller.rb:48:in `machine_models'
+  [1m[36mMachineModel Load (36.9ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" ORDER BY "machine_models"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]

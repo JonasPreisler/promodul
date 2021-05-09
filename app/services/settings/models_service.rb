@@ -49,33 +49,33 @@ module Settings
     end
 
     def machine_model
-      @machine = MachineModel.where(id_name: @id_name, company_id: @current_account.company_id).first_or_initialize
+      @machine = MachineModel.where(id_name: @id_name).first_or_initialize
       @machine.update(name: params[:name])
       errors.concat(@machine.errors.to_a) if @machine.errors.any?
     end
 
     def tool_model
-      @tool = ToolModel.where(id_name: @id_name, company_id: @current_account.company_id).first_or_initialize
+      @tool = ToolModel.where(id_name: @id_name).first_or_initialize
       @tool.update(name: params[:name])
       errors.concat(@tool.errors.to_a) if @tool.errors.any?
     end
 
     def source_type
-      @external = ExternalResourceType.where(id_name: @id_name, company_id: @current_account.company_id).first_or_initialize
+      @external = ExternalResourceType.where(id_name: @id_name).first_or_initialize
       @external.update(name: params[:name])
       errors.concat(@external.errors.to_a) if @external.errors.any?
     end
 
     def machine_models
-      @machines = MachineModel.where(company_id: @current_account.company_id)
+      @machines = MachineModel.all
     end
 
     def tool_models
-      @tools = ToolModel.where(company_id: @current_account.company_id)
+      @tools = ToolModel.all
     end
 
     def source_types
-      @externals = ExternalResourceType.where(company_id: @current_account.company_id)
+      @externals = ExternalResourceType.all
     end
 
     def destroy_machine_model
