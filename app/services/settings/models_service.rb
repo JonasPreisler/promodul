@@ -5,7 +5,7 @@ module Settings
 
     attr_reader :errors, :params
 
-    def initialize(current_account, params)
+    def initialize(params)
       @current_account = current_account
       @params = params
       @errors = []

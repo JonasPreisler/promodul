@@ -3,59 +3,59 @@ class SettingsController < ApplicationController
   include ControllerResponse
 
   #ToDO: Need remove after authorization will works
-  #skip_before_action :validate_authentication
-  #before_action :is_super_admin?
+  skip_before_action :validate_authentication
+  before_action :is_super_admin?
 
   def machine_model
-    service = Settings::ModelsService.new(current_account, models_params)
+    service = Settings::ModelsService.new(models_params)
     service.machine_model
     rest_respond_service service
   end
 
   def tool_model
-    service = Settings::ModelsService.new(current_account, models_params)
+    service = Settings::ModelsService.new(models_params)
     service.tool_model
     rest_respond_service service
   end
 
   def external_source_type
-    service = Settings::ModelsService.new(current_account, models_params)
+    service = Settings::ModelsService.new(models_params)
     service.source_type
     rest_respond_service service
   end
 
   def destroy_machine_model
-    service = Settings::ModelsService.new(current_account, models_params)
+    service = Settings::ModelsService.new(models_params)
     service.destroy_machine_model
     rest_respond_service service
   end
 
   def destroy_tool_model
-    service = Settings::ModelsService.new(current_account, models_params)
+    service = Settings::ModelsService.new(models_params)
     service.destroy_tool_model
     rest_respond_service service
   end
 
   def destroy_external_source_type
-    service = Settings::ModelsService.new(current_account, models_params)
+    service = Settings::ModelsService.new(models_params)
     service.destroy_external_source_type
     rest_respond_service service
   end
 
   def machine_models
-    service = Settings::ModelsService.new(current_account, models_params)
+    service = Settings::ModelsService.new(models_params)
     service.machine_models
     rest_respond_service service
   end
 
   def external_source_types
-    service = Settings::ModelsService.new(current_account, models_params)
+    service = Settings::ModelsService.new(models_params)
     service.source_types
     rest_respond_service service
   end
 
   def tool_models
-    service = Settings::ModelsService.new(current_account, models_params)
+    service = Settings::ModelsService.new(models_params)
     service.tool_models
     rest_respond_service service
   end
