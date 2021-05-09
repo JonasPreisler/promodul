@@ -32,7 +32,7 @@ module Companies
     end
 
     def update_company
-      validate_data!
+      #validate_data!
       update_company_obj
     end
 
