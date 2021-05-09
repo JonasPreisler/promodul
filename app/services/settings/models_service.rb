@@ -50,18 +50,21 @@ module Settings
 
     def machine_model
       @machine = MachineModel.where(id_name: @id_name).first_or_initialize
+      @machine.company_id = @current_account.company_id
       @machine.update(name: params[:name])
       errors.concat(@machine.errors.to_a) if @machine.errors.any?
     end
 
     def tool_model
       @tool = ToolModel.where(id_name: @id_name).first_or_initialize
+      @tool.company_id = @current_account.company_id
       @tool.update(name: params[:name])
       errors.concat(@tool.errors.to_a) if @tool.errors.any?
     end
 
     def source_type
       @external = ExternalResourceType.where(id_name: @id_name).first_or_initialize
+      @external.company_id = @current_account.company_id
       @external.update(name: params[:name])
       errors.concat(@external.errors.to_a) if @external.errors.any?
     end
