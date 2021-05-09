@@ -5,7 +5,8 @@ module Settings
 
     attr_reader :errors, :params
 
-    def initialize(params)
+    def initialize(current_account, params)
+      @current_account = current_account
       @params = params
       @errors = []
       @id_name = params[:name].gsub(/\s+/, "").downcase if params[:name].present?
@@ -66,15 +67,15 @@ module Settings
     end
 
     def machine_models
-      @machines = MachineModel.all
+      @machines = MachineModel.where(company_id: @current_account.company_id)
     end
 
     def tool_models
-      @tools = ToolModel.all
+      @tools = ToolModel.where(company_id: @current_account.company_id)
     end
 
     def source_types
-      @externals = ExternalResourceType.all
+      @externals = ExternalResourceType.where(company_id: @current_account.company_id)
     end
 
     def destroy_machine_model
