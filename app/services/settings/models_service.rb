@@ -6,7 +6,6 @@ module Settings
     attr_reader :errors, :params
 
     def initialize(params)
-      @current_account = current_account
       @params = params
       @errors = []
       @id_name = params[:name].gsub(/\s+/, "").downcase if params[:name].present?
