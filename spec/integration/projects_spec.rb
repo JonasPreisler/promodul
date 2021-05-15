@@ -25,7 +25,23 @@ describe 'Projects ', type: :request do
               post_number:    { type: :string },
               contact_person: { type: :string },
               start_date: { type: :string },
-              deadline: { type: :string }
+              deadline: { type: :string },
+              user_account_projects_attributes: {
+                  type: :array,
+                  items: {
+                      properties: {
+                          user_account_id:     { type: :integer }
+                      }
+                  }
+              },
+              project_resources_attributes: {
+                  type: :array,
+                  items: {
+                      properties: {
+                          resource_id:     { type: :integer }
+                      }
+                  }
+              }
           }
       }
       response '201', 'ok' do
@@ -110,6 +126,14 @@ describe 'Projects ', type: :request do
                            first_name: { type: :string },
                            last_name: { type: :string },
                            status: { type: :string }
+                       }
+                   },
+                   resources: {
+                       type: :object,
+                       properties: {
+                           id: {type: :integer},
+                           name: { type: :string },
+                           description: { type: :string }
                        }
                    }
                }

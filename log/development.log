@@ -31701,3 +31701,489 @@ lib/controller_response.rb:41:in `rest_response_body'
 lib/controller_response.rb:8:in `rest_respond_service'
 app/controllers/settings_controller.rb:48:in `machine_models'
   [1m[36mMachineModel Load (36.9ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" ORDER BY "machine_models"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccountTask Load (2.5ms)[0m  [1m[34mSELECT  "user_account_tasks".* FROM "user_account_tasks" ORDER BY "user_account_tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUserAccountProjects (20210515162154)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (276.8ms)[0m  [1m[35mCREATE TABLE "user_account_projects" ("id" bigserial primary key, "user_account_id" bigint NOT NULL, "project_id" bigint NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_c699bd9fb1"
+FOREIGN KEY ("user_account_id")
+  REFERENCES "user_accounts" ("id")
+, CONSTRAINT "fk_rails_90a061e833"
+FOREIGN KEY ("project_id")
+  REFERENCES "projects" ("id")
+)[0m
+  ↳ db/migrate/20210515162154_create_user_account_projects.rb:3
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE  INDEX  "index_user_account_projects_on_user_account_id" ON "user_account_projects"  ("user_account_id")[0m
+  ↳ db/migrate/20210515162154_create_user_account_projects.rb:3
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_user_account_projects_on_project_id" ON "user_account_projects"  ("project_id")[0m
+  ↳ db/migrate/20210515162154_create_user_account_projects.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210515162154"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProjectResources (20210515162212)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "project_resources" ("id" bigserial primary key, "resource_id" bigint NOT NULL, "project_id" bigint NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_9067e84221"
+FOREIGN KEY ("resource_id")
+  REFERENCES "resources" ("id")
+, CONSTRAINT "fk_rails_93afcb2fcc"
+FOREIGN KEY ("project_id")
+  REFERENCES "projects" ("id")
+)[0m
+  ↳ db/migrate/20210515162212_create_project_resources.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_project_resources_on_resource_id" ON "project_resources"  ("resource_id")[0m
+  ↳ db/migrate/20210515162212_create_project_resources.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_project_resources_on_project_id" ON "project_resources"  ("project_id")[0m
+  ↳ db/migrate/20210515162212_create_project_resources.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210515162212"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-05-15 20:44:46 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-05-15 20:44:47 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-05-15 20:44:47 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-05-15 20:44:47 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-05-15 20:44:47 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-05-15 20:44:47 +0400
+Started POST "/en/auth" for 127.0.0.1 at 2021-05-15 20:45:27 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (6.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 139ms (Views: 0.2ms | ActiveRecord: 12.6ms)
+
+
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResource Load (7.6ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/projects" for 127.0.0.1 at 2021-05-15 20:47:10 +0400
+  
+ArgumentError (No association found for name `user_account_tasks'. Has it been defined yet?):
+  
+app/models/project.rb:6:in `<class:Project>'
+app/models/project.rb:1:in `<main>'
+Started POST "/en/projects" for 127.0.0.1 at 2021-05-15 20:47:38 +0400
+  
+ArgumentError (No association found for name `user_account_tasks'. Has it been defined yet?):
+  
+app/models/project.rb:6:in `<class:Project>'
+app/models/project.rb:1:in `<main>'
+Started POST "/en/projects" for 127.0.0.1 at 2021-05-15 20:48:04 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"aba vnaxot", "description"=>"aba description", "address"=>"string", "post_number"=>"577520250", "contact_person"=>"buka", "start_date"=>"23/11/2022", "deadline"=>"23/11/2023", "user_account_projects_attributes"=>[{"user_account_id"=>94}], "project_resources_attributes"=>[{"resource_id"=>10}], "locale"=>"en", "project"=>{"title"=>"aba vnaxot", "description"=>"aba description", "address"=>"string", "post_number"=>"577520250", "contact_person"=>"buka", "start_date"=>"23/11/2022", "deadline"=>"23/11/2023", "user_account_projects_attributes"=>[{"user_account_id"=>94}], "project_resources_attributes"=>[{"resource_id"=>10}]}}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (5.7ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (1.6ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Filter chain halted as :is_admin_or_manager? rendered or redirected
+Completed 401 Unauthorized in 70ms (Views: 0.2ms | ActiveRecord: 24.5ms)
+
+
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1[0m  [["username", "bukabuka"]]
+  [1m[36mUserRole Load (1.1ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" ORDER BY "user_roles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRoleGroup Load (1.4ms)[0m  [1m[34mSELECT "role_groups".* FROM "role_groups"[0m
+  [1m[36mUserRole Update All (4.8ms)[0m  [1m[33mUPDATE "user_roles" SET "role_group_id" = 8[0m
+Started POST "/en/projects" for 127.0.0.1 at 2021-05-15 20:49:13 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"aba vnaxot", "description"=>"aba description", "address"=>"string", "post_number"=>"577520250", "contact_person"=>"buka", "start_date"=>"23/11/2022", "deadline"=>"23/11/2023", "user_account_projects_attributes"=>[{"user_account_id"=>94}], "project_resources_attributes"=>[{"resource_id"=>10}], "locale"=>"en", "project"=>{"title"=>"aba vnaxot", "description"=>"aba description", "address"=>"string", "post_number"=>"577520250", "contact_person"=>"buka", "start_date"=>"23/11/2022", "deadline"=>"23/11/2023", "user_account_projects_attributes"=>[{"user_account_id"=>94}], "project_resources_attributes"=>[{"resource_id"=>10}]}}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.2ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mCompany Load (3.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (4.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:58
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:59
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:61
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:52
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 94], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:52
+  [1m[36mResource Load (0.8ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:52
+  [1m[36mProject Create (2.9ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "project_id", "address", "post_number", "contact_person", "user_account_id", "created_at", "updated_at", "start_date", "deadline") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["title", "aba vnaxot"], ["description", "aba description"], ["project_id", "00007"], ["address", "string"], ["post_number", "577520250"], ["contact_person", "buka"], ["user_account_id", 16], ["created_at", "2021-05-15 16:49:20.421910"], ["updated_at", "2021-05-15 16:49:20.421910"], ["start_date", "2022-11-23 00:00:00"], ["deadline", "2023-11-23 00:00:00"]]
+  ↳ app/services/projects/projects_services.rb:52
+  [1m[36mUserAccountProject Create (0.8ms)[0m  [1m[32mINSERT INTO "user_account_projects" ("user_account_id", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_account_id", 94], ["project_id", 7], ["created_at", "2021-05-15 16:49:20.426652"], ["updated_at", "2021-05-15 16:49:20.426652"]]
+  ↳ app/services/projects/projects_services.rb:52
+  [1m[36mProjectResource Create (0.7ms)[0m  [1m[32mINSERT INTO "project_resources" ("resource_id", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_id", 10], ["project_id", 7], ["created_at", "2021-05-15 16:49:20.428434"], ["updated_at", "2021-05-15 16:49:20.428434"]]
+  ↳ app/services/projects/projects_services.rb:52
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/projects/projects_services.rb:52
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:16
+Completed 201 Created in 6582ms (Views: 0.5ms | ActiveRecord: 31.0ms)
+
+
+  [1m[36mUserAccountProject Load (1.3ms)[0m  [1m[34mSELECT "user_account_projects".* FROM "user_account_projects"[0m
+  [1m[36mProjectResource Load (1.5ms)[0m  [1m[34mSELECT "project_resources".* FROM "project_resources"[0m
+  [1m[36mProjectResource Load (0.5ms)[0m  [1m[34mSELECT "project_resources".* FROM "project_resources"[0m
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResource Load (38.6ms)[0m  [1m[34mSELECT name, start_time, deadline FROM "resources" JOIN  (SELECT resource_id, tasks.start_time, tasks.deadline FROM "task_resources" LEFT JOIN tasks ON tasks.id = task_resources.task_id UNION SELECT resource_id, projects.start_date as start_time, projects.deadline FROM "project_resources" LEFT JOIN projects ON projects.id = project_resources.task_id) obj ON obj.resource_id = resources.id[0m
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT  name, start_time, deadline FROM "resources" JOIN  (SELECT resource_id, tasks.start_time, tasks.deadline FROM "task_resources" LEFT JOIN tasks ON tasks.id = task_resources.task_id UNION SELECT resource_id, projects.start_date as start_time, projects.deadline FROM "project_resources" LEFT JOIN projects ON projects.id = project_resources.task_id) obj ON obj.resource_id = resources.id LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mResource Load (47.2ms)[0m  [1m[34mSELECT name, start_time, deadline FROM "resources" JOIN  (SELECT resource_id, tasks.start_time, tasks.deadline FROM "task_resources" LEFT JOIN tasks ON tasks.id = task_resources.task_id UNION SELECT resource_id, projects.start_date as start_time, projects.deadline FROM "project_resources" LEFT JOIN projects ON projects.id = project_resources.task_id) obj ON obj.resource_id = resources.id[0m
+  [1m[36mResource Load (50.2ms)[0m  [1m[34mSELECT name, start_time, deadline FROM "resources" JOIN  (SELECT resource_id, tasks.start_time, tasks.deadline FROM "task_resources" LEFT JOIN tasks ON tasks.id = task_resources.task_id UNION SELECT resource_id, projects.start_date as start_time, projects.deadline FROM "project_resources" LEFT JOIN projects ON projects.id = project_resources.project_id) obj ON obj.resource_id = resources.id[0m
+  [1m[36mProjectResource Load (0.9ms)[0m  [1m[34mSELECT  "project_resources".* FROM "project_resources" ORDER BY "project_resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProjectResource Load (0.8ms)[0m  [1m[34mSELECT  "project_resources".* FROM "project_resources" ORDER BY "project_resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProjectResource Destroy (0.8ms)[0m  [1m[31mDELETE FROM "project_resources" WHERE "project_resources"."id" = $1[0m  [["id", 1]]
+  [1m[35m (36.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProjectResource Load (0.9ms)[0m  [1m[34mSELECT  "project_resources".* FROM "project_resources" ORDER BY "project_resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResource Load (2.1ms)[0m  [1m[34mSELECT name, start_time, deadline FROM "resources" JOIN  (SELECT resource_id, tasks.start_time, tasks.deadline FROM "task_resources" LEFT JOIN tasks ON tasks.id = task_resources.task_id UNION SELECT resource_id, projects.start_date as start_time, projects.deadline FROM "project_resources" LEFT JOIN projects ON projects.id = project_resources.project_id) obj ON obj.resource_id = resources.id[0m
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT first_name, last_name, start_time, deadline FROM "user_accounts" JOIN  (SELECT resource_id, tasks.start_time, tasks.deadline FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id UNION SELECT user_account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.resource_id = resources.id[0m
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  first_name, last_name, start_time, deadline FROM "user_accounts" JOIN  (SELECT resource_id, tasks.start_time, tasks.deadline FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id UNION SELECT user_account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.resource_id = resources.id LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT first_name, last_name, start_time, deadline FROM "user_accounts" JOIN  (SELECT resource_id, tasks.start_time, tasks.deadline FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id UNION SELECT user_account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.resource_id = resources.id[0m
+  [1m[36mUserAccount Load (1.7ms)[0m  [1m[34mSELECT first_name, last_name, start_time, deadline FROM "user_accounts" JOIN  (SELECT resource_id, tasks.start_time, tasks.deadline FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id UNION SELECT user_account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.user_account_id = user_accounts.id[0m
+  [1m[36mUserAccount Load (1.6ms)[0m  [1m[34mSELECT first_name, last_name, start_time, deadline FROM "user_accounts" JOIN  (SELECT user_account_id, tasks.start_time, tasks.deadline FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id UNION SELECT user_account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.user_account_id = user_accounts.id[0m
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT first_name, last_name, start_time, deadline FROM "user_accounts" JOIN  (SELECT user_account_id as account_id, tasks.start_time, tasks.deadline FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id UNION SELECT user_account_id as account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id[0m
+  [1m[36mUserAccountProject Load (1.7ms)[0m  [1m[34mSELECT user_account_id as account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id[0m
+  [1m[36mUserAccountProject Load (1.6ms)[0m  [1m[34mSELECT  user_account_id as account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUserAccountProject Load (0.5ms)[0m  [1m[34mSELECT user_account_id as account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id[0m
+  [1m[36mUserAccountTask Load (1.2ms)[0m  [1m[34mSELECT user_account_id as account_id, tasks.start_time, tasks.deadline FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id[0m
+  [1m[36mUserAccountProject Load (1.6ms)[0m  [1m[34mSELECT user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id[0m
+  [1m[36mUserAccountProject Load (1.4ms)[0m  [1m[34mSELECT user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id[0m
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT first_name, last_name, start_time, deadline FROM "user_accounts" JOIN  (SELECT user_account_id as account_id, tasks.start_time, tasks.deadline FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id UNION SELECT user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id[0m
+Started POST "/en/projects" for 127.0.0.1 at 2021-05-16 01:40:46 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"aba vnaxot", "description"=>"aba description", "address"=>"string", "post_number"=>"577520250", "contact_person"=>"buka", "start_date"=>"23/11/2022", "deadline"=>"23/11/2023", "user_account_projects_attributes"=>[{"user_account_id"=>94}], "project_resources_attributes"=>[{"resource_id"=>10}], "locale"=>"en", "project"=>{"title"=>"aba vnaxot", "description"=>"aba description", "address"=>"string", "post_number"=>"577520250", "contact_person"=>"buka", "start_date"=>"23/11/2022", "deadline"=>"23/11/2023", "user_account_projects_attributes"=>[{"user_account_id"=>94}], "project_resources_attributes"=>[{"resource_id"=>10}]}}
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT first_name, last_name, start_time, deadline FROM "user_accounts" JOIN  (SELECT user_account_id as account_id, tasks.start_time, tasks.deadline FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id UNION SELECT user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.user_account_id = user_accounts.id WHERE "user_accounts"."id" = $1[0m  [["id", 94]]
+  ↳ app/services/projects/projects_services.rb:207
+Completed 500 Internal Server Error in 8251ms (ActiveRecord: 22.9ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column obj.user_account_id does not exist
+LINE 1: ...cts.id = user_account_projects.project_id) obj ON obj.user_a...
+                                                             ^
+: SELECT first_name, last_name, start_time, deadline FROM "user_accounts" JOIN  (SELECT user_account_id as account_id, tasks.start_time, tasks.deadline FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id UNION SELECT user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.user_account_id = user_accounts.id WHERE "user_accounts"."id" = $1):
+  
+app/services/projects/projects_services.rb:207:in `get_user_dates'
+app/services/projects/projects_services.rb:150:in `block in validate_users'
+app/services/projects/projects_services.rb:149:in `each'
+app/services/projects/projects_services.rb:149:in `validate_users'
+app/services/projects/projects_services.rb:46:in `create_project'
+app/controllers/projects_controller.rb:11:in `create'
+Started POST "/en/projects" for 127.0.0.1 at 2021-05-16 01:41:35 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"aba vnaxot", "description"=>"aba description", "address"=>"string", "post_number"=>"577520250", "contact_person"=>"buka", "start_date"=>"23/11/2022", "deadline"=>"23/11/2023", "user_account_projects_attributes"=>[{"user_account_id"=>94}], "project_resources_attributes"=>[{"resource_id"=>10}], "locale"=>"en", "project"=>{"title"=>"aba vnaxot", "description"=>"aba description", "address"=>"string", "post_number"=>"577520250", "contact_person"=>"buka", "start_date"=>"23/11/2022", "deadline"=>"23/11/2023", "user_account_projects_attributes"=>[{"user_account_id"=>94}], "project_resources_attributes"=>[{"resource_id"=>10}]}}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.2ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mUserAccount Load (39.4ms)[0m  [1m[34mSELECT first_name, last_name, start_time, deadline FROM "user_accounts" JOIN  (SELECT user_account_id as account_id, tasks.start_time, tasks.deadline FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id UNION SELECT user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" = $1[0m  [["id", 94]]
+  ↳ app/services/projects/projects_services.rb:207
+Completed 400 Bad Request in 4221ms (Views: 0.9ms | ActiveRecord: 62.4ms)
+
+
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 3]]
+Started POST "/en/projects" for 127.0.0.1 at 2021-05-16 01:42:54 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"aba vnaxot", "description"=>"aba description", "address"=>"string", "post_number"=>"577520250", "contact_person"=>"buka", "start_date"=>"16/05/2021", "deadline"=>"19/05/2021", "user_account_projects_attributes"=>[{"user_account_id"=>93}], "project_resources_attributes"=>[{"resource_id"=>10}], "locale"=>"en", "project"=>{"title"=>"aba vnaxot", "description"=>"aba description", "address"=>"string", "post_number"=>"577520250", "contact_person"=>"buka", "start_date"=>"16/05/2021", "deadline"=>"19/05/2021", "user_account_projects_attributes"=>[{"user_account_id"=>93}], "project_resources_attributes"=>[{"resource_id"=>10}]}}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mUserAccount Load (2.3ms)[0m  [1m[34mSELECT first_name, last_name, start_time, deadline FROM "user_accounts" JOIN  (SELECT user_account_id as account_id, tasks.start_time, tasks.deadline FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id UNION SELECT user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  ↳ app/services/projects/projects_services.rb:207
+Completed 400 Bad Request in 3342ms (Views: 0.5ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/en/projects" for 127.0.0.1 at 2021-05-16 01:52:34 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"aba vnaxot", "description"=>"aba description", "address"=>"string", "post_number"=>"577520250", "contact_person"=>"buka", "start_date"=>"16/05/2023", "deadline"=>"19/05/2024", "user_account_projects_attributes"=>[{"user_account_id"=>93}], "project_resources_attributes"=>[{"resource_id"=>10}], "locale"=>"en", "project"=>{"title"=>"aba vnaxot", "description"=>"aba description", "address"=>"string", "post_number"=>"577520250", "contact_person"=>"buka", "start_date"=>"16/05/2023", "deadline"=>"19/05/2024", "user_account_projects_attributes"=>[{"user_account_id"=>93}], "project_resources_attributes"=>[{"resource_id"=>10}]}}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mUserAccount Load (1.8ms)[0m  [1m[34mSELECT first_name, last_name, start_time, deadline FROM "user_accounts" JOIN  (SELECT user_account_id as account_id, tasks.start_time, tasks.deadline FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id UNION SELECT user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" = $1[0m  [["id", 93]]
+  ↳ app/services/projects/projects_services.rb:203
+  [1m[36mResource Load (1.3ms)[0m  [1m[34mSELECT name, start_time, deadline FROM "resources" JOIN  (SELECT resource_id, tasks.start_time, tasks.deadline FROM "task_resources" LEFT JOIN tasks ON tasks.id = task_resources.task_id UNION SELECT resource_id, projects.start_date as start_time, projects.deadline FROM "project_resources" LEFT JOIN projects ON projects.id = project_resources.project_id) obj ON obj.resource_id = resources.id WHERE "resources"."id" = $1[0m  [["id", 10]]
+  ↳ app/services/projects/projects_services.rb:181
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:57
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:58
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:60
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:51
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:51
+  [1m[36mResource Load (0.3ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:51
+  [1m[36mProject Create (0.8ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "project_id", "address", "post_number", "contact_person", "user_account_id", "created_at", "updated_at", "start_date", "deadline") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["title", "aba vnaxot"], ["description", "aba description"], ["project_id", "00008"], ["address", "string"], ["post_number", "577520250"], ["contact_person", "buka"], ["user_account_id", 16], ["created_at", "2021-05-15 21:52:35.229857"], ["updated_at", "2021-05-15 21:52:35.229857"], ["start_date", "2023-05-16 00:00:00"], ["deadline", "2024-05-19 00:00:00"]]
+  ↳ app/services/projects/projects_services.rb:51
+  [1m[36mUserAccountProject Create (0.8ms)[0m  [1m[32mINSERT INTO "user_account_projects" ("user_account_id", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_account_id", 93], ["project_id", 8], ["created_at", "2021-05-15 21:52:35.233073"], ["updated_at", "2021-05-15 21:52:35.233073"]]
+  ↳ app/services/projects/projects_services.rb:51
+  [1m[36mProjectResource Create (0.9ms)[0m  [1m[32mINSERT INTO "project_resources" ("resource_id", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_id", 10], ["project_id", 8], ["created_at", "2021-05-15 21:52:35.235150"], ["updated_at", "2021-05-15 21:52:35.235150"]]
+  ↳ app/services/projects/projects_services.rb:51
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/projects/projects_services.rb:51
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:16
+Completed 201 Created in 164ms (Views: 0.3ms | ActiveRecord: 44.3ms)
+
+
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (4.0ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 6]]
+  [1m[36mProject Load (1.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (2.2ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 6]]
+  [1m[36mUserAccount Load (2.7ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  [1m[36mUserAccount Load (1.2ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_account_projects" ON "user_account_projects"."user_account_id" = "user_accounts"."id" INNER JOIN "projects" "projects_user_account_projects" ON "projects_user_account_projects"."id" = "user_account_projects"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  [1m[36mUserAccount Load (3.9ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_account_projects" ON "user_account_projects"."user_account_id" = "user_accounts"."id" INNER JOIN "projects" "projects_user_account_projects" ON "projects_user_account_projects"."id" = "user_account_projects"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  [1m[36mUserAccountProject Load (0.9ms)[0m  [1m[34mSELECT "user_account_projects".* FROM "user_account_projects"[0m
+  [1m[36mUserAccount Load (1.7ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_projects" ON "user_account_projects"."user_account_id" = "user_accounts"."id" INNER JOIN "projects" ON "projects"."id" = "user_account_projects"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_projects" ON "user_account_projects"."user_account_id" = "user_accounts"."id" INNER JOIN "projects" ON "projects"."id" = "user_account_projects"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  [1m[36mUserAccount Load (2.3ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id LEFT JOIN projects ON tasks.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 6]]
+  [1m[36mUserAccount Load (2.3ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id LEFT JOIN projects ON tasks.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 6]]
+  [1m[36mUserAccount Load (2.2ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id LEFT JOIN projects ON tasks.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  [1m[36mUserAccount Load (1.9ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id LEFT JOIN projects ON tasks.project_id = projects.id LEFT JOIN user_account_projects ON user_account_projects.user_account_id = user_accounts.id LEFT JOIN projects ON user_account_projects.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id LEFT JOIN user_account_projects ON user_account_projects.user_account_id = user_accounts.id LEFT JOIN projects ON user_account_projects.project_id = projects.id LEFT JOIN projects ON tasks.project_id = projects.id OR user_account_projects.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 6]]
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id LEFT JOIN user_account_projects ON user_account_projects.user_account_id = user_accounts.id LEFT JOIN projects ON user_account_projects.project_id = projects.id LEFT JOIN projects ON tasks.project_id = projects.id OR user_account_projects.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY user_accounts.id LIMIT $2[0m  [["id", 6], ["LIMIT", 11]]
+  [1m[36mUserAccount Load (1.2ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id LEFT JOIN user_account_projects ON user_account_projects.user_account_id = user_accounts.id LEFT JOIN projects ON user_account_projects.project_id = projects.id LEFT JOIN projects ON tasks.project_id = projects.id OR user_account_projects.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 6]]
+  [1m[36mUserAccount Load (1.4ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id LEFT JOIN user_account_projects ON user_account_projects.user_account_id = user_accounts.id LEFT JOIN projects ON tasks.project_id = projects.id OR user_account_projects.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 6]]
+  [1m[36mUserAccount Load (3.3ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id LEFT JOIN user_account_projects ON user_account_projects.user_account_id = user_accounts.id LEFT JOIN projects ON tasks.project_id = projects.id OR user_account_projects.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  [1m[36mUserAccount Load (2.4ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id LEFT JOIN user_account_projects ON user_account_projects.user_account_id = user_accounts.id LEFT JOIN projects ON tasks.project_id = projects.id OR user_account_projects.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  [1m[36mUserAccount Load (2.8ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id LEFT JOIN user_account_projects ON user_account_projects.user_account_id = user_accounts.id LEFT JOIN projects ON tasks.project_id = projects.id OR user_account_projects.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  [1m[36mResource Load (0.9ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/tasks" for 127.0.0.1 at 2021-05-16 02:23:09 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"strsdcsding", "description"=>"sdc", "start_time"=>"16/05/2023", "deadline"=>"19/05/2023", "project_id"=>8, "user_account_tasks_attributes"=>[{"user_account_id"=>94}], "task_resources_attributes"=>[{"resource_id"=>3}], "locale"=>"en", "task"=>{"title"=>"strsdcsding", "description"=>"sdc", "start_time"=>"16/05/2023", "deadline"=>"19/05/2023", "project_id"=>8, "user_account_tasks_attributes"=>[{"user_account_id"=>94}], "task_resources_attributes"=>[{"resource_id"=>3}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mUserAccount Load (1.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:242
+  [1m[36mUserAccount Load (1.6ms)[0m  [1m[34mSELECT first_name, last_name, start_time, deadline FROM "user_accounts" JOIN  (SELECT user_account_id as account_id, tasks.start_time, tasks.deadline FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id UNION SELECT user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" = $1[0m  [["id", 94]]
+  ↳ app/services/tasks/services.rb:218
+  [1m[36mTaskStatus Load (2.9ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:304
+Completed 400 Bad Request in 162ms (Views: 0.2ms | ActiveRecord: 35.3ms)
+
+
+  [1m[36mUserAccountProject Load (1.6ms)[0m  [1m[34mSELECT "user_account_projects".* FROM "user_account_projects"[0m
+  [1m[36mUserAccountProject Load (0.7ms)[0m  [1m[34mSELECT  "user_account_projects".* FROM "user_account_projects" ORDER BY "user_account_projects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserAccountProject Destroy (3.7ms)[0m  [1m[31mDELETE FROM "user_account_projects" WHERE "user_account_projects"."id" = $1[0m  [["id", 1]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/en/tasks" for 127.0.0.1 at 2021-05-16 02:23:43 +0400
+Processing by TasksController#create as JSON
+  Parameters: {"title"=>"strsdcsding", "description"=>"sdc", "start_time"=>"16/05/2023", "deadline"=>"19/05/2023", "project_id"=>8, "user_account_tasks_attributes"=>[{"user_account_id"=>94}], "task_resources_attributes"=>[{"resource_id"=>3}], "locale"=>"en", "task"=>{"title"=>"strsdcsding", "description"=>"sdc", "start_time"=>"16/05/2023", "deadline"=>"19/05/2023", "project_id"=>8, "user_account_tasks_attributes"=>[{"user_account_id"=>94}], "task_resources_attributes"=>[{"resource_id"=>3}]}}
+Unpermitted parameters: :format, :locale, :task
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:242
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT first_name, last_name, start_time, deadline FROM "user_accounts" JOIN  (SELECT user_account_id as account_id, tasks.start_time, tasks.deadline FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id UNION SELECT user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" = $1[0m  [["id", 94]]
+  ↳ app/services/tasks/services.rb:218
+  [1m[36mResource Load (1.1ms)[0m  [1m[34mSELECT name, start_time, deadline FROM "resources" JOIN  (SELECT resource_id, tasks.start_time, tasks.deadline FROM "task_resources" LEFT JOIN tasks ON tasks.id = task_resources.task_id UNION SELECT resource_id, projects.start_date as start_time, projects.deadline FROM "project_resources" LEFT JOIN projects ON projects.id = project_resources.project_id) obj ON obj.resource_id = resources.id WHERE "resources"."id" = $1[0m  [["id", 3]]
+  ↳ app/services/tasks/services.rb:196
+  [1m[36mTaskStatus Load (0.3ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id_name" = $1 LIMIT $2[0m  [["id_name", "open"], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:304
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/tasks/services.rb:299
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 94], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:299
+  [1m[36mResource Load (0.3ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:299
+  [1m[36mTaskStatus Load (0.5ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:299
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/tasks/services.rb:299
+  [1m[36mTask Create (41.4ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "task_status_id", "start_time", "deadline", "created_at", "updated_at", "project_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["title", "strsdcsding"], ["description", "sdc"], ["task_status_id", 5], ["start_time", "2023-05-16 00:00:00"], ["deadline", "2023-05-19 00:00:00"], ["created_at", "2021-05-15 22:23:43.317327"], ["updated_at", "2021-05-15 22:23:43.317327"], ["project_id", 8]]
+  ↳ app/services/tasks/services.rb:299
+  [1m[36mUserAccountTask Create (2.3ms)[0m  [1m[32mINSERT INTO "user_account_tasks" ("user_account_id", "task_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_account_id", 94], ["task_id", 10], ["created_at", "2021-05-15 22:23:43.361003"], ["updated_at", "2021-05-15 22:23:43.361003"]]
+  ↳ app/services/tasks/services.rb:299
+  [1m[36mTaskResource Create (1.8ms)[0m  [1m[32mINSERT INTO "task_resources" ("resource_id", "task_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_id", 3], ["task_id", 10], ["created_at", "2021-05-15 22:23:43.365053"], ["updated_at", "2021-05-15 22:23:43.365053"]]
+  ↳ app/services/tasks/services.rb:299
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/tasks/services.rb:299
+Completed 201 Created in 118ms (Views: 0.2ms | ActiveRecord: 62.5ms)
+
+
+Started GET "/en/projects/8" for 127.0.0.1 at 2021-05-16 02:24:09 +0400
+Processing by ProjectsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"8"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:80
+  [1m[36mUserAccount Load (1.4ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id LEFT JOIN user_account_projects ON user_account_projects.user_account_id = user_accounts.id LEFT JOIN projects ON tasks.project_id = projects.id OR user_account_projects.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:93
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:95
+Completed 200 OK in 33ms (Views: 0.4ms | ActiveRecord: 8.0ms)
+
+
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResource Load (1.7ms)[0m  [1m[34mSELECT "resources"."name" FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON task_resources.task_id = tasks.id LEFT JOIN project_resources ON project_resources.resource_id = resources.id LEFT JOIN projects ON tasks.project_id = projects.id OR project_resources.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY resources.id[0m  [["id", 8]]
+  [1m[36mResource Load (1.7ms)[0m  [1m[34mSELECT id, name, description FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON task_resources.task_id = tasks.id LEFT JOIN project_resources ON project_resources.resource_id = resources.id LEFT JOIN projects ON tasks.project_id = projects.id OR project_resources.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY resources.id[0m  [["id", 8]]
+  [1m[36mResource Load (1.7ms)[0m  [1m[34mSELECT resources.id, name, description FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON task_resources.task_id = tasks.id LEFT JOIN project_resources ON project_resources.resource_id = resources.id LEFT JOIN projects ON tasks.project_id = projects.id OR project_resources.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY resources.id[0m  [["id", 8]]
+  [1m[36mResource Load (2.8ms)[0m  [1m[34mSELECT resources.id, name, resources.description FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON task_resources.task_id = tasks.id LEFT JOIN project_resources ON project_resources.resource_id = resources.id LEFT JOIN projects ON tasks.project_id = projects.id OR project_resources.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY resources.id[0m  [["id", 8]]
+  [1m[36mResource Load (0.2ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Started GET "/en/projects/8" for 127.0.0.1 at 2021-05-16 02:35:31 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"8"}
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.5ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:80
+  [1m[36mUserAccount Load (1.7ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id LEFT JOIN user_account_projects ON user_account_projects.user_account_id = user_accounts.id LEFT JOIN projects ON tasks.project_id = projects.id OR user_account_projects.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:93
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:95
+Completed 200 OK in 112ms (Views: 0.4ms | ActiveRecord: 26.0ms)
+
+
+Started GET "/en/projects/8" for 127.0.0.1 at 2021-05-16 02:35:38 +0400
+Processing by ProjectsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"8"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.2ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:80
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id LEFT JOIN user_account_projects ON user_account_projects.user_account_id = user_accounts.id LEFT JOIN projects ON tasks.project_id = projects.id OR user_account_projects.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:93
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:95
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/en/projects/8" for 127.0.0.1 at 2021-05-16 02:35:54 +0400
+Processing by ProjectsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"8"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.2ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.4ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:80
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id LEFT JOIN user_account_projects ON user_account_projects.user_account_id = user_accounts.id LEFT JOIN projects ON tasks.project_id = projects.id OR user_account_projects.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:94
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:96
+  [1m[36mResource Load (1.1ms)[0m  [1m[34mSELECT resources.id, name, resources.description FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON task_resources.task_id = tasks.id LEFT JOIN project_resources ON project_resources.resource_id = resources.id LEFT JOIN projects ON tasks.project_id = projects.id OR project_resources.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY resources.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:112
+Completed 200 OK in 92ms (Views: 0.4ms | ActiveRecord: 21.9ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-05-16 02:38:13 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-05-16 02:38:13 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-05-16 02:38:13 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-05-16 02:38:13 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-05-16 02:38:13 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-05-16 02:38:13 +0400
+Started GET "/en/projects/8" for 127.0.0.1 at 2021-05-16 02:38:24 +0400
+Processing by ProjectsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"8"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:80
+  [1m[36mUserAccount Load (1.9ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id LEFT JOIN user_account_projects ON user_account_projects.user_account_id = user_accounts.id LEFT JOIN projects ON tasks.project_id = projects.id OR user_account_projects.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:94
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:96
+  [1m[36mResource Load (1.2ms)[0m  [1m[34mSELECT resources.id, name, resources.description FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON task_resources.task_id = tasks.id LEFT JOIN project_resources ON project_resources.resource_id = resources.id LEFT JOIN projects ON tasks.project_id = projects.id OR project_resources.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY resources.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:112
+Completed 200 OK in 129ms (Views: 0.5ms | ActiveRecord: 26.8ms)
+
+

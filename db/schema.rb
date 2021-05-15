@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_08_213126) do
+ActiveRecord::Schema.define(version: 2021_05_15_162212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -364,6 +364,15 @@ ActiveRecord::Schema.define(version: 2021_05_08_213126) do
     t.index ["code"], name: "index_products_on_code", unique: true
   end
 
+  create_table "project_resources", force: :cascade do |t|
+    t.bigint "resource_id", null: false
+    t.bigint "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_resources_on_project_id"
+    t.index ["resource_id"], name: "index_project_resources_on_resource_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -525,6 +534,15 @@ ActiveRecord::Schema.define(version: 2021_05_08_213126) do
     t.string "id_name", limit: 150
   end
 
+  create_table "user_account_projects", force: :cascade do |t|
+    t.bigint "user_account_id", null: false
+    t.bigint "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_user_account_projects_on_project_id"
+    t.index ["user_account_id"], name: "index_user_account_projects_on_user_account_id"
+  end
+
   create_table "user_account_tasks", force: :cascade do |t|
     t.bigint "user_account_id", null: false
     t.bigint "task_id", null: false
@@ -605,6 +623,8 @@ ActiveRecord::Schema.define(version: 2021_05_08_213126) do
   add_foreign_key "product_import_permissions", "role_groups"
   add_foreign_key "product_prices", "products"
   add_foreign_key "product_type_permissions", "role_groups"
+  add_foreign_key "project_resources", "projects"
+  add_foreign_key "project_resources", "resources"
   add_foreign_key "projects", "user_accounts"
   add_foreign_key "resources", "companies"
   add_foreign_key "resources", "resource_types"
@@ -624,6 +644,8 @@ ActiveRecord::Schema.define(version: 2021_05_08_213126) do
   add_foreign_key "tasks", "task_statuses"
   add_foreign_key "terms_and_condition_agreements", "terms_and_conditions"
   add_foreign_key "terms_and_condition_agreements", "user_accounts"
+  add_foreign_key "user_account_projects", "projects"
+  add_foreign_key "user_account_projects", "user_accounts"
   add_foreign_key "user_account_tasks", "tasks"
   add_foreign_key "user_account_tasks", "user_accounts"
   add_foreign_key "user_accounts", "companies"

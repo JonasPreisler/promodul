@@ -5778,6 +5778,26 @@
                 },
                 "deadline": {
                   "type": "string"
+                },
+                "user_account_projects_attributes": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "user_account_id": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                },
+                "project_resources_attributes": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "resource_id": {
+                        "type": "integer"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -6089,6 +6109,20 @@
                       "type": "string"
                     },
                     "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "resources": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
                       "type": "string"
                     }
                   }

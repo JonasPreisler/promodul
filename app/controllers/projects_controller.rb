@@ -45,7 +45,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.permit(:id, :title, :description, :address, :post_number, :contact_person, :start_date, :deadline)
+    params.permit(:id, :title, :description, :address, :post_number, :contact_person, :start_date, :deadline, user_account_projects_attributes: [:id, :user_account_id, :_destroy], project_resources_attributes: [:id, :resource_id, :_destroy])
   end
 
   #def claim_params

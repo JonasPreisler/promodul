@@ -190,34 +190,57 @@ module Tasks
 
     def get_resource_dates(data)
       Resource
-          .select("name, tasks.start_time, tasks.deadline")
-          .joins("LEFT JOIN task_resources ON task_resources.resource_id = resources.id")
-          .joins("LEFT JOIN tasks ON tasks.id = task_resources.task_id")
+          .select("name, start_time, deadline")
+          .joins("JOIN  (#{ get_tasks_res } UNION #{ get_projects_res }) obj ON obj.resource_id = resources.id")
           .where(resources: { id: data })
           .as_json
+    end
+
+    def get_tasks_res
+      TaskResource
+          .select("resource_id, tasks.start_time, tasks.deadline")
+          .joins("LEFT JOIN tasks ON tasks.id = task_resources.task_id")
+          .to_sql
+    end
+
+    def get_projects_res
+      ProjectResource
+          .select("resource_id, projects.start_date as start_time, projects.deadline")
+          .joins("LEFT JOIN projects ON projects.id = project_resources.project_id")
+          .to_sql
+    end
+
+    def get_user_dates(user)
+      UserAccount
+          .select("first_name, last_name, start_time, deadline")
+          .joins("JOIN  (#{ get_tasks_user } UNION #{ get_projects_user }) obj ON obj.account_id = user_accounts.id")
+          .where(user_accounts: { id: user })
+          .as_json
+    end
+
+    def get_tasks_user
+      UserAccountTask
+          .select("user_account_id as account_id, tasks.start_time, tasks.deadline")
+          .joins("LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id")
+          .to_sql
+    end
+
+    def get_projects_user
+      UserAccountProject
+          .select("user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline")
+          .joins("LEFT JOIN projects ON projects.id = user_account_projects.project_id")
+          .to_sql
+
     end
 
     def period
       @params["start_time"].to_datetime..@params["deadline"].to_datetime
     end
 
-    def employee
-
-    end
-
-    def get_user_dates(user)
-      UserAccount
-          .select("first_name, last_name, tasks.start_time, tasks.deadline")
-          .joins("LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id")
-          .joins("LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id")
-          .where(user_accounts: { id: user })
-          .as_json
-    end
-
     def validate_project_dates
       return if errors.any?
       @project = Project.find(@params[:project_id])
-      if params[:start_time].to_datetime < @project.start_date
+      if params[:start_time].to_datetime < @project.start_date - 1.days
         fill_custom_errors(self, :base,:invalid, "The task start date can't be less Project's date")
       end
       return if errors.any?

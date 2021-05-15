@@ -23,6 +23,7 @@ class UserAccount < ApplicationRecord
 
   has_many :attachments, as: :attached_on
   has_many :user_account_tasks
+  has_many :user_account_projects
 
   belongs_to :company
 end

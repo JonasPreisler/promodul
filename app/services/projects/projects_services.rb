@@ -17,7 +17,7 @@ module Projects
     end
 
     def show_json_view
-      { project: @project.as_json(include: { user_account: { only: [:first_name, :last_name]}}), members: @members }
+      { project: @project.as_json(include: { user_account: { only: [:first_name, :last_name]}}), members: @members, resources: @resources }
     end
 
     def projects_list_json_view
@@ -42,6 +42,8 @@ module Projects
 
     def create_project
       validate_dates
+      validate_users
+      validate_resources
       return if errors.any?
       @project = Project.new(@params)
       @project.user_account_id = @current_user.id
@@ -77,21 +79,37 @@ module Projects
     def overview
       @project = Project.find_by_id(@params[:id])
       get_members
+      get_resources
     end
 
     def get_members
       @members = UserAccount
-                    .select("user_accounts.id, first_name, last_name, 'employ' AS status")
-                    .joins(user_account_tasks: [task: :project])
-                    .where(projects: { id: @project.id })
-                    .group('user_accounts.id')
-                    .as_json
+                     .select("user_accounts.id, first_name, last_name, 'employ' AS status")
+                     .joins("LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id")
+                     .joins("LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id")
+                     .joins("LEFT JOIN user_account_projects ON user_account_projects.user_account_id = user_accounts.id")
+                     .joins("LEFT JOIN projects ON tasks.project_id = projects.id OR user_account_projects.project_id = projects.id")
+                     .where(projects: { id: 8 })
+                     .group('user_accounts.id')
+                     .as_json
       @members << {
           id: @project.user_account.id,
           first_name: @project.user_account.first_name,
           last_name: @project.user_account.last_name,
           status: "manager"
       }
+    end
+
+    def get_resources
+      @resources = Resource
+                      .select("resources.id, name, resources.description")
+                      .joins("LEFT JOIN task_resources ON task_resources.resource_id = resources.id")
+                      .joins("LEFT JOIN tasks ON task_resources.task_id = tasks.id")
+                      .joins("LEFT JOIN project_resources ON project_resources.resource_id = resources.id")
+                      .joins("LEFT JOIN projects ON tasks.project_id = projects.id OR project_resources.project_id = projects.id")
+                      .where(projects: { id: 8 })
+                      .group('resources.id')
+                      .as_json
     end
 
     def project_calendar
@@ -109,8 +127,7 @@ module Projects
       return if errors.any?
       validate_dates
       return if errors.any?
-      @project.assign_attributes(@params)
-      @project.save
+      @project.update(@params)
 
       @errors << fill_errors(@project) if @project.errors.any?
     end
@@ -121,6 +138,10 @@ module Projects
       find_tasks
       find_attachments
       ActiveRecord::Base.transaction do
+        user_projects = UserAccountProject.where(project_id: @project.id)
+        resource_projects = ProjectResource.where(project_id: @project.id)
+        user_projects.delete_all if user_projects
+        resource_projects.delete_all if resource_projects
         delete_tasks
         @attachments.delete_all
         @project.destroy
@@ -139,6 +160,83 @@ module Projects
     end
 
     private
+
+    def validate_users
+      return if errors.any?
+      return if params["user_account_projects_attributes"].nil?
+      params["user_account_projects_attributes"].each do |x|
+        user_dates = get_user_dates(x["user_account_id"])
+        user_dates.reject! { |record| record["start_time"].nil? }
+        user_dates.each do |date|
+          if period.overlaps?(date["start_time"].to_datetime..date["deadline"].to_datetime)
+            fill_custom_errors(self, :base,:invalid, "Employee #{date["first_name"] + " " + date["last_name"]} is busy on this dates")
+          end
+        end
+      end
+    end
+
+    def validate_resources
+      return if errors.any?
+      return if params["project_resources_attributes"].nil?
+      params["project_resources_attributes"].each do |x|
+        resource_dates = get_resource_dates(x["resource_id"])
+        resource_dates.reject! { |record| record["start_time"].nil? }
+        resource_dates.each do |date|
+          if period.overlaps?(date["start_time"].to_datetime..date["deadline"].to_datetime)
+            fill_custom_errors(self, :base,:invalid, "Resource #{date["name"]} is busy on this dates")
+          end
+        end
+      end
+    end
+
+    def get_resource_dates(data)
+      Resource
+          .select("name, start_time, deadline")
+          .joins("JOIN  (#{ get_tasks_res } UNION #{ get_projects_res }) obj ON obj.resource_id = resources.id")
+          .where(resources: { id: data })
+          .as_json
+    end
+
+    def get_tasks_res
+      TaskResource
+          .select("resource_id, tasks.start_time, tasks.deadline")
+          .joins("LEFT JOIN tasks ON tasks.id = task_resources.task_id")
+          .to_sql
+    end
+
+    def get_projects_res
+      ProjectResource
+          .select("resource_id, projects.start_date as start_time, projects.deadline")
+          .joins("LEFT JOIN projects ON projects.id = project_resources.project_id")
+          .to_sql
+    end
+
+    def get_user_dates(user)
+      UserAccount
+          .select("first_name, last_name, start_time, deadline")
+          .joins("JOIN  (#{ get_tasks_user } UNION #{ get_projects_user }) obj ON obj.account_id = user_accounts.id")
+          .where(user_accounts: { id: user })
+          .as_json
+    end
+
+    def get_tasks_user
+      UserAccountTask
+          .select("user_account_id as account_id, tasks.start_time, tasks.deadline")
+          .joins("LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id")
+          .to_sql
+    end
+
+    def get_projects_user
+      UserAccountProject
+          .select("user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline")
+          .joins("LEFT JOIN projects ON projects.id = user_account_projects.project_id")
+          .to_sql
+
+    end
+
+    def period
+      @params["start_date"].to_datetime..@params["deadline"].to_datetime
+    end
 
     def find_project
       @project = Project.find_by_id(@params[:id])
@@ -163,95 +261,5 @@ module Projects
       end
     end
 
-    #def get_order
-    #  Order.find(params[:id]).title
-    #end
-    #
-    #def order_members
-    #  order_ids = Order.select(:user_account_id).where(id: params[:id]).pluck(:user_account_id)
-    #  tasks_ids = Task.select(:user_account_id).where(order_id: params[:id]).pluck(:product_id)
-    #  users = order_ids.union(tasks_ids)
-    #  UserAccount.select('username, email, phone_number').where(id: users).as_json()
-    #end
-    #
-    #def order_price
-    #  order_price = 0
-    #  order_ids = OrderProduct.select(:product_id).where(order_id: params[:id]).pluck(:product_id)
-    #  tasks_ids = Task.select(:product_id).where(order_id: params[:id]).pluck(:product_id)
-    #  product_ids = order_ids + tasks_ids
-    #  ProductPrice.where(product_id: product_ids).each do |x|
-    #    kk = SupplierProduct.find_by_product_id(x.product_id)&.supplier_product_price&.price&.to_i
-    #    if kk
-    #      cost_price = x.list_price_amount&.to_i + kk
-    #    else
-    #      cost_price = x.list_price_amount&.to_i
-    #    end
-    #    if x.list_price_type.eql?("fix_price")
-    #      order_price += cost_price + x.list_price_amount&.to_d
-    #    else
-    #      order_price += ((cost_price*(100 + x.list_price_amount.to_d))/100).ceil(2)
-    #    end
-    #  end
-    #  order_price
-    #end
-    #
-    #def worked_hours
-    #  sum = 0
-    #  Task.where(order_id: params[:id]).each do |x|
-    #    time = x&.tracked_time.to_i
-    #    sum += time
-    #  end
-    #  sum
-    #end
-    #
-    #def percentage_of_tasks
-    #  {
-    #      open: Task.where(order_id: params[:id], task_status_id: 1).size,
-    #      in_progress: Task.where(order_id: params[:id], task_status_id: 2).size,
-    #      done: Task.where(order_id: params[:id], task_status_id: 3).size,
-    #      total: Task.where(order_id: params[:id]).size
-    #  }
-    #end
-
-    #def validate_client
-    #  @client = Client.where(id: params[:client_id], active: true).last
-    #  fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @client
-    #end
-    #
-    #
-    #def validate_user_account
-    #  return if errors.any?
-    #  user_account = UserAccount.find_by_id(params[:user_account_id])
-    #  fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless user_account
-    #end
-    #
-    #def validate_order_type
-    #  return if errors.any?
-    #  type = OrderType.find_by_id(params[:order_type_id])
-    #  fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless type
-    #end
-    #
-    #def create_order_obj
-    #  return if errors.any?
-    #  @order = Order.new(params)
-    #  @order.order_status_id = @status&.id
-    #  @order.save
-    #  @errors << fill_errors(@order) if @order.errors.any?
-    #end
-    #
-    #def default_status
-    #  @status = OrderStatus.find_by(id_name: :open)
-    #end
-    ##
-    ##def update_client_obj
-    ##  find_client
-    ##  @client.update(params)
-    ##  @errors << fill_errors(@client) if @client.errors.any?
-    ##end
-    #
-    #def find_order
-    #  @order = Order.find_by_id(params[:id])
-    #  fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @order
-    #end
   end
 end
