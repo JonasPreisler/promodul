@@ -89,7 +89,7 @@ module Projects
                      .joins("LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id")
                      .joins("LEFT JOIN user_account_projects ON user_account_projects.user_account_id = user_accounts.id")
                      .joins("LEFT JOIN projects ON tasks.project_id = projects.id OR user_account_projects.project_id = projects.id")
-                     .where(projects: { id: 8 })
+                     .where(projects: { id: @project.id })
                      .group('user_accounts.id')
                      .as_json
       @members << {
@@ -107,7 +107,7 @@ module Projects
                       .joins("LEFT JOIN tasks ON task_resources.task_id = tasks.id")
                       .joins("LEFT JOIN project_resources ON project_resources.resource_id = resources.id")
                       .joins("LEFT JOIN projects ON tasks.project_id = projects.id OR project_resources.project_id = projects.id")
-                      .where(projects: { id: 8 })
+                      .where(projects: { id: @project.id })
                       .group('resources.id')
                       .as_json
     end
