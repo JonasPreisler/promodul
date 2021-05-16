@@ -273,7 +273,27 @@ describe 'Projects ', type: :request do
               post_number:    { type: :string },
               contact_person: { type: :string },
               start_date: { type: :string },
-              deadline: { type: :string }
+              deadline: { type: :string },
+              user_account_projects_attributes: {
+                  type: :array,
+                  items: {
+                      properties: {
+                          id: {type: :integer},
+                          user_account_id:     { type: :integer },
+                          _destroy: { type: :boolean }
+                      }
+                  }
+              },
+              project_resources_attributes: {
+                  type: :array,
+                  items: {
+                      properties: {
+                          id: { type: :integer },
+                          resource_id:     { type: :integer },
+                          _destroy: { type: :boolean }
+                      }
+                  }
+              }
           }
       }
       response '201', 'ok' do
