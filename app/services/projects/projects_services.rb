@@ -40,6 +40,10 @@ module Projects
       { success: true  }
     end
 
+    def get_project_json_view
+      { project: @project_edit }
+    end
+
     def create_project
       validate_dates
       validate_users
@@ -74,6 +78,69 @@ module Projects
 
     def project_manager?
       @current_user.user_role.role_group.id_name.eql?("project_manager")
+    end
+
+    def get_project
+      @project = Project.find_by_id(@params[:id])
+      @project_edit = build_object(@project)
+    end
+
+    def build_object(project)
+      {
+          id: project.id,
+          title: project.title,
+          description: project.description,
+          address: project.address,
+          post_number: project.post_number,
+          contact_person: project.contact_person,
+          start_date: project.start_date,
+          deadline: project.deadline,
+          users: get_project_users(project),
+          resources: get_project_resources(project),
+      }
+    end
+
+    def get_project_users(project)
+      UserAccount
+          .select('user_accounts.id, first_name, last_name, user_account_projects.id as project_user_id')
+          .joins(user_account_projects: :project)
+          .where(projects: {id: project.id })
+          .group('user_accounts.id, user_account_projects.id').as_json
+    end
+
+    def get_project_resources(project)
+      {
+          models: get_models(project),
+          tools: get_tools(project),
+          resources: get_external_resources(project)
+      }
+    end
+
+    def get_models(project)
+      Resource
+          .select('resources.id, resources.name, project_resources.id as project_resource_id')
+          .joins(:resource_type, project_resources: :project)
+          .where(model_on_type: "MachineModel", resource_types: { id_name: "machine"})
+          .where(projects: {id: project.id })
+          .group('resources.id, project_resources.id').as_json
+    end
+
+    def get_tools(project)
+      Resource
+          .select('resources.id, resources.name, project_resources.id as project_resource_id')
+          .joins(:resource_type, project_resources: :project)
+          .where(model_on_type: "ToolModel", resource_types: { id_name: "tool"})
+          .where(projects: {id: project.id })
+          .group('resources.id, project_resources.id').as_json
+    end
+
+    def get_external_resources(project)
+      Resource
+          .select('resources.id, resources.name, project_resources.id as project_resource_id')
+          .joins(:resource_type, project_resources: :project)
+          .where(model_on_type: "ExternalResourceType", resource_types: { id_name: "external_resource"})
+          .where(projects: {id: project.id })
+          .group('resources.id, project_resources.id').as_json
     end
 
     def overview

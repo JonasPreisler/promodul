@@ -148,6 +148,76 @@ describe 'Projects ', type: :request do
     end
   end
 
+  path '/{locale}/projects/get_project/{id}' do
+    get 'Returns project for edit' do
+      tags 'Projects'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'JWT token'
+                })
+
+      parameter name: :id, in: :path, type: :integer, required: true
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+
+      response '201', 'ok' do
+        schema type: :object,
+               properties: {
+                   project: {
+                       type: :object,
+                       properties: {
+                           id: {type: :integer},
+                           title: {type: :string},
+                           description: {type: :string},
+                           post_number: {type: :boolean},
+                           contact_person: {type: :boolean},
+                           start_date: { type: :string },
+                           deadline: { type: :string },
+                           project_id: {type: :string},
+                           user_account: {
+                               type: :object,
+                               properties: {
+                                   first_name: { type: :string },
+                                   last_name: { type: :string }
+                               }
+                           }
+                       }
+                   },
+                   users:    {
+                       type: :array,
+                       items: {
+                           properties: {
+                               first_name: { type: :object },
+                               last_name_name: { type: :object }
+                           }
+                       }
+
+                   },
+                   resources:    {
+                       type: :array,
+                       items: {
+                           properties: {
+                               name: { type: :object }
+                           }
+                       }
+
+                   }
+               }
+
+        run_test!
+      end
+
+      response '404', 'not found' do
+        run_test!
+      end
+
+    end
+  end
+
   path '/{locale}/projects/projects_list' do
     get 'Returns Project list' do
       tags 'Projects'

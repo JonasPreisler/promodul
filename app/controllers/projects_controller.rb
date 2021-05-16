@@ -24,6 +24,12 @@ class ProjectsController < ApplicationController
     rest_respond_service service
   end
 
+  def get_project
+    service = Projects::ProjectsServices.new(project_params, current_account, current_company)
+    service.get_project
+    rest_respond_service service
+  end
+
   def project_calendar
     service = Projects::ProjectsServices.new(project_params, current_account, current_company)
     service.project_calendar

@@ -9,6 +9,7 @@ class Resource < ApplicationRecord
 
   has_many :attachments, as: :attached_on
   has_many :task_resources
+  has_many :project_resources
 
   #has_one :provider_policy_picture, class_name: 'ProviderPolicyPicture', foreign_key: 'provider_id'
 end

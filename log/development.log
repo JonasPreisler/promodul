@@ -32401,3 +32401,362 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 202ms (Views: 0.5ms | ActiveRecord: 40.1ms)
 
 
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (1.3ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, user_account_projects.id as project_user_id FROM "user_accounts" INNER JOIN "user_account_projects" ON "user_account_projects"."user_account_id" = "user_accounts"."id" INNER JOIN "projects" ON "projects"."id" = "user_account_projects"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id, user_account_projects.id[0m  [["id", 8]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/en/projects/8" for 127.0.0.1 at 2021-05-16 22:01:45 +0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"8"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (1.2ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:147
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:158
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_projects" ON "user_account_projects"."user_account_id" = "user_accounts"."id" INNER JOIN "projects" ON "projects"."id" = "user_account_projects"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:187
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:174
+  [1m[36mResource Load (1.2ms)[0m  [1m[34mSELECT resources.id, name, resources.description FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON task_resources.task_id = tasks.id LEFT JOIN project_resources ON project_resources.resource_id = resources.id LEFT JOIN projects ON tasks.project_id = projects.id OR project_resources.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY resources.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:199
+Completed 200 OK in 182ms (Views: 0.6ms | ActiveRecord: 33.3ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-05-16 22:02:25 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-05-16 22:02:25 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-05-16 22:02:25 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-05-16 22:02:25 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-05-16 22:02:26 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-05-16 22:02:26 +0400
+Started GET "/en/projects/get_project8" for 127.0.0.1 at 2021-05-16 22:02:38 +0400
+Processing by ProjectsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"get_project8"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:147
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 20.0ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/services/projects/projects_services.rb:156:in `get_members'
+app/services/projects/projects_services.rb:148:in `overview'
+app/controllers/projects_controller.rb:23:in `show'
+Started GET "/en/projects/get_project8" for 127.0.0.1 at 2021-05-16 22:04:30 +0400
+Processing by ProjectsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"get_project8"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.5ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:148
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 16.0ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/services/projects/projects_services.rb:157:in `get_members'
+app/services/projects/projects_services.rb:149:in `overview'
+app/controllers/projects_controller.rb:23:in `show'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/en/projects/get_project8" for 127.0.0.1 at 2021-05-16 22:05:01 +0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#show as JSON
+  Parameters: {"locale"=>"en", "id"=>"get_project8"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:148
+Completed 500 Internal Server Error in 105ms (ActiveRecord: 18.8ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/services/projects/projects_services.rb:157:in `get_members'
+app/services/projects/projects_services.rb:149:in `overview'
+app/controllers/projects_controller.rb:23:in `show'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-05-16 22:05:08 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-05-16 22:05:08 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-05-16 22:05:08 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-05-16 22:05:08 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-05-16 22:05:08 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-05-16 22:05:08 +0400
+Started GET "/en/projects/get_project/8" for 127.0.0.1 at 2021-05-16 22:05:19 +0400
+Processing by ProjectsController#get_project as JSON
+  Parameters: {"locale"=>"en", "id"=>"8"}
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.7ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.6ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:148
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:159
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_projects" ON "user_account_projects"."user_account_id" = "user_accounts"."id" INNER JOIN "projects" ON "projects"."id" = "user_account_projects"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:188
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:175
+  [1m[36mResource Load (1.3ms)[0m  [1m[34mSELECT resources.id, name, resources.description FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON task_resources.task_id = tasks.id LEFT JOIN project_resources ON project_resources.resource_id = resources.id LEFT JOIN projects ON tasks.project_id = projects.id OR project_resources.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY resources.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:200
+Completed 200 OK in 57ms (Views: 0.2ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/en/projects/get_project/8" for 127.0.0.1 at 2021-05-16 22:05:55 +0400
+Processing by ProjectsController#get_project as JSON
+  Parameters: {"locale"=>"en", "id"=>"8"}
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.2ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:148
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:159
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_projects" ON "user_account_projects"."user_account_id" = "user_accounts"."id" INNER JOIN "projects" ON "projects"."id" = "user_account_projects"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:188
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:175
+  [1m[36mResource Load (1.9ms)[0m  [1m[34mSELECT resources.id, name, resources.description FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON task_resources.task_id = tasks.id LEFT JOIN project_resources ON project_resources.resource_id = resources.id LEFT JOIN projects ON tasks.project_id = projects.id OR project_resources.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY resources.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:200
+Completed 200 OK in 100ms (Views: 0.2ms | ActiveRecord: 24.2ms)
+
+
+Started GET "/en/projects/get_project/8" for 127.0.0.1 at 2021-05-16 22:05:58 +0400
+Processing by ProjectsController#get_project as JSON
+  Parameters: {"locale"=>"en", "id"=>"8"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.2ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:148
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:159
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_projects" ON "user_account_projects"."user_account_id" = "user_accounts"."id" INNER JOIN "projects" ON "projects"."id" = "user_account_projects"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:188
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:175
+  [1m[36mResource Load (0.8ms)[0m  [1m[34mSELECT resources.id, name, resources.description FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON task_resources.task_id = tasks.id LEFT JOIN project_resources ON project_resources.resource_id = resources.id LEFT JOIN projects ON tasks.project_id = projects.id OR project_resources.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY resources.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:200
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/en/projects/get_project/8" for 127.0.0.1 at 2021-05-16 22:05:59 +0400
+Processing by ProjectsController#get_project as JSON
+  Parameters: {"locale"=>"en", "id"=>"8"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:148
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_tasks" ON "user_account_tasks"."user_account_id" = "user_accounts"."id" INNER JOIN "tasks" ON "tasks"."id" = "user_account_tasks"."task_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:159
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, 'employ' AS status FROM "user_accounts" INNER JOIN "user_account_projects" ON "user_account_projects"."user_account_id" = "user_accounts"."id" INNER JOIN "projects" ON "projects"."id" = "user_account_projects"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:188
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:175
+  [1m[36mResource Load (1.2ms)[0m  [1m[34mSELECT resources.id, name, resources.description FROM "resources" LEFT JOIN task_resources ON task_resources.resource_id = resources.id LEFT JOIN tasks ON task_resources.task_id = tasks.id LEFT JOIN project_resources ON project_resources.resource_id = resources.id LEFT JOIN projects ON tasks.project_id = projects.id OR project_resources.project_id = projects.id WHERE "projects"."id" = $1 GROUP BY resources.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:200
+Completed 200 OK in 35ms (Views: 0.2ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/en/projects/get_project/8" for 127.0.0.1 at 2021-05-16 22:06:16 +0400
+Processing by ProjectsController#get_project as JSON
+  Parameters: {"locale"=>"en", "id"=>"8"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ (pry):1
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:85
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, user_account_projects.id as project_user_id FROM "user_accounts" INNER JOIN "user_account_projects" ON "user_account_projects"."user_account_id" = "user_accounts"."id" INNER JOIN "projects" ON "projects"."id" = "user_account_projects"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id, user_account_projects.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:109
+Completed 500 Internal Server Error in 9696ms (ActiveRecord: 21.7ms)
+
+
+  
+ActiveRecord::ConfigurationError (Can't join 'Resource' to association named 'project_resources'; perhaps you misspelled it?):
+  
+app/services/projects/projects_services.rb:126:in `get_models'
+app/services/projects/projects_services.rb:114:in `get_project_resources'
+app/services/projects/projects_services.rb:100:in `build_object'
+app/services/projects/projects_services.rb:86:in `get_project'
+app/controllers/projects_controller.rb:31:in `get_project'
+Started GET "/en/projects/get_project/8" for 127.0.0.1 at 2021-05-16 22:06:56 +0400
+Processing by ProjectsController#get_project as JSON
+  Parameters: {"locale"=>"en", "id"=>"8"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:85
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, user_account_projects.id as project_user_id FROM "user_accounts" INNER JOIN "user_account_projects" ON "user_account_projects"."user_account_id" = "user_accounts"."id" INNER JOIN "projects" ON "projects"."id" = "user_account_projects"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id, user_account_projects.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:109
+Completed 500 Internal Server Error in 3292ms (ActiveRecord: 23.8ms)
+
+
+  
+ActiveRecord::ConfigurationError (Can't join 'ProjectResource' to association named 'task'; perhaps you misspelled it?):
+  
+app/services/projects/projects_services.rb:126:in `get_models'
+app/services/projects/projects_services.rb:114:in `get_project_resources'
+app/services/projects/projects_services.rb:100:in `build_object'
+app/services/projects/projects_services.rb:86:in `get_project'
+app/controllers/projects_controller.rb:31:in `get_project'
+Started GET "/en/projects/get_project/8" for 127.0.0.1 at 2021-05-16 22:07:20 +0400
+Processing by ProjectsController#get_project as JSON
+  Parameters: {"locale"=>"en", "id"=>"8"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.2ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.3ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:85
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, user_account_projects.id as project_user_id FROM "user_accounts" INNER JOIN "user_account_projects" ON "user_account_projects"."user_account_id" = "user_accounts"."id" INNER JOIN "projects" ON "projects"."id" = "user_account_projects"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id, user_account_projects.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:109
+  [1m[36mResource Load (5.1ms)[0m  [1m[34mSELECT resources.id, resources.name, project_resources.id as project_resource_id FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN "project_resources" ON "project_resources"."resource_id" = "resources"."id" INNER JOIN "projects" ON "projects"."id" = "project_resources"."project_id" WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2 AND "projects"."id" = $3 GROUP BY resources.id, project_resources.id[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"], ["id", 8]]
+  ↳ app/services/projects/projects_services.rb:126
+  [1m[36mResource Load (1.1ms)[0m  [1m[34mSELECT resources.id, resources.name, project_resources.id as project_resource_id FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN "project_resources" ON "project_resources"."resource_id" = "resources"."id" INNER JOIN "projects" ON "projects"."id" = "project_resources"."project_id" WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2 AND "projects"."id" = $3 GROUP BY resources.id, project_resources.id[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"], ["id", 8]]
+  ↳ app/services/projects/projects_services.rb:135
+  [1m[36mResource Load (0.7ms)[0m  [1m[34mSELECT resources.id, resources.name, project_resources.id as project_resource_id FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN "project_resources" ON "project_resources"."resource_id" = "resources"."id" INNER JOIN "projects" ON "projects"."id" = "project_resources"."project_id" WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2 AND "projects"."id" = $3 GROUP BY resources.id, project_resources.id[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"], ["id", 8]]
+  ↳ app/services/projects/projects_services.rb:144
+Completed 200 OK in 3725ms (Views: 0.5ms | ActiveRecord: 46.9ms)
+
+
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResource Load (0.9ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started PUT "/en/projects" for 127.0.0.1 at 2021-05-16 22:10:06 +0400
+Processing by ProjectsController#update as JSON
+  Parameters: {"id"=>8, "title"=>"aba vnaxot", "description"=>"aba description", "address"=>"string", "post_number"=>"577520250", "contact_person"=>"buka", "start_date"=>"2023-05-16T00:00:00.000Z", "deadline"=>"2024-05-19T00:00:00.000Z", "user_account_projects_attributes"=>[{"id"=>2, "user_account_id"=>93, "_destroy"=>true}, {"user_account_id"=>9}], "project_resources_attributes"=>[{"resource_id"=>3}], "locale"=>"en", "project"=>{"id"=>8, "title"=>"aba vnaxot", "description"=>"aba description", "address"=>"string", "post_number"=>"577520250", "contact_person"=>"buka", "start_date"=>"2023-05-16T00:00:00.000Z", "deadline"=>"2024-05-19T00:00:00.000Z", "user_account_projects_attributes"=>[{"id"=>2, "user_account_id"=>93, "_destroy"=>true}, {"user_account_id"=>9}], "project_resources_attributes"=>[{"resource_id"=>3}]}}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:330
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:218
+  [1m[36mUserAccountProject Load (0.5ms)[0m  [1m[34mSELECT "user_account_projects".* FROM "user_account_projects" WHERE "user_account_projects"."project_id" = $1 AND "user_account_projects"."id" = $2[0m  [["project_id", 8], ["id", 2]]
+  ↳ app/services/projects/projects_services.rb:218
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:218
+  [1m[36mResource Load (0.2ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:218
+  [1m[36mUserAccountProject Destroy (0.3ms)[0m  [1m[31mDELETE FROM "user_account_projects" WHERE "user_account_projects"."id" = $1[0m  [["id", 2]]
+  ↳ app/services/projects/projects_services.rb:218
+  [1m[36mUserAccountProject Create (1.7ms)[0m  [1m[32mINSERT INTO "user_account_projects" ("user_account_id", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_account_id", 9], ["project_id", 8], ["created_at", "2021-05-16 18:10:06.497569"], ["updated_at", "2021-05-16 18:10:06.497569"]]
+  ↳ app/services/projects/projects_services.rb:218
+  [1m[36mProjectResource Create (0.8ms)[0m  [1m[32mINSERT INTO "project_resources" ("resource_id", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_id", 3], ["project_id", 8], ["created_at", "2021-05-16 18:10:06.501287"], ["updated_at", "2021-05-16 18:10:06.501287"]]
+  ↳ app/services/projects/projects_services.rb:218
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/projects/projects_services.rb:218
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:16
+Completed 200 OK in 98ms (Views: 0.3ms | ActiveRecord: 16.5ms)
+
+
+Started GET "/en/projects/get_project/8" for 127.0.0.1 at 2021-05-16 22:10:12 +0400
+Processing by ProjectsController#get_project as JSON
+  Parameters: {"locale"=>"en", "id"=>"8"}
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mUserRole Load (0.2ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+  [1m[36mRoleGroup Load (0.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:58
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:85
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT user_accounts.id, first_name, last_name, user_account_projects.id as project_user_id FROM "user_accounts" INNER JOIN "user_account_projects" ON "user_account_projects"."user_account_id" = "user_accounts"."id" INNER JOIN "projects" ON "projects"."id" = "user_account_projects"."project_id" WHERE "projects"."id" = $1 GROUP BY user_accounts.id, user_account_projects.id[0m  [["id", 8]]
+  ↳ app/services/projects/projects_services.rb:109
+  [1m[36mResource Load (1.0ms)[0m  [1m[34mSELECT resources.id, resources.name, project_resources.id as project_resource_id FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN "project_resources" ON "project_resources"."resource_id" = "resources"."id" INNER JOIN "projects" ON "projects"."id" = "project_resources"."project_id" WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2 AND "projects"."id" = $3 GROUP BY resources.id, project_resources.id[0m  [["model_on_type", "MachineModel"], ["id_name", "machine"], ["id", 8]]
+  ↳ app/services/projects/projects_services.rb:126
+  [1m[36mResource Load (1.0ms)[0m  [1m[34mSELECT resources.id, resources.name, project_resources.id as project_resource_id FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN "project_resources" ON "project_resources"."resource_id" = "resources"."id" INNER JOIN "projects" ON "projects"."id" = "project_resources"."project_id" WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2 AND "projects"."id" = $3 GROUP BY resources.id, project_resources.id[0m  [["model_on_type", "ToolModel"], ["id_name", "tool"], ["id", 8]]
+  ↳ app/services/projects/projects_services.rb:135
+  [1m[36mResource Load (0.9ms)[0m  [1m[34mSELECT resources.id, resources.name, project_resources.id as project_resource_id FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" INNER JOIN "project_resources" ON "project_resources"."resource_id" = "resources"."id" INNER JOIN "projects" ON "projects"."id" = "project_resources"."project_id" WHERE "resources"."model_on_type" = $1 AND "resource_types"."id_name" = $2 AND "projects"."id" = $3 GROUP BY resources.id, project_resources.id[0m  [["model_on_type", "ExternalResourceType"], ["id_name", "external_resource"], ["id", 8]]
+  ↳ app/services/projects/projects_services.rb:144
+Completed 200 OK in 6814ms (Views: 0.3ms | ActiveRecord: 5.7ms)
+
+
