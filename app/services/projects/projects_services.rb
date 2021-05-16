@@ -98,7 +98,7 @@ module Projects
               id: x["id"],
               first_name: x["first_name"],
               last_name: x["last_name"],
-              status: "manager"
+              status: x["status"]
           }
         end
       end
