@@ -88,15 +88,16 @@ module Projects
                      .joins(user_account_tasks: [task: :project])
                      .where(projects: { id: @project.id })
                      .group('user_accounts.id')
+                     .as_json
 
       @members_other = get_other_members
 
       if @members_other.present?
         @members_other.each do |x|
           @members << {
-              id: x.id,
-              first_name: x.first_name,
-              last_name: x.last_name,
+              id: x["id"],
+              first_name: x["first_name"],
+              last_name: x["last_name"],
               status: "manager"
           }
         end
@@ -116,6 +117,7 @@ module Projects
           .joins(user_account_projects: :project)
           .where(projects: { id: @project.id })
           .group('user_accounts.id')
+          .as_json
     end
 
     def get_resources
