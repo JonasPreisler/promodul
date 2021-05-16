@@ -85,19 +85,37 @@ module Projects
     def get_members
       @members = UserAccount
                      .select("user_accounts.id, first_name, last_name, 'employ' AS status")
-                     .joins("LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id")
-                     .joins("LEFT JOIN tasks ON user_account_tasks.task_id = tasks.id")
-                     .joins("LEFT JOIN user_account_projects ON user_account_projects.user_account_id = user_accounts.id")
-                     .joins("LEFT JOIN projects ON tasks.project_id = projects.id OR user_account_projects.project_id = projects.id")
+                     .joins(user_account_tasks: [task: :project])
                      .where(projects: { id: @project.id })
                      .group('user_accounts.id')
-                     .as_json
+
+      @members_other = get_other_members
+
+      if @members_other.present?
+        @members_other.each do |x|
+          @members << {
+              id: x.id,
+              first_name: x.first_name,
+              last_name: x.last_name,
+              status: "manager"
+          }
+        end
+      end
+
       @members << {
           id: @project.user_account.id,
           first_name: @project.user_account.first_name,
           last_name: @project.user_account.last_name,
           status: "manager"
       }
+    end
+
+    def get_other_members
+      UserAccount
+          .select("user_accounts.id, first_name, last_name, 'employ' AS status")
+          .joins(user_account_projects: :project)
+          .where(projects: { id: @project.id })
+          .group('user_accounts.id')
     end
 
     def get_resources
