@@ -5,7 +5,8 @@ module Resources
 
     attr_reader :errors
 
-    def initialize(file_params)
+    def initialize(current_account, file_params)
+      @current_account = current_account
       @file_params = file_params
       @errors = []
     end
@@ -51,7 +52,8 @@ module Resources
                    .group_by{ |obj| obj.pol_type}
 
       @files['Resource'] = @files['Resource'].group_by{ |obj| obj.type_on } if @files['Resource'].present?
-      @files['UserAccount'] = @files['UserAccount'].group_by{ |obj| obj.type_on } if @files['UserAccount'].present?
+      @files['Resource'].map{ |k, v| @files['Resource'][k] = v.group_by{ |obj| obj.name }}
+      @files['UserAccount'] = @files['UserAccount'].group_by{ |obj| obj.name } if @files['UserAccount'].present?
       @files['Project'] = @files['Project'].group_by{ |obj| obj.type_on } if @files['Project'].present?
 
     end
@@ -62,19 +64,22 @@ module Resources
       base_query += " AND model_on_id = :model_type_id" if @file_params[:model_on_id]
       Resource
           .select("id as obj_id, 'Resource' as pol_type, model_on_type as type_on, name")
-          .where(base_query, model_type_on: @file_params[:model_on_type])
+          .where(base_query, model_type_on: @file_params[:model_on_type], company_id: @current_account.company_id)
           .to_sql
     end
 
     def get_user
       UserAccount
-          .select("id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name")
+          .select("user_accounts.id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name")
+          .where(company_id: @current_account.company_id)
           .to_sql
     end
 
     def get_project
       Project
-          .select("id as obj_id, 'Project' as pol_type, title as type_on, title as name")
+          .select("projects.id as obj_id, 'Project' as pol_type, title as type_on, title as name")
+          .joins(:user_account)
+          .where(user_accounts: { company_id: @current_account.company_id })
           .to_sql
     end
 

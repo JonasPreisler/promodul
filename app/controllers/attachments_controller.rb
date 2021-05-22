@@ -3,16 +3,16 @@ class AttachmentsController < ApplicationController
   include ControllerResponse
 
   #ToDo: Need remove after authorization will works
-  skip_before_action :validate_authentication
+  #skip_before_action :validate_authentication
 
   def create
-    service = Resources::AttachmentsService.new(file_params)
+    service = Resources::AttachmentsService.new(current_account, file_params)
     service.create_file
     rest_respond_service service
   end
 
   def show_file
-    service = Resources::AttachmentsService.new(file_params)
+    service = Resources::AttachmentsService.new(current_account, file_params)
     file = service.read_file
     if file&.exists?
       send_data(file.read, filename: file.filename, content_type: file.content_type, disposition: 'inline')
@@ -22,7 +22,7 @@ class AttachmentsController < ApplicationController
   end
 
   def get_files
-    service = Resources::AttachmentsService.new(file_params)
+    service = Resources::AttachmentsService.new(current_account, file_params)
     service.files
     rest_respond_service service
   end

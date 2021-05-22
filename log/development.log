@@ -32760,3 +32760,259 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 6814ms (Views: 0.3ms | ActiveRecord: 5.7ms)
 
 
+Started GET "/" for 127.0.0.1 at 2021-05-22 14:08:19 +0400
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HealthController#check_health as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-05-22 14:08:24 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-05-22 14:08:24 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-05-22 14:08:24 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-05-22 14:08:24 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-05-22 14:08:25 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-05-22 14:08:25 +0400
+  [1m[36mResource Load (1.5ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProject Load (10.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id"[0m
+Started POST "/en/auth" for 127.0.0.1 at 2021-05-22 14:21:09 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (2.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 204ms (Views: 0.2ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/en/attachments/get_files" for 127.0.0.1 at 2021-05-22 14:21:36 +0400
+Processing by AttachmentsController#get_files as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[36mAttachment Load (1.8ms)[0m  [1m[34mSELECT id, pol_type, type_on, name, file as file_name, uuid FROM "attachments" JOIN (SELECT id as obj_id, 'Resource' as pol_type, model_on_type as type_on, name FROM "resources" UNION SELECT id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" WHERE "user_accounts"."company_id" = 15 UNION SELECT id as obj_id, 'Project' as pol_type, title as type_on, title as name FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = 15) attached_obj ON attached_obj.obj_id = attachments.attached_on_id AND attached_obj.pol_type = attachments.attached_on_type WHERE "attachments"."is_active" = $1[0m  [["is_active", true]]
+  ↳ app/services/resources/attachments_service.rb:52
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 6.3ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::AmbiguousColumn: ERROR:  column reference "id" is ambiguous
+LINE 1: ...RE "user_accounts"."company_id" = 15 UNION SELECT id as obj_...
+                                                             ^
+: SELECT id, pol_type, type_on, name, file as file_name, uuid FROM "attachments" JOIN (SELECT id as obj_id, 'Resource' as pol_type, model_on_type as type_on, name FROM "resources" UNION SELECT id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" WHERE "user_accounts"."company_id" = 15 UNION SELECT id as obj_id, 'Project' as pol_type, title as type_on, title as name FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = 15) attached_obj ON attached_obj.obj_id = attachments.attached_on_id AND attached_obj.pol_type = attachments.attached_on_type WHERE "attachments"."is_active" = $1):
+  
+app/services/resources/attachments_service.rb:52:in `group_by'
+app/services/resources/attachments_service.rb:52:in `files'
+app/controllers/attachments_controller.rb:26:in `get_files'
+Started GET "/en/attachments/get_files" for 127.0.0.1 at 2021-05-22 14:22:03 +0400
+Processing by AttachmentsController#get_files as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[36mAttachment Load (6.4ms)[0m  [1m[34mSELECT id, pol_type, type_on, name, file as file_name, uuid FROM "attachments" JOIN (SELECT id as obj_id, 'Resource' as pol_type, model_on_type as type_on, name FROM "resources" UNION SELECT user_accounts.id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" WHERE "user_accounts"."company_id" = 15 UNION SELECT projects.id as obj_id, 'Project' as pol_type, title as type_on, title as name FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = 15) attached_obj ON attached_obj.obj_id = attachments.attached_on_id AND attached_obj.pol_type = attachments.attached_on_type WHERE "attachments"."is_active" = $1[0m  [["is_active", true]]
+  ↳ app/services/resources/attachments_service.rb:52
+Completed 200 OK in 55ms (Views: 0.2ms | ActiveRecord: 14.8ms)
+
+
+Started GET "/en/attachments/get_files" for 127.0.0.1 at 2021-05-22 14:22:44 +0400
+Processing by AttachmentsController#get_files as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[36mAttachment Load (0.7ms)[0m  [1m[34mSELECT id, pol_type, type_on, name, file as file_name, uuid FROM "attachments" JOIN (SELECT id as obj_id, 'Resource' as pol_type, model_on_type as type_on, name FROM "resources" UNION SELECT user_accounts.id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" WHERE "user_accounts"."company_id" = 15 UNION SELECT projects.id as obj_id, 'Project' as pol_type, title as type_on, title as name FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = 15) attached_obj ON attached_obj.obj_id = attachments.attached_on_id AND attached_obj.pol_type = attachments.attached_on_type WHERE "attachments"."is_active" = $1[0m  [["is_active", true]]
+  ↳ app/services/resources/attachments_service.rb:52
+Completed 200 OK in 52ms (Views: 0.2ms | ActiveRecord: 9.4ms)
+
+
+  [1m[36mAttachment Load (0.6ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments"[0m
+Started GET "/en/attachments/get_files" for 127.0.0.1 at 2021-05-22 14:23:56 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by AttachmentsController#get_files as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT user_accounts.id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" WHERE "user_accounts"."company_id" = $1[0m  [["company_id", 15]]
+  ↳ app/services/resources/attachments_service.rb:71
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT user_accounts.id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" WHERE "user_accounts"."company_id" = $1[0m  [["company_id", 15]]
+  ↳ (pry):2
+  [1m[36mUserAccount Update All (13.9ms)[0m  [1m[33mUPDATE "user_accounts" SET "company_id" = 15[0m
+  ↳ (pry):4
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT user_accounts.id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" WHERE "user_accounts"."company_id" = $1[0m  [["company_id", 15]]
+  ↳ (pry):5
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT user_accounts.id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" WHERE "user_accounts"."company_id" = $1[0m  [["company_id", 15]]
+  ↳ (pry):6
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT projects.id as obj_id, 'Project' as pol_type, title as type_on, title as name FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1[0m  [["company_id", 15]]
+  ↳ app/services/resources/attachments_service.rb:79
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT projects.id as obj_id, 'Project' as pol_type, title as type_on, title as name FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1[0m  [["company_id", 15]]
+  ↳ (pry):8
+  [1m[36mAttachment Load (0.6ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments"[0m
+  ↳ app/services/resources/attachments_service.rb:79
+  [1m[36mAttachment Load (1.8ms)[0m  [1m[34mSELECT  "attachments".* FROM "attachments" ORDER BY "attachments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):10
+  [1m[36mAttachment Update (37.0ms)[0m  [1m[33mUPDATE "attachments" SET "attached_on_id" = $1 WHERE "attachments"."id" = $2[0m  [["attached_on_id", 6], ["id", 1]]
+  ↳ (pry):10
+  [1m[36mAttachment Load (1.2ms)[0m  [1m[34mSELECT  "attachments".* FROM "attachments" ORDER BY "attachments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):11
+  [1m[36mAttachment Update (36.9ms)[0m  [1m[33mUPDATE "attachments" SET "attached_on_id" = $1 WHERE "attachments"."id" = $2[0m  [["attached_on_id", 6], ["id", 3]]
+  ↳ (pry):11
+  [1m[36mAttachment Load (1.6ms)[0m  [1m[34mSELECT id, pol_type, type_on, name, file as file_name, uuid FROM "attachments" JOIN (SELECT id as obj_id, 'Resource' as pol_type, model_on_type as type_on, name FROM "resources" UNION SELECT user_accounts.id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" WHERE "user_accounts"."company_id" = 15 UNION SELECT projects.id as obj_id, 'Project' as pol_type, title as type_on, title as name FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = 15) attached_obj ON attached_obj.obj_id = attachments.attached_on_id AND attached_obj.pol_type = attachments.attached_on_type WHERE "attachments"."is_active" = $1[0m  [["is_active", true]]
+  ↳ app/services/resources/attachments_service.rb:52
+Completed 200 OK in 237421ms (Views: 0.3ms | ActiveRecord: 109.1ms)
+
+
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/attachments" for 127.0.0.1 at 2021-05-22 14:29:22 +0400
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00007fe345133190 @tempfile=#<Tempfile:/tmp/RackMultipart20210522-18037-vod3wr.png>, @original_filename="Screenshot from 2019-10-04 10-47-41.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Screenshot from 2019-10-04 10-47-41.png\"\r\nContent-Type: image/png\r\n">, "attached_on_id"=>"10", "attached_on_type"=>"Resource", "exp_date"=>"23/12/2023", "locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:24
+  [1m[36mAttachment Create (4.4ms)[0m  [1m[32mINSERT INTO "attachments" ("attached_on_type", "attached_on_id", "file", "uuid", "exp_date") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["attached_on_type", "Resource"], ["attached_on_id", 10], ["file", "Screenshot_from_2019-10-04_10-47-41.png"], ["uuid", "f181663e-710c-4126-bc8d-07f7e64db0a0"], ["exp_date", "2023-12-23 00:00:00"]]
+  ↳ app/services/resources/attachments_service.rb:24
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/attachments_service.rb:24
+Completed 201 Created in 39ms (Views: 18.5ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/en/attachments/get_files" for 127.0.0.1 at 2021-05-22 14:29:32 +0400
+Processing by AttachmentsController#get_files as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[36mAttachment Load (1.0ms)[0m  [1m[34mSELECT id, pol_type, type_on, name, file as file_name, uuid FROM "attachments" JOIN (SELECT id as obj_id, 'Resource' as pol_type, model_on_type as type_on, name FROM "resources" UNION SELECT user_accounts.id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" WHERE "user_accounts"."company_id" = 15 UNION SELECT projects.id as obj_id, 'Project' as pol_type, title as type_on, title as name FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = 15) attached_obj ON attached_obj.obj_id = attachments.attached_on_id AND attached_obj.pol_type = attachments.attached_on_type WHERE "attachments"."is_active" = $1[0m  [["is_active", true]]
+  ↳ app/services/resources/attachments_service.rb:52
+Completed 200 OK in 5071ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/en/attachments/get_files" for 127.0.0.1 at 2021-05-22 14:31:14 +0400
+Processing by AttachmentsController#get_files as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[36mAttachment Load (0.8ms)[0m  [1m[34mSELECT id, pol_type, type_on, name, file as file_name, uuid FROM "attachments" JOIN (SELECT id as obj_id, 'Resource' as pol_type, model_on_type as type_on, name FROM "resources" UNION SELECT user_accounts.id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" WHERE "user_accounts"."company_id" = 15 UNION SELECT projects.id as obj_id, 'Project' as pol_type, title as type_on, title as name FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = 15) attached_obj ON attached_obj.obj_id = attachments.attached_on_id AND attached_obj.pol_type = attachments.attached_on_type WHERE "attachments"."is_active" = $1[0m  [["is_active", true]]
+  ↳ app/services/resources/attachments_service.rb:52
+Completed 500 Internal Server Error in 461888ms (ActiveRecord: 10.3ms)
+
+
+  
+NoMethodError (undefined method `type_on' for #<Array:0x0000559bf32e2f90>):
+  
+app/services/resources/attachments_service.rb:54:in `block in files'
+app/services/resources/attachments_service.rb:54:in `each'
+app/services/resources/attachments_service.rb:54:in `group_by'
+app/services/resources/attachments_service.rb:54:in `files'
+app/controllers/attachments_controller.rb:26:in `get_files'
+Started POST "/en/attachments" for 127.0.0.1 at 2021-05-22 14:39:42 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00007f967c3e1c90 @tempfile=#<Tempfile:/tmp/RackMultipart20210522-21048-jsze2q.png>, @original_filename="Screenshot from 2020-03-16 00-57-44.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Screenshot from 2020-03-16 00-57-44.png\"\r\nContent-Type: image/png\r\n">, "attached_on_id"=>"10", "attached_on_type"=>"Resource", "exp_date"=>"23/12/2023", "locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:24
+  [1m[36mAttachment Create (0.5ms)[0m  [1m[32mINSERT INTO "attachments" ("attached_on_type", "attached_on_id", "file", "uuid", "exp_date") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["attached_on_type", "Resource"], ["attached_on_id", 10], ["file", "Screenshot_from_2020-03-16_00-57-44.png"], ["uuid", "9f939b2f-6149-4fc2-acd6-a305539ace94"], ["exp_date", "2023-12-23 00:00:00"]]
+  ↳ app/services/resources/attachments_service.rb:24
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/attachments_service.rb:24
+Completed 201 Created in 56ms (Views: 0.2ms | ActiveRecord: 11.9ms)
+
+
+  [1m[36mResource Load (1.2ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 2]]
+Started POST "/en/attachments" for 127.0.0.1 at 2021-05-22 14:40:01 +0400
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00007f96741dab20 @tempfile=#<Tempfile:/tmp/RackMultipart20210522-21048-1bjftce.png>, @original_filename="Screenshot from 2019-07-16 14-14-52.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Screenshot from 2019-07-16 14-14-52.png\"\r\nContent-Type: image/png\r\n">, "attached_on_id"=>"9", "attached_on_type"=>"Resource", "exp_date"=>"23/12/2023", "locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:24
+  [1m[36mAttachment Create (0.3ms)[0m  [1m[32mINSERT INTO "attachments" ("attached_on_type", "attached_on_id", "file", "uuid", "exp_date") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["attached_on_type", "Resource"], ["attached_on_id", 9], ["file", "Screenshot_from_2019-07-16_14-14-52.png"], ["uuid", "6ceed830-f712-4a90-a541-5a2373a7f3e5"], ["exp_date", "2023-12-23 00:00:00"]]
+  ↳ app/services/resources/attachments_service.rb:24
+  [1m[35m (36.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/attachments_service.rb:24
+Completed 201 Created in 43ms (Views: 0.5ms | ActiveRecord: 37.2ms)
+
+
+  [1m[36mResource Load (1.0ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/en/attachments" for 127.0.0.1 at 2021-05-22 14:40:22 +0400
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00007f9688084aa0 @tempfile=#<Tempfile:/tmp/RackMultipart20210522-21048-oc6vwl.png>, @original_filename="Screenshot from 2021-01-18 18-02-23.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Screenshot from 2021-01-18 18-02-23.png\"\r\nContent-Type: image/png\r\n">, "attached_on_id"=>"3", "attached_on_type"=>"Resource", "exp_date"=>"23/12/2023", "locale"=>"en"}
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:24
+  [1m[36mAttachment Create (0.3ms)[0m  [1m[32mINSERT INTO "attachments" ("attached_on_type", "attached_on_id", "file", "uuid", "exp_date") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["attached_on_type", "Resource"], ["attached_on_id", 3], ["file", "Screenshot_from_2021-01-18_18-02-23.png"], ["uuid", "ece1c79a-719e-4132-8296-57347b5ef06f"], ["exp_date", "2023-12-23 00:00:00"]]
+  ↳ app/services/resources/attachments_service.rb:24
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/attachments_service.rb:24
+Completed 201 Created in 11ms (Views: 0.2ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/en/attachments/get_files" for 127.0.0.1 at 2021-05-22 14:40:32 +0400
+Processing by AttachmentsController#get_files as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[36mAttachment Load (1.6ms)[0m  [1m[34mSELECT id, pol_type, type_on, name, file as file_name, uuid FROM "attachments" JOIN (SELECT id as obj_id, 'Resource' as pol_type, model_on_type as type_on, name FROM "resources" UNION SELECT user_accounts.id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" WHERE "user_accounts"."company_id" = 15 UNION SELECT projects.id as obj_id, 'Project' as pol_type, title as type_on, title as name FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = 15) attached_obj ON attached_obj.obj_id = attachments.attached_on_id AND attached_obj.pol_type = attachments.attached_on_type WHERE "attachments"."is_active" = $1[0m  [["is_active", true]]
+  ↳ app/services/resources/attachments_service.rb:52
+Completed 500 Internal Server Error in 3494ms (ActiveRecord: 4.8ms)
+
+
+  
+NoMethodError (undefined method `map!' for #<Hash:0x00007f967c8f42c8>):
+  
+app/services/resources/attachments_service.rb:55:in `files'
+app/controllers/attachments_controller.rb:26:in `get_files'
+Started GET "/en/attachments/get_files" for 127.0.0.1 at 2021-05-22 14:40:43 +0400
+Processing by AttachmentsController#get_files as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[36mAttachment Load (0.8ms)[0m  [1m[34mSELECT id, pol_type, type_on, name, file as file_name, uuid FROM "attachments" JOIN (SELECT id as obj_id, 'Resource' as pol_type, model_on_type as type_on, name FROM "resources" UNION SELECT user_accounts.id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" WHERE "user_accounts"."company_id" = 15 UNION SELECT projects.id as obj_id, 'Project' as pol_type, title as type_on, title as name FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = 15) attached_obj ON attached_obj.obj_id = attachments.attached_on_id AND attached_obj.pol_type = attachments.attached_on_type WHERE "attachments"."is_active" = $1[0m  [["is_active", true]]
+  ↳ app/services/resources/attachments_service.rb:52
+Completed 200 OK in 2896ms (Views: 0.4ms | ActiveRecord: 9.6ms)
+
+
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+Started POST "/en/attachments" for 127.0.0.1 at 2021-05-22 14:42:03 +0400
+Processing by AttachmentsController#create as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x00007f967c5ee1a0 @tempfile=#<Tempfile:/tmp/RackMultipart20210522-21048-ql476l.png>, @original_filename="Screenshot from 2020-03-19 15-50-07.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Screenshot from 2020-03-19 15-50-07.png\"\r\nContent-Type: image/png\r\n">, "attached_on_id"=>"8", "attached_on_type"=>"Project", "exp_date"=>"23/12/2023", "locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/resources/attachments_service.rb:24
+  [1m[36mAttachment Create (0.3ms)[0m  [1m[32mINSERT INTO "attachments" ("attached_on_type", "attached_on_id", "file", "uuid", "exp_date") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["attached_on_type", "Project"], ["attached_on_id", 8], ["file", "Screenshot_from_2020-03-19_15-50-07.png"], ["uuid", "602990b5-c96d-4b9d-847b-6953e1c05015"], ["exp_date", "2023-12-23 00:00:00"]]
+  ↳ app/services/resources/attachments_service.rb:24
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/resources/attachments_service.rb:24
+Completed 201 Created in 10ms (Views: 0.1ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/en/attachments/get_files" for 127.0.0.1 at 2021-05-22 14:42:08 +0400
+Processing by AttachmentsController#get_files as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+Unpermitted parameters: :format, :locale
+  [1m[36mAttachment Load (1.0ms)[0m  [1m[34mSELECT id, pol_type, type_on, name, file as file_name, uuid FROM "attachments" JOIN (SELECT id as obj_id, 'Resource' as pol_type, model_on_type as type_on, name FROM "resources" UNION SELECT user_accounts.id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name FROM "user_accounts" WHERE "user_accounts"."company_id" = 15 UNION SELECT projects.id as obj_id, 'Project' as pol_type, title as type_on, title as name FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = 15) attached_obj ON attached_obj.obj_id = attachments.attached_on_id AND attached_obj.pol_type = attachments.attached_on_type WHERE "attachments"."is_active" = $1[0m  [["is_active", true]]
+  ↳ app/services/resources/attachments_service.rb:52
+Completed 200 OK in 3410ms (Views: 0.8ms | ActiveRecord: 1.3ms)
+
+
