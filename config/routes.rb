@@ -159,6 +159,8 @@ Rails.application.routes.draw do
       get 'projects/:id',         to: 'projects#show'
       get 'projects/get_project/:id',         to: 'projects#get_project'
 
+      get 'dashboards/view', to: 'dashboards#view'
+
     end
   end
 end

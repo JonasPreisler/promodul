@@ -33016,3 +33016,199 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 3410ms (Views: 0.8ms | ActiveRecord: 1.3ms)
 
 
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id"[0m
+  [1m[36mProject Load (1.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id"[0m
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT CASE WHEN deadline < NOW() THEN 'Done' ELSE 'NOT Done' FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id"[0m
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  CASE WHEN deadline < NOW() THEN 'Done' ELSE 'NOT Done' FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT  CASE WHEN deadline < NOW() THEN 'Done' ELSE 'NOT Done' FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT CASE WHEN deadline < NOW() THEN 'Done' ELSE 'NOT Done' FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id"[0m
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT CASE WHEN deadline < NOW() THEN 'Done' ELSE 'NOT Done' as status FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id"[0m
+  [1m[36mProject Load (38.9ms)[0m  [1m[34mSELECT CASE WHEN deadline < NOW() THEN 'Done' ELSE 'NOT Done' END as status FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id"[0m
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT CASE WHEN deadline < NOW() THEN 'Done' ELSE CASE WHEN start_date < NOW() AND deadline > NOW() THEN 'In Progress' ELSE 'Future' END END as status FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id"[0m
+  [1m[36mProject Load (1.3ms)[0m  [1m[34mSELECT projects.id, CASE WHEN deadline < NOW() THEN 'Done' ELSE CASE WHEN start_date < NOW() AND deadline > NOW() THEN 'In Progress' ELSE 'Future' END END as status FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id"[0m
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT projects.id, CASE WHEN deadline < NOW() THEN 'Done' ELSE CASE WHEN start_date < NOW() AND deadline > NOW() THEN 'In Progress' ELSE 'Future' END END as status FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id"[0m
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Load (38.9ms)[0m  [1m[34mSELECT COUNT(projects.id), CASE WHEN deadline < NOW() THEN 'Done' ELSE CASE WHEN start_date < NOW() AND deadline > NOW() THEN 'In Progress' ELSE 'Future' END END as status FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" GROUP BY status[0m
+  [1m[36mProject Load (1.6ms)[0m  [1m[34mSELECT COUNT(projects.id), CASE WHEN deadline < NOW() THEN 'Done' ELSE CASE WHEN start_date < NOW() AND deadline > NOW() THEN 'In Progress' ELSE 'Future' END END as status FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" GROUP BY status[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Update (36.8ms)[0m  [1m[33mUPDATE "projects" SET "start_date" = $1 WHERE "projects"."id" = $2[0m  [["start_date", "2021-05-20 11:26:05.245518"], ["id", 2]]
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT COUNT(projects.id), CASE WHEN deadline < NOW() THEN 'Done' ELSE CASE WHEN start_date < NOW() AND deadline > NOW() THEN 'In Progress' ELSE 'Future' END END as status FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" GROUP BY status[0m
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT COUNT(projects.id), CASE WHEN deadline < NOW() THEN 'Done' ELSE CASE WHEN start_date < NOW() AND deadline > NOW() THEN 'In Progress' ELSE 'Future' END END as status FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" GROUP BY status[0m
+  [1m[36mProject Load (1.6ms)[0m  [1m[34mSELECT COUNT(projects.id), CASE WHEN deadline < NOW() THEN 'Done' ELSE CASE WHEN start_date < NOW() AND deadline > NOW() THEN 'In Progress' ELSE 'Future' END END as status FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" GROUP BY status[0m
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT COUNT(projects.id), CASE WHEN deadline < NOW() THEN 'Done' ELSE CASE WHEN start_date < NOW() AND deadline > NOW() THEN 'In Progress' ELSE 'Future' END END as status FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" GROUP BY status[0m
+  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT COUNT(projects.id), CASE WHEN deadline < NOW() THEN 'Done' ELSE CASE WHEN start_date < NOW() AND deadline > NOW() THEN 'In Progress' ELSE 'Future' END END as status FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" GROUP BY status[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE (deadline < '2021-05-22 11:39:27.612148')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE (start_date < '2021-05-22 11:40:15.782947' AND deadline > '2021-05-22 11:40:15.782967')[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE (start_date > '2021-05-22 11:40:43.769975')[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id"[0m
+  [1m[36mTask Load (42.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id"[0m
+  [1m[36mTaskStatus Load (36.8ms)[0m  [1m[34mSELECT "task_statuses".* FROM "task_statuses"[0m
+  [1m[36mTask Load (2.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id"[0m
+  [1m[36mTaskStatus Load (0.5ms)[0m  [1m[34mSELECT "task_statuses".* FROM "task_statuses"[0m
+  [1m[36mTask Load (1.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "task_statuses"."id_name" = $1[0m  [["id_name", "done"]]
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "task_statuses"."id_name" = $1[0m  [["id_name", "open"]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "task_statuses"."id_name" = $1[0m  [["id_name", "done"]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "task_statuses"."id_name" = $1[0m  [["id_name", "open"]]
+  [1m[36mTaskStatus Load (0.5ms)[0m  [1m[34mSELECT "task_statuses".* FROM "task_statuses"[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id"[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1[0m  [["company_id", 15]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1 AND (deadline < '2021-05-22 12:14:24.899491')[0m  [["company_id", 15]]
+  [1m[36mResource Load (0.8ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResourceType Load (38.4ms)[0m  [1m[34mSELECT "resource_types".* FROM "resource_types"[0m
+  [1m[36mResource Load (1.7ms)[0m  [1m[34mSELECT "resources".* FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id"[0m
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRole Load (5.6ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 94], ["LIMIT", 1]]
+  [1m[36mUserRole Load (0.5ms)[0m  [1m[34mSELECT "user_roles".* FROM "user_roles"[0m
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 92], ["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 92], ["LIMIT", 1]]
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 92], ["LIMIT", 1]]
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 92], ["LIMIT", 1]]
+  [1m[36mUserRole Load (0.9ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 92], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (3.2ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUserAccount Load (4.4ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" = $1[0m  [["id_name", "super_admin"]]
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  [1m[36mUserRole Load (0.4ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 60], ["LIMIT", 1]]
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  [1m[36mUserRole Load (0.3ms)[0m  [1m[34mSELECT  "user_roles".* FROM "user_roles" WHERE "user_roles"."user_account_id" = $1 LIMIT $2[0m  [["user_account_id", 60], ["LIMIT", 1]]
+  [1m[36mRoleGroup Load (0.5ms)[0m  [1m[34mSELECT  "role_groups".* FROM "role_groups" WHERE "role_groups"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" = $1[0m  [["id_name", "super_admin"]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" = $1 AND "user_accounts"."company_id" = $2[0m  [["id_name", "super_admin"], ["company_id", 15]]
+  [1m[36mUserRole Load (0.9ms)[0m  [1m[34mSELECT "user_roles".* FROM "user_roles"[0m
+  [1m[36mRoleGroup Load (0.6ms)[0m  [1m[34mSELECT "role_groups".* FROM "role_groups"[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" IN ($1, $2) AND "user_accounts"."company_id" = $3[0m  [["id_name", "project_manager"], ["id_name", "employee"], ["company_id", 15]]
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."company_id" = $1[0m  [["company_id", 15]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts" WHERE "user_accounts"."company_id" = $1[0m  [["company_id", 15]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" = $1 AND "user_accounts"."company_id" = $2[0m  [["id_name", "employee"], ["company_id", 15]]
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" = $1 AND "user_accounts"."company_id" = $2[0m  [["id_name", "project_manager"], ["company_id", 15]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" = $1 AND "user_accounts"."company_id" = $2[0m  [["id_name", "super_admin"], ["company_id", 15]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "user_accounts"."id" FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" = $1 AND "user_accounts"."company_id" = $2[0m  [["id_name", "super_admin"], ["company_id", 15]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-05-22 16:31:31 +0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-05-22 16:31:31 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-05-22 16:31:31 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-05-22 16:31:32 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-05-22 16:31:36 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-05-22 16:31:36 +0400
+Started GET "/en/dashboards/view" for 127.0.0.1 at 2021-05-22 16:31:50 +0400
+Processing by DashboardsController#view as JSON
+  Parameters: {"locale"=>"en"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2021-05-22 16:32:05 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (1.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 186ms (Views: 0.2ms | ActiveRecord: 13.4ms)
+
+
+Started GET "/en/dashboards/view" for 127.0.0.1 at 2021-05-22 16:32:16 +0400
+Processing by DashboardsController#view as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant Dashboard::Service):
+  
+app/controllers/dashboards_controller.rb:9:in `view'
+Started GET "/en/dashboards/view" for 127.0.0.1 at 2021-05-22 16:32:39 +0400
+Processing by DashboardsController#view as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1 AND (deadline < '2021-05-22 12:32:39.705405')[0m  [["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:86
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1 AND (start_date < '2021-05-22 12:32:39.711974' AND deadline > '2021-05-22 12:32:39.711998')[0m  [["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:90
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1 AND (start_date > '2021-05-22 12:32:39.714553')[0m  [["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:94
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1[0m  [["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:98
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1 AND "task_statuses"."id_name" = $2[0m  [["company_id", 15], ["id_name", "done"]]
+  ↳ app/services/dashboard/services.rb:78
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1 AND "task_statuses"."id_name" = $2[0m  [["company_id", 15], ["id_name", "in_progress"]]
+  ↳ app/services/dashboard/services.rb:78
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1 AND "task_statuses"."id_name" = $2[0m  [["company_id", 15], ["id_name", "open"]]
+  ↳ app/services/dashboard/services.rb:78
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1[0m  [["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:82
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" = $1 AND "user_accounts"."company_id" = $2[0m  [["id_name", "project_manager"], ["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:35
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" = $1 AND "user_accounts"."company_id" = $2[0m  [["id_name", "employee"], ["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:35
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" IN ($1, $2) AND "user_accounts"."company_id" = $3[0m  [["id_name", "project_manager"], ["id_name", "employee"], ["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:39
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" WHERE "resource_types"."id_name" = $1 AND "resources"."company_id" = $2[0m  [["id_name", "machine"], ["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:52
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" WHERE "resource_types"."id_name" = $1 AND "resources"."company_id" = $2[0m  [["id_name", "tool"], ["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:52
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" WHERE "resource_types"."id_name" = $1 AND "resources"."company_id" = $2[0m  [["id_name", "external_resource"], ["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:52
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" WHERE "resources"."company_id" = $1[0m  [["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:56
+Completed 200 OK in 182ms (Views: 0.4ms | ActiveRecord: 51.3ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-05-22 16:36:46 +0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-05-22 16:36:46 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-05-22 16:36:46 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-05-22 16:36:46 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-05-22 16:36:48 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-05-22 16:36:48 +0400
+Started GET "/en/dashboards/view" for 127.0.0.1 at 2021-05-22 16:36:58 +0400
+Processing by DashboardsController#view as JSON
+  Parameters: {"locale"=>"en"}
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1 AND (deadline < '2021-05-22 12:36:58.593681')[0m  [["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:86
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1 AND (start_date < '2021-05-22 12:36:58.598515' AND deadline > '2021-05-22 12:36:58.598527')[0m  [["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:90
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1 AND (start_date > '2021-05-22 12:36:58.600681')[0m  [["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:94
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1[0m  [["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:98
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1 AND "task_statuses"."id_name" = $2[0m  [["company_id", 15], ["id_name", "done"]]
+  ↳ app/services/dashboard/services.rb:78
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1 AND "task_statuses"."id_name" = $2[0m  [["company_id", 15], ["id_name", "in_progress"]]
+  ↳ app/services/dashboard/services.rb:78
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1 AND "task_statuses"."id_name" = $2[0m  [["company_id", 15], ["id_name", "open"]]
+  ↳ app/services/dashboard/services.rb:78
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "user_accounts"."company_id" = $1[0m  [["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:82
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" = $1 AND "user_accounts"."company_id" = $2[0m  [["id_name", "project_manager"], ["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:35
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" = $1 AND "user_accounts"."company_id" = $2[0m  [["id_name", "employee"], ["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:35
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" IN ($1, $2) AND "user_accounts"."company_id" = $3[0m  [["id_name", "project_manager"], ["id_name", "employee"], ["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:39
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" WHERE "resource_types"."id_name" = $1 AND "resources"."company_id" = $2[0m  [["id_name", "machine"], ["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:52
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" WHERE "resource_types"."id_name" = $1 AND "resources"."company_id" = $2[0m  [["id_name", "tool"], ["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:52
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" WHERE "resource_types"."id_name" = $1 AND "resources"."company_id" = $2[0m  [["id_name", "external_resource"], ["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:52
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" WHERE "resources"."company_id" = $1[0m  [["company_id", 15]]
+  ↳ app/services/dashboard/services.rb:56
+Completed 200 OK in 171ms (Views: 0.3ms | ActiveRecord: 42.5ms)
+
+
