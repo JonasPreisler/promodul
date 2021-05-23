@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_15_162212) do
+ActiveRecord::Schema.define(version: 2021_05_23_122106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -202,6 +202,8 @@ ActiveRecord::Schema.define(version: 2021_05_15_162212) do
   create_table "external_resource_types", force: :cascade do |t|
     t.string "name", limit: 150
     t.string "id_name", limit: 150
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_external_resource_types_on_company_id"
   end
 
   create_table "integration_systems", force: :cascade do |t|
@@ -216,6 +218,8 @@ ActiveRecord::Schema.define(version: 2021_05_15_162212) do
   create_table "machine_models", force: :cascade do |t|
     t.string "name", limit: 150
     t.string "id_name", limit: 150
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_machine_models_on_company_id"
   end
 
   create_table "order_comments", force: :cascade do |t|
@@ -532,6 +536,8 @@ ActiveRecord::Schema.define(version: 2021_05_15_162212) do
   create_table "tool_models", force: :cascade do |t|
     t.string "name", limit: 150
     t.string "id_name", limit: 150
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_tool_models_on_company_id"
   end
 
   create_table "user_account_projects", force: :cascade do |t|
@@ -607,6 +613,8 @@ ActiveRecord::Schema.define(version: 2021_05_15_162212) do
   add_foreign_key "departments", "companies"
   add_foreign_key "departments", "countries"
   add_foreign_key "departments", "departments", column: "parent_id"
+  add_foreign_key "external_resource_types", "companies"
+  add_foreign_key "machine_models", "companies"
   add_foreign_key "order_comments", "orders"
   add_foreign_key "order_comments", "user_accounts"
   add_foreign_key "order_products", "orders"
@@ -644,6 +652,7 @@ ActiveRecord::Schema.define(version: 2021_05_15_162212) do
   add_foreign_key "tasks", "task_statuses"
   add_foreign_key "terms_and_condition_agreements", "terms_and_conditions"
   add_foreign_key "terms_and_condition_agreements", "user_accounts"
+  add_foreign_key "tool_models", "companies"
   add_foreign_key "user_account_projects", "projects"
   add_foreign_key "user_account_projects", "user_accounts"
   add_foreign_key "user_account_tasks", "tasks"

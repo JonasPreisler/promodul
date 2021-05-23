@@ -33212,3 +33212,56 @@ Processing by DashboardsController#view as JSON
 Completed 200 OK in 171ms (Views: 0.3ms | ActiveRecord: 42.5ms)
 
 
+  [1m[36mMachineModel Load (3.2ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" ORDER BY "machine_models"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mToolModel Load (3.0ms)[0m  [1m[34mSELECT "tool_models".* FROM "tool_models"[0m
+  [1m[36mToolModel Load (0.3ms)[0m  [1m[34mSELECT  "tool_models".* FROM "tool_models" ORDER BY "tool_models"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddCompanyToModels (20210523122106)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "tool_models" ADD "company_id" bigint[0m
+  ↳ db/migrate/20210523122106_add_company_to_models.rb:3
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE  INDEX  "index_tool_models_on_company_id" ON "tool_models"  ("company_id")[0m
+  ↳ db/migrate/20210523122106_add_company_to_models.rb:3
+  [1m[35m (4.6ms)[0m  [1m[35mALTER TABLE "tool_models" ADD CONSTRAINT "fk_rails_d95a1c3a5a"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+[0m
+  ↳ db/migrate/20210523122106_add_company_to_models.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "machine_models" ADD "company_id" bigint[0m
+  ↳ db/migrate/20210523122106_add_company_to_models.rb:4
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_machine_models_on_company_id" ON "machine_models"  ("company_id")[0m
+  ↳ db/migrate/20210523122106_add_company_to_models.rb:4
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "machine_models" ADD CONSTRAINT "fk_rails_f249c29bb2"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+[0m
+  ↳ db/migrate/20210523122106_add_company_to_models.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "external_resource_types" ADD "company_id" bigint[0m
+  ↳ db/migrate/20210523122106_add_company_to_models.rb:5
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_external_resource_types_on_company_id" ON "external_resource_types"  ("company_id")[0m
+  ↳ db/migrate/20210523122106_add_company_to_models.rb:5
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "external_resource_types" ADD CONSTRAINT "fk_rails_84ff16617a"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+[0m
+  ↳ db/migrate/20210523122106_add_company_to_models.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210523122106"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2027190067205577435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mMachineModel Load (0.4ms)[0m  [1m[34mSELECT "machine_models".* FROM "machine_models" WHERE "machine_models"."company_id" = $1[0m  [["company_id", 15]]
+  [1m[36mMachineModel Load (0.5ms)[0m  [1m[34mSELECT  "machine_models".* FROM "machine_models" ORDER BY "machine_models"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
