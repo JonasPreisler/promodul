@@ -38,10 +38,9 @@ module Account
                             user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name, role_groups.id_name as user_role")
                    .joins(user_account: [:company, [user_role: :role_group]])
                    .where(user_accounts: { active: true})
+                   .where(role_groups: { id_name: id_names})
                    .where(companies: { id: @current_company.id })
                    .as_json
-
-      #.where(role_groups: { id_name: id_names})
     end
 
     def id_names
@@ -78,8 +77,19 @@ module Account
     end
 
     def task_user_list
-      users_list
+      user_list_for_task
       set_dates
+    end
+
+    def user_list_for_task
+      @users = Customer
+                   .select("user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
+                            user_accounts.email, user_accounts.username, user_accounts.first_name, user_accounts.last_name, role_groups.id_name as user_role")
+                   .joins(user_account: [:company, [user_role: :role_group]])
+                   .where(user_accounts: { active: true})
+                   .where(role_groups: { id_name: :employee})
+                   .where(companies: { id: @current_company.id })
+                   .as_json
     end
 
     private
