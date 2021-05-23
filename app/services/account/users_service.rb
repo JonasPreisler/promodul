@@ -39,8 +39,9 @@ module Account
                    .joins(user_account: [:company, [user_role: :role_group]])
                    .where(user_accounts: { active: true})
                    .where(companies: { id: @current_company.id })
-                   .where(role_groups: { id_name: id_names})
                    .as_json
+
+      #.where(role_groups: { id_name: id_names})
     end
 
     def id_names
@@ -93,7 +94,14 @@ module Account
     def build_available_dates(user_dates)
       dates_array = []
       user_dates.reject! { |record| record["start_time"].nil? }
-      dates = user_dates.any? ? calculate_dates(user_dates) : [period.step(1).to_a]
+      dates = if user_dates.any?
+                calculate_dates(user_dates)
+              elsif @params[:start_date].to_datetime == @params[:deadline].to_datetime
+                [[@params[:start_date].to_datetime, @params[:deadline].to_datetime]]
+              else
+                [period.step(1).to_a]
+              end
+
       dates.each do |date|
         dates_array << set_date_obj(date)
       end
@@ -125,7 +133,7 @@ module Account
     end
 
     def period
-      @params[:start_date].to_datetime...@params[:deadline].to_datetime
+      @params[:start_date].to_datetime..@params[:deadline].to_datetime
     end
 
     def approve_registration
