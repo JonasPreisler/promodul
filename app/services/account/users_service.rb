@@ -91,7 +91,7 @@ module Account
                    .where(companies: { id: @current_company.id })
                    .as_json
     end
-
+    #.where(role_groups: { id_name: :employee})
     private
 
     def set_dates
@@ -133,13 +133,36 @@ module Account
       new_period.chunk_while { |a,b| a+1.days == b}
     end
 
+    #def get_user_dates(user)
+    #  UserAccount
+    #      .select("tasks.start_time, tasks.deadline")
+    #      .joins("LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id")
+    #      .joins("LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id")
+    #      .where(user_accounts: { id: user["id"] })
+    #      .as_json
+    #end
+
     def get_user_dates(user)
       UserAccount
-          .select("tasks.start_time, tasks.deadline")
-          .joins("LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id")
-          .joins("LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id")
+          .select("last_name, start_time, deadline")
+          .joins("JOIN  (#{ get_tasks_user } UNION #{ get_projects_user }) obj ON obj.account_id = user_accounts.id")
           .where(user_accounts: { id: user["id"] })
           .as_json
+    end
+
+    def get_tasks_user
+      UserAccountTask
+          .select("user_account_id as account_id, tasks.start_time, tasks.deadline")
+          .joins("LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id")
+          .to_sql
+    end
+
+    def get_projects_user
+      UserAccountProject
+          .select("user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline")
+          .joins("LEFT JOIN projects ON projects.id = user_account_projects.project_id")
+          .to_sql
+
     end
 
     def period
