@@ -156,7 +156,7 @@ module Resources
     end
 
     def period
-      @params[:start_date].to_datetime...@params[:deadline].to_datetime
+      @params[:start_date].to_datetime..@params[:deadline].to_datetime
     end
 
     def validate_data!
