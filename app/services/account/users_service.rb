@@ -91,7 +91,7 @@ module Account
                    .where(companies: { id: @current_company.id })
                    .as_json
     end
-    #.where(role_groups: { id_name: :employee})
+
     private
 
     def set_dates
@@ -99,6 +99,7 @@ module Account
         user.merge!(checked: false)
         user.merge!(available_dates: build_available_dates(get_user_dates(user)))
       end
+      @users.reject! { |x| x if x[:available_dates].empty? }
     end
 
     def build_available_dates(user_dates)

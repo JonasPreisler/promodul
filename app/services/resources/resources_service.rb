@@ -119,6 +119,10 @@ module Resources
         external.merge!(checked: false)
         external.merge!(available_dates: build_available_dates(get_resource_dates(external)))
       end
+
+      @list[:machines].reject! { |x| x if x[:available_dates].empty? }
+      @list[:tools].reject! { |x| x if x[:available_dates].empty? }
+      @list[:external_resources].reject! { |x| x if x[:available_dates].empty? }
     end
 
     def build_available_dates(resource_dates)
@@ -146,13 +150,35 @@ module Resources
       new_period.chunk_while { |a,b| a+1.days == b}
     end
 
+    #def get_resource_dates(data)
+    #  Resource
+    #      .select("tasks.start_time, tasks.deadline")
+    #      .joins("LEFT JOIN task_resources ON task_resources.resource_id = resources.id")
+    #      .joins("LEFT JOIN tasks ON tasks.id = task_resources.task_id")
+    #      .where(resources: { id: data["id"] })
+    #      .as_json
+    #end
+
     def get_resource_dates(data)
       Resource
-          .select("tasks.start_time, tasks.deadline")
-          .joins("LEFT JOIN task_resources ON task_resources.resource_id = resources.id")
-          .joins("LEFT JOIN tasks ON tasks.id = task_resources.task_id")
+          .select("start_time, deadline")
+          .joins("JOIN  (#{ get_tasks_res } UNION #{ get_projects_res }) obj ON obj.resource_id = resources.id")
           .where(resources: { id: data["id"] })
           .as_json
+    end
+
+    def get_tasks_res
+      TaskResource
+          .select("resource_id, tasks.start_time, tasks.deadline")
+          .joins("LEFT JOIN tasks ON tasks.id = task_resources.task_id")
+          .to_sql
+    end
+
+    def get_projects_res
+      ProjectResource
+          .select("resource_id, projects.start_date as start_time, projects.deadline")
+          .joins("LEFT JOIN projects ON projects.id = project_resources.project_id")
+          .to_sql
     end
 
     def period
