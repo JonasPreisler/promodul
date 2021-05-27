@@ -160,6 +160,7 @@ Rails.application.routes.draw do
       get 'projects/get_project/:id',         to: 'projects#get_project'
 
       get 'dashboards/view', to: 'dashboards#view'
+      get 'schedulers/view', to: 'schedulers#view'
 
     end
   end
