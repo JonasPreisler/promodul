@@ -84,7 +84,7 @@ module Account
       UserAccount
           .select("project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, addr as address, contact")
           .joins("LEFT JOIN  (#{ get_tasks_employee } UNION #{ get_projects_employee }) obj ON obj.account_id = user_accounts.id")
-          .where(id: @params[:id])
+          .where(id: @current_account.id)
           .as_json
     end
 
