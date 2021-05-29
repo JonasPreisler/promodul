@@ -46948,3 +46948,19 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 23814ms (Views: 0.3ms | ActiveRecord: 13.6ms)
 
 
+Started GET "/en/users/employee_calendar" for 127.0.0.1 at 2021-05-29 16:11:32 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#employee_calendar as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCompany Load (1.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mUserAccount Load (2.2ms)[0m  [1m[34mSELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, addr as address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.contact_person as contact, projects.address as addr, projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.contact_person as contact, projects.address as addr, projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL[0m
+  ↳ app/services/account/users_service.rb:88
+Completed 200 OK in 74ms (Views: 0.3ms | ActiveRecord: 17.9ms)
+
+
