@@ -92,11 +92,33 @@ module Resources
     end
 
     def resource_calendar
-      @dates = Resource
-                   .select('projects.id, tasks.id as task_id, tasks.title as task_title, task_statuses.id_name as task_status,
-                            tasks.start_time as start, tasks.deadline as end, projects.title')
-                   .joins(task_resources: [task: [:task_status, :project]])
-                   .where(id: @params[:id])
+      @dates = get_resource_calendar
+    end
+
+
+    def get_resource_calendar
+      Resource
+          .select("project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status")
+          .joins("LEFT JOIN  (#{ get_tasks_calendar } UNION #{ get_projects_calendar }) obj ON obj.resource_id = resources.id")
+          .where(id: @params[:id])
+          .as_json
+    end
+
+    def get_tasks_calendar
+      TaskResource
+          .select("projects.id as  project_id, resource_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status")
+          .joins("LEFT JOIN tasks ON tasks.id = task_resources.task_id")
+          .joins("LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id")
+          .joins("LEFT JOIN projects on projects.id = tasks.project_id")
+          .to_sql
+    end
+
+    def get_projects_calendar
+      ProjectResource
+          .select("projects.id as  project_id, resource_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status")
+          .joins("LEFT JOIN projects ON projects.id = project_resources.project_id")
+          .to_sql
     end
 
     def task_resource_list

@@ -8135,7 +8135,7 @@
     },
     "/{locale}/schedulers/view": {
       "get": {
-        "summary": "Scheduler data",
+        "summary": "Scheduler data, Type should be 'employee or project_manager'",
         "tags": [
           "Scheduler"
         ],
@@ -8159,6 +8159,12 @@
             "type": "string",
             "required": true,
             "default": "en"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string",
+            "required": true
           }
         ],
         "responses": {
@@ -8178,6 +8184,42 @@
                         "type": "string"
                       },
                       "last_name": {
+                        "type": "string"
+                      },
+                      "dates": {
+                        "type": "object",
+                        "properties": {
+                          "start": {
+                            "type": "string"
+                          },
+                          "end": {
+                            "type": "string"
+                          },
+                          "assign_id": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "assign_type": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "resource_dates": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
                         "type": "string"
                       },
                       "dates": {

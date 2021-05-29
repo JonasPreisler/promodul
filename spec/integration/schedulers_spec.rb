@@ -3,7 +3,7 @@ require 'swagger_helper'
 describe 'Clients', type: :request do
 
   path '/{locale}/schedulers/view' do
-    get 'Scheduler data' do
+    get "Scheduler data, Type should be 'employee or project_manager'" do
       tags 'Scheduler'
       consumes 'application/json'
       produces 'application/json'
@@ -17,6 +17,7 @@ describe 'Clients', type: :request do
                 })
 
       parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      parameter name: :type,   in: :query, type: :string, required: true
 
       response '200', 'OK' do
         schema type: :object,
@@ -28,6 +29,26 @@ describe 'Clients', type: :request do
                                id:          { type: :integer  },
                                first_name:  { type: :string },
                                last_name:   { type: :string },
+                               dates: {
+                                   type: :object,
+                                   properties: {
+                                       start:     { type: :string },
+                                       end:     { type: :string },
+                                       assign_id:   { type: :string },
+                                       title:     { type: :string },
+                                       assign_type: { type: :string },
+                                       status:   { type: :string }
+                                   }
+                               }
+                           }
+                       }
+                   },
+                   resource_dates: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               id:          { type: :integer  },
+                               name:  { type: :string },
                                dates: {
                                    type: :object,
                                    properties: {

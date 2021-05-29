@@ -52,7 +52,7 @@ module Resources
                    .group_by{ |obj| obj.pol_type}
 
       @files['Resource'] = @files['Resource'].group_by{ |obj| obj.type_on } if @files['Resource'].present?
-      @files['Resource'].map{ |k, v| @files['Resource'][k] = v.group_by{ |obj| obj.name }}
+      @files['Resource'].map{ |k, v| @files['Resource'][k] = v.group_by{ |obj| obj.name }} if @files['Resource'].present?
       @files['UserAccount'] = @files['UserAccount'].group_by{ |obj| obj.name } if @files['UserAccount'].present?
       @files['Project'] = @files['Project'].group_by{ |obj| obj.type_on } if @files['Project'].present?
 
