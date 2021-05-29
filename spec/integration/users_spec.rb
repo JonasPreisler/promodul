@@ -76,7 +76,7 @@ describe 'Users ', type: :request do
   end
 
   path '/{locale}/users/employee_calendar' do
-    get 'Returns calendar dates' do
+    get 'Returns employee dates' do
       tags 'Users'
       consumes 'application/json'
 
@@ -89,7 +89,6 @@ describe 'Users ', type: :request do
                 })
 
       parameter name: :locale, in: :path, type: :string, required: true, default: "en"
-      parameter name: :id, in: :path, type: :integer, required: true
 
       response '200', 'OK' do
         schema type: :object,
@@ -98,11 +97,15 @@ describe 'Users ', type: :request do
                        type: :array,
                        items: {
                            properties: {
-                               id: {type: :integer},
-                               title: {type: :string},
-                               start:  { type: :string },
-                               end:      { type: :string },
-                               task_title: { type: :string}
+                               id:            { type: :integer },
+                               title:          { type: :string },
+                               contact:        { type: :boolean },
+                               address:  { type: :string },
+                               start:      { type: :string  },
+                               end:         { type: :string },
+                               assign_id: { type: :integer },
+                               assign_type:  { type: :integer },
+                               status:     { type: :string }
                            }
                        }
                    }
@@ -115,7 +118,7 @@ describe 'Users ', type: :request do
   end
 
   path '/{locale}/users/list' do
-    get 'Get employee project list' do
+    get 'Get Users list' do
       tags 'Users'
       consumes 'application/json'
       produces 'application/json'
@@ -140,14 +143,14 @@ describe 'Users ', type: :request do
                            type: :object,
                            properties: {
                                id:            { type: :integer },
-                               title:          { type: :string },
-                               contact:        { type: :boolean },
-                               address:  { type: :string },
-                               start:      { type: :string  },
-                               end:         { type: :string },
-                               assign_id: { type: :integer },
-                               assign_type:  { type: :integer },
-                               status:     { type: :string }
+                               name:          { type: :string },
+                               active:        { type: :boolean },
+                               phone_number:  { type: :string },
+                               username:      { type: :string  },
+                               email:         { type: :string },
+                               role_group_id: { type: :integer },
+                               user_role_id:  { type: :integer },
+                               role_name:     { type: :string }
                            }
                        }
                    }

@@ -46761,3 +46761,190 @@ Completed 200 OK in 5828ms (Views: 0.5ms | ActiveRecord: 13.8ms)
   [1m[36mUserAccount Load (2.7ms)[0m  [1m[34mSELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.contact_person as contact, projects.address as address, projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.contact_person as contact, projects.address as address, projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ spec/rails_helper.rb:34
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-05-29 16:04:28 +0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-05-29 16:04:28 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-05-29 16:04:28 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-05-29 16:04:28 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-05-29 16:04:29 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-05-29 16:04:29 +0400
+Started POST "/en/auth" for 127.0.0.1 at 2021-05-29 16:04:38 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (1.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 150ms (Views: 0.2ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/en/users/employee_calendar" for 127.0.0.1 at 2021-05-29 16:04:55 +0400
+Processing by UsersController#employee_calendar as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mUserAccount Load (2.3ms)[0m  [1m[34mSELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL[0m
+  ↳ app/services/account/users_service.rb:88
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 8.9ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "address" does not exist
+LINE 1: ...ne as end, assign_id, title, assign_type, status, address, c...
+                                                             ^
+: SELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL):
+  
+app/services/account/users_service.rb:88:in `get_employee_dates'
+app/services/account/users_service.rb:80:in `employee_calendar'
+app/controllers/users_controller.rb:53:in `employee_calendar'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/en/users/employee_calendar" for 127.0.0.1 at 2021-05-29 16:06:01 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#employee_calendar as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL[0m
+  ↳ app/services/account/users_service.rb:88
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 12.6ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "address" does not exist
+LINE 1: ...ne as end, assign_id, title, assign_type, status, address, c...
+                                                             ^
+: SELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL):
+  
+app/services/account/users_service.rb:88:in `get_employee_dates'
+app/services/account/users_service.rb:80:in `employee_calendar'
+app/controllers/users_controller.rb:53:in `employee_calendar'
+Started GET "/en/users/employee_calendar" for 127.0.0.1 at 2021-05-29 16:06:40 +0400
+Processing by UsersController#employee_calendar as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, addresses as address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL[0m
+  ↳ app/services/account/users_service.rb:88
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 13.9ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "addresses" does not exist
+LINE 1: ...ne as end, assign_id, title, assign_type, status, addresses ...
+                                                             ^
+: SELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, addresses as address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL):
+  
+app/services/account/users_service.rb:88:in `get_employee_dates'
+app/services/account/users_service.rb:80:in `employee_calendar'
+app/controllers/users_controller.rb:53:in `employee_calendar'
+Started GET "/en/users/employee_calendar" for 127.0.0.1 at 2021-05-29 16:07:04 +0400
+Processing by UsersController#employee_calendar as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mUserAccount Load (1.9ms)[0m  [1m[34mSELECT "user_accounts".* FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL[0m
+  ↳ (pry):1
+  [1m[36mUserAccount Load (0.8ms)[0m  [1m[34mSELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, addresses as address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL[0m
+  ↳ (pry):2
+  [1m[36mUserAccount Load (38.6ms)[0m  [1m[34mSELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, obj.addresses as address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL[0m
+  ↳ (pry):3
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, obj.addresses as address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL[0m
+  ↳ (pry):4
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, obj.addresses as addresss, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL[0m
+  ↳ (pry):5
+  [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, obj.addresses as addresss, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL[0m
+  ↳ (pry):6
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, obj.addresses as address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL[0m
+  ↳ (pry):7
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, addresses as address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL[0m
+  ↳ app/services/account/users_service.rb:89
+Completed 500 Internal Server Error in 157755ms (ActiveRecord: 58.3ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "addresses" does not exist
+LINE 1: ...ne as end, assign_id, title, assign_type, status, addresses ...
+                                                             ^
+: SELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, addresses as address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL):
+  
+app/services/account/users_service.rb:89:in `get_employee_dates'
+app/services/account/users_service.rb:80:in `employee_calendar'
+app/controllers/users_controller.rb:53:in `employee_calendar'
+Started GET "/en/users/employee_calendar" for 127.0.0.1 at 2021-05-29 16:09:45 +0400
+Processing by UsersController#employee_calendar as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mUserAccount Load (2.0ms)[0m  [1m[34mSELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, addr as address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id[0m
+  ↳ (pry):8
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id[0m
+  ↳ (pry):9
+  [1m[36mUserAccount Load (0.7ms)[0m  [1m[34mSELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, addr as address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL[0m
+  ↳ app/services/account/users_service.rb:89
+Completed 500 Internal Server Error in 41824ms (ActiveRecord: 17.3ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "addr" does not exist
+LINE 1: ...ne as end, assign_id, title, assign_type, status, addr as ad...
+                                                             ^
+: SELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, addr as address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL):
+  
+app/services/account/users_service.rb:89:in `get_employee_dates'
+app/services/account/users_service.rb:80:in `employee_calendar'
+app/controllers/users_controller.rb:53:in `employee_calendar'
+Started GET "/en/users/employee_calendar" for 127.0.0.1 at 2021-05-29 16:10:44 +0400
+Processing by UsersController#employee_calendar as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mUserAccount Load (0.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, addr as address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.contact_person as contact, projects.address as addr, projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.contact_person as contact, projects.address as addr, projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id[0m
+  ↳ (pry):10
+  [1m[36mUserAccount Load (1.4ms)[0m  [1m[34mSELECT project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, addr as address, contact FROM "user_accounts" LEFT JOIN  (SELECT projects.contact_person as contact, projects.address as addr, projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id LEFT JOIN projects on projects.id = tasks.project_id UNION SELECT projects.contact_person as contact, projects.address as addr, projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" IS NULL[0m
+  ↳ app/services/account/users_service.rb:89
+Completed 200 OK in 23814ms (Views: 0.3ms | ActiveRecord: 13.6ms)
+
+
