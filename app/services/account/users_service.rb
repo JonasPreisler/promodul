@@ -32,6 +32,10 @@ module Account
       { employees: @users.as_json }
     end
 
+    def employee_calendar_json_view
+      { dates: @dates.as_json }
+    end
+
     def users_list
       @users = Customer
                    .select("user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
@@ -70,11 +74,36 @@ module Account
 
     def user_calendar
       @dates = get_calendar_dates
-      #@dates = UserAccount.select('projects.id, tasks.id as task_id, tasks.title as task_title, task_statuses.id_name as task_status,
-      #                      tasks.start_time as start, tasks.deadline as end, projects.title')
-      #             .joins(user_account_tasks: [task: [:task_status, :project]])
-      #             .where(id: @params[:id])
-      #             .as_json
+    end
+
+    def employee_calendar
+      @dates = get_employee_dates
+    end
+
+    def get_employee_dates
+      UserAccount
+          .select("project_id as id, start_time as start, deadline as end, assign_id, title, assign_type, status, address, contact")
+          .joins("LEFT JOIN  (#{ get_tasks_calendar } UNION #{ get_projects_calendar }) obj ON obj.account_id = user_accounts.id")
+          .where(id: @params[:id])
+          .as_json
+    end
+
+    def get_tasks_employee
+      UserAccountTask
+          .select("projects.contact_person as contact, projects.address as address, projects.id as  project_id, user_account_tasks.user_account_id as account_id, tasks.start_time, tasks.deadline, tasks.id as assign_id, projects.title as title, 'Task' as assign_type, task_statuses.id_name as status")
+          .joins("LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id")
+          .joins("LEFT JOIN task_statuses on task_statuses.id = tasks.task_status_id")
+          .joins("LEFT JOIN projects on projects.id = tasks.project_id")
+          .to_sql
+    end
+
+    def get_projects_employee
+      UserAccountProject
+          .select("projects.contact_person as contact, projects.address as address, projects.id as  project_id, user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
+                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status")
+          .joins("LEFT JOIN projects ON projects.id = user_account_projects.project_id")
+          .to_sql
+
     end
 
     def get_calendar_dates
@@ -84,20 +113,6 @@ module Account
           .where(id: @params[:id])
           .as_json
     end
-
-    #{
-    #  "dates": [
-    #    {
-    #      "id": 8,
-    #      "task_id": 10,
-    #      "task_title": "strsdcsding",
-    #      "task_status": "open",
-    #      "start": "2023-05-16T00:00:00.000Z",
-    #      "end": "2023-05-19T00:00:00.000Z",
-    #      "title": "aba vnaxot"
-    #    }
-    #  ]
-    #}
 
     def get_tasks_calendar
       UserAccountTask
@@ -114,7 +129,6 @@ module Account
                    CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status")
           .joins("LEFT JOIN projects ON projects.id = user_account_projects.project_id")
           .to_sql
-
     end
 
     def task_user_list

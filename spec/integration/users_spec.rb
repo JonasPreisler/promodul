@@ -75,8 +75,47 @@ describe 'Users ', type: :request do
     end
   end
 
+  path '/{locale}/users/employee_calendar' do
+    get 'Returns calendar dates' do
+      tags 'Users'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      parameter name: :id, in: :path, type: :integer, required: true
+
+      response '200', 'OK' do
+        schema type: :object,
+               properties: {
+                   dates: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               id: {type: :integer},
+                               title: {type: :string},
+                               start:  { type: :string },
+                               end:      { type: :string },
+                               task_title: { type: :string}
+                           }
+                       }
+                   }
+               }
+
+        run_test!
+      end
+
+    end
+  end
+
   path '/{locale}/users/list' do
-    get 'Get Users list' do
+    get 'Get employee project list' do
       tags 'Users'
       consumes 'application/json'
       produces 'application/json'
@@ -101,14 +140,14 @@ describe 'Users ', type: :request do
                            type: :object,
                            properties: {
                                id:            { type: :integer },
-                               name:          { type: :string },
-                               active:        { type: :boolean },
-                               phone_number:  { type: :string },
-                               username:      { type: :string  },
-                               email:         { type: :string },
-                               role_group_id: { type: :integer },
-                               user_role_id:  { type: :integer },
-                               role_name:     { type: :string }
+                               title:          { type: :string },
+                               contact:        { type: :boolean },
+                               address:  { type: :string },
+                               start:      { type: :string  },
+                               end:         { type: :string },
+                               assign_id: { type: :integer },
+                               assign_type:  { type: :integer },
+                               status:     { type: :string }
                            }
                        }
                    }

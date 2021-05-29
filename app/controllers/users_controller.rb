@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   include ControllerResponse
 
   #ToDO: Need remove after authorization will works
-  skip_before_action :validate_authentication
+  #skip_before_action :validate_authentication
   #before_action :is_admin_or_manager?
 
   def current_user
@@ -45,6 +45,12 @@ class UsersController < ApplicationController
   def user_calendar
     service = Account::UsersService.new(users_params, current_account, current_company)
     service.user_calendar
+    rest_respond_service service
+  end
+
+  def employee_calendar
+    service = Account::UsersService.new(users_params, current_account, current_company)
+    service.employee_calendar
     rest_respond_service service
   end
 
