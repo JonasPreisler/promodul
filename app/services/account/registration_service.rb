@@ -25,7 +25,7 @@ module Account
     end
 
     def call
-      #validate_phone_number
+      validate_username
       validate_password_matching
       return if @errors.any?
       ActiveRecord::Base.transaction do
@@ -160,6 +160,12 @@ module Account
     def validate_password_matching
       passwords_match = @registration_params[:password] == @registration_params[:password_confirmation]
       fill_custom_errors(self, :password, :confirmation,  I18n.t('custom.errors.password_confirmation')) unless passwords_match
+    end
+
+    def validate_username
+      if UserAccount.where(username: @registration_params[:username], company_id: @current_company.id).any?
+        fill_custom_errors(self, :username, :confirmation,  "username already exists, please choose another username")
+      end
     end
 
     def validate_phone_number
