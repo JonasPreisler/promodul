@@ -3,8 +3,8 @@ class SettingsController < ApplicationController
   include ControllerResponse
 
   #ToDO: Need remove after authorization will works
-  skip_before_action :validate_authentication
-  before_action :is_super_admin?
+  #skip_before_action :validate_authentication
+  #before_action :is_super_admin?
 
   def machine_model
     service = Settings::ModelsService.new(current_account,models_params)
