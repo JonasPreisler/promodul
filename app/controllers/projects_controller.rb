@@ -3,8 +3,8 @@ class ProjectsController < ApplicationController
   include ControllerResponse
 
   #ToDO: Need remove after authorization will works
-  skip_before_action :validate_authentication
-  before_action :is_admin_or_manager?
+  #skip_before_action :validate_authentication
+  #before_action :is_admin_or_manager?
 
   def create
     service = Projects::ProjectsServices.new(project_params, current_account, current_company)
