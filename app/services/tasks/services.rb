@@ -54,7 +54,7 @@ module Tasks
 
     def user_task_list
       tasks = Task.joins(project: [user_account: :company]).where(companies: {id: @current_company.id})
-      tasks = tasks.where(user_accounts: {id: @current_user.id}) if project_manager?
+      tasks = tasks.where(user_accounts: {id: @current_user.id}) if project_manager? || employee?
       @builded_object = []
 
       tasks.all.each do |task|
@@ -64,6 +64,10 @@ module Tasks
 
     def project_manager?
       @current_user.user_role.role_group.id_name.eql?("project_manager")
+    end
+
+    def employee?
+      @current_user.user_role.role_group.id_name.eql?("employee")
     end
 
     def build_object(task)
