@@ -36,6 +36,10 @@ module Account
       { dates: @dates.as_json }
     end
 
+    def delete_user_json_view
+      { success: true }
+    end
+
     def users_list
       @users = Customer
                    .select("user_accounts.id, customers.name, user_accounts.active, user_accounts.phone_number,
@@ -78,6 +82,12 @@ module Account
 
     def employee_calendar
       @dates = get_employee_dates
+    end
+
+    def deactivate_user
+      @user = UserAccount.find(params[:id])
+      @user.active = false
+      @user.save
     end
 
     def get_employee_dates
@@ -252,7 +262,7 @@ module Account
 
     def validate_user!
       return if errors.any?
-      @user = UserAccount.find_by_id(params[:id])
+      @user = UserAccount.find_by_id(@params[:id])
       fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @user
     end
 

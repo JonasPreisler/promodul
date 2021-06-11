@@ -54,6 +54,12 @@ class UsersController < ApplicationController
     rest_respond_service service
   end
 
+  def delete_user
+    service = Account::UsersService.new(users_params, current_account, current_company)
+    service.deactivate_user
+    rest_respond_service service
+  end
+
   #we don't need it yet
   #def manage
   #  service = Account::UsersService.new(users_params)

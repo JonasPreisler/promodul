@@ -108,6 +108,7 @@ Rails.application.routes.draw do
       get 'users/current_user', to: 'users#current_user'
       get 'users/listen_to_unconfirmed_users', to: 'users#listen_to_unconfirmed_users'
       post 'users/approve_registration', to: 'users#approve_registration'
+      post 'users/delete_user/:id', to: 'users#delete_user'
 
       resource :clients
       get 'clients/client_type',  to: 'clients#client_type'
