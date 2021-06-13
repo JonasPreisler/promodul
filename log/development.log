@@ -47134,3 +47134,163 @@ Completed 200 OK in 30ms (Views: 0.2ms | ActiveRecord: 5.8ms)
 
 
   [1m[36mUserAccount Load (0.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (1.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  [1m[35m (9.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "companies" WHERE "companies"."active" = $1[0m  [["active", true]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "companies" WHERE "companies"."active" = $1[0m  [["active", false]]
+  [1m[36mRoleGroup Load (5.4ms)[0m  [1m[34mSELECT "role_groups".* FROM "role_groups"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-06-13 14:03:46 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-06-13 14:03:47 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-06-13 14:03:47 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-06-13 14:03:47 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-06-13 14:03:47 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-06-13 14:03:47 +0400
+Started GET "/en/planner_owners/dashboard" for 127.0.0.1 at 2021-06-13 14:04:00 +0400
+Processing by PlannerOwnersController#dashboard as JSON
+  Parameters: {"locale"=>"en"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2021-06-13 14:04:16 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (3.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 169ms (Views: 0.2ms | ActiveRecord: 13.5ms)
+
+
+Started GET "/en/planner_owners/dashboard" for 127.0.0.1 at 2021-06-13 14:04:36 +0400
+Processing by PlannerOwnersController#dashboard as JSON
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 138ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `project_params' for #<PlannerOwnersController:0x00005622d80e1428>):
+  
+app/controllers/planner_owners_controller.rb:9:in `dashboard'
+Started GET "/en/planner_owners/dashboard" for 127.0.0.1 at 2021-06-13 14:05:16 +0400
+Processing by PlannerOwnersController#dashboard as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "companies" WHERE "companies"."active" = $1[0m  [["active", true]]
+  ↳ app/services/owners/dashboard.rb:36
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "companies" WHERE "companies"."active" = $1[0m  [["active", false]]
+  ↳ app/services/owners/dashboard.rb:36
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "companies" WHERE "companies"."active" = $1[0m  [["active", true]]
+  ↳ app/services/owners/dashboard.rb:36
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "companies" WHERE "companies"."active" = $1[0m  [["active", false]]
+  ↳ app/services/owners/dashboard.rb:36
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE (deadline < '2021-06-13 10:05:17.141872')[0m
+  ↳ app/services/owners/dashboard.rb:100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE (start_date < '2021-06-13 10:05:17.169276' AND deadline > '2021-06-13 10:05:17.169293')[0m
+  ↳ app/services/owners/dashboard.rb:104
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE (start_date > '2021-06-13 10:05:17.170856')[0m
+  ↳ app/services/owners/dashboard.rb:108
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id"[0m
+  ↳ app/services/owners/dashboard.rb:112
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "task_statuses"."id_name" = $1[0m  [["id_name", "done"]]
+  ↳ app/services/owners/dashboard.rb:92
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "task_statuses"."id_name" = $1[0m  [["id_name", "in_progress"]]
+  ↳ app/services/owners/dashboard.rb:92
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id" WHERE "task_statuses"."id_name" = $1[0m  [["id_name", "open"]]
+  ↳ app/services/owners/dashboard.rb:92
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" INNER JOIN "task_statuses" ON "task_statuses"."id" = "tasks"."task_status_id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" INNER JOIN "user_accounts" ON "user_accounts"."id" = "projects"."user_account_id"[0m
+  ↳ app/services/owners/dashboard.rb:96
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" = $1 AND "user_accounts"."active" = $2[0m  [["id_name", "project_manager"], ["active", true]]
+  ↳ app/services/owners/dashboard.rb:49
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" = $1 AND "user_accounts"."active" = $2[0m  [["id_name", "employee"], ["active", true]]
+  ↳ app/services/owners/dashboard.rb:49
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" = $1 AND "user_accounts"."active" = $2[0m  [["id_name", "super_admin"], ["active", true]]
+  ↳ app/services/owners/dashboard.rb:49
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts" INNER JOIN "user_roles" ON "user_roles"."user_account_id" = "user_accounts"."id" INNER JOIN "role_groups" ON "role_groups"."id" = "user_roles"."role_group_id" WHERE "role_groups"."id_name" IN ($1, $2, $3) AND "user_accounts"."active" = $4[0m  [["id_name", "project_manager"], ["id_name", "employee"], ["id_name", "super_admin"], ["active", true]]
+  ↳ app/services/owners/dashboard.rb:53
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" WHERE "resource_types"."id_name" = $1[0m  [["id_name", "machine"]]
+  ↳ app/services/owners/dashboard.rb:66
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" WHERE "resource_types"."id_name" = $1[0m  [["id_name", "tool"]]
+  ↳ app/services/owners/dashboard.rb:66
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" INNER JOIN "resource_types" ON "resource_types"."id" = "resources"."resource_type_id" WHERE "resource_types"."id_name" = $1[0m  [["id_name", "external_resource"]]
+  ↳ app/services/owners/dashboard.rb:66
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources"[0m
+  ↳ app/services/owners/dashboard.rb:70
+Completed 200 OK in 169ms (Views: 0.4ms | ActiveRecord: 51.6ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_accounts"[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks"[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources"[0m
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-06-13 14:06:56 +0400
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-06-13 14:06:56 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-06-13 14:06:56 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-06-13 14:06:56 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-06-13 14:06:56 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-06-13 14:06:56 +0400
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-06-13 14:26:22 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-06-13 14:26:22 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-06-13 14:26:22 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-06-13 14:26:22 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-06-13 14:26:22 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-06-13 14:26:22 +0400
+Started POST "/en/auth" for 127.0.0.1 at 2021-06-13 14:26:45 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (1.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 116ms (Views: 0.2ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/en/planner_owners/companies" for 127.0.0.1 at 2021-06-13 14:27:02 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/en/planner_owners/companies"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `block in call'
+chewy (5.1.0) lib/chewy/strategy.rb:70:in `wrap'
+chewy (5.1.0) lib/chewy.rb:201:in `strategy'
+chewy (5.1.0) lib/chewy/railtie.rb:19:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/en/planner_owners/companies" for 127.0.0.1 at 2021-06-13 14:27:21 +0400
+Processing by PlannerOwnersController#companies as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  ↳ app/services/owners/company_services.rb:14
+Completed 200 OK in 23ms (Views: 0.3ms | ActiveRecord: 6.1ms)
+
+

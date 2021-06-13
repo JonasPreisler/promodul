@@ -164,6 +164,9 @@ Rails.application.routes.draw do
       get 'dashboards/view', to: 'dashboards#view'
       get 'schedulers/view', to: 'schedulers#view'
 
+      get 'planner_owners/dashboard', to: 'planner_owners#dashboard'
+      get 'planner_owners/companies', to: 'planner_owners#companies'
+
     end
   end
 end
