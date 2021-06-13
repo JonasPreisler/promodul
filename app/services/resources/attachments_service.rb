@@ -71,7 +71,7 @@ module Resources
     def get_user
       UserAccount
           .select("user_accounts.id as obj_id, 'UserAccount' as pol_type, 'customer' as type_on, concat(first_name, ' ', last_name) as name")
-          .where(company_id: @current_account.company_id)
+          .where(company_id: @current_account.company_id, active: true)
           .to_sql
     end
 

@@ -32,11 +32,11 @@ module Dashboard
     end
 
     def get_user(role)
-      UserAccount.joins(user_role: :role_group).where(role_groups: { id_name: role}, company_id: @current_user.company_id).count
+      UserAccount.joins(user_role: :role_group).where(role_groups: { id_name: role}, company_id: @current_user.company_id, active: true).count
     end
 
     def user_total(roles)
-      UserAccount.joins(user_role: :role_group).where(role_groups: { id_name: roles}, company_id: @current_user.company_id).count
+      UserAccount.joins(user_role: :role_group).where(role_groups: { id_name: roles}, company_id: @current_user.company_id, active: true).count
     end
 
     def resource_stats
