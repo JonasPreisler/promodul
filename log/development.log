@@ -47294,3 +47294,196 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 23ms (Views: 0.3ms | ActiveRecord: 6.1ms)
 
 
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-06-13 14:57:12 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-06-13 14:57:12 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-06-13 14:57:12 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-06-13 14:57:12 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-06-13 14:57:13 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-06-13 14:57:13 +0400
+Started POST "/en/auth" for 127.0.0.1 at 2021-06-13 14:57:51 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (1.6ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 164ms (Views: 0.2ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/en/planner_owners/companies" for 127.0.0.1 at 2021-06-13 14:58:11 +0400
+Processing by PlannerOwnersController#companies as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  ↳ app/services/owners/company_services.rb:14
+Completed 200 OK in 19ms (Views: 0.3ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/en/planner_owners/stop_license/13" for 127.0.0.1 at 2021-06-13 14:58:30 +0400
+Processing by PlannerOwnersController#stop_license as JSON
+  Parameters: {"locale"=>"en", "company_id"=>"13"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  ↳ app/services/owners/company_services.rb:14
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/en/planner_owners/companies" for 127.0.0.1 at 2021-06-13 14:58:41 +0400
+Processing by PlannerOwnersController#companies as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  ↳ app/services/owners/company_services.rb:14
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/en/planner_owners/stop_license/13" for 127.0.0.1 at 2021-06-13 14:59:31 +0400
+Processing by PlannerOwnersController#stop_license as JSON
+  Parameters: {"locale"=>"en", "company_id"=>"13"}
+Unpermitted parameters: :format, :locale
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/services/owners/company_services.rb:37:in `find_company'
+app/services/owners/company_services.rb:26:in `deactivate_company'
+app/controllers/planner_owners_controller.rb:22:in `stop_license'
+Started POST "/en/planner_owners/stop_license/13" for 127.0.0.1 at 2021-06-13 15:00:01 +0400
+Processing by PlannerOwnersController#stop_license as JSON
+  Parameters: {"locale"=>"en", "company_id"=>"13"}
+Unpermitted parameters: :format, :locale
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/owners/company_services.rb:37
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/owners/company_services.rb:29
+  [1m[36mCompany Update (18.0ms)[0m  [1m[33mUPDATE "companies" SET "active" = $1 WHERE "companies"."id" = $2[0m  [["active", false], ["id", 13]]
+  ↳ app/services/owners/company_services.rb:29
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/owners/company_services.rb:29
+Completed 200 OK in 10001ms (Views: 0.8ms | ActiveRecord: 28.4ms)
+
+
+Started GET "/en/planner_owners/companies" for 127.0.0.1 at 2021-06-13 15:00:17 +0400
+Processing by PlannerOwnersController#companies as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  ↳ app/services/owners/company_services.rb:14
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ spec/rails_helper.rb:34
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-06-13 15:48:15 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-06-13 15:48:15 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-06-13 15:48:15 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-06-13 15:48:15 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-06-13 15:48:15 +0400
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2021-06-13 15:48:15 +0400
+Started GET "/en/planner_owners/companies" for 127.0.0.1 at 2021-06-13 15:48:27 +0400
+Processing by PlannerOwnersController#companies as JSON
+  Parameters: {"locale"=>"en"}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/auth" for 127.0.0.1 at 2021-06-13 15:48:51 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (1.4ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 125ms (Views: 0.2ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/en/planner_owners/companies" for 127.0.0.1 at 2021-06-13 15:49:06 +0400
+Processing by PlannerOwnersController#companies as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (7.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  ↳ app/services/owners/company_services.rb:14
+Completed 200 OK in 30ms (Views: 0.3ms | ActiveRecord: 11.4ms)
+
+
+Started POST "/en/planner_owners/stop_license/15" for 127.0.0.1 at 2021-06-13 15:49:24 +0400
+Processing by PlannerOwnersController#stop_license as JSON
+  Parameters: {"locale"=>"en", "company_id"=>"15"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/owners/company_services.rb:46
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/owners/company_services.rb:29
+  [1m[36mCompany Update (0.3ms)[0m  [1m[33mUPDATE "companies" SET "active" = $1 WHERE "companies"."id" = $2[0m  [["active", false], ["id", 15]]
+  ↳ app/services/owners/company_services.rb:29
+  [1m[35m (36.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/owners/company_services.rb:29
+Completed 200 OK in 41ms (Views: 0.3ms | ActiveRecord: 36.8ms)
+
+
+Started GET "/en/planner_owners/companies" for 127.0.0.1 at 2021-06-13 15:49:54 +0400
+Processing by PlannerOwnersController#companies as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  ↳ app/services/owners/company_services.rb:14
+Completed 200 OK in 19ms (Views: 0.3ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/en/planner_owners/activate_license/13" for 127.0.0.1 at 2021-06-13 15:50:10 +0400
+Processing by PlannerOwnersController#activate_license as JSON
+  Parameters: {"locale"=>"en", "company_id"=>"13"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/owners/company_services.rb:50
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/owners/company_services.rb:42
+  [1m[36mCompany Update (35.8ms)[0m  [1m[33mUPDATE "companies" SET "active" = $1 WHERE "companies"."id" = $2[0m  [["active", true], ["id", 13]]
+  ↳ app/services/owners/company_services.rb:42
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/owners/company_services.rb:42
+Completed 200 OK in 41ms (Views: 0.2ms | ActiveRecord: 37.7ms)
+
+
+Started GET "/en/planner_owners/companies" for 127.0.0.1 at 2021-06-13 15:50:16 +0400
+Processing by PlannerOwnersController#companies as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  ↳ app/services/owners/company_services.rb:14
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/en/planner_owners/activate_license/15" for 127.0.0.1 at 2021-06-13 15:50:27 +0400
+Processing by PlannerOwnersController#activate_license as JSON
+  Parameters: {"locale"=>"en", "company_id"=>"15"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/owners/company_services.rb:50
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/owners/company_services.rb:42
+  [1m[36mCompany Update (0.3ms)[0m  [1m[33mUPDATE "companies" SET "active" = $1 WHERE "companies"."id" = $2[0m  [["active", true], ["id", 15]]
+  ↳ app/services/owners/company_services.rb:42
+  [1m[35m (36.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/owners/company_services.rb:42
+Completed 200 OK in 39ms (Views: 0.1ms | ActiveRecord: 36.8ms)
+
+
+Started GET "/en/planner_owners/companies" for 127.0.0.1 at 2021-06-13 15:50:32 +0400
+Processing by PlannerOwnersController#companies as JSON
+  Parameters: {"locale"=>"en"}
+Unpermitted parameters: :format, :locale
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  ↳ app/services/owners/company_services.rb:14
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+

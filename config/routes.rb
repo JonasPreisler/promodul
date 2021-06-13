@@ -166,6 +166,8 @@ Rails.application.routes.draw do
 
       get 'planner_owners/dashboard', to: 'planner_owners#dashboard'
       get 'planner_owners/companies', to: 'planner_owners#companies'
+      post 'planner_owners/stop_license/:company_id', to: 'planner_owners#stop_license'
+      post 'planner_owners/activate_license/:company_id', to: 'planner_owners#activate_license'
 
     end
   end

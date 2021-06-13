@@ -119,4 +119,72 @@ describe 'Planner owners dashboard', type: :request do
 
     end
   end
+
+  path '/{locale}/planner_owners/stop_license/{company_id}' do
+    post 'Stop company license' do
+      tags 'Owner'
+      consumes 'application/json'
+      produces 'application/json'
+
+      parameter({
+                    in: :header,
+                    type: :string,
+                    name: :Authorization,
+                    required: true,
+                    description: 'JWT token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      parameter name: :company_id, in: :path, type: :integer, required: true
+
+      response '201', 'ok' do
+        schema type: :object,
+               properties: {
+                   success: { type: :boolean }
+               }
+
+        run_test!
+      end
+
+      response '404', 'Not Found' do
+
+        run_test!
+      end
+
+    end
+  end
+
+  path '/{locale}/planner_owners/activate_license/{company_id}' do
+    post 'Stop company license' do
+      tags 'Owner'
+      consumes 'application/json'
+      produces 'application/json'
+
+      parameter({
+                    in: :header,
+                    type: :string,
+                    name: :Authorization,
+                    required: true,
+                    description: 'JWT token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      parameter name: :company_id, in: :path, type: :integer, required: true
+
+      response '201', 'ok' do
+        schema type: :object,
+               properties: {
+                   success: { type: :boolean }
+               }
+
+        run_test!
+      end
+
+      response '404', 'Not Found' do
+
+        run_test!
+      end
+
+    end
+  end
 end

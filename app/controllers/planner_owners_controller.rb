@@ -17,17 +17,25 @@ class PlannerOwnersController < ApplicationController
     rest_respond_service service
   end
 
-  def register_company
-
+  def stop_license
+    service = Owners::CompanyServices.new(owners_params)
+    service.deactivate_company
+    rest_respond_service service
   end
 
-  def stop_license
+  def activate_license
+    service = Owners::CompanyServices.new(owners_params)
+    service.activate_company
+    rest_respond_service service
+  end
+
+  def register_company
 
   end
 
   private
 
   def owners_params
-    params.permit()
+    params.permit(:company_id)
   end
 end
