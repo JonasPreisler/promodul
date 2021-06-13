@@ -4597,6 +4597,120 @@
         }
       }
     },
+    "/{locale}/planner_owners/company_stats/{company_id}": {
+      "get": {
+        "summary": "Company stats",
+        "tags": [
+          "Owner"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "type": "string",
+            "name": "Authorization",
+            "required": true,
+            "description": "JWT token"
+          },
+          {
+            "name": "locale",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "default": "en"
+          },
+          {
+            "name": "company_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projects": {
+                  "type": "object",
+                  "properties": {
+                    "finished": {
+                      "type": "number"
+                    },
+                    "current": {
+                      "type": "number"
+                    },
+                    "scheduled": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "tasks": {
+                  "type": "object",
+                  "properties": {
+                    "open": {
+                      "type": "number"
+                    },
+                    "in_progress": {
+                      "type": "number"
+                    },
+                    "done": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "resources": {
+                  "type": "object",
+                  "properties": {
+                    "machine": {
+                      "type": "number"
+                    },
+                    "tool": {
+                      "type": "number"
+                    },
+                    "external": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "users": {
+                  "type": "object",
+                  "properties": {
+                    "project_manager": {
+                      "type": "number"
+                    },
+                    "employee": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
     "/{locale}/product_images": {
       "post": {
         "summary": "Create image of Product",

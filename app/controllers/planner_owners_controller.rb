@@ -29,6 +29,12 @@ class PlannerOwnersController < ApplicationController
     rest_respond_service service
   end
 
+  def company_stats
+    service = Owners::CompanyServices.new(owners_params)
+    service.stats
+    rest_respond_service service
+  end
+
   def register_company
 
   end
