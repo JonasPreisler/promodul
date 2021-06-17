@@ -163,7 +163,7 @@ module Account
     end
 
     def validate_username
-      if UserAccount.where(username: @registration_params[:username], company_id: @current_company.id).any?
+      if UserAccount.where(username: @registration_params[:username], company_id: @current_company.id, active: true).any?
         fill_custom_errors(self, :username, :confirmation,  "username already exists, please choose another username")
       end
     end
