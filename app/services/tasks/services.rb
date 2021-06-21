@@ -333,7 +333,7 @@ module Tasks
     end
 
     def publish_to_manager(firebase)
-      firebase.push("Manager", { type: 'Task', type_id: @task["id"], title: @task.title, text: "Task Status has changed" }, user_id: Task.find(@task["id"]).project.user_account_id)
+      firebase.push("Manager", { type: 'Task', type_id: @task["id"], title: @task["title"], text: "Task Status has changed" }, user_id: Task.find(@task["id"]).project.user_account_id)
     end
 
     def default_status
