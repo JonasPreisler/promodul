@@ -44,7 +44,7 @@ module Projects
       { project: @project_edit }
     end
 
-    def create_projec
+    def create_project
       validate_dates
       validate_users
       validate_resources
