@@ -43,6 +43,7 @@ module Tasks
       validate_resources
       default_status
       create_task_obj
+      publish_notifications("create")
     end
 
     def task_list
@@ -137,6 +138,7 @@ module Tasks
       return if errors.any?
       @task.update(task_status_id: @status.id)
       @task = build_object(@task)
+      publish_notifications("progress")
     end
 
     def update_task
@@ -304,6 +306,34 @@ module Tasks
       @task.task_status_id = @status&.id
       @task.save
       @errors << fill_errors(@task) if @task.errors.any?
+    end
+
+    def publish_notifications(action)
+      return if @errors.any?
+      base_uri = 'https://planner-bergen-default-rtdb.europe-west1.firebasedatabase.app/'
+      firebase_secret = 'OrbCRPBHsvx9qw0wIou6jCaGiAndHzij2Zd4hhsA'
+      firebase = Firebase::Client.new(base_uri, firebase_secret)
+      if action.eql?("create")
+        publish_to_admin(firebase)
+        publish_to_employee(firebase)
+      elsif action.eql?("progress")
+        publish_to_manager(firebase)
+      end
+
+    end
+
+    def publish_to_admin(firebase)
+      firebase.push("Admin", { type: 'Task', type_id: @task.id, title: @task.title, text: "New Task is added into the system" })
+    end
+
+    def publish_to_employee(firebase)
+      @params["user_account_tasks_attributes"].each do |x|
+        firebase.push("Employee", { type: 'Task', type_id: @task.id, title: @task.title, user_id: x["user_account_id"], text: "New Task assignment" })
+      end
+    end
+
+    def publish_to_manager(firebase)
+      firebase.push("Manager", { type: 'Task', type_id: @task.id, title: @task.title, text: "Task Status has changed" }, user_id: @task.project.user_account_id)
     end
 
     def default_status

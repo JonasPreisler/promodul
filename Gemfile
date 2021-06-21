@@ -37,6 +37,7 @@ gem 'mini_magick'
 gem 'rmagick', '2.16.0'
 gem 'chewy'
 gem "roo", "~> 2.8.0"
+gem 'firebase', '~> 0.2.6'
 gem 'sidekiq'
 
 gem 'mina', require: false

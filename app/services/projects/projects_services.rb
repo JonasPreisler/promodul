@@ -44,7 +44,7 @@ module Projects
       { project: @project_edit }
     end
 
-    def create_project
+    def create_projec
       validate_dates
       validate_users
       validate_resources
@@ -53,7 +53,27 @@ module Projects
       @project.user_account_id = @current_user.id
       @project.project_id = generate_id
       @project.save
-      @project << fill_errors(@project) if @project.errors.any?
+      @errors << fill_errors(@project) if @project.errors.any?
+      publish_notifications
+    end
+
+    def publish_notifications
+      return if @errors.any?
+      base_uri = 'https://planner-bergen-default-rtdb.europe-west1.firebasedatabase.app/'
+      firebase_secret = 'OrbCRPBHsvx9qw0wIou6jCaGiAndHzij2Zd4hhsA'
+      firebase = Firebase::Client.new(base_uri, firebase_secret)
+      publish_to_admin(firebase)
+      publish_to_employee(firebase)
+    end
+
+    def publish_to_admin(firebase)
+      firebase.push("Admin", { type: 'Project', type_id: @project.id, title: @project.title, text: "New project is added into the system" })
+    end
+
+    def publish_to_employee(firebase)
+      @params["user_account_projects_attributes"].each do |x|
+        firebase.push("Employee", { type: 'Project', type_id: @project.id, title: @project.title, user_id: x["user_account_id"], text: "New project assignment" })
+      end
     end
 
     def generate_id

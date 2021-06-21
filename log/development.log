@@ -47717,3 +47717,226 @@ Unpermitted parameters: :format, :locale
 Completed 200 OK in 97ms (Views: 0.3ms | ActiveRecord: 34.1ms)
 
 
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2021-06-21 19:03:28 +0400
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/buka/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2021-06-21 19:03:29 +0400
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2021-06-21 19:03:29 +0400
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2021-06-21 19:03:29 +0400
+Started GET "/api-docs/v1/swagger.json" for 127.0.0.1 at 2021-06-21 19:03:29 +0400
+Started POST "/en/projects" for 127.0.0.1 at 2021-06-21 19:05:11 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"234234234", "description"=>"234234", "address"=>"234234", "post_number"=>"234234", "contact_person"=>"234234", "start_date"=>"23/12/2024", "deadline"=>"30/12/2024", "user_account_projects_attributes"=>[{"user_account_id"=>3}, {"user_account_id"=>7}], "project_resources_attributes"=>[{"resource_id"=>1}], "locale"=>"en", "project"=>{"title"=>"234234234", "description"=>"234234", "address"=>"234234", "post_number"=>"234234", "contact_person"=>"234234", "start_date"=>"23/12/2024", "deadline"=>"30/12/2024", "user_account_projects_attributes"=>[{"user_account_id"=>3}, {"user_account_id"=>7}], "project_resources_attributes"=>[{"resource_id"=>1}]}}
+Filter chain halted as :validate_authentication rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 0.1ms | ActiveRecord: 12.2ms)
+
+
+Started POST "/en/projects" for 127.0.0.1 at 2021-06-21 19:05:25 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"234234234", "description"=>"234234", "address"=>"234234", "post_number"=>"234234", "contact_person"=>"234234", "start_date"=>"23/12/2024", "deadline"=>"30/12/2024", "user_account_projects_attributes"=>[{"user_account_id"=>3}, {"user_account_id"=>7}], "project_resources_attributes"=>[{"resource_id"=>1}], "locale"=>"en", "project"=>{"title"=>"234234234", "description"=>"234234", "address"=>"234234", "post_number"=>"234234", "contact_person"=>"234234", "start_date"=>"23/12/2024", "deadline"=>"30/12/2024", "user_account_projects_attributes"=>[{"user_account_id"=>3}, {"user_account_id"=>7}], "project_resources_attributes"=>[{"resource_id"=>1}]}}
+Unpermitted parameters: :format, :locale, :project
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.5ms)
+
+
+  
+NoMethodError (undefined method `split' for nil:NilClass):
+  
+lib/methods_service.rb:99:in `get_user_id'
+lib/methods_service.rb:4:in `current_account'
+app/controllers/projects_controller.rb:10:in `create'
+Started POST "/en/auth" for 127.0.0.1 at 2021-06-21 19:05:40 +0400
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"bukabuka", "password"=>"[FILTERED]", "locale"=>"en", "auth"=>{"username"=>"bukabuka", "password"=>"[FILTERED]"}}
+Unpermitted parameters: :format, :locale, :auth
+Unpermitted parameters: :format, :locale, :auth
+  [1m[36mUserAccount Load (4.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."username" = $1 ORDER BY "user_accounts"."id" ASC LIMIT $2[0m  [["username", "bukabuka"], ["LIMIT", 1]]
+  ↳ app/services/auth/service.rb:159
+Completed 200 OK in 149ms (Views: 0.2ms | ActiveRecord: 25.8ms)
+
+
+Started POST "/en/projects" for 127.0.0.1 at 2021-06-21 19:05:57 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"234234234", "description"=>"234234", "address"=>"234234", "post_number"=>"234234", "contact_person"=>"234234", "start_date"=>"23/12/2024", "deadline"=>"30/12/2024", "user_account_projects_attributes"=>[{"user_account_id"=>3}, {"user_account_id"=>7}], "project_resources_attributes"=>[{"resource_id"=>1}], "locale"=>"en", "project"=>{"title"=>"234234234", "description"=>"234234", "address"=>"234234", "post_number"=>"234234", "contact_person"=>"234234", "start_date"=>"23/12/2024", "deadline"=>"30/12/2024", "user_account_projects_attributes"=>[{"user_account_id"=>3}, {"user_account_id"=>7}], "project_resources_attributes"=>[{"resource_id"=>1}]}}
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mUserAccount Load (35.5ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCompany Load (3.8ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mUserAccount Load (16.9ms)[0m  [1m[34mSELECT first_name, last_name, start_time, deadline FROM "user_accounts" JOIN  (SELECT user_account_id as account_id, tasks.start_time, tasks.deadline FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id UNION SELECT user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" = $1[0m  [["id", 3]]
+  ↳ app/services/projects/projects_services.rb:325
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT first_name, last_name, start_time, deadline FROM "user_accounts" JOIN  (SELECT user_account_id as account_id, tasks.start_time, tasks.deadline FROM "user_account_tasks" LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id UNION SELECT user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline FROM "user_account_projects" LEFT JOIN projects ON projects.id = user_account_projects.project_id) obj ON obj.account_id = user_accounts.id WHERE "user_accounts"."id" = $1[0m  [["id", 7]]
+  ↳ app/services/projects/projects_services.rb:325
+  [1m[36mResource Load (5.4ms)[0m  [1m[34mSELECT name, start_time, deadline FROM "resources" JOIN  (SELECT resource_id, tasks.start_time, tasks.deadline FROM "task_resources" LEFT JOIN tasks ON tasks.id = task_resources.task_id UNION SELECT resource_id, projects.start_date as start_time, projects.deadline FROM "project_resources" LEFT JOIN projects ON projects.id = project_resources.project_id) obj ON obj.resource_id = resources.id WHERE "resources"."id" = $1[0m  [["id", 1]]
+  ↳ app/services/projects/projects_services.rb:303
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:80
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:81
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:83
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mResource Load (0.3ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/projects/projects_services.rb:56
+Completed 500 Internal Server Error in 99544ms (ActiveRecord: 88.9ms)
+
+
+  
+NoMethodError (undefined method `<<' for #<Project:0x00005558ed0af550>):
+  
+app/services/projects/projects_services.rb:57:in `create_project'
+app/controllers/projects_controller.rb:11:in `create'
+Started POST "/en/projects" for 127.0.0.1 at 2021-06-21 19:08:03 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"234234234", "description"=>"234234", "address"=>"234234", "post_number"=>"234234", "contact_person"=>"234234", "start_date"=>"23/12/2024", "deadline"=>"30/12/2024", "user_account_projects_attributes"=>[{"user_account_id"=>3}, {"user_account_id"=>7}], "project_resources_attributes"=>[{"resource_id"=>1}], "locale"=>"en", "project"=>{"title"=>"234234234", "description"=>"234234", "address"=>"234234", "post_number"=>"234234", "contact_person"=>"234234", "start_date"=>"23/12/2024", "deadline"=>"30/12/2024", "user_account_projects_attributes"=>[{"user_account_id"=>3}, {"user_account_id"=>7}], "project_resources_attributes"=>[{"resource_id"=>1}]}}
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:81
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:82
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:84
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mResource Load (0.3ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/projects/projects_services.rb:56
+Completed 500 Internal Server Error in 2960ms (ActiveRecord: 23.2ms)
+
+
+  
+NoMethodError (undefined method `<<' for #<Project:0x00005558eb704d80>):
+  
+app/services/projects/projects_services.rb:57:in `create_project'
+app/controllers/projects_controller.rb:11:in `create'
+Started POST "/en/projects" for 127.0.0.1 at 2021-06-21 19:08:27 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"234234234", "description"=>"234234", "address"=>"234234", "post_number"=>"234234", "contact_person"=>"234234", "start_date"=>"23/12/2024", "deadline"=>"30/12/2024", "user_account_projects_attributes"=>[{"user_account_id"=>3}, {"user_account_id"=>7}], "project_resources_attributes"=>[{"resource_id"=>1}], "locale"=>"en", "project"=>{"title"=>"234234234", "description"=>"234234", "address"=>"234234", "post_number"=>"234234", "contact_person"=>"234234", "start_date"=>"23/12/2024", "deadline"=>"30/12/2024", "user_account_projects_attributes"=>[{"user_account_id"=>3}, {"user_account_id"=>7}], "project_resources_attributes"=>[{"resource_id"=>1}]}}
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:81
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:82
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:84
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mResource Load (0.2ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/projects/projects_services.rb:56
+Completed 400 Bad Request in 6339ms (Views: 0.9ms | ActiveRecord: 23.2ms)
+
+
+Started POST "/en/projects" for 127.0.0.1 at 2021-06-21 19:08:45 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"234234234", "description"=>"234234", "address"=>"234234", "post_number"=>"234234", "contact_person"=>"234234", "start_date"=>"23/12/2024", "deadline"=>"30/12/2024", "user_account_projects_attributes"=>[{"user_account_id"=>3}, {"user_account_id"=>7}], "project_resources_attributes"=>[{"resource_id"=>1}], "locale"=>"en", "project"=>{"title"=>"234234234", "description"=>"234234", "address"=>"234234", "post_number"=>"234234", "contact_person"=>"234234", "start_date"=>"23/12/2024", "deadline"=>"30/12/2024", "user_account_projects_attributes"=>[{"user_account_id"=>3}, {"user_account_id"=>7}], "project_resources_attributes"=>[{"resource_id"=>1}]}}
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+  [1m[36mUserAccount Load (1.1ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 2]]
+  ↳ (pry):5
+  [1m[36mCACHE UserAccount Load (0.0ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" ORDER BY "user_accounts"."id" DESC LIMIT $1[0m  [["LIMIT", 2]]
+  ↳ (pry):6
+  [1m[36mResource Load (1.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" ORDER BY "resources"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):7
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:81
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:82
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:84
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mUserAccount Load (0.1ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mResource Load (0.2ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/projects/projects_services.rb:56
+Started POST "/en/projects" for 127.0.0.1 at 2021-06-21 19:09:31 +0400
+Processing by ProjectsController#create as JSON
+  Parameters: {"title"=>"234234234", "description"=>"234234", "address"=>"234234", "post_number"=>"234234", "contact_person"=>"234234", "start_date"=>"23/12/2024", "deadline"=>"30/12/2024", "user_account_projects_attributes"=>[{"user_account_id"=>94}, {"user_account_id"=>95}], "project_resources_attributes"=>[{"resource_id"=>10}], "locale"=>"en", "project"=>{"title"=>"234234234", "description"=>"234234", "address"=>"234234", "post_number"=>"234234", "contact_person"=>"234234", "start_date"=>"23/12/2024", "deadline"=>"30/12/2024", "user_account_projects_attributes"=>[{"user_account_id"=>94}, {"user_account_id"=>95}], "project_resources_attributes"=>[{"resource_id"=>10}]}}
+Unpermitted parameters: :format, :locale, :project
+  [1m[36mUserAccount Load (0.9ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:5
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ lib/methods_service.rb:10
+Completed 400 Bad Request in 49166ms (Views: 0.6ms | ActiveRecord: 3.9ms)
+
+
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:81
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:82
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:84
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mUserAccount Load (0.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 94], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mUserAccount Load (0.3ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 95], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mProject Create (42.2ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "project_id", "address", "post_number", "contact_person", "user_account_id", "created_at", "updated_at", "start_date", "deadline") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["title", "234234234"], ["description", "234234"], ["project_id", "00009"], ["address", "234234"], ["post_number", "234234"], ["contact_person", "234234"], ["user_account_id", 16], ["created_at", "2021-06-21 15:09:34.863783"], ["updated_at", "2021-06-21 15:09:34.863783"], ["start_date", "2024-12-23 00:00:00"], ["deadline", "2024-12-30 00:00:00"]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mUserAccountProject Create (3.2ms)[0m  [1m[32mINSERT INTO "user_account_projects" ("user_account_id", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_account_id", 94], ["project_id", 9], ["created_at", "2021-06-21 15:09:34.907945"], ["updated_at", "2021-06-21 15:09:34.907945"]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mUserAccountProject Create (0.4ms)[0m  [1m[32mINSERT INTO "user_account_projects" ("user_account_id", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_account_id", 95], ["project_id", 9], ["created_at", "2021-06-21 15:09:34.912067"], ["updated_at", "2021-06-21 15:09:34.912067"]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mProjectResource Create (3.1ms)[0m  [1m[32mINSERT INTO "project_resources" ("resource_id", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_id", 10], ["project_id", 9], ["created_at", "2021-06-21 15:09:34.913317"], ["updated_at", "2021-06-21 15:09:34.913317"]]
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/projects/projects_services.rb:56
+  [1m[36mUserAccount Load (1.2ms)[0m  [1m[34mSELECT  "user_accounts".* FROM "user_accounts" WHERE "user_accounts"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/projects/projects_services.rb:16
+Completed 201 Created in 12374ms (Views: 1.2ms | ActiveRecord: 54.6ms)
+
+
+  [1m[36mTask Load (2.5ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTaskStatus Load (1.4ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTask Load (1.9ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTaskStatus Load (0.9ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTaskStatus Load (0.3ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTaskStatus Load (0.7ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTaskStatus Load (0.2ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTaskStatus Load (0.3ms)[0m  [1m[34mSELECT  "task_statuses".* FROM "task_statuses" WHERE "task_statuses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]

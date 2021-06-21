@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   include ControllerResponse
 
   #ToDO: Need remove after authorization will works
-  #skip_before_action :validate_authentication
+  skip_before_action :validate_authentication
   #before_action :is_admin_or_manager?
 
   def create
