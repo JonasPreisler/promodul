@@ -38,7 +38,12 @@ module Account
     end
 
     def add_default_role!
-      UserRole.create(user_account_id: @user.id, role_group_id: RoleGroup.find_by_id_name("employee").id)
+      if UserAccount.where(company_id: @current_company.id).count != 1
+        UserRole.create(user_account_id: @user.id, role_group_id: RoleGroup.find_by_id_name("employee").id)
+      else
+        UserRole.create(user_account_id: @user.id, role_group_id: RoleGroup.find_by_id_name("super_admin").id)
+      end
+
     end
 
     def finish_registration

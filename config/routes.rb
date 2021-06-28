@@ -81,6 +81,7 @@ Rails.application.routes.draw do
       get 'companies/company_list', to: 'companies#company_list'
       get 'companies/sub_company_list', to: 'companies#sub_company_list'
       get 'companies/:id', to: 'companies#show'
+      post 'companies/company_admin', to: 'companies#company_admin'
 
       resource :company_logos
       get  'company_logos/logo', to: 'company_logos#show_logo'

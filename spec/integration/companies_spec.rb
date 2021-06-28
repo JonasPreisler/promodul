@@ -23,7 +23,8 @@ describe 'SubCategory', type: :request do
               name:         { type: :string },
               description:  { type: :string },
               address:      { type: :string },
-              phone_number: { type: :string }
+              phone_number: { type: :string },
+              legal_entity: { type: :string }
           }
       }
       response '201', 'ok' do
@@ -36,7 +37,8 @@ describe 'SubCategory', type: :request do
                            name: {type: :string},
                            description:  { type: :string },
                            address:      { type: :string },
-                           phone_number: { type: :string }
+                           phone_number: { type: :string },
+                           legal_entity: { type: :string }
                        }
                    }
                }
@@ -49,6 +51,67 @@ describe 'SubCategory', type: :request do
         run_test!
       end
 
+    end
+  end
+
+  path '/{locale}/companies/company_admin' do
+    post 'Admin Account registration' do
+      tags 'Company'
+      consumes 'application/json'
+      produces 'application/json'
+
+      parameter({
+                    in: :header,
+                    type: :string,
+                    name: :Authorization,
+                    required: true,
+                    description: 'JWT token'
+                })
+
+      parameter name: :params, in: :body, schema: {
+          type: :object,
+          properties: {
+              company_id: { type: :string },
+              first_name: {type: :string},
+              last_name: {type: :string},
+              username: {type: :string},
+              phone_number: {type: :string},
+              phone_number_iso: {type: :string},
+              email: {type: :string},
+              password: {type: :string},
+              password_confirmation: {type: :string}
+          },required: [:first_name, :last_name, :phone_number, :username, :password, :password_confirmation]
+      }
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      response '200', 'OK' do
+
+        schema type: :object,
+               properties: {
+                   success: { type: :boolean }
+               }
+
+
+        run_test!
+      end
+
+      response '400', 'Bad request' do
+        schema type: :object,
+               properties: {
+                   errors: {
+                       type: :array,
+                       items: {
+                           type: :object,
+                           properties: {
+                               message: { type: :string },
+                               code:    { type: :integer},
+                               field:   { type: :string }
+                           }
+                       }
+                   }
+               }
+
+        run_test!
+      end
     end
   end
 
