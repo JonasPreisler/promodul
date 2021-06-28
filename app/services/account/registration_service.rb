@@ -38,6 +38,7 @@ module Account
     end
 
     def add_default_role!
+      return if @current_company.nil?
       if UserAccount.where(company_id: @current_company.id).count != 1
         UserRole.create(user_account_id: @user.id, role_group_id: RoleGroup.find_by_id_name("employee").id)
       else
@@ -182,7 +183,7 @@ module Account
 
     def register_user!
       @user = UserAccount.new(@registration_params.slice(:phone_number, :phone_number_iso, :email, :password, :username, :first_name, :last_name))
-      @user.company_id = @current_company.id
+      @user.company_id = @current_company.id if @current_company.present?
       @user.save
       @errors.concat(fill_errors(@user))
     rescue ActiveRecord::RecordNotUnique
