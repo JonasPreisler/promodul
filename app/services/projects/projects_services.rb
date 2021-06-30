@@ -67,7 +67,7 @@ module Projects
     end
 
     def publish_to_admin(firebase)
-      firebase.push("Admin", { type: 'Project', type_id: @project.id, title: @project.title, text: "New project is added into the system" })
+      firebase.push("Super Admin", { type: 'Project', type_id: @project.id, title: @project.title, text: "New project is added into the system" })
     end
 
     def publish_to_employee(firebase)
