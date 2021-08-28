@@ -232,7 +232,7 @@ module Projects
     def update_project
       find_project
       return if errors.any?
-      validate_dates
+      validate_update_dates
       return if errors.any?
       @project.update(@params)
 
@@ -356,6 +356,12 @@ module Projects
 
     def find_attachments
       @attachments = Attachment.where(attached_on_type: "Project", attached_on_id: @project.id)
+    end
+
+    def validate_update_dates
+      if params[:start_date].to_datetime > params[:deadline].to_datetime
+        fill_custom_errors(self, :base,:invalid, "The deadline should be greater than the start date")
+      end
     end
 
     def validate_dates
