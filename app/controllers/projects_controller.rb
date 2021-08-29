@@ -48,10 +48,20 @@ class ProjectsController < ApplicationController
     rest_respond_service service
   end
 
+  def status_progress
+    service = Projects::ProjectsServices.new(progress_params, current_account, current_company)
+    service.progress
+    rest_respond_service service
+  end
+
   private
 
   def project_params
     params.permit(:id, :title, :description, :address, :post_number, :contact_person, :start_date, :deadline, user_account_projects_attributes: [:id, :user_account_id, :_destroy], project_resources_attributes: [:id, :resource_id, :_destroy])
+  end
+
+  def progress_params
+    params.permit(:id, :id_name)
   end
 
   #def claim_params

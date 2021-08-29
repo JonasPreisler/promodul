@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_28_212051) do
+ActiveRecord::Schema.define(version: 2021_08_28_114429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -378,6 +378,11 @@ ActiveRecord::Schema.define(version: 2021_06_28_212051) do
     t.index ["resource_id"], name: "index_project_resources_on_resource_id"
   end
 
+  create_table "project_statuses", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "id_name", null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -390,6 +395,7 @@ ActiveRecord::Schema.define(version: 2021_06_28_212051) do
     t.datetime "updated_at", null: false
     t.datetime "start_date"
     t.datetime "deadline"
+    t.integer "project_status_id"
     t.index ["user_account_id"], name: "index_projects_on_user_account_id"
   end
 
@@ -634,6 +640,7 @@ ActiveRecord::Schema.define(version: 2021_06_28_212051) do
   add_foreign_key "product_type_permissions", "role_groups"
   add_foreign_key "project_resources", "projects"
   add_foreign_key "project_resources", "resources"
+  add_foreign_key "projects", "project_statuses"
   add_foreign_key "projects", "user_accounts"
   add_foreign_key "resources", "companies"
   add_foreign_key "resources", "resource_types"

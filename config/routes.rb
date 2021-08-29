@@ -161,6 +161,7 @@ Rails.application.routes.draw do
       get 'projects/project_calendar',       to: 'projects#project_calendar'
       get 'projects/:id',         to: 'projects#show'
       get 'projects/get_project/:id',         to: 'projects#get_project'
+      get 'projects/status_progress/:id', to: 'projects#status_progress'
 
       get 'dashboards/view', to: 'dashboards#view'
       get 'schedulers/view', to: 'schedulers#view'

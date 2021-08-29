@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user_account, optional: true
   has_many :attachments, as: :attached_on
+  belongs_to :project_status, optional: true
 
   has_many :user_account_projects
   accepts_nested_attributes_for :user_account_projects, allow_destroy: true

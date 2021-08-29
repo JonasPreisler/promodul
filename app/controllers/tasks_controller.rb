@@ -7,7 +7,8 @@ class TasksController < ApplicationController
 
   def create
     service = Tasks::Services.new(task_params, current_account, current_company)
-    service.create_task
+    service.create_ta
+    sk
     rest_respond_service service
   end
 

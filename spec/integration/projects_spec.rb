@@ -435,6 +435,54 @@ describe 'Projects ', type: :request do
     end
   end
 
+  path '/{locale}/projects/status_progress/{id}' do
+    get 'Returns Project progress' do
+      tags 'Projects'
+      consumes 'application/json'
+
+      parameter({
+                    :in => :header,
+                    :type => :string,
+                    :name => :Authorization,
+                    :required => true,
+                    :description => 'Client token'
+                })
+
+      parameter name: :locale, in: :path, type: :string, required: true, default: "en"
+      parameter name: :id, in: :path, type: :integer, required: true
+      parameter name: :id_name, in: :query, type: :string, required: true
+
+      response '201', 'ok' do
+        schema type: :object,
+               properties: {
+                   project: {
+                       type: :object,
+                       properties: {
+                           id: {type: :integer},
+                           title: {type: :string},
+                           description: {type: :string},
+                           post_number: {type: :boolean},
+                           contact_person: {type: :boolean},
+                           start_date: { type: :string },
+                           deadline: { type: :string },
+                           project_id: {type: :string},
+                           user_account: {
+                               type: :object,
+                               properties: {
+                                   first_name: { type: :string },
+                                   last_name: { type: :string }
+                               }
+                           }
+                       }
+                   }
+               }
+
+        run_test!
+      end
+
+    end
+  end
+
 end
 
 

@@ -13,15 +13,15 @@ module Projects
     end
 
     def json_view
-      { project: @project.as_json(include: { user_account: { only: [:first_name, :last_name]}}) }
+      { project: @project.as_json(include: { user_account: { only: [:first_name, :last_name]}, project_status: { only: [:name, :id_name ]} }) }
     end
 
     def show_json_view
-      { project: @project.as_json(include: { user_account: { only: [:first_name, :last_name]}}), members: @members, resources: @resources }
+      { project: @project.as_json(include: { user_account: { only: [:first_name, :last_name]}, project_status: { only: [:name, :id_name ]} }), members: @members, resources: @resources }
     end
 
     def projects_list_json_view
-      { projects: @projects.as_json(include: { user_account: { only: [:first_name, :last_name]}}) }
+      { projects: @projects.as_json(include: { user_account: { only: [:first_name, :last_name]}, project_status: { only: [:name, :id_name ]} }) }
     end
 
     def my_orders_list_json_view
@@ -52,6 +52,7 @@ module Projects
       @project = Project.new(@params)
       @project.user_account_id = @current_user.id
       @project.project_id = generate_id
+      @project.project_status_id  = ProjectStatus.find_by_id_name(:open).id
       @project.save
       @errors << fill_errors(@project) if @project.errors.any?
       publish_notifications
@@ -222,8 +223,8 @@ module Projects
     def project_calendar
       @dates = Project
                    .select("projects.id, title, project_id, start_date as start,
-                            deadline as end, user_accounts.first_name, user_accounts.last_name")
-                   .joins(user_account: :company)
+                            deadline as end, user_accounts.first_name, user_accounts.last_name, project_statuses.id_name as status")
+                   .joins(:project_status, user_account: :company)
                    .where(companies: { id: @current_company.id })
 
       @dates = @dates.where(user_accounts: {id: @current_user.id}) if project_manager?
@@ -266,7 +267,25 @@ module Projects
       @tasks.delete_all
     end
 
+    def progress
+      find_status
+      find_project_progress
+      return if errors.any?
+      @project.update(project_status_id: @status.id)
+    end
+
     private
+
+    def find_status
+      @status = ProjectStatus.find_by(id_name: params[:id_name])
+      fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @status
+    end
+
+    def find_project_progress
+      return if errors.any?
+      @project = Project.find(params[:id])
+      fill_custom_errors(self, :base,:invalid, I18n.t("custom.errors.data_not_found")) unless @project
+    end
 
     def validate_users
       return if errors.any?

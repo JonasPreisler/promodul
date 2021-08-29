@@ -58,10 +58,10 @@ module Scheduler
     def get_projects_user
       UserAccountProject
           .select("user_account_projects.user_account_id as account_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
-                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status")
+                   project_statuses.id_name as status")
           .joins("LEFT JOIN projects ON projects.id = user_account_projects.project_id")
+          .joins("LEFT JOIN project_statuses on project_statuses.id = projects.project_status_id")
           .to_sql
-
     end
 
     def get_resources
@@ -89,8 +89,9 @@ module Scheduler
     def get_projects_res
       ProjectResource
           .select("resource_id, projects.start_date as start_time, projects.deadline, projects.id as assign_id, projects.title as title, 'Project' as assign_type,
-                   CASE WHEN projects.deadline < NOW() THEN 'done' ELSE CASE WHEN projects.start_date < NOW() AND projects.deadline > NOW() THEN 'in_progress' ELSE 'open' END END as status")
+                   project_statuses.id_name as status")
           .joins("LEFT JOIN projects ON projects.id = project_resources.project_id")
+          .joins("LEFT JOIN project_statuses on project_statuses.id = projects.project_status_id")
           .to_sql
     end
   end
