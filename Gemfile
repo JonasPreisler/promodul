@@ -27,6 +27,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors'
 gem 'pry-rails'
 
+
+gem 'fog-aws'
 gem 'redis-rails'
 gem 'jwt'
 gem 'sorcery', '~> 0.12.0'

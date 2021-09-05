@@ -7,6 +7,12 @@ production:
   #DATABASE
   DATABASE_URL: 'database url'
 
+  #s3
+
+  S3_ACCESS_ID: 'AKIAJHQG2I2HPJVOYDGA'
+  S3_ACCESS_KEY: '6USmRisJuFzxsL4A/vq2THBR65SJ2YrimC9kX5of'
+  S3_BUCKET: 'ekimo.dev'
+
 development:
   #Twilio
   TWILIO_NUMBER: '+4592454100'
@@ -27,6 +33,11 @@ development:
   ELASTIC_HOST_2: '193.69.47.154'
   ELASTIC_HOST_3: '193.69.47.154'
 
+  #s3
+  S3_ACCESS_ID: 'AKIAJHQG2I2HPJVOYDGA'
+  S3_ACCESS_KEY: '6USmRisJuFzxsL4A/vq2THBR65SJ2YrimC9kX5of'
+  S3_BUCKET: 'ekimo.dev'
+
   #DATABASE
 #  DATABASE_URL: 'postgres://pgroot:xIaHPdUZUL@localhost:8071/dhptest'
 
@@ -38,3 +49,8 @@ test:
 
   #DATABASE
   DATABASE_URL: 'database url'
+
+  #s3
+  S3_ACCESS_ID: 'AKIAJHQG2I2HPJVOYDGA'
+  S3_ACCESS_KEY: '6USmRisJuFzxsL4A/vq2THBR65SJ2YrimC9kX5of'
+  S3_BUCKET: 'ekimo.dev'
