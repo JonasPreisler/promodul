@@ -25,5 +25,5 @@ class UserAccount < ApplicationRecord
   has_many :user_account_tasks
   has_many :user_account_projects
 
-  belongs_to :company
+  belongs_to :company, optional: true
 end

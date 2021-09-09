@@ -7166,13 +7166,6 @@
         ],
         "parameters": [
           {
-            "in": "header",
-            "type": "string",
-            "name": "Authorization",
-            "required": true,
-            "description": "JWT token"
-          },
-          {
             "name": "params",
             "in": "body",
             "schema": {

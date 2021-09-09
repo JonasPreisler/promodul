@@ -148,12 +148,6 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
     t.integer "length_limit", default: 9, null: false
   end
 
-  create_table "coupon_codes", force: :cascade do |t|
-    t.integer "coupon_promotion_id"
-    t.string "code"
-    t.index ["coupon_promotion_id", "code"], name: "index_coupon_codes_on_coupon_promotion_id_and_code", unique: true
-  end
-
   create_table "currencies", force: :cascade do |t|
     t.json "name", null: false
     t.string "symbol", limit: 20, null: false

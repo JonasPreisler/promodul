@@ -2,7 +2,7 @@ module Account
   class RegistrationController < ApplicationController
     require 'controller_response'
     include ControllerResponse
-    #skip_before_action :validate_authentication
+    skip_before_action :validate_authentication
 
     #UserAccount registration Step-1
     def sign_up

@@ -7,13 +7,13 @@ describe 'Registration ', type: :request do
       consumes 'application/json'
       produces 'application/json'
 
-      parameter({
-                    in: :header,
-                    type: :string,
-                    name: :Authorization,
-                    required: true,
-                    description: 'JWT token'
-                })
+      #parameter({
+      #              in: :header,
+      #              type: :string,
+      #              name: :Authorization,
+      #              required: true,
+      #              description: 'JWT token'
+      #          })
 
       parameter name: :params, in: :body, schema: {
           type: :object,
