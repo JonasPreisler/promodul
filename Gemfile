@@ -27,6 +27,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors'
 gem 'pry-rails'
 
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 
 gem 'fog-aws'
 gem 'redis-rails'
