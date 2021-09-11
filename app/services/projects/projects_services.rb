@@ -68,7 +68,11 @@ module Projects
     end
 
     def publish_to_admin(firebase)
-      firebase.push("Super Admin", { type: 'Project', type_id: @project.id, title: @project.title, text: "New project is added into the system" })
+      firebase.push("Super Admin", { type: 'Project',
+                                     type_id: @project.id,
+                                     title: @project.title,
+                                     user_id: UserAccount.joins(user_role: :role_group).where(role_groups: { id_name: "super_admin"}, company_id: @current_company&.id, active: true).first.id,
+                                     text: "New project is added into the system" })
     end
 
     def publish_to_employee(firebase)

@@ -323,7 +323,11 @@ module Tasks
     end
 
     def publish_to_admin(firebase)
-      firebase.push("Super Admin", { type: 'Task', type_id: @task.id, title: @task.title, text: "New Task is added into the system" })
+      firebase.push("Super Admin", { type: 'Task',
+                                     type_id: @task.id,
+                                     title: @task.title,
+                                     user_id: UserAccount.joins(user_role: :role_group).where(role_groups: { id_name: "super_admin"}, company_id: @current_company&.id, active: true).first.id,
+                                     text: "New Task is added into the system" })
     end
 
     def publish_to_employee(firebase)
