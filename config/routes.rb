@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   scope "/:locale" do
     defaults format: :json do
       post   'auth/refresh_token'
+      post   'auth/send_email', to: 'auth#send_email'
       post   'auth', to: 'auth#login'
       delete 'auth', to: 'auth#logout'
 
@@ -171,6 +172,9 @@ Rails.application.routes.draw do
       post 'planner_owners/stop_license/:company_id', to: 'planner_owners#stop_license'
       post 'planner_owners/activate_license/:company_id', to: 'planner_owners#activate_license'
       get 'planner_owners/company_stats/:company_id', to: 'planner_owners#company_stats'
+
+      post 'owner_infos/send_email', to: 'owner_infos#send_email'
+      #post 'orders/claim_order',         to: 'orders#claim_order'
 
     end
   end

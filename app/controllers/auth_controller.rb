@@ -1,6 +1,13 @@
 class AuthController < ApplicationController
   skip_before_action :validate_authentication
 
+  def send_email
+    Thread.new do
+      InfoMailer.new_client(info_params).deliver
+    end
+    render json: { success: true }, status: 201
+  end
+
   def login
     unless bearer_token
       errors = Auth::Service.new.check_params(auth_params)
@@ -34,6 +41,10 @@ class AuthController < ApplicationController
   end
 
   private
+
+    def info_params
+      params.permit(:email, :phone)
+    end
 
     def auth_params
       params.permit(:username, :password, :device_token)
