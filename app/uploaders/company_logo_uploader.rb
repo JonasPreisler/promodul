@@ -9,7 +9,7 @@ class CompanyLogoUploader < CarrierWave::Uploader::Base
   def size_range
     0..4.megabytes
   end
-
+  #komentari
   version :small do
     process resize_to_fill: [170, 204]
   end
