@@ -11,6 +11,7 @@ class CompanyLogoUploader < CarrierWave::Uploader::Base
   end
   #komentari
   #komentari
+  #komentari
   version :small do
     process resize_to_fill: [170, 204]
   end
