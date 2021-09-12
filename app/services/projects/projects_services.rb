@@ -282,6 +282,10 @@ module Projects
     private
 
     def publish_status_to_admin
+      return if @errors.any?
+      base_uri = 'https://planner-bergen-default-rtdb.europe-west1.firebasedatabase.app/'
+      firebase_secret = 'OrbCRPBHsvx9qw0wIou6jCaGiAndHzij2Zd4hhsA'
+      firebase = Firebase::Client.new(base_uri, firebase_secret)
       firebase.push("Super Admin", { type: 'Project',
                                      type_id: @project.id,
                                      title: @project.title,
