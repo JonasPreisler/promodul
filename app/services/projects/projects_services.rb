@@ -276,9 +276,18 @@ module Projects
       find_project_progress
       return if errors.any?
       @project.update(project_status_id: @status.id)
+      publish_status_to_admin
     end
 
     private
+
+    def publish_status_to_admin
+      firebase.push("Super Admin", { type: 'Project',
+                                     type_id: @project.id,
+                                     title: @project.title,
+                                     user_id: UserAccount.joins(user_role: :role_group).where(role_groups: { id_name: "super_admin"}, company_id: @current_company&.id, active: true).first.id,
+                                     text: "Project status is changed to #{@status.name}" })
+    end
 
     def find_status
       @status = ProjectStatus.find_by(id_name: params[:id_name])
