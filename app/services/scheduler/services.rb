@@ -42,6 +42,7 @@ module Scheduler
           .select("id, start_time as start, deadline as end, assign_id, title, assign_type, status")
           .joins("LEFT JOIN  (#{ get_tasks_user } UNION #{ get_projects_user }) obj ON obj.account_id = user_accounts.id")
           .where(company_id: @current_user.company_id)
+          .where("status != :done", done: "done")
           .group_by { |x| x["user"]; x["id"]}
           .as_json
     end
@@ -73,6 +74,7 @@ module Scheduler
           .select("id, start_time as start, deadline as end, assign_id, title, assign_type, status")
           .joins("LEFT JOIN  (#{ get_tasks_res } UNION #{ get_projects_res }) obj ON obj.resource_id = resources.id")
           .where(company_id: @current_user.company_id)
+          .where("status != :done", done: "done")
           .group_by { |x| x["user"]; x["id"]}
           .as_json
     end
