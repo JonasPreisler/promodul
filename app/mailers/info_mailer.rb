@@ -4,6 +4,6 @@ class InfoMailer < ApplicationMailer
     @email = params[:email]
     @phone = params[:phone]
 
-    mail to: "info@promodul.no", subject: "New client request"
+    mail to: "promodulas@gmail.com", subject: "New client request"
   end
 end
