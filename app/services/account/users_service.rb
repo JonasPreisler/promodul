@@ -200,27 +200,26 @@ module Account
       new_period.chunk_while { |a,b| a+1.days == b}
     end
 
-    #def get_user_dates(user)
-    #  UserAccount
-    #      .select("tasks.start_time, tasks.deadline")
-    #      .joins("LEFT JOIN user_account_tasks ON user_account_tasks.user_account_id = user_accounts.id")
-    #      .joins("LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id")
-    #      .where(user_accounts: { id: user["id"] })
-    #      .as_json
-    #end
-
     def get_user_dates(user)
       UserAccount
-          .select("last_name, start_time, deadline")
-          .joins("JOIN  (#{ get_tasks_user } UNION #{ get_projects_user }) obj ON obj.account_id = user_accounts.id")
+          .select("last_name, starts_at, ends_at")
+          .joins("JOIN (#{get_tasks_user}) obj ON obj.account_id = user_accounts.id")
           .where(user_accounts: { id: user["id"] })
           .as_json
     end
 
+
+    # def get_user_dates(user)
+    #   UserAccount
+    #       .select("last_name, start_time, deadline")
+    #       .joins("JOIN  (#{ get_tasks_user } UNION #{ get_projects_user }) obj ON obj.account_id = user_accounts.id")
+    #       .where(user_accounts: { id: user["id"] })
+    #       .as_json
+    # end
+
     def get_tasks_user
       UserAccountTask
-          .select("user_account_id as account_id, tasks.start_time, tasks.deadline")
-          .joins("LEFT JOIN tasks ON tasks.id = user_account_tasks.task_id")
+          .select("user_account_id as account_id, user_account_tasks.starts_at, user_account_tasks.ends_at")
           .to_sql
     end
 

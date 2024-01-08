@@ -47,7 +47,7 @@ class AuthController < ApplicationController
     end
 
     def auth_params
-      params.permit(:username, :password, :device_token)
+      params.require(:auth).permit(:username, :password, :device_token)
     end
 
     def bearer_token

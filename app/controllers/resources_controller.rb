@@ -48,6 +48,12 @@ class ResourcesController < ApplicationController
     rest_respond_service service
   end
 
+  def user_account_tasks_list
+    service = Resources::ResourcesService.new(current_account, task_resource_params)
+    service.user_account_tasks_list
+    rest_respond_service service
+  end
+
   private
 
   def task_resource_params

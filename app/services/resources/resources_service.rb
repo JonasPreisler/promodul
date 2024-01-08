@@ -126,6 +126,13 @@ module Resources
       set_dates
     end
 
+    def user_account_tasks_list
+      company = @current_account.company
+      company_user_account_ids = company.user_accounts.pluck(:id)
+
+      user_account_tasks = UserAccountTask.where(user_account_id: company_user_account_ids)
+    end
+
     private
 
     def set_dates

@@ -151,6 +151,7 @@ Rails.application.routes.draw do
       get 'resources/task_resource_list',       to: 'resources#task_resource_list'
       get 'resources/resource_type_list',       to: 'resources#resource_type_list'
       get 'resources/resource_calendar/:id', to: 'resources#resource_calendar'
+      get 'resources/user_account_tasks_list', to: 'resources#user_account_tasks_list'
 
       resource :attachments
       get  'attachments/file', to: 'attachments#show_file'

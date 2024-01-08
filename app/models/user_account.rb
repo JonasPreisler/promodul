@@ -14,11 +14,12 @@ class UserAccount < ApplicationRecord
   validates :email,            presence: true
   validates :crypted_password, presence: true, length: { maximum: 255 }
   validates :phone_number_iso,        presence: true, length:  { maximum: 2 }
+  validates_uniqueness_of :username
 
   has_one :user_role
   has_one :user_permission
   has_one :customer
-  has_many :confirmation_code, class_name: 'ConfirmationCode', foreign_key: :user_account_id, dependent: :destroy
+  has_many :confirmation_codes, class_name: 'ConfirmationCode', foreign_key: :user_account_id, dependent: :destroy
   has_many :terms_and_condition_agreements, dependent: :destroy, class_name: 'TermsAndConditionAgreement', foreign_key: :user_account_id
 
   has_many :attachments, as: :attached_on

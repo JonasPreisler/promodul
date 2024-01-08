@@ -51,7 +51,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.permit(:id, :title, :description, :project_id, :start_time, :deadline, user_account_tasks_attributes: [:id, :user_account_id, :_destroy], task_resources_attributes: [:id, :resource_id, :_destroy] )
+    params.permit(:id, :title, :description, :project_id, :start_time, :deadline, user_account_tasks_attributes: [:id, :user_account_id, :_destroy], task_resources_attributes: [:id, :resource_id, :_destroy])
   end
 
   def progress_params

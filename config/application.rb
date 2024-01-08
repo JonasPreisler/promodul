@@ -38,6 +38,7 @@ module Always24
     config.i18n.enforce_available_locales = true
     config.i18n.available_locales = [:no, :en]
     config.i18n.default_locale = :en
+    config.hosts << '5d17-161-49-209-150.ngrok-free.app'
 
     config.autoload_paths << config.root.join('lib')
   end

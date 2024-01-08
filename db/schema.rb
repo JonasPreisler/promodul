@@ -2,16 +2,15 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_28_114429) do
-
+ActiveRecord::Schema[7.0].define(version: 2024_01_01_084327) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
     t.bigint "attached_on_id"
     t.string "file", limit: 50
     t.uuid "uuid", null: false
-    t.datetime "exp_date"
+    t.datetime "exp_date", precision: nil
     t.boolean "is_active", default: true, null: false
     t.index ["attached_on_type", "attached_on_id"], name: "index_attachments_on_attached_on_type_and_attached_on_id"
   end
@@ -50,8 +49,8 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
     t.string "phone", null: false
     t.string "position"
     t.bigint "client_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["client_id"], name: "index_client_contacts_on_client_id"
   end
 
@@ -59,7 +58,7 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
     t.string "name", limit: 50, null: false
     t.string "address"
     t.string "vat_number", limit: 50
-    t.boolean "active", default: true, null: false
+    t.boolean "active", default: false, null: false
     t.bigint "user_account_id", null: false
     t.bigint "country_id", null: false
     t.bigint "city_id", null: false
@@ -69,8 +68,8 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
     t.string "phone"
     t.string "web_address"
     t.string "kunde_nr"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.bigint "product_vat_type_id"
     t.index ["city_id"], name: "index_clients_on_city_id"
     t.index ["clients_group_id"], name: "index_clients_on_clients_group_id"
@@ -124,7 +123,7 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
     t.string "confirmation_token"
     t.string "sms_code"
     t.integer "retry_count"
-    t.datetime "generation_time"
+    t.datetime "generation_time", precision: nil
     t.integer "failed_attempts_count"
     t.bigint "user_account_id", null: false
     t.bigint "confirmation_type_id", null: false
@@ -163,12 +162,12 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
   create_table "customers", force: :cascade do |t|
     t.string "name"
     t.string "delivery_address"
-    t.datetime "invoice_address"
-    t.boolean "active", default: true, null: false
+    t.datetime "invoice_address", precision: nil
+    t.boolean "active", default: false, null: false
     t.integer "user_account_id"
     t.string "legal_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "department_logos", force: :cascade do |t|
@@ -221,8 +220,8 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
     t.bigint "order_id", null: false
     t.bigint "user_account_id", null: false
     t.string "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["order_id"], name: "index_order_comments_on_order_id"
     t.index ["user_account_id"], name: "index_order_comments_on_user_account_id"
   end
@@ -252,10 +251,10 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
     t.bigint "order_type_id", null: false
     t.bigint "order_status_id", null: false
     t.bigint "user_account_id"
-    t.datetime "start_time", null: false
+    t.datetime "start_time", precision: nil, null: false
     t.string "deadline"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["client_id"], name: "index_orders_on_client_id"
     t.index ["order_status_id"], name: "index_orders_on_order_status_id"
     t.index ["order_type_id"], name: "index_orders_on_order_type_id"
@@ -326,8 +325,8 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
     t.string "list_price_type", limit: 30, null: false
     t.decimal "list_price_amount", null: false
     t.decimal "manufacturing_cost", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["product_id"], name: "index_product_prices_on_product_id"
   end
 
@@ -366,8 +365,8 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
   create_table "project_resources", force: :cascade do |t|
     t.bigint "resource_id", null: false
     t.bigint "project_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["project_id"], name: "index_project_resources_on_project_id"
     t.index ["resource_id"], name: "index_project_resources_on_resource_id"
   end
@@ -385,10 +384,10 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
     t.string "post_number"
     t.string "contact_person"
     t.bigint "user_account_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.datetime "start_date"
-    t.datetime "deadline"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "start_date", precision: nil
+    t.datetime "deadline", precision: nil
     t.integer "project_status_id"
     t.index ["user_account_id"], name: "index_projects_on_user_account_id"
   end
@@ -413,8 +412,8 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
   create_table "role_groups", force: :cascade do |t|
     t.string "name", null: false
     t.string "id_name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "role_management_permissions", force: :cascade do |t|
@@ -439,8 +438,8 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
     t.bigint "supplier_product_id", null: false
     t.decimal "price", null: false
     t.decimal "price_per_unit"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "currency_id"
     t.index ["currency_id"], name: "supplier_product_prices_currency"
     t.index ["supplier_product_id"], name: "index_supplier_product_prices_on_supplier_product_id"
@@ -451,15 +450,15 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
     t.bigint "product_id", null: false
     t.string "supplier_code"
     t.boolean "is_active", default: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "quantity"
     t.index ["product_id"], name: "index_supplier_products_on_product_id"
     t.index ["supplier_id"], name: "index_supplier_products_on_supplier_id"
   end
 
   create_table "suppliers", force: :cascade do |t|
-    t.datetime "registration_date"
+    t.datetime "registration_date", precision: nil
     t.boolean "active"
     t.bigint "integration_system_id", null: false
     t.bigint "business_type_id", null: false
@@ -495,8 +494,8 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
   create_table "task_resources", force: :cascade do |t|
     t.bigint "resource_id", null: false
     t.bigint "task_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["resource_id"], name: "index_task_resources_on_resource_id"
     t.index ["task_id"], name: "index_task_resources_on_task_id"
   end
@@ -510,10 +509,10 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
     t.string "title", limit: 50, null: false
     t.string "description"
     t.bigint "task_status_id", null: false
-    t.datetime "start_time", null: false
-    t.datetime "deadline"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "start_time", precision: nil, null: false
+    t.datetime "deadline", precision: nil
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.bigint "project_id"
     t.index ["project_id"], name: "index_tasks_on_project_id"
     t.index ["task_status_id"], name: "index_tasks_on_task_status_id"
@@ -522,13 +521,13 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
   create_table "terms_and_condition_agreements", force: :cascade do |t|
     t.bigint "user_account_id", null: false
     t.bigint "terms_and_condition_id", null: false
-    t.datetime "agreed_date"
+    t.datetime "agreed_date", precision: nil
     t.index ["terms_and_condition_id"], name: "index_terms_and_condition_agreements_on_terms_and_condition_id"
     t.index ["user_account_id"], name: "index_terms_and_condition_agreements_on_user_account_id"
   end
 
   create_table "terms_and_conditions", force: :cascade do |t|
-    t.datetime "active_from", null: false
+    t.datetime "active_from", precision: nil, null: false
     t.string "version", limit: 50, null: false
     t.string "description"
     t.string "terms_and_condition"
@@ -544,8 +543,8 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
   create_table "user_account_projects", force: :cascade do |t|
     t.bigint "user_account_id", null: false
     t.bigint "project_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["project_id"], name: "index_user_account_projects_on_project_id"
     t.index ["user_account_id"], name: "index_user_account_projects_on_user_account_id"
   end
@@ -553,8 +552,10 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
   create_table "user_account_tasks", force: :cascade do |t|
     t.bigint "user_account_id", null: false
     t.bigint "task_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "starts_at"
+    t.datetime "ends_at"
     t.index ["task_id"], name: "index_user_account_tasks_on_task_id"
     t.index ["user_account_id"], name: "index_user_account_tasks_on_user_account_id"
   end
@@ -567,14 +568,14 @@ ActiveRecord::Schema.define(version: 2021_08_28_114429) do
     t.integer "failed_logins_count"
     t.date "last_attempt_date"
     t.boolean "locked", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "salt"
     t.string "username"
     t.string "phone_number_iso", limit: 2, default: "de", null: false
     t.string "first_name"
     t.string "last_name"
-    t.datetime "birth_date"
+    t.datetime "birth_date", precision: nil
     t.bigint "company_id"
     t.index ["company_id"], name: "index_user_accounts_on_company_id"
   end

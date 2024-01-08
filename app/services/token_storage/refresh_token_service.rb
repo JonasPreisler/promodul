@@ -9,8 +9,9 @@ module TokenStorage
     end
 
     def store_refresh_token(token, jti)
-      $redis.mapped_hmset("refresh_#{token}:#{jti}", stored_data.merge(jti: jti))
-      $redis.expire("refresh_#{token}:#{jti}", REFRESH_TOKEN_EXPIRED_MIN*60)
+      $redis.mapped_hmset("refresh_#{token}:#{jti}", jti: jti, expiration_time: expired_at_time.to_s)
+      # $redis.mapped_hmset("refresh_#{token}:#{jti}", jti: jti)
+      $redis.expire("refresh_#{token}:#{jti}", REFRESH_TOKEN_EXPIRED_MIN * 60)
     end
 
     def find_refresh_token(token)
@@ -34,7 +35,7 @@ module TokenStorage
 
     private
       def stored_data
-        client = DeviceDetector.new(data[:user_agent])
+        client = DeviceDetector.new(user_agent)
 
         {
           platform: client.device_type,
@@ -47,6 +48,14 @@ module TokenStorage
           created_at: current_time,
           updated_at: current_time
         }
+      end
+
+      def user_agent
+        if Rails.env.development?
+          'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.17 Safari/537.36'
+        else
+          data[:user_agent]
+        end
       end
   end
 end

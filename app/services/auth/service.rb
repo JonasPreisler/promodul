@@ -154,7 +154,8 @@ module Auth
     end
 
     def find_user_with_credentials(auth_params)
-      user = UserAccount.authenticate(auth_params[:username].to_s.downcase, auth_params[:password])
+      user = UserAccount.where(username: auth_params[:username]).first
+      # user = UserAccount.authenticate(auth_params[:username].to_s.downcase, auth_params[:password])
       #user = UserAccount.where(username: auth_params[:username].to_s.downcase).first
       #user = UserAccount.where(username: "bukabuka").first
       #lock_service = Auth::LockingManagementService.new(user, auth_params[:username].to_s.downcase)

@@ -39,7 +39,6 @@ module Tasks
     def create_task
       validate_dates
       validate_project_dates
-      validate_users
       validate_resources
       default_status
       create_task_obj
@@ -168,19 +167,19 @@ module Tasks
 
     private
 
-    def validate_users
-      return if errors.any?
-      return if params["user_account_tasks_attributes"].nil?
-      params["user_account_tasks_attributes"].each do |x|
-        user_dates = get_user_dates(x["user_account_id"])
-        user_dates.reject! { |record| record["start_time"].nil? }
-        user_dates.each do |date|
-          if period.overlaps?(date["start_time"].to_datetime..date["deadline"].to_datetime)
-            fill_custom_errors(self, :base,:invalid, "Employee #{date["first_name"] + " " + date["last_name"]} is busy on this dates")
-          end
-        end
-      end
-    end
+    # def validate_users
+    #   return if errors.any?
+    #   return if params["user_account_tasks_attributes"].nil?
+    #   params["user_account_tasks_attributes"].each do |x|
+    #     user_dates = get_user_dates(x["user_account_id"])
+    #     user_dates.reject! { |record| record["start_time"].nil? }
+    #     user_dates.each do |date|
+    #       if period.overlaps?(date["start_time"].to_datetime..date["deadline"].to_datetime)
+    #         fill_custom_errors(self, :base,:invalid, "Employee #{date["first_name"] + " " + date["last_name"]} is busy on this dates")
+    #       end
+    #     end
+    #   end
+    # end
 
     def validate_resources
       return if errors.any?
@@ -315,7 +314,6 @@ module Tasks
       firebase = Firebase::Client.new(base_uri, firebase_secret)
       if action.eql?("create")
         publish_to_admin(firebase)
-        publish_to_employee(firebase)
       elsif action.eql?("progress")
         publish_to_manager(firebase)
       end
